@@ -1,0 +1,590 @@
+.
+├── codigo
+│   ├── avaliacao
+│   │   ├── calcular_metricas.py
+│   │   ├── gerar_graficos.py
+│   │   └── gerar_tabelas.py
+│   ├── baseline
+│   │   ├── executar_baseline.py
+│   │   └── prompts.py
+│   ├── chain_of_thought
+│   │   ├── executar_cot.py
+│   │   └── prompts.py
+│   ├── few_shot
+│   │   ├── executar_few_shot.py
+│   │   └── prompts.py
+│   ├── preparacao
+│   │   ├── baixar_e_traduzir_gsm8k.py
+│   │   ├── extrair_enem_gemini.py
+│   │   ├── extrair_enem_local.py
+│   │   └── pdf_para_imagens.py
+│   ├── self_consistency
+│   │   ├── executar_self_consistency.py
+│   │   ├── prompts.py
+│   │   └── votacao.py
+│   └── utils.py
+├── dados
+│   ├── enem
+│   │   ├── extraidos
+│   │   │   ├── enem_2009.json
+│   │   │   ├── enem_2010.json
+│   │   │   ├── enem_2011.json
+│   │   │   ├── enem_2012.json
+│   │   │   ├── enem_2013.json
+│   │   │   ├── enem_2014.json
+│   │   │   ├── enem_2015.json
+│   │   │   ├── enem_2016.json
+│   │   │   ├── enem_2017.json
+│   │   │   ├── enem_2018.json
+│   │   │   ├── enem_2019.json
+│   │   │   ├── enem_2020.json
+│   │   │   ├── enem_2021.json
+│   │   │   ├── enem_2022.json
+│   │   │   ├── enem_2023.json
+│   │   │   ├── enem_2024.json
+│   │   │   └── enem_2025.json
+│   │   ├── final
+│   │   │   └── enem_matematica_completo.json
+│   │   ├── imagens_questoes
+│   │   │   ├── 2009
+│   │   │   │   ├── enem_2009_q136_p20.png
+│   │   │   │   ├── enem_2009_q139_p20.png
+│   │   │   │   ├── enem_2009_q141_p21.png
+│   │   │   │   ├── enem_2009_q142_p21.png
+│   │   │   │   ├── enem_2009_q143_p21.png
+│   │   │   │   ├── enem_2009_q144_p22.png
+│   │   │   │   ├── enem_2009_q145_p22.png
+│   │   │   │   ├── enem_2009_q147_p23.png
+│   │   │   │   ├── enem_2009_q148_p23.png
+│   │   │   │   ├── enem_2009_q149_p24.png
+│   │   │   │   ├── enem_2009_q150_p24.png
+│   │   │   │   ├── enem_2009_q151_p24.png
+│   │   │   │   ├── enem_2009_q155_p25.png
+│   │   │   │   ├── enem_2009_q159_p26.png
+│   │   │   │   ├── enem_2009_q164_p27.png
+│   │   │   │   ├── enem_2009_q165_p27.png
+│   │   │   │   ├── enem_2009_q167_p28.png
+│   │   │   │   ├── enem_2009_q168_p28.png
+│   │   │   │   ├── enem_2009_q169_p28.png
+│   │   │   │   ├── enem_2009_q170_p28.png
+│   │   │   │   ├── enem_2009_q172_p29.png
+│   │   │   │   ├── enem_2009_q173_p29.png
+│   │   │   │   ├── enem_2009_q174_p29.png
+│   │   │   │   └── enem_2009_q178_p30.png
+│   │   │   ├── 2010
+│   │   │   │   ├── enem_2010_q136_p21.png
+│   │   │   │   ├── enem_2010_q137_p21.png
+│   │   │   │   ├── enem_2010_q138_p21.png
+│   │   │   │   ├── enem_2010_q139_p21.png
+│   │   │   │   ├── enem_2010_q140_p22.png
+│   │   │   │   ├── enem_2010_q141_p22.png
+│   │   │   │   ├── enem_2010_q142_p22.png
+│   │   │   │   ├── enem_2010_q143_p23.png
+│   │   │   │   ├── enem_2010_q144_p23.png
+│   │   │   │   ├── enem_2010_q145_p23.png
+│   │   │   │   ├── enem_2010_q146_p24.png
+│   │   │   │   ├── enem_2010_q147_p24.png
+│   │   │   │   ├── enem_2010_q148_p24.png
+│   │   │   │   ├── enem_2010_q149_p24.png
+│   │   │   │   ├── enem_2010_q150_p24.png
+│   │   │   │   ├── enem_2010_q151_p25.png
+│   │   │   │   ├── enem_2010_q152_p25.png
+│   │   │   │   ├── enem_2010_q153_p25.png
+│   │   │   │   ├── enem_2010_q154_p25.png
+│   │   │   │   ├── enem_2010_q156_p26.png
+│   │   │   │   ├── enem_2010_q158_p26.png
+│   │   │   │   ├── enem_2010_q160_p27.png
+│   │   │   │   ├── enem_2010_q161_p27.png
+│   │   │   │   ├── enem_2010_q162_p27.png
+│   │   │   │   ├── enem_2010_q163_p28.png
+│   │   │   │   ├── enem_2010_q164_p28.png
+│   │   │   │   ├── enem_2010_q165_p28.png
+│   │   │   │   ├── enem_2010_q166_p28.png
+│   │   │   │   ├── enem_2010_q167_p29.png
+│   │   │   │   ├── enem_2010_q168_p29.png
+│   │   │   │   ├── enem_2010_q171_p29.png
+│   │   │   │   ├── enem_2010_q172_p30.png
+│   │   │   │   ├── enem_2010_q173_p30.png
+│   │   │   │   ├── enem_2010_q174_p30.png
+│   │   │   │   ├── enem_2010_q175_p30.png
+│   │   │   │   ├── enem_2010_q178_p31.png
+│   │   │   │   ├── enem_2010_q179_p31.png
+│   │   │   │   └── enem_2010_q180_p31.png
+│   │   │   ├── 2011
+│   │   │   │   ├── enem_2011_q137_p21.png
+│   │   │   │   ├── enem_2011_q138_p21.png
+│   │   │   │   ├── enem_2011_q139_p21.png
+│   │   │   │   ├── enem_2011_q142_p22.png
+│   │   │   │   ├── enem_2011_q144_p23.png
+│   │   │   │   ├── enem_2011_q146_p23.png
+│   │   │   │   ├── enem_2011_q147_p23.png
+│   │   │   │   ├── enem_2011_q149_p24.png
+│   │   │   │   ├── enem_2011_q151_p24.png
+│   │   │   │   ├── enem_2011_q152_p25.png
+│   │   │   │   ├── enem_2011_q153_p25.png
+│   │   │   │   ├── enem_2011_q154_p25.png
+│   │   │   │   ├── enem_2011_q155_p26.png
+│   │   │   │   ├── enem_2011_q156_p26.png
+│   │   │   │   ├── enem_2011_q157_p26.png
+│   │   │   │   ├── enem_2011_q158_p26.png
+│   │   │   │   ├── enem_2011_q163_p27.png
+│   │   │   │   ├── enem_2011_q165_p28.png
+│   │   │   │   ├── enem_2011_q169_p29.png
+│   │   │   │   ├── enem_2011_q170_p29.png
+│   │   │   │   ├── enem_2011_q171_p29.png
+│   │   │   │   ├── enem_2011_q172_p30.png
+│   │   │   │   ├── enem_2011_q173_p30.png
+│   │   │   │   ├── enem_2011_q175_p30.png
+│   │   │   │   ├── enem_2011_q176_p30.png
+│   │   │   │   ├── enem_2011_q177_p31.png
+│   │   │   │   ├── enem_2011_q178_p31.png
+│   │   │   │   └── enem_2011_q179_p31.png
+│   │   │   ├── 2012
+│   │   │   │   ├── enem_2012_q137_p20.png
+│   │   │   │   ├── enem_2012_q138_p20.png
+│   │   │   │   ├── enem_2012_q139_p20.png
+│   │   │   │   ├── enem_2012_q140_p21.png
+│   │   │   │   ├── enem_2012_q143_p21.png
+│   │   │   │   ├── enem_2012_q144_p22.png
+│   │   │   │   ├── enem_2012_q147_p23.png
+│   │   │   │   ├── enem_2012_q148_p23.png
+│   │   │   │   ├── enem_2012_q149_p23.png
+│   │   │   │   ├── enem_2012_q151_p24.png
+│   │   │   │   ├── enem_2012_q153_p24.png
+│   │   │   │   ├── enem_2012_q154_p25.png
+│   │   │   │   ├── enem_2012_q155_p25.png
+│   │   │   │   ├── enem_2012_q158_p26.png
+│   │   │   │   ├── enem_2012_q159_p26.png
+│   │   │   │   ├── enem_2012_q161_p27.png
+│   │   │   │   ├── enem_2012_q162_p27.png
+│   │   │   │   ├── enem_2012_q164_p27.png
+│   │   │   │   ├── enem_2012_q166_p28.png
+│   │   │   │   ├── enem_2012_q167_p28.png
+│   │   │   │   ├── enem_2012_q168_p29.png
+│   │   │   │   ├── enem_2012_q170_p29.png
+│   │   │   │   ├── enem_2012_q171_p29.png
+│   │   │   │   ├── enem_2012_q173_p30.png
+│   │   │   │   ├── enem_2012_q175_p30.png
+│   │   │   │   ├── enem_2012_q178_p31.png
+│   │   │   │   ├── enem_2012_q179_p31.png
+│   │   │   │   └── enem_2012_q180_p31.png
+│   │   │   ├── 2013
+│   │   │   │   ├── enem_2013_q136_p19.png
+│   │   │   │   ├── enem_2013_q138_p19.png
+│   │   │   │   ├── enem_2013_q139_p20.png
+│   │   │   │   ├── enem_2013_q140_p20.png
+│   │   │   │   ├── enem_2013_q141_p20.png
+│   │   │   │   ├── enem_2013_q142_p21.png
+│   │   │   │   ├── enem_2013_q145_p22.png
+│   │   │   │   ├── enem_2013_q148_p23.png
+│   │   │   │   ├── enem_2013_q149_p23.png
+│   │   │   │   ├── enem_2013_q150_p23.png
+│   │   │   │   ├── enem_2013_q152_p24.png
+│   │   │   │   ├── enem_2013_q154_p24.png
+│   │   │   │   ├── enem_2013_q156_p25.png
+│   │   │   │   ├── enem_2013_q157_p25.png
+│   │   │   │   ├── enem_2013_q160_p26.png
+│   │   │   │   ├── enem_2013_q161_p26.png
+│   │   │   │   ├── enem_2013_q162_p26.png
+│   │   │   │   ├── enem_2013_q164_p27.png
+│   │   │   │   ├── enem_2013_q167_p27.png
+│   │   │   │   ├── enem_2013_q168_p28.png
+│   │   │   │   ├── enem_2013_q169_p28.png
+│   │   │   │   ├── enem_2013_q170_p28.png
+│   │   │   │   ├── enem_2013_q171_p29.png
+│   │   │   │   ├── enem_2013_q172_p29.png
+│   │   │   │   ├── enem_2013_q173_p29.png
+│   │   │   │   ├── enem_2013_q175_p30.png
+│   │   │   │   ├── enem_2013_q176_p30.png
+│   │   │   │   ├── enem_2013_q177_p31.png
+│   │   │   │   ├── enem_2013_q178_p31.png
+│   │   │   │   └── enem_2013_q180_p31.png
+│   │   │   ├── 2014
+│   │   │   │   ├── enem_2014_q136_p19.png
+│   │   │   │   ├── enem_2014_q137_p19.png
+│   │   │   │   ├── enem_2014_q139_p20.png
+│   │   │   │   ├── enem_2014_q141_p21.png
+│   │   │   │   ├── enem_2014_q142_p21.png
+│   │   │   │   ├── enem_2014_q143_p21.png
+│   │   │   │   ├── enem_2014_q145_p22.png
+│   │   │   │   ├── enem_2014_q146_p22.png
+│   │   │   │   ├── enem_2014_q147_p22.png
+│   │   │   │   ├── enem_2014_q148_p23.png
+│   │   │   │   ├── enem_2014_q150_p23.png
+│   │   │   │   ├── enem_2014_q153_p24.png
+│   │   │   │   ├── enem_2014_q154_p25.png
+│   │   │   │   ├── enem_2014_q156_p25.png
+│   │   │   │   ├── enem_2014_q157_p26.png
+│   │   │   │   ├── enem_2014_q161_p27.png
+│   │   │   │   ├── enem_2014_q162_p27.png
+│   │   │   │   ├── enem_2014_q166_p28.png
+│   │   │   │   ├── enem_2014_q167_p28.png
+│   │   │   │   ├── enem_2014_q169_p29.png
+│   │   │   │   ├── enem_2014_q170_p29.png
+│   │   │   │   ├── enem_2014_q171_p29.png
+│   │   │   │   ├── enem_2014_q172_p30.png
+│   │   │   │   ├── enem_2014_q173_p30.png
+│   │   │   │   ├── enem_2014_q177_p31.png
+│   │   │   │   └── enem_2014_q180_p31.png
+│   │   │   ├── 2015
+│   │   │   │   ├── enem_2015_q136_p19.png
+│   │   │   │   ├── enem_2015_q138_p19.png
+│   │   │   │   ├── enem_2015_q139_p20.png
+│   │   │   │   ├── enem_2015_q140_p20.png
+│   │   │   │   ├── enem_2015_q143_p21.png
+│   │   │   │   ├── enem_2015_q144_p21.png
+│   │   │   │   ├── enem_2015_q147_p22.png
+│   │   │   │   ├── enem_2015_q148_p22.png
+│   │   │   │   ├── enem_2015_q150_p23.png
+│   │   │   │   ├── enem_2015_q153_p24.png
+│   │   │   │   ├── enem_2015_q154_p24.png
+│   │   │   │   ├── enem_2015_q155_p25.png
+│   │   │   │   ├── enem_2015_q156_p25.png
+│   │   │   │   ├── enem_2015_q160_p26.png
+│   │   │   │   ├── enem_2015_q161_p26.png
+│   │   │   │   ├── enem_2015_q163_p26.png
+│   │   │   │   ├── enem_2015_q164_p27.png
+│   │   │   │   ├── enem_2015_q165_p27.png
+│   │   │   │   ├── enem_2015_q167_p28.png
+│   │   │   │   ├── enem_2015_q169_p28.png
+│   │   │   │   ├── enem_2015_q172_p29.png
+│   │   │   │   ├── enem_2015_q174_p30.png
+│   │   │   │   ├── enem_2015_q175_p30.png
+│   │   │   │   ├── enem_2015_q176_p30.png
+│   │   │   │   ├── enem_2015_q177_p31.png
+│   │   │   │   └── enem_2015_q180_p31.png
+│   │   │   ├── 2016
+│   │   │   │   ├── enem_2016_q136_p17.png
+│   │   │   │   ├── enem_2016_q138_p17.png
+│   │   │   │   ├── enem_2016_q139_p18.png
+│   │   │   │   ├── enem_2016_q140_p19.png
+│   │   │   │   ├── enem_2016_q141_p19.png
+│   │   │   │   ├── enem_2016_q142_p19.png
+│   │   │   │   ├── enem_2016_q143_p20.png
+│   │   │   │   ├── enem_2016_q146_p20.png
+│   │   │   │   ├── enem_2016_q147_p21.png
+│   │   │   │   ├── enem_2016_q148_p21.png
+│   │   │   │   ├── enem_2016_q150_p22.png
+│   │   │   │   ├── enem_2016_q151_p22.png
+│   │   │   │   ├── enem_2016_q154_p23.png
+│   │   │   │   ├── enem_2016_q158_p24.png
+│   │   │   │   ├── enem_2016_q159_p25.png
+│   │   │   │   ├── enem_2016_q160_p25.png
+│   │   │   │   ├── enem_2016_q163_p26.png
+│   │   │   │   ├── enem_2016_q165_p27.png
+│   │   │   │   ├── enem_2016_q166_p27.png
+│   │   │   │   ├── enem_2016_q167_p27.png
+│   │   │   │   ├── enem_2016_q169_p28.png
+│   │   │   │   ├── enem_2016_q171_p28.png
+│   │   │   │   ├── enem_2016_q172_p29.png
+│   │   │   │   ├── enem_2016_q174_p29.png
+│   │   │   │   ├── enem_2016_q175_p30.png
+│   │   │   │   ├── enem_2016_q176_p30.png
+│   │   │   │   ├── enem_2016_q177_p30.png
+│   │   │   │   ├── enem_2016_q178_p31.png
+│   │   │   │   └── enem_2016_q180_p31.png
+│   │   │   ├── 2017
+│   │   │   │   ├── enem_2017_q136_p16.png
+│   │   │   │   ├── enem_2017_q137_p16.png
+│   │   │   │   ├── enem_2017_q140_p17.png
+│   │   │   │   ├── enem_2017_q141_p17.png
+│   │   │   │   ├── enem_2017_q146_p18.png
+│   │   │   │   ├── enem_2017_q147_p19.png
+│   │   │   │   ├── enem_2017_q148_p19.png
+│   │   │   │   ├── enem_2017_q149_p20.png
+│   │   │   │   ├── enem_2017_q153_p21.png
+│   │   │   │   ├── enem_2017_q154_p21.png
+│   │   │   │   ├── enem_2017_q155_p21.png
+│   │   │   │   ├── enem_2017_q156_p22.png
+│   │   │   │   ├── enem_2017_q157_p23.png
+│   │   │   │   ├── enem_2017_q158_p23.png
+│   │   │   │   ├── enem_2017_q159_p23.png
+│   │   │   │   ├── enem_2017_q160_p24.png
+│   │   │   │   ├── enem_2017_q162_p24.png
+│   │   │   │   ├── enem_2017_q163_p25.png
+│   │   │   │   ├── enem_2017_q164_p25.png
+│   │   │   │   ├── enem_2017_q166_p26.png
+│   │   │   │   ├── enem_2017_q167_p26.png
+│   │   │   │   ├── enem_2017_q170_p27.png
+│   │   │   │   ├── enem_2017_q175_p29.png
+│   │   │   │   ├── enem_2017_q176_p30.png
+│   │   │   │   ├── enem_2017_q177_p30.png
+│   │   │   │   ├── enem_2017_q178_p31.png
+│   │   │   │   ├── enem_2017_q179_p31.png
+│   │   │   │   └── enem_2017_q180_p31.png
+│   │   │   ├── 2018
+│   │   │   │   ├── enem_2018_q136_p16.png
+│   │   │   │   ├── enem_2018_q145_p18.png
+│   │   │   │   ├── enem_2018_q150_p21.png
+│   │   │   │   ├── enem_2018_q151_p21.png
+│   │   │   │   ├── enem_2018_q152_p21.png
+│   │   │   │   ├── enem_2018_q153_p22.png
+│   │   │   │   ├── enem_2018_q155_p23.png
+│   │   │   │   ├── enem_2018_q157_p23.png
+│   │   │   │   ├── enem_2018_q159_p24.png
+│   │   │   │   ├── enem_2018_q160_p25.png
+│   │   │   │   ├── enem_2018_q165_p26.png
+│   │   │   │   ├── enem_2018_q170_p27.png
+│   │   │   │   ├── enem_2018_q171_p28.png
+│   │   │   │   ├── enem_2018_q173_p29.png
+│   │   │   │   ├── enem_2018_q176_p30.png
+│   │   │   │   └── enem_2018_q177_p31.png
+│   │   │   ├── 2019
+│   │   │   │   ├── enem_2019_q136_p17.png
+│   │   │   │   ├── enem_2019_q139_p18.png
+│   │   │   │   ├── enem_2019_q143_p19.png
+│   │   │   │   ├── enem_2019_q144_p20.png
+│   │   │   │   ├── enem_2019_q145_p20.png
+│   │   │   │   ├── enem_2019_q146_p20.png
+│   │   │   │   ├── enem_2019_q147_p21.png
+│   │   │   │   ├── enem_2019_q149_p21.png
+│   │   │   │   ├── enem_2019_q154_p22.png
+│   │   │   │   ├── enem_2019_q157_p23.png
+│   │   │   │   ├── enem_2019_q161_p24.png
+│   │   │   │   ├── enem_2019_q162_p24.png
+│   │   │   │   ├── enem_2019_q164_p25.png
+│   │   │   │   ├── enem_2019_q166_p25.png
+│   │   │   │   ├── enem_2019_q167_p26.png
+│   │   │   │   ├── enem_2019_q169_p26.png
+│   │   │   │   ├── enem_2019_q171_p27.png
+│   │   │   │   ├── enem_2019_q172_p27.png
+│   │   │   │   ├── enem_2019_q177_p29.png
+│   │   │   │   ├── enem_2019_q179_p31.png
+│   │   │   │   └── enem_2019_q180_p31.png
+│   │   │   ├── 2020
+│   │   │   │   ├── enem_2020_q136_p16.png
+│   │   │   │   ├── enem_2020_q137_p17.png
+│   │   │   │   ├── enem_2020_q138_p18.png
+│   │   │   │   ├── enem_2020_q139_p18.png
+│   │   │   │   ├── enem_2020_q142_p19.png
+│   │   │   │   ├── enem_2020_q143_p19.png
+│   │   │   │   ├── enem_2020_q144_p19.png
+│   │   │   │   ├── enem_2020_q145_p20.png
+│   │   │   │   ├── enem_2020_q146_p20.png
+│   │   │   │   ├── enem_2020_q147_p20.png
+│   │   │   │   ├── enem_2020_q148_p21.png
+│   │   │   │   ├── enem_2020_q149_p21.png
+│   │   │   │   ├── enem_2020_q150_p22.png
+│   │   │   │   ├── enem_2020_q151_p22.png
+│   │   │   │   ├── enem_2020_q152_p22.png
+│   │   │   │   ├── enem_2020_q154_p23.png
+│   │   │   │   ├── enem_2020_q155_p24.png
+│   │   │   │   ├── enem_2020_q157_p24.png
+│   │   │   │   ├── enem_2020_q158_p24.png
+│   │   │   │   ├── enem_2020_q159_p25.png
+│   │   │   │   ├── enem_2020_q162_p25.png
+│   │   │   │   ├── enem_2020_q163_p26.png
+│   │   │   │   ├── enem_2020_q164_p26.png
+│   │   │   │   ├── enem_2020_q166_p27.png
+│   │   │   │   ├── enem_2020_q167_p27.png
+│   │   │   │   ├── enem_2020_q169_p28.png
+│   │   │   │   ├── enem_2020_q171_p28.png
+│   │   │   │   ├── enem_2020_q173_p29.png
+│   │   │   │   ├── enem_2020_q174_p29.png
+│   │   │   │   ├── enem_2020_q176_p30.png
+│   │   │   │   ├── enem_2020_q178_p30.png
+│   │   │   │   └── enem_2020_q179_p31.png
+│   │   │   ├── 2021
+│   │   │   │   ├── enem_2021_q137_p17.png
+│   │   │   │   ├── enem_2021_q143_p18.png
+│   │   │   │   ├── enem_2021_q146_p19.png
+│   │   │   │   ├── enem_2021_q156_p23.png
+│   │   │   │   ├── enem_2021_q162_p25.png
+│   │   │   │   ├── enem_2021_q163_p25.png
+│   │   │   │   ├── enem_2021_q164_p25.png
+│   │   │   │   ├── enem_2021_q168_p27.png
+│   │   │   │   ├── enem_2021_q169_p27.png
+│   │   │   │   ├── enem_2021_q172_p28.png
+│   │   │   │   ├── enem_2021_q173_p28.png
+│   │   │   │   ├── enem_2021_q175_p29.png
+│   │   │   │   ├── enem_2021_q179_p31.png
+│   │   │   │   └── enem_2021_q180_p31.png
+│   │   │   ├── 2022
+│   │   │   │   ├── enem_2022_q136_p17.png
+│   │   │   │   ├── enem_2022_q137_p17.png
+│   │   │   │   ├── enem_2022_q138_p18.png
+│   │   │   │   ├── enem_2022_q139_p18.png
+│   │   │   │   ├── enem_2022_q140_p18.png
+│   │   │   │   ├── enem_2022_q142_p19.png
+│   │   │   │   ├── enem_2022_q144_p19.png
+│   │   │   │   ├── enem_2022_q146_p20.png
+│   │   │   │   ├── enem_2022_q148_p20.png
+│   │   │   │   ├── enem_2022_q152_p21.png
+│   │   │   │   ├── enem_2022_q154_p22.png
+│   │   │   │   ├── enem_2022_q155_p22.png
+│   │   │   │   ├── enem_2022_q156_p22.png
+│   │   │   │   ├── enem_2022_q158_p23.png
+│   │   │   │   ├── enem_2022_q160_p24.png
+│   │   │   │   ├── enem_2022_q161_p25.png
+│   │   │   │   ├── enem_2022_q165_p26.png
+│   │   │   │   ├── enem_2022_q167_p27.png
+│   │   │   │   ├── enem_2022_q168_p27.png
+│   │   │   │   ├── enem_2022_q172_p29.png
+│   │   │   │   ├── enem_2022_q173_p29.png
+│   │   │   │   ├── enem_2022_q177_p30.png
+│   │   │   │   ├── enem_2022_q178_p31.png
+│   │   │   │   └── enem_2022_q180_p31.png
+│   │   │   ├── 2023
+│   │   │   │   ├── enem_2023_q137_p16.png
+│   │   │   │   ├── enem_2023_q138_p16.png
+│   │   │   │   ├── enem_2023_q142_p18.png
+│   │   │   │   ├── enem_2023_q144_p19.png
+│   │   │   │   ├── enem_2023_q145_p19.png
+│   │   │   │   ├── enem_2023_q146_p20.png
+│   │   │   │   ├── enem_2023_q147_p20.png
+│   │   │   │   ├── enem_2023_q148_p20.png
+│   │   │   │   ├── enem_2023_q152_p22.png
+│   │   │   │   ├── enem_2023_q153_p22.png
+│   │   │   │   ├── enem_2023_q154_p23.png
+│   │   │   │   ├── enem_2023_q158_p24.png
+│   │   │   │   ├── enem_2023_q159_p24.png
+│   │   │   │   ├── enem_2023_q160_p24.png
+│   │   │   │   ├── enem_2023_q162_p25.png
+│   │   │   │   ├── enem_2023_q164_p26.png
+│   │   │   │   ├── enem_2023_q165_p26.png
+│   │   │   │   ├── enem_2023_q167_p27.png
+│   │   │   │   ├── enem_2023_q168_p27.png
+│   │   │   │   ├── enem_2023_q171_p28.png
+│   │   │   │   ├── enem_2023_q172_p28.png
+│   │   │   │   ├── enem_2023_q173_p29.png
+│   │   │   │   ├── enem_2023_q174_p29.png
+│   │   │   │   ├── enem_2023_q175_p29.png
+│   │   │   │   ├── enem_2023_q176_p29.png
+│   │   │   │   ├── enem_2023_q177_p30.png
+│   │   │   │   └── enem_2023_q178_p30.png
+│   │   │   ├── 2024
+│   │   │   │   ├── enem_2024_q136_p16.png
+│   │   │   │   ├── enem_2024_q137_p16.png
+│   │   │   │   ├── enem_2024_q138_p17.png
+│   │   │   │   ├── enem_2024_q139_p17.png
+│   │   │   │   ├── enem_2024_q141_p17.png
+│   │   │   │   ├── enem_2024_q142_p18.png
+│   │   │   │   ├── enem_2024_q143_p18.png
+│   │   │   │   ├── enem_2024_q144_p19.png
+│   │   │   │   ├── enem_2024_q145_p19.png
+│   │   │   │   ├── enem_2024_q146_p20.png
+│   │   │   │   ├── enem_2024_q147_p20.png
+│   │   │   │   ├── enem_2024_q148_p20.png
+│   │   │   │   ├── enem_2024_q149_p21.png
+│   │   │   │   ├── enem_2024_q150_p21.png
+│   │   │   │   ├── enem_2024_q153_p22.png
+│   │   │   │   ├── enem_2024_q154_p23.png
+│   │   │   │   ├── enem_2024_q155_p23.png
+│   │   │   │   ├── enem_2024_q156_p23.png
+│   │   │   │   ├── enem_2024_q157_p24.png
+│   │   │   │   ├── enem_2024_q159_p24.png
+│   │   │   │   ├── enem_2024_q160_p24.png
+│   │   │   │   ├── enem_2024_q161_p25.png
+│   │   │   │   ├── enem_2024_q162_p26.png
+│   │   │   │   ├── enem_2024_q163_p27.png
+│   │   │   │   ├── enem_2024_q164_p27.png
+│   │   │   │   ├── enem_2024_q165_p27.png
+│   │   │   │   ├── enem_2024_q167_p28.png
+│   │   │   │   ├── enem_2024_q168_p28.png
+│   │   │   │   ├── enem_2024_q169_p28.png
+│   │   │   │   ├── enem_2024_q170_p29.png
+│   │   │   │   ├── enem_2024_q171_p29.png
+│   │   │   │   ├── enem_2024_q172_p29.png
+│   │   │   │   ├── enem_2024_q173_p29.png
+│   │   │   │   ├── enem_2024_q174_p30.png
+│   │   │   │   ├── enem_2024_q176_p30.png
+│   │   │   │   ├── enem_2024_q177_p31.png
+│   │   │   │   ├── enem_2024_q178_p31.png
+│   │   │   │   └── enem_2024_q179_p31.png
+│   │   │   └── 2025
+│   │   │       ├── enem_2025_q136_p16.png
+│   │   │       ├── enem_2025_q139_p16.png
+│   │   │       ├── enem_2025_q140_p17.png
+│   │   │       ├── enem_2025_q142_p17.png
+│   │   │       ├── enem_2025_q144_p18.png
+│   │   │       ├── enem_2025_q145_p19.png
+│   │   │       ├── enem_2025_q147_p20.png
+│   │   │       ├── enem_2025_q148_p20.png
+│   │   │       ├── enem_2025_q149_p21.png
+│   │   │       ├── enem_2025_q150_p21.png
+│   │   │       ├── enem_2025_q151_p22.png
+│   │   │       ├── enem_2025_q155_p23.png
+│   │   │       ├── enem_2025_q156_p23.png
+│   │   │       ├── enem_2025_q157_p24.png
+│   │   │       ├── enem_2025_q158_p24.png
+│   │   │       ├── enem_2025_q159_p25.png
+│   │   │       ├── enem_2025_q160_p25.png
+│   │   │       ├── enem_2025_q162_p26.png
+│   │   │       ├── enem_2025_q163_p26.png
+│   │   │       ├── enem_2025_q167_p27.png
+│   │   │       ├── enem_2025_q168_p28.png
+│   │   │       ├── enem_2025_q171_p28.png
+│   │   │       ├── enem_2025_q172_p29.png
+│   │   │       ├── enem_2025_q173_p29.png
+│   │   │       ├── enem_2025_q174_p30.png
+│   │   │       └── enem_2025_q177_p31.png
+│   │   └── pdfs
+│   │       ├── 2009
+│   │       │   ├── gabarito_2009.pdf
+│   │       │   └── prova_2009.pdf
+│   │       ├── 2010
+│   │       │   ├── gabarito_2010.pdf
+│   │       │   └── prova_2010.pdf
+│   │       ├── 2011
+│   │       │   ├── gabarito_2011.pdf
+│   │       │   └── prova_2011.pdf
+│   │       ├── 2012
+│   │       │   ├── gabarito_2012.pdf
+│   │       │   └── prova_2012.pdf
+│   │       ├── 2013
+│   │       │   ├── gabarito_2013.pdf
+│   │       │   └── prova_2013.pdf
+│   │       ├── 2014
+│   │       │   ├── gabarito_2014.pdf
+│   │       │   └── prova_2014.pdf
+│   │       ├── 2015
+│   │       │   ├── gabarito_2015.pdf
+│   │       │   └── prova_2015.pdf
+│   │       ├── 2016
+│   │       │   ├── gabarito_2016.pdf
+│   │       │   └── prova_2016.pdf
+│   │       ├── 2017
+│   │       │   ├── gabarito_2017.pdf
+│   │       │   └── prova_2017.pdf
+│   │       ├── 2018
+│   │       │   ├── gabarito_2018.pdf
+│   │       │   └── prova_2018.pdf
+│   │       ├── 2019
+│   │       │   ├── gabarito_2019.pdf
+│   │       │   └── prova_2019.pdf
+│   │       ├── 2020
+│   │       │   ├── gabarito_2020.pdf
+│   │       │   └── prova_2020.pdf
+│   │       ├── 2021
+│   │       │   ├── gabarito_2021.pdf
+│   │       │   └── prova_2021.pdf
+│   │       ├── 2022
+│   │       │   ├── gabarito_2022.pdf
+│   │       │   └── prova_2022.pdf
+│   │       ├── 2023
+│   │       │   ├── gabarito_2023.pdf
+│   │       │   └── prova_2023.pdf
+│   │       ├── 2024
+│   │       │   ├── gabarito_2024.pdf
+│   │       │   └── prova_2024.pdf
+│   │       └── 2025
+│   │           ├── gabarito_2025.pdf
+│   │           └── prova_2025.pdf
+│   ├── gsm8k
+│   │   ├── final
+│   │   │   └── gsm8k_ptbr.json
+│   │   ├── originais
+│   │   │   └── gsm8k_original.json
+│   │   └── traducoes
+│   │       └── progresso_traducao.json
+│   └── professor
+├── estrutura.txt
+├── README.md
+├── requirements.txt
+└── resultados
+    ├── chain_of_thought
+    ├── few_shot
+    ├── metricas
+    └── self_consistency
+
+58 directories, 530 files
