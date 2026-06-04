@@ -1,0 +1,760 @@
+{
+  "ano": 2015,
+  "total_questoes": 45,
+  "questoes": [
+    {
+      "ano": 2015,
+      "numero": 136,
+      "pagina": 19,
+      "enunciado": "QUESTÃO 136 Um investidor inicia um dia com x ações de uma empresa. No decorrer desse dia, ele efetua apenas dois tipos de operações, comprar ou vender ações. Para realizar essas operações, ele segue estes critérios: I. vende metade das ações que possui, assim que seu valor fica acima do valor ideal (Vi); II. compra a mesma quantidade de ações que possui, assim que seu valor fica abaixo do valor mínimo (Vm); III. vende todas as ações que possui, quando seu valor fica acima do valor ótimo (Vo). O gráfico apresenta o período de operações e a variação do valor de cada ação, em reais, no decorrer daquele dia e a indicação dos valores ideal, mínimo e ótimo. Valor da ação (R$) Tempo (hora) 10 11 12 13 14 15 16 17 Vo Vi Vm Quantas operações o investidor fez naquele dia?",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q136_p19.png"
+      ],
+      "alternativas": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 137,
+      "pagina": 19,
+      "enunciado": "QUESTÃO 137 O tampo de vidro de uma mesa quebrou-se e deverá ser substituído por outro que tenha a forma de círculo. O suporte de apoio da mesa tem o formato de um prisma reto, de base em forma de triângulo equilátero com lados medindo 30 cm. Uma loja comercializa cinco tipos de tampos de vidro circulares com cortes já padronizados, cujos raios medem 18 cm, 26 cm, 30 cm, 35 cm e 60 cm. O proprietário da mesa deseja adquirir nessa loja o tampo de menor diâmetro que seja suficiente para cobrir a base superior do suporte da mesa. Considere 1,7 como aproximação para √3 . O tampo a ser escolhido será aquele cujo raio, em centímetros, é igual a",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "18.",
+        "B": "26.",
+        "C": "30.",
+        "D": "35.",
+        "E": "60."
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 138,
+      "pagina": 19,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 19 QUESTÃO 138 Atualmente existem diversas locadoras de veículos, permitindo uma concorrência saudável para o mercado, fazendo com que os preços se tornem acessíveis. Nas locadoras P e Q, o valor da diária de seus carros depende da distância percorrida, conforme o gráfico. Valor da diária (R$) Distância percorrida (km) 0 20 40 60 100 80 120 140 160 20 40 60 80 100 120 140 160 P Q Disponível em: www.sempretops.com. Acesso em: 7 ago. 2012. O valor pago na locadora Q é menor ou igual àquele pago na locadora P para distâncias, em quilômetros, presentes em qual(is) intervalo(s)?",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q138_p19.png"
+      ],
+      "alternativas": {
+        "A": "De 20 a 100.",
+        "B": "De 80 a 130.",
+        "C": "De 100 a 160.",
+        "D": "De 0 a 20 e de 100 a 160.",
+        "E": "De 40 a 80 e de 130 a 160."
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 139,
+      "pagina": 20,
+      "enunciado": "QUESTÃO 139 No contexto da matemática recreativa, utilizando diversos materiais didáticos para motivar seus alunos, uma professora organizou um jogo com um tipo de baralho modificado. No início do jogo, vira-se uma carta do baralho na mesa e cada jogador recebe em mãos nove cartas. Deseja-se formar pares de cartas, sendo a primeira carta a da mesa e a segunda, uma carta na mão do jogador, que tenha um valor equivalente àquele descrito na carta da mesa. O objetivo do jogo é verificar qual jogador consegue o maior número de pares. Iniciado o jogo, a carta virada na mesa e as cartas da mão de um jogador são como no esquema: 6 8 6 8 75% 3,4 34% 0,75 4,3 7,5 4 3 6,8 3 4 3 4 Carta da mesa Cartas da mão Segundo as regras do jogo, quantas cartas da mão desse jogador podem formar um par com a carta da mesa?",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q139_p20.png"
+      ],
+      "alternativas": {
+        "A": "9",
+        "B": "7",
+        "C": "5",
+        "D": "4",
+        "E": "3"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 140,
+      "pagina": 20,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 20 E 3 QUESTÃO 140 Uma pesquisa de mercado foi realizada entre os consumidores das classes sociais A, B, C e D que costumam participar de promoções tipo sorteio ou concurso. Os dados comparativos, expressos no gráfico, revelam a participação desses consumidores em cinco categorias: via Correios (juntando embalagens ou recortando códigos de barra), via internet (cadastrando-se no site da empresa/marca promotora), via mídias sociais (redes sociais), via SMS (mensagem por celular) ou via rádio/TV. Participação em promoções do tipo sorteio ou concurso em uma região Percentual 45 40 35 30 25 20 15 10 5 0 34 40 35 28 24 20 30 28 A/B C/D Correios Internet Mídias Sociais Rádio/TV SMS 37 33 Uma empresa vai lançar uma promoção utilizando apenas uma categoria nas classes A e B (A/B) e uma categoria nas classes C e D (C/D).",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q140_p20.png"
+      ],
+      "alternativas": {},
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 141,
+      "pagina": 20,
+      "enunciado": "QUESTÃO 141 Uma fábrica de sorvetes utiliza embalagens plásticas no formato de paralelepípedo retangular reto. Internamente, a embalagem tem 10 cm de altura e base de 20 cm por 10 cm. No processo de confecção do sorvete, uma mistura é colocada na embalagem no estado líquido e, quando levada ao congelador, tem seu volume aumentado em 25%, ficando com consistência cremosa. Inicialmente é colocada na embalagem uma mistura sabor chocolate com volume de 1 000 cm3 e, após essa mistura ficar cremosa, será adicionada uma mistura sabor morango, de modo que, ao final do processo de congelamento, a embalagem fique completamente preenchida com sorvete, sem transbordar. O volume máximo, em cm³, da mistura sabor morango que deverá ser colocado na embalagem é",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "450.",
+        "B": "500.",
+        "C": "600.",
+        "D": "750.",
+        "E": "1 000."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 142,
+      "pagina": 20,
+      "enunciado": "QUESTÃO 142 Em uma central de atendimento, cem pessoas receberam senhas numeradas de 1 até 100. Uma das senhas é sorteada ao acaso. Qual é a probabilidade de a senha sorteada ser um número de 1 a 20?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "1 100",
+        "B": "19 100",
+        "C": "20 100",
+        "D": "21 100",
+        "E": "80 100"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 143,
+      "pagina": 21,
+      "enunciado": "QUESTÃO 143 Em uma seletiva para a final dos 100 metros livres de natação, numa olimpíada, os atletas, em suas respectivas raias, obtiveram os seguintes tempos: Raia 1 2 3 4 5 6 7 8 Tempo (segundo) 20,90 20,90 20,50 20,80 20,60 20,60 20,90 20,96",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q143_p21.png"
+      ],
+      "alternativas": {
+        "A": "mediana dos tempos apresentados no quadro é A 20,70.",
+        "B": "20,77.",
+        "C": "20,80.",
+        "D": "20,85.",
+        "E": "20,90."
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 144,
+      "pagina": 21,
+      "enunciado": "QUESTÃO 144 O Esquema I mostra a configuração de uma quadra de basquete. Os trapézios em cinza, chamados de garrafões, correspondem a áreas restritivas. 580 cm 600 cm 360 cm 580 cm 360 cm Esquema I: área restritiva antes de 2010 600 cm Visando atender as orientações do Comitê Central da Federação Internacional de Basquete (Fiba) em 2010, que unificou as marcações das diversas ligas, foi prevista uma modificação nos garrafões das quadras, que passariam a ser retângulos, como mostra o Esquema II. 580 cm 580 cm 490 cm 490 cm Esquema II: área restritiva a partir de 2010 Após executadas as modificações previstas, houve uma alteração na área ocupada por cada garrafão, que corresponde a um(a)",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q144_p21.png"
+      ],
+      "alternativas": {
+        "A": "aumento de 5 800 cm².",
+        "B": "aumento de 75 400 cm².",
+        "C": "aumento de 214 600 cm².",
+        "D": "diminuição de 63 800 cm².",
+        "E": "diminuição de 272 600 cm²."
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 145,
+      "pagina": 21,
+      "enunciado": "QUESTÃO 145 O gerente de um cinema fornece anualmente ingressos gratuitos para escolas. Este ano serão distribuídos 400 ingressos para uma sessão vespertina e 320 ingressos para uma sessão noturna de um mesmo filme. Várias escolas podem ser escolhidas para receberem ingressos. Há alguns critérios para a distribuição dos ingressos: 1) cada escola deverá receber ingressos para uma única sessão; 2) todas as escolas contempladas deverão receber o mesmo número de ingressos; 3) não haverá sobra de ingressos (ou seja, todos os ingressos serão distribuídos). O número mínimo de escolas que podem ser escolhidas para obter ingressos, segundo os critérios estabelecidos, é",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "2.",
+        "B": "4.",
+        "C": "9.",
+        "D": "40.",
+        "E": "80."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 146,
+      "pagina": 21,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 21 QUESTÃO 146 Para resolver o problema de abastecimento de água foi decidida, numa reunião do condomínio, a construção de uma nova cisterna.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "cisterna atual tem formato cilíndrico, com 3 m de altura e 2 m de diâmetro, e estimou-se que a nova cisterna deverá comportar 81 m3 de água, mantendo o formato cilíndrico e a altura da atual. Após a inauguração da nova cisterna a antiga será desativada. Utilize 3,0 como aproximação para π. Qual deve ser o aumento, em metros, no raio da cisterna para atingir o volume desejado? A 0,5",
+        "B": "1,0",
+        "C": "2,0",
+        "D": "3,5",
+        "E": "8,0"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 147,
+      "pagina": 22,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 22 QUESTÃO 147 Numa cidade, cinco escolas de samba (I, II, III, IV e V) participaram do desfile de Carnaval. Quatro quesitos são julgados, cada um por dois jurados, que podem atribuir somente uma dentre as notas 6, 7, 8, 9 ou 10.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q147_p22.png"
+      ],
+      "alternativas": {
+        "A": "campeã será a escola que obtiver maior pontuação na soma de todas as notas emitidas. Em caso de empate, a campeã será a que alcançar a maior soma das notas atribuídas pelos jurados no quesito Enredo e Harmonia. A tabela mostra as notas do desfile desse ano no momento em que faltava somente a divulgação das notas do jurado",
+        "B": "no quesito Bateria. Quesitos 1. Fantasia e Alegoria 2. Evolução e Conjunto 3. Enredo e Harmonia 4. Bateria Total Jurado A B A B A B A B Escola I 6 7 8 8 9 9 8 55 Escola II 9 8 10 9 10 10 10 66 Escola III 8 8 7 8 6 7 6 50 Escola IV 9 10 10 10 9 10 10 68 Escola V 8 7 9 8 6 8 8 54 Quantas configurações distintas das notas a serem atribuídas pelo jurado B no quesito Bateria tornariam campeã a Escola II? A 21 B 90",
+        "C": "750",
+        "D": "1 250",
+        "E": "3 125"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 148,
+      "pagina": 22,
+      "enunciado": "QUESTÃO 148 Uma carga de 100 contêineres, idênticos ao modelo apresentado na Figura 1, deverá ser descarregada no porto de uma cidade. Para isso, uma área retangular de 10 m por 32 m foi cedida para o empilhamento desses contêineres (Figura 2). 6,4 m 2,5 m 2,5 m 32 m 10 m Área para armazenar contêineres Figura 1 Figura 2 De acordo com as normas desse porto, os contêineres deverão ser empilhados de forma a não sobrarem espaços nem ultrapassarem a área delimitada. Após o empilhamento total da carga e atendendo à norma do porto, a altura mínima a ser atingida por essa pilha de contêineres é",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q148_p22.png"
+      ],
+      "alternativas": {
+        "A": "12,5 m.",
+        "B": "17,5 m.",
+        "C": "25,0 m.",
+        "D": "22,5 m.",
+        "E": "32,5 m."
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 149,
+      "pagina": 23,
+      "enunciado": "QUESTÃO 149 Para o modelo de um troféu foi escolhido um poliedro P, obtido a partir de cortes nos vértices de um cubo. Com um corte plano em cada um dos cantos do cubo, retira-se o canto, que é um tetraedro de arestas menores do que metade da aresta do cubo. Cada face do poliedro P, então, é pintada usando uma cor distinta das demais faces. Com base nas informações, qual é a quantidade de cores que serão utilizadas na pintura das faces do troféu?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "6",
+        "B": "8",
+        "C": "14",
+        "D": "24",
+        "E": "30"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 150,
+      "pagina": 23,
+      "enunciado": "QUESTÃO 150 Uma padaria vende, em média, 100 pães especiais por dia e arrecada com essas vendas, em média, R$ 300,00. Constatou-se que a quantidade de pães especiais vendidos diariamente aumenta, caso o preço seja reduzido, de acordo com a equação q = 400 – 100p, na qual q representa a quantidade de pães especiais vendidos diariamente e p, o seu preço em reais.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q150_p23.png"
+      ],
+      "alternativas": {
+        "A": "fim de aumentar o fluxo de clientes, o gerente da padaria decidiu fazer uma promoção. Para tanto, modificará o preço do pão especial de modo que a quantidade a ser vendida diariamente seja a maior possível, sem diminuir a média de arrecadação diária na venda desse produto. O preço p, em reais, do pão especial nessa promoção deverá estar no intervalo A R$ 0,50 ≤ p < R$ 1,50",
+        "B": "R$ 1,50 ≤ p < R$ 2,50",
+        "C": "R$ 2,50 ≤ p < R$ 3,50",
+        "D": "R$ 3,50 ≤ p < R$ 4,50",
+        "E": "R$ 4,50 ≤ p < R$ 5,50"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 151,
+      "pagina": 23,
+      "enunciado": "QUESTÃO 151 O HPV é uma doença sexualmente transmissível. Uma vacina com eficácia de 98% foi criada com o objetivo de prevenir a infecção por HPV e, dessa forma, reduzir o número de pessoas que venham a desenvolver câncer de colo de útero. Uma campanha de vacinação foi lançada em 2014 pelo SUS, para um público-alvo de meninas de 11 a 13 anos de idade. Considera-se que, em uma população não vacinada, o HPV acomete 50% desse público ao longo de suas vidas. Em certo município, a equipe coordenadora da campanha decidiu vacinar meninas entre 11 e 13 anos de idade em quantidade suficiente para que a probabilidade de uma menina nessa faixa etária, escolhida ao acaso, vir a desenvolver essa doença seja, no máximo, de 5,9%. Houve cinco propostas de cobertura, de modo a atingir essa meta: Proposta I: vacinação de 90% do público-alvo. Proposta II: vacinação de 55,8% do público-alvo. Proposta III: vacinação de 88,2% do público-alvo. Proposta IV: vacinação de 49% do público-alvo. Proposta V: vacinação de 95,9% do público-alvo. Para diminuir os custos, a proposta escolhida deveria ser também aquela que vacinasse a menor quantidade possível de pessoas. Disponível em: www.virushpv.com.br. Acesso em: 30 ago. 2014 (adaptado).",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "proposta implementada foi a de número A I.",
+        "B": "II.",
+        "C": "III.",
+        "D": "IV.",
+        "E": "V."
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 152,
+      "pagina": 23,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 23 QUESTÃO 152 O acréscimo de tecnologias no sistema produtivo industrial tem por objetivo reduzir custos e aumentar a produtividade. No primeiro ano de funcionamento, uma indústria fabricou 8 000 unidades de um determinado produto. No ano seguinte, investiu em tecnologia adquirindo novas máquinas e aumentou a produção em 50%. Estima-se que esse aumento percentual se repita nos próximos anos, garantindo um crescimento anual de 50%. Considere P a quantidade anual de produtos fabricados no ano t de funcionamento da indústria. Se a estimativa for alcançada, qual é a expressão que determina o número de unidades produzidas P em função de t, para t ≥1?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "P(t) = 0,5 · t −1 + 8 000",
+        "B": "P(t) = 50 · t −1 + 8 000",
+        "C": "P(t) = 4 000 · t −1 + 8 000",
+        "D": "P(t) = 8 000 · (0,5) t − 1",
+        "E": "P(t) = 8 000 · (1,5) t − 1"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 153,
+      "pagina": 24,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 24 QUESTÃO 153 Para uma alimentação saudável, recomenda-se ingerir, em relação ao total de calorias diárias, 60% de carboidratos, 10% de proteínas e 30% de gorduras. Uma nutricionista, para melhorar a visualização dessas porcentagens, quer dispor esses dados em um polígono. Ela pode fazer isso em um triângulo equilátero, um losango, um pentágono regular, um hexágono regular ou um octógono regular, desde que o polígono seja dividido em regiões cujas áreas sejam proporcionais às porcentagens mencionadas. Ela desenhou as seguintes figuras: Proteínas Gorduras Carboidratos Proteínas Gorduras Carboidratos Proteínas Gorduras Carboidratos Proteínas Gorduras Carboidratos Proteínas Gorduras Carboidratos Entre esses polígonos, o único que satisfaz as condições necessárias para representar a ingestão correta de diferentes tipos de alimentos é o",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q153_p24.png"
+      ],
+      "alternativas": {
+        "A": "triângulo.",
+        "B": "losango.",
+        "C": "pentágono.",
+        "D": "hexágono.",
+        "E": "octógono."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 154,
+      "pagina": 24,
+      "enunciado": "QUESTÃO 154 Um engenheiro projetou um automóvel cujos vidros das portas dianteiras foram desenhados de forma que suas bordas superiores fossem representadas pela curva de equação y = log (x), conforme a figura. y = log(x) h x(m) y(m) 0 n 1",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q154_p24.png"
+      ],
+      "alternativas": {
+        "A": "forma do vidro foi concebida de modo que o eixo x sempre divida ao meio a altura h do vidro e a base do vidro seja paralela ao eixo x. Obedecendo a essas condições, o engenheiro determinou uma expressão que fornece a altura h do vidro em função da medida n de sua base, em metros. A expressão algébrica que determina a altura do vidro é A log ( n + √n2 + 4 ) - log( n − √n2 + 4 ) 2 2",
+        "B": "log (1 + n ) - log(1 - n ) 2 2",
+        "C": "log (1 + n ) + log(1 - n ) 2 2",
+        "D": "log ( n + √n2 + 4 ) 2",
+        "E": "2 log ( n + √n2 + 4 ) 2"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 155,
+      "pagina": 25,
+      "enunciado": "QUESTÃO 155 Uma empresa de telefonia celular possui duas antenas que serão por uma nova, mais potente. As áreas de cobertura das antenas que serão substituídas são círculos de raio 2 km, cujas circunferências se tangenciam no ponto O, como mostra a figura. Área de cobertura Antena 1 Área de cobertura Antena 2 Área de cobertura Nova antena O O ponto O indica a posição da nova antena, e sua região de cobertura será um círculo cuja circunferência tangenciará externamente as circunferências das áreas de cobertura menores. Com a instalação da nova antena, a medida da área de cobertura, em quilômetros quadrados, foi ampliada em",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q155_p25.png"
+      ],
+      "alternativas": {
+        "A": "8π.",
+        "B": "12π.",
+        "C": "16π.",
+        "D": "32π.",
+        "E": "64π. substituídas"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 156,
+      "pagina": 25,
+      "enunciado": "QUESTÃO 156 Um casal realiza um financiamento imobiliário de R$ 180 000,00, a ser pago em 360 prestações mensais, com taxa de juros efetiva de 1% ao mês.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q156_p25.png"
+      ],
+      "alternativas": {
+        "A": "primeira prestação é paga um mês após a liberação dos recursos e o valor da prestação mensal é de R$ 500,00 mais juro de 1% sobre o saldo devedor (valor devido antes do pagamento). Observe que, a cada pagamento, o saldo devedor se reduz em R$ 500,00 e considere que não há prestação em atraso. Efetuando o pagamento dessa forma, o valor, em reais, a ser pago ao banco na décima prestação é de A 2 075,00.",
+        "B": "2 093,00.",
+        "C": "2 138,00.",
+        "D": "2 255,00.",
+        "E": "2 300,00."
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 157,
+      "pagina": 25,
+      "enunciado": "QUESTÃO 157 As exportações de soja do Brasil totalizaram 4,129 milhões de toneladas no mês de julho de 2012, e registraram um aumento em relação ao mês de julho de 2011, embora tenha havido uma baixa em relação ao mês de maio de 2012. Disponível em: www.noticiasagricolas.com.br. Acesso em: 2 ago. 2012.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "quantidade, em quilogramas, de soja exportada pelo Brasil no mês de julho de 2012 foi de A 4,129 × 103",
+        "B": "4,129 × 106",
+        "C": "4,129 × 109",
+        "D": "4,129 × 1012",
+        "E": "4,129 × 1015"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 158,
+      "pagina": 25,
+      "enunciado": "E , QUESTÃO 158",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "expressão “Fórmula de Young” é utilizada para calcular a dose infantil de um medicamento, dada a dose do adulto: dose de criança =( idade da criança (em anos) ) · dose do adulto idade da criança (em anos) + 12 Uma enfermeira deve administrar um medicamento X a uma criança inconsciente, cuja dosagem de adulto é de 60 mg. A enfermeira não consegue descobrir onde está registrada a idade da criança no prontuário, mas identifica que, algumas horas antes, foi administrada a ela uma dose de 14 mg de um medicamento Y, cuja dosagem de adulto é 42 mg. Sabe-se que a dose da medicação Y administrada à criança estava correta. Então, a enfermeira deverá ministrar uma dosagem do medicamento X, em miligramas, igual a A 15.",
+        "B": "20.",
+        "C": "30.",
+        "D": "36.",
+        "E": "40."
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 159,
+      "pagina": 25,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 25 E QUESTÃO 159 Segundo dados apurados no Censo 2010, para uma população de 101,8 milhões de brasileiros com 10 anos ou mais de idade e que teve algum tipo de rendimento em 2010, a renda média mensal apurada foi de R$ 1 202,00.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "soma dos rendimentos mensais dos 10% mais pobres correspondeu a apenas 1,1% do total de rendimentos dessa população considerada, enquanto que a soma dos rendimentos mensais dos 10% mais ricos correspondeu a 44,5% desse total. Disponível em: www.estadao.com.br. Acesso em: 16 nov. 2011(adaptado). Qual foi a diferença, em reais, entre a renda média mensal de um brasileiro que estava na faixa dos 10% mais ricos e de um brasileiro que estava na faixa dos 10% mais pobres? A 240,40",
+        "B": "548,11",
+        "C": "1 723,67",
+        "D": "4 026,70",
+        "E": "5 216,68"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 160,
+      "pagina": 26,
+      "enunciado": "QUESTÃO 160 Um pesquisador, ao explorar uma floresta, fotografou uma caneta de 16,8 cm de comprimento ao lado de uma pegada. O comprimento da caneta (c), a largura (L) e o comprimento (C) da pegada, na fotografia, estão indicados no esquema. caneta c = 1,4 cm L = 2,2 cm C = 3,4 cm",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q160_p26.png"
+      ],
+      "alternativas": {
+        "A": "largura e o comprimento reais da pegada, em centímetros, são, respectivamente, iguais a A 4,9 e 7,6.",
+        "B": "8,6 e 9,8.",
+        "C": "14,2 e 15,4.",
+        "D": "26,4 e 40,8.",
+        "E": "27,5 e 42,5."
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 161,
+      "pagina": 26,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 26 QUESTÃO 161 Uma indústria produz malhas de proteção solar para serem aplicadas em vidros, de modo a diminuir a passagem de luz, a partir de fitas plásticas entrelaçadas perpendicularmente. Nas direções vertical e horizontal, são aplicadas fitas de 1 milímetro de largura, tal que a distância entre elas é de (d − 1) milímetros, conforme a figura. O material utilizado não permite a passagem da luz, ou seja, somente o raio de luz que atingir as lacunas deixadas pelo entrelaçamento consegue transpor essa proteção. A taxa de cobertura do vidro é o percentual da área da região coberta pelas fitas da malha, que são colocadas paralelamente às bordas do vidro. 1 mm 1 mm 1 mm 1 mm d d d d d d d 1 mm 1 mm 1 mm 1 mm 1 mm Essa indústria recebeu a encomenda de uma malha de proteção solar para ser aplicada em um vidro retangular de 5 m de largura por 9 m de comprimento.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q161_p26.png"
+      ],
+      "alternativas": {},
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 162,
+      "pagina": 26,
+      "enunciado": "QUESTÃO 162 Um arquiteto está reformando uma casa. De modo a contribuir com o meio ambiente, decide reaproveitar tábuas de madeira retiradas da casa. Ele dispõe de 40 tábuas de 540 cm, 30 de 810 cm e 10 de 1 080 cm, todas de mesma largura e espessura. Ele pediu a um carpinteiro que cortasse as tábuas em pedaços de mesmo comprimento, sem deixar sobras, e de modo que as novas peças ficassem com o maior tamanho possível, mas de comprimento menor que 2 m. Atendendo o pedido do arquiteto, o carpinteiro deverá produzir",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "105 peças.",
+        "B": "120 peças.",
+        "C": "210 peças.",
+        "D": "243 peças.",
+        "E": "420 peças."
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 163,
+      "pagina": 26,
+      "enunciado": "p ç QUESTÃO 163",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q163_p26.png"
+      ],
+      "alternativas": {
+        "A": "insulina é utilizada no tratamento de pacientes com diabetes para o controle glicêmico. Para facilitar sua aplicação, foi desenvolvida uma “caneta” na qual pode ser inserido um refil contendo 3 mL de insulina, como mostra a imagem. Para controle das aplicações, definiu-se a unidade de insulina como 0,01 mL. Antes de cada aplicação, é necessário descartar 2 unidades de insulina, de forma a retirar possíveis bolhas de ar. A um paciente foram prescritas duas aplicações diárias: 10 unidades de insulina pela manhã e 10 à noite. Qual o número máximo de aplicações por refil que o paciente poderá utilizar com a dosagem prescrita? A 25",
+        "B": "15",
+        "C": "13",
+        "D": "12",
+        "E": "8"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 164,
+      "pagina": 27,
+      "enunciado": "QUESTÃO 164 Uma família composta por sete pessoas adultas, após decidir o itinerário de sua viagem, consultou o site de uma empresa aérea e constatou que o voo para a data escolhida estava quase lotado. Na figura, disponibilizada pelo site, as poltronas ocupadas estão marcadas com X e as únicas poltronas disponíveis são as mostradas em branco. L G Disponível em: www.gebh.net. Acesso em: 30 out. 2013 (adaptado). O número de formas distintas de se acomodar a família nesse voo é calculado por",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q164_p27.png"
+      ],
+      "alternativas": {
+        "A": "9! 2!",
+        "B": "9! 7! × 2!",
+        "C": "7!",
+        "D": "5! 2! × 4!",
+        "E": "5! 4! × 4! 3!"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2015,
+      "numero": 165,
+      "pagina": 27,
+      "enunciado": "QUESTÃO 165 O proprietário de um parque aquático deseja construir uma piscina em suas dependências.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q165_p27.png"
+      ],
+      "alternativas": {
+        "A": "figura representa a vista superior dessa piscina, que é formada por três setores circulares idênticos, com ângulo central igual a 60°. O raio R deve ser um número natural. 60° R O parque aquático já conta com uma piscina em formato retangular com dimensões 50 m x 24 m. O proprietário quer que a área ocupada pela nova piscina seja menor que a ocupada pela piscina já existente. Considere 3,0 como aproximação para π. O maior valor possível para R, em metros, deverá ser A 16.",
+        "B": "28.",
+        "C": "29.",
+        "D": "31.",
+        "E": "49."
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 166,
+      "pagina": 27,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 27 QUESTÃO 166 Alguns exames médicos requerem uma ingestão de água maior do que a habitual. Por recomendação médica, antes do horário do exame, uma paciente deveria ingerir 1 copo de água de 150 mililitros a cada meia hora, durante as 10 horas que antecederiam um exame.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "paciente foi a um supermercado comprar água e verificou que havia garrafas dos seguintes tipos: • Garrafa I: 0,15 litro • Garrafa II: 0,30 litro • Garrafa III: 0,75 litro • Garrafa IV: 1,50 litro • Garrafa V: 3,00 litros A paciente decidiu comprar duas garrafas do mesmo tipo, procurando atender à recomendação médica e, ainda, de modo a consumir todo o líquido das duas garrafas antes do exame. Qual o tipo de garrafa escolhida pela paciente? A I",
+        "B": "II",
+        "C": "III",
+        "D": "IV",
+        "E": "V"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 167,
+      "pagina": 28,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 28 QUESTÃO 167 Uma família fez uma festa de aniversário e enfeitou o local da festa com bandeirinhas de papel. Essas bandeirinhas foram feitas da seguinte maneira: inicialmente, recortaram as folhas de papel em forma de quadrado, como mostra a Figura 1. Em seguida, dobraram as folhas quadradas ao meio sobrepondo os lados BC e AD, de modo que C e D coincidam, e o mesmo ocorra com A e B, conforme ilustrado na Figura 2. Marcaram os pontos médios O e N, dos lados FG e AF, respectivamente, e o ponto M do lado AD, de modo que AM seja igual a um quarto de AD. A seguir, fizeram cortes sobre as linhas pontilhadas ao longo da folha dobrada. O F N A M Figura 2 D G A D C B Figura 1 Após os cortes, a folha é aberta e a bandeirinha está pronta. A figura que representa a forma da bandeirinha pronta é A B C D E",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q167_p28.png"
+      ],
+      "alternativas": {},
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 168,
+      "pagina": 28,
+      "enunciado": "QUESTÃO 168 Em uma escola, a probabilidade de um aluno compreender e falar inglês é de 30%. Três alunos dessa escola, que estão em fase final de seleção de intercâmbio, aguardam, em uma sala, serem chamados para uma entrevista. Mas, ao invés de chamá-los um a um, o entrevistador entra na sala e faz, oralmente, uma pergunta em inglês que pode ser respondida por qualquer um dos alunos.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "probabilidade de o entrevistador ser entendido e ter sua pergunta oralmente respondida em inglês é A 23,7%",
+        "B": "30,0%",
+        "C": "44,1%",
+        "D": "65,7%",
+        "E": "90,0%"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 169,
+      "pagina": 28,
+      "enunciado": "QUESTÃO 169 O polímero de PET (Politereftalato de Etileno) é um dos plásticos mais reciclados em todo o mundo devido à sua extensa gama de aplicações, entre elas, fibras têxteis, tapetes, embalagens, filmes e cordas. Os gráficos mostram o destino do PET reciclado no Brasil, sendo que, no ano de 2010, o total de PET reciclado foi de 282 kton (quilotoneladas). PET RECICLADO - 2010 Usos Finais Têxteis Usos Finais Têxteis 37,8% Fitas de Arquear 6,8% Laminados e chapas 7,9% Resinas Insaturadas e Alquídicas 18,9% Tubos 3,8% Outros 7,6% Emb. Alimentos e não alimentos 17,2% Não tecidos 43% Tecidos e Malhas 30% Cerdas / Cordas / Monofilamentos 27% Disponível em: www.abipet.org.br. Acesso em: 12 jul. 2012 (adaptado). De acordo com os gráficos, a quantidade de embalagens PET recicladas destinadas à produção de tecidos e malhas, em kton, é mais aproximada de",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q169_p28.png"
+      ],
+      "alternativas": {
+        "A": "16,0.",
+        "B": "22,9.",
+        "C": "32,0.",
+        "D": "84,6.",
+        "E": "106,6."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 170,
+      "pagina": 29,
+      "enunciado": "QUESTÃO 170 Um concurso é composto por cinco etapas. Cada etapa vale 100 pontos.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "pontuação final de cada candidato é a média de suas notas nas cinco etapas. A classificação obedece à ordem decrescente das pontuações finais. O critério de desempate baseia-se na maior pontuação na quinta etapa. Candidato Média nas quatro primeiras etapas Pontuação na quinta etapa A 90 60",
+        "B": "85 85",
+        "C": "80 95",
+        "D": "60 90",
+        "E": "60 100 A ordem de classificação final desse concurso é A A, B, C, E, D. B B, A, C, E, D. C C, B, E, A, D. D C, B, E, D, A. E E, C, D, B, A."
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 171,
+      "pagina": 29,
+      "enunciado": "QUESTÃO 171 O índice pluviométrico é utilizado para mensurar a precipitação da água da chuva, em milímetros, em determinado período de tempo. Seu cálculo é feito de acordo com o nível de água da chuva acumulada em 1 m², ou seja, se o índice for de 10 mm, significa que a altura do nível de água acumulada em um tanque aberto, em formato de um cubo com 1 m² de área de base, é de 10 mm. Em uma região, após um forte temporal, verificou-se que a quantidade de chuva acumulada em uma lata de formato cilíndrico, com raio 300 mm e altura 1 200 mm, era de um terço da sua capacidade. Utilize 3,0 como aproximação para π. O índice pluviométrico da região, durante o período do temporal, em milímetros, é de",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "10,8.",
+        "B": "12,0.",
+        "C": "32,4.",
+        "D": "108,0.",
+        "E": "324,0."
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 172,
+      "pagina": 29,
+      "enunciado": "QUESTÃO 172 Devido ao aumento do fluxo de passageiros, uma empresa de transporte coletivo urbano está fazendo estudos para a implantação de um novo ponto de parada em uma determinada rota.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q172_p29.png"
+      ],
+      "alternativas": {
+        "A": "figura mostra o percurso, indicado pelas setas, realizado por um ônibus nessa rota e a localização de dois de seus atuais pontos de parada, representados por P e Q. Rua A Rua",
+        "B": "Rua",
+        "C": "Q P 320 20 0 30 550 y x Os estudos indicam que o novo ponto T deverá ser instalado, nesse percurso, entre as paradas já existentes P e Q, de modo que as distâncias percorridas pelo ônibus entre os pontos P e T e entre os pontos T e Q sejam iguais. De acordo com os dados, as coordenadas do novo ponto de parada são A (290 ; 20). B (410 ; 0). C (410 ; 20).",
+        "D": "(440 ; 0).",
+        "E": "(440 ; 20)."
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 173,
+      "pagina": 29,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 29 QUESTÃO 173 Deseja-se comprar lentes para óculos. As lentes devem ter espessuras mais próximas possíveis da medida 3 mm. No estoque de uma loja, há lentes de espessuras: 3,10 mm; 3,021 mm; 2,96 mm; 2,099 mm e 3,07 mm. Se as lentes forem adquiridas nessa loja, a espessura escolhida será, em milímetros, de",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "2,099.",
+        "B": "2,96.",
+        "C": "3,021.",
+        "D": "3,07.",
+        "E": "3,10."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2015,
+      "numero": 174,
+      "pagina": 30,
+      "enunciado": "QUESTÃO 174 Um estudante está pesquisando o desenvolvimento de certo tipo de bactéria. Para essa pesquisa, ele utiliza uma estufa para armazenar as bactérias.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q174_p30.png"
+      ],
+      "alternativas": {
+        "A": "temperatura no interior dessa estufa, em graus Celsius, é dada pela expressão T(h) = − h2 + 22h − 85, em que h representa as horas do dia. Sabe-se que o número de bactérias é o maior possível quando a estufa atinge sua temperatura máxima e, nesse momento, ele deve retirá-las da estufa. A tabela associa intervalos de temperatura, em graus Celsius, com as classificações: muito baixa, baixa, média, alta e muito alta. Intervalos de temperatura (°C) Classificação T < 0 Muito baixa 0 < T < 17 Baixa 17 < T < 30 Média 30 < T < 43 Alta T > 43 Muito alta Quando o estudante obtém o maior número possível de bactérias, a temperatura no interior da estufa está classificada como A muito baixa.",
+        "B": "baixa.",
+        "C": "média.",
+        "D": "alta.",
+        "E": "muito alta.i"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2015,
+      "numero": 175,
+      "pagina": 30,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 30 QUESTÃO 175",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q175_p30.png"
+      ],
+      "alternativas": {
+        "A": "figura representa a vista superior de uma bola de futebol americano, cuja forma é um elipsoide obtido pela rotação de uma elipse em torno do eixo das abscissas. Os valores a e b são, respectivamente, a metade do seu comprimento horizontal e a metade do seu comprimento vertical. Para essa bola, a diferença entre os comprimentos horizontal e vertical é igual à metade do comprimento vertical. y b − b − a a 0 x Considere que o volume aproximado dessa bola é dado por V = 4ab2. O volume dessa bola, em função apenas de b, é dado por A 8b3",
+        "B": "6b3",
+        "C": "5b3",
+        "D": "4b3",
+        "E": "2b3"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 176,
+      "pagina": 30,
+      "enunciado": "QUESTÃO 176 Após realizar uma pesquisa de mercado, uma operadora de telefonia celular ofereceu aos clientes que utilizavam até 500 ligações ao mês o seguinte plano mensal: um valor fixo de R$ 12,00 para os clientes que fazem até 100 ligações ao mês. Caso o cliente faça mais de 100 ligações, será cobrado um valor adicional de R$ 0,10 por ligação, a partir da 101ª até a 300ª; e caso realize entre 300 e 500 ligações, será cobrado um valor fixo mensal de R$ 32,00. Com base nos elementos apresentados, o gráfico que melhor representa a relação entre o valor mensal pago nesse plano e o número de ligações feitas é:",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q176_p30.png"
+      ],
+      "alternativas": {
+        "A": "50 100 150 200 250 300 350 400 número de ligações Valor mensal pago por plano em reais 33 30 27 24 21 18 15 12 9 6 3 0",
+        "B": "50 100 150 200 250 300 350 400 33 30 27 24 21 18 15 12 9 6 3 0 número de ligações Valor mensal pago por plano em reais",
+        "C": "50 100 150 200 250 300 350 400 33 30 27 24 21 18 15 12 9 6 3 0 número de ligações Valor mensal pago por plano em reais",
+        "D": "50 100 150 200 250 300 350 400 33 30 27 24 21 18 15 12 9 6 3 0 número de ligações Valor mensal pago por plano em reais",
+        "E": "50 100 150 200 250 300 350 400 33 30 27 24 21 18 15 12 9 6 3 0 número de ligações Valor mensal pago por plano em reais"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 177,
+      "pagina": 31,
+      "enunciado": "QUESTÃO 177 Alguns medicamentos para felinos são administrados com base na superfície corporal do animal. Foi receitado a um felino pesando 3,0 kg um medicamento na dosagem diária de 250 mg por metro quadrado de superfície corporal. O quadro apresenta a relação entre a massa do felino, em quilogramas, e a área de sua superfície corporal, em metros quadrados. Relação entre a massa de um felino e a área de sua superfície corporal Massa (kg) Área (m²) 1,0 0,100 2,0 0,159 3,0 0,208 4,0 0,252 5,0 0,292 NORSWORTHY, G. D. O paciente felino. São Paulo: Roca, 2009.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q177_p31.png"
+      ],
+      "alternativas": {
+        "A": "dose diária, em miligramas, que esse felino deverá receber é de A 0,624.",
+        "B": "52,0.",
+        "C": "156,0.",
+        "D": "750,0.",
+        "E": "1 201,9."
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2015,
+      "numero": 178,
+      "pagina": 31,
+      "enunciado": "QUESTÃO 178 Para economizar em suas contas mensais de água, uma família de 10 pessoas deseja construir um reservatório para armazenar a água captada das chuvas, que tenha capacidade suficiente para abastecer a família por 20 dias. Cada pessoa da família consome, diariamente, 0,08 m3 de água. Para que os objetivos da família sejam atingidos, a capacidade mínima, em litros, do reservatório a ser construído deve ser",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "16.",
+        "B": "800.",
+        "C": "1 600.",
+        "D": "8 000.",
+        "E": "16 000."
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 179,
+      "pagina": 31,
+      "enunciado": "QUESTÃO 179 Uma competição esportiva envolveu 20 equipes com 10 atletas cada. Uma denúncia à organização dizia que um dos atletas havia utilizado substância proibida. Os organizadores, então, decidiram fazer um exame antidoping. Foram propostos três modos diferentes para escolher os atletas que irão realizá-lo: Modo I: sortear três atletas dentre todos os participantes; Modo II: sortear primeiro uma das equipes e, desta, sortear três atletas; Modo III: sortear primeiro três equipes e, então, sortear um atleta de cada uma dessas três equipes. Considere que todos os atletas têm igual probabilidade de serem sorteados e que P(I), P(II) e P(III) sejam as probabilidades de o atleta que utilizou a substância proibida seja um dos escolhidos para o exame no caso do sorteio ser feito pelo modo I, II ou III. Comparando-se essas probabilidades, obtém-se",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "P(I) < P(III) < P(II)",
+        "B": "P(II) < P(I) < P(III)",
+        "C": "P(I) < P(II) = P(III)",
+        "D": "P(I) = P(II) < P(III)",
+        "E": "P(I) = P(II) = P(III)"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2015,
+      "numero": 180,
+      "pagina": 31,
+      "enunciado": "MT 2º di | C d 7 AZUL Pá i 31 QUESTÃO 180 Segundo o Instituto Brasileiro de Geografia e Estatística (IBGE), produtos sazonais são aqueles que apresentam ciclos bem definidos de produção, consumo e preço. Resumidamente, existem épocas do ano em que a sua disponibilidade nos mercados varejistas ora é escassa, com preços elevados, ora é abundante, com preços mais baixos, o que ocorre no mês de produção máxima da safra.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2015/enem_2015_q180_p31.png"
+      ],
+      "alternativas": {
+        "A": "partir de uma série histórica, observou-se que o preço P, em reais, do quilograma de um certo produto sazonal pode ser descrito pela função P(x) = 8 + 5cos ( px - p) 6 , onde x representa o mês do ano, sendo x = 1 associado ao mês de janeiro, x = 2 ao mês de fevereiro, e assim sucessivamente, até x = 12 associado ao mês de dezembro. Disponível em: www.ibge.gov.br. Acesso em: 2 ago. 2012 (adaptado). Na safra, o mês de produção máxima desse produto é A janeiro.",
+        "B": "abril.",
+        "C": "junho.",
+        "D": "julho.",
+        "E": "outubro."
+      },
+      "gabarito": "D"
+    }
+  ]
+}

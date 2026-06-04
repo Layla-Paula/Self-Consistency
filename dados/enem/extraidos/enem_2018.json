@@ -1,0 +1,722 @@
+{
+  "ano": 2018,
+  "total_questoes": 45,
+  "questoes": [
+    {
+      "ano": 2018,
+      "numero": 136,
+      "pagina": 16,
+      "enunciado": "Q QUESTÃO 136 $\u0003 7UDQVIHUrQFLD\u0003 (OHWU{QLFD\u0003 'LVSRQtYHO\u0003 7(' \u0003 p\u0003 XPD\u0003 WUDQVDomR\u0003 ¿QDQFHLUD\u0003 GH\u0003 YDORUHV\u0003 HQWUH\u0003 GLIHUHQWHV\u0003 EDQFRV\u0011\u0003 Um economista decide analisar os valores enviados por PHLR\u0003GH\u00037('V\u0003HQWUH\u0003FLQFR\u0003EDQFRV\u0003 \u0014\u000f\u0003\u0015\u000f\u0003\u0016\u000f\u0003\u0017\u0003H\u0003\u0018 \u0003GXUDQWH\u0003 um mês. Para isso, ele dispõe esses valores em uma matriz",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q136_p16.png"
+      ],
+      "alternativas": {
+        "A": "\u0003>aij@\u000f\u0003HP\u0003TXH\u0003\u0014\u0003d i d 5 e 1 d j d 5, e o elemento aij corresponde ao total proveniente das operações feitas YLD\u00037('\u000f\u0003HP\u0003PLOKmR\u0003GH\u0003UHDO\u000f\u0003WUDQVIHULGRV\u0003GR\u0003EDQFR\u0003i para o banco j durante o mês. Observe que os elementos aii 0, uma vez que TED é uma transferência entre bancos distintos. Esta é a matriz obtida para essa análise: A = ⎡ ⎣ ⎢ ⎢ ⎢ ⎢ ⎢ ⎢ ⎤ ⎦ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ 0 2 2 0 0 2 1 0 1 2 0 1 1 0 2 2 0 0 3 0 1 1 0 Com base nessas informações, o banco que transferiu a maior quantia via TED é o banco A 1.",
+        "B": "\u0015\u0011",
+        "C": "3.",
+        "D": "\u0017\u0011",
+        "E": "5."
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 137,
+      "pagina": 16,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0014\u0019 QUESTÃO 137 Um contrato de empréstimo prevê que quando uma SDUFHOD\u0003p\u0003SDJD\u0003GH\u0003IRUPD\u0003DQWHFLSDGD\u000f\u0003FRQFHGHU\u0010VH\u0010i\u0003XPD\u0003 UHGXomR\u0003GH\u0003MXURV\u0003GH\u0003DFRUGR\u0003FRP\u0003R\u0003SHUtRGR\u0003GH\u0003DQWHFLSDomR\u0011\u0003 1HVVH\u0003 FDVR\u000f\u0003 SDJD\u0010VH\u0003 R\u0003 YDORU\u0003 SUHVHQWH\u000f\u0003 TXH\u0003 p\u0003 R\u0003 YDORU\u000f\u0003 naquele momento, de uma quantia que deveria ser paga em uma data futura. Um valor presente P submetido a juros compostos com taxa i, por um período de tempo n, produz um valor futuro V determinado pela fórmula V P i n = ⋅ + 1 Em um contrato de empréstimo com sessenta SDUFHODV\u0003 ¿[DV\u0003 PHQVDLV\u000f\u0003 GH\u0003 5\u0007\u0003 \u001b\u0015\u0013\u000f\u0013\u0013\u000f\u0003 D\u0003 XPD\u0003 WD[D\u0003 GH\u0003 MXURV\u0003 GH\u0003 \u0014\u000f\u0016\u0015\b\u0003 DR\u0003 PrV\u000f\u0003 MXQWR\u0003 FRP\u0003 D\u0003 WULJpVLPD\u0003 SDUFHOD\u0003 será paga antecipadamente uma outra parcela, desde TXH\u0003R\u0003GHVFRQWR\u0003VHMD\u0003VXSHULRU\u0003D\u0003\u0015\u0018\b\u0003GR\u0003YDORU\u0003GD\u0003SDUFHOD\u0011 8WLOL]H\u0003 \u0013\u000f\u0015\u001b\u001a\u001a\u0003 FRPR\u0003 DSUR[LPDomR\u0003 SDUD\u0003 ,Q\u0003 4 3 e \u0013\u000f\u0013\u0014\u0016\u0014\u0003FRPR\u0003DSUR[LPDomR\u0003SDUD\u0003,Q\u0003 \u0014\u000f\u0013\u0014\u0016\u0015 \u0011",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "primeira das parcelas que poderá ser antecipada junto com a 30a é a A 56a",
+        "B": "55a",
+        "C": "\u0018\u0015a",
+        "D": "51a",
+        "E": "\u0017\u0018a"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 138,
+      "pagina": 16,
+      "enunciado": "QUESTÃO 138 8P\u0003 MRJR\u0003 SHGDJyJLFR\u0003 XWLOL]D\u0010VH\u0003 GH\u0003 XPD\u0003 LQWHUIDFH\u0003 DOJpEULFR\u0010JHRPpWULFD\u0003GR\u0003VHJXLQWH\u0003PRGR \u0003RV\u0003DOXQRV\u0003GHYHP\u0003 eliminar os pontos do plano cartesiano dando “tiros”, seguindo trajetórias que devem passar pelos pontos escolhidos. Para dar os tiros, o aluno deve escrever em XPD\u0003MDQHOD\u0003GR\u0003SURJUDPD\u0003D\u0003HTXDomR\u0003FDUWHVLDQD\u0003GH\u0003XPD\u0003 reta ou de uma circunferência que passa pelos pontos e pela origem do sistema de coordenadas. Se o tiro for GDGR\u0003SRU\u0003PHLR\u0003GD\u0003HTXDomR\u0003GD\u0003FLUFXQIHUrQFLD\u000f\u0003FDGD\u0003SRQWR\u0003 GLIHUHQWH\u0003 GD\u0003 RULJHP\u0003 TXH\u0003 IRU\u0003 DWLQJLGR\u0003 YDOH\u0003 \u0015\u0003 SRQWRV\u0011\u0003 6H\u0003 R\u0003WLUR\u0003IRU\u0003GDGR\u0003SRU\u0003PHLR\u0003GD\u0003HTXDomR\u0003GH\u0003XPD\u0003UHWD\u000f\u0003FDGD\u0003 ponto diferente da origem que for atingido vale 1 ponto. (P\u0003 XPD\u0003 VLWXDomR\u0003 GH\u0003 MRJR\u000f\u0003 DLQGD\u0003 UHVWDP\u0003 RV\u0003 VHJXLQWHV\u0003 pontos para serem eliminados:",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0013\u0003 \u0003\u0017 \u000f\u0003B \u0017\u0003 \u0003\u0017 \u000f\u0003C \u0017\u0003 \u0003\u0013 \u000f\u0003 D \u0015\u0003 \u0003\u0015 \u0003H\u0003E \u0013\u0003 \u0003\u0015 \u0011 Passando pelo ponto A\u000f\u0003TXDO\u0003HTXDomR\u0003IRUQHFHULD\u0003D\u0003PDLRU\u0003 SRQWXDomR\" A [\u0003 \u0003\u0013",
+        "B": "\\\u0003 \u0003\u0013",
+        "C": "x\u0015 + y\u0015\u0003 \u0003\u0014\u0019",
+        "D": "x\u0015\u0003\u000e\u0003 \\\u0003í\u0003\u0015 \u0015\u0003 \u0003\u0017",
+        "E": "[\u0003í\u0003\u0015 \u0015\u0003\u000e\u0003 \\\u0003í\u0003\u0015 \u0015\u0003 \u0003\u001b 5 5 4 4 3 3 2 2 1 1 0 6 y A x D E B C"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 139,
+      "pagina": 17,
+      "enunciado": "QUESTÃO 139 6REUH\u0003 XP\u0003 VLVWHPD\u0003 FDUWHVLDQR\u0003 FRQVLGHUD\u0010VH\u0003 XPD\u0003 malha formada por circunferências de raios com medidas GDGDV\u0003 SRU\u0003 Q~PHURV\u0003 QDWXUDLV\u0003 H\u0003 SRU\u0003 \u0014\u0015\u0003 VHPLUUHWDV\u0003 FRP\u0003 extremidades na origem, separadas por ângulos de π 6 rad, FRQIRUPH\u0003D\u0003¿JXUD\u0011",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "B \u00106 \u00105 \u00104 \u00103 \u00102 \u00101 \u00105 \u00106 \u00104 \u00103 \u00102 \u00101 0 1 1 2 3 4 5 6 2 3 4 5 6 x y Suponha que os objetos se desloquem apenas pelas VHPLUUHWDV\u0003 H\u0003 SHODV\u0003 FLUFXQIHUrQFLDV\u0003 GHVVD\u0003 PDOKD\u000f\u0003 QmR\u0003 SRGHQGR\u0003SDVVDU\u0003SHOD\u0003RULJHP\u0003 \u0013\u0003 \u0003\u0013 \u0011 Considere o valor de S\u0003 FRP\u0003 DSUR[LPDomR\u0003 GH\u000f\u0003 SHOR\u0003 menos, uma casa decimal. Para realizar o percurso mais curto possível ao longo da malha, do ponto",
+        "B": "até o ponto A, um objeto deve percorrer uma distância igual a A 2 1 3 8 ⋅ ⋅+ π B 2 2 3 6 ⋅ ⋅ + π",
+        "C": "2 3 3 4 ⋅ ⋅ + π",
+        "D": "2 4 3 2 ⋅ ⋅ + π",
+        "E": "2 5 3 2 ⋅ ⋅ + π"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 140,
+      "pagina": 17,
+      "enunciado": "QUESTÃO 140 8P\u0003 DUWHVmR\u0003 SRVVXL\u0003 SRWHV\u0003 FLOtQGULFRV\u0003 GH\u0003 WLQWD\u0003 FXMDV\u0003 PHGLGDV\u0003 H[WHUQDV\u0003 VmR\u0003 \u0017\u0003 FP\u0003 GH\u0003 GLkPHWUR\u0003 H\u0003 \u0019\u0003 FP\u0003 GH\u0003 altura. Ele pretende adquirir caixas organizadoras para armazenar seus potes de tinta, empilhados verticalmente com tampas voltadas para cima, de forma que as caixas possam ser fechadas. No mercado, existem cinco opções de caixas organizadoras, com tampa, em formato de paralelepípedo reto retângulo, vendidas pelo mesmo preço, possuindo as seguintes dimensões internas: Modelo Comprimento (cm) Largura (cm) Altura (cm) I 8 8 \u0017\u0013 II 8 \u0015\u0013 \u0014\u0017 III 18 5 35 IV \u0015\u0013 \u0014\u0015 \u0014\u0015 V \u0015\u0017 8 \u0014\u0017 4XDO\u0003 GHVVHV\u0003 PRGHORV\u0003 R\u0003 DUWHVmR\u0003 GHYH\u0003 DGTXLULU\u0003 SDUD\u0003 conseguir armazenar o maior número de potes por caixa?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "I",
+        "B": "II",
+        "C": "III",
+        "D": "IV",
+        "E": "V"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 141,
+      "pagina": 17,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0014\u001a QUESTÃO 141",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "prefeitura de um pequeno município do interior GHFLGH\u0003 FRORFDU\u0003 SRVWHV\u0003 SDUD\u0003 LOXPLQDomR\u0003 DR\u0003 ORQJR\u0003 GH\u0003 uma estrada retilínea, que inicia em uma praça central e termina numa fazenda na zona rural. Como a praça Mi\u0003 SRVVXL\u0003 LOXPLQDomR\u000f\u0003 R\u0003 SULPHLUR\u0003 SRVWH\u0003 VHUi\u0003 FRORFDGR\u0003 D\u0003 80 metros da praça, o segundo, a 100 metros, o terceiro, D\u0003 \u0014\u0015\u0013\u0003 PHWURV\u000f\u0003 H\u0003 DVVLP\u0003 VXFHVVLYDPHQWH\u000f\u0003 PDQWHQGR\u0010VH\u0003 sempre uma distância de vinte metros entre os postes, até que o último poste seja colocado a uma distância de 1 380 metros da praça. 6H\u0003D\u0003SUHIHLWXUD\u0003SRGH\u0003SDJDU\u000f\u0003QR\u0003Pi[LPR\u000f\u00035\u0007\u0003\u001b\u0003\u0013\u0013\u0013\u000f\u0013\u0013\u0003SRU\u0003 poste colocado, o maior valor que poderá gastar com a FRORFDomR\u0003GHVVHV\u0003SRVWHV\u0003p A 5\u0007\u0003\u0018\u0014\u0015\u0003\u0013\u0013\u0013\u000f\u0013\u0013\u0011",
+        "B": "5\u0007\u0003\u0018\u0015\u0013\u0003\u0013\u0013\u0013\u000f\u0013\u0013\u0011",
+        "C": "5\u0007\u0003\u0018\u0015\u001b\u0003\u0013\u0013\u0013\u000f\u0013\u0013\u0011",
+        "D": "5\u0007\u0003\u0018\u0018\u0015\u0003\u0013\u0013\u0013\u000f\u0013\u0013\u0011",
+        "E": "5\u0007\u0003\u0018\u001b\u0017\u0003\u0013\u0013\u0013\u000f\u0013\u0013\u0011"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 142,
+      "pagina": 18,
+      "enunciado": "QUESTÃO 142 'H\u0003DFRUGR\u0003FRP\u0003D\u0003/HL\u00038QLYHUVDO\u0003GD\u0003*UDYLWDomR\u000f\u0003SURSRVWD\u0003 por Isaac Newton, a intensidade da força gravitacional F que a Terra exerce sobre um satélite em órbita circular é proporcional à massa m do satélite e inversamente proporcional ao quadrado do raio r da órbita, ou seja, No plano cartesiano, três satélites, A, B e C\u000f\u0003HVWmR\u0003 UHSUHVHQWDGRV\u000f\u0003 FDGD\u0003 XP\u000f\u0003 SRU\u0003 XP\u0003 SRQWR\u0003 m ; r) cujas FRRUGHQDGDV\u0003VmR\u000f\u0003UHVSHFWLYDPHQWH\u000f\u0003D\u0003PDVVD\u0003GR\u0003VDWpOLWH\u0003 e o raio da sua órbita em torno da Terra.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "C 0",
+        "B": "Raio (r) Massa (m) Com base nas posições relativas dos pontos no JUi¿FR\u000f\u0003GHVHMD\u0010VH\u0003FRPSDUDU\u0003DV\u0003LQWHQVLGDGHV\u0003FA, FB e FC da força gravitacional que a Terra exerce sobre os satélites A, B e C, respectivamente. As intensidades FA, FB e FC H[SUHVVDV\u0003 QR\u0003 JUi¿FR\u0003 VDWLVID]HP\u0003D\u0003UHODomR A FC FA FB B FA FB FC",
+        "C": "FA FB FC",
+        "D": "FA FC FB",
+        "E": "FC FA FB F km r \u0015"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 143,
+      "pagina": 18,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0014\u001b QUESTÃO 143 2V\u0003 WLSRV\u0003 GH\u0003 SUDWD\u0003 QRUPDOPHQWH\u0003 YHQGLGRV\u0003 VmR\u0003 \u001a\u0018\u000f\u0003 \u0018\u0013\u0003 H\u0003 \u0015\u0018\u0011\u0003 (VVD\u0003FODVVL¿FDomR\u0003 p\u0003IHLWD\u0003GH\u0003DFRUGR\u0003 FRP\u0003D\u0003 VXD\u0003 SXUH]D\u0011\u0003 3RU\u0003 H[HPSOR\u000f\u0003 D\u0003 SUDWD\u0003 \u001a\u0018\u0003 p\u0003 D\u0003 VXEVWkQFLD\u0003 FRQVWLWXtGD\u0003GH\u0003 \u001a\u0018\u0003SDUWHV\u0003GH\u0003SUDWD\u0003SXUD\u0003H\u0003\u0015\u0018\u0003SDUWHV\u0003GH\u0003 cobre em 1 000 partes da substância. Já a prata 950 é constituída de 950 partes de prata pura e 50 de cobre em \u0014\u0003\u0013\u0013\u0013 \u0003H\u0003D\u0003SUDWD\u0003 \u0015\u0018\u0003p\u0003FRQVWLWXtGD\u0003GH\u0003 \u0015\u0018\u0003SDUWHV\u0003GH\u0003SUDWD\u0003 SXUD\u0003H\u0003\u001a\u0018\u0003SDUWHV\u0003GH\u0003FREUH\u0003HP\u0003\u0014\u0003\u0013\u0013\u0013\u0011\u00038P\u0003RXULYHV\u0003SRVVXL\u0003 \u0014\u0013\u0003 JUDPDV\u0003 GH\u0003 SUDWD\u0003 \u0015\u0018\u0003 H\u0003 GHVHMD\u0003 REWHU\u0003 \u0017\u0013\u0003 JUDPDV\u0003 GH\u0003 SUDWD\u0003 \u0018\u0013\u0003SDUD\u0003SURGXomR\u0003GH\u0003XPD\u0003MRLD\u0011",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {},
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 144,
+      "pagina": 18,
+      "enunciado": "E \u0015\u0018\u000f\u0013\u0013\u0003H\u0003\u0018\u000f\u0013\u0013 QUESTÃO 144 Em um aeroporto, os passageiros devem submeter VXDV\u0003 EDJDJHQV\u0003 D\u0003 XPD\u0003 GDV\u0003 FLQFR\u0003 PiTXLQDV\u0003 GH\u0003 UDLR\u0010;\u0003 disponíveis ao adentrarem a sala de embarque. Num dado instante, o tempo gasto por essas máquinas para escanear a bagagem de cada passageiro e o número de SHVVRDV\u0003SUHVHQWHV\u0003HP\u0003FDGD\u0003¿OD\u0003HVWmR\u0003DSUHVHQWDGRV\u0003HP\u0003 XP\u0003SDLQHO\u000f\u0003FRPR\u0003PRVWUDGR\u0003QD\u0003¿JXUD\u0011 35 segundos 5 pessoas 25 segundos 6 pessoas 22 segundos 7 pessoas 40 segundos 4 pessoas 20 segundos 8 pessoas Máquina 5 Máquina 4 Máquina 3 Máquina 2 Máquina 1 Um passageiro, ao chegar à sala de embarque desse aeroporto no instante indicado, visando esperar o menor tempo possível, deverá se dirigir à máquina",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "1.",
+        "B": "\u0015\u0011",
+        "C": "3.",
+        "D": "\u0017\u0011",
+        "E": "5."
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 145,
+      "pagina": 18,
+      "enunciado": "E QUESTÃO 145 $\u0003 &RPLVVmR\u0003 ,QWHUQD\u0003 GH\u0003 3UHYHQomR\u0003 GH\u0003 $FLGHQWHV\u0003 &,3$ \u0003 GH\u0003 XPD\u0003 HPSUHVD\u000f\u0003 REVHUYDQGR\u0003 RV\u0003 DOWRV\u0003 FXVWRV\u0003 com os frequentes acidentes de trabalho ocorridos, fez, a pedido da diretoria, uma pesquisa do número de acidentes sofridos por funcionários. Essa pesquisa, realizada com uma amostra de 100 funcionários, norteará as ações da empresa na política de segurança no trabalho. 2V\u0003UHVXOWDGRV\u0003REWLGRV\u0003HVWmR\u0003QR\u0003TXDGUR\u0011 Número de acidentes sofridos Número de trabalhadores 0 50 1 \u0014\u001a\u0003 \u0015\u0003 15 3 10 \u0017\u0003 6 5 \u0015\u0003",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q145_p18.png"
+      ],
+      "alternativas": {
+        "A": "média do número de acidentes por funcionário na amostra que a CIPA apresentará à diretoria da empresa é A 0,15.",
+        "B": "0,30.",
+        "C": "0,50.",
+        "D": "1,11.",
+        "E": "\u0015\u000f\u0015\u0015\u0011"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 146,
+      "pagina": 19,
+      "enunciado": "QUESTÃO 146 Numa atividade de treinamento realizada no Exército GH\u0003 XP\u0003 GHWHUPLQDGR\u0003 SDtV\u000f\u0003 WUrV\u0003 HTXLSHV\u0003 ±\u0003 $OSKD\u000f\u0003 %HWD\u0003 e Gama – foram designadas a percorrer diferentes caminhos, todos com os mesmos pontos de partida e de chegada. \u0003 A equipe Alpha realizou seu percurso em 90 minutos com uma velocidade média de 6,0 km/h. \u0003 $\u0003HTXLSH\u0003%HWD\u0003WDPEpP\u0003SHUFRUUHX\u0003VXD\u0003WUDMHWyULD\u0003 em 90 minutos, mas sua velocidade média foi de 5,0 km/h. \u0003 Com uma velocidade média de 6,5 km/h, a equipe Gama concluiu seu caminho em 60 minutos. Com base nesses dados, foram comparadas as distâncias dBeta; dAlphae dGama percorridas pelas três equipes. A ordem das distâncias percorridas pelas equipes Alpha, %HWD\u0003H\u0003*DPD\u0003p A B C D E d d d Gama Beta Alpha d d d Alpha Beta Gama = < d d d Gama Beta Alpha < = d d d Beta Alpha Gama d d d Gama Alpha Beta",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {},
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 147,
+      "pagina": 19,
+      "enunciado": "QUESTÃO 147 O colesterol total de uma pessoa é obtido pela soma da taxa do seu “colesterol bom” com a taxa do seu “colesterol ruim”. Os exames periódicos, realizados em um paciente adulto, apresentaram taxa normal de “colesterol bom”, porém, taxa do “colesterol ruim” WDPEpP\u0003FKDPDGR\u0003/'/ \u0003GH\u0003\u0015\u001b\u0013\u0003PJ\u0012G/\u0011 2\u0003TXDGUR\u0003DSUHVHQWD\u0003XPD\u0003FODVVL¿FDomR\u0003GH\u0003DFRUGR\u0003FRP\u0003 DV\u0003WD[DV\u0003GH\u0003/'/\u0003HP\u0003DGXOWRV\u0011 Taxa de LDL (mg/dL) Ótima Menor do que 100 Próxima de ótima 'H\u0003\u0014\u0013\u0013\u0003D\u0003\u0014\u0015 /LPLWH De 130 a 159 Alta De 160 a 189 Muito alta 190 ou mais 'LVSRQtYHO\u0003HP \u0003ZZZ\u0011PLQKDYLGD\u0011FRP\u0011EU\u0011\u0003$FHVVR\u0003HP \u0003\u0014\u0018\u0003RXW\u0011\u0003\u0015\u0013\u0014\u0018\u0003 DGDSWDGR \u0011 O paciente, seguindo as recomendações médicas VREUH\u0003 HVWLOR\u0003 GH\u0003 YLGD\u0003 H\u0003 DOLPHQWDomR\u000f\u0003 UHDOL]RX\u0003 R\u0003 H[DPH\u0003 ORJR\u0003DSyV\u0003R\u0003SULPHLUR\u0003PrV\u000f\u0003H\u0003D\u0003WD[D\u0003GH\u0003/'/\u0003UHGX]LX\u0003\u0015\u0018\b\u0011\u0003 No mês seguinte, realizou novo exame e constatou uma UHGXomR\u0003GH\u0003PDLV\u0003\u0015\u0013\b\u0003QD\u0003WD[D\u0003GH\u0003/'/\u0011",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {},
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 148,
+      "pagina": 19,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0014 QUESTÃO 148 Uma empresa deseja iniciar uma campanha SXEOLFLWiULD\u0003 GLYXOJDQGR\u0003 XPD\u0003 SURPRomR\u0003 SDUD\u0003 VHXV\u0003 possíveis consumidores. Para esse tipo de campanha, RV\u0003 PHLRV\u0003 PDLV\u0003 YLiYHLV\u0003 VmR\u0003 D\u0003 GLVWULEXLomR\u0003 GH\u0003 SDQÀHWRV\u0003 QD\u0003 UXD\u0003 H\u0003 DQ~QFLRV\u0003 QD\u0003 UiGLR\u0003 ORFDO\u0011\u0003 &RQVLGHUD\u0010VH\u0003 TXH\u0003 D\u0003 SRSXODomR\u0003DOFDQoDGD\u0003SHOD\u0003GLVWULEXLomR\u0003GH\u0003SDQÀHWRV\u0003VHMD\u0003 LJXDO\u0003 j\u0003 TXDQWLGDGH\u0003 GH\u0003 SDQÀHWRV\u0003 GLVWULEXtGRV\u000f\u0003 HQTXDQWR\u0003 que a alcançada por um anúncio na rádio seja igual à quantidade de ouvintes desse anúncio. O custo de cada DQ~QFLR\u0003QD\u0003UiGLR\u0003p\u0003GH\u00035\u0007\u0003\u0014\u0015\u0013\u000f\u0013\u0013\u000f\u0003H\u0003D\u0003HVWLPDWLYD\u0003p\u0003GH\u0003 TXH\u0003 VHMD\u0003 RXYLGR\u0003 SRU\u0003 \u0014\u0003 \u0018\u0013\u0013\u0003 SHVVRDV\u0011\u0003 -i\u0003 D\u0003 SURGXomR\u0003 H\u0003 D\u0003 GLVWULEXLomR\u0003 GRV\u0003 SDQÀHWRV\u0003 FXVWDP\u0003 5\u0007\u0003 \u0014\u001b\u0013\u000f\u0013\u0013\u0003 FDGD\u0003 1 000 unidades. Considerando que cada pessoa será DOFDQoDGD\u0003SRU\u0003XP\u0003~QLFR\u0003GHVVHV\u0003PHLRV\u0003GH\u0003GLYXOJDomR\u000f\u0003D\u0003 empresa pretende investir em ambas as mídias. Considere X e Y RV\u0003 YDORUHV\u0003 HP\u0003 UHDO \u0003 JDVWRV\u0003 HP\u0003 DQ~QFLRV\u0003QD\u0003UiGLR\u0003H\u0003FRP\u0003SDQÀHWRV\u000f\u0003UHVSHFWLYDPHQWH\u0011 O número de pessoas alcançadas pela campanha será GDGR\u0003SHOD\u0003H[SUHVVmR",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "50 4 50 9 X Y \u000e",
+        "B": "50 9 50 4 X Y \u000e",
+        "C": "4 50 4 50 X Y \u000e",
+        "D": "50 4 50 9 X Y \u000e",
+        "E": "50 9 50Y 4 X Y +"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 149,
+      "pagina": 20,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0013 QUESTÃO 149 A\u0003LQFOLQDomR\u0003GH\u0003XPD\u0003UDPSD\u0003p\u0003FDOFXODGD\u0003GD\u0003VHJXLQWH\u0003P FHQWtPHWURV\u0003QD\u0003YHUWLFDO\u0011\u0003'L]\u0010VH\u000f\u0003QHVVH\u0003FDVR\u000f\u0003TXH\u0003D\u0003UDPSD\u0003WH $\u0003¿JXUD\u0003DSUHVHQWD\u0003XP\u0003SURMHWR\u0003GH\u0003XPD\u0003UDPSD\u0003GH\u0003DFHVV abaixo do nível da rua, tem 8 metros de comprimento. 2 m 8 m Portão Rampa Nível da rua Nível da base da garagem Depois de projetada a rampa, o responsável pela obra f HOD\u0003HVWi\u0003ORFDOL]DGD\u0003H[LJHP\u0003TXH\u0003D\u0003LQFOLQDomR\u0003Pi[LPD\u0003GH\u0003XPD 6H\u0003D\u0003UDPSD\u0003SURMHWDGD\u0003WLYHU\u0003LQFOLQDomR\u0003VXSHULRU\u0003D\u0003\u0015\u0013\b SHUFHQWXDO\u0003GH\u0003LQFOLQDomR\u000f\u0003PDQWHQGR\u0003R\u0003FRPSULPHQWR\u0003GD\u0003EDVH Para atender às normas técnicas do município, o nível da g",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "HOHYDGR\u0003HP\u0003\u0017\u0013\u0003FP\u0011",
+        "B": "elevado em 50 cm.",
+        "C": "mantido no mesmo nível.",
+        "D": "UHEDL[DGR\u0003HP\u0003\u0017\u0013\u0003FP\u0011",
+        "E": "rebaixado em 50 cm. 20 cm 1 m"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 150,
+      "pagina": 21,
+      "enunciado": "QUESTÃO 150 Para ganhar um prêmio, uma pessoa deverá retirar, VXFHVVLYDPHQWH\u0003H\u0003VHP\u0003UHSRVLomR\u000f\u0003GXDV\u0003ERODV\u0003SUHWDV\u0003GH\u0003 uma mesma urna. ,QLFLDOPHQWH\u000f\u0003DV\u0003TXDQWLGDGHV\u0003H\u0003FRUHV\u0003GDV\u0003ERODV\u0003VmR\u0003 como descritas a seguir: \u0003 Urna",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q150_p21.png"
+      ],
+      "alternativas": {
+        "A": "– Possui três bolas brancas, duas bolas pretas e uma bola verde; \u0003 8UQD\u0003 %\u0003 ±\u0003 3RVVXL\u0003 VHLV\u0003 ERODV\u0003 EUDQFDV\u000f\u0003 WUrV\u0003 ERODV\u0003 pretas e uma bola verde; \u0003 Urna C – Possui duas bolas pretas e duas bolas verdes; \u0003 Urna D – Possui três bolas brancas e três bolas pretas. A pessoa deve escolher uma entre as cinco opções apresentadas: \u0003 2SomR\u0003\u0014\u0003±\u00035HWLUDU\u000f\u0003DOHDWRULDPHQWH\u000f\u0003GXDV\u0003ERODV\u0003GD\u0003XUQD\u0003$ \u0003 2SomR\u0003\u0015\u0003±\u00035HWLUDU\u000f\u0003DOHDWRULDPHQWH\u000f\u0003GXDV\u0003ERODV\u0003GD\u0003 XUQD\u0003% \u0003 2SomR\u0003\u0016\u0003±\u00033DVVDU\u000f\u0003DOHDWRULDPHQWH\u000f\u0003XPD\u0003EROD\u0003GD\u0003XUQD\u0003 C para a urna A; após isso, retirar, aleatoriamente, duas bolas da urna A; \u0003 2SomR\u0003\u0017\u0003±\u00033DVVDU\u000f\u0003DOHDWRULDPHQWH\u000f\u0003XPD\u0003EROD\u0003GD\u0003XUQD\u0003 D para a urna C; após isso, retirar, aleatoriamente, duas bolas da urna C; \u0003 2SomR\u0003\u0018\u0003±\u00033DVVDU\u000f\u0003DOHDWRULDPHQWH\u000f\u0003XPD\u0003EROD\u0003GD\u0003XUQD\u0003 C para a urna D; após isso, retirar, aleatoriamente, duas bolas da urna D. Com o objetivo de obter a maior probabilidade possível de JDQKDU\u0003R\u0003SUrPLR\u000f\u0003D\u0003SHVVRD\u0003GHYH\u0003HVFROKHU\u0003D\u0003RSomR A 1.",
+        "B": "\u0015\u0011",
+        "C": "3.",
+        "D": "\u0017\u0011",
+        "E": "5."
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 151,
+      "pagina": 21,
+      "enunciado": "QUESTÃO 151 A Ecofont possui design baseado na velha fonte Vera Sans. Porém, ela tem um diferencial: pequenos buraquinhos circulares congruentes, e em todo o seu corpo, presentes em cada símbolo. Esses furos proporcionam um gasto de tinta menor na hora da iPSUHVVmR\u0011 'LVSRQtYHO\u0003HP \u0003ZZZ\u0011JRR\u0011JO\u0011\u0003$FHVVR\u0003HP \u0003\u0015\u0003GH]\u0011\u0003\u0015\u0013\u0014\u001a\u0003 DGDSWDGR \u0011",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q151_p21.png"
+      ],
+      "alternativas": {},
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 152,
+      "pagina": 21,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0014 QUESTÃO 152 3DUD\u0003 FULDU\u0003 XP\u0003 ORJRWLSR\u000f\u0003 XP\u0003 SUR¿VVLRQDO\u0003 GD\u0003 iUHD\u0003 GH\u0003 design\u0003JUi¿FR\u0003GHVHMD\u0003FRQVWUXt\u0010OR\u0003XWLOL]DQGR\u0003R\u0003FRQMXQWR\u0003GH\u0003 pontos do plano na forma de um triângulo, exatamente como mostra a imagem. \u001015 \u001010 \u00105 \u00105 5 10 15 0 \u001010 \u001015 5 15 10 x y Para construir tal imagem utilizando uma ferramenta JUi¿FD\u000f\u0003 VHUi\u0003 QHFHVViULR\u0003 HVFUHYHU\u0003 DOJHEULFDPHQWH\u0003 R\u0003 FRQMXQWR\u0003TXH\u0003UHSUHVHQWD\u0003RV\u0003SRQWRV\u0003GHVVH\u0003JUi¿FR\u0011 (VVH\u0003FRQMXQWR\u0003p\u0003GDGR\u0003SHORV\u0003SDUHV\u0003RUGHQDGRV\u0003 [\u0003 \u0003\\ \u0003\u0003`\u0001u\u0003`, tais que",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q152_p21.png"
+      ],
+      "alternativas": {
+        "A": "0 d x d y d 10",
+        "B": "0 d y d x d 10",
+        "C": "0 d x d 10, 0 d\u0003y\u0003d\u0003\u0014\u0013",
+        "D": "0 d x \u000e y d 10",
+        "E": "0 d x \u000e y d\u0003\u0015\u0013"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 153,
+      "pagina": 22,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0015 QUESTÃO 153",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q153_p22.png"
+      ],
+      "alternativas": {
+        "A": "figura mostra uma praça circular que contém um chafariz em seu centro e, em seu entorno, um passeio. Os círculos que definem a praça e o chafariz VmR\u0003FRQFrQWULFRV\u0011 O passeio terá seu piso revestido com ladrilhos. Sem condições de calcular os raios, pois o chafariz está cheio, XP\u0003 HQJHQKHLUR\u0003 IH]\u0003 D\u0003 VHJXLQWH\u0003 PHGLomR \u0003 HVWLFRX\u0003 XPD\u0003 trena tangente ao chafariz, medindo a distância entre dois pontos A e B\u000f\u0003FRQIRUPH\u0003D\u0003¿JXUD\u0011\u0003&RP\u0003LVVR\u000f\u0003REWHYH\u0003D\u0003 medida do segmento de reta AB: 16 m. Dispondo apenas dessa medida, o engenheiro calculou corretamente a medida da área do passeio, em metro quadrado. A medida encontrada pelo engenheiro foi A \u0017S",
+        "B": "8S",
+        "C": "\u0017\u001bS",
+        "D": "\u0019\u0017S",
+        "E": "\u0014 \u0015S Praça Chafariz P a s s e i o P a s s e i o P a s s e i o P a s s e i o 16 m A B"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 154,
+      "pagina": 22,
+      "enunciado": "QUESTÃO 154 Um designer de jogos planeja um jogo que faz uso GH\u0003XP\u0003WDEXOHLUR\u0003GH\u0003GLPHQVmR\u0003n u n, com n t\u0003\u0015\u000f\u0003QR\u0003TXDO\u0003 cada jogador, na sua vez, coloca uma peça sobre uma das casas vazias do tabuleiro. Quando uma peça é SRVLFLRQDGD\u000f\u0003D\u0003UHJLmR\u0003IRUPDGD\u0003SHODV\u0003FDVDV\u0003TXH\u0003HVWmR\u0003QD\u0003 mesma linha ou coluna dessa peça é chamada de zona GH\u0003FRPEDWH\u0003GHVVD\u0003SHoD\u0011\u00031D\u0003¿JXUD\u0003HVWi\u0003LOXVWUDGD\u0003D\u0003]RQD\u0003 de combate de uma peça colocada em uma das casas de XP\u0003WDEXOHLUR\u0003GH\u0003GLPHQVmR\u0003\u001b\u0003u 8. O tabuleiro deve ser dimensionado de forma que a probabilidade de se posicionar a segunda peça DOHDWRULDPHQWH\u000f\u0003 VHJXLQGR\u0003 D\u0003 UHJUD\u0003 GR\u0003 MRJR\u000f\u0003 H\u0003 HVWD\u0003 ¿FDU\u0003 sobre a zona de combate da primeira, seja inferior a 1 5 . $\u0003 GLPHQVmR\u0003 PtQLPD\u0003 TXH\u0003 R\u0003 designer deve adotar para esse tabuleiro é",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0017\u0003u\u0003\u0017\u0011",
+        "B": "6 u 6.",
+        "C": "9 u 9.",
+        "D": "10 u 10.",
+        "E": "11 u 11"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 155,
+      "pagina": 23,
+      "enunciado": "QUESTÃO 155 O remo de assento deslizante é um esporte que faz uso de um barco e dois remos do mesmo tamanho. $\u0003 ¿JXUD\u0003 PRVWUD\u0003 XPD\u0003 GDV\u0003 SRVLo}HV\u0003 GH\u0003 XPD\u0003 WpFQLFD\u0003 chamada afastamento. 'LVSRQtYHO\u0003HP \u0003ZZZ\u0011UHPREUDVLO\u0011FRP\u0011\u0003$FHVVR\u0003HP \u0003\u0019\u0003GH]\u0011\u0003\u0015\u0013\u0014\u001a\u0003 DGDSWDGR \u0011 1HVVD\u0003SRVLomR\u000f\u0003RV\u0003GRLV\u0003UHPRV\u0003VH\u0003HQFRQWUDP\u0003QR\u0003SRQWR\u0003 A\u0003 H\u0003 VXDV\u0003 RXWUDV\u0003 H[WUHPLGDGHV\u0003 HVWmR\u0003 LQGLFDGDV\u0003 SHORV\u0003 pontos B e C. Esses três pontos formam um triângulo ABC cujo ângulo BÂC\u0003WHP\u0003PHGLGD\u0003GH\u0003\u0014\u001a\u0013\u0011 O tipo de triângulo com vértices nos pontos A, B e C, no PRPHQWR\u0003HP\u0003TXH\u0003R\u0003UHPDGRU\u0003HVWi\u0003QHVVD\u0003SRVLomR\u000f\u0003p",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q155_p23.png"
+      ],
+      "alternativas": {
+        "A": "retângulo escaleno.",
+        "B": "acutângulo escaleno.",
+        "C": "acutângulo isósceles.",
+        "D": "obtusângulo escaleno.",
+        "E": "obtusângulo isósceles."
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 156,
+      "pagina": 23,
+      "enunciado": "g QUESTÃO 156 8P\u0003UDSD]\u0003HVWXGD\u0003HP\u0003XPD\u0003HVFROD\u0003TXH\u0003¿FD\u0003ORQJH\u0003GH\u0003 sua casa, e por isso precisa utilizar o transporte público. Como é muito observador, todos os dias ele anota a hora H[DWD\u0003 VHP\u0003 FRQVLGHUDU\u0003 RV\u0003 VHJXQGRV \u0003 HP\u0003 TXH\u0003 R\u0003 {QLEXV\u0003 passa pelo ponto de espera. Também notou que nunca consegue chegar ao ponto de ônibus antes de 6 h 15 min GD\u0003PDQKm\u0011\u0003$QDOLVDQGR\u0003RV\u0003GDGRV\u0003FROHWDGRV\u0003GXUDQWH\u0003R\u0003PrV\u0003 GH\u0003IHYHUHLUR\u000f\u0003R\u0003TXDO\u0003WHYH\u0003\u0015\u0014\u0003GLDV\u0003OHWLYRV\u000f\u0003HOH\u0003FRQFOXLX\u0003TXH\u0003 \u0019\u0003K\u0003\u0015\u0014\u0003PLQ\u0003IRL\u0003R\u0003TXH\u0003PDLV\u0003VH\u0003UHSHWLX\u000f\u0003H\u0003TXH\u0003D\u0003PHGLDQD\u0003GR\u0003 FRQMXQWR\u0003GH\u0003GDGRV\u0003p\u0003\u0019\u0003K\u0003\u0015\u0015\u0003PLQ\u0011",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "probabilidade de que, em algum dos dias letivos de fevereiro, esse rapaz tenha apanhado o ônibus antes de \u0019\u0003K\u0003\u0015\u0014\u0003PLQ\u0003GD\u0003PDQKm\u0003p\u000f\u0003QR\u0003Pi[LPR\u000f A 4 21",
+        "B": "5 21",
+        "C": "6 21",
+        "D": "7 21",
+        "E": "8 21"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 157,
+      "pagina": 23,
+      "enunciado": "QUESTÃO 157 8P\u0003PDSD\u0003p\u0003D\u0003UHSUHVHQWDomR\u0003UHGX]LGD\u0003H\u0003VLPSOL¿FDGD\u0003 GH\u0003 XPD\u0003 ORFDOLGDGH\u0011\u0003 (VVD\u0003 UHGXomR\u000f\u0003 TXH\u0003 p\u0003 IHLWD\u0003 FRP\u0003 R\u0003 XVR\u0003 GH\u0003 XPD\u0003 HVFDOD\u000f\u0003 PDQWpP\u0003 D\u0003 SURSRUomR\u0003 GR\u0003 HVSDoR\u0003 UHSUHVHQWDGR\u0003HP\u0003UHODomR\u0003DR\u0003HVSDoR\u0003UHDO\u0011 Certo mapa tem escala 1 : 58 000 000. 'LVSRQtYHO\u0003HP \u0003KWWS \u0012\u0012REORJGHGD\\QDEULJWK\u0011EORJVSRW\u0011FRP\u0011EU\u0011\u0003$FHVVR\u0003HP \u0003 \u0003DJR\u0011\u0003\u0015\u0013\u0014\u0015\u0011 Considere que, nesse mapa, o segmento de reta que OLJD\u0003R\u0003QDYLR\u0003j\u0003PDUFD\u0003GR\u0003WHVRXUR\u0003PHoD\u0003\u001a\u000f\u0019\u0003FP\u0011",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q157_p23.png"
+      ],
+      "alternativas": {
+        "A": "medida real, em quilômetro, desse segmento de reta é A \u0017\u0003\u0017\u0013\u001b\u0011",
+        "B": "\u001a\u0003\u0019\u0016\u0015\u0011",
+        "C": "\u0017\u0017\u0003\u0013\u001b\u0013\u0011",
+        "D": "\u001a\u0019\u0003\u0016\u0014\u0019\u0011",
+        "E": "\u0017\u0017\u0013\u0003\u001b\u0013\u0013\u0011"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 158,
+      "pagina": 23,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0016 QUESTÃO 158 Um produtor de milho utiliza uma área de 160 hectares para as suas atividades agrícolas. Essa área é dividida em GXDV\u0003SDUWHV \u0003XPD\u0003GH\u0003\u0017\u0013\u0003KHFWDUHV\u000f\u0003FRP\u0003PDLRU\u0003SURGXWLYLGDGH\u000f\u0003 H\u0003 RXWUD\u000f\u0003 GH\u0003 \u0014\u0015\u0013\u0003 KHFWDUHV\u000f\u0003 FRP\u0003 PHQRU\u0003 SURGXWLYLGDGH\u0011\u0003 $\u0003 SURGXWLYLGDGH\u0003 p\u0003 GDGD\u0003 SHOD\u0003 UD]mR\u0003 HQWUH\u0003 D\u0003 SURGXomR\u000f\u0003 HP\u0003WRQHODGD\u000f\u0003H\u0003D\u0003iUHD\u0003FXOWLYDGD\u0011\u00036DEH\u0010VH\u0003TXH\u0003D\u0003iUHD\u0003GH\u0003 \u0017\u0013\u0003 KHFWDUHV\u0003 WHP\u0003 SURGXWLYLGDGH\u0003 LJXDO\u0003 D\u0003 \u0015\u000f\u0018\u0003 YH]HV\u0003 j\u0003 da outra. Esse fazendeiro pretende aumentar sua SURGXomR\u0003 WRWDO\u0003 HP\u0003 \u0014\u0018\b\u000f\u0003 DXPHQWDQGR\u0003 R\u0003 WDPDQKR\u0003 GD\u0003 sua propriedade. Para tanto, pretende comprar uma parte de uma fazenda vizinha, que possui a mesma SURGXWLYLGDGH\u0003GD\u0003SDUWH\u0003GH\u0003\u0014\u0015\u0013\u0003KHFWDUHV\u0003GH\u0003VXDV\u0003WHUUDV\u0011 Qual é a área mínima, em hectare, que o produtor precisará comprar?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "36",
+        "B": "33",
+        "C": "\u0015\u001a",
+        "D": "\u0015\u0017",
+        "E": "\u0015\u0014"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 159,
+      "pagina": 24,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0017 QUESTÃO 159 Minecraft é um jogo virtual que pode auxiliar no desenvo É possível criar casas, edifícios, monumentos e até naves de cubinhos. 8P\u0003MRJDGRU\u0003GHVHMD\u0003FRQVWUXLU\u0003XP\u0003FXER\u0003FRP\u0003GLPHQV}HV\u0003\u0017 FRQIRUPH\u0003D\u0003¿JXUD\u0011 + + + 2V\u0003FXELQKRV\u0003TXH\u0003DLQGD\u0003IDOWDP\u0003HPSLOKDU\u0003SDUD\u0003¿QDOL]DU\u0003D\u0003F de completar a tarefa. 2\u0003IRUPDWR\u0003GD\u0003SHoD\u0003FDSD]\u0003GH\u0003FRPSOHWDU\u0003R\u0003FXER\u0003\u0017\u0003u\u0003\u0017\u0003u\u0003\u0017\u0003p A D B E C",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q159_p24.png"
+      ],
+      "alternativas": {},
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 160,
+      "pagina": 25,
+      "enunciado": "QUESTÃO 160 De acordo com um relatório recente da Agência ,QWHUQDFLRQDO\u0003 GH\u0003 (QHUJLD\u0003 $,( \u000f\u0003 R\u0003 PHUFDGR\u0003 GH\u0003 YHtFXORV\u0003 HOpWULFRV\u0003DWLQJLX\u0003XP\u0003QRYR\u0003PDUFR\u0003HP\u0003\u0015\u0013\u0014\u0019\u000f\u0003TXDQGR\u0003IRUDP\u0003 YHQGLGRV\u0003 PDLV\u0003 GH\u0003 \u001a\u0018\u0013\u0003 PLO\u0003 DXWRPyYHLV\u0003 GD\u0003 FDWHJRULD\u0011\u0003 Com isso, o total de carros elétricos vendidos no mundo DOFDQoRX\u0003D\u0003PDUFD\u0003GH\u0003\u0015\u0003PLOK}HV\u0003GH\u0003XQLGDGHV\u0003GHVGH\u0003TXH\u0003 os primeiros modelos começaram a ser comercializados HP\u0003\u0015\u0013\u0014\u0014\u0011 1R\u0003%UDVLO\u000f\u0003D\u0003H[SDQVmR\u0003GDV\u0003YHQGDV\u0003WDPEpP\u0003VH\u0003YHUL¿FD\u0011\u0003",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q160_p25.png"
+      ],
+      "alternativas": {
+        "A": "marca A, por exemplo, expandiu suas vendas no ano de \u0015\u0013\u0014\u0019\u000f\u0003VXSHUDQGR\u0003HP\u0003\u0016\u0019\u0013\u0003XQLGDGHV\u0003DV\u0003YHQGDV\u0003GH\u0003\u0015\u0013\u0014\u0018\u000f\u0003 FRQIRUPH\u0003UHSUHVHQWDGR\u0003QR\u0003JUi¿FR\u0011 'LVSRQtYHO\u0003HP \u0003ZZZ\u0011WHFPXQGR\u0011FRP\u0011EU\u0011\u0003$FHVVR\u0003HP \u0003\u0018\u0003GH]\u0011\u0003\u0015\u0013\u0014\u001a\u0011 A média anual do número de carros vendidos pela PDUFD\u0003$\u000f\u0003QRV\u0003DQRV\u0003UHSUHVHQWDGRV\u0003QR\u0003JUi¿FR\u000f\u0003IRL\u0003GH A \u0014 \u0015\u0011",
+        "B": "\u0015\u0017\u0013\u0011",
+        "C": "\u0015\u0018\u0015\u0011",
+        "D": "\u0016\u0015\u0013\u0011",
+        "E": "\u0017\u0015\u0013\u0011"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 161,
+      "pagina": 25,
+      "enunciado": "QUESTÃO 161 3DUD\u0003 DSDJDU\u0003 RV\u0003 IRFRV\u0003 $\u0003 H\u0003 %\u0003 GH\u0003 XP\u0003 LQFrQGLR\u000f\u0003 TXH\u0003 estavam a uma distância de 30 m um do outro, os bombeiros de um quartel decidiram se posicionar de modo que a distância de um bombeiro ao foco A, de temperatura mais elevada, fosse sempre o dobro da GLVWkQFLD\u0003 GHVVH\u0003 ERPEHLUR\u0003 DR\u0003 IRFR\u0003 %\u000f\u0003 GH\u0003 WHPSHUDWXUD\u0003 menos elevada. Nestas condições, a maior distância, em metro, que dois bombeiros poderiam ter entre eles é",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "30.",
+        "B": "\u0017\u0013\u0011",
+        "C": "\u0017\u0018\u0011",
+        "D": "60.",
+        "E": "68."
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 162,
+      "pagina": 25,
+      "enunciado": "QUESTÃO 162 7RUQHLRV\u0003 GH\u0003 WrQLV\u000f\u0003 HP\u0003 JHUDO\u000f\u0003 VmR\u0003 GLVSXWDGRV\u0003 HP\u0003 VLVWHPD\u0003 GH\u0003 HOLPLQDWyULD\u0003 VLPSOHV\u0011\u0003 1HVVH\u0003 VLVWHPD\u000f\u0003 VmR\u0003 disputadas partidas entre dois competidores, com a HOLPLQDomR\u0003 GR\u0003 SHUGHGRU\u0003 H\u0003 SURPRomR\u0003 GR\u0003 YHQFHGRU\u0003 SDUD\u0003 a fase seguinte. Dessa forma, se na 1a fase o torneio FRQWD\u0003FRP\u0003\u0015n\u0003FRPSHWLGRUHV\u000f\u0003HQWmR\u0003QD\u0003\u0015a\u0003IDVH\u0003UHVWDUmR\u0003n FRPSHWLGRUHV\u000f\u0003H\u0003DVVLP\u0003VXFHVVLYDPHQWH\u0003DWp\u0003D\u0003SDUWLGD\u0003¿QDO\u0011 Em um torneio de tênis, disputado nesse sistema, SDUWLFLSDP\u0003\u0014\u0015\u001b\u0003WHQLVWDV\u0011 3DUD\u0003VH\u0003GH¿QLU\u0003R\u0003FDPSHmR\u0003GHVVH\u0003WRUQHLR\u000f\u0003R\u0003Q~PHUR\u0003GH\u0003 partidas necessárias é dado por",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0015\u0003u\u0003\u0014\u0015\u001b",
+        "B": "\u0019\u0017\u0003\u000e\u0003\u0016\u0015\u0003\u000e 16 \u000e 8 \u000e\u0003\u0017\u0003\u000e\u0003\u0015",
+        "C": "\u0014\u0015\u001b\u0003\u000e\u0003\u0019\u0017\u0003\u000e\u0003\u0016\u0015\u0003\u000e 16 \u000e 8 \u000e\u0003\u0017\u0003\u000e\u0003\u0015\u0003\u000e 1",
+        "D": "\u0014\u0015\u001b\u0003\u000e\u0003\u0019\u0017\u0003\u000e\u0003\u0016\u0015\u0003\u000e 16 \u000e 8 \u000e\u0003\u0017\u0003\u000e\u0003\u0015",
+        "E": "\u0019\u0017\u0003\u000e\u0003\u0016\u0015\u0003\u000e 16 \u000e 8 \u000e\u0003\u0017\u0003\u000e\u0003\u0015\u0003\u000e 1"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 163,
+      "pagina": 25,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0018 QUESTÃO 163 O artigo 33 da lei brasileira sobre drogas prevê a SHQD\u0003GH\u0003UHFOXVmR\u0003GH\u0003\u0018\u0003D\u0003\u0014\u0018\u0003DQRV\u0003SDUD\u0003TXDOTXHU\u0003SHVVRD\u0003 TXH\u0003 VHMD\u0003 FRQGHQDGD\u0003 SRU\u0003 WUi¿FR\u0003 LOtFLWR\u0003 RX\u0003 SURGXomR\u0003 QmR\u0003 autorizada de drogas. Entretanto, caso o condenado seja réu primário, com bons antecedentes criminais, essa SHQD\u0003SRGH\u0003VRIUHU\u0003XPD\u0003UHGXomR\u0003GH\u0003XP\u0003VH[WR\u0003D\u0003GRLV\u0003WHUoRV\u0011 Suponha que um réu primário, com bons antecedentes criminais, foi condenado pelo artigo 33 da lei brasileira sobre drogas. $SyV\u0003R\u0003EHQHItFLR\u0003GD\u0003UHGXomR\u0003GH\u0003SHQD\u000f\u0003VXD\u0003SHQD\u0003SRGHUi\u0003 variar de",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0014\u0003DQR\u0003H\u0003\u001b\u0003PHVHV\u0003D\u0003\u0014\u0015\u0003DQRV\u0003H\u0003\u0019\u0003PHVHV\u0011",
+        "B": "1 ano e 8 meses a 5 anos.",
+        "C": "\u0016\u0003DQRV\u0003H\u0003\u0017\u0003PHVHV\u0003D\u0003\u0014\u0013\u0003DQRV\u0011",
+        "D": "\u0017\u0003DQRV\u0003H\u0003\u0015\u0003PHVHV\u0003D\u0003\u0018\u0003DQRV\u0011",
+        "E": "\u0017\u0003DQRV\u0003H\u0003\u0015\u0003PHVHV\u0003D\u0003\u0014\u0015\u0003DQRV\u0003H\u0003\u0019\u0003PHVHV\u0011"
+      },
+      "gabarito": "ANULADO"
+    },
+    {
+      "ano": 2018,
+      "numero": 164,
+      "pagina": 26,
+      "enunciado": "QUESTÃO 164 8P\u0003HGLItFLR\u0003WHP\u0003D\u0003QXPHUDomR\u0003GRV\u0003DQGDUHV\u0003LQLFLDQGR\u0003 QR\u0003 WpUUHR\u0003 T ), e continuando com primeiro, segundo, terceiro, ..., até o último andar. Uma criança entrou no elevador e, tocando no painel, seguiu uma sequência de andares, parando, abrindo e fechando a porta em diversos andares.",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "partir de onde entrou a criança, o elevador subiu sete andares, em seguida desceu dez, desceu mais treze, subiu nove, desceu quatro e parou no TXLQWR\u0003DQGDU\u000f\u0003¿QDOL]DQGR\u0003D\u0003VHTXrQFLD\u0011\u0003&RQVLGHUH\u0003TXH\u000f\u0003QR\u0003 trajeto seguido pela criança, o elevador parou uma vez no último andar do edifício. De acordo com as informações dadas, o último andar do edifício é o A 16o",
+        "B": "\u0015\u0015o",
+        "C": "\u0015\u0016o",
+        "D": "\u0015\u0018o",
+        "E": "\u0016\u0015o"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 165,
+      "pagina": 26,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u0019 QUESTÃO 165 2\u0003 6DOmR\u0003 GR\u0003$XWRPyYHO\u0003 GH\u0003 6mR\u0003 3DXOR\u0003 p\u0003 XP\u0003 HYHQWR\u0003 no qual vários fabricantes expõem seus modelos mais recentes de veículos, mostrando, principalmente, suas inovações em design e tecnologia. 'LVSRQtYHO\u0003HP \u0003KWWS \u0012\u0012J\u0014\u0011JORER\u0011FRP\u0011\u0003$FHVVR\u0003HP \u0003\u0017\u0003IHY\u0011\u0003\u0015\u0013\u0014\u0018\u0003 adaptado). Uma montadora pretende participar desse evento FRP\u0003 GRLV\u0003 HVWDQGHV\u000f\u0003 XP\u0003 QD\u0003 HQWUDGD\u0003 H\u0003 RXWUR\u0003 QD\u0003 UHJLmR\u0003 FHQWUDO\u0003GR\u0003VDOmR\u000f\u0003H[SRQGR\u000f\u0003HP\u0003FDGD\u0003XP\u0003GHOHV\u000f\u0003XP\u0003FDUUR\u0003 compacto e uma caminhonete. Para compor os estandes, foram disponibilizados pela montadora quatro carros compactos, de modelos distintos, e seis caminhonetes de diferentes cores para VHUHP\u0003HVFROKLGRV\u0003DTXHOHV\u0003TXH\u0003VHUmR\u0003H[SRVWRV\u0011\u0003$\u0003SRVLomR\u0003 dos carros dentro de cada estande é irrelevante. 8PD\u0003H[SUHVVmR\u0003TXH\u0003IRUQHFH\u0003D\u0003TXDQWLGDGH\u0003GH\u0003PDQHLUDV\u0003 diferentes que os estandes podem ser compostos é",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q165_p26.png"
+      ],
+      "alternativas": {
+        "A": "A10 4",
+        "B": "C10 4",
+        "C": "C C 4 2 6 2 2 2 ×",
+        "D": "A A 4 2 6 2 2 2 ×",
+        "E": "C C 4 2 6 2 ×"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 166,
+      "pagina": 26,
+      "enunciado": "QUESTÃO 166 Os alunos da disciplina de estatística, em um curso universitário, realizam quatro avaliações por semestre FRP\u0003RV\u0003SHVRV\u0003GH\u0003\u0015\u0013\b\u000f\u0003\u0014\u0013\b\u000f\u0003\u0016\u0013\b\u0003H\u0003\u0017\u0013\b\u000f\u0003UHVSHFWLYDPHQWH\u0011\u0003 1R\u0003 ¿QDO\u0003 GR\u0003 VHPHVWUH\u000f\u0003 SUHFLVDP\u0003 REWHU\u0003 XPD\u0003 PpGLD\u0003 QDV\u0003 quatro avaliações de, no mínimo, 60 pontos para serem aprovados. Um estudante dessa disciplina obteve os VHJXLQWHV\u0003SRQWRV\u0003QDV\u0003WUrV\u0003SULPHLUDV\u0003DYDOLDo}HV \u0003\u0017\u0019\u000f\u0003\u0019\u0013\u0003H\u0003 50, respectivamente. O mínimo de pontos que esse estudante precisa obter na TXDUWD\u0003DYDOLDomR\u0003SDUD\u0003VHU\u0003DSURYDGR\u0003p",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0015 \u000f\u001b\u0011",
+        "B": "\u001a\u0014\u000f\u0013\u0011",
+        "C": "\u001a\u0017\u000f\u0018\u0011",
+        "D": "\u001a\u0018\u000f\u0018\u0011",
+        "E": "\u001b\u0017\u000f\u0013\u0011"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 167,
+      "pagina": 26,
+      "enunciado": "QUESTÃO 167 O gerente do setor de recursos humanos de uma HPSUHVD\u0003HVWi\u0003RUJDQL]DQGR\u0003XPD\u0003DYDOLDomR\u0003HP\u0003TXH\u0003XPD\u0003 das etapas é um jogo de perguntas e respostas. Para HVVD\u0003 HWDSD\u000f\u0003 HOH\u0003 FODVVL¿FRX\u0003 DV\u0003 SHUJXQWDV\u000f\u0003 SHOR\u0003 QtYHO\u0003 GH\u0003 GL¿FXOGDGH\u000f\u0003 HP\u0003 IiFLO\u000f\u0003 PpGLR\u0003 H\u0003 GLItFLO\u000f\u0003 H\u0003 HVFUHYHX\u0003 FDGD\u0003 SHUJXQWD\u0003HP\u0003FDUW}HV\u0003SDUD\u0003FRORFDomR\u0003HP\u0003XPD\u0003XUQD\u0011 Contudo, após depositar vinte perguntas de diferentes QtYHLV\u0003QD\u0003XUQD\u000f\u0003HOH\u0003REVHUYRX\u0003TXH\u0003\u0015\u0018\b\u0003GHODV\u0003HUDP\u0003GH\u0003QtYHO\u0003 fácil. Querendo que as perguntas de nível fácil sejam a maioria, o gerente decidiu acrescentar mais perguntas de nível fácil à urna, de modo que a probabilidade de o primeiro participante retirar, aleatoriamente, uma pergunta GH\u0003QtYHO\u0003IiFLO\u0003VHMD\u0003GH\u0003\u001a\u0018\b\u0011 Com essas informações, a quantidade de perguntas de nível fácil que o gerente deve acrescentar à urna é igual a",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "10.",
+        "B": "15.",
+        "C": "35.",
+        "D": "\u0017\u0013\u0011",
+        "E": "\u0017\u0018\u0011"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 168,
+      "pagina": 27,
+      "enunciado": "QUESTÃO 168",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "raiva é uma doença viral e infecciosa, transmitida SRU\u0003 PDPtIHURV\u0011\u0003 $\u0003 FDPSDQKD\u0003 QDFLRQDO\u0003 GH\u0003 YDFLQDomR\u0003 DQWLUUiELFD\u0003 WHP\u0003 R\u0003 REMHWLYR\u0003 GH\u0003 FRQWURODU\u0003 D\u0003 FLUFXODomR\u0003 do vírus da raiva canina e felina, prevenindo a raiva KXPDQD\u0011\u00032\u0003JUiILFR\u0003PRVWUD\u0003D\u0003FREHUWXUD\u0003 SRUFHQWDJHP\u0003 GH\u0003YDFLQDGRV \u0003GD\u0003FDPSDQKD\u000f\u0003HP\u0003FmHV\u000f\u0003QRV\u0003DQRV\u0003GH\u0003 \u0015\u0013\u0014\u0016\u000f\u0003\u0015\u0013\u0014\u0018\u0003H\u0003\u0015\u0013\u0014\u001a\u000f\u0003QR\u0003PXQLFtSLR\u0003GH\u0003%HOR\u0003+RUL]RQWH\u000f\u0003 em Minas Gerais. Os valores das coberturas dos DQRV\u0003 GH\u0003 \u0015\u0013\u0014\u0017\u0003 H\u0003 \u0015\u0013\u0014\u0019\u0003 QmR\u0003 HVWmR\u0003 LQIRUPDGRV\u0003 QR\u0003 JUiILFR\u0003 H\u0003 GHVHMD\u0010VH\u0003 HVWLPi\u0010ORV\u0011\u0003 3DUD\u0003 WDO\u000f\u0003 OHYRX\u0010VH\u0003 HP\u0003 FRQVLGHUDomR\u0003 TXH\u0003 D\u0003 YDULDomR\u0003 QD\u0003 FREHUWXUD\u0003 GH\u0003 YDFLQDomR\u0003GD\u0003FDPSDQKD\u0003DQWLUUiELFD\u000f\u0003QRV\u0003SHUtRGRV\u0003GH\u0003 \u0015\u0013\u0014\u0016\u0003D\u0003\u0015\u0013\u0014\u0018\u0003H\u0003GH\u0003\u0015\u0013\u0014\u0018\u0003D\u0003\u0015\u0013\u0014\u001a\u000f\u0003GHX\u0010VH\u0003GH\u0003IRUPD\u0003OLQHDU\u0011 2013 67% 59% 61% 2014 2015 2016 2017 'LVSRQtYHO\u0003HP \u0003KWWS \u0012\u0012SQL\u0011GDWDVXV\u0011JRY\u0011EU\u0011\u0003$FHVVR\u0003HP \u0003\u0018\u0003QRY\u0011\u0003\u0015\u0013\u0014\u001a\u0011 4XDO\u0003WHULD\u0003VLGR\u0003D\u0003FREHUWXUD\u0003GHVVD\u0003FDPSDQKD\u0003QR\u0003DQR\u0003GH\u0003\u0015\u0013\u0014\u0017\" A \u0019\u0015\u000f\u0016\b",
+        "B": "\u0019\u0016\u000f\u0013\b",
+        "C": "\u0019\u0016\u000f\u0018\b",
+        "D": "\u0019\u0017\u000f\u0013\b",
+        "E": "\u0019\u0018\u000f\u0018\b"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 169,
+      "pagina": 27,
+      "enunciado": "QUESTÃO 169 8PD\u0003 HPSUHVD\u0003 GH\u0003 FRPXQLFDomR\u0003 WHP\u0003 D\u0003 WDUHID\u0003 GH\u0003 elaborar um material publicitário de um estaleiro para divulgar um novo navio, equipado com um guindaste de 15 m de altura e uma esteira de 90 m de comprimento. 1R\u0003GHVHQKR\u0003GHVVH\u0003QDYLR\u000f\u0003D\u0003UHSUHVHQWDomR\u0003GR\u0003JXLQGDVWH\u0003 deve ter sua altura entre 0,5 cm e 1 cm, enquanto a HVWHLUD\u0003 GHYH\u0003 DSUHVHQWDU\u0003 FRPSULPHQWR\u0003 VXSHULRU\u0003 D\u0003 \u0017\u0003 FP\u0011\u0003 7RGR\u0003R\u0003GHVHQKR\u0003GHYHUi\u0003VHU\u0003IHLWR\u0003HP\u0003XPD\u0003HVFDOD\u0003\u0014\u0003 \u0003;\u0011 2V\u0003YDORUHV\u0003SRVVtYHLV\u0003SDUD\u0003;\u0003VmR\u000f\u0003DSHQDV\u000f",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": ";\u0003! 1 500.",
+        "B": ";\u0003 3 000.",
+        "C": "1 500 \u0003;\u0003 \u0003\u0015\u0003\u0015\u0018\u0013\u0011",
+        "D": "1 500 \u0003;\u0003 3 000.",
+        "E": "\u0015\u0003\u0015\u0018\u0013\u0003 \u0003;\u0003 3 000."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 170,
+      "pagina": 27,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u001a QUESTÃO 170 (P\u0003 \u0015\u0013\u0014\u0017\u0003 IRL\u0003 LQDXJXUDGD\u0003 D\u0003 PDLRU\u0003 URGD\u0010JLJDQWH\u0003 GR\u0003 mundo, a High Roller\u000f\u0003 VLWXDGD\u0003 HP\u0003 /DV\u0003 9HJDV\u0011\u0003$\u0003 ¿JXUD\u0003 UHSUHVHQWD\u0003 XP\u0003 HVERoR\u0003 GHVVD\u0003 URGD\u0010JLJDQWH\u000f\u0003 QR\u0003 TXDO\u0003 R\u0003 ponto",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q170_p27.png"
+      ],
+      "alternativas": {
+        "A": "representa uma de suas cadeiras: Solo Solo A O 'LVSRQtYHO\u0003HP \u0003KWWS \u0012\u0012HQ\u0011ZLNLSHGLD\u0011RUJ\u0011\u0003$FHVVR\u0003HP \u0003\u0015\u0015\u0003DEU\u0011\u0003\u0015\u0013\u0014\u0017\u0003 DGDSWDGR \u0011 $\u0003SDUWLU\u0003GD\u0003SRVLomR\u0003LQGLFDGD\u000f\u0003HP\u0003TXH\u0003R\u0003VHJPHQWR\u0003OA VH\u0003 HQFRQWUD\u0003 SDUDOHOR\u0003 DR\u0003 SODQR\u0003 GR\u0003 VROR\u000f\u0003 URWDFLRQD\u0010VH\u0003 D\u0003 High Roller\u0003QR\u0003VHQWLGR\u0003DQWL\u0010KRUiULR\u000f\u0003HP\u0003WRUQR\u0003GR\u0003SRQWR\u0003O. Sejam t o ângulo determinado pelo segmento OA em UHODomR\u0003j\u0003VXD\u0003SRVLomR\u0003LQLFLDO\u000f\u0003H\u0003f\u0003D\u0003IXQomR\u0003TXH\u0003GHVFUHYH\u0003 a altura do ponto A\u000f\u0003HP\u0003UHODomR\u0003DR\u0003VROR\u000f\u0003HP\u0003IXQomR\u0003GH\u0003t. Após duas voltas completas, f\u0003WHP\u0003R\u0003VHJXLQWH\u0003JUi¿FR $\u0003H[SUHVVmR\u0003GD\u0003IXQomR\u0003DOWXUD\u0003p\u0003GDGD\u0003SRU A f t sen t ( ) ( ) = + 80 88",
+        "B": "f t cos t ( ) ( ) = + 80 88",
+        "C": "f t cos t ( ) ( ) = + 88 168",
+        "D": "f t sen t cos t ( ) ( ) ( ) = + 168 88",
+        "E": "f t sen t cos t ( ) ( ) ( ) = + 88 168 168 88 0 /2 2 t (radiano) 4 (metro) f S S S"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 171,
+      "pagina": 28,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0015\u001b QUESTÃO 171 $\u0003URVD\u0003GRV\u0003YHQWRV\u0003p\u0003XPD\u0003¿JXUD\u0003TXH\u0003UHSUHVHQWD\u0003RLWR\u0003 sentidos, que dividem o círculo em partes iguais. Uma\u0003FkPHUD\u0003GH\u0003YLJLOkQFLD\u0003HVWi\u0003¿[DGD\u0003QR\u0003WHWR\u0003GH\u0003XP\u0003 shopping e sua lente pode ser direcionada remotamente, através de um controlador, para qualquer sentido.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q171_p28.png"
+      ],
+      "alternativas": {
+        "A": "lente da câmera está apontada inicialmente no sentido Oeste e o seu controlador efetua três mudanças consecutivas, a saber: \u0003 1a\u0003PXGDQoD \u0003\u0014\u0016\u0018\u0003QR\u0003VHQWLGR\u0003DQWL\u0010KRUiULR \u0003 \u0015a\u0003PXGDQoD \u0003\u0019\u0013\u0003QR\u0003VHQWLGR\u0003KRUiULR \u0003 3a\u0003PXGDQoD \u0003\u0017\u0018\u0003QR\u0003VHQWLGR\u0003DQWL\u0010KRUiULR\u0011 Após a 3a mudança, ele é orientado a reposicionar a câmera, com a menor amplitude possível, no sentido 1RURHVWH\u0003 NO) devido a um movimento suspeito de um cliente. Qual mudança de sentido o controlador deve efetuar para reposicionar a câmera? A \u001a\u0018\u0003QR\u0003VHQWLGR\u0003KRUiULR\u0011",
+        "B": "\u0014\u0013\u0018\u0003QR\u0003VHQWLGR\u0003DQWL\u0010KRUiULR\u0011",
+        "C": "\u0014\u0015\u0013\u0003QR\u0003VHQWLGR\u0003DQWL\u0010KRUiULR\u0011",
+        "D": "\u0014\u0016\u0018\u0003QR\u0003VHQWLGR\u0003DQWL\u0010KRUiULR\u0011",
+        "E": "\u0014\u0019\u0018\u0003QR\u0003VHQWLGR\u0003KRUiULR\u0011"
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 172,
+      "pagina": 28,
+      "enunciado": "QUESTÃO 172 1D\u0003WHRULD\u0003GDV\u0003HOHLo}HV\u000f\u0003R\u00030pWRGR\u0003GH\u0003%RUGD\u0003VXJHUH\u0003 que, em vez de escolher um candidato, cada juiz deve criar um ranking de sua preferência para os concorrentes LVWR\u0003 p\u000f\u0003 FULDU\u0003 XPD\u0003 OLVWD\u0003 FRP\u0003 D\u0003 RUGHP\u0003 GH\u0003 FODVVL¿FDomR\u0003 dos concorrentes).",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "este ranking é associada uma SRQWXDomR \u0003XP\u0003SRQWR\u0003SDUD\u0003R\u0003~OWLPR\u0003FRORFDGR\u0003QR\u0003ranking, dois pontos para o penúltimo, três para o antepenúltimo, H\u0003DVVLP\u0003VXFHVVLYDPHQWH\u0011\u0003$R\u0003¿QDO\u000f\u0003VRPD\u0010VH\u0003D\u0003SRQWXDomR\u0003 atribuída a cada concorrente por cada um dos juízes. Em uma escola houve um concurso de poesia no qual cinco alunos concorreram a um prêmio, sendo julgados SRU\u0003 \u0015\u0018\u0003 MXt]HV\u0011\u0003 3DUD\u0003 D\u0003 HVFROKD\u0003 GD\u0003 SRHVLD\u0003 YHQFHGRUD\u0003 IRL\u0003 XWLOL]DGR\u0003 R\u0003 0pWRGR\u0003 GH\u0003 %RUGD\u0011\u0003 1RV\u0003 TXDGURV\u000f\u0003 HVWmR\u0003 apresentados os rankings dos juízes e a frequência de cada ranking. Colocação Ranking I II III IV 1o Ana Dani %LD Edu \u0015o %LD Caio Ana Ana 3o Caio Edu Caio Dani \u0017o Dani Ana Edu %LD 5o Edu %LD Dani Caio Ranking Frequência I \u0017 II 9 III \u001a IV 5 A poesia vencedora foi a de A Edu.",
+        "B": "Dani.",
+        "C": "Caio.",
+        "D": "%LD\u0011\u0003",
+        "E": "Ana."
+      },
+      "gabarito": "E"
+    },
+    {
+      "ano": 2018,
+      "numero": 173,
+      "pagina": 29,
+      "enunciado": "QUESTÃO 173 2V\u0003JXLQGDVWHV\u0003VmR\u0003IXQGDPHQWDLV\u0003HP\u0003FDQWHLURV\u0003GH\u0003REU $\u0003¿JXUD\u0003LOXVWUD\u0003XPD\u0003VHTXrQFLD\u0003GH\u0003HVWiJLRV\u0003HP\u0003TXH\u0003XP\u0003JX no solo. Cabo de aço Viga M M O Estágio 1 O 1D\u0003¿JXUD\u000f\u0003R\u0003SRQWR\u00032\u0003UHSUHVHQWD\u0003D\u0003SURMHomR\u0003RUWRJRQDO\u0003 na vertical durante todo o movimento de içamento da vig tempo tf\u0003 HVWiJLR\u0003\u0016 \u0011\u00038PD\u0003GDV\u0003H[WUHPLGDGHV\u0003GD\u0003YLJD\u0003p\u0003LoDG H[WUHPLGDGH\u0003GHVOL]D\u0003VREUH\u0003R\u0003VROR\u0003HP\u0003GLUHomR\u0003DR\u0003SRQWR\u00032 SDUD\u0003LoDU\u0003D\u0003YLJD\u0003¿TXH\u0003VHPSUH\u0003QD\u0003SRVLomR\u0003YHUWLFDO\u0011\u00031D\u0003¿JXU representa a viga. 2\u0003JUi¿FR\u0003TXH\u0003GHVFUHYH\u0003D\u0003GLVWkQFLD\u0003GR\u0003SRQWR\u00030\u0003DR\u0003SRQWR\u00032\u000f A Distância Tempo t f 0 D B Distância Tempo 0 t f E C Distância Tempo 0 t f",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q173_p29.png"
+      ],
+      "alternativas": {},
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 174,
+      "pagina": 30,
+      "enunciado": "QUESTÃO 174 &RP\u0003 R\u0003 DYDQoR\u0003 HP\u0003 FLrQFLD\u0003 GD\u0003 FRPSXWDomR\u000f\u0003 HVWDPRV\u0003 próximos do momento em que o número de transistores no processador de um computador pessoal será da mesma ordem de grandeza que o número de neurônios em um cérebro humano, que é da ordem de 100 bilhões. Uma das grandezas determinantes para o desempenho de um processador é a densidade de transistores, que é o número de transistores por centímetro quadrado. Em 1986, uma empresa fabricava um processador contendo 100 \u0013\u0013\u0013\u0003 WUDQVLVWRUHV\u0003 GLVWULEXtGRV\u0003 HP\u0003 \u0013\u000f\u0015\u0018\u0003 FP\u0015 GH\u0003 iUHD\u0011\u0003 'HVGH\u0003 HQWmR\u000f\u0003 R\u0003 Q~PHUR\u0003 GH\u0003 WUDQVLVWRUHV\u0003 SRU\u0003 centímetro quadrado que se pode colocar em um SURFHVVDGRU\u0003GREUD\u0003D\u0003FDGD\u0003GRLV\u0003DQRV\u0003 /HL\u0003GH\u00030RRUH \u0011 'LVSRQtYHO\u0003HP \u0003ZZZ\u0011SRFNHW\u0010OLQW\u0011FRP\u0011\u0003$FHVVR\u0003HP \u0003\u0014\u0003GH]\u0011\u0003\u0015\u0013\u0014\u001a\u0003 DGDSWDGR \u0011 &RQVLGHUH\u0003\u0013\u000f\u0016\u0013\u0003FRPR\u0003DSUR[LPDomR\u0003SDUD\u0003ORJ10\u0015\u0011 Em que ano a empresa atingiu ou atingirá a densidade de 100 bilhões de transistores?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "1999",
+        "B": "\u0015\u0013\u0013\u0015",
+        "C": "\u0015\u0013\u0015\u0015",
+        "D": "\u0015\u0013\u0015\u0019",
+        "E": "\u0015\u0014\u0017\u0019"
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 175,
+      "pagina": 30,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0016\u0013 QUESTÃO 175 Uma loja vende automóveis em N parcelas iguais VHP\u0003 MXURV\u0011\u0003 1R\u0003 PRPHQWR\u0003 GH\u0003 FRQWUDWDU\u0003 R\u0003 ¿QDQFLDPHQWR\u000f\u0003 caso o cliente queira aumentar o prazo, acrescentando mais 5 parcelas, o valor de cada uma das parcelas GLPLQXL\u0003 5\u0007\u0003 \u0015\u0013\u0013\u000f\u0013\u0013\u000f\u0003 RX\u0003 VH\u0003 HOH\u0003 TXLVHU\u0003 GLPLQXLU\u0003 R\u0003 SUD]R\u000f\u0003 FRP\u0003 \u0017\u0003 SDUFHODV\u0003 D\u0003 PHQRV\u000f\u0003 R\u0003 YDORU\u0003 GH\u0003 FDGD\u0003 XPD\u0003 GDV\u0003 SDUFHODV\u0003VREH\u00035\u0007\u0003\u0015\u0016\u0015\u000f\u0013\u0013\u0011\u0003&RQVLGHUH\u0003DLQGD\u0003TXH\u000f\u0003QDV\u0003WUrV\u0003 possibilidades de pagamento, o valor do automóvel é o PHVPR\u000f\u0003WRGDV\u0003VmR\u0003VHP\u0003MXURV\u0003H\u0003QmR\u0003p\u0003GDGR\u0003GHVFRQWR\u0003HP\u0003 nenhuma das situações. Nessas condições, qual é a quantidade N de parcelas a serem pagas de acordo com a proposta inicial da loja?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0015\u0013",
+        "B": "\u0015\u0017",
+        "C": "\u0015",
+        "D": "\u0017\u0013",
+        "E": "58"
+      },
+      "gabarito": "B"
+    },
+    {
+      "ano": 2018,
+      "numero": 176,
+      "pagina": 30,
+      "enunciado": "QUESTÃO 176 O salto ornamental é um esporte em que cada competidor realiza seis saltos.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q176_p30.png"
+      ],
+      "alternativas": {
+        "A": "nota em cada salto é calculada pela soma das notas dos juízes, multiplicada SHOD\u0003QRWD\u0003GH\u0003SDUWLGD\u0003 R\u0003JUDX\u0003GH\u0003GL¿FXOGDGH\u0003GH\u0003FDGD\u0003VDOWR \u0011\u0003 Fica em primeiro lugar o atleta que obtiver a maior soma das seis notas recebidas. 2\u0003 DWOHWD\u0003 \u0014\u0013\u0003 LUi\u0003 UHDOL]DU\u0003 R\u0003 ~OWLPR\u0003 VDOWR\u0003 GD\u0003 ¿QDO\u0011\u0003 Ele observa no Quadro 1, antes de executar o salto, o recorte do quadro parcial de notas com a sua FODVVL¿FDomR\u0003 H\u0003 D\u0003 GRV\u0003 WUrV\u0003 SULPHLURV\u0003 OXJDUHV\u0003 DWp\u0003 DTXHOH\u0003 momento. Quadro 1 &ODVVL¿FDomR Atleta 6o Salto Total 1o 3 135,0 \u001b\u0015 \u000f\u0013 \u0015o \u0017 \u0014\u0017\u0013\u000f\u0013 \u001b\u0015\u0018\u000f\u0015 3o 8 \u0014\u0017\u0013\u000f\u0017 \u001b\u0015\u0017\u000f\u0015 6o 10 \u0019\u001b\u001a\u000f\u0018 Ele precisa decidir com seu treinador qual salto deverá realizar. Os dados dos possíveis tipos de salto HVWmR\u0003QR\u00034XDGUR\u0003\u0015\u0011 Quadro 2 Tipo de salto Nota de partida Estimativa da soma das notas dos juízes Probabilidade de obter a nota T1 \u0015\u000f\u0015 \u0018\u001a \u001b \u000f\u001a\u0019\b 7\u0015 \u0015\u000f\u0017 58 \u0016\u000f\u001a\u0017\b T3 \u0015\u000f\u0019 55 \u0014\u000f\u001b\u001b\b 7\u0017 \u0015\u000f\u001b 50 \u0018\u000f\u0016\u001b\b T5 3,0 53 \u001b\u001a\u000f\u0016\u0017\b O atleta optará pelo salto com a maior probabilidade de obter a nota estimada, de maneira que lhe permita alcançar o primeiro lugar. Considerando essas condições, o salto que o atleta deverá escolher é o de tipo A T1.",
+        "B": "7\u0015\u0011",
+        "C": "T3.",
+        "D": "7\u0017\u0011",
+        "E": "T5."
+      },
+      "gabarito": "C"
+    },
+    {
+      "ano": 2018,
+      "numero": 177,
+      "pagina": 31,
+      "enunciado": "QUESTÃO 177 'HYLGR\u0003 DR\u0003 QmR\u0003 FXPSULPHQWR\u0003 GDV\u0003 PHWDV\u0003 GH¿QLGDV\u0003 SDUD\u0003D\u0003FDPSDQKD\u0003GH\u0003YDFLQDomR\u0003FRQWUD\u0003D\u0003JULSH\u0003FRPXP\u0003 e o vírus H1N1 em um ano, o Ministério da Saúde DQXQFLRX\u0003 D\u0003 SURUURJDomR\u0003 GD\u0003 FDPSDQKD\u0003 SRU\u0003 PDLV\u0003 XPD\u0003 semana.",
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2018/enem_2018_q177_p31.png"
+      ],
+      "alternativas": {
+        "A": "tabela apresenta as quantidades de pessoas vacinadas dentre os cinco grupos de risco até a data de LQtFLR\u0003GD\u0003SURUURJDomR\u0003GD\u0003FDPSDQKD\u0011 Balanço parcial nacional da vacinação contra a gripe Grupo de risco 3RSXODomR\u0003 PLOKmR 3RSXODomR\u0003Mi\u0003 vacinada PLOKmR \b Crianças \u0017\u000f\u0018 0,9 \u0015\u0013 3UR¿VVLRQDLV\u0003GH\u0003VD~GH \u0015\u000f\u0013 1,0 50 Gestantes \u0015\u000f\u0018 1,5 60 Indígenas 0,5 \u0013\u000f\u0017 80 Idosos \u0015\u0013\u000f\u0018 \u001b\u000f\u0015 \u0017\u0013 'LVSRQtYHO\u0003HP \u0003KWWS \u0012\u0012SRUWDOVDXGH\u0011VDXGH\u0011JRY\u0011EU\u0011\u0003$FHVVR\u0003HP \u0003\u0014\u0019\u0003DJR\u0011\u0003\u0015\u0013\u0014\u0015\u0011 Qual é a porcentagem do total de pessoas desses grupos de risco já vacinadas? A \u0014\u0015",
+        "B": "18",
+        "C": "30",
+        "D": "\u0017\u0013",
+        "E": "50"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 178,
+      "pagina": 31,
+      "enunciado": "QUESTÃO 178 Durante uma festa de colégio, um grupo de alunos RUJDQL]RX\u0003XPD\u0003ULID\u0011\u00032LWHQWD\u0003DOXQRV\u0003IDOWDUDP\u0003j\u0003IHVWD\u0003H\u0003QmR\u0003 participaram da rifa. Entre os que compareceram, alguns FRPSUDUDP\u0003 WUrV\u0003 ELOKHWHV\u000f\u0003 \u0017\u0018\u0003 FRPSUDUDP\u0003 \u0015\u0003 ELOKHWHV\u000f\u0003 H\u0003 muitos compraram apenas um. O total de alunos que FRPSURX\u0003XP\u0003~QLFR\u0003ELOKHWH\u0003HUD\u0003\u0015\u0013\b\u0003GR\u0003Q~PHUR\u0003WRWDO\u0003GH\u0003 bilhetes vendidos, e o total de bilhetes vendidos excedeu em 33 o número total de alunos do colégio. Quantos alunos compraram somente um bilhete?",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "\u0016\u0017",
+        "B": "\u0017\u0015",
+        "C": "\u0017\u001a",
+        "D": "\u0017\u001b",
+        "E": "\u001a"
+      },
+      "gabarito": "D"
+    },
+    {
+      "ano": 2018,
+      "numero": 179,
+      "pagina": 31,
+      "enunciado": "QUESTÃO 179 8P\u0003TXHEUD\u0010FDEHoD\u0003FRQVLVWH\u0003HP\u0003UHFREULU\u0003XP\u0003TXDGUDGR\u0003 FRP\u0003WULkQJXORV\u0003UHWkQJXORV\u0003LVyVFHOHV\u000f\u0003FRPR\u0003LOXVWUD\u0003D\u0003¿JXUD\u0011 8PD\u0003 DUWHVm\u0003 FRQIHFFLRQD\u0003 XP\u0003 TXHEUD\u0010FDEHoD\u0003 FRPR\u0003 o descrito, de tal modo que a menor das peças é um WULkQJXOR\u0003UHWkQJXOR\u0003LVyVFHOHV\u0003FXMRV\u0003FDWHWRV\u0003PHGHP\u0003\u0015\u0003FP\u0011 2\u0003 TXHEUD\u0010FDEHoD\u000f\u0003 TXDQGR\u0003 PRQWDGR\u000f\u0003 UHVXOWDUi\u0003 HP\u0003 XP\u0003 quadrado cuja medida do lado, em centímetro, é",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "14",
+        "B": "12",
+        "C": "7 2",
+        "D": "6 4 2 \u000e",
+        "E": "6 2 2 \u000e"
+      },
+      "gabarito": "A"
+    },
+    {
+      "ano": 2018,
+      "numero": 180,
+      "pagina": 31,
+      "enunciado": "07\u0003\u0010\u0003\u0015\u0003GLD\u0003_\u0003&DGHUQR\u0003\u001a\u0003\u0010\u0003$=8/\u0003\u0010\u00033iJLQD\u0003\u0016\u0014 QUESTÃO 180 Para decorar um cilindro circular reto será usada uma faixa retangular de papel transparente, na qual está GHVHQKDGD\u0003HP\u0003QHJULWR\u0003XPD\u0003GLDJRQDO\u0003TXH\u0003IRUPD\u0003\u0016\u0013\u0003FRP\u0003D\u0003 borda inferior. O raio da base do cilindro mede π 6 cm, e ao HQURODU\u0003D\u0003IDL[D\u0003REWpP\u0010VH\u0003XPD\u0003OLQKD\u0003HP\u0003IRUPDWR\u0003GH\u0003KpOLFH\u000f\u0003 FRPR\u0003QD\u0003¿JXUD\u0011 30° O valor da medida da altura do cilindro, em centímetro, é",
+      "tem_imagem": false,
+      "imagens": [],
+      "alternativas": {
+        "A": "36 3",
+        "B": "24 3",
+        "C": "4 3",
+        "D": "36",
+        "E": "72"
+      },
+      "gabarito": "B"
+    }
+  ]
+}
