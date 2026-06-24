@@ -1,531 +1,743 @@
 {
   "ano": 2010,
-  "total_questoes": 45,
+  "total_questoes": 42,
   "questoes": [
-    {
-      "ano": 2010,
-      "numero": 136,
-      "pagina": 21,
-      "enunciado": "Questão 136 Um professor dividiu a lousa da sala de aula em quatro partes iguais. Em seguida, preencheu 75% dela com conceitos e explicações, conforme a figura seguinte. Xxxxxxxxx xxxxxxxxxxx xxxx xxxx xxxx xxx x x x xxxxxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxxx xxxx xxx . Xxxxxxxxx xxxxxxxxxxx xxxx xxxx xxxx xxx x x x xxxxxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxxx xxxx xxx. Xxxxxxxxx xxxxxxxxxxx xxxx xxxx xxxx xxx x x x xxxxxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxxx xxxx xxx. Algum tempo depois, o professor apagou a lousa por completo e, adotando um procedimento semelhante ao anterior, voltou a preenchê-la, mas, dessa vez, utilizando 40% do espaço dela. Uma representação possível para essa segunda situação é Xxxxxxxxx xxxxxxxxxxx xxxx xxxx xxxx xxx x x x xxxxxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxxx xxxx xxx . Xxxxxxxxx xxxxxxxxxxx xxxx xxxx xxxx xxx x x x xxxxxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxxx xxxx xxx . Xxxxxxxxx xxxxxxxxxxx xxxx xxxx xxxx xxx x x x xxxxxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxxx xxxx xxx. Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx xxx Xxxxxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxx xxxxxx xxxxx xxxxxxxx xxxxx xxx xxxx xxxx xxxx",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q136_p21.png"
-      ],
-      "alternativas": {},
-      "gabarito": "C"
-    },
-    {
-      "ano": 2010,
-      "numero": 137,
-      "pagina": 21,
-      "enunciado": "Questão 137 Alguns testes de preferência por bebedouros de água foram realizados com bovinos, envolvendo três tipos de bebedouros, de formatos e tamanhos diferentes. Os bebedouros 1 e 2 têm a forma de um tronco de cone circular reto, de altura igual a 60 cm, e diâmetro da base superior igual a 120 cm e 60 cm, respectivamente. O bebedouro 3 é um semicilindro, com 30 cm de altura, 100 cm de comprimento e 60 cm de largura. Os três recipientes estão ilustrados na figura. A escolha do bebedouro. In: Biotemas. V. 22, n°. 4, 2009 (adaptado).",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q137_p21.png"
-      ],
-      "alternativas": {},
-      "gabarito": "E"
-    },
     {
       "ano": 2010,
       "numero": 138,
       "pagina": 21,
-      "enunciado": "Questão 138 No monte de Cerro Armazones, no deserto de Atacama, no Chile, ficará o maior telescópio da superfície terrestre, o Telescópio Europeu Extremamente Grande (E-ELT). O E-ELT terá um espelho primário de 42 m de diâmetro, “o maior olho do mundo voltado para o céu”. Disponível em: http://www.estadao.com.br. Acesso em: 27 abr. 2010 (adaptado). Ao ler esse texto em uma sala de aula, uma professora fez uma suposição de que o diâmetro do olho humano mede aproximadamente 2,1 cm. Qual a razão entre o diâmetro aproximado do olho humano, suposto pela professora, e o diâmetro do espelho primário do telescópio citado? 1 : 20 1 : 100 1 : 200 1 : 1 000 1 : 2 000",
-      "tem_imagem": true,
+      "enunciado": "Questão 138 No monte de Cerro Armazones, no deserto de Atacama, no Chile, ficará o maior telescópio da superfície terrestre, o Telescópio Europeu Extremamente Grande (E-ELT). O E-ELT terá um espelho primário de 42 m de diâmetro, “o maior olho do mundo voltado para o céu”. Disponível em: http://www.estadao.com.br. Acesso em: 27 abr. 2010 (adaptado). Ao ler esse texto em uma sala de aula, uma professora fez uma suposição de que o diâmetro do olho humano mede aproximadamente 2,1 cm. Qual a razão entre o diâmetro aproximado do olho humano, suposto pela professora, e o diâmetro do espelho primário do telescópio citado? ",
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q138_p21.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1 : 20",
+        "B": "1 : 100",
+        "C": "1 : 200",
+        "D": "1 : 1 000",
+        "E": "1 : 2 000"
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 139,
       "pagina": 21,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 20 Questão 139 Uma fábrica produz barras de chocolates no formato de paralelepípedos e de cubos, com o mesmo volume. As arestas da barra de chocolate no formato de paralelepípedo medem 3 cm de largura, 18 cm de comprimento e 4 cm de espessura. Analisando as características das figuras geométricas descritas, a medida das arestas dos chocolates que têm o formato de cubo é igual a 5 cm. 6 cm. 12 cm. 24 cm. 25 cm.",
-      "tem_imagem": true,
+      "enunciado": "Questão 139 Uma fábrica produz barras de chocolates no formato de paralelepípedos e de cubos, com o mesmo volume. As arestas da barra de chocolate no formato de paralelepípedo medem 3 cm de largura, 18 cm de comprimento e 4 cm de espessura. Analisando as características das figuras geométricas descritas, a medida das arestas dos chocolates que têm o formato de cubo é igual a ",
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q139_p21.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "5 cm.",
+        "B": "6 cm.",
+        "C": "12 cm",
+        "D": "24 cm",
+        "E": "25 cm."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 140,
       "pagina": 22,
-      "enunciado": "Questão 140 Em sete de abril de 2004, um jornal publicou o ranking de desmatamento, conforme gráfico, da chamada Amazônia Legal, integrada por nove estados. 1º Mato Grosso 2º Pará 3º Rondônia 4º Amazonas 5º Maranhão 6º Acre 7º Roraima 8º Tocantins 9º Amapá 10416 7293 3463 797 766 549 326 136 4 Ranking do Desmatamento em km² Disponível em: www.folhaonline.com.br. Acesso em: 30 abr. 2010 (adaptado). Considerando-se que até 2009 o desmatamento cresceu 10,5% em relação aos dados de 2004, o desmatamento médio por estado em 2009 está entre 100 km2 e 900 km2. 1 000 km2 e 2 700 km2. 2 800 km2 e 3 200 km2. 3 300 km2 e 4 000 km2. 4 100 km2 e 5 800 km2.",
+      "enunciado": "Questão 140 Em sete de abril de 2004, um jornal publicou o ranking de desmatamento, conforme gráfico, da chamada Amazônia Legal, integrada por nove estados. 1º Mato Grosso 2º Pará 3º Rondônia 4º Amazonas 5º Maranhão 6º Acre 7º Roraima 8º Tocantins 9º Amapá 10416 7293 3463 797 766 549 326 136 4 Ranking do Desmatamento em km² Disponível em: www.folhaonline.com.br. Acesso em: 30 abr. 2010 (adaptado). Considerando-se que até 2009 o desmatamento cresceu 10,5% em relação aos dados de 2004, o desmatamento médio por estado em 2009 está entre ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q140_p22.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "100 km^2 e 900 km^2.",
+        "B": "1 000 km^2 e 2 700 km^2. ",
+        "C": "2 800 km^2 e 3 200 km^2.",
+        "D": "3 300 km^2 e 4 000 km^2.",
+        "E": "4 100 km^2 e 5 800 km^2"
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 141,
       "pagina": 22,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 21 Questão 141 Os dados do gráfico foram coletados por meio da Pesquisa Nacional por Amostra de Domicílios. 63 64 44 38 42 37 36 56 62 58 0 10 20 30 40 50 60 70 Norte Nordeste Sudeste Sul Centro- este Porcentagem (%) Regiões brasileiras Estudantes que possuem telefone móvel celular com idade de 10 anos ou mais Possuíam Não Possuíam 0 Fonte: IBGE.Disponível em: http://www.ibge.gov.br. Acesso em: 28 abr. 2010 (adaptado). Supondo-se que, no Sudeste, 14 900 estudantes foram entrevistados nessa pesquisa, quantos deles possuíam telefone móvel celular? 5 513 6 556 7 450 8 344 9 536",
+      "enunciado": "Questão 141 Os dados do gráfico foram coletados por meio da Pesquisa Nacional por Amostra de Domicílios. 63 64 44 38 42 37 36 56 62 58 0 10 20 30 40 50 60 70 Norte Nordeste Sudeste Sul Centro- este Porcentagem (%) Regiões brasileiras Estudantes que possuem telefone móvel celular com idade de 10 anos ou mais Possuíam Não Possuíam 0 Fonte: IBGE.Disponível em: http://www.ibge.gov.br. Acesso em: 28 abr. 2010 (adaptado). Supondo-se que, no Sudeste, 14 900 estudantes foram entrevistados nessa pesquisa, quantos deles possuíam telefone móvel celular? ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q141_p22.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "5 513",
+        "B": "6 556 ",
+        "C": "7 450",
+        "D": "8 344",
+        "E": "9 536"
+      },
       "gabarito": "D"
-    },
-    {
-      "ano": 2010,
-      "numero": 142,
-      "pagina": 22,
-      "enunciado": "Questão 142 Acompanhando o crescimento do filho, um casal constatou que, de 0 a 10 anos, a variação da sua altura se dava de forma mais rápida do que dos 10 aos 17 anos e, a partir de 17 anos, essa variação passava a ser cada vez menor, até se tornar imperceptível. Para ilustrar essa situação, esse casal fez um gráfico relacionando as alturas do filho nas idades consideradas. Que gráfico melhor representa a altura do filho desse casal em função da idade?",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q142_p22.png"
-      ],
-      "alternativas": {},
-      "gabarito": "A"
     },
     {
       "ano": 2010,
       "numero": 143,
       "pagina": 23,
-      "enunciado": "Questão 143 A classificação de um país no quadro de medalhas nos Jogos Olímpicos depende do número de medalhas de ouro que obteve na competição, tendo como critérios de desempate o número de medalhas de prata seguido do número de medalhas de bronze conquistados. Nas Olimpíadas de 2004, o Brasil foi o décimo sexto colocado no quadro de medalhas, tendo obtido 5 medalhas de ouro, 2 de prata e 3 de bronze. Parte desse quadro de medalhas é reproduzida a seguir. Classificação País Medalhas de ouro Medalhas de prata Medalhas de bronze Total de medalhas 8º Itália 10 11 11 32 9º Coreia do Sul 9 12 9 30 10º Grã-Bretanha 9 9 12 30 11º Cuba 9 7 11 27 12º Ucrânia 9 5 9 23 13º Hungria 8 6 3 17 Disponível em: http://www.quadroademedalhas.com.br. Acesso em: 05 abr. 2010 (adaptado). Se o Brasil tivesse obtido mais 4 medalhas de ouro, 4 de prata e 10 de bronze, sem alteração no número de medalhas dos demais países mostrados no quadro, qual teria sido a classificação brasileira no quadro de medalhas das limpíadas de 2004? 13º 12º 11º 10º 9º O",
+      "enunciado": "Questão 143 A classificação de um país no quadro de medalhas nos Jogos Olímpicos depende do número de medalhas de ouro que obteve na competição, tendo como critérios de desempate o número de medalhas de prata seguido do número de medalhas de bronze conquistados. Nas Olimpíadas de 2004, o Brasil foi o décimo sexto colocado no quadro de medalhas, tendo obtido 5 medalhas de ouro, 2 de prata e 3 de bronze. Parte desse quadro de medalhas é reproduzida a seguir. Classificação País Medalhas de ouro Medalhas de prata Medalhas de bronze Total de medalhas 8º Itália 10 11 11 32 9º Coreia do Sul 9 12 9 30 10º Grã-Bretanha 9 9 12 30 11º Cuba 9 7 11 27 12º Ucrânia 9 5 9 23 13º Hungria 8 6 3 17 Disponível em: http://www.quadroademedalhas.com.br. Acesso em: 05 abr. 2010 (adaptado). Se o Brasil tivesse obtido mais 4 medalhas de ouro, 4 de prata e 10 de bronze, sem alteração no número de medalhas dos demais países mostrados no quadro, qual teria sido a classificação brasileira no quadro de medalhas das limpíadas de 2004? ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q143_p23.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "13º",
+        "B": "12º ",
+        "C": "11º",
+        "D": "10º",
+        "E": "9º"
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 144,
       "pagina": 23,
-      "enunciado": "Questão 144 A resistência elétrica e as dimensões do condutor A relação da resistência elétrica com as dimensões do condutor foi estudada por um grupo de cientistas por meio de vários experimentos de eletricidade. Eles verificaram que existe proporcionalidade entre: • resistência (R) e comprimento (ℓ), dada a mesma • resistência (R) e área da secção transversal (A), dado o mesmo comprimento (ℓ) e • comprimento (ℓ) e área da , dada a mesma resistência (R). Considerando os resistores como fios, pode-se exemplificar o estudo das grandezas que influem na resistência elétrica utilizando as figuras seguintes. Disponível em: http://www.efeitojoule.com. Acesso em: abr. 2010 (adaptado). se ção transversal (A); c se ção transversal (A) c",
+      "enunciado": "Questão 144 A resistência elétrica e as dimensões do condutor A relação da resistência elétrica com as dimensões do condutor foi estudada por um grupo de cientistas por meio de vários experimentos de eletricidade. Eles verificaram que existe proporcionalidade entre:  resistência (R) e comprimento (ℓ), dada a mesma se ção transversal (A), resistência (R) e área da secção transversal (A), dado o mesmo comprimento (ℓ) e, comprimento (ℓ) e área da , dada a mesma resistência (R). Considerando os resistores como fios, pode-se exemplificar o estudo das grandezas que influem na resistência elétrica utilizando as figuras seguintes. As figuras mostram que as proporcionalidades existentes entre resistência (R) e comprimento (ℓ), resistência (R) e área da secção transversal (A), e entre comprimento (ℓ) e área da secção transversal (A) são, respectivamente, ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q144_p23.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "direta, direta e direta.",
+        "B": "direta, direta e inversa ",
+        "C": "direta, inversa e direta",
+        "D": "inversa, direta e direta.",
+        "E": "inversa, direta e inversa."
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 145,
       "pagina": 23,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 22 Questão 145 Os dados do gráfico seguinte foram gerados a partir de dados colhidos no conjunto de seis regiões metropolitanas pelo Departamento Intersindical de Estatística e Estudos Socioeconômicos (Dieese). 14,7 10,2 9,8 19,3 19,9 13,1 0 5 10 15 20 25 Distrito Federal Belo Horizonte Porto Alegre Recife Salvador São Paulo Taxas de desemprego nas regiões metropolitanas março/2010 Disponível em: http://g1.globo.com. Acesso em: 28 abr. 2010 (adaptado). Supondo que o total de pessoas pesquisadas na região metropolitana de Porto Alegre equivale a 250 000, o número de desempregados em março de 2010, nessa região, foi de 24 500. 25 000. 220 500. 223 000. 227 500. Rascunho",
+      "enunciado": " Questão 145 Os dados do gráfico seguinte foram gerados a partir de dados colhidos no conjunto de seis regiões metropolitanas pelo Departamento Intersindical de Estatística e Estudos Socioeconômicos (Dieese). 14,7 10,2 9,8 19,3 19,9 13,1 0 5 10 15 20 25 Distrito Federal Belo Horizonte Porto Alegre Recife Salvador São Paulo Taxas de desemprego nas regiões metropolitanas março/2010 Disponível em: http://g1.globo.com. Acesso em: 28 abr. 2010 (adaptado). Supondo que o total de pessoas pesquisadas na região metropolitana de Porto Alegre equivale a 250 000, o número de desempregados em março de 2010, nessa região, foi de ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q145_p23.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "24 500.",
+        "B": "25 000 ",
+        "C": "220 500.",
+        "D": "223 000",
+        "E": "227 500."
+      },
       "gabarito": "A"
     },
     {
       "ano": 2010,
       "numero": 146,
       "pagina": 24,
-      "enunciado": "Questão 146 A siderúrgica “Metal Nobre” produz diversos objetos maciços utilizando o ferro. Um tipo especial de peça feita nessa companhia tem o formato de um paralelepípedo retangular, de acordo com as dimensões indicadas na figura que segue. O produto das três dimensões indicadas na peça resultaria na medida da grandeza massa. volume. superfície. capacidade. comprimento.",
+      "enunciado": "Questão 146 A siderúrgica “Metal Nobre” produz diversos objetos maciços utilizando o ferro. Um tipo especial de peça feita nessa companhia tem o formato de um paralelepípedo retangular, de acordo com as dimensões indicadas na figura que segue. O produto das três dimensões indicadas na peça resultaria na medida da grandeza",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q146_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "massa",
+        "B": "volume.",
+        "C": "superfície.",
+        "D": "capacidade. ",
+        "E": "comprimento."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 147,
       "pagina": 24,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 23 p Questão 147 A figura a seguir é a representação de uma região por meio de curvas de nível, que são curvas fechadas representando a altitude da região, com relação ao nível do mar. As coordenadas estão expressas em graus de acordo com a longitude, no eixo horizontal, e a latitude, no eixo vertical. A escala em tons de cinza desenhada à direita está associada à altitude da região. Um pequeno helicóptero usado para reconhecimento sobrevoa a região a partir do ponto X = (20; 60). O helicóptero segue o percurso: 0,8° L → 0,5° N → 0,2° O → 0,1° S → 0,4° N → 0,3° L. Ao final, desce verticalmente até pousar no solo. De acordo com as orientações, o helicóptero pousou em um local cuja altitude é menor ou igual a 200 m. maior que 200 m e menor ou igual a 400 m. maior que 400 m e menor ou igual a 600 m. maior que 600 m e menor ou igual a 800 m. maior que 800 m.",
+      "enunciado": " Questão 147 A figura a seguir é a representação de uma região por meio de curvas de nível, que são curvas fechadas representando a altitude da região, com relação ao nível do mar. As coordenadas estão expressas em graus de acordo com a longitude, no eixo horizontal, e a latitude, no eixo vertical. A escala em tons de cinza desenhada à direita está associada à altitude da região. Um pequeno helicóptero usado para reconhecimento sobrevoa a região a partir do ponto X = (20; 60). O helicóptero segue o percurso: 0,8° L → 0,5° N → 0,2° O → 0,1° S → 0,4° N → 0,3° L. Ao final, desce verticalmente até pousar no solo. De acordo com as orientações, o helicóptero pousou em um local cuja altitude é ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q147_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "menor ou igual a 200 m.",
+        "B": "maior que 200 m e menor ou igual a 400 m.",
+        "C": "maior que 400 m e menor ou igual a 600 m",
+        "D": "maior que 600 m e menor ou igual a 800 m ",
+        "E": "maior que 800 m"
+      },
       "gabarito": "A"
     },
     {
       "ano": 2010,
       "numero": 148,
       "pagina": 24,
-      "enunciado": "Questão 148 O gráfico a seguir apresenta o gasto militar dos Estados Unidos, no período de 1988 a 2006. Almanaque Abril 2008. Editora Abril. Com base no gráfico, o gasto militar no início da guerra no Iraque foi de U$ 4.174.000,00. U$ 41.740.000,00. U$ 417.400.000,00. U$ 41.740.000.000,00. U$ 417.400.000.000,00.",
+      "enunciado": "Questão 148 O gráfico a seguir apresenta o gasto militar dos Estados Unidos, no período de 1988 a 2006. Almanaque Abril 2008. Editora Abril. Com base no gráfico, o gasto militar no início da guerra no Iraque foi de ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q148_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "U$ 4.174.000,00.",
+        "B": "U$ 41.740.000,00.",
+        "C": "U$ 417.400.000,00.",
+        "D": "U$ 41.740.000.000,00. ",
+        "E": "U$ 417.400.000.000,00."
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 149,
       "pagina": 24,
-      "enunciado": "Questão 149 Uma professora realizou uma atividade com seus alunos utilizando canudos de refrigerante para montar figuras, onde cada lado foi representado por um canudo. A quantidade de canudos (C) de cada figura depende da quantidade de quadrados (Q) que formam cada figura. A estrutura de formação das figuras está representada a seguir. Que expressão fornece a quantidade de canudos em função da quantidade de quadrados de cada figura? C = 4Q C = 3Q + 1 C = 4Q - 1 C = Q + 3 C = 4Q - 2",
+      "enunciado": "Questão 149 Uma professora realizou uma atividade com seus alunos utilizando canudos de refrigerante para montar figuras, onde cada lado foi representado por um canudo. A quantidade de canudos (C) de cada figura depende da quantidade de quadrados (Q) que formam cada figura. A estrutura de formação das figuras está representada a seguir. Que expressão fornece a quantidade de canudos em função da quantidade de quadrados de cada figura?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q149_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "C = 4Q",
+        "B": "C = 3Q + 1",
+        "C": "C = 4Q - 1",
+        "D": "C = Q + 3",
+        "E": "C = 4Q - 2"
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 150,
       "pagina": 24,
-      "enunciado": "Questão 150 A loja Telas & Molduras cobra 20 reais por metro quadrado de tela, 15 reais por metro linear de moldura, mais uma taxa fixa de entrega de 10 reais. Uma artista plástica precisa encomendar telas e molduras a essa loja, suficientes para 8 quadros retangulares (25 cm × 50 cm). Em seguida, fez uma segunda encomenda, mas agora para 8 quadros retangulares (50 cm × 100 cm). O valor da segunda encomenda será o dobro do valor da primeira encomenda, porque a altura e a largura dos quadros dobraram. maior do que o valor da primeira encomenda, mas não o dobro. a metade do valor da primeira encomenda, porque a altura e a largura dos quadros dobraram. menor do que o valor da primeira encomenda, mas não a metade. igual ao valor da primeira encomenda, porque o custo de entrega será o mesmo.",
-      "tem_imagem": true,
+      "enunciado": "Questão 150 A loja Telas & Molduras cobra 20 reais por metro quadrado de tela, 15 reais por metro linear de moldura, mais uma taxa fixa de entrega de 10 reais. Uma artista plástica precisa encomendar telas e molduras a essa loja, suficientes para 8 quadros retangulares (25 cm × 50 cm). Em seguida, fez uma segunda encomenda, mas agora para 8 quadros retangulares (50 cm × 100 cm). O valor da segunda encomenda será",
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q150_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "o dobro do valor da primeira encomenda, porque a altura e a largura dos quadros dobraram.",
+        "B": "maior do que o valor da primeira encomenda, mas não o dobro.",
+        "C": "a metade do valor da primeira encomenda, porque a altura e a largura dos quadros dobraram.",
+        "D": "menor do que o valor da primeira encomenda, mas não a metade.",
+        "E": "igual ao valor da primeira encomenda, porque o custo de entrega será o mesmo."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 151,
       "pagina": 25,
-      "enunciado": "Questão 151 Dona Maria, diarista na casa da família Teixeira, precisa fazer café para servir as vinte pessoas que se encontram numa reunião na sala. Para fazer o café, Dona Maria dispõe de uma leiteira cilíndrica e copinhos plásticos, também cilíndricos. Com o objetivo de não desperdiçar café, a diarista deseja colocar a quantidade mínima de água na leiteira para encher os vinte copinhos pela metade. Para que isso ocorra, Dona Maria deverá encher a leiteira até a metade, pois ela tem um volume 20 vezes maior que o volume do copo. encher a leiteira toda de água, pois ela tem um volume 20 vezes maior que o volume do copo. encher a leiteira toda de água, pois ela tem um volume 10 vezes maior que o volume do copo. encher duas leiteiras de água, pois ela tem um volume 10 vezes maior que o volume do copo. encher cinco leiteiras de água, pois ela tem um volume 10 vezes maior que o volume do copo.",
+      "enunciado": "Questão 151 Dona Maria, diarista na casa da família Teixeira, precisa fazer café para servir as vinte pessoas que se encontram numa reunião na sala. Para fazer o café, Dona Maria dispõe de uma leiteira cilíndrica e copinhos plásticos, também cilíndricos. Com o objetivo de não desperdiçar café, a diarista deseja colocar a quantidade mínima de água na leiteira para encher os vinte copinhos pela metade. Para que isso ocorra, Dona Maria deverá ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q151_p25.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "encher a leiteira até a metade, pois ela tem um volume 20 vezes maior que o volume do copo.",
+        "B": "encher a leiteira toda de água, pois ela tem um volume 20 vezes maior que o volume do copo.",
+        "C": "encher a leiteira toda de água, pois ela tem um volume 10 vezes maior que o volume do copo.",
+        "D": "encher duas leiteiras de água, pois ela tem um volume 10 vezes maior que o volume do copo.",
+        "E": "encher cinco leiteiras de água, pois ela tem um volume 10 vezes maior que o volume do copo."
+      },
       "gabarito": "A"
     },
     {
       "ano": 2010,
       "numero": 152,
       "pagina": 25,
-      "enunciado": "q p Questão 152 Em canteiros de obras de construção civil é comum perceber trabalhadores realizando medidas de comprimento e de ângulos e fazendo demarcações por onde a obra deve começar ou se erguer. Em um desses canteiros foram feitas algumas marcas no chão plano. Foi possível perceber que, das seis estacas colocadas, três eram vértices de um triângulo retângulo e as outras três eram os pontos médios dos lados desse triângulo, conforme pode ser visto na figura, em que as estacas foram indicadas por letras. A região demarcada pelas estacas A, B, M e N deveria ser calçada com concreto. Nessas condições, a área a ser calçada corresponde à mesma área do triângulo AMC. à mesma área do triângulo BNC. à metade da área formada pelo triângulo ABC. ao dobro da área do triângulo MNC. ao triplo da área do triângulo MNC.",
+      "enunciado": "Questão 152 Em canteiros de obras de construção civil é comum perceber trabalhadores realizando medidas de comprimento e de ângulos e fazendo demarcações por onde a obra deve começar ou se erguer. Em um desses canteiros foram feitas algumas marcas no chão plano. Foi possível perceber que, das seis estacas colocadas, três eram vértices de um triângulo retângulo e as outras três eram os pontos médios dos lados desse triângulo, conforme pode ser visto na figura, em que as estacas foram indicadas por letras. A região demarcada pelas estacas A, B, M e N deveria ser calçada com concreto. Nessas condições, a área a ser calçada corresponde ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q152_p25.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "à mesma área do triângulo AMC.",
+        "B": "à mesma área do triângulo BNC.",
+        "C": "à metade da área formada pelo triângulo ABC.",
+        "D": "ao dobro da área do triângulo MNC.",
+        "E": "ao triplo da área do triângulo MNC."
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 153,
       "pagina": 25,
-      "enunciado": "Questão 153 O jornal de certa cidade publicou em uma página inteira a seguinte divulgação de seu caderno de classificados. Para que a propaganda seja fidedigna à porcentagem da área que aparece na divulgação, a medida do lado do retângulo que representa os 4%, deve ser de aproximadamente 1 mm. 10 mm. 17 mm. 160 mm. 167 mm.",
+      "enunciado": "Questão 153 O jornal de certa cidade publicou em uma página inteira a seguinte divulgação de seu caderno de classificados. Para que a propaganda seja fidedigna à porcentagem da área que aparece na divulgação, a medida do lado do retângulo que representa os 4%, deve ser de aproximadamente",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q153_p25.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1 mm.",
+        "B": "10 mm",
+        "C": "17 mm.",
+        "D": "160 mm.",
+        "E": "167 mm."
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 154,
       "pagina": 25,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 24 Questão 154 Uma empresa possui um sistema de controle de qualidade que classifica o seu desempenho financeiro anual, tendo como base o do ano anterior. Os conceitos são: insuficiente, quando o crescimento é menor que 1%; regular, quando o crescimento é maior ou igual a 1% e menor que 5%; bom, quando o crescimento é maior ou igual a 5% e menor que 10%; ótimo, quando é maior ou igual a 10% e menor que 20%; e excelente, quando é maior ou igual a 20%. Essa empresa apresentou lucro de R$ 132 000,00 em 2008 e de R$ 145 000,00 em 2009. De acordo com esse sistema de controle de qualidade, o desempenho financeiro dessa empresa no ano de 2009 deve ser considerado insuficiente. regular. bom. ótimo. excelente.",
-      "tem_imagem": true,
+      "enunciado": " Questão 154 Uma empresa possui um sistema de controle de qualidade que classifica o seu desempenho financeiro anual, tendo como base o do ano anterior. Os conceitos são: insuficiente, quando o crescimento é menor que 1%; regular, quando o crescimento é maior ou igual a 1% e menor que 5%; bom, quando o crescimento é maior ou igual a 5% e menor que 10%; ótimo, quando é maior ou igual a 10% e menor que 20%; e excelente, quando é maior ou igual a 20%. Essa empresa apresentou lucro de R$ 132 000,00 em 2008 e de R$ 145 000,00 em 2009. De acordo com esse sistema de controle de qualidade, o desempenho financeiro dessa empresa no ano de 2009 deve ser considerado ",
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q154_p25.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "insuficiente.",
+        "B": "regular.",
+        "C": "bom.",
+        "D": "ótimo.",
+        "E": "excelente."
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 155,
       "pagina": 26,
-      "enunciado": "Questão 155 Uma escola recebeu do governo uma verba de R$ 1000,00 para enviar dois tipos de folhetos pelo correio. O diretor da escola pesquisou que tipos de selos deveriam ser utilizados. Concluiu que, para o primeiro tipo de folheto, bastava um selo de R$ 0,65 enquanto para folhetos do segundo tipo seriam necessários três selos, um de R$ 0,65, um de R$ 0,60 e um de R$ 0,20. O diretor solicitou que se comprassem selos de modo que fossem postados exatamente 500 folhetos do segundo tipo e uma quantidade restante de selos que permitisse o envio do máximo possível de folhetos do primeiro tipo. Quantos selos de R$ 0,65 foram comprados? 476 675 923 965 1 538",
+      "enunciado": "Questão 155 Uma escola recebeu do governo uma verba de R$ 1000,00 para enviar dois tipos de folhetos pelo correio. O diretor da escola pesquisou que tipos de selos deveriam ser utilizados. Concluiu que, para o primeiro tipo de folheto, bastava um selo de R$ 0,65 enquanto para folhetos do segundo tipo seriam necessários três selos, um de R$ 0,65, um de R$ 0,60 e um de R$ 0,20. O diretor solicitou que se comprassem selos de modo que fossem postados exatamente 500 folhetos do segundo tipo e uma quantidade restante de selos que permitisse o envio do máximo possível de folhetos do primeiro tipo. Quantos selos de R$ 0,65 foram comprados? ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "476",
+        "B": "675",
+        "C": "923",
+        "D": "965",
+        "E": "1 538"
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 156,
       "pagina": 26,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 25 Questão 156 A figura I abaixo mostra um esquema das principais vias que interligam a cidade A com a cidade B. Cada número indicado na figura II representa a probabilidade de pegar um engarrafamento quando se passa na via indicada. Assim, há uma probabilidade de 30% de se pegar engarrafamento no deslocamento do ponto C ao o ponto B, passando pela estrada E4, e de 50%, quando se passa por E3. Essas probabilidades são independentes umas das outras. Paula deseja se deslocar da cidade A para a cidade B usando exatamente duas das vias indicadas, percorrendo um trajeto com a menor probabilidade de engarrafamento possível. O melhor trajeto para Paula é E1E3. E1E4. E2E4. E2E5. E2E6.",
+      "enunciado": "Questão 156 A figura I abaixo mostra um esquema das principais vias que interligam a cidade A com a cidade B. Cada número indicado na figura II representa a probabilidade de pegar um engarrafamento quando se passa na via indicada. Assim, há uma probabilidade de 30% de se pegar engarrafamento no deslocamento do ponto C ao o ponto B, passando pela estrada E4, e de 50%, quando se passa por E3. Essas probabilidades são independentes umas das outras. Paula deseja se deslocar da cidade A para a cidade B usando exatamente duas das vias indicadas, percorrendo um trajeto com a menor probabilidade de engarrafamento possível. O melhor trajeto para Paula é ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q156_p26.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "E1E3.",
+        "B": "E1E4.",
+        "C": "E2E4.",
+        "D": "E2E5.",
+        "E": "E2E6"
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 157,
       "pagina": 26,
-      "enunciado": "Questão 157 Para construir uma manilha de esgoto, um cilindro com 2 m de diâmetro e 4 m de altura (de espessura desprezível), foi envolvido homogeneamente por uma camada de concreto, contendo 20 cm de espessura. Supondo que cada metro cúbico de concreto custe R$ 10,00 e tomando 3,1 como valor aproximado de π, então o preço dessa manilha é igual a R$ 230,40. R$ 124,00. R$ 104,16. R$ 54,56. R$ 49,60.",
+      "enunciado": "Questão 157 Para construir uma manilha de esgoto, um cilindro com 2 m de diâmetro e 4 m de altura (de espessura desprezível), foi envolvido homogeneamente por uma camada de concreto, contendo 20 cm de espessura. Supondo que cada metro cúbico de concreto custe R$ 10,00 e tomando 3,1 como valor aproximado de π, então o preço dessa manilha é igual a ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "R$ 230,40.",
+        "B": "R$ 124,00.",
+        "C": "R$ 104,16.",
+        "D": "R$ 54,56.",
+        "E": "R$ 49,60"
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 158,
       "pagina": 26,
-      "enunciado": "Questão 158 No manejo sustentável de florestas, é preciso muitas vezes obter o volume da tora que pode ser obtida a partir de uma árvore. Para isso, existe um método prático, em que se mede a circunferência da árvore à altura do peito de um homem (1,30 m), conforme indicado na figura. A essa medida denomina-se “rodo” da árvore. O quadro a seguir indica a fórmula para se cubar, ou seja, obter o volume da tora em m3 a partir da medida do rodo e da altura da árvore. O volume da tora em m3 é dado por V = rodo2 × altura × 0,06 O rodo e a altura da árvore devem ser medidos em metros. O coeficiente 0,06 foi obtido experimentalmente. Um técnico em manejo florestal recebeu a missão de cubar, abater e transportar cinco toras de madeira, de duas espécies diferentes, sendo • 3 toras da espécie I, com 3 m de rodo, 12 m de comprimento e densidade 0,77 toneladas/m3; • 2 toras da espécie II, com 4 m de rodo, 10 m de comprimento e densidade 0,78 toneladas/m3. Após realizar seus cálculos, o técnico solicitou que enviassem caminhões para transportar uma carga de, aproximadamente, 29,9 toneladas. 31,1 toneladas. 32,4 toneladas. 35,3 toneladas. 41,8 toneladas.",
+      "enunciado": "Questão 158 No manejo sustentável de florestas, é preciso muitas vezes obter o volume da tora que pode ser obtida a partir de uma árvore. Para isso, existe um método prático, em que se mede a circunferência da árvore à altura do peito de um homem (1,30 m), conforme indicado na figura. A essa medida denomina-se “rodo” da árvore. O quadro a seguir indica a fórmula para se cubar, ou seja, obter o volume da tora em m3 a partir da medida do rodo e da altura da árvore. O volume da tora em m3 é dado por V = rodo2 × altura × 0,06 O rodo e a altura da árvore devem ser medidos em metros. O coeficiente 0,06 foi obtido experimentalmente. Um técnico em manejo florestal recebeu a missão de cubar, abater e transportar cinco toras de madeira, de duas espécies diferentes, sendo • 3 toras da espécie I, com 3 m de rodo, 12 m de comprimento e densidade 0,77 toneladas/m3; • 2 toras da espécie II, com 4 m de rodo, 10 m de comprimento e densidade 0,78 toneladas/m3. Após realizar seus cálculos, o técnico solicitou que enviassem caminhões para transportar uma carga de, aproximadamente, ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q158_p26.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "29,9 toneladas.",
+        "B": "31,1 toneladas",
+        "C": "32,4 toneladas.",
+        "D": "35,3 toneladas",
+        "E": "41,8 toneladas"
+      },
       "gabarito": "A"
     },
     {
       "ano": 2010,
       "numero": 159,
       "pagina": 27,
-      "enunciado": "Questão 159 Embora o Índice de Massa Corporal (IMC) seja amplamente utilizado, existem ainda inúmeras restrições teóricas ao uso e às faixas de normalidade preconizadas. O Recíproco do Índice Ponderal (RIP), de acordo com o modelo alométrico, possui uma melhor fundamentação matemática, já que a massa é uma variável de dimensões cúbicas e a altura, uma variável de dimensões lineares. As fórmulas que determinam esses índices são: ( ) [ ] 2 ) ( m altura kg massa IMC = 3 ) ( ) ( kg cm altura RIP = massa ARAUJO, C. G. S.; RICARDO, D. R. Índice de Massa Corporal: Um Questionamento Científico Baseado em Evidências. Arq. Bras. Cardiologia, volume 79, nº 1, 2002 (adaptado). Se uma menina, com 64 kg de massa, apresenta IMC igual a 25 kg/m2, então ela possui RIP igual a 0,4 cm/kg1/3. 2,5 cm/kg1/3. 8 cm/kg1/3. 20 cm/kg1/3. 40 cm/kg1/3.",
+      "enunciado": "Questão 159 Embora o Índice de Massa Corporal (IMC) seja amplamente utilizado, existem ainda inúmeras restrições teóricas ao uso e às faixas de normalidade preconizadas. O Recíproco do Índice Ponderal (RIP), de acordo com o modelo alométrico, possui uma melhor fundamentação matemática, já que a massa é uma variável de dimensões cúbicas e a altura, uma variável de dimensões lineares. As fórmulas que determinam esses índices são: ( ) [ ] 2 ) ( m altura kg massa IMC = 3 ) ( ) ( kg cm altura RIP = massa ARAUJO, C. G. S.; RICARDO, D. R. Índice de Massa Corporal: Um Questionamento Científico Baseado em Evidências. Arq. Bras. Cardiologia, volume 79, nº 1, 2002 (adaptado). Se uma menina, com 64 kg de massa, apresenta IMC igual a 25 kg/m^2, então ela possui RIP igual a ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "0,4 cm/kg^1/3.",
+        "B": "2,5 cm/kg^1/3.",
+        "C": "8 cm/kg^1/3.",
+        "D": "20 cm/kg^1/3.",
+        "E": "40 cm/kg^1/3."
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 160,
       "pagina": 27,
-      "enunciado": "g Questão 160 Um balão atmosférico, lançado em Bauru (343 quilômetros a Noroeste de São Paulo), na noite do último domingo, caiu nesta segunda-feira em Cuiabá Paulista, na região de Presidente Prudente, assustando agricultores da região. O artefato faz parte do programa Projeto Hibiscus, desenvolvido por Brasil, França, Argentina, Inglaterra e Itália, para a medição do comportamento da camada de ozônio, e sua descida se deu após o cumprimento do tempo previsto de medição. Disponível em: http://www.correiodobrasil.com.br. Acesso em: 02 maio 2010. Na data do acontecido, duas pessoas avistaram o balão. Uma estava a 1,8 km da posição vertical do balão e o avistou sob um ângulo de 60°; a outra estava a 5,5 km da posição vertical do balão, alinhada com a primeira, e no mesmo sentido, conforme se vê na figura, e o avistou sob um ângulo de 30°. Qual a altura aproximada em que se encontrava o balão? 1,8 km 1,9 km 3,1 km 3,7 km 5,5 km",
+      "enunciado": "Questão 160 Um balão atmosférico, lançado em Bauru (343 quilômetros a Noroeste de São Paulo), na noite do último domingo, caiu nesta segunda-feira em Cuiabá Paulista, na região de Presidente Prudente, assustando agricultores da região. O artefato faz parte do programa Projeto Hibiscus, desenvolvido por Brasil, França, Argentina, Inglaterra e Itália, para a medição do comportamento da camada de ozônio, e sua descida se deu após o cumprimento do tempo previsto de medição. Disponível em: http://www.correiodobrasil.com.br. Acesso em: 02 maio 2010. Na data do acontecido, duas pessoas avistaram o balão. Uma estava a 1,8 km da posição vertical do balão e o avistou sob um ângulo de 60°; a outra estava a 5,5 km da posição vertical do balão, alinhada com a primeira, e no mesmo sentido, conforme se vê na figura, e o avistou sob um ângulo de 30°. Qual a altura aproximada em que se encontrava o balão? ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q160_p27.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1,8 km",
+        "B": "1,9 km",
+        "C": "3,1 km",
+        "D": "3,7 km",
+        "E": "5,5 km"
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 161,
       "pagina": 27,
-      "enunciado": "Questão 161 Um satélite de telecomunicações, t minutos após ter atingido sua órbita, está a r quilômetros de distância do centro da Terra. Quando r assume seus valores máximo e mínimo, diz-se que o satélite atingiu o apogeu e o perigeu, respectivamente. Suponha que, para esse satélite, o valor de r em função de t seja dado por r(t) = cos(0,06t) 0,15 1 865 5  + Um cientista monitora o movimento desse satélite para controlar o seu afastamento do centro da Terra. Para isso, ele precisa calcular a soma dos valores de r, no apogeu e no perigeu, representada por S. O cientista deveria concluir que, periodicamente, S atinge o valor de 12 765 km. 12 000 km. 11 730 km. 10 965 km. 5 865 km.",
+      "enunciado": "Questão 161 Um satélite de telecomunicações, t minutos após ter atingido sua órbita, está a r quilômetros de distância do centro da Terra. Quando r assume seus valores máximo e mínimo, diz-se que o satélite atingiu o apogeu e o perigeu, respectivamente. Suponha que, para esse satélite, o valor de r em função de t seja dado por r(t) = cos(0,06t) 0,15 1 865 5  + Um cientista monitora o movimento desse satélite para controlar o seu afastamento do centro da Terra. Para isso, ele precisa calcular a soma dos valores de r, no apogeu e no perigeu, representada por S. O cientista deveria concluir que, periodicamente, S atinge o valor de ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q161_p27.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "12 765 km.",
+        "B": "12 000 km.",
+        "C": "11 730 km.",
+        "D": "10 965 km.",
+        "E": "5 865 km"
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 162,
       "pagina": 27,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 26 Questão 162 Uma empresa vende tanques de combustíveis de formato cilíndrico, em três tamanhos, com medidas indicadas nas figuras. O preço do tanque é diretamente proporcional à medida da área da superfície lateral do tanque. O dono de um posto de combustível deseja encomendar um tanque com menor custo por metro cúbico de capacidade de armazenamento. Qual dos tanques deverá ser escolhido pelo dono do posto? (Considere π 3) I, pela relação área/capacidade de armazenamento de 1 . 3 I, pela relação área/capacidade de armazenamento de 4 . 3 II, pela relação área/capacidade de armazenamento de 3 . 4 III, pela relação área/capacidade de armazenamento de 2 . 3 III, pela relação área/capacidade de armazenamento de 7 . 12 ~=",
+      "enunciado": " Questão 162 Uma empresa vende tanques de combustíveis de formato cilíndrico, em três tamanhos, com medidas indicadas nas figuras. O preço do tanque é diretamente proporcional à medida da área da superfície lateral do tanque. O dono de um posto de combustível deseja encomendar um tanque com menor custo por metro cúbico de capacidade de armazenamento. Qual dos tanques deverá ser escolhido pelo dono do posto? (Considere π 3)",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q162_p27.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "I, pela relação área/capacidade de armazenamento de 1/3. ",
+        "B": "I, pela relação área/capacidade de armazenamento de 4/3. ",
+        "C": "II, pela relação área/capacidade de armazenamento de 3/4. ",
+        "D": "III, pela relação área/capacidade de armazenamento de 2/3. ",
+        "E": "III, pela relação área/capacidade de armazenamento de 7/12. "
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 163,
       "pagina": 28,
-      "enunciado": "Questão 163 Nos processos industriais, como na indústria de cerâmica, é necessário o uso de fornos capazes de produzir elevadas temperaturas e, em muitas situações, o tempo de elevação dessa temperatura deve ser controlado, para garantir a qualidade do produto final e a economia no processo. Em uma indústria de cerâmica, o forno é programado para elevar a temperatura ao longo do tempo de acordo com a função em que T é o valor da temperatura atingida pelo forno, em graus Celsius, e t é o tempo, em minutos, decorrido desde o instante em que o forno é ligado. Uma peça deve ser colocada nesse forno quando a temperatura for 48 °C e retirada quando a temperatura for 200 °C. O tempo de permanência dessa peça no forno é, em minutos, igual a 100. 108. 128. 130. 150.",
+      "enunciado": "Questão 163 Nos processos industriais, como na indústria de cerâmica, é necessário o uso de fornos capazes de produzir elevadas temperaturas e, em muitas situações, o tempo de elevação dessa temperatura deve ser controlado, para garantir a qualidade do produto final e a economia no processo. Em uma indústria de cerâmica, o forno é programado para elevar a temperatura ao longo do tempo de acordo com a função em que T é o valor da temperatura atingida pelo forno, em graus Celsius, e t é o tempo, em minutos, decorrido desde o instante em que o forno é ligado. Uma peça deve ser colocada nesse forno quando a temperatura for 48 °C e retirada quando a temperatura for 200 °C. O tempo de permanência dessa peça no forno é, em minutos, igual a ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q163_p28.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "100.",
+        "B": "108.",
+        "C": "128.",
+        "D": "130.",
+        "E": "150."
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 164,
       "pagina": 28,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 27 Questão 164 Uma metalúrgica recebeu uma encomenda para fabricar, em grande quantidade, uma peça com o formato de um prisma reto com base triangular, cujas dimensões da base são 6 cm, 8 cm e 10 cm e cuja altura é 10 cm. Tal peça deve ser vazada de tal maneira que a perfuração na forma de um cilindro circular reto seja tangente às suas faces laterais, conforme mostra a figura. O raio da perfuração da peça é igual a 1 cm. 2 cm. 3 cm. 4 cm. 5 cm.",
+      "enunciado": "Questão 164 Uma metalúrgica recebeu uma encomenda para fabricar, em grande quantidade, uma peça com o formato de um prisma reto com base triangular, cujas dimensões da base são 6 cm, 8 cm e 10 cm e cuja altura é 10 cm. Tal peça deve ser vazada de tal maneira que a perfuração na forma de um cilindro circular reto seja tangente às suas faces laterais, conforme mostra a figura. O raio da perfuração da peça é igual a ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q164_p28.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1 cm.",
+        "B": "2 cm.",
+        "C": "3 cm.",
+        "D": "4 cm.",
+        "E": "5 cm."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 165,
       "pagina": 28,
-      "enunciado": "Questão 165 A ideia de usar rolos circulares para deslocar objetos pesados provavelmente surgiu com os antigos egípcios ao construírem as pirâmides. R BOLT, Brian. Atividades matemáticas.Ed.Gradiva. Representando por R o raio da base dos rolos cilíndricos, em metros, a expressão do deslocamento horizontal y do bloco de pedra em função de R, após o rolo ter dado uma volta completa sem deslizar, é y = R. y = 2R. y = πR. y = 2πR. y = 4πR.",
+      "enunciado": "Questão 165 A ideia de usar rolos circulares para deslocar objetos pesados provavelmente surgiu com os antigos egípcios ao construírem as pirâmides. R BOLT, Brian. Atividades matemáticas.Ed.Gradiva. Representando por R o raio da base dos rolos cilíndricos, em metros, a expressão do deslocamento horizontal y do bloco de pedra em função de R, após o rolo ter dado uma volta completa sem deslizar, é ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q165_p28.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "y = R.",
+        "B": "y = 2R.",
+        "C": "y = πR.",
+        "D": "y = 2πR.",
+        "E": "y = 4πR."
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 166,
       "pagina": 28,
-      "enunciado": "y Questão 166 O gráfico mostra o número de favelas no município do Rio de Janeiro entre 1980 e 2004, considerando que a variação nesse número entre os anos considerados é linear. Favela Tem Memória. Época. Nº 621, 12 abr. 2010 (adaptado). Se o padrão na variação do período 2004/2010 se mantiver nos próximos 6 anos, e sabendo que o número de favelas em 2010 é 968, então o número de favelas em 2016 será menor que 1 150. 218 unidades maior que em 2004. maior que 1 150 e menor que 1 200. 177 unidades maior que em 2010. maior que 1 200.",
+      "enunciado": "Questão 166 O gráfico mostra o número de favelas no município do Rio de Janeiro entre 1980 e 2004, considerando que a variação nesse número entre os anos considerados é linear. Favela Tem Memória. Época. Nº 621, 12 abr. 2010 (adaptado). Se o padrão na variação do período 2004/2010 se mantiver nos próximos 6 anos, e sabendo que o número de favelas em 2010 é 968, então o número de favelas em 2016 será ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q166_p28.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "menor que 1 150.",
+        "B": "218 unidades maior que em 2004.",
+        "C": "maior que 1 150 e menor que 1 200. ",
+        "D": "177 unidades maior que em 2010.",
+        "E": "maior que 1 200."
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 167,
       "pagina": 29,
-      "enunciado": "Questão 167 O gráfico apresenta a quantidade de gols marcados pelos artilheiros das Copas do Mundo desde a Copa de 1930 até a de 2006. Quantidades de Gols dos Artilheiros das Copas do Mundo Disponível em: http://www.suapesquisa.com. Acesso em: 23 abr. 2010 (adaptado). A partir dos dados apresentados, qual a mediana das quantidades de gols marcados pelos artilheiros das Copas do Mundo? 6 gols 6,5 gols 7 gols 7,3 gols 8,5 gols",
+      "enunciado": "Questão 167 O gráfico apresenta a quantidade de gols marcados pelos artilheiros das Copas do Mundo desde a Copa de 1930 até a de 2006. Quantidades de Gols dos Artilheiros das Copas do Mundo Disponível em: http://www.suapesquisa.com. Acesso em: 23 abr. 2010 (adaptado). A partir dos dados apresentados, qual a mediana das quantidades de gols marcados pelos artilheiros das Copas do Mundo?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q167_p29.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "6 gols",
+        "B": "6,5 gols",
+        "C": "7 gols",
+        "D": "7,3 gols",
+        "E": "8,5 gols"
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 168,
       "pagina": 29,
-      "enunciado": "g Questão 168 Em um casamento, os donos da festa serviam champanhe aos seus convidados em taças com formato de um hemisfério (Figura 1), porém um acidente na cozinha culminou na quebra de grande parte desses recipientes. Para substituir as taças quebradas, utilizou-se um outro tipo com formato de cone (Figura 2). No entanto, os noivos solicitaram que o volume de champanhe nos dois tipos de taças fosse igual. Considere: Sabendo que a taça com o formato de hemisfério é servida completamente cheia, a altura do volume de champanhe que deve ser colocado na outra taça, em centímetros, é de 1,33. 6,00. 12,00. 56,52. 113,04.",
+      "enunciado": "Questão 168 Em um casamento, os donos da festa serviam champanhe aos seus convidados em taças com formato de um hemisfério (Figura 1), porém um acidente na cozinha culminou na quebra de grande parte desses recipientes. Para substituir as taças quebradas, utilizou-se um outro tipo com formato de cone (Figura 2). No entanto, os noivos solicitaram que o volume de champanhe nos dois tipos de taças fosse igual. Considere: Sabendo que a taça com o formato de hemisfério é servida completamente cheia, a altura do volume de champanhe que deve ser colocado na outra taça, em centímetros, é de ",
       "tem_imagem": true,
       "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q168_p29.png"
+        "dados/enem/imagens_questoes/2010/enem_2010_q168_p29.png",
+        "dados/enem/imagens_questoes/2010/enem_2010_q168_f2_p29.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1,33.",
+        "B": "6,00.",
+        "C": "12,00.",
+        "D": "56,52.",
+        "E": "113,04."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 169,
       "pagina": 29,
-      "enunciado": "Questão 169 O Salto Triplo é uma modalidade do atletismo em que o atleta dá um salto em um só pé, uma passada e um salto, nessa ordem. Sendo que o salto com impulsão em um só pé será feito de modo que o atleta caia primeiro sobre o mesmo pé que deu a impulsão; na passada ele cairá com o outro pé, do qual o salto é realizado. Disponível em: www.cbat.org.br (adaptado). Um atleta da modalidade Salto Triplo, depois de estudar seus movimentos, percebeu que, do segundo para o primeiro salto, o alcance diminuía em 1,2 m, e, do terceiro para o segundo salto, o alcance diminuía 1,5 m. Querendo atingir a meta de 17,4 m nessa prova e considerando os seus estudos, a distância alcançada no primeiro salto teria de estar entre 4,0 m e 5,0 m. 5,0 m e 6,0 m. 6,0 m e 7,0 m. 7,0 m e 8,0 m. 8,0 m e 9,0 m.",
+      "enunciado": "Questão 169 O Salto Triplo é uma modalidade do atletismo em que o atleta dá um salto em um só pé, uma passada e um salto, nessa ordem. Sendo que o salto com impulsão em um só pé será feito de modo que o atleta caia primeiro sobre o mesmo pé que deu a impulsão; na passada ele cairá com o outro pé, do qual o salto é realizado. Disponível em: www.cbat.org.br (adaptado). Um atleta da modalidade Salto Triplo, depois de estudar seus movimentos, percebeu que, do segundo para o primeiro salto, o alcance diminuía em 1,2 m, e, do terceiro para o segundo salto, o alcance diminuía 1,5 m. Querendo atingir a meta de 17,4 m nessa prova e considerando os seus estudos, a distância alcançada no primeiro salto teria de estar entre ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "4,0 m e 5,0 m.",
+        "B": "5,0 m e 6,0 m.",
+        "C": "6,0 m e 7,0 m.",
+        "D": "7,0 m e 8,0 m.",
+        "E": "8,0 m e 9,0 m."
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 170,
       "pagina": 29,
-      "enunciado": "Questão 170 Um grupo de pacientes com Hepatite C foi submetido a um tratamento tradicional em que 40% desses pacientes foram completamente curados. Os pacientes que não obtiveram cura foram distribuídos em dois grupos de mesma quantidade e submetidos a dois tratamentos inovadores. No primeiro tratamento inovador, 35% dos pacientes foram curados e, no segundo, 45%. Em relação aos pacientes submetidos inicialmente, os tratamentos inovadores proporcionaram cura de 16%. 24%. 32%. 48%. 64%.",
+      "enunciado": "Questão 170 Um grupo de pacientes com Hepatite C foi submetido a um tratamento tradicional em que 40% desses pacientes foram completamente curados. Os pacientes que não obtiveram cura foram distribuídos em dois grupos de mesma quantidade e submetidos a dois tratamentos inovadores. No primeiro tratamento inovador, 35% dos pacientes foram curados e, no segundo, 45%. Em relação aos pacientes submetidos inicialmente, os tratamentos inovadores proporcionaram cura de ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "16%.",
+        "B": "24%",
+        "C": "32%.",
+        "D": "48%.",
+        "E": "64%."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 171,
       "pagina": 29,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 28 Questão 171 Marco e Paulo foram classificados em um concurso. Para classificação no concurso o candidato deveria obter média aritmética na pontuação igual ou superior a 14. Em caso de empate na média, o desempate seria em favor da pontuação mais regular. No quadro a seguir são apresentados os pontos obtidos nas provas de Matemática, Português e Conhecimentos Gerais, a média, a mediana e o desvio padrão dos dois candidatos. Dados dos candidatos no concurso Matemática Português Conhecimentos Gerais Média Mediana Desvio Padrão Marco 14 15 16 15 15 0,32 Paulo 8 19 18 15 18 4,97 O candidato com pontuação mais regular, portanto mais bem classificado no concurso, é Marco, pois a média e a mediana são iguais. Marco, pois obteve menor desvio padrão. Paulo, pois obteve a maior pontuação da tabela, 19 em Português. Paulo, pois obteve maior mediana. Paulo, pois obteve maior desvio padrão.",
+      "enunciado": "Questão 171 Marco e Paulo foram classificados em um concurso. Para classificação no concurso o candidato deveria obter média aritmética na pontuação igual ou superior a 14. Em caso de empate na média, o desempate seria em favor da pontuação mais regular. No quadro a seguir são apresentados os pontos obtidos nas provas de Matemática, Português e Conhecimentos Gerais, a média, a mediana e o desvio padrão dos dois candidatos. Dados dos candidatos no concurso Matemática Português Conhecimentos Gerais Média Mediana Desvio Padrão Marco 14 15 16 15 15 0,32 Paulo 8 19 18 15 18 4,97 O candidato com pontuação mais regular, portanto mais bem classificado no concurso, é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q171_p29.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "Marco, pois a média e a mediana são iguais. ",
+        "B": "Marco, pois obteve menor desvio padrão. ",
+        "C": "Paulo, pois obteve a maior pontuação da tabela, 19 em Português. ",
+        "D": "Paulo, pois obteve maior mediana. ",
+        "E": "Paulo, pois obteve maior desvio padrão. "
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 172,
       "pagina": 30,
-      "enunciado": "Questão 172 Em 2006, a produção mundial de etanol foi de 40 bilhões de litros e a de biodiesel, de 6,5 bilhões. Neste mesmo ano, a produção brasileira de etanol correspondeu a 43 % da produção mundial, ao passo que a produção dos Estados Unidos da América, usando milho, foi de 45%. Disponível em: planetasustentavel.abril.com.br. Acesso em: 02 maio 2009. Considerando que, em 2009, a produção mundial de etanol seja a mesma de 2006 e que os Estados Unidos produzirão somente a metade de sua produção de 2006, para que o total produzido pelo Brasil e pelos Estados Unidos continue correspondendo a 88% da produção mundial, o Brasil deve aumentar sua produção em, aproximadamente, 22,5%. 50,0%. 52,3%. 65,5%. 77,5%.",
-      "tem_imagem": true,
+      "enunciado": "Questão 172 Em 2006, a produção mundial de etanol foi de 40 bilhões de litros e a de biodiesel, de 6,5 bilhões. Neste mesmo ano, a produção brasileira de etanol correspondeu a 43 % da produção mundial, ao passo que a produção dos Estados Unidos da América, usando milho, foi de 45%. Disponível em: planetasustentavel.abril.com.br. Acesso em: 02 maio 2009. Considerando que, em 2009, a produção mundial de etanol seja a mesma de 2006 e que os Estados Unidos produzirão somente a metade de sua produção de 2006, para que o total produzido pelo Brasil e pelos Estados Unidos continue correspondendo a 88% da produção mundial, o Brasil deve aumentar sua produção em, aproximadamente, ",
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2010/enem_2010_q172_p30.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "22,5%.",
+        "B": "50,0%.",
+        "C": "52,3%.",
+        "D": "65,5%.",
+        "E": "77,5%."
+      },
       "gabarito": "C"
     },
     {
       "ano": 2010,
       "numero": 173,
       "pagina": 30,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 29 Questão 173 O diretor de um colégio leu numa revista que os pés das mulheres estavam aumentando. Há alguns anos, a média do tamanho dos calçados das mulheres era de 35,5 e, hoje, é de 37,0. Embora não fosse uma informação científica, ele ficou curioso e fez uma pesquisa com as funcionárias do seu colégio, obtendo o quadro a seguir: TAMANHO DOS CALÇADOS NÚMERO DE FUNCIONÁRIAS 39,0 1 38,0 10 37,0 3 36,0 5 35,0 6 Escolhendo uma funcionária ao acaso e sabendo que ela tem calçado maior que 36,0, a probabilidade de ela calçar 38,0 é 1 3 1 5 2 5 5 7 5 14",
+      "enunciado": "- Questão 173 O diretor de um colégio leu numa revista que os pés das mulheres estavam aumentando. Há alguns anos, a média do tamanho dos calçados das mulheres era de 35,5 e, hoje, é de 37,0. Embora não fosse uma informação científica, ele ficou curioso e fez uma pesquisa com as funcionárias do seu colégio, obtendo o quadro a seguir: TAMANHO DOS CALÇADOS NÚMERO DE FUNCIONÁRIAS 39,0 1 38,0 10 37,0 3 36,0 5 35,0 6 Escolhendo uma funcionária ao acaso e sabendo que ela tem calçado maior que 36,0, a probabilidade de ela calçar 38,0 é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q173_p30.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1/3",
+        "B": "1/5",
+        "C": "2/5",
+        "D": "5/7",
+        "E": "5/14"
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 174,
       "pagina": 30,
-      "enunciado": "Questão 174 João mora na cidade A e precisa visitar cinco clientes, localizados em cidades diferentes da sua. Cada trajeto possível pode ser representado por uma sequência de 7 letras. Por exemplo, o trajeto ABCDEFA, informa que ele sairá da cidade A, visitando as cidades B, C, D, E e F nesta ordem, voltando para a cidade A. Além disso, o número indicado entre as letras informa o custo do deslocamento entre as cidades. A figura mostra o custo de deslocamento entre cada uma das cidades. Como João quer economizar, ele precisa determinar qual o trajeto de menor custo para visitar os cinco clientes. Examinando a figura, percebe que precisa considerar somente parte das sequências, pois os trajetos ABCDEFA e AFEDCBA têm o mesmo custo. Ele gasta 1min30s para examinar uma sequência e descartar sua simétrica, conforme apresentado. O tempo mínimo necessário para João verificar todas as sequências possíveis no problema é de 60 min. 90 min. 120 min. 180 min. 360 min.",
+      "enunciado": "Questão 174 João mora na cidade A e precisa visitar cinco clientes, localizados em cidades diferentes da sua. Cada trajeto possível pode ser representado por uma sequência de 7 letras. Por exemplo, o trajeto ABCDEFA, informa que ele sairá da cidade A, visitando as cidades B, C, D, E e F nesta ordem, voltando para a cidade A. Além disso, o número indicado entre as letras informa o custo do deslocamento entre as cidades. A figura mostra o custo de deslocamento entre cada uma das cidades. Como João quer economizar, ele precisa determinar qual o trajeto de menor custo para visitar os cinco clientes. Examinando a figura, percebe que precisa considerar somente parte das sequências, pois os trajetos ABCDEFA e AFEDCBA têm o mesmo custo. Ele gasta 1min30s para examinar uma sequência e descartar sua simétrica, conforme apresentado. O tempo mínimo necessário para João verificar todas as sequências possíveis no problema é de ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q174_p30.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "60 min",
+        "B": "90 min.",
+        "C": "120 min",
+        "D": "180 min.",
+        "E": "360 min."
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 175,
       "pagina": 30,
-      "enunciado": "Questão 175 O quadro seguinte mostra o desempenho de um time de futebol no último campeonato. A coluna da esquerda mostra o número de gols marcados e a coluna da direita informa em quantos jogos o time marcou aquele número de gols. Gols marcados Quantidade de partidas 0 5 1 3 2 4 3 3 4 2 5 2 7 1 Se X, Y e Z são, respectivamente, a média, a mediana e a moda desta distribuição, então X = Y < Z. Z < X = Y. Y < Z < X. Z < X < Y. Z < Y < X.",
+      "enunciado": "Questão 175 O quadro seguinte mostra o desempenho de um time de futebol no último campeonato. A coluna da esquerda mostra o número de gols marcados e a coluna da direita informa em quantos jogos o time marcou aquele número de gols. Gols marcados Quantidade de partidas 0 5 1 3 2 4 3 3 4 2 5 2 7 1 Se X, Y e Z são, respectivamente, a média, a mediana e a moda desta distribuição, então ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q175_p30.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "X = Y < Z.",
+        "B": "Z < X = Y.",
+        "C": "Y < Z < X.",
+        "D": "Z < X < Y.",
+        "E": "Z < Y < X."
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 176,
       "pagina": 31,
-      "enunciado": "Questão 176 A disparidade de volume entre os planetas é tão grande que seria possível colocá-los uns dentro dos outros. O planeta Mercúrio é o menor de todos. Marte é o segundo menor: dentro dele cabem três Mercúrios. Terra é o único com vida: dentro dela cabem sete Martes. Netuno é o quarto maior: dentro dele cabem 58 Terras. Júpiter é o maior dos planetas: dentro dele cabem 23 Netunos. Revista Veja. Ano 41, nº 25, 25 jun. 2008 (adaptado). Seguindo o raciocínio proposto, quantas Terras cabem dentro de Júpiter? 406 1 334 4 002 9 338 28 014",
+      "enunciado": "Questão 176 A disparidade de volume entre os planetas é tão grande que seria possível colocá-los uns dentro dos outros. O planeta Mercúrio é o menor de todos. Marte é o segundo menor: dentro dele cabem três Mercúrios. Terra é o único com vida: dentro dela cabem sete Martes. Netuno é o quarto maior: dentro dele cabem 58 Terras. Júpiter é o maior dos planetas: dentro dele cabem 23 Netunos. Revista Veja. Ano 41, nº 25, 25 jun. 2008 (adaptado). Seguindo o raciocínio proposto, quantas Terras cabem dentro de Júpiter? ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "406",
+        "B": "1 334",
+        "C": "4 002",
+        "D": "9 338",
+        "E": "28 014"
+      },
       "gabarito": "B"
     },
     {
       "ano": 2010,
       "numero": 177,
       "pagina": 31,
-      "enunciado": "Questão 177 Um dos grandes problemas da poluição dos mananciais (rios, córregos e outros) ocorre pelo hábito de jogar óleo utilizado em frituras nos encanamentos que estão interligados com o sistema de esgoto. Se isso ocorrer, cada 10 litros de óleo poderão contaminar 10 milhões (107) de litros de água potável. Manual de etiqueta. Parte integrante das revistas Veja (ed. 2055), Cláudia (ed. 555), National Geographic (ed. 93) e Nova Escola (ed. 208) (adaptado). Suponha que todas as famílias de uma cidade descartem os óleos de frituras através dos encanamentos e consomem 1 000 litros de óleo em frituras por semana. Qual seria, em litros, a quantidade de água potável contaminada por semana nessa cidade? 10-2 103 104 106 109",
+      "enunciado": "Questão 177 Um dos grandes problemas da poluição dos mananciais (rios, córregos e outros) ocorre pelo hábito de jogar óleo utilizado em frituras nos encanamentos que estão interligados com o sistema de esgoto. Se isso ocorrer, cada 10 litros de óleo poderão contaminar 10 milhões (107) de litros de água potável. Manual de etiqueta. Parte integrante das revistas Veja (ed. 2055), Cláudia (ed. 555), National Geographic (ed. 93) e Nova Escola (ed. 208) (adaptado). Suponha que todas as famílias de uma cidade descartem os óleos de frituras através dos encanamentos e consomem 1 000 litros de óleo em frituras por semana. Qual seria, em litros, a quantidade de água potável contaminada por semana nessa cidade?",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "10^-2",
+        "B": "10^3",
+        "C": "10^4",
+        "D": "10^6",
+        "E": "10^9"
+      },
       "gabarito": "E"
     },
     {
       "ano": 2010,
       "numero": 178,
       "pagina": 31,
-      "enunciado": "Questão 178 Ronaldo é um garoto que adora brincar com números. Numa dessas brincadeiras, empilhou caixas numeradas de acordo com a sequência conforme mostrada no esquema a seguir. 1 1 2 1 1 2 3 2 1 1 2 3 4 3 2 1 ... Ele percebeu que a soma dos números em cada linha tinha uma propriedade e que, por meio dessa propriedade, era possível prever a soma de qualquer linha posterior às já construídas. A partir dessa propriedade, qual será a soma da 9ª linha da sequência de caixas empilhadas por Ronaldo? 9 45 64 81 285",
+      "enunciado": "Questão 178 Ronaldo é um garoto que adora brincar com números. Numa dessas brincadeiras, empilhou caixas numeradas de acordo com a sequência conforme mostrada no esquema a seguir. 1 1 2 1 1 2 3 2 1 1 2 3 4 3 2 1 ... Ele percebeu que a soma dos números em cada linha tinha uma propriedade e que, por meio dessa propriedade, era possível prever a soma de qualquer linha posterior às já construídas. A partir dessa propriedade, qual será a soma da 9ª linha da sequência de caixas empilhadas por Ronaldo? ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q178_p31.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "9",
+        "B": "45",
+        "C": "64",
+        "D": "81",
+        "E": "285"
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 179,
       "pagina": 31,
-      "enunciado": "Questão 179 Um porta-lápis de madeira foi construído no formato cúbico, seguindo o modelo ilustrado a seguir. O cubo de dentro é vazio. A aresta do cubo maior mede 12 cm e a do cubo menor, que é interno, mede 8 cm. O volume de madeira utilizado na confecção desse objeto foi de 12 cm3. 64 cm3. 96 cm3. 1 216 cm3. 1 728 cm3.",
+      "enunciado": "Questão 179 Um porta-lápis de madeira foi construído no formato cúbico, seguindo o modelo ilustrado a seguir. O cubo de dentro é vazio. A aresta do cubo maior mede 12 cm e a do cubo menor, que é interno, mede 8 cm. O volume de madeira utilizado na confecção desse objeto foi de ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q179_p31.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "12 cm^3.",
+        "B": "64 cm^3.",
+        "C": "96 cm^3",
+        "D": "1 216 cm^3.",
+        "E": "1 728 cm^3."
+      },
       "gabarito": "D"
     },
     {
       "ano": 2010,
       "numero": 180,
       "pagina": 31,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 30 Questão 180 Para conseguir chegar a um número recorde de produção de ovos de Páscoa, as empresas brasileiras começam a se planejar para esse período com um ano de antecedência. O gráfico a seguir mostra o número de ovos de Páscoa produzidos no Brasil no período de 2005 a 2009. Revista Veja. São Paulo: Abril, ed. 2107, nº 14, ano 42. De acordo com o gráfico, o biênio que apresentou maior produção acumulada foi 2004-2005. 2005-2006. 2006-2007. 2007-2008. 2008-2009.",
+      "enunciado": "Questão 180 Para conseguir chegar a um número recorde de produção de ovos de Páscoa, as empresas brasileiras começam a se planejar para esse período com um ano de antecedência. O gráfico a seguir mostra o número de ovos de Páscoa produzidos no Brasil no período de 2005 a 2009. Revista Veja. São Paulo: Abril, ed. 2107, nº 14, ano 42. De acordo com o gráfico, o biênio que apresentou maior produção acumulada foi ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2010/enem_2010_q180_p31.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "2004-2005.",
+        "B": "2005-2006.",
+        "C": "2006-2007.",
+        "D": "2007-2008.",
+        "E": "2008-2009."
+      },
       "gabarito": "E"
     }
   ]

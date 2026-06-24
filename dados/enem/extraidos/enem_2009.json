@@ -1,6 +1,6 @@
 {
   "ano": 2009,
-  "total_questoes": 45,
+  "total_questoes": 44,
   "questoes": [
     {
       "ano": 2009,
@@ -11,7 +11,13 @@
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q136_p20.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "25 min.",
+        "B": "15 min",
+        "C": "2,5 min",
+        "D": "1,5 min.",
+        "E": "0,15 min."
+      },
       "gabarito": "D"
     },
     {
@@ -19,8 +25,10 @@
       "numero": 137,
       "pagina": 20,
       "enunciado": "Texto para as questões 137 e 138 A população mundial está ficando mais velha, os índices de natalidade diminuíram e a expectativa de vida aumentou. No gráfico seguinte, são apresentados dados obtidos por pesquisa realizada pela Organização das Nações Unidas (ONU), a respeito da quantidade de pessoas com 60 anos ou mais em todo o mundo. Os números da coluna da direita representam as faixas percentuais. Por exemplo, em 1950 havia 95 milhões de pessoas com 60 anos ou mais nos países desenvolvidos, número entre 10% e 15% da população total nos países desenvolvidos. Disponível em: www.economist.com. Acesso em: 9 jul. 2009 (adaptado). Questão 137 Suponha que o modelo exponencial y = 363e0,03x, em que x = 0 corresponde ao ano 2000, x = 1 corresponde ao ano 2001, e assim sucessivamente, e que y é a população em milhões de habitantes no ano x, seja usado para estimar essa população com 60 anos ou mais de idade nos países em desenvolvimento entre 2010 e 2050. Desse modo, considerando e0,3 = 1,35, estima-se que a população com 60 anos ou mais estará, em 2030, entre",
-      "tem_imagem": false,
-      "imagens": [],
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2009/enem_2009_q137_e_q138_p20"
+      ],
       "alternativas": {
         "A": "490 e 510 milhões.",
         "B": "550 e 620 milhões.",
@@ -35,14 +43,16 @@
       "numero": 138,
       "pagina": 20,
       "enunciado": "Texto para as questões 137 e 138 A população mundial está ficando mais velha, os índices de natalidade diminuíram e a expectativa de vida aumentou. No gráfico seguinte, são apresentados dados obtidos por pesquisa realizada pela Organização das Nações Unidas (ONU), a respeito da quantidade de pessoas com 60 anos ou mais em todo o mundo. Os números da coluna da direita representam as faixas percentuais. Por exemplo, em 1950 havia 95 milhões de pessoas com 60 anos ou mais nos países desenvolvidos, número entre 10% e 15% da população total nos países desenvolvidos. Disponível em: www.economist.com. Acesso em: 9 jul. 2009 (adaptado). Questão 138 Em 2050, a probabilidade de se escolher, aleatoriamente, uma pessoa com 60 anos ou mais de idade, na população dos países desenvolvidos, será um número mais próximo de",
-      "tem_imagem": false,
-      "imagens": [],
+      "tem_imagem": true,
+      "imagens": [
+        "dados/enem/imagens_questoes/2009/enem_2009_q137_e_q138_p20"
+      ],
       "alternativas": {
-        "A": "2 1 .",
-        "B": "20 7 .",
-        "C": "25 8 .",
-        "D": "5 1 .",
-        "E": "25 3 ."
+        "A": "1/2 .",
+        "B": "7/20 .",
+        "C": "8/25 .",
+        "D": "1/5 .",
+        "E": "3/25 ."
       },
       "gabarito": "C"
     },
@@ -68,11 +78,11 @@
       "ano": 2009,
       "numero": 140,
       "pagina": 21,
-      "enunciado": "Questão 140 Uma resolução do Conselho Nacional de Política Energética (CNPE) estabeleceu a obrigatoriedade de adição de biodísel ao óleo dísel comercializado nos postos.",
+      "enunciado": "Questão 140 Uma resolução do Conselho Nacional de Política Energética (CNPE) estabeleceu a obrigatoriedade de adição de biodísel ao óleo dísel comercializado nos postos. A exigência é que, a partir de 1.º de julho de 2009, 4% do volume da mistura final seja formada por biodísel. Até junho de 2009, esse percentual era de 3%. Essa medida estimula a demanda de biodísel, bem como possibilita a redução da importação de dísel de petróleo. Disponível em: http://www1.folha.uol.com.br. Acesso em: 12 jul. 2009 (adaptado). Estimativas indicam que, com a adição de 4% de biodísel ao dísel, serão consumidos 925 milhões de litros de biodísel no segundo semestre de 2009. Considerando-se essa estimativa, para o mesmo volume da mistura final dísel/biodísel consumida no segundo semestre de 2009, qual seria o consumo de biodísel com a adição de 3%? ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "exigência é que, a partir de 1.º de julho de 2009, 4% do volume da mistura final seja formada por biodísel. Até junho de 2009, esse percentual era de 3%. Essa medida estimula a demanda de biodísel, bem como possibilita a redução da importação de dísel de petróleo. Disponível em: http://www1.folha.uol.com.br. Acesso em: 12 jul. 2009 (adaptado). Estimativas indicam que, com a adição de 4% de biodísel ao dísel, serão consumidos 925 milhões de litros de biodísel no segundo semestre de 2009. Considerando-se essa estimativa, para o mesmo volume da mistura final dísel/biodísel consumida no segundo semestre de 2009, qual seria o consumo de biodísel com a adição de 3%? A 27,75 milhões de litros.",
+        "A": "27,75 milhões de litros.",
         "B": "37,00 milhões de litros.",
         "C": "231,25 milhões de litros.",
         "D": "693,75 milhões de litros.",
@@ -102,13 +112,13 @@
       "ano": 2009,
       "numero": 142,
       "pagina": 21,
-      "enunciado": "Questão 142",
+      "enunciado": "Questão 142 A suspeita de que haveria uma relação causal entre tabagismo e câncer de pulmão foi levantada pela primeira vez a partir de observações clínicas. Para testar essa possível associação, foram conduzidos inúmeros estudos epidemiológicos. Dentre esses, houve o estudo do número de casos de câncer em relação ao número de cigarros consumidos por dia, cujos resultados são mostrados no gráfico a seguir. De acordo com as informações do gráfico",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q142_p21.png"
       ],
       "alternativas": {
-        "A": "suspeita de que haveria uma relação causal entre tabagismo e câncer de pulmão foi levantada pela primeira vez a partir de observações clínicas. Para testar essa possível associação, foram conduzidos inúmeros estudos epidemiológicos. Dentre esses, houve o estudo do número de casos de câncer em relação ao número de cigarros consumidos por dia, cujos resultados são mostrados no gráfico a seguir. Centers for Disease Control and Prevention CDC-EIS Summer Course – 1992 (adaptado). De acordo com as informações do gráfico, A o consumo diário de cigarros e o número de casos de câncer de pulmão são grandezas inversamente proporcionais.",
+        "A": "o consumo diário de cigarros e o número de casos de câncer de pulmão são grandezas inversamente proporcionais.",
         "B": "o consumo diário de cigarros e o número de casos de câncer de pulmão são grandezas que não se relacionam.",
         "C": "o consumo diário de cigarros e o número de casos de câncer de pulmão são grandezas diretamente proporcionais.",
         "D": "uma pessoa não fumante certamente nunca será diagnosticada com câncer de pulmão.",
@@ -120,7 +130,7 @@
       "ano": 2009,
       "numero": 143,
       "pagina": 21,
-      "enunciado": ", p p Questão 143 O gráfico a seguir mostra a evolução, de abril de 2008 a maio de 2009, da população economicamente ativa para seis Regiões Metropolitanas pesquisadas. Disponível em: www.ibge.gov.br. Considerando que a taxa de crescimento da população economicamente ativa, entre 05/09 e 06/09, seja de 4%, então o número de pessoas economicamente ativas em 06/09 será igual a",
+      "enunciado": ", Questão 143 O gráfico a seguir mostra a evolução, de abril de 2008 a maio de 2009, da população economicamente ativa para seis Regiões Metropolitanas pesquisadas. Disponível em: www.ibge.gov.br. Considerando que a taxa de crescimento da população economicamente ativa, entre 05/09 e 06/09, seja de 4%, então o número de pessoas economicamente ativas em 06/09 será igual a",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q143_p21.png"
@@ -138,13 +148,13 @@
       "ano": 2009,
       "numero": 144,
       "pagina": 22,
-      "enunciado": "Questão 144",
+      "enunciado": "Questão 144 A música e a matemática se encontram na representação dos tempos das notas musicais, conforme a figura seguinte. Um compasso é uma unidade musical composta por determinada quantidade de notas musicais em que a soma das durações coincide com a fração indicada como fórmula do compasso. Por exemplo, se a fórmula de compasso for 1/2 , poderia ter um compasso ou com duas semínimas ou uma mínima ou quatro colcheias, sendo possível a combinação de diferentes figuras. Um trecho musical de oito compassos, cuja fórmula é 3/4 , poderia ser preenchido com ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q144_p22.png"
       ],
       "alternativas": {
-        "A": "música e a matemática se encontram na representação dos tempos das notas musicais, conforme a figura seguinte. Um compasso é uma unidade musical composta por determinada quantidade de notas musicais em que a soma das durações coincide com a fração indicada como fórmula do compasso. Por exemplo, se a fórmula de compasso for 2 1 , poderia ter um compasso ou com duas semínimas ou uma mínima ou quatro colcheias, sendo possível a combinação de diferentes figuras. Um trecho musical de oito compassos, cuja fórmula é 4 3 , poderia ser preenchido com A 24 fusas.",
+        "A": "24 fusas.",
         "B": "3 semínimas.",
         "C": "8 semínimas.",
         "D": "24 colcheias e 12 semínimas.",
@@ -156,17 +166,17 @@
       "ano": 2009,
       "numero": 145,
       "pagina": 22,
-      "enunciado": "Questão 145 As figuras a seguir exibem um trecho de um quebra- cabeças que está sendo montado. Observe que as peças são quadradas e há 8 peças no tabuleiro da figura",
+      "enunciado": "Questão 145 As figuras a seguir exibem um trecho de um quebracabeças que está sendo montado. Observe que as peças são quadradas e há 8 peças no tabuleiro da figura A e 8 peças no tabuleiro da figura B. As peças são retiradas do tabuleiro da figura B e colocadas no tabuleiro da figura A na posição correta, isto é, de modo a completar os desenhos. É possível preencher corretamente o espaço indicado pela seta no tabuleiro da figura A colocando a peça",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q145_p22.png"
       ],
       "alternativas": {
-        "A": "e 8 peças no tabuleiro da figura B. As peças são retiradas do tabuleiro da figura",
-        "B": "e colocadas no tabuleiro da figura A na posição correta, isto é, de modo a completar os desenhos. Disponível em: http://pt.eternityii.com. Acesso em: 14 jul. 2009. É possível preencher corretamente o espaço indicado pela seta no tabuleiro da figura A colocando a peça A 1 após girá-la 90° no sentido horário. B 1 após girá-la 180° no sentido anti-horário.",
+        "A": "1 após girá-la 90° no sentido horário",
+        "B": "1 após girá-la 180° no sentido anti-horário.",
         "C": "2 após girá-la 90° no sentido anti-horário.",
         "D": "2 após girá-la 180° no sentido horário.",
-        "E": "2 após girá-la 270° no sentido anti-horário. Peça 1 Peça 2 F i g u r a A F i g u r a B"
+        "E": "2 após girá-la 270° no sentido anti-horário."
       },
       "gabarito": "C"
     },
@@ -178,9 +188,9 @@
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "2 × (0,2%)4.",
-        "B": "4 × (0,2%)2.",
-        "C": "6 × (0,2%)2 × (99,8%)2.",
+        "A": "2 × (0,2%)^4.",
+        "B": "4 × (0,2%)^2.",
+        "C": "6 × (0,2%)^2 × (99,8%)^2.",
         "D": "4 × (0,2%).",
         "E": "6 × (0,2%) × (99,8%)."
       },
@@ -190,13 +200,13 @@
       "ano": 2009,
       "numero": 147,
       "pagina": 23,
-      "enunciado": "Questão 147",
+      "enunciado": "Questão 147 A tabela mostra alguns dados da emissão de dióxido de carbono de uma fábrica, em função do número de toneladas produzidas. Os dados na tabela indicam que a taxa média de variação entre a emissão de dióxido de carbono (em ppm) e a produção (em toneladas) é  ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q147_p23.png"
       ],
       "alternativas": {
-        "A": "tabela mostra alguns dados da emissão de dióxido de carbono de uma fábrica, em função do número de toneladas produzidas. Produção (em toneladas) Emissão de dióxido de carbono (em partes por milhão – ppm) 1,1 2,14 1,2 2,30 1,3 2,46 1,4 2,64 1,5 2,83 1,6 3,03 1,7 3,25 1,8 3,48 1,9 3,73 2,0 4,00 Cadernos do Gestar II, Matemática TP3. Disponível em: www.mec.gov.br. Acesso em: 14 jul. 2009. Os dados na tabela indicam que a taxa média de variação entre a emissão de dióxido de carbono (em ppm) e a produção (em toneladas) é A inferior a 0,18.",
+        "A": "inferior a 0,18.",
         "B": "superior a 0,18 e inferior a 0,50.",
         "C": "superior a 0,50 e inferior a 1,50.",
         "D": "superior a 1,50 e inferior a 2,80.",
@@ -208,55 +218,49 @@
       "ano": 2009,
       "numero": 148,
       "pagina": 23,
-      "enunciado": "Questão 148 Uma pousada oferece pacotes promocionais para atrair casais a se hospedarem por até oito dias.",
+      "enunciado": "Uma pousada oferece pacotes promocionais para atrair casais a se hospedarem por até oito dias. A hospedagem seria em apartamento de luxo e, nos três primeiros dias, a diária custaria R$ 150,00, preço da diária fora da promoção. Nos três dias seguintes, seria aplicada uma redução no valor da diária, cuja taxa média de variação, a cada dia, seria de R$ 20,00. Nos dois dias restantes, seria mantido o preço do sexto dia. Nessas condições, um modelo para a promoção idealizada é apresentado no gráfico a seguir, no qual o valor da diária é função do tempo medido em número de dias. De acordo com os dados e com o modelo, comparando o preço que um casal pagaria pela hospedagem por sete dias fora da promoção, um casal que adquirir o pacote promocional por oito dias fará uma economia de ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q148_p23.png"
       ],
       "alternativas": {
-        "A": "hospedagem seria em apartamento de luxo e, nos três primeiros dias, a diária custaria R$ 150,00, preço da diária fora da promoção. Nos três dias seguintes, seria aplicada uma redução no valor da diária, cuja taxa média de variação, a cada dia, seria de R$ 20,00. Nos dois dias restantes, seria mantido o preço do sexto dia. Nessas condições, um modelo para a promoção idealizada é apresentado no gráfico a seguir, no qual o valor da diária é função do tempo medido em número de dias. De acordo com os dados e com o modelo, comparando o preço que um casal pagaria pela hospedagem por sete dias fora da promoção, um casal que adquirir o pacote promocional por oito dias fará uma economia de A R$ 90,00.",
+        "A": "R$ 90,00. ",
         "B": "R$ 110,00.",
         "C": "R$ 130,00.",
         "D": "R$ 150,00.",
-        "E": "R$ 170,00. Rascunho"
+        "E": "R$ 170,00."
       },
       "gabarito": "A"
     },
     {
       "ano": 2009,
-      "numero": 149,
-      "pagina": 24,
-      "enunciado": "Questão 149 Em Florença, Itália, na Igreja de Santa Croce, é possível encontrar um portão em que aparecem os anéis de Borromeo. Alguns historiadores acreditavam que os círculos representavam as três artes: escultura, pintura e arquitetura, pois elas eram tão próximas quanto inseparáveis. Scientific American, ago. 2008. Qual dos esboços a seguir melhor representa os anéis de Borromeo? A D B E C",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2009/enem_2009_q149_p24.png"
-      ],
-      "alternativas": {},
-      "gabarito": "E"
-    },
-    {
-      "ano": 2009,
       "numero": 150,
       "pagina": 24,
-      "enunciado": "Questão 150 Brasil e França têm relações comerciais há mais de 200 anos. Enquanto a França é a 5.ª nação mais rica do planeta, o Brasil é a 10.ª, e ambas se destacam na economia mundial. No entanto, devido a uma série de restrições, o comércio entre esses dois países ainda não é adequadamente explorado, como mostra a tabela seguinte, referente ao período 2003-2007. Investimentos Bilaterais (em milhões de dólares) Ano Brasil na França França no Brasil 2003 367 825 2004 357 485 2005 354 1.458 2006 539 744 2007 280 1.214 Disponível em: www.cartacapital.com.br. Acesso em: 7 jul. 2009.",
+      "enunciado": "Questão 150 Brasil e França têm relações comerciais há mais de 200 anos. Enquanto a França é a 5.ª nação mais rica do planeta, o Brasil é a 10.ª, e ambas se destacam na economia mundial. No entanto, devido a uma série de restrições, o comércio entre esses dois países ainda não é adequadamente explorado, como mostra a tabela seguinte, referente ao período 2003-2007. Os dados da tabela mostram que, no período considerado, os valores médios dos investimentos da França no Brasil foram maiores que os investimentos do Brasil na França em um valor",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q150_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "inferior a 300 milhões de dólares. ",
+        "B": "superior a 300 milhões de dólares, mas inferior a 400 milhões de dólares. ",
+        "C": "superior a 400 milhões de dólares, mas inferior a 500 milhões de dólares. ",
+        "D": "superior a 500 milhões de dólares, mas inferior a 600 milhões de dólares. ",
+        "E": "superior a 600 milhões de dólares"
+      },
       "gabarito": "D"
     },
     {
       "ano": 2009,
       "numero": 151,
       "pagina": 24,
-      "enunciado": "Questão 151 Suponha que, na escultura do artista Emanoel Araújo, mostrada na figura a seguir, todos os prismas numerados em algarismos romanos são retos, com bases triangulares, e que as faces laterais do poliedro II são perpendiculares à sua própria face superior, que, por sua vez, é um triângulo congruente ao triângulo base dos prismas. Além disso, considere que os prismas I e III são perpendiculares ao prisma IV e ao poliedro II. Disponível em: www.escritosriodearte.com.br. Acesso em: 28 jul. 2009. Imagine um plano paralelo à face α do prisma I, mas que passe pelo ponto P pertencente à aresta do poliedro II, indicado na figura.",
+      "enunciado": "Questão 151 Suponha que, na escultura do artista Emanoel Araújo, mostrada na figura a seguir, todos os prismas numerados em algarismos romanos são retos, com bases triangulares, e que as faces laterais do poliedro II são perpendiculares à sua própria face superior, que, por sua vez, é um triângulo congruente ao triângulo base dos prismas. Além disso, considere que os prismas I e III são perpendiculares ao prisma IV e ao poliedro II. Imagine um plano paralelo à face α do prisma I, mas que passe pelo ponto P pertencente à aresta do poliedro II, indicado na figura. A interseção desse plano imaginário com a escultura contém  ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q151_p24.png"
       ],
       "alternativas": {
-        "A": "interseção desse plano imaginário com a escultura contém A dois triângulos congruentes com lados correspondentes paralelos.",
+        "A": "dois triângulos congruentes com lados correspondentes paralelos. ",
         "B": "dois retângulos congruentes e com lados correspondentes paralelos.",
         "C": "dois trapézios congruentes com lados correspondentes perpendiculares.",
         "D": "dois paralelogramos congruentes com lados correspondentes paralelos.",
@@ -284,15 +288,15 @@
       "ano": 2009,
       "numero": 153,
       "pagina": 25,
-      "enunciado": "Questão 153 Técnicos concluem mapeamento do aquífero Guarani O aquífero Guarani localiza-se no subterrâneo dos territórios da Argentina, Brasil, Paraguai e Uruguai, com extensão total de 1.200.000 quilômetros quadrados, dos quais 840.000 quilômetros quadrados estão no Brasil. O aquífero armazena cerca de 30 mil quilômetros cúbicos de água e é considerado um dos maiores do mundo. Na maioria das vezes em que são feitas referências à água, são usadas as unidades metro cúbico e litro, e não as unidades já descritas.",
+      "enunciado": "Questão 153 Técnicos concluem mapeamento do aquífero Guarani O aquífero Guarani localiza-se no subterrâneo dos territórios da Argentina, Brasil, Paraguai e Uruguai, com extensão total de 1.200.000 quilômetros quadrados, dos quais 840.000 quilômetros quadrados estão no Brasil. O aquífero armazena cerca de 30 mil quilômetros cúbicos de água e é considerado um dos maiores do mundo. Na maioria das vezes em que são feitas referências à água, são usadas as unidades metro cúbico e litro, e não as unidades já descritas. A Companhia de Saneamento Básico do Estado de São Paulo (SABESP) divulgou, por exemplo, um novo reservatório cuja capacidade de armazenagem é de 20 milhões de litros. Comparando as capacidades do aquífero Guarani e desse novo reservatório da SABESP, a capacidade do aquífero Guarani é ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "Companhia de Saneamento Básico do Estado de São Paulo (SABESP) divulgou, por exemplo, um novo reservatório cuja capacidade de armazenagem é de 20 milhões de litros. Disponível em: http://noticias.terra.com.br. Acesso em: 10 jul. 2009 (adaptado). Comparando as capacidades do aquífero Guarani e desse novo reservatório da SABESP, a capacidade do aquífero Guarani é A 1,5 x 102 vezes a capacidade do reservatório novo.",
-        "B": "1,5 x 103 vezes a capacidade do reservatório novo.",
-        "C": "1,5 x 106 vezes a capacidade do reservatório novo.",
-        "D": "1,5 x 108 vezes a capacidade do reservatório novo.",
-        "E": "1,5 x 109 vezes a capacidade do reservatório novo."
+        "A": "1,5 x 10^2 vezes a capacidade do reservatório novo. ",
+        "B": "1,5 x 10^3 vezes a capacidade do reservatório novo.",
+        "C": "1,5 x 10^6 vezes a capacidade do reservatório novo.",
+        "D": "1,5 x 10^8 vezes a capacidade do reservatório novo.",
+        "E": "1,5 x 10^9 vezes a capacidade do reservatório novo."
       },
       "gabarito": "E"
     },
@@ -300,23 +304,29 @@
       "ano": 2009,
       "numero": 154,
       "pagina": 25,
-      "enunciado": "Questão 154 A rampa de um hospital tem na sua parte mais elevada uma altura de 2,2 metros. Um paciente ao caminhar sobre a rampa percebe que se deslocou 3,2 metros e alcançou uma altura de 0,8 metro. A distância em metros que o paciente ainda deve caminhar para atingir o ponto mais alto da rampa é A 1,16 metros. D 5,6 metros. B 3,0 metros. E 7,04 metros. C 5,4 metros.",
+      "enunciado": "Questão 154 A rampa de um hospital tem na sua parte mais elevada uma altura de 2,2 metros. Um paciente ao caminhar sobre a rampa percebe que se deslocou 3,2 metros e alcançou uma altura de 0,8 metro. A distância em metros que o paciente ainda deve caminhar para atingir o ponto mais alto da rampa é ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "1,16 metros.",
+        "B": "3,0 metros",
+        "C": "5,4 metros. ",
+        "D": "5,6 metros. ",
+        "E": "7,04 metros. "
+      },
       "gabarito": "D"
     },
     {
       "ano": 2009,
       "numero": 155,
       "pagina": 25,
-      "enunciado": "Questão 155",
+      "enunciado": "Questão 155 A figura a seguir mostra as medidas reais de uma aeronave que será fabricada para utilização por companhias de transporte aéreo. Um engenheiro precisa fazer o desenho desse avião em escala de 1:150. Para o engenheiro fazer esse desenho em uma folha de papel, deixando uma margem de 1 cm em relação às bordas da folha, quais as dimensões mínimas, em centímetros, que essa folha deverá ter?  ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q155_p25.png"
       ],
       "alternativas": {
-        "A": "figura a seguir mostra as medidas reais de uma aeronave que será fabricada para utilização por companhias de transporte aéreo. Um engenheiro precisa fazer o desenho desse avião em escala de 1:150. Para o engenheiro fazer esse desenho em uma folha de papel, deixando uma margem de 1 cm em relação às bordas da folha, quais as dimensões mínimas, em centímetros, que essa folha deverá ter? A 2,9 cm × 3,4 cm.",
+        "A": "2,9 cm × 3,4 cm. ",
         "B": "3,9 cm × 4,4 cm.",
         "C": "20 cm × 25 cm.",
         "D": "21 cm × 26 cm.",
@@ -332,11 +342,11 @@
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "V = 10.000 + 50x – x2.",
-        "B": "V = 10.000 + 50x + x2.",
-        "C": "V = 15.000 – 50x – x2.",
-        "D": "V = 15.000 + 50x – x2.",
-        "E": "V = 15.000 – 50x + x2."
+        "A": "V = 10.000 + 50x – x^2.",
+        "B": "V = 10.000 + 50x + x^2.",
+        "C": "V = 15.000 – 50x – x^2.",
+        "D": "V = 15.000 + 50x – x^2.",
+        "E": "V = 15.000 – 50x + x^2."
       },
       "gabarito": "D"
     },
@@ -344,20 +354,32 @@
       "ano": 2009,
       "numero": 157,
       "pagina": 25,
-      "enunciado": "Questão 157 Uma empresa que fabrica esferas de aço, de 6 cm de raio, utiliza caixas de madeira, na forma de um cubo, para transportá-las. Sabendo que a capacidade da caixa é de 13.824 cm3, então o número máximo de esferas que podem ser transportadas em uma caixa é igual a A 4. D 24. B 8. E 32. C 16.",
+      "enunciado": "Questão 157 Uma empresa que fabrica esferas de aço, de 6 cm de raio, utiliza caixas de madeira, na forma de um cubo, para transportá-las. Sabendo que a capacidade da caixa é de 13.824 cm^3, então o número máximo de esferas que podem ser transportadas em uma caixa é igual a ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "4. ",
+        "B": "8. ",
+        "C": "16. ",
+        "D": "24. ",
+        "E": "32. "
+      },
       "gabarito": "B"
     },
     {
       "ano": 2009,
       "numero": 158,
       "pagina": 26,
-      "enunciado": "Questão 158 Para cada indivíduo, a sua inscrição no Cadastro de Pessoas Físicas (CPF) é composto por um número de 9 algarismos e outro número de 2 algarismos, na forma d1d2, em que os dígitos d1 e d2 são denominados dígitos verificadores. Os dígitos verificadores são calculados, a partir da esquerda, da seguinte maneira: os 9 primeiros algarismos são multiplicados pela sequência 10, 9, 8, 7, 6, 5, 4, 3, 2 (o primeiro por 10, o segundo por 9, e assim sucessivamente); em seguida, calcula-se o resto r da divisão da soma dos resultados das multiplicações por 11, e se esse resto r for 0 ou 1, d1 é zero, caso contrário d1 = (11 – r). O dígito d2 é calculado pela mesma regra, na qual os números a serem multiplicados pela sequência dada são contados a partir do segundo algarismo, sendo d1 o último algarismo, isto é, d2 é zero se o resto s da divisão por 11 das somas das multiplicações for 0 ou 1, caso contrário, d2 = (11 – s). Suponha que João tenha perdido seus documentos, inclusive o cartão de CPF e, ao dar queixa da perda na delegacia, não conseguisse lembrar quais eram os dígitos verificadores, recordando-se apenas que os nove primeiros algarismos eram 123.456.789. Neste caso, os dígitos verificadores d1 e d2 esquecidos são, respectivamente, A 0 e 9. D 9 e 1. B 1 e 4. E 0 e 1. C 1 e 7.",
+      "enunciado": "Questão 158 Para cada indivíduo, a sua inscrição no Cadastro de Pessoas Físicas (CPF) é composto por um número de 9 algarismos e outro número de 2 algarismos, na forma d1d2, em que os dígitos d1 e d2 são denominados dígitos verificadores. Os dígitos verificadores são calculados, a partir da esquerda, da seguinte maneira: os 9 primeiros algarismos são multiplicados pela sequência 10, 9, 8, 7, 6, 5, 4, 3, 2 (o primeiro por 10, o segundo por 9, e assim sucessivamente); em seguida, calcula-se o resto r da divisão da soma dos resultados das multiplicações por 11, e se esse resto r for 0 ou 1, d1 é zero, caso contrário d1 = (11 – r). O dígito d2 é calculado pela mesma regra, na qual os números a serem multiplicados pela sequência dada são contados a partir do segundo algarismo, sendo d1 o último algarismo, isto é, d2 é zero se o resto s da divisão por 11 das somas das multiplicações for 0 ou 1, caso contrário, d2 = (11 – s). Suponha que João tenha perdido seus documentos, inclusive o cartão de CPF e, ao dar queixa da perda na delegacia, não conseguisse lembrar quais eram os dígitos verificadores, recordando-se apenas que os nove primeiros algarismos eram 123.456.789. Neste caso, os dígitos verificadores d1 e d2 esquecidos são, respectivamente, ",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "0 e 9. ",
+        "B": "1 e 4. ",
+        "C": "1 e 7.  ",
+        "D": "9 e 1. ",
+        "E": "0 e 1.  "
+      },
       "gabarito": "A"
     },
     {
@@ -414,7 +436,7 @@
       "ano": 2009,
       "numero": 162,
       "pagina": 26,
-      "enunciado": "q Questão 162 Uma escola lançou uma campanha para seus alunos arrecadarem, durante 30 dias, alimentos não perecíveis para doar a uma comunidade carente da região. Vinte alunos aceitaram a tarefa e nos primeiros 10 dias trabalharam 3 horas diárias, arrecadando 12 kg de alimentos por dia. Animados com os resultados, 30 novos alunos somaram-se ao grupo, e passaram a trabalhar 4 horas por dia nos dias seguintes até o término da campanha. Admitindo-se que o ritmo de coleta tenha se mantido constante, a quantidade de alimentos arrecadados ao final do prazo estipulado seria de",
+      "enunciado": "Questão 162 Uma escola lançou uma campanha para seus alunos arrecadarem, durante 30 dias, alimentos não perecíveis para doar a uma comunidade carente da região. Vinte alunos aceitaram a tarefa e nos primeiros 10 dias trabalharam 3 horas diárias, arrecadando 12 kg de alimentos por dia. Animados com os resultados, 30 novos alunos somaram-se ao grupo, e passaram a trabalhar 4 horas por dia nos dias seguintes até o término da campanha. Admitindo-se que o ritmo de coleta tenha se mantido constante, a quantidade de alimentos arrecadados ao final do prazo estipulado seria de",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -446,7 +468,7 @@
       "ano": 2009,
       "numero": 164,
       "pagina": 27,
-      "enunciado": "Questão 164 Ao morrer, o pai de João, Pedro e José deixou como herança um terreno retangular de 3 km x 2 km que contém uma área de extração de ouro delimitada por um quarto de círculo de raio 1 km a partir do canto inferior esquerdo da propriedade. Dado o maior valor da área de extração de ouro, os irmãos acordaram em repartir a propriedade de modo que cada um ficasse com a terça parte da área de extração, conforme mostra a figura. Em relação à partilha proposta, constata-se que a porcentagem da área do terreno que coube a João corresponde, aproximadamente, a (considere 0,58 3 3 = )",
+      "enunciado": "Questão 164 Ao morrer, o pai de João, Pedro e José deixou como herança um terreno retangular de 3 km x 2 km que contém uma área de extração de ouro delimitada por um quarto de círculo de raio 1 km a partir do canto inferior esquerdo da propriedade. Dado o maior valor da área de extração de ouro, os irmãos acordaram em repartir a propriedade de modo que cada um ficasse com a terça parte da área de extração, conforme mostra a figura. Em relação à partilha proposta, constata-se que a porcentagem da área do terreno que coube a João corresponde, aproximadamente, a (considere √3/3 = 0,58  )",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q164_p27.png"
@@ -482,11 +504,11 @@
       "ano": 2009,
       "numero": 166,
       "pagina": 27,
-      "enunciado": ", g p Questão 166 Doze times se inscreveram em um torneio de futebol amador. O jogo de abertura do torneio foi escolhido da seguinte forma: primeiro foram sorteados 4 times para compor o Grupo A. Em seguida, entre os times do Grupo A, foram sorteados 2 times para realizar o jogo de abertura do torneio, sendo que o primeiro deles jogaria em seu próprio campo, e o segundo seria o time visitante.",
+      "enunciado": "Questão 166 Doze times se inscreveram em um torneio de futebol amador. O jogo de abertura do torneio foi escolhido da seguinte forma: primeiro foram sorteados 4 times para compor o Grupo A. Em seguida, entre os times do Grupo A, foram sorteados 2 times para realizar o jogo de abertura do torneio, sendo que o primeiro deles jogaria em seu próprio campo, e o segundo seria o time visitante. A quantidade total de escolhas possíveis para o Grupo A e a quantidade total de escolhas dos times do jogo de abertura podem ser calculadas através de ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "quantidade total de escolhas possíveis para o Grupo A e a quantidade total de escolhas dos times do jogo de abertura podem ser calculadas através de A uma combinação e um arranjo, respectivamente.",
+        "A": "uma combinação e um arranjo, respectivamente. ",
         "B": "um arranjo e uma combinação, respectivamente.",
         "C": "um arranjo e uma permutação, respectivamente.",
         "D": "duas combinações.",
@@ -534,36 +556,48 @@
       "ano": 2009,
       "numero": 169,
       "pagina": 28,
-      "enunciado": "Questão 169 A vazão do rio Tietê, em São Paulo, constitui preocupação constante nos períodos chuvosos. Em alguns trechos, são construídas canaletas para controlar o fluxo de água. Uma dessas canaletas, cujo corte vertical determina a forma de um trapézio isósceles, tem as medidas especificadas na figura I. Neste caso, a vazão da água é de 1.050 m3/s. O cálculo da vazão, Q em m3/s, envolve o produto da área A do setor transversal (por onde passa a água), em m2, pela velocidade da água no local, v, em m/s, ou seja, Q = Av. Planeja-se uma reforma na canaleta, com as dimensões especificadas na figura II, para evitar a ocorrência de enchentes. Disponível em: www2.uel.br. Na suposição de que a velocidade da água não se alterará, qual a vazão esperada para depois da reforma na canaleta? A 90 m3/s. D 1.512 m3/s. B 750 m3/s. E 2.009 m3/s. C 1.050 m3/s.",
+      "enunciado": "Questão 169 A vazão do rio Tietê, em São Paulo, constitui preocupação constante nos períodos chuvosos. Em alguns trechos, são construídas canaletas para controlar o fluxo de água. Uma dessas canaletas, cujo corte vertical determina a forma de um trapézio isósceles, tem as medidas especificadas na figura I. Neste caso, a vazão da água é de 1.050 m^3/s. O cálculo da vazão, Q em m^3/s, envolve o produto da área A do setor transversal (por onde passa a água), em m^2, pela velocidade da água no local, v, em m/s, ou seja, Q = Av. Planeja-se uma reforma na canaleta, com as dimensões especificadas na figura II, para evitar a ocorrência de enchentes. Disponível em: www2.uel.br. Na suposição de que a velocidade da água não se alterará, qual a vazão esperada para depois da reforma na canaleta? ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q169_p28.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "90 m^3/s.",
+        "B": "750 m^3/s. ",
+        "C": "1.050 m^3/s. ",
+        "D": "1.512 m^3/s. ",
+        "E": "2.009 m^3/s. "
+      },
       "gabarito": "D"
     },
     {
       "ano": 2009,
       "numero": 170,
       "pagina": 28,
-      "enunciado": "Questão 170 Uma fábrica produz velas de parafina em forma de pirâmide quadrangular regular com 19 cm de altura e 6 cm de aresta da base. Essas velas são formadas por 4 blocos de mesma altura — 3 troncos de pirâmide de bases paralelas e 1 pirâmide na parte superior —, espaçados de 1 cm entre eles, sendo que a base superior de cada bloco é igual à base inferior do bloco sobreposto, com uma haste de ferro passando pelo centro de cada bloco, unindo-os, conforme a figura. Se o dono da fábrica resolver diversificar o modelo, retirando a pirâmide da parte superior, que tem 1,5 cm de aresta na base, mas mantendo o mesmo molde, quanto ele passará a gastar com parafina para fabricar uma vela? A 156 cm3. D 216 cm3. B 189 cm3. E 540 cm3. C 192 cm3.",
+      "enunciado": "Questão 170 Uma fábrica produz velas de parafina em forma de pirâmide quadrangular regular com 19 cm de altura e 6 cm de aresta da base. Essas velas são formadas por 4 blocos de mesma altura — 3 troncos de pirâmide de bases paralelas e 1 pirâmide na parte superior —, espaçados de 1 cm entre eles, sendo que a base superior de cada bloco é igual à base inferior do bloco sobreposto, com uma haste de ferro passando pelo centro de cada bloco, unindo-os, conforme a figura. Se o dono da fábrica resolver diversificar o modelo, retirando a pirâmide da parte superior, que tem 1,5 cm de aresta na base, mas mantendo o mesmo molde, quanto ele passará a gastar com parafina para fabricar uma vela? ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q170_p28.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "156 cm^3. ",
+        "B": "189 cm^3.  ",
+        "C": "192 cm^3. ",
+        "D": "216 cm^3.  ",
+        "E": "540 cm^3.  "
+      },
       "gabarito": "B"
     },
     {
       "ano": 2009,
       "numero": 171,
       "pagina": 29,
-      "enunciado": "Questão 171",
+      "enunciado": "Questão 171 A população brasileira sabe, pelo menos intuitivamente, que a probabilidade de acertar as seis dezenas da mega sena não é zero, mas é quase. Mesmo assim, milhões de pessoas são atraídas por essa loteria, especialmente quando o prêmio se acumula em valores altos. Até junho de 2009, cada aposta de seis dezenas, pertencentes ao conjunto {01, 02, 03, ..., 59, 60}, custava R$ 1,50. Disponível em: www.caixa.gov.br. Acesso em: 7 jul. 2009. Considere que uma pessoa decida apostar exatamente R$ 126,00 e que esteja mais interessada em acertar apenas cinco das seis dezenas da mega sena, justamente pela dificuldade desta última. Nesse caso, é melhor que essa pessoa faça 84 apostas de seis dezenas diferentes, que não tenham cinco números em comum, do que uma única aposta com nove dezenas, porque a probabilidade de acertar a quina no segundo caso em relação ao primeiro é, aproximadamente, ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "população brasileira sabe, pelo menos intuitivamente, que a probabilidade de acertar as seis dezenas da mega sena não é zero, mas é quase. Mesmo assim, milhões de pessoas são atraídas por essa loteria, especialmente quando o prêmio se acumula em valores altos. Até junho de 2009, cada aposta de seis dezenas, pertencentes ao conjunto {01, 02, 03, ..., 59, 60}, custava R$ 1,50. Disponível em: www.caixa.gov.br. Acesso em: 7 jul. 2009. Considere que uma pessoa decida apostar exatamente R$ 126,00 e que esteja mais interessada em acertar apenas cinco das seis dezenas da mega sena, justamente pela dificuldade desta última. Nesse caso, é melhor que essa pessoa faça 84 apostas de seis dezenas diferentes, que não tenham cinco números em comum, do que uma única aposta com nove dezenas, porque a probabilidade de acertar a quina no segundo caso em relação ao primeiro é, aproximadamente, A 2 1 1 vez menor.",
-        "B": "2 1 2 vezes menor.",
+        "A": "1.1/2 vez menor.",
+        "B": "2.1/2 vezes menor.",
         "C": "4 vezes menor.",
         "D": "9 vezes menor.",
         "E": "14 vezes menor."
@@ -574,25 +608,31 @@
       "ano": 2009,
       "numero": 172,
       "pagina": 29,
-      "enunciado": "Questão 172 Nos últimos anos, o volume de petróleo exportado pelo Brasil tem mostrado expressiva tendência de crescimento, ultrapassando as importações em 2008. Entretanto, apesar de as importações terem se mantido praticamente no mesmo patamar desde 2001, os recursos gerados com as exportações ainda são inferiores àqueles despendidos com as importações, uma vez que o preço médio por metro cúbico do petróleo importado é superior ao do petróleo nacional. Nos primeiros cinco meses de 2009, foram gastos 2,84 bilhões de dólares com importações e gerada uma receita de 2,24 bilhões de dólares com as exportações. O preço médio por metro cúbico em maio de 2009 foi de 340 dólares para o petróleo importado e de 230 dólares para o petróleo exportado. O quadro a seguir mostra os dados consolidados de 2001 a 2008 e dos primeiros cinco meses de 2009. Comércio exterior de petróleo (milhões de metros cúbicos) Ano Importação Exportação 2001 24,19 6,43 2002 22,06 13,63 2003 19,96 14,03 2004 26,91 13,39 2005 21,97 15,93 2006 20,91 21,36 2007 25,38 24,45 2008 23,53 25,14 2009* 9,00 11,00 *Valores apurados de janeiro a maio de 2009. Disponível em: http://www.anp.gov.br. Acesso em: 15 jul. 2009 (adaptado).",
+      "enunciado": "Questão 172 Nos últimos anos, o volume de petróleo exportado pelo Brasil tem mostrado expressiva tendência de crescimento, ultrapassando as importações em 2008. Entretanto, apesar de as importações terem se mantido praticamente no mesmo patamar desde 2001, os recursos gerados com as exportações ainda são inferiores àqueles despendidos com as importações, uma vez que o preço médio por metro cúbico do petróleo importado é superior ao do petróleo nacional. Nos primeiros cinco meses de 2009, foram gastos 2,84 bilhões de dólares com importações e gerada uma receita de 2,24 bilhões de dólares com as exportações. O preço médio por metro cúbico em maio de 2009 foi de 340 dólares para o petróleo importado e de 230 dólares para o petróleo exportado. O quadro a seguir mostra os dados consolidados de 2001 a 2008 e dos primeiros cinco meses de 2009. Comércio exterior de petróleo (milhões de metros cúbicos) Ano Importação Exportação 2001 24,19 6,43 2002 22,06 13,63 2003 19,96 14,03 2004 26,91 13,39 2005 21,97 15,93 2006 20,91 21,36 2007 25,38 24,45 2008 23,53 25,14 2009* 9,00 11,00 *Valores apurados de janeiro a maio de 2009. Disponível em: http://www.anp.gov.br. Acesso em: 15 jul. 2009 (adaptado). Considere que as importações e exportações de petróleo de junho a dezembro de 2009 sejam iguais a 7/5 das importações e exportações, respectivamente, ocorridas de janeiro a maio de 2009. Nesse caso, supondo que os preços para importação e exportação não sofram alterações, qual seria o valor mais aproximado da diferença entre os recursos despendidos com as importações e os recursos gerados com as exportações em 2009?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q172_p29.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "600 milhões de dólares. ",
+        "B": "840 milhões de dólares. ",
+        "C": "1,34 bilhão de dólares. ",
+        "D": "1,44 bilhão de dólares. ",
+        "E": "2,00 bilhões de dólares"
+      },
       "gabarito": "C"
     },
     {
       "ano": 2009,
       "numero": 173,
       "pagina": 29,
-      "enunciado": ", Questão 173",
-      "tem_imagem": true,
+      "enunciado": ", Questão 173 A resolução das câmeras digitais modernas é dada em megapixels, unidade de medida que representa um milhão de pontos. As informações sobre cada um desses pontos são armazenadas, em geral, em 3 bytes. Porém, para evitar que as imagens ocupem muito espaço, elas são submetidas a algoritmos de compressão, que reduzem em até 95% a quantidade de bytes necessários para armazená-las. Considere 1 KB = 1.000 bytes, 1 MB = 1.000 KB, 1 GB = 1.000 MB. Utilizando uma câmera de 2.0 megapixels cujo algoritmo de compressão é de 95%, João fotografou 150 imagens para seu trabalho escolar. Se ele deseja armazená-las de modo que o espaço restante no dispositivo seja o menor espaço possível, ele deve utilizar ",
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2009/enem_2009_q173_p29.png"
+        
       ],
       "alternativas": {
-        "A": "resolução das câmeras digitais modernas é dada em megapixels, unidade de medida que representa um milhão de pontos. As informações sobre cada um desses pontos são armazenadas, em geral, em 3 bytes. Porém, para evitar que as imagens ocupem muito espaço, elas são submetidas a algoritmos de compressão, que reduzem em até 95% a quantidade de bytes necessários para armazená-las. Considere 1 KB = 1.000 bytes, 1 MB = 1.000 KB, 1 GB = 1.000 MB. Utilizando uma câmera de 2.0 megapixels cujo algoritmo de compressão é de 95%, João fotografou 150 imagens para seu trabalho escolar. Se ele deseja armazená-las de modo que o espaço restante no dispositivo seja o menor espaço possível, ele deve utilizar A um CD de 700 MB.",
+        "A": "um CD de 700 MB. ",
         "B": "um pendrive de 1 GB.",
         "C": "um HD externo de 16 GB.",
         "D": "um memory stick de 16 MB.",
@@ -604,12 +644,18 @@
       "ano": 2009,
       "numero": 174,
       "pagina": 29,
-      "enunciado": "Questão 174 Considere um ponto P em uma circunferência de raio r no plano cartesiano. Seja Q a projeção ortogonal de P sobre o eixo x, como mostra a figura, e suponha que o ponto P percorra, no sentido anti-horário, uma distância d ≤ r sobre a circunferência. Então, o ponto Q percorrerá, no eixo x, uma distância dada por A ⎟ ⎠ ⎞ ⎜ ⎝ ⎛− r d sen 1 r . D ⎟ ⎠ ⎞ ⎜ ⎝ ⎛ d r rsen . B ⎟ ⎠ ⎞ ⎜ ⎝ ⎛− r d cos 1 r . E ⎟ ⎠ ⎞ ⎜ ⎝ ⎛ d r rcos . C ⎟ ⎠ ⎞ ⎜ ⎝ ⎛− r d tg 1 r .",
+      "enunciado": "Questão 174 Considere um ponto P em uma circunferência de raio r no plano cartesiano. Seja Q a projeção ortogonal de P sobre o eixo x, como mostra a figura, e suponha que o ponto P percorra, no sentido anti-horário, uma distância d ≤ r sobre a circunferência. Então, o ponto Q percorrerá, no eixo x, uma distância dada por ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2009/enem_2009_q174_p29.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "r(1-sen d/r) ",
+        "B": "r(1-cos d/r)",
+        "C": "r(1- tg d/r) .",
+        "D": "rsen (r/d)",
+        "E": "rcos (r/d)"
+      },
       "gabarito": "B"
     },
     {
@@ -632,7 +678,7 @@
       "ano": 2009,
       "numero": 176,
       "pagina": 30,
-      "enunciado": "Questão 176 O Indicador do CadÚnico (ICadÚnico), que compõe o cálculo do Índice de Gestão Descentralizada do Programa Bolsa Família (IGD), é obtido por meio da média aritmética entre a taxa de cobertura qualificada de cadastros (TC) e a taxa de atualização de cadastros (TA), em que , , NV NA TA NF NV TC = = NV é o número de cadastros domiciliares válidos no perfil do CadÚnico, NF é o número de famílias estimadas como público alvo do CadÚnico e NA é o número de cadastros domiciliares atualizados no perfil do CadÚnico. Portaria n° 148 de 27 de abril de 2006 (adaptado). Suponha que o IcadÚnico de um município específico é 0,6. Porém, dobrando NF o IcadÚnico cairá para 0,5. Se NA + NV = 3.600, então NF é igual a",
+      "enunciado": "Questão 176 O Indicador do CadÚnico (ICadÚnico), que compõe o cálculo do Índice de Gestão Descentralizada do Programa Bolsa Família (IGD), é obtido por meio da média aritmética entre a taxa de cobertura qualificada de cadastros (TC) e a taxa de atualização de cadastros (TA), em que , TC = NV/NF, TA = NA/NV,  NV é o número de cadastros domiciliares válidos no perfil do CadÚnico, NF é o número de famílias estimadas como público alvo do CadÚnico e NA é o número de cadastros domiciliares atualizados no perfil do CadÚnico. Portaria n° 148 de 27 de abril de 2006 (adaptado). Suponha que o IcadÚnico de um município específico é 0,6. Porém, dobrando NF o IcadÚnico cairá para 0,5. Se NA + NV = 3.600, então NF é igual a",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -648,11 +694,11 @@
       "ano": 2009,
       "numero": 177,
       "pagina": 30,
-      "enunciado": "Questão 177 João deve 12 parcelas de R$ 150,00 referentes ao cheque especial de seu banco e cinco parcelas de R$ 80,00 referentes ao cartão de crédito. O gerente do banco lhe ofereceu duas parcelas de desconto no cheque especial, caso João quitasse esta dívida imediatamente ou, na mesma condição, isto é, quitação imediata, com 25% de desconto na dívida do cartão. João também poderia renegociar suas dívidas em 18 parcelas mensais de R$ 125,00. Sabendo desses termos, José, amigo de João, ofereceu-lhe emprestar o dinheiro que julgasse necessário pelo tempo de 18 meses, com juros de 25% sobre o total emprestado.",
+      "enunciado": "Questão 177  João deve 12 parcelas de R$ 150,00 referentes ao cheque especial de seu banco e cinco parcelas de R$ 80,00 referentes ao cartão de crédito. O gerente do banco lhe ofereceu duas parcelas de desconto no cheque especial, caso João quitasse esta dívida imediatamente ou, na mesma condição, isto é, quitação imediata, com 25% de desconto na dívida do cartão. João também poderia renegociar suas dívidas em 18 parcelas mensais de R$ 125,00. Sabendo desses termos, José, amigo de João, ofereceu-lhe emprestar o dinheiro que julgasse necessário pelo tempo de 18 meses, com juros de 25% sobre o total emprestado. A opção que dá a João o menor gasto seria ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "opção que dá a João o menor gasto seria A renegociar suas dívidas com o banco.",
+        "A": "renegociar suas dívidas com o banco. ",
         "B": "pegar emprestado de José o dinheiro referente à quitação das duas dívidas.",
         "C": "recusar o empréstimo de José e pagar todas as parcelas pendentes nos devidos prazos.",
         "D": "pegar emprestado de José o dinheiro referente à quitação do cheque especial e pagar as parcelas do cartão de crédito.",
@@ -665,9 +711,9 @@
       "numero": 178,
       "pagina": 30,
       "enunciado": "Questão 178 Um artesão construiu peças de artesanato interceptando uma pirâmide de base quadrada com um plano. Após fazer um estudo das diferentes peças que poderia obter, ele concluiu que uma delas poderia ter uma das faces pentagonal. Qual dos argumentos a seguir justifica a conclusão do artesão?",
-      "tem_imagem": true,
+      "tem_imagem": false,
       "imagens": [
-        "dados/enem/imagens_questoes/2009/enem_2009_q178_p30.png"
+        
       ],
       "alternativas": {
         "A": "Uma pirâmide de base quadrada tem 4 arestas laterais e a interseção de um plano com a pirâmide intercepta suas arestas laterais. Assim, esses pontos formam um polígono de 4 lados.",
@@ -698,11 +744,11 @@
       "ano": 2009,
       "numero": 180,
       "pagina": 31,
-      "enunciado": "Questão 180",
+      "enunciado": "Questão 180 A cisterna é um recipiente utilizado para armazenar água da chuva. Os principais critérios a serem observados para captação e armazenagem de água da chuva são: a demanda diária de água na propriedade; o índice médio de precipitação (chuva), por região, em cada período do ano; o tempo necessário para armazenagem; e a área de telhado necessária ou disponível para captação. Para fazer o cálculo do volume de uma cisterna, deve-se acrescentar um adicional relativo ao coeficiente de evaporação. Na dificuldade em se estabelecer um coeficiente confiável, a Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA) sugere que sejam adicionados 10% ao volume calculado de água. Desse modo, o volume, em m3 , de uma cisterna é calculado por Vc = Vd × Ndia, em que Vd = volume de demanda da água diária (m³), Ndia = número de dias de armazenagem, e este resultado deve ser acrescido de 10%. Para melhorar a qualidade da água, recomenda-se que a captação seja feita somente nos telhados das edificações. Considerando que a precipitação de chuva de 1 mm sobre uma área de 1 m2 produz 1 litro de água, pode-se calcular a área de um telhado a fim de atender a necessidade de armazenagem da seguinte maneira: área do telhado (em m2) = volume da cisterna (em litros)/precipitação. Disponível em: www.cnpsa.embrapa.br. Acesso em: 8 jun. 2009 (adaptado). Para atender a uma demanda diária de 2.000 litros de água, com período de armazenagem de 15 dias e precipitação média de 110 mm, o telhado, retangular, deverá ter as dimensões mínimas de",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "cisterna é um recipiente utilizado para armazenar água da chuva. Os principais critérios a serem observados para captação e armazenagem de água da chuva são: a demanda diária de água na propriedade; o índice médio de precipitação (chuva), por região, em cada período do ano; o tempo necessário para armazenagem; e a área de telhado necessária ou disponível para captação. Para fazer o cálculo do volume de uma cisterna, deve-se acrescentar um adicional relativo ao coeficiente de evaporação. Na dificuldade em se estabelecer um coeficiente confiável, a Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA) sugere que sejam adicionados 10% ao volume calculado de água. Desse modo, o volume, em m3, de uma cisterna é calculado por Vc = Vd × Ndia, em que Vd = volume de demanda da água diária (m³), Ndia = número de dias de armazenagem, e este resultado deve ser acrescido de 10%. Para melhorar a qualidade da água, recomenda-se que a captação seja feita somente nos telhados das edificações. Considerando que a precipitação de chuva de 1 mm sobre uma área de 1 m2 produz 1 litro de água, pode-se calcular a área de um telhado a fim de atender a necessidade de armazenagem da seguinte maneira: área do telhado (em m2) = volume da cisterna (em litros)/precipitação. Disponível em: www.cnpsa.embrapa.br. Acesso em: 8 jun. 2009 (adaptado). Para atender a uma demanda diária de 2.000 litros de água, com período de armazenagem de 15 dias e precipitação média de 110 mm, o telhado, retangular, deverá ter as dimensões mínimas de A 6 metros por 5 metros, pois assim teria uma área de 30 m2.",
+        "A": "6 metros por 5 metros, pois assim teria uma área de 30 m2. ",
         "B": "15 metros por 20 metros, pois assim teria uma área de 300 m2.",
         "C": "50 metros por 60 metros, pois assim teria uma área de 3.000 m2.",
         "D": "91 metros por 30 metros, pois assim teria uma área de 2.730 m2.",
