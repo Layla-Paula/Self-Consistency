@@ -1,6 +1,6 @@
 {
   "ano": 2017,
-  "total_questoes": 45,
+  "total_questoes": 44,
   "questoes": [
     {
       "ano": 2017,
@@ -24,13 +24,13 @@
       "ano": 2017,
       "numero": 137,
       "pagina": 16,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 16 QUESTÃO 137 Um garçom precisa escolher uma bandeja de base retangular para servir quatro taças de espumante que precisam ser dispostas em uma única fileira, paralela ao lado maior da bandeja, e com suas bases totalmente apoiadas na bandeja.",
+      "enunciado": "QUESTÃO 137 Um garçom precisa escolher uma bandeja de base retangular para servir quatro taças de espumante que precisam ser dispostas em uma única fileira, paralela ao lado maior da bandeja, e com suas bases totalmente apoiadas na bandeja. A base e a borda superior das taças são círculos de raio 4 cm e 5 cm, respectivamente. A bandeja a ser escolhida deverá ter uma área mínima, em centímetro quadrado, igual a",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q137_p16.png"
       ],
       "alternativas": {
-        "A": "base e a borda superior das taças são círculos de raio 4 cm e 5 cm, respectivamente. A bandeja a ser escolhida deverá ter uma área mínima, em centímetro quadrado, igual a A 192.",
+        "A": "192.",
         "B": "300.",
         "C": "304.",
         "D": "320.",
@@ -42,11 +42,11 @@
       "ano": 2017,
       "numero": 138,
       "pagina": 16,
-      "enunciado": "QUESTÃO 138 Em uma cantina, o sucesso de venda no verão são sucos preparados à base de polpa de frutas. Um dos sucos mais vendidos é o de morango com acerola, que é preparado com 2 3 de polpa de morango e 1 3 de polpa de acerola. Para o comerciante, as polpas são vendidas em embalagens de igual volume. Atualmente, a embalagem da polpa de morango custa R$ 18,00 e a de acerola, R$ 14,70. Porém, está prevista uma alta no preço da embalagem da polpa de acerola no próximo mês, passando a custar R$ 15,30. Para não aumentar o preço do suco, o comerciante negociou com o fornecedor uma redução no preço da embalagem da polpa de morango.",
+      "enunciado": "QUESTÃO 138 Em uma cantina, o sucesso de venda no verão são sucos preparados à base de polpa de frutas. Um dos sucos mais vendidos é o de morango com acerola, que é preparado com 2/3 de polpa de morango e 1/3 de polpa de acerola. Para o comerciante, as polpas são vendidas em embalagens de igual volume. Atualmente, a embalagem da polpa de morango custa R$ 18,00 e a de acerola, R$ 14,70. Porém, está prevista uma alta no preço da embalagem da polpa de acerola no próximo mês, passando a custar R$ 15,30. Para não aumentar o preço do suco, o comerciante negociou com o fornecedor uma redução no preço da embalagem da polpa de morango. A redução, em real, no preço da embalagem da polpa de morango deverá ser de",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "redução, em real, no preço da embalagem da polpa de morango deverá ser de A 1,20.",
+        "A": "1,20.",
         "B": "0,90.",
         "C": "0,60.",
         "D": "0,40.",
@@ -58,11 +58,11 @@
       "ano": 2017,
       "numero": 139,
       "pagina": 16,
-      "enunciado": "QUESTÃO 139 Um casal realiza sua mudança de domicílio e necessita colocar numa caixa de papelão um objeto cúbico, de 80 cm de aresta, que não pode ser desmontado. Eles têm à disposição cinco caixas, com diferentes dimensões, conforme descrito: • Caixa 1: 86 cm × 86 cm × 86 cm • Caixa 2: 75 cm × 82 cm × 90 cm • Caixa 3: 85 cm × 82 cm × 90 cm • Caixa 4: 82 cm × 95 cm × 82 cm • Caixa 5: 80 cm × 95 cm × 85 cm O casal precisa escolher uma caixa na qual o objeto caiba, de modo que sobre o menor espaço livre em seu interior.",
+      "enunciado": "QUESTÃO 139 Um casal realiza sua mudança de domicílio e necessita colocar numa caixa de papelão um objeto cúbico, de 80 cm de aresta, que não pode ser desmontado. Eles têm à disposição cinco caixas, com diferentes dimensões, conforme descrito: • Caixa 1: 86 cm × 86 cm × 86 cm • Caixa 2: 75 cm × 82 cm × 90 cm • Caixa 3: 85 cm × 82 cm × 90 cm • Caixa 4: 82 cm × 95 cm × 82 cm • Caixa 5: 80 cm × 95 cm × 85 cm O casal precisa escolher uma caixa na qual o objeto caiba, de modo que sobre o menor espaço livre em seu interior. A caixa escolhida pelo casal deve ser a de número",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "caixa escolhida pelo casal deve ser a de número A 1.",
+        "A": "1.",
         "B": "2.",
         "C": "3.",
         "D": "4.",
@@ -74,13 +74,13 @@
       "ano": 2017,
       "numero": 140,
       "pagina": 17,
-      "enunciado": "QUESTÃO 140 Uma empresa construirá sua página na internet e espera atrair um público de aproximadamente um milhão de clientes. Para acessar essa página, será necessária uma senha com formato a ser definido pela empresa. Existem cinco opções de formato oferecidas pelo programador, descritas no quadro, em que “L” e “D” representam, respectivamente, letra maiúscula e dígito. Opção Formato I LDDDDD II DDDDDD III LLDDDD IV DDDDD V LLLDD As letras do alfabeto, entre as 26 possíveis, bem como os dígitos, entre os 10 possíveis, podem se repetir em qualquer das opções.",
+      "enunciado": "QUESTÃO 140 Uma empresa construirá sua página na internet e espera atrair um público de aproximadamente um milhão de clientes. Para acessar essa página, será necessária uma senha com formato a ser definido pela empresa. Existem cinco opções de formato oferecidas pelo programador, descritas no quadro, em que “L” e “D” representam, respectivamente, letra maiúscula e dígito. Opção Formato I LDDDDD II DDDDDD III LLDDDD IV DDDDD V LLLDD As letras do alfabeto, entre as 26 possíveis, bem como os dígitos, entre os 10 possíveis, podem se repetir em qualquer das opções. A empresa quer escolher uma opção de formato cujo número de senhas distintas possíveis seja superior ao número esperado de clientes, mas que esse número não seja superior ao dobro do número esperado de clientes. A opção que mais se adequa às condições da empresa é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q140_p17.png"
       ],
       "alternativas": {
-        "A": "empresa quer escolher uma opção de formato cujo número de senhas distintas possíveis seja superior ao número esperado de clientes, mas que esse número não seja superior ao dobro do número esperado de clientes. A opção que mais se adequa às condições da empresa é A I.",
+        "A": "I.",
         "B": "II.",
         "C": "III.",
         "D": "IV.",
@@ -126,7 +126,7 @@
       "ano": 2017,
       "numero": 143,
       "pagina": 17,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 17 QUESTÃO 143 Às 17 h 15 min começa uma forte chuva, que cai com intensidade constante. Uma piscina em forma de um paralelepípedo retângulo, que se encontrava inicialmente vazia, começa a acumular a água da chuva e, às 18 horas, o nível da água em seu interior alcança 20 cm de altura. Nesse instante, é aberto o registro que libera o escoamento da água por um ralo localizado no fundo dessa piscina, cuja vazão é constante. Às 18 h 40 min a chuva cessa e, nesse exato instante, o nível da água na piscina baixou para 15 cm. O instante em que a água dessa piscina terminar de escoar completamente está compreendido entre",
+      "enunciado": "QUESTÃO 143 Às 17 h 15 min começa uma forte chuva, que cai com intensidade constante. Uma piscina em forma de um paralelepípedo retângulo, que se encontrava inicialmente vazia, começa a acumular a água da chuva e, às 18 horas, o nível da água em seu interior alcança 20 cm de altura. Nesse instante, é aberto o registro que libera o escoamento da água por um ralo localizado no fundo dessa piscina, cuja vazão é constante. Às 18 h 40 min a chuva cessa e, nesse exato instante, o nível da água na piscina baixou para 15 cm. O instante em que a água dessa piscina terminar de escoar completamente está compreendido entre",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -142,15 +142,15 @@
       "ano": 2017,
       "numero": 144,
       "pagina": 18,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 18 QUESTÃO 144 Um empréstimo foi feito à taxa mensal de i%, usando juros compostos, em oito parcelas fixas e iguais a P. O devedor tem a possibilidade de quitar a dívida antecipadamente a qualquer momento, pagando para isso o valor atual das parcelas ainda a pagar. Após pagar a 5ª parcela, resolve quitar a dívida no ato de pagar a 6ª parcela.",
+      "enunciado": "QUESTÃO 144 Um empréstimo foi feito à taxa mensal de i% , usando juros compostos, em oito parcelas fixas e iguais a P. O devedor tem a possibilidade de quitar a dívida antecipadamente a qualquer momento, pagando para isso o valor atual das parcelas ainda a pagar. Após pagar a 5ª parcela, resolve quitar a dívida no ato de pagar a 6ª parcela. A expressão que corresponde ao valor total pago pela quitação do empréstimo é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "expressão que corresponde ao valor total pago pela quitação do empréstimo é A P i i 1 1 1 100 1 1 100 2 + + + +             ( ) ( )",
-        "B": "P i i 1 1 1 100 1 1 2 100 + + + +             ( ) ( )",
-        "C": "2 2 P i i 1 1 1 100 1 1 100 + + + +             ( ) ( )",
-        "D": "P i i i 1 1 100 1 1 2 100 1 1 3 100 + + + + +             ( ) ( ) ( )",
-        "E": "2 3 P i i i 1 1 100 1 1 100 1 1 100 + + + + +             ( ) ( ) ( )"
+        "A": "[1 + 1 / (1 + i/100) + 1 / ((1 + i/100)^2)]",
+        "B": "[1 + 1 / (1 + i/100) + 1 / (1 + 2i/100)]",
+        "C": "[1 + 1 / ((1 + i/100)^2) + 1 / ((1 + i/100)^2)]",
+        "D": "[1 / (1 + i/100) + 1 / (1 + 2i/100) + 1 / (1 + 3i/100)]",
+        "E": "[1 / (1 + i/100) + 1 / ((1 + i/100)^2) + 1 / ((1 + i/100)^3)]"
       },
       "gabarito": "A"
     },
@@ -158,7 +158,7 @@
       "ano": 2017,
       "numero": 145,
       "pagina": 18,
-      "enunciado": "QUESTÃO 145 Para realizar a viagem dos sonhos, uma pessoa precisava fazer um empréstimo no valor de R$ 5 000,00. Para pagar as prestações, dispõe de, no máximo, R$ 400,00 mensais. Para esse valor de empréstimo, o valor da prestação (P) é calculado em função do número de prestações (n) segundo a fórmula P = × × − 5 000 1013 0 013 1013 1 , , ( , ) n n Se necessário, utilize 0,005 como aproximação para log 1,013; 2,602 como aproximação para log 400; 2,525 como aproximação para log 335. De acordo com a fórmula dada, o menor número de parcelas cujos valores não comprometem o limite definido pela pessoa é",
+      "enunciado": "QUESTÃO 145 Para realizar a viagem dos sonhos, uma pessoa precisava fazer um empréstimo no valor de R$ 5 000,00. Para pagar as prestações, dispõe de, no máximo, R$ 400,00 mensais. Para esse valor de empréstimo, o valor da prestação (P) é calculado em função do número de prestações (n) segundo a fórmula P = 5 000 x 1,013^n x 0,013/ ( 1,013^n - 1) Se necessário, utilize 0,005 como aproximação para log 1,013; 2,602 como aproximação para log 400; 2,525 como aproximação para log 335. De acordo com a fórmula dada, o menor número de parcelas cujos valores não comprometem o limite definido pela pessoa é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -192,14 +192,14 @@
       "ano": 2017,
       "numero": 147,
       "pagina": 19,
-      "enunciado": "QUESTÃO 147",
+      "enunciado": "QUESTÃO 147 A imagem apresentada na figura é uma cópia em preto e branco da tela quadrada intitulada O peixe, de Marcos Pinto, que foi colocada em uma parede para exposição e fixada nos pontos A e B. Por um problema na fixação de um dos pontos, a tela se desprendeu, girando rente à parede. Após o giro, ela ficou posicionada como ilustrado na figura, formando um ângulo de 45° com a linha do horizonte. Para recolocar a tela na sua posição original, deve-se girá-la, rente à parede, no menor ângulo possível inferior a 360°. A forma de recolocar a tela na posição original, obedecendo ao que foi estabelecido, é girando-a em um ângulo de",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q147_p19.png"
       ],
       "alternativas": {
-        "A": "imagem apresentada na figura é uma cópia em preto e branco da tela quadrada intitulada O peixe, de Marcos Pinto, que foi colocada em uma parede para exposição e fixada nos pontos A e B. Por um problema na fixação de um dos pontos, a tela se desprendeu, girando rente à parede. Após o giro, ela ficou posicionada como ilustrado na figura, formando um ângulo de 45° com a linha do horizonte. A",
-        "B": "A B 45º Para recolocar a tela na sua posição original, deve-se girá-la, rente à parede, no menor ângulo possível inferior a 360°. A forma de recolocar a tela na posição original, obedecendo ao que foi estabelecido, é girando-a em um ângulo de A 90° no sentido horário. B 135° no sentido horário.",
+        "A": "90° no sentido horário",
+        "B": "135° no sentido horário.",
         "C": "180° no sentido anti-horário.",
         "D": "270° no sentido anti-horário.",
         "E": "315° no sentido horário."
@@ -210,13 +210,13 @@
       "ano": 2017,
       "numero": 148,
       "pagina": 19,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 19 QUESTÃO 148",
+      "enunciado": "QUESTÃO 148 A avaliação de rendimento de alunos de um curso universitário baseia-se na média ponderada das notas obtidas nas disciplinas pelos respectivos números de créditos, como mostra o quadro: Avaliação Média de notas (M ) Excelente 9 < M ≤ 10 Bom 7 ≤ M ≤ 9 Regular 5 ≤ M < 7 Ruim 3 ≤ M < 5 Péssimo M < 3 Quanto melhor a avaliação de um aluno em determinado período letivo, maior sua prioridade na escolha de disciplinas para o período seguinte. Determinado aluno sabe que se obtiver avaliação “Bom” ou “Excelente” conseguirá matrícula nas disciplinas que deseja. Ele já realizou as provas de 4 das 5 disciplinas em que está matriculado, mas ainda não realizou a prova da disciplina I, conforme o quadro. Disciplinas Notas Número de créditos I 12 II 8,00 4 III 6,00 8 IV 5,00 8 V 7,50 10 Para que atinja seu objetivo, a nota mínima que ele deve conseguir na disciplina I é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q148_p19.png"
       ],
       "alternativas": {
-        "A": "avaliação de rendimento de alunos de um curso universitário baseia-se na média ponderada das notas obtidas nas disciplinas pelos respectivos números de créditos, como mostra o quadro: Avaliação Média de notas (M ) Excelente 9 < M ≤ 10 Bom 7 ≤ M ≤ 9 Regular 5 ≤ M < 7 Ruim 3 ≤ M < 5 Péssimo M < 3 Quanto melhor a avaliação de um aluno em determinado período letivo, maior sua prioridade na escolha de disciplinas para o período seguinte. Determinado aluno sabe que se obtiver avaliação “Bom” ou “Excelente” conseguirá matrícula nas disciplinas que deseja. Ele já realizou as provas de 4 das 5 disciplinas em que está matriculado, mas ainda não realizou a prova da disciplina I, conforme o quadro. Disciplinas Notas Número de créditos I 12 II 8,00 4 III 6,00 8 IV 5,00 8 V 7,50 10 Para que atinja seu objetivo, a nota mínima que ele deve conseguir na disciplina I é A 7,00.",
+        "A": "7,00.",
         "B": "7,38.",
         "C": "7,50.",
         "D": "8,25.",
@@ -228,17 +228,17 @@
       "ano": 2017,
       "numero": 149,
       "pagina": 20,
-      "enunciado": "QUESTÃO 149 Um brinquedo infantil caminhão-cegonha é formado por uma carreta e dez carrinhos nela transportados, conforme a figura. No setor de produção da empresa que fabrica esse brinquedo, é feita a pintura de todos os carrinhos para que o aspecto do brinquedo fique mais atraente. São utilizadas as cores amarelo, branco, laranja e verde, e cada carrinho é pintado apenas com uma cor. O caminhão-cegonha tem uma cor fixa.",
+      "enunciado": "QUESTÃO 149 Um brinquedo infantil caminhão-cegonha é formado por uma carreta e dez carrinhos nela transportados, conforme a figura. No setor de produção da empresa que fabrica esse brinquedo, é feita a pintura de todos os carrinhos para que o aspecto do brinquedo fique mais atraente. São utilizadas as cores amarelo, branco, laranja e verde, e cada carrinho é pintado apenas com uma cor. O caminhão-cegonha tem uma cor fixa. A empresa determinou que em todo caminhão-cegonha deve haver pelo menos um carrinho de cada uma das quatro cores disponíveis. Mudança de posição dos carrinhos no caminhão-cegonha não gera um novo modelo do brinquedo. Com base nessas informações, quantos são os modelos distintos do brinquedo caminhão-cegonha que essa empresa poderá produzir?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q149_p20.png"
       ],
       "alternativas": {
-        "A": "empresa determinou que em todo caminhão-cegonha deve haver pelo menos um carrinho de cada uma das quatro cores disponíveis. Mudança de posição dos carrinhos no caminhão-cegonha não gera um novo modelo do brinquedo. Com base nessas informações, quantos são os modelos distintos do brinquedo caminhão-cegonha que essa empresa poderá produzir? A C6,4",
+        "A": "C6,4",
         "B": "C9,3",
         "C": "C10,4",
-        "D": "64",
-        "E": "46"
+        "D": "6^4",
+        "E": "4^6"
       },
       "gabarito": "B"
     },
@@ -246,11 +246,11 @@
       "ano": 2017,
       "numero": 150,
       "pagina": 20,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 20 QUESTÃO 150 Uma empresa especializada em conservação de piscinas utiliza um produto para tratamento da água cujas especificações técnicas sugerem que seja adicionado 1,5 mL desse produto para cada 1 000 L de água da piscina. Essa empresa foi contratada para cuidar de uma piscina de base retangular, de profundidade constante igual a 1,7 m, com largura e comprimento iguais a 3 m e 5 m, respectivamente. O nível da lâmina d’água dessa piscina é mantido a 50 cm da borda da piscina.",
+      "enunciado": "QUESTÃO 150 Uma empresa especializada em conservação de piscinas utiliza um produto para tratamento da água cujas especificações técnicas sugerem que seja adicionado 1,5 mL desse produto para cada 1 000 L de água da piscina. Essa empresa foi contratada para cuidar de uma piscina de base retangular, de profundidade constante igual a 1,7 m, com largura e comprimento iguais a 3 m e 5 m, respectivamente. O nível da lâmina d’água dessa piscina é mantido a 50 cm da borda da piscina. A quantidade desse produto, em mililitro, que deve ser adicionada a essa piscina de modo a atender às suas especificações técnicas é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "quantidade desse produto, em mililitro, que deve ser adicionada a essa piscina de modo a atender às suas especificações técnicas é A 11,25.",
+        "A": "11,25.",
         "B": "27,00.",
         "C": "28,80.",
         "D": "32,25.",
@@ -278,12 +278,11 @@
       "ano": 2017,
       "numero": 152,
       "pagina": 20,
-      "enunciado": "QUESTÃO 152 Em um teleférico turístico, bondinhos saem de estações ao nível do mar e do topo de uma montanha.",
-      "tem_imagem": false,
+      "enunciado": "QUESTÃO 152 Em um teleférico turístico, bondinhos saem de estações ao nível do mar e do topo de uma montanha. A travessia dura 1,5 minuto e ambos os bondinhos se deslocam à mesma velocidade. Quarenta segundos após o bondinho A partir da estação ao nível do mar, ele cruza com o bondinho B, que havia saído do topo da montanha. Quantos segundos após a partida do bondinho B partiu o bondinho A?", "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "travessia dura 1,5 minuto e ambos os bondinhos se deslocam à mesma velocidade. Quarenta segundos após o bondinho A partir da estação ao nível do mar, ele cruza com o bondinho B, que havia saído do topo da montanha. Quantos segundos após a partida do bondinho",
-        "B": "partiu o bondinho A? A 5 B 10",
+        "A": "5",
+        "B": "10",
         "C": "15",
         "D": "20",
         "E": "25"
@@ -312,13 +311,12 @@
       "ano": 2017,
       "numero": 154,
       "pagina": 21,
-      "enunciado": "QUESTÃO 154 Uma rede hoteleira dispõe de cabanas simples na ilha de Gotland, na Suécia, conforme Figura 1.",
-      "tem_imagem": true,
+      "enunciado": "QUESTÃO 154 Uma rede hoteleira dispõe de cabanas simples na ilha de Gotland, na Suécia, conforme Figura 1. A estrutura de sustentação de cada uma dessas cabanas está representada na Figura 2. A ideia é permitir ao hóspede uma estada livre de tecnologia, mas conectada com a natureza. A forma geométrica da superfície cujas arestas estão representadas na Figura 2 é", "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q154_p21.png"
       ],
       "alternativas": {
-        "A": "estrutura de sustentação de cada uma dessas cabanas está representada na Figura 2. A ideia é permitir ao hóspede uma estada livre de tecnologia, mas conectada com a natureza. Figura 2 ROMERO, L. Tendências. Superinteressante, n. 315, fev. 2013 (adaptado). A forma geométrica da superfície cujas arestas estão representadas na Figura 2 é A tetraedro.",
+        "A": "tetraedro.",
         "B": "pirâmide retangular.",
         "C": "tronco de pirâmide retangular.",
         "D": "prisma quadrangular reto.",
@@ -330,13 +328,13 @@
       "ano": 2017,
       "numero": 155,
       "pagina": 21,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 21 QUESTÃO 155",
+      "enunciado": "QUESTÃO 155 A figura ilustra uma partida de Campo Minado, o jogo presente em praticamente todo computador pessoal. Quatro quadrados em um tabuleiro 16 × 16 foram abertos, e os números em suas faces indicam quantos dos seus 8 vizinhos contêm minas (a serem evitadas). O número 40 no canto inferior direito é o número total de minas no tabuleiro, cujas posições foram escolhidas ao acaso, de forma uniforme, antes de se abrir qualquer quadrado. Em sua próxima jogada, o jogador deve escolher dentre os quadrados marcados com as letras P, Q, R, S e T um para abrir, sendo que deve escolher aquele com a menor probabilidade de conter uma mina. O jogador deverá abrir o quadrado marcado com a letra",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q155_p21.png"
       ],
       "alternativas": {
-        "A": "figura ilustra uma partida de Campo Minado, o jogo presente em praticamente todo computador pessoal. Quatro quadrados em um tabuleiro 16 × 16 foram abertos, e os números em suas faces indicam quantos dos seus 8 vizinhos contêm minas (a serem evitadas). O número 40 no canto inferior direito é o número total de minas no tabuleiro, cujas posições foram escolhidas ao acaso, de forma uniforme, antes de se abrir qualquer quadrado. Em sua próxima jogada, o jogador deve escolher dentre os quadrados marcados com as letras P, Q, R, S e T um para abrir, sendo que deve escolher aquele com a menor probabilidade de conter uma mina. O jogador deverá abrir o quadrado marcado com a letra A P.",
+        "A": "P.",
         "B": "Q.",
         "C": "R.",
         "D": "S.",
@@ -344,29 +342,18 @@
       },
       "gabarito": "B"
     },
-    {
-      "ano": 2017,
-      "numero": 156,
-      "pagina": 22,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 22 QUESTÃO 156 A água para o abastecimento de um prédio é armazenad em formato de bloco retangular, ligados entre si por um can Reservatório 1 Cano de entrada A água entra no sistema pelo cano de entrada no Res cano de ligação, passa a abastecer o Reservatório 2. Supon Qual dos gráficos melhor descreverá a altura h do nível da no sistema? A h v B h v C h v",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2017/enem_2017_q156_p22.png"
-      ],
-      "alternativas": {},
-      "gabarito": "D"
-    },
+
     {
       "ano": 2017,
       "numero": 157,
       "pagina": 23,
-      "enunciado": "QUESTÃO 157",
+      "enunciado": "QUESTÃO 157 A manchete demonstra que o transporte de grandes cargas representa cada vez mais preocupação quando feito em vias urbanas. Caminhão entala em viaduto no Centro Um caminhão de grande porte entalou embaixo do viaduto no cruzamento das avenidas Borges de Medeiros e Loureiro da Silva no sentido Centro-Bairro, próximo à Ponte de Pedra, na capital. Esse veículo vinha de São Paulo para Porto Alegre e transportava três grandes tubos, conforme ilustrado na foto. Disponível em: www.caminhoes-e-carretas.com. Acesso em: 21 maio 2012 (adaptado). Considere que o raio externo de cada cano da imagem seja 0,60 m e que eles estejam em cima de uma carroceria cuja parte superior está a 1,30 m do solo. O desenho representa a vista traseira do empilhamento dos canos. 0,60 m A margem de segurança recomendada para que um veículo passe sob um viaduto é que a altura total do veículo com a carga seja, no mínimo, 0,50 m menor do que a altura do vão do viaduto. Considere 1,7 como aproximação para √3 . Qual deveria ser a altura mínima do viaduto, em metro, para que esse caminhão pudesse passar com segurança sob seu vão?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q157_p23.png"
       ],
       "alternativas": {
-        "A": "manchete demonstra que o transporte de grandes cargas representa cada vez mais preocupação quando feito em vias urbanas. Caminhão entala em viaduto no Centro Um caminhão de grande porte entalou embaixo do viaduto no cruzamento das avenidas Borges de Medeiros e Loureiro da Silva no sentido Centro-Bairro, próximo à Ponte de Pedra, na capital. Esse veículo vinha de São Paulo para Porto Alegre e transportava três grandes tubos, conforme ilustrado na foto. Disponível em: www.caminhoes-e-carretas.com. Acesso em: 21 maio 2012 (adaptado). Considere que o raio externo de cada cano da imagem seja 0,60 m e que eles estejam em cima de uma carroceria cuja parte superior está a 1,30 m do solo. O desenho representa a vista traseira do empilhamento dos canos. 0,60 m A margem de segurança recomendada para que um veículo passe sob um viaduto é que a altura total do veículo com a carga seja, no mínimo, 0,50 m menor do que a altura do vão do viaduto. Considere 1,7 como aproximação para 3 . Qual deveria ser a altura mínima do viaduto, em metro, para que esse caminhão pudesse passar com segurança sob seu vão? A 2,82",
+        "A": "2,82",
         "B": "3,52",
         "C": "3,70",
         "D": "4,02",
@@ -378,17 +365,17 @@
       "ano": 2017,
       "numero": 158,
       "pagina": 23,
-      "enunciado": "QUESTÃO 158 Um menino acaba de se mudar para um novo bairro e deseja ir à padaria. Pediu ajuda a um amigo que lhe forneceu um mapa com pontos numerados, que representam cinco locais de interesse, entre os quais está a padaria. Além disso, o amigo passou as seguintes instruções: a partir do ponto em que você se encontra, representado pela letra X, ande para oeste, vire à direita na primeira rua que encontrar, siga em frente e vire à esquerda na próxima rua.",
+      "enunciado": "QUESTÃO 158 Um menino acaba de se mudar para um novo bairro e deseja ir à padaria. Pediu ajuda a um amigo que lhe forneceu um mapa com pontos numerados, que representam cinco locais de interesse, entre os quais está a padaria. Além disso, o amigo passou as seguintes instruções: a partir do ponto em que você se encontra, representado pela letra X, ande para oeste, vire à direita na primeira rua que encontrar, siga em frente e vire à esquerda na próxima rua. A padaria estará logo a seguir. A padaria está representada pelo ponto numerado com",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q158_p23.png"
       ],
       "alternativas": {
-        "A": "padaria estará logo a seguir. Rua A Quadra 1 Quadra 2 Quadra 3 Quadra 4 Quadra 5 Quadra 6 Quadra 7 Quadra 8 Quadra 9 Quadra 10 Quadra 11 Quadra 12 Quadra 13 Quadra 14 Quadra 15 Quadra 16 Rua",
-        "B": "Rua",
-        "C": "Rua",
-        "D": "Rua",
-        "E": "Rua 1 Rua 2 2 Rua 3 Rua 4 Rua 5 1 X 4 5 3 N S O L A padaria está representada pelo ponto numerado com A 1. B 2. C 3. D 4. E 5."
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5."
       },
       "gabarito": "A"
     },
@@ -396,7 +383,7 @@
       "ano": 2017,
       "numero": 159,
       "pagina": 23,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 23 QUESTÃO 159 Três alunos, X, Y e Z, estão matriculados em um curso de inglês. Para avaliar esses alunos, o professor optou por fazer cinco provas. Para que seja aprovado nesse curso, o aluno deverá ter a média aritmética das notas das cinco provas maior ou igual a 6. Na tabela, estão dispostas as notas que cada aluno tirou em cada prova. Aluno 1ª Prova 2ª Prova 3ª Prova 4ª Prova 5ª Prova X 5 5 5 10 6 Y 4 9 3 9 5 Z 5 5 8 5 6 Com base nos dados da tabela e nas informações dadas, ficará(ão) reprovado(s)",
+      "enunciado": "QUESTÃO 159 Três alunos, X, Y e Z, estão matriculados em um curso de inglês. Para avaliar esses alunos, o professor optou por fazer cinco provas. Para que seja aprovado nesse curso, o aluno deverá ter a média aritmética das notas das cinco provas maior ou igual a 6. Na tabela, estão dispostas as notas que cada aluno tirou em cada prova. Aluno 1ª Prova 2ª Prova 3ª Prova 4ª Prova 5ª Prova X 5 5 5 10 6 Y 4 9 3 9 5 Z 5 5 8 5 6 Com base nos dados da tabela e nas informações dadas, ficará(ão) reprovado(s)",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q159_p23.png"
@@ -432,27 +419,32 @@
       "ano": 2017,
       "numero": 161,
       "pagina": 24,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 24 QUESTÃO 161 Em um parque há dois mirantes de alturas distintas que são acessados por elevador panorâmico. O topo do mirante 1 é acessado pelo elevador 1, enquanto que o topo do mirante 2 é acessado pelo elevador 2. Eles encontram-se a uma distância possível de ser percorrida a pé, e entre os mirantes há um teleférico que os liga que pode ou não ser utilizado pelo visitante. Mirante 1 Mirante 2 O acesso aos elevadores tem os seguintes custos: • Subir pelo elevador 1: R$ 0,15; • Subir pelo elevador 2: R$ 1,80; • Descer pelo elevador 1: R$ 0,10; • Descer pelo elevador 2: R$ 2,30.",
-      "tem_imagem": false,
+      "enunciado": "QUESTÃO 161 Em um parque há dois mirantes de alturas distintas que são acessados por elevador panorâmico. O topo do mirante 1 é acessado pelo elevador 1, enquanto que o topo do mirante 2 é acessado pelo elevador 2. Eles encontram-se a uma distância possível de ser percorrida a pé, e entre os mirantes há um teleférico que os liga que pode ou não ser utilizado pelo visitante. Mirante 1 Mirante 2 O acesso aos elevadores tem os seguintes custos: • Subir pelo elevador 1: R$ 0,15; • Subir pelo elevador 2: R$ 1,80; • Descer pelo elevador 1: R$ 0,10; • Descer pelo elevador 2: R$ 2,30. O custo da passagem do teleférico partindo do topo do mirante 1 para o topo do mirante 2 é de R$ 2,00, e do topo do mirante 2 para o topo do mirante 1 é de R$ 2,50. Qual é o menor custo, em real, para uma pessoa visitar os topos dos dois mirantes e retornar ao solo?", "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "2,25",
+        "B": "3,90",
+        "C": "4,35",
+        "D": "4,40",
+        "E": "4,45"
+      },
       "gabarito": "C"
     },
     {
       "ano": 2017,
       "numero": 162,
       "pagina": 24,
-      "enunciado": "QUESTÃO 162",
+      "enunciado": "QUESTÃO 162 A mensagem digitada no celular, enquanto você dirige, tira a sua atenção e, por isso, deve ser evitada. Pesquisas mostram que um motorista que dirige um carro a uma velocidade constante percorre “às cegas” (isto é, sem ter visão da pista) uma distância proporcional ao tempo gasto ao olhar para o celular durante a digitação da mensagem. Considere que isso de fato aconteça. Suponha que dois motoristas (X e Y) dirigem com a mesma velocidade constante e digitam a mesma mensagem em seus celulares. Suponha, ainda, que o tempo gasto pelo motorista X olhando para seu celular enquanto digita a mensagem corresponde a 25% do tempo gasto pelo motorista Y para executar a mesma tarefa. Disponível em: http://g1.globo.com. Acesso em: 21 jul. 2012 (adaptado). A razão entre as distâncias percorridas às cegas por X e Y, nessa ordem, é igual a ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q162_p24.png"
       ],
       "alternativas": {
-        "A": "mensagem digitada no celular, enquanto você dirige, tira a sua atenção e, por isso, deve ser evitada. Pesquisas mostram que um motorista que dirige um carro a uma velocidade constante percorre “às cegas” (isto é, sem ter visão da pista) uma distância proporcional ao tempo gasto ao olhar para o celular durante a digitação da mensagem. Considere que isso de fato aconteça. Suponha que dois motoristas (X e Y) dirigem com a mesma velocidade constante e digitam a mesma mensagem em seus celulares. Suponha, ainda, que o tempo gasto pelo motorista X olhando para seu celular enquanto digita a mensagem corresponde a 25% do tempo gasto pelo motorista Y para executar a mesma tarefa. Disponível em: http://g1.globo.com. Acesso em: 21 jul. 2012 (adaptado). A razão entre as distâncias percorridas às cegas por X e Y, nessa ordem, é igual a A 5 4",
-        "B": "1 4",
-        "C": "4 3",
-        "D": "4 1",
-        "E": "3 4"
+        "A": "5/4",
+        "B": "1/4",
+        "C": "4/3",
+        "D": "4/1",
+        "E": "3/4"
       },
       "gabarito": "B"
     },
@@ -460,15 +452,15 @@
       "ano": 2017,
       "numero": 163,
       "pagina": 25,
-      "enunciado": "QUESTÃO 163 Uma desenhista projetista deverá desenhar uma tampa de panela em forma circular. Para realizar esse desenho, ela dispõe, no momento, de apenas um compasso, cujo comprimento das hastes é de 10 cm, um transferidor e uma folha de papel com um plano cartesiano. Para esboçar o desenho dessa tampa, ela afastou as hastes do compasso de forma que o ângulo formado por elas fosse de 120°.",
+      "enunciado": "QUESTÃO 163 Uma desenhista projetista deverá desenhar uma tampa de panela em forma circular. Para realizar esse desenho, ela dispõe, no momento, de apenas um compasso, cujo comprimento das hastes é de 10 cm, um transferidor e uma folha de papel com um plano cartesiano. Para esboçar o desenho dessa tampa, ela afastou as hastes do compasso de forma que o ângulo formado por elas fosse de 120°. A ponta seca está representada pelo ponto C, a ponta do grafite está representada pelo ponto B e a cabeça do compasso está representada pelo ponto A conforme a figura. Após concluir o desenho, ela o encaminha para o setor de produção. Ao receber o desenho com a indicação do raio da tampa, verificará em qual intervalo este se encontra e decidirá o tipo de material a ser utilizado na sua fabricação, de acordo com os dados. Considere 1,7 como aproximação para √3 . O tipo de material a ser utilizado pelo setor de produção será",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q163_p25.png"
       ],
       "alternativas": {
-        "A": "ponta seca está representada pelo ponto C, a ponta do grafite está representada pelo ponto",
-        "B": "e a cabeça do compasso está representada pelo ponto A conforme a figura. 120° y x B 1 0 3",
-        "C": "A Após concluir o desenho, ela o encaminha para o setor de produção. Ao receber o desenho com a indicação do raio da tampa, verificará em qual intervalo este se encontra e decidirá o tipo de material a ser utilizado na sua fabricação, de acordo com os dados. Tipo de material Intervalo de valores do raio (cm) I 0 < R ≤ 5 II 5 < R ≤ 10 III 10 < R ≤ 15 IV 15 < R ≤ 21 V 21 < R ≤ 40 Considere 1,7 como aproximação para 3 . O tipo de material a ser utilizado pelo setor de produção será A I. B II. C III.",
+        "A": "I.",
+        "B": "II.",
+        "C": "III.",
         "D": "IV.",
         "E": "V."
       },
@@ -478,13 +470,13 @@
       "ano": 2017,
       "numero": 164,
       "pagina": 25,
-      "enunciado": "QUESTÃO 164 Uma pessoa ganhou uma pulseira formada por pérolas esféricas, na qual faltava uma das pérolas.",
+      "enunciado": "QUESTÃO 164 Uma pessoa ganhou uma pulseira formada por pérolas esféricas, na qual faltava uma das pérolas. A figura indica a posição em que estaria faltando esta pérola. Ela levou a joia a um joalheiro que verificou que a medida do diâmetro dessas pérolas era 4 milímetros. Em seu estoque, as pérolas do mesmo tipo e formato, disponíveis para reposição, tinham diâmetros iguais a: 4,025 mm; 4,100 mm; 3,970 mm; 4,080 mm e 3,099 mm. O joalheiro então colocou na pulseira a pérola cujo diâmetro era o mais próximo do diâmetro das pérolas originais. A pérola colocada na pulseira pelo joalheiro tem diâmetro, em milímetro, igual a",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q164_p25.png"
       ],
       "alternativas": {
-        "A": "figura indica a posição em que estaria faltando esta pérola. Ela levou a joia a um joalheiro que verificou que a medida do diâmetro dessas pérolas era 4 milímetros. Em seu estoque, as pérolas do mesmo tipo e formato, disponíveis para reposição, tinham diâmetros iguais a: 4,025 mm; 4,100 mm; 3,970 mm; 4,080 mm e 3,099 mm. O joalheiro então colocou na pulseira a pérola cujo diâmetro era o mais próximo do diâmetro das pérolas originais. A pérola colocada na pulseira pelo joalheiro tem diâmetro, em milímetro, igual a A 3,099.",
+        "A": "3,099.",
         "B": "3,970.",
         "C": "4,025.",
         "D": "4,080.",
@@ -496,7 +488,7 @@
       "ano": 2017,
       "numero": 165,
       "pagina": 25,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 25 QUESTÃO 165 Em uma de suas viagens, um turista comprou uma lembrança de um dos monumentos que visitou. Na base do objeto há informações dizendo que se trata de uma peça em escala 1 : 400, e que seu volume é de 25 cm3. O volume do monumento original, em metro cúbico, é de",
+      "enunciado": "QUESTÃO 165 Em uma de suas viagens, um turista comprou uma lembrança de um dos monumentos que visitou. Na base do objeto há informações dizendo que se trata de uma peça em escala 1 : 400, e que seu volume é de 25 cm3. O volume do monumento original, em metro cúbico, é de",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -512,13 +504,13 @@
       "ano": 2017,
       "numero": 166,
       "pagina": 26,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 26 QUESTÃO 166 Uma bicicleta do tipo mountain bike tem uma coroa com 3 engrenagens e uma catraca com 6 engrenagens, que, combinadas entre si, determinam 18 marchas (número de engrenagens da coroa vezes o número de engrenagens da catraca). Os números de dentes das engrenagens das coroas e das catracas dessa bicicleta estão listados no quadro. Engrenagens 1ª 2ª 3ª 4ª 5ª 6ª Nº de dentes da coroa 46 36 26 - - - Nº de dentes da catraca 24 22 20 18 16 14 Sabe-se que o número de voltas efetuadas pela roda traseira a cada pedalada é calculado dividindo-se a quantidade de dentes da coroa pela quantidade de dentes da catraca. Durante um passeio em uma bicicleta desse tipo, deseja-se fazer um percurso o mais devagar possível, escolhendo, para isso, uma das seguintes combinações de engrenagens (coroa x catraca): I II III IV V 1ª × 1ª 1ª × 6ª 2ª × 4ª 3ª × 1ª 3ª × 6ª",
+      "enunciado": "QUESTÃO 166 Uma bicicleta do tipo mountain bike tem uma coroa com 3 engrenagens e uma catraca com 6 engrenagens, que, combinadas entre si, determinam 18 marchas (número de engrenagens da coroa vezes o número de engrenagens da catraca). Os números de dentes das engrenagens das coroas e das catracas dessa bicicleta estão listados no quadro. Engrenagens 1ª 2ª 3ª 4ª 5ª 6ª Nº de dentes da coroa 46 36 26 - - - Nº de dentes da catraca 24 22 20 18 16 14 Sabe-se que o número de voltas efetuadas pela roda traseira a cada pedalada é calculado dividindo-se a quantidade de dentes da coroa pela quantidade de dentes da catraca. Durante um passeio em uma bicicleta desse tipo, deseja-se fazer um percurso o mais devagar possível, escolhendo, para isso, uma das seguintes combinações de engrenagens (coroa x catraca): I II III IV V 1ª × 1ª 1ª × 6ª 2ª × 4ª 3ª × 1ª 3ª × 6ª A combinação escolhida para realizar esse passeio da forma desejada é" ,
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q166_p26.png"
       ],
       "alternativas": {
-        "A": "combinação escolhida para realizar esse passeio da forma desejada é A I.",
+        "A": "I.",
         "B": "II.",
         "C": "III.",
         "D": "IV.",
@@ -564,15 +556,15 @@
       "ano": 2017,
       "numero": 169,
       "pagina": 27,
-      "enunciado": "QUESTÃO 169 Para uma temporada das corridas de Fórmula 1, a capacidade do tanque de combustível de cada carro passou a ser de 100 kg de gasolina. Uma equipe optou por utilizar uma gasolina com densidade de 750 gramas por litro, iniciando a corrida com o tanque cheio. Na primeira parada de reabastecimento, um carro dessa equipe apresentou um registro em seu computador de bordo acusando o consumo de quatro décimos da gasolina originalmente existente no tanque. Para minimizar o peso desse carro e garantir o término da corrida, a equipe de apoio reabasteceu o carro com a terça parte do que restou no tanque na chegada ao reabastecimento. Disponível em: www.superdanilof1page.com.br. Acesso em: 6 jul. 2015 (adaptado).",
+      "enunciado": "QUESTÃO 169 Para uma temporada das corridas de Fórmula 1, a capacidade do tanque de combustível de cada carro passou a ser de 100 kg de gasolina. Uma equipe optou por utilizar uma gasolina com densidade de 750 gramas por litro, iniciando a corrida com o tanque cheio. Na primeira parada de reabastecimento, um carro dessa equipe apresentou um registro em seu computador de bordo acusando o consumo de quatro décimos da gasolina originalmente existente no tanque. Para minimizar o peso desse carro e garantir o término da corrida, a equipe de apoio reabasteceu o carro com a terça parte do que restou no tanque na chegada ao reabastecimento. Disponível em: www.superdanilof1page.com.br. Acesso em: 6 jul. 2015 (adaptado). A quantidade de gasolina utilizada, em litro, no reabastecimento foi",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "quantidade de gasolina utilizada, em litro, no reabastecimento foi A 20 0 075 ,",
-        "B": "20 0 75 ,",
-        "C": "20 7 5 ,",
-        "D": "20 0 075 × ,",
-        "E": "20 0 75 × ,"
+        "A": "20 / 0, 075 ,",
+        "B": "20 / 0, 75 ,",
+        "C": "20 / 7, 5 ,",
+        "D": "20 x 0, 075 ,",
+        "E": "20 x 0, 75 ,"
       },
       "gabarito": "B"
     },
@@ -580,13 +572,13 @@
       "ano": 2017,
       "numero": 170,
       "pagina": 27,
-      "enunciado": "E , QUESTÃO 170 O gráfico apresenta a taxa de desemprego (em %) para o período de março de 2008 a abril de 2009, obtida com base nos dados observados nas regiões metropolitanas de Recife, Salvador, Belo Horizonte, Rio de Janeiro, São Paulo e Porto Alegre. Taxa de desemprego (%) 8,6 8,5 8,1 7,7 7,6 7,9 7,9 7,6 7,5 6,8 8,2 8,5 8,9 9,0 03/08 04 05 06 07 08 09 10 11 12 01/09 02 03 04 IBGE. Pesquisa mensal de emprego. Disponível em: www.ibge.gov.br. Acesso em: 30 jul. 2012 (adaptado).",
+      "enunciado": "QUESTÃO 170 O gráfico apresenta a taxa de desemprego (em %) para o período de março de 2008 a abril de 2009, obtida com base nos dados observados nas regiões metropolitanas de Recife, Salvador, Belo Horizonte, Rio de Janeiro, São Paulo e Porto Alegre. Taxa de desemprego (%) 8,6 8,5 8,1 7,7 7,6 7,9 7,9 7,6 7,5 6,8 8,2 8,5 8,9 9,0 03/08 04 05 06 07 08 09 10 11 12 01/09 02 03 04 IBGE. Pesquisa mensal de emprego. Disponível em: www.ibge.gov.br. Acesso em: 30 jul. 2012 (adaptado). A mediana dessa taxa de desemprego, no período de março de 2008 a abril de 2009, foi de",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q170_p27.png"
       ],
       "alternativas": {
-        "A": "mediana dessa taxa de desemprego, no período de março de 2008 a abril de 2009, foi de A 8,1%",
+        "A": "8,1%",
         "B": "8,0%",
         "C": "7,9%",
         "D": "7,7%",
@@ -602,11 +594,11 @@
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "10 2 310 ×",
-        "B": "10 2 3 9 10 ×",
-        "C": "2 3 10 100",
-        "D": "2 3 90 100",
-        "E": "2 310"
+        "A": "10 x 2 / 3^10 ",
+        "B": "10 x 2^9 / 3^10 ",
+        "C": "2^10 / 3^100",
+        "D": "2^90 / 3^100",
+        "E": "2 / 3^10"
       },
       "gabarito": "A"
     },
@@ -614,11 +606,11 @@
       "ano": 2017,
       "numero": 172,
       "pagina": 27,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 27 3 QUESTÃO 172",
+      "enunciado": "QUESTÃO 172 A energia solar vai abastecer parte da demanda de energia do campus de uma universidade brasileira. A instalação de painéis solares na área dos estacionamentos e na cobertura do hospital pediátrico será aproveitada nas instalações universitárias e também ligada na rede da companhia elétrica distribuidora de energia. O projeto inclui 100 m² de painéis solares que ficarão instalados nos estacionamentos, produzindo energia elétrica e proporcionando sombra para os carros. Sobre o hospital pediátrico serão colocados aproximadamente 300 m² de painéis, sendo 100 m² para gerar energia elétrica utilizada no campus, e 200 m² para geração de energia térmica, produzindo aquecimento de água utilizada nas caldeiras do hospital. Suponha que cada metro quadrado de painel solar para energia elétrica gere uma economia de 1 kWh por dia e cada metro quadrado produzindo energia térmica permita economizar 0,7 kWh por dia para a universidade. Em uma segunda fase do projeto, será aumentada em 75% a área coberta pelos painéis solares que geram energia elétrica. Nessa fase também deverá ser ampliada a área de cobertura com painéis para geração de energia térmica. Disponível em: http://agenciabrasil.ebc.com.br. Acesso em: 30 out. 2013 (adaptado). Para se obter o dobro da quantidade de energia economizada diariamente, em relação à primeira fase, a área total dos painéis que geram energia térmica, em metro quadrado, deverá ter o valor mais próximo de ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "energia solar vai abastecer parte da demanda de energia do campus de uma universidade brasileira. A instalação de painéis solares na área dos estacionamentos e na cobertura do hospital pediátrico será aproveitada nas instalações universitárias e também ligada na rede da companhia elétrica distribuidora de energia. O projeto inclui 100 m² de painéis solares que ficarão instalados nos estacionamentos, produzindo energia elétrica e proporcionando sombra para os carros. Sobre o hospital pediátrico serão colocados aproximadamente 300 m² de painéis, sendo 100 m² para gerar energia elétrica utilizada no campus, e 200 m² para geração de energia térmica, produzindo aquecimento de água utilizada nas caldeiras do hospital. Suponha que cada metro quadrado de painel solar para energia elétrica gere uma economia de 1 kWh por dia e cada metro quadrado produzindo energia térmica permita economizar 0,7 kWh por dia para a universidade. Em uma segunda fase do projeto, será aumentada em 75% a área coberta pelos painéis solares que geram energia elétrica. Nessa fase também deverá ser ampliada a área de cobertura com painéis para geração de energia térmica. Disponível em: http://agenciabrasil.ebc.com.br. Acesso em: 30 out. 2013 (adaptado). Para se obter o dobro da quantidade de energia economizada diariamente, em relação à primeira fase, a área total dos painéis que geram energia térmica, em metro quadrado, deverá ter o valor mais próximo de A 231.",
+        "A": "231.",
         "B": "431.",
         "C": "472.",
         "D": "523.",
@@ -630,12 +622,12 @@
       "ano": 2017,
       "numero": 173,
       "pagina": 28,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 28 QUESTÃO 173 Dois reservatórios",
+      "enunciado": "QUESTÃO 173 Dois reservatórios A e B são alimentados por bombas distintas por um período de 20 horas. A quantidade de água contida em cada reservatório nesse período pode ser visualizada na figura. O número de horas em que os dois reservatórios contêm a mesma quantidade de água é ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "e",
-        "B": "são alimentados por bombas d contida em cada reservatório nesse período pode ser visua 180 000 170 000 160 000 150 000 140 000 130 000 120 000 110 000 100 000 90 000 80 000 70 000 60 000 50 000 40 000 30 000 20 000 10 000 0 0 1 2 3 4 5 6 7 8 9 1 Reservatório A Quantidade de á Volum Temp Reservatór Reservatór O número de horas em que os dois reservatórios contêm a A 1. B 2.",
+        "A": "1.",
+        "B": "2.",
         "C": "4.",
         "D": "5.",
         "E": "6."
@@ -646,11 +638,11 @@
       "ano": 2017,
       "numero": 174,
       "pagina": 29,
-      "enunciado": "QUESTÃO 174 Neste modelo de termômetro, os filetes na cor preta registram as temperaturas mínima e máxima do dia anterior e os filetes na cor cinza registram a temperatura ambiente atual, ou seja, no momento da leitura do termômetro. −30 −20 −10 10 20 30 40 50 0 50 40 30 20 10 −10 −20 −30 0 Por isso ele tem duas colunas. Na da esquerda, os números estão em ordem crescente, de cima para baixo, de -30 °C até 50 °C. Na coluna da direita, os números estão ordenados de forma crescente, de baixo para cima, de -30 °C até 50 °C.",
+      "enunciado": "QUESTÃO 174 Neste modelo de termômetro, os filetes na cor preta registram as temperaturas mínima e máxima do dia anterior e os filetes na cor cinza registram a temperatura ambiente atual, ou seja, no momento da leitura do termômetro. −30 −20 −10 10 20 30 40 50 0 50 40 30 20 10 −10 −20 −30 0 Por isso ele tem duas colunas. Na da esquerda, os números estão em ordem crescente, de cima para baixo, de -30 °C até 50 °C. Na coluna da direita, os números estão ordenados de forma crescente, de baixo para cima, de -30 °C até 50 °C. A leitura é feita da seguinte maneira: • a temperatura mínima é indicada pelo nível inferior do filete preto na coluna da esquerda; • a temperatura máxima é indicada pelo nível inferior do filete preto na coluna da direita; • a temperatura atual é indicada pelo nível superior dos filetes cinza nas duas colunas. Disponível em: www.if.ufrgs.br. Acesso em: 28 ago. 2014 (adaptado). Qual é a temperatura máxima mais aproximada registrada nesse termômetro?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "leitura é feita da seguinte maneira: • a temperatura mínima é indicada pelo nível inferior do filete preto na coluna da esquerda; • a temperatura máxima é indicada pelo nível inferior do filete preto na coluna da direita; • a temperatura atual é indicada pelo nível superior dos filetes cinza nas duas colunas. Disponível em: www.if.ufrgs.br. Acesso em: 28 ago. 2014 (adaptado). Qual é a temperatura máxima mais aproximada registrada nesse termômetro? A 5 °C",
+        "A": "5 °C",
         "B": "7 °C",
         "C": "13 °C",
         "D": "15 °C",
@@ -662,7 +654,7 @@
       "ano": 2017,
       "numero": 175,
       "pagina": 29,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 29 QUESTÃO 175 Pivô central é um sistema de irrigação muito usado na agricultura, em que uma área circular é projetada para receber uma estrutura suspensa. No centro dessa área, há uma tubulação vertical que transmite água através de um cano horizontal longo, apoiado em torres de sustentação, as quais giram, sobre rodas, em torno do centro do pivô, também chamado de base, conforme mostram as figuras. Cada torre move-se com velocidade constante. BASE T1 T2 T3 Um pivô de três torres (T1, T2 e T3) será instalado em uma fazenda, sendo que as distâncias entre torres consecutivas bem como da base à torre T1 são iguais a 50 m. O fazendeiro pretende ajustar as velocidades das torres, de tal forma que o pivô efetue uma volta completa em 25 horas. Use 3 como aproximação para π. Para atingir seu objetivo, as velocidades das torres T1, T2 e T3 devem ser, em metro por hora, de",
+      "enunciado": "QUESTÃO 175 Pivô central é um sistema de irrigação muito usado na agricultura, em que uma área circular é projetada para receber uma estrutura suspensa. No centro dessa área, há uma tubulação vertical que transmite água através de um cano horizontal longo, apoiado em torres de sustentação, as quais giram, sobre rodas, em torno do centro do pivô, também chamado de base, conforme mostram as figuras. Cada torre move-se com velocidade constante. BASE T1 T2 T3 Um pivô de três torres (T1, T2 e T3) será instalado em uma fazenda, sendo que as distâncias entre torres consecutivas bem como da base à torre T1 são iguais a 50 m. O fazendeiro pretende ajustar as velocidades das torres, de tal forma que o pivô efetue uma volta completa em 25 horas. Use 3 como aproximação para π. Para atingir seu objetivo, as velocidades das torres T1, T2 e T3 devem ser, em metro por hora, de",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q175_p29.png"
@@ -680,17 +672,17 @@
       "ano": 2017,
       "numero": 176,
       "pagina": 30,
-      "enunciado": "QUESTÃO 176",
+      "enunciado": "QUESTÃO 176 A Igreja de São Francisco de Assis, obra arquitetônica modernista de Oscar Niemeyer, localizada na Lagoa da Pampulha, em Belo Horizonte, possui abóbadas parabólicas. A seta na Figura 1 ilustra uma das abóbadas na entrada principal da capela. A Figura 2 fornece uma vista frontal desta abóbada, com medidas hipotéticas para simplificar os cálculos. Qual a medida da altura H, em metro, indicada na Figura 2?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q176_p30.png"
       ],
       "alternativas": {
-        "A": "Igreja de São Francisco de Assis, obra arquitetônica mod em Belo Horizonte, possui abóbadas parabólicas. A seta n da capela. A Figura 2 fornece uma vista frontal desta abóba H metr Figura 1 Qual a medida da altura H, em metro, indicada na Figura 2? A 16 3",
-        "B": "31 5",
-        "C": "25 4",
-        "D": "25 3",
-        "E": "75 2"
+        "A": "16/3",
+        "B": "31/5",
+        "C": "25/4",
+        "D": "25/3",
+        "E": "75/2"
       },
       "gabarito": "D"
     },
@@ -698,7 +690,7 @@
       "ano": 2017,
       "numero": 177,
       "pagina": 30,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 30 2 QUESTÃO 177 Quanto tempo você fica conectado à internet? Para respon que roda na área de trabalho, para gerar automaticamente u acessa cinco sites visitados. Em um computador, foi observa da sexta-feira para o sábado, nos cinco sites mais acessados Tempo de acesso na sexta-feira (minuto) Site X 12 Site Y 30 Site U 40 Site Z 10 Site W 38 Analisando os gráficos do computador, a maior taxa de au foi no site",
+      "enunciado": "QUESTÃO 177 Quanto tempo você fica conectado à internet? Para respon que roda na área de trabalho, para gerar automaticamente u acessa cinco sites visitados. Em um computador, foi observa da sexta-feira para o sábado, nos cinco sites mais acessados Tempo de acesso na sexta-feira (minuto) Site X 12 Site Y 30 Site U 40 Site Z 10 Site W 38 Analisando os gráficos do computador, a maior taxa de au foi no site",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q177_p30.png"
@@ -716,17 +708,17 @@
       "ano": 2017,
       "numero": 178,
       "pagina": 31,
-      "enunciado": "QUESTÃO 178 O resultado de uma pesquisa eleitoral, sobre a preferência dos eleitores em relação a dois candidatos, foi representado por meio do Gráfico 1. 70 60 50 40 30 20 10 0",
+      "enunciado": "QUESTÃO 178 O resultado de uma pesquisa eleitoral, sobre a preferência dos eleitores em relação a dois candidatos, foi representado por meio do Gráfico 1. Ao ser divulgado esse resultado em jornal, o Gráfico 1 foi cortado durante a diagramação, como mostra o Gráfico 2. Apesar de os valores apresentados estarem corretos e a largura das colunas ser a mesma, muitos leitores criticaram o formato do Gráfico 2 impresso no jornal, alegando que houve prejuízo visual para o candidato B. A diferença entre as razões da altura da coluna B pela coluna A nos gráficos 1 e 2 é ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q178_p31.png"
       ],
       "alternativas": {
-        "A": "Gráfico 1 Candidato Eleitores (%)",
-        "B": "Ao ser divulgado esse resultado em jornal, o Gráfico 1 foi cortado durante a diagramação, como mostra o Gráfico 2. 70 60 50 40 30 20 A Eleitores (%) B Gráfico 2 Candidato Apesar de os valores apresentados estarem corretos e a largura das colunas ser a mesma, muitos leitores criticaram o formato do Gráfico 2 impresso no jornal, alegando que houve prejuízo visual para o candidato B. A diferença entre as razões da altura da coluna B pela coluna A nos gráficos 1 e 2 é A 0 B 1 2",
-        "C": "1 5",
-        "D": "2 15",
-        "E": "8 35"
+        "A": "0",
+        "B": "1/2",
+        "C": "1/5",
+        "D": "2/15",
+        "E": "8/35"
       },
       "gabarito": "E"
     },
@@ -734,14 +726,14 @@
       "ano": 2017,
       "numero": 179,
       "pagina": 31,
-      "enunciado": "QUESTÃO 179 Um cientista, em seus estudos para modelar a pressão arterial de uma pessoa, utiliza uma função do tipo P(t) =",
+      "enunciado": "QUESTÃO 179 Um cientista, em seus estudos para modelar a pressão arterial de uma pessoa, utiliza uma função do tipo P(t) = A + Bcos(kt) em que A, B e K são constantes reais positivas e t representa a variável tempo, medida em segundo. Considere que um batimento cardíaco representa o intervalo de tempo entre duas sucessivas pressões máximas. Ao analisar um caso específico, o cientista obteve os dados: Pressão mínima 78 Pressão máxima 120 Número de batimentos cardíacos por minuto 90 A função P(t) obtida, por este cientista, ao analisar o caso específico foi",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q179_p31.png"
       ],
       "alternativas": {
-        "A": "+ Bcos(kt) em que A,",
-        "B": "e K são constantes reais positivas e t representa a variável tempo, medida em segundo. Considere que um batimento cardíaco representa o intervalo de tempo entre duas sucessivas pressões máximas. Ao analisar um caso específico, o cientista obteve os dados: Pressão mínima 78 Pressão máxima 120 Número de batimentos cardíacos por minuto 90 A função P(t) obtida, por este cientista, ao analisar o caso específico foi A P(t) = 99 + 21cos(3πt) B P(t) = 78 + 42cos(3πt)",
+        "A": "P(t) = 99 + 21cos(3πt)",
+        "B": "P(t) = 78 + 42cos(3πt)",
         "C": "P(t) = 99 + 21cos(2πt)",
         "D": "P(t) = 99 + 21cos(t)",
         "E": "P(t) = 78 + 42cos(t)"
@@ -752,14 +744,14 @@
       "ano": 2017,
       "numero": 180,
       "pagina": 31,
-      "enunciado": "MT - 2º dia | Caderno 5 - AMARELO - Página 31 ( ) ( ) QUESTÃO 180 Para decorar uma mesa de festa infantil, um chefe de cozinha usará um melão esférico com diâmetro medindo 10 cm, o qual servirá de suporte para espetar diversos doces. Ele irá retirar uma calota esférica do melão, conforme ilustra a figura, e, para garantir a estabilidade deste suporte, dificultando que o melão role sobre a mesa, o chefe fará o corte de modo que o raio r da seção circular de corte seja de pelo menos 3 cm. Por outro lado, o chefe desejará dispor da maior área possível da região em que serão afixados os doces. h O",
+      "enunciado": "QUESTÃO 180 Para decorar uma mesa de festa infantil, um chefe de cozinha usará um melão esférico com diâmetro medindo 10 cm, o qual servirá de suporte para espetar diversos doces. Ele irá retirar uma calota esférica do melão, conforme ilustra a figura, e, para garantir a estabilidade deste suporte, dificultando que o melão role sobre a mesa, o chefe fará o corte de modo que o raio r da seção circular de corte seja de pelo menos 3 cm. Por outro lado, o chefe desejará dispor da maior área possível da região em que serão afixados os doces. Para atingir todos os seus objetivos, o chefe deverá cortar a calota do melão numa altura h, em centímetro, igual a",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2017/enem_2017_q180_p31.png"
       ],
       "alternativas": {
-        "A": "B r Região onde serão afixados os doces A parte hachurada será apoiada na mesa Calota a ser cortada e eliminada Para atingir todos os seus objetivos, o chefe deverá cortar a calota do melão numa altura h, em centímetro, igual a A 5 91 2 −",
-        "B": "10 91 −",
+        "A": "5 - (√91 / 2)",
+        "B": "10 - √91 ",
         "C": "1",
         "D": "4",
         "E": "5"

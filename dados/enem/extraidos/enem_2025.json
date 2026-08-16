@@ -1,18 +1,18 @@
 {
   "ano": 2025,
-  "total_questoes": 45,
+  "total_questoes": 42,
   "questoes": [
     {
       "ano": 2025,
       "numero": 136,
       "pagina": 16,
-      "enunciado": "Questão 136 No entorno de uma lagoa circular, cujo raio mede 1 km, há um uma ciclovia. Devido aos frequentes roubos de bicicleta, a prefeitura planeja alocar policiais em posições estratégicas para patrulhar essa ciclovia, de forma a torná-la totalmente protegida. Um ponto da ciclovia é considerado protegido se houver pelo menos um policial a, no máximo, 200 m de distância daquele ponto, posicionado sobre a ciclovia.",
+      "enunciado": "Questão 136 No entorno de uma lagoa circular, cujo raio mede 1 km, há um uma ciclovia. Devido aos frequentes roubos de bicicleta, a prefeitura planeja alocar policiais em posições estratégicas para patrulhar essa ciclovia, de forma a torná-la totalmente protegida. Um ponto da ciclovia é considerado protegido se houver pelo menos um policial a, no máximo, 200 m de distância daquele ponto, posicionado sobre a ciclovia. A figura ilustra um ponto P sobre a ciclovia, que estará protegido se houver pelo menos um policial posicionado sobre a região de cor cinza escuro. Desconsidere a largura da pista da ciclovia e utilize 3 como aproximação para p. Nessas condições, a quantidade mínima necessária de policiais a serem alocados ao longo dessa ciclovia para torná-la protegida é ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q136_p16.png"
       ],
       "alternativas": {
-        "A": "figura ilustra um ponto P sobre a ciclovia, que estará protegido se houver pelo menos um policial posicionado sobre a região de cor cinza escuro. Desconsidere a largura da pista da ciclovia e utilize 3 como aproximação para p. Nessas condições, a quantidade mínima necessária de policiais a serem alocados ao longo dessa ciclovia para torná-la protegida é A 4.",
+        "A": "4.",
         "B": "8.",
         "C": "15.",
         "D": "30.",
@@ -24,7 +24,7 @@
       "ano": 2025,
       "numero": 137,
       "pagina": 16,
-      "enunciado": "MA 16 Questão 137 Em um laboratório, um recipiente contém 10 litros de uma solução composta apenas pelas substâncias S1 e S2. Dessa solução, 99,95% é de S1. Uma quantidade de S1 será retirada dessa solução, mantendo a quantidade inicial de S2, de modo que 99,90% da nova solução seja de S1. Qual é a quantidade de S1, em litro, que será retirada?",
+      "enunciado": "Questão 137 Em um laboratório, um recipiente contém 10 litros de uma solução composta apenas pelas substâncias S1 e S2. Dessa solução, 99,95% é de S1. Uma quantidade de S1 será retirada dessa solução, mantendo a quantidade inicial de S2, de modo que 99,90% da nova solução seja de S1. Qual é a quantidade de S1, em litro, que será retirada?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -32,7 +32,7 @@
         "B": "0,0100",
         "C": "0,5000",
         "D": "4,9775",
-        "E": "5,0000 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2"
+        "E": "5,0000 "
       },
       "gabarito": "E"
     },
@@ -48,7 +48,7 @@
         "B": "20 200",
         "C": "20 300",
         "D": "20 400",
-        "E": "20 600 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "20 600 "
       },
       "gabarito": "C"
     },
@@ -56,17 +56,17 @@
       "ano": 2025,
       "numero": 139,
       "pagina": 16,
-      "enunciado": "ATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARELO Questão 139 Uma empresa de tecnologia vai padronizar a velocidade de conexão de internet que oferece a seus clientes em dez cidades.",
+      "enunciado": "Questão 139 Uma empresa de tecnologia vai padronizar a velocidade de conexão de internet que oferece a seus clientes em dez cidades. A direção da empresa decide que seu novo padrão de velocidade de referência será a mediana dos valores das velocidades de referência de conexões nessas dez cidades. Esses valores, em megabyte por segundo (MB/s), são apresentados no quadro. A velocidade de referência, em megabyte por segundo, a ser adotada por essa empresa é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q139_p16.png"
       ],
       "alternativas": {
-        "A": "direção da empresa decide que seu novo padrão de velocidade de referência será a mediana dos valores das velocidades de referência de conexões nessas dez cidades. Esses valores, em megabyte por segundo (MB/s), são apresentados no quadro. Cidades Velocidade de referência (MB/s) C1 390 C2 380 C3 320 C4 390 C5 340 C6 380 C7 390 C8 400 C9 350 C10 360 A velocidade de referência, em megabyte por segundo, a ser adotada por essa empresa é A 360.",
+        "A": "360.",
         "B": "370.",
         "C": "380.",
         "D": "390.",
-        "E": "400. 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "400."
       },
       "gabarito": "C"
     },
@@ -84,7 +84,7 @@
         "B": "Palitos salgados.",
         "C": "Biscoito multigrãos.",
         "D": "Biscoito de polvilho.",
-        "E": "Biscoito de água e sal. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM"
+        "E": "Biscoito de água e sal."
       },
       "gabarito": "A"
     },
@@ -92,15 +92,15 @@
       "ano": 2025,
       "numero": 141,
       "pagina": 17,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 141 Uma fábrica utilizou uma impressora 3D para produzir o protótipo de uma peça. O protótipo tem forma de um poliedro convexo, obtido pela justaposição de dois sólidos distintos, um com a forma de um prisma hexagonal regular reto e o outro com a forma de um tronco de pirâmide hexagonal reta.",
+      "enunciado": "Questão 141 Uma fábrica utilizou uma impressora 3D para produzir o protótipo de uma peça. O protótipo tem forma de um poliedro convexo, obtido pela justaposição de dois sólidos distintos, um com a forma de um prisma hexagonal regular reto e o outro com a forma de um tronco de pirâmide hexagonal reta. A base maior do tronco de pirâmide coincide com uma das bases do prisma. Após a impressão do protótipo, ele foi encaminhado ao setor de customização para realização da pintura de sua superfície. O critério definido para realização da pintura considera que faces congruentes entre si devem ser pintadas com uma mesma cor, e faces não congruentes entre si devem apresentar cores distintas. Qual é a quantidade de cores utilizadas para pintar o protótipo? ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "base maior do tronco de pirâmide coincide com uma das bases do prisma. Após a impressão do protótipo, ele foi encaminhado ao setor de customização para realização da pintura de sua superfície. O critério definido para realização da pintura considera que faces congruentes entre si devem ser pintadas com uma mesma cor, e faces não congruentes entre si devem apresentar cores distintas. Qual é a quantidade de cores utilizadas para pintar o protótipo? A 9",
+        "A": "9",
         "B": "8",
         "C": "6",
         "D": "4",
-        "E": "3 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "E": "3 "
       },
       "gabarito": "D"
     },
@@ -108,17 +108,17 @@
       "ano": 2025,
       "numero": 142,
       "pagina": 17,
-      "enunciado": "Questão 142 Pesquisas na área de neurobiologia confirmam que a prática meditativa é responsável por diminuir consideravelmente a frequência respiratória para praticantes avançados, que, após iniciarem a meditação, têm suas frequências respiratórias reduzidas até se estabilizarem em um nível mais baixo. O gráfico apresenta a relação da frequência respiratória, em incursões de respirações por minuto (rpm), em relação ao tempo, em minuto, de um praticante avançado, em que (f1) representa a frequência no instante t1, no qual se inicia a prática meditativa; e (f2), a frequência no instante t2, a partir do qual esta se estabiliza durante a meditação. Disponível em: www.redepsi.com.br. Acesso em: 3 dez. 2018 (adaptado).",
+      "enunciado": "Questão 142 Pesquisas na área de neurobiologia confirmam que a prática meditativa é responsável por diminuir consideravelmente a frequência respiratória para praticantes avançados, que, após iniciarem a meditação, têm suas frequências respiratórias reduzidas até se estabilizarem em um nível mais baixo. O gráfico apresenta a relação da frequência respiratória, em incursões de respirações por minuto (rpm), em relação ao tempo, em minuto, de um praticante avançado, em que (f1) representa a frequência no instante t1, no qual se inicia a prática meditativa; e (f2), a frequência no instante t2, a partir do qual esta se estabiliza durante a meditação. A partir do instante t1, em que se inicia a prática meditativa, o comportamento da frequência respiratória, em relação ao tempo, ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q142_p17.png"
       ],
       "alternativas": {
-        "A": "partir do instante t1, em que se inicia a prática meditativa, o comportamento da frequência respiratória, em relação ao tempo, A mantém-se constante.",
+        "A": "mantém-se constante.",
         "B": "é diretamente proporcional ao tempo.",
         "C": "é inversamente proporcional ao tempo.",
         "D": "diminui até o instante t2, a partir do qual se torna constante.",
-        "E": "diminui de forma proporcional ao tempo, tanto entre t1 e t2 quanto após t2. M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "diminui de forma proporcional ao tempo, tanto entre t1 e t2 quanto após t2."
       },
       "gabarito": "D"
     },
@@ -126,7 +126,7 @@
       "ano": 2025,
       "numero": 143,
       "pagina": 17,
-      "enunciado": "ELO 17 2 Questão 143 No atletismo, um grande desafio da prova de 100 metros rasos é a sua conclusão num tempo abaixo da marca de referência dos 10,00 segundos. Vários atletas já alcançaram esse feito. Em 2009, o jamaicano Usain Bolt estabeleceu o recorde mundial masculino dessa prova, com o tempo de 9,58 segundos. Qual é a diferença, em segundo, entre a marca de referência e a marca estabelecida por Usain Bolt em 2009?",
+      "enunciado": "Questão 143 No atletismo, um grande desafio da prova de 100 metros rasos é a sua conclusão num tempo abaixo da marca de referência dos 10,00 segundos. Vários atletas já alcançaram esse feito. Em 2009, o jamaicano Usain Bolt estabeleceu o recorde mundial masculino dessa prova, com o tempo de 9,58 segundos. Qual é a diferença, em segundo, entre a marca de referência e a marca estabelecida por Usain Bolt em 2009?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -134,37 +134,25 @@
         "B": "0,42",
         "C": "0,52",
         "D": "1,02",
-        "E": "1,42 M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "1,42 "
       },
       "gabarito": "B"
     },
     {
       "ano": 2025,
-      "numero": 144,
-      "pagina": 18,
-      "enunciado": "MA 18 Questão 144 Em um jogo de computador, um cubo se encontra inicialm Cada deslocamento efetuado por esse cubo se dá sempre Ao se movimentar a partir da posição inicial, esse cubo se apro e se aproximou 4 unidades do plano xy. A figura que apresenta as projeções ortogonais desse cubo sob descritas, é A B C ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2025/enem_2025_q144_p18.png"
-      ],
-      "alternativas": {},
-      "gabarito": "E"
-    },
-    {
-      "ano": 2025,
       "numero": 145,
       "pagina": 19,
-      "enunciado": "Questão 145",
+      "enunciado": "Questão 145 A reportagem de uma revista abordou o uso de redes sociais pelos internautas brasileiros. Alguns dos dados apurados pela reportagem estão apresentados no infográfico. Segundo os dados do infográfico, ao se escolher aleatoriamente um internauta brasileiro no período ao qual se refere a reportagem, a probabilidade de ele ser um homem que acessa alguma rede social é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q145_p19.png"
       ],
       "alternativas": {
-        "A": "reportagem de uma revista abordou o uso de redes sociais reportagem estão apresentados no infográfico. Perfil dos brasileiros Dispon Segundo os dados do infográfico, ao se escolher aleatoriamente um a probabilidade de ele ser um homem que acessa alguma rede so A 30 90",
-        "B": "36 100",
-        "C": "40 100",
-        "D": "40 90",
-        "E": "46 90 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM"
+        "A": "30/90",
+        "B": "36/100",
+        "C": "40/100",
+        "D": "40/90",
+        "E": "46/90"
       },
       "gabarito": "B"
     },
@@ -172,7 +160,7 @@
       "ano": 2025,
       "numero": 146,
       "pagina": 19,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 146 Uma pessoa pretende instalar um kit de gás natural veicular ( e instalação desse kit, havia cinco modelos de cilindro para arma respectivamente: 10, 14, 17, 21 e 25. O preço do cilindro é propo 7 dias por semana, e o consumo do GNV é de 1 m3 a cada 13 km preço e que garanta apenas um abastecimento semanal. Nessas condições, qual será a capacidade, em metro cúbico, do c",
+      "enunciado": "Questão 146 Uma pessoa pretende instalar um kit de gás natural veicular ( e instalação desse kit, havia cinco modelos de cilindro para arma respectivamente: 10, 14, 17, 21 e 25. O preço do cilindro é propo 7 dias por semana, e o consumo do GNV é de 1 m3 a cada 13 km preço e que garanta apenas um abastecimento semanal. Nessas condições, qual será a capacidade, em metro cúbico, do c",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -180,7 +168,7 @@
         "B": "14",
         "C": "17",
         "D": "21",
-        "E": "25 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "E": "25"
       },
       "gabarito": "C"
     },
@@ -188,17 +176,17 @@
       "ano": 2025,
       "numero": 147,
       "pagina": 20,
-      "enunciado": "MA 20 Questão 147 Em um jogo digital, há três personagens: um herói e dois vilões.",
+      "enunciado": "Questão 147 Em um jogo digital, há três personagens: um herói e dois vilões. A programação é feita de tal forma que o herói sempre será atacado pelo vilão que estiver mais próximo dele. Uma das maneiras de “confundir” os vilões é movimentar o herói por trajetórias que o mantenha equidistante dos vilões, gerando indefinição entre eles e, com isso, não sendo atacado. Para a programação de uma das etapas desse jogo, o programador considerou, no plano cartesiano, o quadrado STUV como a região de movimentação dos personagens, onde V e T representam as posições fixas dos vilões, e S, a posição inicial do herói, como apresentado na figura. Qual é a equação da trajetória em que o herói poderá se movimentar sem ser atacado?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q147_p20.png"
       ],
       "alternativas": {
-        "A": "programação é feita de tal forma que o herói sempre será atacado pelo vilão que estiver mais próximo dele. Uma das maneiras de “confundir” os vilões é movimentar o herói por trajetórias que o mantenha equidistante dos vilões, gerando indefinição entre eles e, com isso, não sendo atacado. Para a programação de uma das etapas desse jogo, o programador considerou, no plano cartesiano, o quadrado STUV como a região de movimentação dos personagens, onde V e T representam as posições fixas dos vilões, e S, a posição inicial do herói, como apresentado na figura. Qual é a equação da trajetória em que o herói poderá se movimentar sem ser atacado? A y = −3x + 20",
+        "A": "y = −3x + 20",
         "B": "y = −3x + 16",
         "C": "y = −3x − 20",
         "D": "y = 3x + 16",
-        "E": "y = 3x − 16 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM"
+        "E": "y = 3x − 16 "
       },
       "gabarito": "A"
     },
@@ -206,7 +194,7 @@
       "ano": 2025,
       "numero": 148,
       "pagina": 20,
-      "enunciado": "ATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARELO Questão 148 Uma livraria comercializa livros dos seguintes gêneros literários: ficção científica, autoajuda, romance e biografia. O gráfico apresenta o estoque dos livros que essa livraria tem, por gênero literário e por nacionalidade do autor, bem como a demanda por gênero literário, obtida por meio de uma enquete feita com seus clientes habituais. Estoque e demanda por livros O gerente da livraria fará a encomenda de novos exemplares somente do gênero cuja quantidade em estoque seja insuficiente para atender a demanda constatada pela enquete. O gênero de livro do qual o gerente deverá encomendar mais exemplares é",
+      "enunciado": "Questão 148 Uma livraria comercializa livros dos seguintes gêneros literários: ficção científica, autoajuda, romance e biografia. O gráfico apresenta o estoque dos livros que essa livraria tem, por gênero literário e por nacionalidade do autor, bem como a demanda por gênero literário, obtida por meio de uma enquete feita com seus clientes habituais. Estoque e demanda por livros O gerente da livraria fará a encomenda de novos exemplares somente do gênero cuja quantidade em estoque seja insuficiente para atender a demanda constatada pela enquete. O gênero de livro do qual o gerente deverá encomendar mais exemplares é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q148_p20.png"
@@ -216,7 +204,7 @@
         "B": "biografia, pois é o gênero que tem a menor demanda.",
         "C": "autoajuda, pois a quantidade em estoque é inferior à demanda.",
         "D": "biografia, pois é o gênero que tem a menor quantidade de livros em estoque.",
-        "E": "romance, pois é o que apresenta o menor estoque de livros de autores brasileiros. 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "romance, pois é o que apresenta o menor estoque de livros de autores brasileiros. "
       },
       "gabarito": "C"
     },
@@ -234,7 +222,7 @@
         "B": "12.",
         "C": "20.",
         "D": "22.",
-        "E": "40. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM"
+        "E": "40. "
       },
       "gabarito": "E"
     },
@@ -242,17 +230,17 @@
       "ano": 2025,
       "numero": 150,
       "pagina": 21,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 150 O controle remoto de um carrinho de brinquedo vem equipado na exibição de cada deslocamento.",
+      "enunciado": "Questão 150 O controle remoto de um carrinho de brinquedo vem equipado com uma tela que ajusta automaticamente a escala empregada na exibição de cada deslocamento. A tela apresenta a imagem do deslocamento, a escala utilizada na geração dessa imagem e o comprimento desse deslocamento, em centímetro, em conformidade com a escala empregada. As figuras representam a tela do controle remoto exibindo os dados de cinco deslocamentos realizados por esse carrinho. A opção que indica o deslocamento de maior comprimento realizado pelo carrinho de brinquedo é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q150_p21.png"
       ],
       "alternativas": {
-        "A": "tela apresenta a imagem d o comprimento desse deslocamento, em centímetro, em conform do controle remoto exibindo os dados de cinco deslocamentos r A opção que indica o deslocamento de maior comprimento realiz A I.",
+        "A": "I.",
         "B": "II.",
         "C": "III.",
         "D": "IV.",
-        "E": "V. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "E": "V."
       },
       "gabarito": "C"
     },
@@ -260,17 +248,17 @@
       "ano": 2025,
       "numero": 151,
       "pagina": 22,
-      "enunciado": "Questão 151",
+      "enunciado": "Questão 151 A cúpula pentagonal giralongada é um poliedro de Johnson, cujas faces são polígonos regulares, mas que não é um poliedro de Platão, de Arquimedes, prisma ou antiprisma. As figuras apresentam esse poliedro em duas posições e uma de suas planificações. Quantos vértices tem esse poliedro?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q151_p22.png"
       ],
       "alternativas": {
-        "A": "cúpula pentagonal giralongada é um poliedro de Johnson, cujas faces são polígonos regulares, mas que não é um poliedro de Platão, de Arquimedes, prisma ou antiprisma. As figuras apresentam esse poliedro em duas posições e uma de suas planificações. Quantos vértices tem esse poliedro? A 21",
+        "A": "21",
         "B": "25",
         "C": "55",
         "D": "80",
-        "E": "110 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM"
+        "E": "110"
       },
       "gabarito": "B"
     },
@@ -278,7 +266,7 @@
       "ano": 2025,
       "numero": 152,
       "pagina": 22,
-      "enunciado": "MA 22 Questão 152 Uma fábrica de tijolos ecológicos com 3 funcionários, cada um trabalhando 6 horas diárias, produz 720 unidades por dia. Para atender ao crescimento da demanda por esse tipo de tijolo, essa fábrica passou a ter 5 funcionários, cada um trabalhando 9 horas por dia, aumentando, assim, sua capacidade de produção. Todos os funcionários produzem igual quantidade de tijolos a cada hora, independentemente de trabalharem 6 ou 9 horas diárias. O número de tijolos fabricados diariamente após o aumento da capacidade de produção é",
+      "enunciado": "Questão 152 Uma fábrica de tijolos ecológicos com 3 funcionários, cada um trabalhando 6 horas diárias, produz 720 unidades por dia. Para atender ao crescimento da demanda por esse tipo de tijolo, essa fábrica passou a ter 5 funcionários, cada um trabalhando 9 horas por dia, aumentando, assim, sua capacidade de produção. Todos os funcionários produzem igual quantidade de tijolos a cada hora, independentemente de trabalharem 6 ou 9 horas diárias. O número de tijolos fabricados diariamente após o aumento da capacidade de produção é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -286,7 +274,7 @@
         "B": "1 080.",
         "C": "1 200.",
         "D": "1 800.",
-        "E": "2 520. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2"
+        "E": "2 520. "
       },
       "gabarito": "D"
     },
@@ -302,7 +290,7 @@
         "B": "0281090.",
         "C": "1010982.",
         "D": "2081090.",
-        "E": "2810910. 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "2810910. "
       },
       "gabarito": "D"
     },
@@ -310,15 +298,15 @@
       "ano": 2025,
       "numero": 154,
       "pagina": 22,
-      "enunciado": "ATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARELO Questão 154 Quatro candidatos se apresentaram para realizar a prova de um concurso. Antes de iniciar a prova, os celulares dos quatro candidatos foram recolhidos pelo aplicador, que os guardou, cada um, dentro de um envelope preto. Ao término da prova, o aplicador devolveu os quatro envelopes com os celulares aos quatro candidatos, de maneira aleatória, já que não havia feito a identificação dos envelopes.",
+      "enunciado": "Questão 154 Quatro candidatos se apresentaram para realizar a prova de um concurso. Antes de iniciar a prova, os celulares dos quatro candidatos foram recolhidos pelo aplicador, que os guardou, cada um, dentro de um envelope preto. Ao término da prova, o aplicador devolveu os quatro envelopes com os celulares aos quatro candidatos, de maneira aleatória, já que não havia feito a identificação dos envelopes. A probabilidade de que todos os candidatos tenham recebido de volta os envelopes com os seus respectivos celulares é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "probabilidade de que todos os candidatos tenham recebido de volta os envelopes com os seus respectivos celulares é A 1 2",
-        "B": "1 10",
-        "C": "1 16",
-        "D": "1 24",
-        "E": "1 256 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "A": "1/2",
+        "B": "1/10",
+        "C": "1/16",
+        "D": "1/24",
+        "E": "1/256 "
       },
       "gabarito": "D"
     },
@@ -326,7 +314,7 @@
       "ano": 2025,
       "numero": 155,
       "pagina": 23,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 155 Em uma escola, todos os estudantes do ensino médio praticam uma das três modalidades esportivas oferecidas como atividade física, e cada um deles pratica somente uma dessas atividades. Os gráficos trazem alguns dados relativos aos quantitativos de estudantes que praticam essas modalidades esportivas nessa escola, apesar de algumas quantidades não terem sido informadas. Qual é a quantidade de estudantes no ensino médio dessa escola?",
+      "enunciado": "Questão 155 Em uma escola, todos os estudantes do ensino médio praticam uma das três modalidades esportivas oferecidas como atividade física, e cada um deles pratica somente uma dessas atividades. Os gráficos trazem alguns dados relativos aos quantitativos de estudantes que praticam essas modalidades esportivas nessa escola, apesar de algumas quantidades não terem sido informadas. Qual é a quantidade de estudantes no ensino médio dessa escola?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q155_p23.png"
@@ -336,7 +324,7 @@
         "B": "360",
         "C": "320",
         "D": "288",
-        "E": "240 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "E": "240 "
       },
       "gabarito": "B"
     },
@@ -344,17 +332,17 @@
       "ano": 2025,
       "numero": 156,
       "pagina": 23,
-      "enunciado": "ELO 23 Questão 156 O dono de uma embarcação deve partir do ponto P e chegar ao ponto R por meio de dois deslocamentos lineares e navegando a uma velocidade constante. Essa viagem será feita durante a noite, e como ele dispõe somente de uma bússola e de um relógio, planejou sua rota da seguinte forma: 1º – partir do ponto P na direção 110 e navegar por 4 horas, alcançando um ponto Q; 2º – partir do ponto Q na direção 90 e navegar por 2 horas, alcançando o ponto de destino R. No entanto, ao direcionar o barco para o primeiro deslocamento, o fez na direção 340, em vez de 110. Com isso, realizou os seguintes deslocamentos: 1º – partiu do ponto P na direção 340 e navegou por 4 horas, alcançando um ponto S; 2º – partiu do ponto S na direção 90 e navegou por 2 horas, alcançando o ponto T.",
+      "enunciado": "Questão 156 O dono de uma embarcação deve partir do ponto P e chegar ao ponto R por meio de dois deslocamentos lineares e navegando a uma velocidade constante. Essa viagem será feita durante a noite, e como ele dispõe somente de uma bússola e de um relógio, planejou sua rota da seguinte forma: 1º – partir do ponto P na direção 110 e navegar por 4 horas, alcançando um ponto Q; 2º – partir do ponto Q na direção 90 e navegar por 2 horas, alcançando o ponto de destino R. No entanto, ao direcionar o barco para o primeiro deslocamento, o fez na direção 340, em vez de 110. Com isso, realizou os seguintes deslocamentos: 1º – partiu do ponto P na direção 340 e navegou por 4 horas, alcançando um ponto S; 2º – partiu do ponto S na direção 90 e navegou por 2 horas, alcançando o ponto T. A figura apresenta a bússola, a rota planejada e a rota executada. O dono da embarcação só percebeu o equívoco ao chegar ao ponto T. Com isso, agora ele precisa definir a direção e o tempo de navegação que lhe permita, partindo do ponto T, chegar ao ponto de destino R por meio de uma rota retilínea. Considere 0,64 como aproximação para cos 50°. A direção e o tempo aproximado de navegação que o dono da embarcação deve utilizar são, respectivamente,",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q156_p23.png"
       ],
       "alternativas": {
-        "A": "figura apresenta a bússola, a rota planejada e a rota executada. O dono da embarcação só percebeu o equívoco ao chegar ao ponto T. Com isso, agora ele precisa definir a direção e o tempo de navegação que lhe permita, partindo do ponto T, chegar ao ponto de destino R por meio de uma rota retilínea. Considere 0,64 como aproximação para cos 50°. A direção e o tempo aproximado de navegação que o dono da embarcação deve utilizar são, respectivamente, A 135 e 7 horas e 15 minutos.",
+        "A": "135 e 7 horas e 15 minutos.",
         "B": "45 e 7 horas e 15 minutos.",
         "C": "135 e 12 horas.",
         "D": "135 e 6 horas.",
-        "E": "45 e 6 horas. M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025 M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "45 e 6 horas. "
       },
       "gabarito": "A"
     },
@@ -372,7 +360,7 @@
         "B": "2.",
         "C": "3.",
         "D": "4.",
-        "E": "5. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM"
+        "E": "5. "
       },
       "gabarito": "D"
     },
@@ -380,7 +368,7 @@
       "ano": 2025,
       "numero": 158,
       "pagina": 24,
-      "enunciado": "MA 24 Questão 158 Pace é um termo usado por um corredor para denominar em segundo, que esse corredor leva para percorrer 1 km. O esquema apresenta o tempo, em segundo, que um corred trechos de 1 km, em uma corrida de 5 km, e o tempo gasto par O melhor pace que esse corredor alcançou em corridas de Para que consiga repetir nessa corrida seu melhor pace em corri menor do que o que ele gastou para percorrer o 4º trecho?",
+      "enunciado": "Questão 158 Pace é um termo usado por um corredor para denominar em segundo, que esse corredor leva para percorrer 1 km. O esquema apresenta o tempo, em segundo, que um corred trechos de 1 km, em uma corrida de 5 km, e o tempo gasto par O melhor pace que esse corredor alcançou em corridas de Para que consiga repetir nessa corrida seu melhor pace em corri menor do que o que ele gastou para percorrer o 4º trecho?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q158_p24.png"
@@ -390,7 +378,7 @@
         "B": "2",
         "C": "8",
         "D": "9",
-        "E": "15 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2"
+        "E": "15."
       },
       "gabarito": "E"
     },
@@ -398,17 +386,17 @@
       "ano": 2025,
       "numero": 159,
       "pagina": 25,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 159 Um recipiente tem um formato que faz com que, ao ser enchido de água com uma vazão constante, a distância D da lâmina de água ao tampo da mesa, em centímetro, aumente em relação ao tempo T, em minuto, de acordo com uma função do tipo D = k + tg[p(T + m)], sendo os parâmetros k, p e m números reais, para T variando entre 0 e 4 minutos, conforme ilustrado na figura, na qual estão apresentadas assíntotas verticais da função tangente utilizada na definição de D.",
+      "enunciado": "Questão 159 Um recipiente tem um formato que faz com que, ao ser enchido de água com uma vazão constante, a distância D da lâmina de água ao tampo da mesa, em centímetro, aumente em relação ao tempo T, em minuto, de acordo com uma função do tipo D = k + tg[p(T + m)], sendo os parâmetros k, p e m números reais, para T variando entre 0 e 4 minutos, conforme ilustrado na figura, na qual estão apresentadas assíntotas verticais da função tangente utilizada na definição de D. A expressão algébrica que representa a relação entre D e T é ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q159_p25.png"
       ],
       "alternativas": {
-        "A": "expressão algébrica que representa a relação entre D e T é A D T \u001b\u001a \u0019 \u0018\u0017 \u0016 \u0015\u0014 \u0013 \u0012\u0011 2 5 30 5 2 2 , tg \u0010",
-        "B": "D T \u001b \u001a \u0019\u0018 \u0017 \u0016\u0015 \u0014 \u0013\u0012 4 30 5 2 tg",
-        "C": "D T \u001b \u001a \u0019\u0018 \u0017 \u0016\u0015 \u0014 \u0013\u0012 4 2 5 5 2 2 tg , \u0011",
-        "D": "D T \u001b \u001a \u0019\u0018 \u0017 \u0016\u0015 30 1 2 5 tg",
-        "E": "D T \u001b\u001a \u0019 \u0018\u0017 \u0016 \u0015\u0014 \u0013 \u0012\u0011 30 1 2 5 2 tg ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "A": "D = 2,5 + tg[ 30 (T - (5 - 2π/2))]",
+        "B": "D = 4 + tg[ 30 (T + (5/2))]",
+        "C": "D = 4 + tg[ 2,5 (T + (5 - 2π/2))]",
+        "D": "D = 30 + tg[ 1/2 ( T - 5 )]",
+        "E": "D = 30 + tg[1/2- (T - 5/2 )]"
       },
       "gabarito": "E"
     },
@@ -416,17 +404,17 @@
       "ano": 2025,
       "numero": 160,
       "pagina": 25,
-      "enunciado": "Questão 160 Os quadrados em cinza na figura representam os quarteirões de uma parte do bairro onde moram João e seu amigo. O quadrado pequeno (A), pintado em preto e localizado no canto superior esquerdo de um quadrado maior, indica a casa do amigo de João. João também mora em uma casa de esquina, mas na extremidade nordeste de um quarteirão. Para chegar à casa de seu amigo, ao sair de casa, João deve caminhar pelo quarteirão onde mora na direção oeste, dobrar à direita, caminhar por três quarteirões na direção norte e dobrar à esquerda.",
+      "enunciado": "Questão 160 Os quadrados em cinza na figura representam os quarteirões de uma parte do bairro onde moram João e seu amigo. O quadrado pequeno (A), pintado em preto e localizado no canto superior esquerdo de um quadrado maior, indica a casa do amigo de João. João também mora em uma casa de esquina, mas na extremidade nordeste de um quarteirão. Para chegar à casa de seu amigo, ao sair de casa, João deve caminhar pelo quarteirão onde mora na direção oeste, dobrar à direita, caminhar por três quarteirões na direção norte e dobrar à esquerda. A casa de seu amigo fica no segundo quarteirão a oeste. O quarteirão onde se encontra a casa de João é representado pelo quadrado com a letra",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q160_p25.png"
       ],
       "alternativas": {
-        "A": "casa de seu amigo fica no segundo quarteirão a oeste. O quarteirão onde se encontra a casa de João é representado pelo quadrado com a letra A P.",
+        "A": "P.",
         "B": "Q.",
         "C": "R.",
         "D": "S.",
-        "E": "T. M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "T."
       },
       "gabarito": "A"
     },
@@ -434,7 +422,7 @@
       "ano": 2025,
       "numero": 161,
       "pagina": 25,
-      "enunciado": "ELO 25 Questão 161 Uma empresa produziu, em um determinado mês, 110 toneladas de plástico a partir de derivados de petróleo e 80 toneladas a partir de plásticos reciclados. O custo para reciclar uma tonelada de plástico é de R$ 500,00, que equivale a 5% do custo para produzir a mesma quantidade de plástico a partir de derivados de petróleo. Para o mês seguinte, a meta dessa empresa é produzir a mesma quantidade de plástico que foi produzida nesse mês, mas com redução de, pelo menos, 50% no custo de produção. Para que no mês seguinte a empresa atinja a meta, a quantidade mínima de toneladas de plástico que devem ser produzidas a partir de reciclagem deverá ser",
+      "enunciado": "Questão 161 Uma empresa produziu, em um determinado mês, 110 toneladas de plástico a partir de derivados de petróleo e 80 toneladas a partir de plásticos reciclados. O custo para reciclar uma tonelada de plástico é de R$ 500,00, que equivale a 5% do custo para produzir a mesma quantidade de plástico a partir de derivados de petróleo. Para o mês seguinte, a meta dessa empresa é produzir a mesma quantidade de plástico que foi produzida nesse mês, mas com redução de, pelo menos, 50% no custo de produção. Para que no mês seguinte a empresa atinja a meta, a quantidade mínima de toneladas de plástico que devem ser produzidas a partir de reciclagem deverá ser",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -442,7 +430,7 @@
         "B": "140.",
         "C": "155.",
         "D": "160.",
-        "E": "175. M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "175."
       },
       "gabarito": "B"
     },
@@ -460,7 +448,7 @@
         "B": "20 × 18 × 16",
         "C": "20 × 19 × 18",
         "D": "10 × 9 × 8 × 2",
-        "E": "20 × 18 × 16 × 2 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM"
+        "E": "20 × 18 × 16 × 2"
       },
       "gabarito": "B"
     },
@@ -468,7 +456,7 @@
       "ano": 2025,
       "numero": 163,
       "pagina": 26,
-      "enunciado": "MA 26 Questão 163 Um artista, que costuma fazer desenhos com areia na praia, pediu a um banhista que fizesse um pequeno desenho, que serviria de esboço para uma grande obra de arte a ser feita na areia. Esse desenho está representado na figura. Após a conclusão, a obra de arte obtida manteve as mesmas proporções do desenho feito pelo banhista, sendo que as medidas indicadas na figura foram ampliadas para 30 m. Em qual escala esse desenho representa a obra de arte?",
+      "enunciado": "Questão 163 Um artista, que costuma fazer desenhos com areia na praia, pediu a um banhista que fizesse um pequeno desenho, que serviria de esboço para uma grande obra de arte a ser feita na areia. Esse desenho está representado na figura. Após a conclusão, a obra de arte obtida manteve as mesmas proporções do desenho feito pelo banhista, sendo que as medidas indicadas na figura foram ampliadas para 30 m. Em qual escala esse desenho representa a obra de arte?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q163_p26.png"
@@ -478,7 +466,7 @@
         "B": "1 : 2,25",
         "C": "1 : 10",
         "D": "1 : 100",
-        "E": "1 : 150 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2"
+        "E": "1 : 150 "
       },
       "gabarito": "E"
     },
@@ -492,9 +480,9 @@
       "alternativas": {
         "A": "T = 1,59 + F",
         "B": "F = 1,59 + T",
-        "C": "T F = 1 59 ,",
-        "D": "F T = 1 59 ,",
-        "E": "F ⋅ T = 1,59 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "C": "T/F = 1,59",
+        "D": "F/T = 1,59",
+        "E": "F ⋅ T = 1,59 "
       },
       "gabarito": "C"
     },
@@ -502,11 +490,11 @@
       "ano": 2025,
       "numero": 165,
       "pagina": 26,
-      "enunciado": "Questão 165 Um estacionamento possui 120 vagas para veículos, e todas essas vagas estão ocupadas. Cada cliente paga uma mensalidade para utilizar uma vaga, que é calculada com base nas despesas mensais do estacionamento e no lucro pretendido. As despesas mensais do estacionamento são: R$ 14 240,00 com manutenção mais R$ 36,00 de seguro por veículo. O lucro do estacionamento é determinado pela diferença do valor arrecadado com as mensalidades pelas despesas efetuadas.",
+      "enunciado": "Questão 165 Um estacionamento possui 120 vagas para veículos, e todas essas vagas estão ocupadas. Cada cliente paga uma mensalidade para utilizar uma vaga, que é calculada com base nas despesas mensais do estacionamento e no lucro pretendido. As despesas mensais do estacionamento são: R$ 14 240,00 com manutenção mais R$ 36,00 de seguro por veículo. O lucro do estacionamento é determinado pela diferença do valor arrecadado com as mensalidades pelas despesas efetuadas. A partir do mês seguinte, o valor do seguro por veículo aumentará em 20%, e as despesas com manutenção permanecerão sem alterações. Com isso, o dono do estacionamento reajustará as mensalidades para obter um lucro mensal de R$ 10 000,00. Apesar desse reajuste, todas as vagas continuarão ocupadas. O valor, em real, da mensalidade reajustada será",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "partir do mês seguinte, o valor do seguro por veículo aumentará em 20%, e as despesas com manutenção permanecerão sem alterações. Com isso, o dono do estacionamento reajustará as mensalidades para obter um lucro mensal de R$ 10 000,00. Apesar desse reajuste, todas as vagas continuarão ocupadas. O valor, em real, da mensalidade reajustada será A 185,60.",
+        "A": "185,60.",
         "B": "226,09.",
         "C": "245,20.",
         "D": "268,93.",
@@ -518,45 +506,33 @@
       "ano": 2025,
       "numero": 166,
       "pagina": 26,
-      "enunciado": "ATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARELO Questão 166 O dono de uma sorveteria armazena sorvete em potes de 20 000 cm3. Ele serve o sorvete em taças, em porções de 250 mL.",
+      "enunciado": "Questão 166 O dono de uma sorveteria armazena sorvete em potes de 20 000 cm^3 . Ele serve o sorvete em taças, em porções de 250 mL. A quantidade de taças que ele consegue servir a partir de um pote cheio de sorvete é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "quantidade de taças que ele consegue servir a partir de um pote cheio de sorvete é A 5.",
+        "A": "5.",
         "B": "8.",
         "C": "50.",
         "D": "80.",
-        "E": "800. 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "800."
       },
       "gabarito": "D"
     },
     {
       "ano": 2025,
-      "numero": 167,
-      "pagina": 27,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 167 A produtividade de soja em uma área cultivada é a média d por hectare. O quadro apresenta a área cultivada e a produtivi com períodos de um ano, de 2011 a 2016. Safra 11-12 Área cultivada (hectare) 200 Produtividade (sacas de 50 kg por hectare) 40 O gráfico de linhas que representa a produção de soja dessa prop A B C ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2025/enem_2025_q167_p27.png"
-      ],
-      "alternativas": {},
-      "gabarito": "A"
-    },
-    {
-      "ano": 2025,
       "numero": 168,
       "pagina": 28,
-      "enunciado": "Questão 168",
+      "enunciado": "Questão 168 A figura ilustra o projeto visual para confecção de uma medalha comemorativa, com a forma de um cilindro circular reto, de diâmetro 6 cm e espessura 3 mm. A figura ABCD tem a forma de um quadrado e é a base de um prisma que atravessa toda a medalha. A região da medalha externa a esse prisma será cunhada em ouro. Pretende-se cunhar 100 dessas medalhas. Considere 3,1 como valor aproximado para p. Qual é o volume de ouro, em centímetro cúbico, necessário para a confecção dessas medalhas?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q168_p28.png"
       ],
       "alternativas": {
-        "A": "figura ilustra o projeto visual para confecção de uma medalha comemorativa, com a forma de um cilindro circular reto, de diâmetro 6 cm e espessura 3 mm. A figura ABCD tem a forma de um quadrado e é a base de um prisma que atravessa toda a medalha. A região da medalha externa a esse prisma será cunhada em ouro. Pretende-se cunhar 100 dessas medalhas. Considere 3,1 como valor aproximado para p. Qual é o volume de ouro, em centímetro cúbico, necessário para a confecção dessas medalhas? A 288",
+        "A": "288",
         "B": "297",
         "C": "567",
         "D": "990",
-        "E": "1 134 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM"
+        "E": "1 134 "
       },
       "gabarito": "B"
     },
@@ -564,7 +540,7 @@
       "ano": 2025,
       "numero": 169,
       "pagina": 28,
-      "enunciado": "MA 28 Questão 169 Três dados cúbicos, com faces numeradas de 1 a 6, foram utilizados em um jogo. Artur escolheu dois dados, e João ficou com o terceiro. O jogo consiste em ambos lançarem seus dados, observarem os números nas faces voltadas para cima e compararem o maior número obtido por Artur com o número obtido por João. Vence o jogador que obtiver o maior número. Em caso de empate, a vitória é de João. O jogador que tem a maior probabilidade de vitória é",
+      "enunciado": "Questão 169 Três dados cúbicos, com faces numeradas de 1 a 6, foram utilizados em um jogo. Artur escolheu dois dados, e João ficou com o terceiro. O jogo consiste em ambos lançarem seus dados, observarem os números nas faces voltadas para cima e compararem o maior número obtido por Artur com o número obtido por João. Vence o jogador que obtiver o maior número. Em caso de empate, a vitória é de João. O jogador que tem a maior probabilidade de vitória é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -572,7 +548,7 @@
         "B": "João, com probabilidade de 4 9",
         "C": "Artur, com probabilidade de 91 216",
         "D": "João, com probabilidade de 91 216",
-        "E": "Artur, com probabilidade de 125 216 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2"
+        "E": "Artur, com probabilidade de 125 216 "
       },
       "gabarito": "E"
     },
@@ -580,15 +556,15 @@
       "ano": 2025,
       "numero": 170,
       "pagina": 28,
-      "enunciado": "Questão 170",
+      "enunciado": "Questão 170 A luminância de um objeto é a grandeza que descreve a quantidade de luz produzida ou refletida por sua superfície. Ela está definida como a razão entre a intensidade luminosa, medida em candela (cd), e o quadrado da distância do objeto até o foco de luz, medida em metro (m). A unidade de medida da luminância de um objeto é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "luminância de um objeto é a grandeza que descreve a quantidade de luz produzida ou refletida por sua superfície. Ela está definida como a razão entre a intensidade luminosa, medida em candela (cd), e o quadrado da distância do objeto até o foco de luz, medida em metro (m). A unidade de medida da luminância de um objeto é A cd m2",
-        "B": "m cd 2",
-        "C": "cd m",
-        "D": "m cd",
-        "E": "m cd2 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "A": "cd/m^2",
+        "B": "m^2/cd",
+        "C": "cd/m",
+        "D": "m/cd",
+        "E": "m/cd^2 "
       },
       "gabarito": "A"
     },
@@ -596,7 +572,7 @@
       "ano": 2025,
       "numero": 171,
       "pagina": 28,
-      "enunciado": "ATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARELO Questão 171 Quatro amigos, cada um com 100 moedas, criaram um jogo, no qual cada um assume uma das quatro posições, 1, 2, 3 ou 4, indicadas na figura, e nela permanece até o final. O desenvolvimento do jogo se dá em rodadas e, em todas elas, cada jogador transfere e recebe uma quantidade de moedas, da seguinte maneira: • o jogador na posição 1 transfere 1 moeda para o jogador na posição 2; • o jogador na posição 2 transfere 2 moedas para o jogador na posição 3; • o jogador na posição 3 transfere 3 moedas para o jogador na posição 4; • o jogador na posição 4 transfere 4 moedas para o jogador na posição 1, completando a rodada. Ao final da rodada n, qual é a expressão algébrica que representa o número de moedas do jogador na posição 1?",
+      "enunciado": "Questão 171 Quatro amigos, cada um com 100 moedas, criaram um jogo, no qual cada um assume uma das quatro posições, 1, 2, 3 ou 4, indicadas na figura, e nela permanece até o final. O desenvolvimento do jogo se dá em rodadas e, em todas elas, cada jogador transfere e recebe uma quantidade de moedas, da seguinte maneira: • o jogador na posição 1 transfere 1 moeda para o jogador na posição 2; • o jogador na posição 2 transfere 2 moedas para o jogador na posição 3; • o jogador na posição 3 transfere 3 moedas para o jogador na posição 4; • o jogador na posição 4 transfere 4 moedas para o jogador na posição 1, completando a rodada. Ao final da rodada n, qual é a expressão algébrica que representa o número de moedas do jogador na posição 1?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q171_p28.png"
@@ -606,7 +582,7 @@
         "B": "103 + 3n",
         "C": "100 + 4n",
         "D": "100 + 3n",
-        "E": "99 + 4n 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "99 + 4n "
       },
       "gabarito": "D"
     },
@@ -624,7 +600,7 @@
         "B": "8",
         "C": "14",
         "D": "21",
-        "E": "30 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM"
+        "E": "30 "
       },
       "gabarito": "D"
     },
@@ -632,17 +608,17 @@
       "ano": 2025,
       "numero": 173,
       "pagina": 29,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 173 Em um país, a primeira etapa para obtenção da carteira de m • pacote com 20 aulas teóricas; • pacote com 10 aulas práticas; • aluguel do veículo para realização das aulas práticas. Uma pessoa que pretende obter a carteira de motorista pes teórica e de cada aula prática em três autoescolas. O quadro apr Autoescola Valor de cada aula teórica (R$) Valor I 10 II 30 III 20 Ela contratará os três produtos numa mesma autoescola de mo",
+      "enunciado": "Questão 173 Em um país, a primeira etapa para obtenção da carteira de motorista é a contratação de três produtos: • pacote com 20 aulas teóricas; • pacote com 10 aulas práticas; • aluguel do veículo para realização das aulas práticas. Uma pessoa que pretende obter a carteira de motorista pesquisou o valor do aluguel do veículo e os valores de cada aula teórica e de cada aula prática em três autoescolas. O quadro apresenta esses valores. Autoescola Valor de cada aula teórica (R$) Valor de cada aula prática (R$) Aluguel do veículo (R$) I 10 80 400 II 30 50 200 III 20 40 400 Ela contratará os três produtos numa mesma autoescola de modo que o custo total nessa primeira etapa seja o menor possível. A autoescola que será contratada é a ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q173_p29.png"
       ],
       "alternativas": {
-        "A": "autoescola que será contratada é a A I, com o custo total de R$ 1 400,00.",
+        "A": "I, com o custo total de R$ 1 400,00.",
         "B": "II, com o custo total de R$ 280,00.",
         "C": "II, com o custo total de R$ 1 300,00.",
         "D": "III, com o custo total de R$ 460,00.",
-        "E": "III, com o custo total de R$ 1 200,00. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "E": "III, com o custo total de R$ 1 200,00. "
       },
       "gabarito": "E"
     },
@@ -650,17 +626,17 @@
       "ano": 2025,
       "numero": 174,
       "pagina": 30,
-      "enunciado": "MA 30 Questão 174 Uma caixa de descarga, acoplada a um vaso sanitário, tem a forma de paralelepípedo reto retângulo cujas dimensões internas da base são 2,5 dm e 1,5 dm. Nessa caixa há uma boia que interrompe o abastecimento quando a altura da coluna de água atinge 2 dm, conforme a figura.",
+      "enunciado": "Questão 174 Uma caixa de descarga, acoplada a um vaso sanitário, tem a forma de paralelepípedo reto retângulo cujas dimensões internas da base são 2,5 dm e 1,5 dm. Nessa caixa há uma boia que interrompe o abastecimento quando a altura da coluna de água atinge 2 dm, conforme a figura. A cada acionamento da descarga, todo o volume de água contida na caixa é despejado no vaso. Para reduzir o volume de água despejado a cada acionamento, uma pessoa colocará, no interior dessa caixa, garrafas de 300 mL, cheias de areia e tampadas, de modo a ficarem submersas quando o abastecimento for interrompido. Para garantir o funcionamento eficiente, o mínimo de água despejada a cada acionamento deve ser de 5 L. A quantidade máxima de garrafas que serão colocadas nessa caixa, garantindo um funcionamento eficiente, é igual a",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q174_p30.png"
       ],
       "alternativas": {
-        "A": "cada acionamento da descarga, todo o volume de água contida na caixa é despejado no vaso. Para reduzir o volume de água despejado a cada acionamento, uma pessoa colocará, no interior dessa caixa, garrafas de 300 mL, cheias de areia e tampadas, de modo a ficarem submersas quando o abastecimento for interrompido. Para garantir o funcionamento eficiente, o mínimo de água despejada a cada acionamento deve ser de 5 L. A quantidade máxima de garrafas que serão colocadas nessa caixa, garantindo um funcionamento eficiente, é igual a A 10.",
+        "A": "10.",
         "B": "8.",
         "C": "4.",
         "D": "3.",
-        "E": "2. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2 ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM"
+        "E": "2."
       },
       "gabarito": "B"
     },
@@ -668,15 +644,15 @@
       "ano": 2025,
       "numero": 175,
       "pagina": 30,
-      "enunciado": "Questão 175 Um confeiteiro passou a produzir tortas em formato de cilindro circular reto, com raio da base variando entre 12 cm e 16 cm e altura de 6 cm. Essas tortas deverão ser embaladas em caixas com formato de prisma reto de base quadrada, de modo que seja possível acomodar a torta em seu interior e ainda restar pelo menos 1 cm de distância entre a torta e as superfícies internas da caixa, lateral e superior. Ele dispõe, originalmente, de caixas no formato pretendido, cujas dimensões internas são 14 cm de comprimento do lado da base e 7 cm de altura, que não atendem às suas necessidades. Portanto, ele comprará novas caixas, com o mesmo formato das caixas originais, mas com comprimento do lado da base maior, que sejam adequadas para embalar todos os tipos de torta que produz.",
+      "enunciado": "Questão 175 Um confeiteiro passou a produzir tortas em formato de cilindro circular reto, com raio da base variando entre 12 cm e 16 cm e altura de 6 cm. Essas tortas deverão ser embaladas em caixas com formato de prisma reto de base quadrada, de modo que seja possível acomodar a torta em seu interior e ainda restar pelo menos 1 cm de distância entre a torta e as superfícies internas da caixa, lateral e superior. Ele dispõe, originalmente, de caixas no formato pretendido, cujas dimensões internas são 14 cm de comprimento do lado da base e 7 cm de altura, que não atendem às suas necessidades. Portanto, ele comprará novas caixas, com o mesmo formato das caixas originais, mas com comprimento do lado da base maior, que sejam adequadas para embalar todos os tipos de torta que produz. A aresta da base das novas caixas deve ser, no mínimo, quantos centímetros maior do que a das caixas originais?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "aresta da base das novas caixas deve ser, no mínimo, quantos centímetros maior do que a das caixas originais? A 4",
+        "A": "4",
         "B": "12",
         "C": "16",
         "D": "18",
-        "E": "20 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "20 "
       },
       "gabarito": "E"
     },
@@ -684,15 +660,15 @@
       "ano": 2025,
       "numero": 176,
       "pagina": 30,
-      "enunciado": "ATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARELO Questão 176 Um empresário utiliza máquinas cuja pressão interna P, em atmosfera, depende do tempo contínuo de utilização t, em hora, e de um parâmetro positivo K, que define o modelo da máquina, segundo a expressão: P = 4 ⋅ log[−K ⋅ (t + 1) ⋅ (t − 19)] O fabricante dessas máquinas recomenda ao usuário que a pressão interna desse tipo de máquina não ultrapasse 10 atmosferas durante seu funcionamento. O empresário pretende comprar novas máquinas desse tipo que deverão funcionar, diariamente, por um período contínuo de 10 horas. Para isso, precisa definir o modelo de máquina a ser adquirida escolhendo o maior valor possível do parâmetro K, atendendo à recomendação do fabricante. O maior valor a ser escolhido para K é",
+      "enunciado": "Questão 176 Um empresário utiliza máquinas cuja pressão interna P, em atmosfera, depende do tempo contínuo de utilização t, em hora, e de um parâmetro positivo K, que define o modelo da máquina, segundo a expressão: P = 4 ⋅ log[−K ⋅ (t + 1) ⋅ (t − 19)] O fabricante dessas máquinas recomenda ao usuário que a pressão interna desse tipo de máquina não ultrapasse 10 atmosferas durante seu funcionamento. O empresário pretende comprar novas máquinas desse tipo que deverão funcionar, diariamente, por um período contínuo de 10 horas. Para isso, precisa definir o modelo de máquina a ser adquirida escolhendo o maior valor possível do parâmetro K, atendendo à recomendação do fabricante. O maior valor a ser escolhido para K é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "100,5",
-        "B": "108",
-        "C": "10 84 2 5,",
-        "D": "10 99 2 5,",
-        "E": "25 × 10−2 2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "A": "10^0,5",
+        "B": "10^8",
+        "C": "10^2,5/84",
+        "D": "10^2,5/99",
+        "E": "25 × 10^−2 "
       },
       "gabarito": "A"
     },
@@ -700,35 +676,19 @@
       "ano": 2025,
       "numero": 177,
       "pagina": 31,
-      "enunciado": "MATEMÁTICA E SUAS TECNOLOGIAS | 2º DIA | CADERNO 5 | AMARE Questão 177 Em uma cidade, será construído um túnel que atravessa uma montanha para facilitar o trânsito de automóveis e bicicletas. Dois projetos foram elaborados e os esquemas com as vistas frontais desses projetos são apresentados na figura. O Projeto 1 conta com dois túneis, um exclusivo para bicicletas e o outro, para automóveis. O Projeto 2 conta com um único túnel, com espaços reservados para o trânsito exclusivo de bicicletas e automóveis. Nos dois projetos, os túneis têm o formato de semicilindro reto de mesma extensão, com vias de ida e volta para os dois tipos de veículos, separados por muretas. O projeto a ser aprovado será aquele que apresentar a menor área da seção transversal, pois implicará menor volume de material retirado da montanha. Considere 3 como aproximação para p e desconsidere as espessuras das muretas. O projeto a ser aprovado é",
+      "enunciado": "Questão 177 Em uma cidade, será construído um túnel que atravessa uma montanha para facilitar o trânsito de automóveis e bicicletas. Dois projetos foram elaborados e os esquemas com as vistas frontais desses projetos são apresentados na figura. O Projeto 1 conta com dois túneis, um exclusivo para bicicletas e o outro, para automóveis. O Projeto 2 conta com um único túnel, com espaços reservados para o trânsito exclusivo de bicicletas e automóveis. Nos dois projetos, os túneis têm o formato de semicilindro reto de mesma extensão, com vias de ida e volta para os dois tipos de veículos, separados por muretas. O projeto a ser aprovado será aquele que apresentar a menor área da seção transversal, pois implicará menor volume de material retirado da montanha. Considere 3 como aproximação para p e desconsidere as espessuras das muretas. O projeto a ser aprovado é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2025/enem_2025_q177_p31.png"
       ],
       "alternativas": {
-        "A": "o 1, pois apresenta área de seção transversal medindo 67,5 m2.",
-        "B": "o 2, pois apresenta área de seção transversal medindo 121,5 m2.",
-        "C": "o 1, pois apresenta área de seção transversal medindo 135 m2.",
-        "D": "o 2, pois apresenta área de seção transversal medindo 243 m2.",
-        "E": "qualquer um dos dois, pois apresentam áreas de suas seções transversais com medidas iguais. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENE"
+        "A": "o 1, pois apresenta área de seção transversal medindo 67,5 m^2.",
+        "B": "o 2, pois apresenta área de seção transversal medindo 121,5 m^2.",
+        "C": "o 1, pois apresenta área de seção transversal medindo 135 m^2.",
+        "D": "o 2, pois apresenta área de seção transversal medindo 243 m^2.",
+        "E": "qualquer um dos dois, pois apresentam áreas de suas seções transversais com medidas iguais. "
       },
       "gabarito": "A"
-    },
-    {
-      "ano": 2025,
-      "numero": 178,
-      "pagina": 31,
-      "enunciado": "Questão 178 Um carro que custa 60 mil reais é comercializado por uma revendedora que oferece duas opções de pagamento, todas sem entrada e sem juros: • opção 1: pagamento em n parcelas iguais; • opção 2: pagamento em 6 parcelas a mais do que na opção 1 e, com isso, o valor de cada parcela se torna R$ 500,00 menor do que o valor da parcela na opção 1. Nas duas opções de pagamento, o valor total a ser pago pelo carro é o mesmo. Qual é a quantidade n de parcelas contidas na opção 1 de pagamento?",
-      "tem_imagem": false,
-      "imagens": [],
-      "alternativas": {
-        "A": "18",
-        "B": "24",
-        "C": "30",
-        "D": "42",
-        "E": "48 M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
-      },
-      "gabarito": "ANULADO"
     },
     {
       "ano": 2025,
@@ -750,15 +710,15 @@
       "ano": 2025,
       "numero": 180,
       "pagina": 31,
-      "enunciado": "ELO 31 Questão 180",
+      "enunciado": "Questão 180 A final de um campeonato de futebol foi disputada em 2tempos regulamentares, de 45 minutos cada, sem acréscimos, com uma prorrogação de 30minutos, também sem acréscimos. Um jogador entrou no início do segundo tempo, com um equipamento para medir a distância percorrida durante sua participação no jogo. Ao final do segundo tempo regulamentar, esse jogador havia percorrido 4,5km. Ele manteve na prorrogação a mesma velocidade média que havia mantido no segundo tempo regulamentar. A distância percorrida por esse jogador durante sua participação na partida, em quilômetro, foi",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "final de um campeonato de futebol foi disputada em 2 tempos regulamentares, de 45 minutos cada, sem acréscimos, com uma prorrogação de 30 minutos, também sem acréscimos. Um jogador entrou no início do segundo tempo, com um equipamento para medir a distância percorrida durante sua participação no jogo. Ao final do segundo tempo regulamentar, esse jogador havia percorrido 4,5 km. Ele manteve na prorrogação a mesma velocidade média que havia mantido no segundo tempo regulamentar. A distância percorrida por esse jogador durante sua participação na partida, em quilômetro, foi A 4,5.",
+        "A": "4,5.",
         "B": "6,0.",
         "C": "7,5.",
         "D": "9,0.",
-        "E": "12,0. M2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025"
+        "E": "12,0. "
       },
       "gabarito": "C"
     }

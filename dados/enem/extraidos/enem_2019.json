@@ -1,32 +1,20 @@
 {
   "ano": 2019,
-  "total_questoes": 45,
+  "total_questoes": 43,
   "questoes": [
-    {
-      "ano": 2019,
-      "numero": 136,
-      "pagina": 17,
-      "enunciado": "Questão 136 Um grupo de países criou uma instituição responsável por organizar o Programa Internacional de Nivelamento de Estudos (PINE) com o objetivo de melhorar os índices mundiais de educação. Em sua sede foi construída uma escultura suspensa, com a logomarca oficial do programa, em três dimensões, que é formada por suas iniciais, conforme mostrada na figura. Essa escultura está suspensa por cabos de aço, de maneira que o espaçamento entre letras adjacentes é o mesmo, todas têm igual espessura e ficam dispostas em posição ortogonal ao solo, como ilustrado a seguir. Ao meio-dia, com o sol a pino, as letras que formam essa escultura projetam ortogonalmente suas sombras sobre o solo. A sombra projetada no solo é A B C D E",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2019/enem_2019_q136_p17.png"
-      ],
-      "alternativas": {},
-      "gabarito": "E"
-    },
     {
       "ano": 2019,
       "numero": 137,
       "pagina": 17,
-      "enunciado": "Questão 137",
+      "enunciado": "Questão 137 A Hydrangea macrophylla é uma planta com flor azul ou cor-de-rosa, dependendo do pH do solo no qual está plantada. Em solo ácido (ou seja, com pH < 7) a flor é azul, enquanto que em solo alcalino (ou seja, com pH > 7) a flor é rosa. Considere que a Hydrangea cor-de-rosa mais valorizada comercialmente numa determinada região seja aquela produzida em solo com pH inferior a 8. Sabe-se que pH = - log₁₀x, em que x é a concentração de íon hidrogênio (H+). Para produzir a Hydrangea cor-de-rosa de maior valor comercial, deve-se preparar o solo de modo que x assuma",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "Hydrangea macrophylla é uma planta com flor azul ou cor-de-rosa, dependendo do pH do solo no qual está plantada. Em solo ácido (ou seja, com pH < 7) a flor é azul, enquanto que em solo alcalino (ou seja, com pH > 7) a flor é rosa. Considere que a Hydrangea cor-de-rosa mais valorizada comercialmente numa determinada região seja aquela produzida em solo com pH inferior a 8. Sabe-se que pH = - log10x, em que x é a concentração de íon hidrogênio (H+). Para produzir a Hydrangea cor-de-rosa de maior valor comercial, deve-se preparar o solo de modo que x assuma A qualquer valor acima de 10−8.",
-        "B": "qualquer valor positivo inferior a 10−7.",
+        "A": "qualquer valor acima de 10^−8.",
+        "B": "qualquer valor positivo inferior a 10^−7.",
         "C": "valores maiores que 7 e menores que 8.",
         "D": "valores maiores que 70 e menores que 80.",
-        "E": "valores maiores que 10−8 e menores que 10−7."
+        "E": "valores maiores que 10^−8 e menores que 10^−7."
       },
       "gabarito": "E"
     },
@@ -34,7 +22,7 @@
       "ano": 2019,
       "numero": 138,
       "pagina": 17,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 17 q q Questão 138 Uma pessoa, que perdeu um objeto pessoal quando visitou uma cidade, pretende divulgar nos meios de comunicação informações a respeito da perda desse objeto e de seu contato para eventual devolução. No entanto, ela lembra que, de acordo com o Art. 1 234 do Código Civil, poderá ter que pagar pelas despesas do transporte desse objeto até sua cidade e poderá ter que recompensar a pessoa que lhe restituir o objeto em, pelo menos, 5% do valor do objeto. Ela sabe que o custo com transporte será de um quinto do valor atual do objeto e, como ela tem muito interesse em reavê-lo, pretende ofertar o maior percentual possível de recompensa, desde que o gasto total com as despesas não ultrapasse o valor atual do objeto. Nessas condições, o percentual sobre o valor do objeto, dado como recompensa, que ela deverá ofertar é igual a",
+      "enunciado": "Questão 138 Uma pessoa, que perdeu um objeto pessoal quando visitou uma cidade, pretende divulgar nos meios de comunicação informações a respeito da perda desse objeto e de seu contato para eventual devolução. No entanto, ela lembra que, de acordo com o Art. 1 234 do Código Civil, poderá ter que pagar pelas despesas do transporte desse objeto até sua cidade e poderá ter que recompensar a pessoa que lhe restituir o objeto em, pelo menos, 5% do valor do objeto. Ela sabe que o custo com transporte será de um quinto do valor atual do objeto e, como ela tem muito interesse em reavê-lo, pretende ofertar o maior percentual possível de recompensa, desde que o gasto total com as despesas não ultrapasse o valor atual do objeto. Nessas condições, o percentual sobre o valor do objeto, dado como recompensa, que ela deverá ofertar é igual a",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -48,29 +36,17 @@
     },
     {
       "ano": 2019,
-      "numero": 139,
-      "pagina": 18,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 18 Questão 139 Uma empresa presta serviço de abastecimento de á serviço é determinado pela aplicação de tarifas, por faix valores correspondentes a cada faixa. • Faixa 1: para consumo de até 6 m3, valor fixo de R$ • Faixa 2: para consumo superior a 6 m3 e até 10 m3, • Faixa 3: para consumo superior a 10 m3, tarifa de R Sabe-se que nessa cidade o consumo máximo de águ O gráfico que melhor descreve o valor P, em real, a ser pa em metro cúbico, é A P (R$) V (m³) 15 0 D B P (R$) V (m³) 15 0 E C P (R$) V (m³) 15 0",
-      "tem_imagem": true,
-      "imagens": [
-        "dados/enem/imagens_questoes/2019/enem_2019_q139_p18.png"
-      ],
-      "alternativas": {},
-      "gabarito": "A"
-    },
-    {
-      "ano": 2019,
       "numero": 140,
       "pagina": 19,
-      "enunciado": "Questão 140",
+      "enunciado": "Questão 140 A gripe é uma infecção respiratória aguda de curta duração causada pelo vírus influenza. Ao entrar no nosso organismo pelo nariz, esse vírus multiplica-se, disseminando-se para a garganta e demais partes das vias respiratórias, incluindo os pulmões. O vírus influenza é uma partícula esférica que tem um diâmetro interno de 0,00011 mm. Disponível em: www.gripenet.pt. Acesso em: 2 nov. 2013 (adaptado). Em notação científica, o diâmetro interno do vírus influenza, em mm, é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "gripe é uma infecção respiratória aguda de curta duração causada pelo vírus influenza. Ao entrar no nosso organismo pelo nariz, esse vírus multiplica-se, disseminando-se para a garganta e demais partes das vias respiratórias, incluindo os pulmões. O vírus influenza é uma partícula esférica que tem um diâmetro interno de 0,00011 mm. Disponível em: www.gripenet.pt. Acesso em: 2 nov. 2013 (adaptado). Em notação científica, o diâmetro interno do vírus influenza, em mm, é A 1,1 × 10-1",
-        "B": "1,1 × 10-2",
-        "C": "1,1 × 10-3",
-        "D": "1,1 × 10-4",
-        "E": "1,1 × 10-5"
+        "A": "1,1 × 10^-1",
+        "B": "1,1 × 10^-2",
+        "C": "1,1 × 10^-3",
+        "D": "1,1 × 10^-4",
+        "E": "1,1 × 10^-5"
       },
       "gabarito": "D"
     },
@@ -78,11 +54,11 @@
       "ano": 2019,
       "numero": 141,
       "pagina": 19,
-      "enunciado": "Questão 141 Em um jogo on-line, cada jogador procura subir de nível e aumentar sua experiência, que são dois parâmetros importantes no jogo, dos quais dependem as forças de defesa e de ataque do participante.",
+      "enunciado": "Questão 141 Em um jogo on-line, cada jogador procura subir de nível e aumentar sua experiência, que são dois parâmetros importantes no jogo, dos quais dependem as forças de defesa e de ataque do participante. A força de defesa de cada jogador é diretamente proporcional ao seu nível e ao quadrado de sua experiência, enquanto sua força de ataque é diretamente proporcional à sua experiência e ao quadrado do seu nível. Nenhum jogador sabe o nível ou a experiência dos demais. Os jogadores iniciam o jogo no nível 1 com experiência 1 e possuem força de ataque 2 e de defesa 1. Nesse jogo, cada participante se movimenta em uma cidade em busca de tesouros para aumentar sua experiência. Quando dois deles se encontram, um deles pode desafiar o outro para um confronto, sendo o desafiante considerado o atacante. Compara-se então a força de ataque do desafiante com a força de defesa do desafiado e vence o confronto aquele cuja força for maior. O vencedor do desafio aumenta seu nível em uma unidade. Caso haja empate no confronto, ambos os jogadores aumentam seus níveis em uma unidade. Durante um jogo, o jogador J1, de nível 4 e experiência 5, irá atacar o jogador J2, de nível 2 e experiência 6. O jogador J1 venceu esse confronto porque a diferença entre sua força de ataque e a força de defesa de seu oponente era",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "força de defesa de cada jogador é diretamente proporcional ao seu nível e ao quadrado de sua experiência, enquanto sua força de ataque é diretamente proporcional à sua experiência e ao quadrado do seu nível. Nenhum jogador sabe o nível ou a experiência dos demais. Os jogadores iniciam o jogo no nível 1 com experiência 1 e possuem força de ataque 2 e de defesa 1. Nesse jogo, cada participante se movimenta em uma cidade em busca de tesouros para aumentar sua experiência. Quando dois deles se encontram, um deles pode desafiar o outro para um confronto, sendo o desafiante considerado o atacante. Compara-se então a força de ataque do desafiante com a força de defesa do desafiado e vence o confronto aquele cuja força for maior. O vencedor do desafio aumenta seu nível em uma unidade. Caso haja empate no confronto, ambos os jogadores aumentam seus níveis em uma unidade. Durante um jogo, o jogador J1, de nível 4 e experiência 5, irá atacar o jogador J2, de nível 2 e experiência 6. O jogador J1 venceu esse confronto porque a diferença entre sua força de ataque e a força de defesa de seu oponente era A 112.",
+        "A": "112.",
         "B": "88.",
         "C": "60.",
         "D": "28.",
@@ -94,15 +70,15 @@
       "ano": 2019,
       "numero": 142,
       "pagina": 19,
-      "enunciado": "Questão 142 Em um condomínio, uma área pavimentada, que tem a forma de um círculo com diâmetro medindo 6 m, é cercada por grama.",
+      "enunciado": "Questão 142 Em um condomínio, uma área pavimentada, que tem a forma de um círculo com diâmetro medindo 6 m, é cercada por grama. A administração do condomínio deseja ampliar essa área, mantendo seu formato circular, e aumentando, em 8 m, o diâmetro dessa região, mantendo o revestimento da parte já existente. O condomínio dispõe, em estoque, de material suficiente para pavimentar mais 100 m^2 de área. O síndico do condomínio irá avaliar se esse material disponível será suficiente para pavimentar a região a ser ampliada. Utilize 3 como aproximação para π. A conclusão correta a que o síndico deverá chegar, considerando a nova área a ser pavimentada, é a de que o material disponível em estoque",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "administração do condomínio deseja ampliar essa área, mantendo seu formato circular, e aumentando, em 8 m, o diâmetro dessa região, mantendo o revestimento da parte já existente. O condomínio dispõe, em estoque, de material suficiente para pavimentar mais 100 m2 de área. O síndico do condomínio irá avaliar se esse material disponível será suficiente para pavimentar a região a ser ampliada. Utilize 3 como aproximação para π. A conclusão correta a que o síndico deverá chegar, considerando a nova área a ser pavimentada, é a de que o material disponível em estoque A será suficiente, pois a área da nova região a ser pavimentada mede 21 m2.",
-        "B": "será suficiente, pois a área da nova região a ser pavimentada mede 24 m2.",
-        "C": "será suficiente, pois a área da nova região a ser pavimentada mede 48 m2.",
-        "D": "não será suficiente, pois a área da nova região a ser pavimentada mede 108 m2.",
-        "E": "não será suficiente, pois a área da nova região a ser pavimentada mede 120 m2."
+        "A": "será suficiente, pois a área da nova região a ser pavimentada mede 21 m^2.",
+        "B": "será suficiente, pois a área da nova região a ser pavimentada mede 24 m^2.",
+        "C": "será suficiente, pois a área da nova região a ser pavimentada mede 48 m^2.",
+        "D": "não será suficiente, pois a área da nova região a ser pavimentada mede 108 m^2.",
+        "E": "não será suficiente, pois a área da nova região a ser pavimentada mede 120 m^2."
       },
       "gabarito": "E"
     },
@@ -110,7 +86,7 @@
       "ano": 2019,
       "numero": 143,
       "pagina": 19,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 19 p Questão 143 Os exercícios físicos são recomendados para o bom funcionamento do organismo, pois aceleram o metabolismo e, em consequência, elevam o consumo de calorias. No gráfico, estão registrados os valores calóricos, em kcal, gastos em cinco diferentes atividades físicas, em função do tempo dedicado às atividades, contado em minuto. 140 (kcal) 120 100 80 60 40 20 5 10 II III IV V I 15 20 25 30 Tempo (min) Qual dessas atividades físicas proporciona o maior consumo de quilocalorias por minuto?",
+      "enunciado": "Questão 143 Os exercícios físicos são recomendados para o bom funcionamento do organismo, pois aceleram o metabolismo e, em consequência, elevam o consumo de calorias. No gráfico, estão registrados os valores calóricos, em kcal, gastos em cinco diferentes atividades físicas, em função do tempo dedicado às atividades, contado em minuto. 140 (kcal) 120 100 80 60 40 20 5 10 II III IV V I 15 20 25 30 Tempo (min) Qual dessas atividades físicas proporciona o maior consumo de quilocalorias por minuto?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q143_p19.png"
@@ -138,7 +114,7 @@
         "B": "terça-feira.",
         "C": "quarta-feira.",
         "D": "quinta-feira.",
-        "E": "sexta-feira. 3 3 2 3 0 2 2 2 2 2 0 4 2 4 0 1 1 3 1 4 2 2 2 0 4"
+        "E": "sexta-feira."
       },
       "gabarito": "A"
     },
@@ -146,19 +122,25 @@
       "ano": 2019,
       "numero": 145,
       "pagina": 20,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 20 Questão 145 Um ciclista quer montar um sistema de marchas usando dois discos dentados na parte traseira de sua bicicleta, chamados catracas. A coroa é o disco dentado que é movimentado pelos pedais da bicicleta, sendo que a corrente transmite esse movimento às catracas, que ficam posicionadas na roda traseira da bicicleta. As diferentes marchas ficam definidas pelos diferentes diâmetros das catracas, que são medidos conforme indicação na figura. Diâmetro do disco dentado O ciclista já dispõe de uma catraca com 7 cm de diâmetro e pretende incluir uma segunda catraca, de modo que, à medida em que a corrente passe por ela, a bicicleta avance 50% a mais do que avançaria se a corrente passasse pela primeira catraca, a cada volta completa dos pedais.",
+      "enunciado": "Questão 145 Um ciclista quer montar um sistema de marchas usando dois discos dentados na parte traseira de sua bicicleta, chamados catracas. A coroa é o disco dentado que é movimentado pelos pedais da bicicleta, sendo que a corrente transmite esse movimento às catracas, que ficam posicionadas na roda traseira da bicicleta. As diferentes marchas ficam definidas pelos diferentes diâmetros das catracas, que são medidos conforme indicação na figura. Diâmetro do disco dentado O ciclista já dispõe de uma catraca com 7 cm de diâmetro e pretende incluir uma segunda catraca, de modo que, à medida em que a corrente passe por ela, a bicicleta avance 50% a mais do que avançaria se a corrente passasse pela primeira catraca, a cada volta completa dos pedais. O valor mais próximo da medida do diâmetro da segunda catraca, em centímetro e com uma casa decimal, é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q145_p20.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "2,3.",
+        "B": "3,5.",
+        "C": "4,7.",
+        "D": "5,3.",
+        "E": "10,5."
+      },
       "gabarito": "C"
     },
     {
       "ano": 2019,
       "numero": 146,
       "pagina": 20,
-      "enunciado": ", Questão 146 O serviço de meteorologia de uma cidade emite relatórios diários com a previsão do tempo. De posse dessas informações, a prefeitura emite três tipos de alertas para a população: • Alerta cinza: deverá ser emitido sempre que a previsão do tempo estimar que a temperatura será inferior a 10 °C, e a umidade relativa do ar for inferior a 40%; • Alerta laranja: deverá ser emitido sempre que a previsão do tempo estimar que a temperatura deve variar entre 35 °C e 40 °C, e a umidade relativa do ar deve ficar abaixo de 30%; • Alerta vermelho: deverá ser emitido sempre que a previsão do tempo estimar que a temperatura será superior a 40 °C, e a umidade relativa do ar for inferior a 25%. Um resumo da previsão do tempo nessa cidade, para um período de 15 dias, foi apresentado no gráfico. Temperatura (°C) Umidade relativa do ar (%) 40 60 20 40 60 20 0 2 4 6 8 10 12 14 16 Dia Temperatura Umidade relativa do ar Decorridos os 15 dias de validade desse relatório, um funcionário percebeu que, no período a que se refere o gráfico, foram emitidos os seguintes alertas: • Dia 1: alerta cinza; • Dia 12: alerta laranja; • Dia 13: alerta vermelho. Em qual(is) desses dias o(s) aviso(s) foi(ram) emitido(s) corretamente?",
+      "enunciado": "Questão 146 O serviço de meteorologia de uma cidade emite relatórios diários com a previsão do tempo. De posse dessas informações, a prefeitura emite três tipos de alertas para a população: • Alerta cinza: deverá ser emitido sempre que a previsão do tempo estimar que a temperatura será inferior a 10 °C, e a umidade relativa do ar for inferior a 40%; • Alerta laranja: deverá ser emitido sempre que a previsão do tempo estimar que a temperatura deve variar entre 35 °C e 40 °C, e a umidade relativa do ar deve ficar abaixo de 30%; • Alerta vermelho: deverá ser emitido sempre que a previsão do tempo estimar que a temperatura será superior a 40 °C, e a umidade relativa do ar for inferior a 25%. Um resumo da previsão do tempo nessa cidade, para um período de 15 dias, foi apresentado no gráfico. Temperatura (°C) Umidade relativa do ar (%) 40 60 20 40 60 20 0 2 4 6 8 10 12 14 16 Dia Temperatura Umidade relativa do ar Decorridos os 15 dias de validade desse relatório, um funcionário percebeu que, no período a que se refere o gráfico, foram emitidos os seguintes alertas: • Dia 1: alerta cinza; • Dia 12: alerta laranja; • Dia 13: alerta vermelho. Em qual(is) desses dias o(s) aviso(s) foi(ram) emitido(s) corretamente?",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q146_p20.png"
@@ -186,7 +168,7 @@
         "B": "22 280",
         "C": "28 560",
         "D": "41 120",
-        "E": "66 240  d h E PROIBIDO ESTACIONAR"
+        "E": "66 240 "
       },
       "gabarito": "B"
     },
@@ -202,7 +184,7 @@
         "B": "12.",
         "C": "89.",
         "D": "112.",
-        "E": "134.i"
+        "E": "134."
       },
       "gabarito": "C"
     },
@@ -210,13 +192,13 @@
       "ano": 2019,
       "numero": 149,
       "pagina": 21,
-      "enunciado": "Questão 149 O slogan “Se beber não dirija”, muito utilizado em campanhas publicitárias no Brasil, chama a atenção para o grave problema da ingestão de bebida alcoólica por motoristas e suas consequências para o trânsito.",
+      "enunciado": "Questão 149 O slogan “Se beber não dirija”, muito utilizado em campanhas publicitárias no Brasil, chama a atenção para o grave problema da ingestão de bebida alcoólica por motoristas e suas consequências para o trânsito. A gravidade desse problema pode ser percebida observando como o assunto é tratado pelo Código de Trânsito Brasileiro. Em 2013, a quantidade máxima de álcool permitida no sangue do condutor de um veículo, que já era pequena, foi reduzida, e o valor da multa para motoristas alcoolizados foi aumentado. Em consequência dessas mudanças, observou-se queda no número de acidentes registrados em uma suposta rodovia nos anos que se seguiram às mudanças implantadas em 2013, conforme dados no quadro. identes nessa rodovia para os anos subsequentes seja igual à redução absoluta observada de 2014 para 2015. Com base na situação apresentada, o número de acidentes esperados nessa rodovia em 2018 foi de",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q149_p21.png"
       ],
       "alternativas": {
-        "A": "gravidade desse problema pode ser percebida observando como o assunto é tratado pelo Código de Trânsito Brasileiro. Em 2013, a quantidade máxima de álcool permitida no sangue do condutor de um veículo, que já era pequena, foi reduzida, e o valor da multa para motoristas alcoolizados foi aumentado. Em consequência dessas mudanças, observou-se queda no número de acidentes registrados em uma suposta rodovia nos anos que se seguiram às mudanças implantadas em 2013, conforme dados no quadro. Ano 2013 2014 2015 Número total de acidentes 1 050 900 850 Suponha que a tendência de redução no número de acidentes nessa rodovia para os anos subsequentes seja igual à redução absoluta observada de 2014 para 2015. Com base na situação apresentada, o número de acidentes esperados nessa rodovia em 2018 foi de A 150.",
+        "A": "150.",
         "B": "450.",
         "C": "550.",
         "D": "700.",
@@ -228,7 +210,7 @@
       "ano": 2019,
       "numero": 150,
       "pagina": 21,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 21 Questão 150 Uma pessoa se interessou em adquirir um produto anunciado em uma loja. Negociou com o gerente e conseguiu comprá-lo a uma taxa de juros compostos de 1% ao mês. O primeiro pagamento será um mês após a aquisição do produto, e no valor de R$ 202,00. O segundo pagamento será efetuado um mês após o primeiro, e terá o valor de R$ 204,02. Para concretizar a compra, o gerente emitirá uma nota fiscal com o valor do produto à vista negociado com o cliente, correspondendo ao financiamento aprovado. O valor à vista, em real, que deverá constar na nota fiscal é de",
+      "enunciado": "Questão 150 Uma pessoa se interessou em adquirir um produto anunciado em uma loja. Negociou com o gerente e conseguiu comprá-lo a uma taxa de juros compostos de 1% ao mês. O primeiro pagamento será um mês após a aquisição do produto, e no valor de R$ 202,00. O segundo pagamento será efetuado um mês após o primeiro, e terá o valor de R$ 204,02. Para concretizar a compra, o gerente emitirá uma nota fiscal com o valor do produto à vista negociado com o cliente, correspondendo ao financiamento aprovado. O valor à vista, em real, que deverá constar na nota fiscal é de",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -260,7 +242,7 @@
       "ano": 2019,
       "numero": 152,
       "pagina": 22,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 22 Questão 152 Para contratar três máquinas que farão o reparo de vias rurais de um município, a prefeitura elaborou um edital que, entre outras cláusulas, previa: • Cada empresa interessada só pode cadastrar uma única máquina para concorrer ao edital; • O total de recursos destinados para contratar o conjunto das três máquinas é de R$ 31 000,00; • O valor a ser pago a cada empresa será inversamente proporcional à idade de uso da máquina cadastrada pela empresa para o presente edital. As três empresas vencedoras do edital cadastraram máquinas com 2, 3 e 5 anos de idade de uso. Quanto receberá a empresa que cadastrou a máquina com maior idade de uso?",
+      "enunciado": "Questão 152 Para contratar três máquinas que farão o reparo de vias rurais de um município, a prefeitura elaborou um edital que, entre outras cláusulas, previa: • Cada empresa interessada só pode cadastrar uma única máquina para concorrer ao edital; • O total de recursos destinados para contratar o conjunto das três máquinas é de R$ 31 000,00; • O valor a ser pago a cada empresa será inversamente proporcional à idade de uso da máquina cadastrada pela empresa para o presente edital. As três empresas vencedoras do edital cadastraram máquinas com 2, 3 e 5 anos de idade de uso. Quanto receberá a empresa que cadastrou a máquina com maior idade de uso?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -292,13 +274,13 @@
       "ano": 2019,
       "numero": 154,
       "pagina": 22,
-      "enunciado": ", Questão 154 Charles Richter e Beno Gutenberg desenvolveram a escala Richter, que mede a magnitude de um terremoto. Essa escala pode variar de 0 a 10, com possibilidades de valores maiores. O quadro mostra a escala de magnitude local (Ms) de um terremoto que é utilizada para descrevê-lo. Descrição Magnitude local (Ms) (µm ⋅ Hz) Pequeno 0 ≤ Ms ≤ 3,9 Ligeiro 4,0 ≤ Ms ≤ 4,9 Moderado 5,0 ≤ Ms ≤ 5,9 Grande 6,0 ≤ Ms ≤ 9,9 Extremo Ms ≥ 10,0 Para se calcular a magnitude local, usa-se a fórmula Ms = 3,30 + log(A⋅f ), em que",
+      "enunciado": "Questão 154 Charles Richter e Beno Gutenberg desenvolveram a escala Richter, que mede a magnitude de um terremoto. Essa escala pode variar de 0 a 10, com possibilidades de valores maiores. O quadro mostra a escala de magnitude local (Ms) de um terremoto que é utilizada para descrevê-lo. Descrição Magnitude local (Ms) (µm ⋅ Hz) Pequeno 0 ≤ Ms ≤ 3,9 Ligeiro 4,0 ≤ Ms ≤ 4,9 Moderado 5,0 ≤ Ms ≤ 5,9 Grande 6,0 ≤ Ms ≤ 9,9 Extremo Ms ≥ 10,0 Para se calcular a magnitude local, usa-se a fórmula Ms = 3,30 + log(A⋅f ), em que A representa a amplitude máxima da onda registrada por um sismógrafo em micrômetro (µm) e f representa a frequência da onda, em hertz (Hz). Ocorreu um terremoto com amplitude máxima de 2 000 µm e frequência de 0,2 Hz. Disponível em: http://cejarj.cecierj.edu.br. Acesso em: 1 fev. 2015 (adaptado). Utilize 0,3 como aproximação para log 2. De acordo com os dados fornecidos, o terremoto ocorrido pode ser descrito como",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q154_p22.png"
       ],
       "alternativas": {
-        "A": "representa a amplitude máxima da onda registrada por um sismógrafo em micrômetro (µm) e f representa a frequência da onda, em hertz (Hz). Ocorreu um terremoto com amplitude máxima de 2 000 µm e frequência de 0,2 Hz. Disponível em: http://cejarj.cecierj.edu.br. Acesso em: 1 fev. 2015 (adaptado). Utilize 0,3 como aproximação para log 2. De acordo com os dados fornecidos, o terremoto ocorrido pode ser descrito como A Pequeno.",
+        "A": "Pequeno.",
         "B": "Ligeiro.",
         "C": "Moderado.",
         "D": "Grande.",
@@ -360,7 +342,7 @@
       "ano": 2019,
       "numero": 158,
       "pagina": 23,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 23 g g g Questão 158 Comum em lançamentos de empreendimentos imobiliários, as maquetes de condomínios funcionam como uma ótima ferramenta de marketing para as construtoras, pois, além de encantar clientes, auxiliam de maneira significativa os corretores na negociação e venda de imóveis. Um condomínio está sendo lançado em um novo bairro de uma cidade. Na maquete projetada pela construtora, em escala de 1 : 200, existe um reservatório de água com capacidade de 45 cm3. Quando todas as famílias estiverem residindo no condomínio, a estimativa é que, por dia, sejam consumidos 30 000 litros de água. Em uma eventual falta de água, o reservatório cheio será suficiente para abastecer o condomínio por quantos dias?",
+      "enunciado": "Questão 158 Comum em lançamentos de empreendimentos imobiliários, as maquetes de condomínios funcionam como uma ótima ferramenta de marketing para as construtoras, pois, além de encantar clientes, auxiliam de maneira significativa os corretores na negociação e venda de imóveis. Um condomínio está sendo lançado em um novo bairro de uma cidade. Na maquete projetada pela construtora, em escala de 1 : 200, existe um reservatório de água com capacidade de 45 cm3. Quando todas as famílias estiverem residindo no condomínio, a estimativa é que, por dia, sejam consumidos 30 000 litros de água. Em uma eventual falta de água, o reservatório cheio será suficiente para abastecer o condomínio por quantos dias?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -376,11 +358,11 @@
       "ano": 2019,
       "numero": 159,
       "pagina": 24,
-      "enunciado": "Questão 159 O dono de um restaurante situado às margens de uma rodovia percebeu que, ao colocar uma placa de propaganda de seu restaurante ao longo da rodovia, as vendas aumentaram. Pesquisou junto aos seus clientes e concluiu que a probabilidade de um motorista perceber uma placa de anúncio é 1 2 . Com isso, após autorização do órgão competente, decidiu instalar novas placas com anúncios de seu restaurante ao longo dessa rodovia, de maneira que a probabilidade de um motorista perceber pelo menos uma das placas instaladas fosse superior a 99 100 .",
+      "enunciado": "Questão 159 O dono de um restaurante situado às margens de uma rodovia percebeu que, ao colocar uma placa de propaganda de seu restaurante ao longo da rodovia, as vendas aumentaram. Pesquisou junto aos seus clientes e concluiu que a probabilidade de um motorista perceber uma placa de anúncio é 1/2 . Com isso, após autorização do órgão competente, decidiu instalar novas placas com anúncios de seu restaurante ao longo dessa rodovia, de maneira que a probabilidade de um motorista perceber pelo menos uma das placas instaladas fosse superior a 99/100 . A quantidade mínima de novas placas de propaganda a serem instaladas é ",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "quantidade mínima de novas placas de propaganda a serem instaladas é A 99.",
+        "A": "99.",
         "B": "51.",
         "C": "50.",
         "D": "6.",
@@ -392,7 +374,7 @@
       "ano": 2019,
       "numero": 160,
       "pagina": 24,
-      "enunciado": "E 1. Questão 160 O preparador físico de um time de basquete dispõe de um plantel de 20 jogadores, com média de altura igual a 1,80 m. No último treino antes da estreia em um campeonato, um dos jogadores desfalcou o time em razão de uma séria contusão, forçando o técnico a contratar outro jogador para recompor o grupo. Se o novo jogador é 0,20 m mais baixo que o anterior, qual é a média de altura, em metro, do novo grupo?",
+      "enunciado": "Questão 160 O preparador físico de um time de basquete dispõe de um plantel de 20 jogadores, com média de altura igual a 1,80 m. No último treino antes da estreia em um campeonato, um dos jogadores desfalcou o time em razão de uma séria contusão, forçando o técnico a contratar outro jogador para recompor o grupo. Se o novo jogador é 0,20 m mais baixo que o anterior, qual é a média de altura, em metro, do novo grupo?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -408,12 +390,18 @@
       "ano": 2019,
       "numero": 161,
       "pagina": 24,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 24 E 1,82 Questão 161 Em uma fábrica de refrigerantes, é necessário que se faça periodicamente o controle no processo de engarrafamento para evitar que sejam envasadas garrafas fora da especificação do volume escrito no rótulo. Diariamente, durante 60 dias, foram anotadas as quantidades de garrafas fora dessas especificações. O resultado está apresentado no quadro. Quantidade de garrafas fora das especificações por dia Quantidade de dias 0 52 1 5 2 2 3 1",
+      "enunciado": "Questão 161 Em uma fábrica de refrigerantes, é necessário que se faça periodicamente o controle no processo de engarrafamento para evitar que sejam envasadas garrafas fora da especificação do volume escrito no rótulo. Diariamente, durante 60 dias, foram anotadas as quantidades de garrafas fora dessas especificações. O resultado está apresentado no quadro. A média diária de garrafas fora das especificações no período considerado é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q161_p24.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "0,1.",
+        "B": "0,2.",
+        "C": "1,5.",
+        "D": "2,0.",
+        "E": "3,0."
+      },
       "gabarito": "B"
     },
     {
@@ -460,11 +448,11 @@
         "dados/enem/imagens_questoes/2019/enem_2019_q164_p25.png"
       ],
       "alternativas": {
-        "A": "Dez caminhões com capacidade máxima de 10 m3.",
-        "B": "Cinco caminhões com capacidade máxima de 10 m3.",
-        "C": "Um caminhão com capacidade máxima de 5 m3.",
-        "D": "Dez caminhões com capacidade máxima de 2 m3.",
-        "E": "Um caminhão com capacidade máxima de 2 m3."
+        "A": "Dez caminhões com capacidade máxima de 10 m^3.",
+        "B": "Cinco caminhões com capacidade máxima de 10 m^3.",
+        "C": "Um caminhão com capacidade máxima de 5 m^3.",
+        "D": "Dez caminhões com capacidade máxima de 2 m^3.",
+        "E": "Um caminhão com capacidade máxima de 2 m^3."
       },
       "gabarito": "C"
     },
@@ -472,27 +460,34 @@
       "ano": 2019,
       "numero": 165,
       "pagina": 25,
-      "enunciado": "Questão 165 O álcool é um depressor do sistema nervoso central e age diretamente em diversos órgãos. A concentração de álcool no sangue pode ser entendida como a razão entre a quantidade q de álcool ingerido, medida em grama, e o volume de sangue, em litro, presente no organismo do indivíduo. Em geral, considera-se que esse volume corresponda ao valor numérico dado por 8% da massa corporal m desse indivíduo, medida em quilograma. De acordo com a Associação Médica Americana, uma concentração alcoólica superior a 0,4 grama por litro de sangue é capaz de trazer prejuízos à saúde do indivíduo. Disponível em: http://cisa.org.br. Acesso em: 1 dez. 2018 (adaptado).",
+      "enunciado": "Questão 165 O álcool é um depressor do sistema nervoso central e age diretamente em diversos órgãos. A concentração de álcool no sangue pode ser entendida como a razão entre a quantidade q de álcool ingerido, medida em grama, e o volume de sangue, em litro, presente no organismo do indivíduo. Em geral, considera-se que esse volume corresponda ao valor numérico dado por 8% da massa corporal m desse indivíduo, medida em quilograma. De acordo com a Associação Médica Americana, uma concentração alcoólica superior a 0,4 grama por litro de sangue é capaz de trazer prejuízos à saúde do indivíduo. Disponível em: http://cisa.org.br. Acesso em: 1 dez. 2018 (adaptado). A expressão relacionando q e m que representa a concentração alcoólica prejudicial à saúde do indivíduo, de acordo com a Associação Médica Americana, é",
       "tem_imagem": false,
-      "imagens": [],
-      "alternativas": {},
+      "imagens": [
+      ],
+      "alternativas": {
+        "A": "q/08m > 0,4",
+        "B": "0,4m/q > 0,8 ",
+        "C": "q/0,4m > 0,8",
+        "D": "0,08m/q > 0,4",
+        "E": "q/0,08m > 0,4"
+      },
       "gabarito": "E"
     },
     {
       "ano": 2019,
       "numero": 166,
       "pagina": 25,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 25 Questão 166 Construir figuras de diversos tipos, apenas dobrando e cortando papel, sem cola e sem tesoura, é a arte do origami (ori = dobrar; kami = papel), que tem um significado altamente simbólico no Japão.",
+      "enunciado": "Questão 166 Construir figuras de diversos tipos, apenas dobrando e cortando papel, sem cola e sem tesoura, é a arte do origami (ori = dobrar; kami = papel), que tem um significado altamente simbólico no Japão. A base do origami é o conhecimento do mundo por base do tato. Uma jovem resolveu construir um cisne usando a técnica do origami, utilizando uma folha de papel de 18 cm por 12 cm. Assim, começou por dobrar a folha conforme a figura. Após essa primeira dobradura, a medida do segmento AE é",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q166_p25.png"
       ],
       "alternativas": {
-        "A": "base do origami é o conhecimento do mundo por base do tato. Uma jovem resolveu construir um cisne usando a técnica do origami, utilizando uma folha de papel de 18 cm por 12 cm. Assim, começou por dobrar a folha conforme a figura. Após essa primeira dobradura, a medida do segmento AE é A 2 22 cm.",
-        "B": "6 3 cm.",
+        "A": "2√22 cm.",
+        "B": "6√3 cm.",
         "C": "12 cm.",
-        "D": "6 5 cm.",
-        "E": "12 2 cm. A E C B 18 cm 12 cm D 12 cm"
+        "D": "6√5 cm.",
+        "E": "12√2 cm."
       },
       "gabarito": "D"
     },
@@ -500,13 +495,13 @@
       "ano": 2019,
       "numero": 167,
       "pagina": 26,
-      "enunciado": "Questão 167 Os alunos de uma turma escolar foram divididos em dois grupos. Um grupo jogaria basquete, enquanto o outro jogaria futebol. Sabe-se que o grupo de basquete é formado pelos alunos mais altos da classe e tem uma pessoa a mais do que o grupo de futebol.",
+      "enunciado": "Questão 167 Os alunos de uma turma escolar foram divididos em dois grupos. Um grupo jogaria basquete, enquanto o outro jogaria futebol. Sabe-se que o grupo de basquete é formado pelos alunos mais altos da classe e tem uma pessoa a mais do que o grupo de futebol. A tabela seguinte apresenta informações sobre as alturas dos alunos da turma. Média Mediana Moda 1,65 1,67 1,70 Os alunos P, J, F e M medem, respectivamente, 1,65 m, 1,66 m, 1,67 m e 1,68 m, e as suas alturas não são iguais a de nenhum outro colega da sala. Segundo essas informações, argumenta-se que os alunos P, J, F e M jogaram, respectivamente,",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q167_p26.png"
       ],
       "alternativas": {
-        "A": "tabela seguinte apresenta informações sobre as alturas dos alunos da turma. Média Mediana Moda 1,65 1,67 1,70 Os alunos P, J, F e M medem, respectivamente, 1,65 m, 1,66 m, 1,67 m e 1,68 m, e as suas alturas não são iguais a de nenhum outro colega da sala. Segundo essas informações, argumenta-se que os alunos P, J, F e M jogaram, respectivamente, A basquete, basquete, basquete, basquete.",
+        "A": "basquete, basquete, basquete, basquete.",
         "B": "futebol, basquete, basquete, basquete.",
         "C": "futebol, futebol, basquete, basquete.",
         "D": "futebol, futebol, futebol, basquete.",
@@ -518,7 +513,7 @@
       "ano": 2019,
       "numero": 168,
       "pagina": 26,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 26 Questão 168 Uma empresa tem diversos funcionários. Um deles é o gerente, que recebe R$ 1 000,00 por semana. Os outros funcionários são diaristas. Cada um deles trabalha 2 dias por semana, recebendo R$ 80,00 por dia trabalhado. Chamando de X a quantidade total de funcionários da empresa, a quantia Y, em reais, que esta empresa gasta semanalmente para pagar seus funcionários é expressa por",
+      "enunciado": "Questão 168 Uma empresa tem diversos funcionários. Um deles é o gerente, que recebe R$ 1 000,00 por semana. Os outros funcionários são diaristas. Cada um deles trabalha 2 dias por semana, recebendo R$ 80,00 por dia trabalhado. Chamando de X a quantidade total de funcionários da empresa, a quantia Y, em reais, que esta empresa gasta semanalmente para pagar seus funcionários é expressa por",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -552,11 +547,11 @@
       "ano": 2019,
       "numero": 170,
       "pagina": 27,
-      "enunciado": "Questão 170",
+      "enunciado": "Questão 170 A bula de um antibiótico infantil, fabricado na forma de xarope, recomenda que sejam ministrados, diariamente, no máximo 500 mg desse medicamento para cada quilograma de massa do paciente. Um pediatra prescreveu a dosagem máxima desse antibiótico para ser ministrada diariamente a uma criança de 20 kg pelo período de 5 dias. Esse medicamento pode ser comprado em frascos de 10 mL, 50 mL, 100 mL, 250 mL e 500 mL. Os pais dessa criança decidiram comprar a quantidade exata de medicamento que precisará ser ministrada no tratamento, evitando a sobra de medicamento. Considere que 1 g desse medicamento ocupe um volume de 1 cm3. A capacidade do frasco, em mililitro, que esses pais deverão comprar é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "bula de um antibiótico infantil, fabricado na forma de xarope, recomenda que sejam ministrados, diariamente, no máximo 500 mg desse medicamento para cada quilograma de massa do paciente. Um pediatra prescreveu a dosagem máxima desse antibiótico para ser ministrada diariamente a uma criança de 20 kg pelo período de 5 dias. Esse medicamento pode ser comprado em frascos de 10 mL, 50 mL, 100 mL, 250 mL e 500 mL. Os pais dessa criança decidiram comprar a quantidade exata de medicamento que precisará ser ministrada no tratamento, evitando a sobra de medicamento. Considere que 1 g desse medicamento ocupe um volume de 1 cm3. A capacidade do frasco, em mililitro, que esses pais deverão comprar é A 10.",
+        "A": "10.",
         "B": "50.",
         "C": "100.",
         "D": "250.",
@@ -568,19 +563,25 @@
       "ano": 2019,
       "numero": 171,
       "pagina": 27,
-      "enunciado": "Questão 171 Uma empresa confecciona e comercializa um brinquedo formado por uma locomotiva, pintada na cor preta, mais 12 vagões de iguais formato e tamanho, numerados de 1 a 12. Dos 12 vagões, 4 são pintados na cor vermelha, 3 na cor azul, 3 na cor verde e 2 na cor amarela. O trem é montado utilizando-se uma locomotiva e 12 vagões, ordenados crescentemente segundo suas numerações, conforme ilustrado na figura. 1 2 3 4 5 6 7 8 9 10 11 12 De acordo com as possíveis variações nas colorações dos vagões, a quantidade de trens que podem ser montados, expressa por meio de combinações, é dada por A 12 4 12 3 12 3 12 2 B C D E",
+      "enunciado": "Questão 171 Uma empresa confecciona e comercializa um brinquedo formado por uma locomotiva, pintada na cor preta, mais 12 vagões de iguais formato e tamanho, numerados de 1 a 12. Dos 12 vagões, 4 são pintados na cor vermelha, 3 na cor azul, 3 na cor verde e 2 na cor amarela. O trem é montado utilizando-se uma locomotiva e 12 vagões, ordenados crescentemente segundo suas numerações, conforme ilustrado na figura. 1 2 3 4 5 6 7 8 9 10 11 12 De acordo com as possíveis variações nas colorações dos vagões, a quantidade de trens que podem ser montados, expressa por meio de combinações, é dada por ",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q171_p27.png"
       ],
-      "alternativas": {},
+      "alternativas": {
+        "A": "C⁴₁₂ × C³₁₂ × C³₁₂ × C²₁₂",
+        "B": "C⁴₁₂ + C³₈ + C³₅ + C²₂",
+        "C": "C⁴₁₂ × 2 × C³₈ × C²₅",
+        "D": "C⁴₁₂ + 2 × C³₁₂ + C²₁₂",
+        "E": "C⁴₁₂ × C³₈ × C³₅ × C²₂"
+      },
       "gabarito": "E"
     },
     {
       "ano": 2019,
       "numero": 172,
       "pagina": 27,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 27 Questão 172 O gráfico a seguir mostra a evolução mensal das vendas de certo produto de julho a novembro de 2011. Sabe-se que o mês de julho foi o pior momento da empresa em 2011 e que o número de unidades vendidas desse produto em dezembro de 2011 foi igual à média aritmética do número de unidades vendidas nos meses de julho a novembro do mesmo ano. O gerente de vendas disse, em uma reunião da diretoria, que, se essa redução no número de unidades vendidas de novembro para dezembro de 2011 se mantivesse constante nos meses subsequentes, as vendas só voltariam a ficar piores que julho de 2011 apenas no final de 2012. O diretor financeiro rebateu imediatamente esse argumento mostrando que, mantida a tendência, isso aconteceria já em",
+      "enunciado": "Questão 172 O gráfico a seguir mostra a evolução mensal das vendas de certo produto de julho a novembro de 2011. Sabe-se que o mês de julho foi o pior momento da empresa em 2011 e que o número de unidades vendidas desse produto em dezembro de 2011 foi igual à média aritmética do número de unidades vendidas nos meses de julho a novembro do mesmo ano. O gerente de vendas disse, em uma reunião da diretoria, que, se essa redução no número de unidades vendidas de novembro para dezembro de 2011 se mantivesse constante nos meses subsequentes, as vendas só voltariam a ficar piores que julho de 2011 apenas no final de 2012. O diretor financeiro rebateu imediatamente esse argumento mostrando que, mantida a tendência, isso aconteceria já em",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q172_p27.png"
@@ -590,7 +591,7 @@
         "B": "fevereiro.",
         "C": "março.",
         "D": "abril.",
-        "E": "maio. Unidades vendidas 2 800 2 700 2 500 700 Jul Ago Set Out Nov Mês"
+        "E": "maio."
       },
       "gabarito": "D"
     },
@@ -614,15 +615,15 @@
       "ano": 2019,
       "numero": 174,
       "pagina": 28,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 28 Questão 174",
+      "enunciado": "Questão 174 A taxa de urbanização de um município é dada pela razão entre a população urbana e a população total do município (isto é, a soma das populações rural e urbana). Os gráficos apresentam, respectivamente, a população urbana e a população rural de cinco municípios (I, II, III, IV, V) de uma mesma região estadual. Em reunião entre o governo do estado e os prefeitos desses municípios, ficou acordado que o município com maior taxa de urbanização receberá um investimento extra em infraestrutura. Segundo o acordo, qual município receberá o investimento extra?",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "taxa de urbanização de um município é dada pela município (isto é, a soma das populações rural e urbana) urbana e a população rural de cinco municípios (I, II, entre o governo do estado e os prefeitos desses municíp urbanização receberá um investimento extra em infraest Segundo o acordo, qual município receberá o investiment A I",
+        "A": "I",
         "B": "II",
         "C": "III",
         "D": "IV",
-        "E": "V 14 000 12 000 10 000 8 000 6 000 4 000 2 000 0 16 000 18 000 20 000 População urbana 8 000 10 000 11 000 18 000 17 000 I II III IV V"
+        "E": "V"
       },
       "gabarito": "C"
     },
@@ -630,11 +631,11 @@
       "ano": 2019,
       "numero": 175,
       "pagina": 29,
-      "enunciado": "Questão 175 Uma construtora pretende conectar um reservatório central (Rc) em formato de um cilindro, com raio interno igual a 2 m e altura interna igual a 3,30 m, a quatro reservatórios cilíndricos auxiliares (R1, R2, R3 e R4), os quais possuem raios internos e alturas internas medindo 1,5 m. R1 R3 R2 RC R4 As ligações entre o reservatório central e os auxiliares são feitas por canos cilíndricos com 0,10 m de diâmetro interno e 20 m de comprimento, conectados próximos às bases de cada reservatório. Na conexão de cada um desses canos com o reservatório central há registros que liberam ou interrompem o fluxo de água. No momento em que o reservatório central está cheio e os auxiliares estão vazios, abrem-se os quatro registros e, após algum tempo, as alturas das colunas de água nos reservatórios se igualam, assim que cessa o fluxo de água entre eles, pelo princípio dos vasos comunicantes.",
+      "enunciado": "Questão 175 Uma construtora pretende conectar um reservatório central (Rc) em formato de um cilindro, com raio interno igual a 2 m e altura interna igual a 3,30 m, a quatro reservatórios cilíndricos auxiliares (R1, R2, R3 e R4), os quais possuem raios internos e alturas internas medindo 1,5 m. R1 R3 R2 RC R4 As ligações entre o reservatório central e os auxiliares são feitas por canos cilíndricos com 0,10 m de diâmetro interno e 20 m de comprimento, conectados próximos às bases de cada reservatório. Na conexão de cada um desses canos com o reservatório central há registros que liberam ou interrompem o fluxo de água. No momento em que o reservatório central está cheio e os auxiliares estão vazios, abrem-se os quatro registros e, após algum tempo, as alturas das colunas de água nos reservatórios se igualam, assim que cessa o fluxo de água entre eles, pelo princípio dos vasos comunicantes. A medida, em metro, das alturas das colunas de água nos reservatórios auxiliares, após cessar o fluxo de água entre eles, é",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
-        "A": "medida, em metro, das alturas das colunas de água nos reservatórios auxiliares, após cessar o fluxo de água entre eles, é A 1,44.",
+        "A": "1,44.",
         "B": "1,16.",
         "C": "1,10.",
         "D": "1,00.",
@@ -646,23 +647,29 @@
       "ano": 2019,
       "numero": 176,
       "pagina": 29,
-      "enunciado": "E 0,95. Questão 176 Para construir uma piscina, cuja área total da superfície interna é igual a 40 m2, uma construtora apresentou o seguinte orçamento: • R$ 10 000,00 pela elaboração do projeto; • R$ 40 000,00 pelos custos fixos; • R$ 2 500,00 por metro quadrado para construção da área interna da piscina. Após a apresentação do orçamento, essa empresa decidiu reduzir o valor de elaboração do projeto em 50%, mas recalculou o valor do metro quadrado para a construção da área interna da piscina, concluindo haver a necessidade de aumentá-lo em 25%. Além disso, a construtora pretende dar um desconto nos custos fixos, de maneira que o novo valor do orçamento seja reduzido em 10% em relação ao total inicial.",
+      "enunciado": "Questão 176 Para construir uma piscina, cuja área total da superfície interna é igual a 40 m2, uma construtora apresentou o seguinte orçamento: • R$ 10 000,00 pela elaboração do projeto; • R$ 40 000,00 pelos custos fixos; • R$ 2 500,00 por metro quadrado para construção da área interna da piscina. Após a apresentação do orçamento, essa empresa decidiu reduzir o valor de elaboração do projeto em 50%, mas recalculou o valor do metro quadrado para a construção da área interna da piscina, concluindo haver a necessidade de aumentá-lo em 25%. Além disso, a construtora pretende dar um desconto nos custos fixos, de maneira que o novo valor do orçamento seja reduzido em 10% em relação ao total inicial.O percentual de desconto que a construtora deverá conceder nos custos fixos é de",
       "tem_imagem": false,
       "imagens": [],
-      "alternativas": {},
+      "alternativas": {
+        "A": "23,3%",
+        "B": "25,0%",
+        "C": "50,0%",
+        "D": "87,5%",
+        "E": "100,0%"
+      },
       "gabarito": "D"
     },
     {
       "ano": 2019,
       "numero": 177,
       "pagina": 29,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 29 E 100,0% Questão 177 Um grupo de engenheiros está projetando um motor cujo esquema de deslocamento vertical do pistão dentro da câmara de combustão está representado na figura. Pistão Pistão Câmara de combustão Câmara de combustão h(0) = 0 Instante t = 0 Instante t ≠ 0 h(t)",
+      "enunciado": "Questão 177 Um grupo de engenheiros está projetando um motor cujo esquema de deslocamento vertical do pistão dentro da câmara de combustão está representado na figura. Pistão Pistão Câmara de combustão Câmara de combustão h(0) = 0 Instante t = 0 Instante t ≠ 0 h(t) A função h(t) = 4 + 4sen(beta t/2 - π/2) definida para t ≥ 0 descreve como varia a altura h, medida em centímetro, da parte superior do pistão dentro da câmara de combustão, em função do tempo t, medido em segundo. Nas figuras estão indicadas as alturas do pistão em dois instantes distintos. O valor do parâmetro β , que é dado por um número inteiro positivo, está relacionado com a velocidade de deslocamento do pistão. Para que o motor tenha uma boa potência, é necessário e suficiente que, em menos de 4 segundos após o início do funcionamento (instante t = 0), a altura da base do pistão alcance por três vezes o valor de 6 cm. Para os cálculos, utilize 3 como aproximação para π. O menor valor inteiro a ser atribuído ao parâmetro β , d",
       "tem_imagem": true,
       "imagens": [
         "dados/enem/imagens_questoes/2019/enem_2019_q177_p29.png"
       ],
       "alternativas": {
-        "A": "função h t sen t ( ) 4 4 definida para t ≥0 descreve como varia a altura h, medida em centímetro, da parte superior do pistão dentro da câmara de combustão, em função do tempo t, medido em segundo. Nas figuras estão indicadas as alturas do pistão em dois instantes distintos. O valor do parâmetro β, que é dado por um número inteiro positivo, está relacionado com a velocidade de deslocamento do pistão. Para que o motor tenha uma boa potência, é necessário e suficiente que, em menos de 4 segundos após o início do funcionamento (instante t = 0), a altura da base do pistão alcance por três vezes o valor de 6 cm. Para os cálculos, utilize 3 como aproximação para π. O menor valor inteiro a ser atribuído ao parâmetro β , de forma que o motor a ser construído tenha boa potência, é A 1.",
+        "A": "1.",
         "B": "2.",
         "C": "4.",
         "D": "5.",
@@ -674,7 +681,7 @@
       "ano": 2019,
       "numero": 178,
       "pagina": 30,
-      "enunciado": "MT - 2º dia | Caderno 7 - AZUL - Página 30 Questão 178 Um comerciante, que vende somente pastel, refrigeran das vendas realizadas durante a semana. O resultado de Ele estima que venderá, em cada dia da próxima s soma das quantidades de refrigerante em lata e caldo d semana. Quanto aos pastéis, estima vender, a cada dia de refrigerante em lata que prevê vender em tal dia. Já p vendas diárias serão iguais às da última semana. Segundo essas estimativas, a quantidade a mais de pastéis",
+      "enunciado": "Questão 178 Um comerciante, que vende somente pastel, refrigeran das vendas realizadas durante a semana. O resultado de Ele estima que venderá, em cada dia da próxima s soma das quantidades de refrigerante em lata e caldo d semana. Quanto aos pastéis, estima vender, a cada dia de refrigerante em lata que prevê vender em tal dia. Já p vendas diárias serão iguais às da última semana. Segundo essas estimativas, a quantidade a mais de pastéis",
       "tem_imagem": false,
       "imagens": [],
       "alternativas": {
@@ -682,7 +689,7 @@
         "B": "27.",
         "C": "44.",
         "D": "55.",
-        "E": "71. Sábado Sexta Quinta Quart Domingo Vendas na últ 10 8 6 4 2 0"
+        "E": "71."
       },
       "gabarito": "B"
     },
@@ -696,11 +703,11 @@
         "dados/enem/imagens_questoes/2019/enem_2019_q179_p31.png"
       ],
       "alternativas": {
-        "A": "sequência de deslocamentos pelos cômodos, confor A 1 4 5 4 1 6 1 4 → → → → → → →",
-        "B": "1 2 3 1 4 1 4 4 → → → → → → →",
-        "C": "1 4 5 4 1 6 1 2 3 → → → → → → → →",
-        "D": "1 2 3 5 4 1 6 1 4 → → → → → → → →",
-        "E": "1 4 2 3 5 1 6 1 4 → → → → → → → →"
+        "A": "1 → 4 → 5 → 4 → 1 → 6 → 1 → 4",
+        "B": "1 → 2 → 3 → 1 → 4 → 1 → 4 → 4",
+        "C": "1 → 4 → 5 → 4 → 1 → 6 → 1 → 2 → 3",
+        "D": "1 → 2 → 3 → 5 → 4 → 1 → 6 → 1 → 4",
+        "E": "1 → 4 → 2 → 3 → 5 → 1 → 6 → 1 → 4"
       },
       "gabarito": "A"
     },
