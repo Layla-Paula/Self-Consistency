@@ -1,0 +1,918 @@
+{
+  "id_execucao": "few_shot_enem_20260817_100_1",
+  "data_execucao": "2026-08-17T22:12:19",
+  "metodo": "few_shot",
+  "dataset": "enem",
+  "modelo": "llama3.2",
+  "total": 100,
+  "acertos": 17,
+  "erros": 83,
+  "precisao": 17.0,
+  "parametros": {
+    "temperature": 0.0,
+    "num_predict": 200,
+    "limite": 100
+  },
+  "resultados": [
+    {
+      "numero": 136,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o gráfico apresentado e extrair a informação necessária.\n\nO gráfico mostra as faixas percentuais de pessoas com 60 anos ou mais em todo o mundo, divididas por faixa etária. A coluna da direita representa os números das faixas percentuais.\n\nEm 1950, havia 95 milhões de pessoas com 60 anos ou mais nos países desenvolvidos, que representam entre 10% e 15% da população total.\n\nPara encontrar a probabilidade de se escolher uma pessoa com 60 anos ou mais na população dos países desenvolvidos em 2050, precisamos calcular o número total de pessoas com 60 anos ou mais em 2050.\n\nO gráfico não fornece explicitamente os números para 2050. No entanto, podemos observar que a faixa percentual de pessoas com 65 anos ou mais aument"
+    },
+    {
+      "numero": 139,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 142,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 147,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a taxa média de variação é calculada como a diferença entre o valor máximo e o valor mínimo dividido pelo número de valores.\n\nVamos analisar os dados da tabela:\n\n| Produção (toneladas) | Emissão de dióxido de carbono (ppm) |\n| --- | --- |\n| 100 | 20 |\n| 200 | 40 |\n| 300 | 60 |\n| 400 | 80 |\n\nO valor máximo é 80 ppm e o valor mínimo é 20 ppm. A diferença entre eles é 60 ppm.\n\nAgora, dividimos a diferença pelo número de valores (4):\n\n60 ppm / 4 = 15 ppm\n\nPortanto, a taxa média de variação é inferior a 15 ppm, mas não está especificada na tabela como sendo inferior a 0,18. No entanto, podemos"
+    },
+    {
+      "numero": 148,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 154,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 160,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 164,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 165,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 168,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o número de campos de futebol correspondente à área aproximada do bioma Pantanal, precisamos dividir a área do Pantanal por 1 (unidade de medida) e multiplicar pelo número total de campos de futebol em uma área de 120 m x 90 m.\n\nÁrea do Pantanal: 150.355 km²\n\nPrimeiro, convertemos a área do Pantanal para metros quadrados:\n\n150.355 km² × 1.000.000 (m²/km²) = 150.355.000.000 m²\n\nEm seguida, dividimos essa área por 1 (unidade de medida):\n\n150.355.000.000 m² ÷ 1 = 150.355.000.000 m²\n\nAgora, precisamos encontrar o número total de campos de futebol em uma área de 120 m x 90 m:\n\nÁrea de um campo de fute"
+    },
+    {
+      "numero": 169,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "D",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 170,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 179,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que o volume de um paralelepípedo e de um cubo é igual.\n\nO volume de um paralelepípedo é calculado como:\n\nVolume = Largura x Comprimento x Altura\n\nNesse caso, as arestas do paralelepípedo são 3 cm (largura), 18 cm (comprimento) e 4 cm (altura). Portanto, o volume do paralelepípedo é:\n\nVolume = 3 cm x 18 cm x 4 cm = 216 cm³\n\nO volume de um cubo é calculado como:\n\nVolume = Lado³\n\nComo o volume dos dois objetos é igual, podemos estabelecer a seguinte equação:\n\nLado³ = 216 cm³\n\nPara encontrar o lado do cubo, precisamos encontrar a raiz cúbica de 216:\n\nLado = ∛216 = 6"
+    },
+    {
+      "numero": 140,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos primeiro calcular o desmatamento médio por estado em 2009, considerando que o desmatamento cresceu 10,5% em relação aos dados de 2004.\n\nVamos começar com os valores do ranking de desmatamento em km²:\n\n1º Mato Grosso: 10416\n2º Pará: 7293\n3º Rondônia: 3463\n4º Amazonas: 797\n5º Maranhão: 549\n6º Acre: 326\n7º Roraima: 136\n\nPara calcular o desmatamento médio por estado em 2009, precisamos multiplicar cada valor pelo crescimento de 10,5%:\n\n1º Mato Grosso: 10416 x (1 + 0,105) = 11451 km²\n2º Pará: 7293 x (1 + 0"
+    },
+    {
+      "numero": 141,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o percurso do helicóptero e como ele afeta a altitude da região.\n\nO helicóptero começa em um ponto X = (20; 60) e segue o seguinte percurso:\n\n1. 0,8° L (Leste): O helicóptero se move 0,8 graus de longitude para o leste.\n2. 0,5° N (Norte): Em seguida, ele se move 0,5 graus de latitude para o norte.\n3. 0,2° O (Oeste): Depois, ele se move 0,2 graus de longitude para o oeste.\n4. 0,1° S (Sul): Em seguida, ele se move 0,1 grau de latitude para o sul.\n5. 0,4° N: Ele continua se movendo 0,"
+    },
+    {
+      "numero": 148,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 149,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 155,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular o volume do cilindro e somar a camada de concreto.\n\nO diâmetro do cilindro é de 2 m, então o raio é de 1 m. A altura do cilindro é de 4 m.\n\nO volume do cilindro é:\n\nV = πr²h\n= (3,1)(1)²(4)\n= 12,4 m³\n\nA camada de concreto tem uma espessura de 20 cm, ou seja, 0,2 m. O diâmetro da base do cilindro é de 2 m, então o raio é de 1 m.\n\nO volume da camada de concreto é:\n\nV = πr²h\n= (3,1)(1)²(0,2)\n= 0,62 m³\n\nAgora, somamos os volumes do cilind"
+    },
+    {
+      "numero": 158,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos usar a lei dos cosenos para encontrar a altura do balão.\n\nVamos começar com as informações fornecidas:\n\n* A pessoa está a 1,8 km da posição vertical do balão e o avistou sob um ângulo de 60°.\n* A outra pessoa está a 5,5 km da posição vertical do balão, alinhada com a primeira, e no mesmo sentido, e o avistou sob um ângulo de 30°.\n\nAqui estão os passos para resolver:\n\n1. Desenhe um triângulo com as seguintes informações:\n * Lado 1: 1,8 km (distância da pessoa à posição vertical do balão)\n * Ângulo 1: 60°\n * Lado 2: 5,5 km (distância da segunda pessoa à posição vertical do balão)\n * Ângulo 2: 30"
+    },
+    {
+      "numero": 161,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 164,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o raio da perfuração da peça, precisamos entender a relação entre a base triangular e a perfuração circular.\n\nA base triangular tem dimensões de 6 cm, 8 cm e 10 cm. Para encontrar o raio da perfuração, precisamos considerar que a perfuração é tangente às faces laterais do prisma reto.\n\nConsiderando a figura apresentada, podemos observar que a perfuração circular está inscrita na base triangular de forma que seu centro coincide com o centro da base. Isso significa que o raio da perfuração é igual à distância entre o centro da base e uma das suas bordas.\n\nA distância entre o centro da base e uma das suas bordas pode ser encontrada usando a fórmula do triângulo 30-60-90, que é:\n\nDistância = (base) / 2\n\nNesse caso, considerando a base"
+    },
+    {
+      "numero": 165,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 166,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 167,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a mediana das quantidades de gols marcados pelos artilheiros das Copas do Mundo, precisamos primeiro ordenar os valores de acordo com a quantidade de gols.\n\nOs dados são:\n\n* 1930: 8 gols\n* 1934: 9 gols\n* 1938: 10 gols\n* 1950: 13 gols\n* 1954: 17 gols\n* 1958: 21 gols\n* 1962: 11 gols\n* 1966: 12 gols\n* 1970: 14 gols\n* 1974: 3 gols\n* 1978: 6 gols\n* 1982: 10 gols\n* 1986: 9 gols\n* 1990: 5 gols\n* 1994: 16 gols\n* 1998: "
+    },
+    {
+      "numero": 168,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a relação entre o volume de um hemisfério e o volume de um cone com a mesma altura.\n\nO volume de um hemisfério é dado pela fórmula:\n\nV = (2/3)πr²h\n\nOnde r é o raio do hemisfério e h é sua altura.\n\nJá o volume de um cone é dado pela fórmula:\n\nV = (1/3)πr²h\n\nComo os volumes dos dois tipos de taças devem ser iguais, podemos estabelecer uma relação entre as duas fórmulas. \n\nSabendo que a altura do hemisfério é igual à sua altura e o raio do cone é igual à metade da altura do hemisfério (porque o diâmetro do cone é igual ao diâmetro do hemisfério), podemos reescrever as fórmulas como"
+    },
+    {
+      "numero": 169,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a dinâmica do Salto Triplo e como o alcance diminui ao longo dos saltos.\n\nO problema informa que:\n\n- O alcance diminui 1,2 m de um salto para outro.\n- O alcance diminui 1,5 m de um salto para outro.\n\nConsiderando que o atleta deseja alcançar uma meta de 17,4 m e que o alcance diminui em 1,2 m do segundo para o primeiro salto e em 1,5 m do terceiro para o segundo salto, podemos inferir que:\n\n- O alcance do terceiro salto (antes de cair) deve ser maior que o da segunda metade do terceiro salto (quando cai), mas menor que o da primeira metade do terceiro salto.\n- A diferença entre a segunda metade e a primeira"
+    },
+    {
+      "numero": 170,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 173,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 179,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 137,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 148,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    }
+  ]
+}

@@ -1,0 +1,818 @@
+{
+  "id_execucao": "few_shot_gsm8k_20260817_100_1",
+  "data_execucao": "2026-08-17T22:24:56",
+  "metodo": "few_shot",
+  "dataset": "gsm8k",
+  "modelo": "llama3.2",
+  "total": 100,
+  "acertos": 50,
+  "erros": 50,
+  "precisao": 50.0,
+  "parametros": {
+    "temperature": 0.0,
+    "num_predict": 200,
+    "limite": 100
+  },
+  "resultados": [
+    {
+      "id": "train_0",
+      "split": "train",
+      "gabarito": "72",
+      "resposta_modelo": "72",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantos clipes Natália tinha inicialmente. Infelizmente, não há essa informação fornecida no exemplo. Vou assumir que ela começou com 48 clipes (exatamente o número de amigos em abril).\n\nEm abril, Natália vendeu 48 clipes.\n\nEm maio, ela vendeu metade dos clipes que vendeu em abril, que é 48/2 = 24 clipes.\n\nO total de clipes vendidos é a soma desses dois valores: 48 + 24 = 72."
+    },
+    {
+      "id": "train_1",
+      "split": "train",
+      "gabarito": "10",
+      "resposta_modelo": "10",
+      "acertou": true,
+      "resposta_completa": "Para calcular quanto Weng ganhou, precisamos saber a taxa de pagamento por hora e o tempo que ela trabalhou. Como ela ganha $12 por hora e trabalhou 50 minutos, precisamos convertê-los para horas.\n\n50 minutos = 50/60 horas = 5/6 horas\n\nAgora, podemos calcular quanto ela ganhou:\n\nGanho = Taxa de pagamento por hora x Tempo trabalhado\n= $12/hora x 5/6 horas\n= $10"
+    },
+    {
+      "id": "train_2",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "5",
+      "acertou": true,
+      "resposta_completa": "Vamos resolver o problema passo a passo!\n\n1. Betty tem apenas metade do dinheiro que precisa, então ela tem 100/2 = $50.\n2. Os pais dela dão-lhe $15, então agora ela tem 50 + 15 = $65.\n3. Os avós dela dão-lhe o dobro do que os pais dela, ou seja, 2 x 15 = $30.\n4. Agora Betty tem 65 + 30 = $95.\n5. Para comprar a carteira, ela precisa de mais 100 - 95 = $5.\n\nResposta: 5"
+    },
+    {
+      "id": "train_6",
+      "split": "train",
+      "gabarito": "48",
+      "resposta_modelo": "48",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de pedaços de pizza que Albert compra e depois subtrair os pedaços que não comerá (se ele não comer tudo).\n\n2 pizzas grandes x 16 pedaços = 32 pedaços\n2 pizzas pequenas x 8 pedaços = 16 pedaços\n\nTotal de pedaços: 32 + 16 = 48 pedaços\n\nSe Albert comer tudo, ele come 48 pedaços.\n\nResposta: 48"
+    },
+    {
+      "id": "train_7",
+      "split": "train",
+      "gabarito": "16",
+      "resposta_modelo": "16",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, vamos seguir os passos abaixo:\n\n1. O peso inicial da caixa é 2 libras.\n2. Ken adicionou brownies para fazer o peso triplicar, então o novo peso é 3 x 2 = 6 libras.\n3. Ele adicionou mais 2 libras de jujubas, então o novo peso é 6 + 2 = 8 libras.\n4. Finalmente, ele adicionou minhocas de goma para dobrar o peso mais uma vez, então o novo peso é 2 x 8 = 16 libras.\n\nResposta: 16"
+    },
+    {
+      "id": "train_8",
+      "split": "train",
+      "gabarito": "41",
+      "resposta_modelo": "41",
+      "acertou": true,
+      "resposta_completa": "Para encontrar o valor que Alexis gastou nos sapatos, precisamos primeiro calcular o total gasto em todos os outros itens:\n\nCamisa de botão: $30\nCalças de terno: $46\nPaletó de terno: $38\nMeias: $11\nCinto: $18\n\nTotal gasto em itens conhecidos = $30 + $46 + $38 + $11 + $18 = $143\n\nAgora, sabemos que o orçamento total era de $200 e Alexis tem $16 restantes. Portanto, o valor total gastado é:\n\n$200 - $16 = $184\n\nComo já sabemos o total gasto em todos os itens conhecidos ($143), podemos encontrar o valor gasto nos sapatos subtraindo esse valor do total gasto:\n\nValor gasto nos sapatos = Total gasto - Total gasto em itens conhecidos\n= $184 - $143\n= $41"
+    },
+    {
+      "id": "train_12",
+      "split": "train",
+      "gabarito": "85",
+      "resposta_modelo": "85",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a quantidade de coqueiros que Randy tem. A metade das mangueiras é 60/2 = 30. Ele tem 5 coqueiros menos que isso, então ele tem 30 - 5 = 25 coqueiros.\n\nAgora, somamos as mangueiras e os coqueiros para encontrar o total de árvores: 60 + 25 = 85.\n\nResposta: 85"
+    },
+    {
+      "id": "train_13",
+      "split": "train",
+      "gabarito": "35",
+      "resposta_modelo": "70",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o custo total dos ingredientes.\n\nO queijo cheddar custa $10 por libra e Jasper compra 2 libras, então o custo do queijo cheddar é:\n2 x $10 = $20\n\nA cream cheese custa a metade do preço do queijo cheddar, então o custo da cream cheese é:\n$20 / 2 = $10\n\nO pacote de frios custa o dobro do preço do queijo cheddar, então o custo do pacote de frios é:\n$20 x 2 = $40\n\nAgora, somamos os custos dos ingredientes para encontrar o total gasto:\n$20 + $10 + $40 = $70\n\nResposta: 70"
+    },
+    {
+      "id": "train_17",
+      "split": "train",
+      "gabarito": "43",
+      "resposta_modelo": "49",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver o problema passo a passo!\n\n1. Carl remove 4 capacetes rosa.\n2. John remove 6 capacetes rosa e o dobro de capacetes verdes em relação ao número de capacetes rosa que ele removeu, ou seja, 12 capacetes verdes (2 x 6 = 12).\n3. Agora, vamos contar os capacetes restantes:\n- Capacetes rosa: 26 - 4 = 22\n- Capacetes verdes: 15 - 12 = 3\n- Capacetes amarelos: 24 (não mudou)\n4. O número total de capacetes que permaneceram no caminhão é a soma dos capacetes restantes:\n22 + 3 + 24 = 49\n\nResposta: 49"
+    },
+    {
+      "id": "train_3",
+      "split": "train",
+      "gabarito": "42",
+      "resposta_modelo": "42",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos seguir os passos abaixo:\n\n1. Julie começou com 120 páginas.\n2. Ela leu 12 páginas ontem, então ela tem 120 - 12 = 108 páginas restantes.\n3. Hoje ela leu o dobro de páginas de ontem, que é 2 x 12 = 24 páginas.\n4. Então, ela tem 108 - 24 = 84 páginas restantes.\n5. Ela quer ler metade das páginas restantes amanhã, então ela precisará ler 84/2 = 42 páginas.\n\nResposta: 42"
+    },
+    {
+      "id": "train_4",
+      "split": "train",
+      "gabarito": "624",
+      "resposta_modelo": "624",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de páginas escritas por James em um ano.\n\nPrimeiramente, vamos calcular a quantidade de páginas escritas por semana:\n\n3 páginas/friada x 2 amigos = 6 páginas/friada\n6 páginas/friada x 2 friadas/semana = 12 páginas/semana\n\nAgora, vamos calcular a quantidade total de páginas escritas por ano:\n\n12 páginas/semana x 52 semanas/anual = 624 páginas/anual\n\nPortanto, a resposta é: 624"
+    },
+    {
+      "id": "train_5",
+      "split": "train",
+      "gabarito": "35",
+      "resposta_modelo": "18",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\nPrimeiro, vamos encontrar o número de flores roxas:\n\n80% mais roxos do que amarelos\n= 10 x 1,8 (100% + 80%)\n= 18\n\nAgora, vamos encontrar o número de flores verdes:\n\n25% mais flores verdes do que flores amarelas e roxas\n= 10 + 18 = 28 x 0,25\n= 7\n\nMas isso não é correto! O problema diz que existem apenas 25% mais flores verdes do que as flores amarelas e roxas. Isso significa que o número de flores verdes é igual a 25% do total das flores amarelas e roxas.\n\nEntão, vamos encontrar o total das flores amarelas e roxas:\n\n10 (amarelos) + 18"
+    },
+    {
+      "id": "train_9",
+      "split": "train",
+      "gabarito": "990",
+      "resposta_modelo": "144.00",
+      "acertou": false,
+      "resposta_completa": "Para calcular o total de dinheiro que Tina ganhará, precisamos primeiro calcular a quantidade de horas extras que ela trabalhará e depois calcular o valor dessas horas extras.\n\nTina trabalha 10 horas por dia x 5 dias = 50 horas.\n\nComo ela trabalha mais de 8 horas, ela terá direito a horas extras. As horas extras são as 2 horas adicionais (10 - 8) que ela trabalhará além das 8 horas regulares.\n\nO salário por hora é de US$ 18,00 e o salário por hora extra é de US$ 18,00 + (1/2 x US$ 18,00) = US$ 27,00.\n\nA quantidade de dinheiro que ela ganhará com as 8 horas regulares é:\n\n8 horas x US$ 18,00/hora = US$ 144,00\n\nA quantidade de dinheiro que ela ganhará com as "
+    },
+    {
+      "id": "train_10",
+      "split": "train",
+      "gabarito": "121",
+      "resposta_modelo": "2",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos entender a relação entre os navios e as pessoas consumidas pelo monstro. \n\nA partir do exemplo 3, sabemos que cada novo navio tem o dobro de pessoas que o último navio. Isso significa que se o primeiro navio tinha x pessoas, o segundo navio teria 2x pessoas, o terceiro teria 4x pessoas e assim por diante.\n\nA soma das pessoas consumidas pelo monstro nos primeiros cem anos é igual a 847. \n\nComo os navios são construídos com o dobro de pessoas que o último navio, podemos criar uma série aritmética:\n\nx + 2x + 4x + ... = 847\n\nEssa série é geométrica com razão comum de 2 e primeiro termo x. A fórmula para a soma de uma série geométrica infinita é:\n\nS = a /"
+    },
+    {
+      "id": "train_11",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "95",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\nPrimeiramente, vamos calcular quanto dinheiro Tobias economizou nos últimos três meses:\n\nMês 1: US$ 5 (mesada) - US$ 15 (cortar grama) + US$ 7 (limpar calçadas) = US$ -3\nMês 2: US$ 5 (mesada) - US$ 15 (cortar grama) + US$ 7 (limpar calçadas) = US$ -3\nMês 3: US$ 5 (mesada) - US$ 15 (cortar grama) + US$ 7 (limpar calçadas) = US$ -3\n\nEle economizou um total de US$ 9.\n\nAgora, vamos calcular quanto dinheiro Tobias gastou com os sapatos:\n\nUS$ 95 (preço dos sapatos) - US$ "
+    },
+    {
+      "id": "train_14",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "5",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a taxa de leitura de Joy, ou seja, quantas páginas ela consegue ler em um minuto. \n\nTaxa de leitura = 8 páginas / 20 minutos = 0,4 páginas por minuto.\n\nAgora, vamos calcular o tempo que ela levará para ler 120 páginas:\n\nTempo = Quantidade de páginas / Taxa de leitura\n= 120 páginas / 0,4 páginas por minuto\n= 300 minutos\n\nPara converter esse tempo para horas, dividimos pelo número de minutos em uma hora (60):\n\nTempo em horas = 300 minutos / 60\n= 5 horas.\n\nPortanto, a resposta é:\n\nResposta: 5"
+    },
+    {
+      "id": "train_15",
+      "split": "train",
+      "gabarito": "448000",
+      "resposta_modelo": "7",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver o problema passo a passo!\n\n1. Custo de produção do filme: US$ 2.000\n2. Preço de venda do filme: 2,5 vezes mais que o custo de produção = 2,5 x US$ 2.000 = US$ 5.000\n3. Lucro por filme vendido: US$ 5.000 - US$ 2.000 = US$ 3.000\n4. Número de filmes vendidos por dia: 500\n5. Número de dias de venda por semana: 5\n6. Número de semanas de venda: 20\n\nAgora, vamos calcular o lucro total:\n\nLucro por semana: US$ 3.000 x 500 = US$ 1.500.000\nLucro por semana (continuação): US$ 1.500.000 x 5 = US$ 7."
+    },
+    {
+      "id": "train_16",
+      "split": "train",
+      "gabarito": "800",
+      "resposta_modelo": "1000",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a proporção total dos lucros entre os dois parceiros. A proporção é 2:5, então a parte total é 2+5 = 7.\n\nAgora, vamos calcular o valor total do lucro:\n\nValor recebido por Johnson = $2500\nProporção de Johnson = 5/7\n\nValor total do lucro = Valor recebido por Johnson / Proporção de Johnson\n= $2500 / (5/7)\n= $2500 x 7/5\n= $3500\n\nAgora, vamos calcular o valor que Mike receberá:\n\nProporção de Mike = 2/7\nValor total do lucro = $3500\n\nValor que Mike receberá = Proporção de Mike x Valor total do lucro\n= (2/7) x $3500\n= $1000\n\nAgora, vamos subtrair o"
+    },
+    {
+      "id": "train_18",
+      "split": "train",
+      "gabarito": "16",
+      "resposta_modelo": "4",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o tempo gasto por semana em cada modalidade de transporte e adicioná-los.\n\nCaminhada:\nRoque leva 2 horas para caminhar até o trabalho e volta. Então, o tempo total gasto com caminhada é:\n\n2 horas x 2 viagens = 4 horas\n\nBicicleta:\nRoque leva 1 hora para ir de bicicleta até o trabalho e volta. Então, o tempo total gasto com bicicleta é:\n\n1 hora x 2 viagens = 2 horas\n\nAgora, precisamos calcular o tempo total gasto por semana em cada modalidade de transporte:\n\nCaminhada: 4 horas x 3 vezes por semana = 12 horas\nBicicleta: 2 horas x 2 vezes por semana = 4 horas\n\nFinalmente, somamos os tempos totais para obter o resultado final:\n\n"
+    },
+    {
+      "id": "train_19",
+      "split": "train",
+      "gabarito": "16",
+      "resposta_modelo": "40",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o tempo total que Tim passa pedalando durante a semana de trabalho e o tempo que ele passa pedalando no fim de semana.\n\nPrimeiramente, vamos calcular o tempo que Tim passa pedalando para ir e voltar do trabalho em cada um dos 5 dias:\n\nDistância = 32 km\nVelocidade = 40 km/h\n\nTempo = Distância / Velocidade\n= 32 km / 40 km/h\n= 0,8 horas\n\nComo ele vai e volta, o tempo total que ele passa pedalando para ir e voltar do trabalho é:\n\n2 x 0,8 horas = 1,6 horas\n\nAgora, vamos calcular o tempo que Tim passa pedalando no fim de semana. Ele faz um passeio de bicicleta de 320 quilômetros a uma velocidade de 40 km/h.\n\nTempo = Distância / Velocidade\n"
+    },
+    {
+      "id": "train_20",
+      "split": "train",
+      "gabarito": "38",
+      "resposta_modelo": "38",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, vamos começar analisando as informações fornecidas:\n\n- Bella comprou 11 selos de floco de neve.\n- Ela comprou 9 selos de caminhão a mais do que selos de floco de neve. Isso significa que ela comprou 11 + 9 = 20 selos de caminhão.\n- Ela comprou 13 selos de rosa a menos do que selos de caminhão. Isso significa que ela comprou 20 - 13 = 7 selos de rosa.\n\nAgora, para encontrar o número total de selos que Bella comprou, precisamos somar os três tipos de selos:\n\n11 (selos de floco de neve) + 20 (selos de caminhão) + 7 (selos de rosa) = 38\n\nPortanto, a resposta é: Resposta: 38"
+    },
+    {
+      "id": "train_21",
+      "split": "train",
+      "gabarito": "1080",
+      "resposta_modelo": "1080",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de besouros comidos por dia pelas onças. \n\nPrimeiramente, calculamos a quantidade total de cobras comidas por dia pelas 6 onças:\n6 onças * 5 cobras/onça = 30 cobras\n\nEm seguida, calculamos a quantidade total de pássaros comidos por dia pelas 30 cobras (pois cada cobra come 3 pássaros):\n30 cobras * 3 pássaros/cobra = 90 pássaros\n\nFinalmente, calculamos a quantidade total de besouros comidos por dia pelas onças:\n90 pássaros * 12 besouros/pássaro = 1080 besouros\n\nResposta: 1080"
+    },
+    {
+      "id": "train_22",
+      "split": "train",
+      "gabarito": "7",
+      "resposta_modelo": "2",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\nPrimeiramente, precisamos encontrar o comprimento do sobrenome de Jamie. Como seu nome completo é \"Jamie Gray\", podemos concluir que o sobrenome de Jamie é \"Gray\" e tem 3 letras.\n\nAgora, vamos analisar a situação:\n\n* O sobrenome de Samantha tem três letras a menos que o sobrenome de Bobbie.\n* Se Bobbie tirasse duas letras de seu sobrenome, ela teria um sobrenome com o dobro do comprimento do de Jamie.\n\nIsso significa que se Bobbie tiver um sobrenome com 3 + 2 = 5 letras (dobro do comprimento do de Jamie), então Samantha terá um sobrenome com 5 - 3 = 2 letras.\n\nPortanto, o sobrenome de Samantha tem 2 letras."
+    },
+    {
+      "id": "train_23",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "5",
+      "acertou": true,
+      "resposta_completa": "Para encontrar o preço do topo, precisamos primeiro calcular o total gasto na compra de shorts e sapatos.\n\n5 pares de shorts por US$ 7 cada = 5 x $7 = $35\n2 pares de sapatos por US$ 10 cada = 2 x $10 = $20\n\nTotal gasto em shorts e sapatos = $35 + $20 = $55\n\nAgora, subtraímos o total gasto dos R$ 75 para encontrar o total gasto nos tops:\n\nR$ 75 - R$ 55 = R$ 20\n\nComo Ann comprou 4 tops, dividimos o total gasto nos tops pelo número de tops:\n\nR$ 20 / 4 = R$ 5\n\nPortanto, o preço do topo é R$ 5."
+    },
+    {
+      "id": "train_24",
+      "split": "train",
+      "gabarito": "62",
+      "resposta_modelo": "62",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total que Mary gastou e subtrair do seu limite de crédito.\n\nMary gastou US$ 15 na terça e US$ 23 na quinta. Portanto, o valor total gasto é:\n\nUS$ 15 + US$ 23 = US$ 38\n\nComo o limite de crédito é US$ 100, a quantidade que Mary precisará pagar antes de sua próxima viagem de compras é:\n\nUS$ 100 - US$ 38 = US$ 62"
+    },
+    {
+      "id": "train_25",
+      "split": "train",
+      "gabarito": "110",
+      "resposta_modelo": "65",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de bolas que Ralph conseguiu acertar e subtrair dessa quantidade da total de bolas para encontrar a quantidade que ele não acertou.\n\nDas primeiras 100 bolas, Ralph consegue acertar 2/5 delas. Isso significa que ele acertou:\n\n(2/5) x 100 = (2 x 20) = 40\n\ndas primeiras 100 bolas.\n\nDas próximas 75 bolas de tênis, Ralph consegue acertar 1/3 delas. Isso significa que ele acertou:\n\n(1/3) x 75 = (25)\n\ndas próximas 75 bolas de tênis.\n\nAgora, vamos calcular a quantidade total de bolas que Ralph conseguiu acertar:\n\n40 + 25 = 65\n\nPara encontrar a quantidade de bolas que Ralph não ac"
+    },
+    {
+      "id": "train_26",
+      "split": "train",
+      "gabarito": "400",
+      "resposta_modelo": "400",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de sal presente na água coletada e depois determinar quanto sal será obtido após a evaporação da água.\n\nA água coletada tem 2 litros com 20% de sal. Primeiro, convertemos o volume em mililitros:\n\n1 litro = 1000 ml\nEntão, 2 litros = 2000 ml\n\nAgora, calculamos a quantidade de sal presente na água:\n\nQuantidade de sal = 20% * 2000 ml\n= 0,20 * 2000\n= 400 ml\n\nDepois da evaporação da água, o sal permanecerá no balde. Portanto, a quantidade de sal que Jack obterá é igual à quantidade de sal presente na água coletada:\n\nResposta: 400"
+    },
+    {
+      "id": "train_27",
+      "split": "train",
+      "gabarito": "400",
+      "resposta_modelo": "160",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver o problema passo a passo!\n\n1. Brennan começou com 800 arquivos.\n2. Ele excluiu 70% deles, que é igual a 0,7 x 800 = 560 arquivos.\n3. Então, ele teve 800 - 560 = 240 arquivos valiosos.\n4. Ele baixou mais 400 arquivos, mas novamente excluiu 3/5 deles, que é igual a (3/5) x 400 = 240 arquivos.\n5. Portanto, ele excluiu mais 240 arquivos da segunda rodada, deixando apenas 400 - 240 = 160 arquivos valiosos.\n\nResposta: 160"
+    },
+    {
+      "id": "train_28",
+      "split": "train",
+      "gabarito": "8",
+      "resposta_modelo": "8",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar o número total de gnomos nas primeiras quatro casas. Como cada uma das primeiras quatro casas tem 3 gnomos, podemos multiplicar 4 (número de casas) por 3 (número de gnomos em cada casa):\n\n4 x 3 = 12\n\nAgora sabemos que as primeiras quatro casas têm um total de 12 gnomos. Para encontrar o número de gnomos na quinta casa, precisamos subtrair esse valor do total de gnomos na rua (20):\n\n20 - 12 = 8\n\nPortanto, a quinta casa tem 8 gnomos.\n\nResposta: 8"
+    },
+    {
+      "id": "train_29",
+      "split": "train",
+      "gabarito": "1000",
+      "resposta_modelo": "600",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos encontrar a renda mensal anterior de Sra. Snyder antes do aumento salarial.\n\nVamos começar com as informações que temos:\n\n- Antes do aumento salarial, ela gastava 40% de sua renda mensal com aluguel e serviços públicos.\n- Depois do aumento salarial, ela gasta apenas 25% de sua renda mensal com esses itens.\n\nSabemos que o aumento salarial foi de $600. Isso significa que essa quantia representa a diferença entre os 40% antigos e os 25% atuais da sua renda mensal.\n\nVamos representar a renda mensal anterior como R. Então, podemos criar uma equação com base nas informações:\n\n40% de R - 25% de (R + $600) = $0\n\nIsso porque o aumento salarial de $600 reduziu a porcentagem que ela"
+    },
+    {
+      "id": "train_30",
+      "split": "train",
+      "gabarito": "6",
+      "resposta_modelo": "4",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de pedaços de pizza que cada pessoa comeu e subtrair isso da totalidade.\n\nCada pizza é cortada em 4 pedaços. \n\nBill e Dale comem 50% de suas pizzas, o que significa que eles comem 2 pedaços cada um (50% de 4 pedaços). Então, Bill e Dale comem 2 x 2 = 4 pedaços.\n\nAnn e Cate comem 75% de suas pizzas. Isso significa que elas comem 3 pedaços cada uma (75% de 4 pedaços). Então, Ann e Cate comem 2 x 3 = 6 pedaços.\n\nAgora, vamos calcular a quantidade total de pedaços de pizza que foram consumidos: 4 + 6 = 10 pedaços.\n\nComo havia 4 pizzas (um para"
+    },
+    {
+      "id": "train_31",
+      "split": "train",
+      "gabarito": "1200",
+      "resposta_modelo": "2",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular as vendas de Noah no mês passado e depois duplicar esses valores para encontrar as vendas deste mês.\n\nVendas de pinturas grandes:\nNoah vendeu 8 pinturas grandes no mês passado. Ele cobra US$ 60 por uma pintura grande, então:\n\n8 x $60 = $480\n\nVendas de pinturas pequenas:\nNoah vendeu 4 pinturas pequenas no mês passado. Ele cobra US$ 30 por uma pintura pequena, então:\n\n4 x $30 = $120\n\nTotal de vendas no mês passado:\n$480 + $120 = $600\n\nAgora, vamos calcular as vendas deste mês. Como ele vendeu o dobro das vendas do mês passado, podemos multiplicar o total de vendas do mês passado por 2:\n\n$600 x 2"
+    },
+    {
+      "id": "train_32",
+      "split": "train",
+      "gabarito": "10",
+      "resposta_modelo": "10",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber a distância total que o carro percorreu antes de sair do túnel. Sabemos que ele percorreu um total de 23 metros ao redor do anel e que ele percorreu 5 metros após a 1ª volta, 8 metros após a 2ª volta.\n\nA distância total que o carro percorreu antes da 3ª curva é a soma das distâncias percorridas nas primeiras três voltas:\n\n5 + 8 = 13\n\nSubtraindo essa distância do total de 23 metros, obtemos a distância que o carro teve que percorrer após a 3ª curva:\n\n23 - 13 = 10"
+    },
+    {
+      "id": "train_33",
+      "split": "train",
+      "gabarito": "34",
+      "resposta_modelo": "50",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o número de colheres de chá de sal necessário. Como é 1/2 vez mais do que o número de xícaras de farinha, podemos calcular como segue:\n\n16 xícaras de farinha * 1,5 = 24 colheres de chá de sal\n\nAgora, vamos calcular o número total combinado de xícaras de água, farinha e colheres de chá de sal que Kimber precisa para fazer a pizza:\n\n10 xícaras de água + 16 xícaras de farinha + 24 colheres de chá de sal = 50\n\nResposta: 50"
+    },
+    {
+      "id": "train_34",
+      "split": "train",
+      "gabarito": "5250",
+      "resposta_modelo": "5250",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantos dólares foram divididos entre os dois filhos. Como sabemos que Tony recebeu o dobro de Ken, podemos começar calculando a quantidade de dinheiro recebida por Tony:\n\nQuantidade de dinheiro recebida por Tony = 2 x Quantidade de dinheiro recebida por Ken\n= 2 x $1.750\n= $3.500\n\nAgora sabemos que o dinheiro total foi dividido entre os dois filhos, então podemos calcular a quantidade total de dinheiro:\n\nQuantidade total de dinheiro = Quantidade de dinheiro recebida por Ken + Quantidade de dinheiro recebida por Tony\n= $1.750 + $3.500\n= $5.250\n\nPortanto, o dinheiro dividido foi de R$ 5250."
+    },
+    {
+      "id": "train_35",
+      "split": "train",
+      "gabarito": "36",
+      "resposta_modelo": "36",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantos alunos obtiveram nota abaixo de B e quantos obtiveram nota B ou superior. \n\nPrimeiramente, vamos calcular a quantidade de alunos que obtiveram nota abaixo de B:\n\n40% dos 60 alunos = (40/100) * 60\n= 0,4 * 60\n= 24\n\nAgora, para saber quantos alunos obtiveram nota B ou superior, precisamos subtrair do total a quantidade de alunos que obtiveram nota abaixo de B:\n\n60 - 24 = 36"
+    },
+    {
+      "id": "train_36",
+      "split": "train",
+      "gabarito": "15",
+      "resposta_modelo": "15",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar quanto cada pessoa ganhou:\n\nLisa ganhou metade do total, então:\n$60 / 2 = $30\n\nTommy ganhou metade do que Lisa ganhou, então:\n$30 / 2 = $15\n\nAgora, para saber quantos dólares mais Lisa ganhou do que Tommy, subtraímos o valor de Tommy do valor de Lisa:\n$30 - $15 = $15"
+    },
+    {
+      "id": "train_37",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "5",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o total do valor da comida e depois dividir por 5 (o número de amigos).\n\n1. 5 pedaços de hambúrguer que custam US$ 3 cada = 5 x $3 = US$15\n2. 4 conjuntos de batatas fritas que custam US$ 1,20 cada = 4 x $1,20 = US$4,80\n3. 5 xícaras de refrigerante que custam US$ 0,50 cada = 5 x $0,50 = US$2,50\n4. 1 prato de espaguete que custa US$ 2,7\n\nTotal do valor da comida: US$15 + US$4,80 + US$2,50 + US$2,7 = US$25,10\n\nAgora, dividimos o total pelo número de amigos (5"
+    },
+    {
+      "id": "train_38",
+      "split": "train",
+      "gabarito": "9",
+      "resposta_modelo": "29.5735",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular a quantidade total de chá necessário para a festa.\n\nCada pessoa quer uma xícara de 180 ml e há 12 pessoas, então:\n\n180 ml/pessoa x 12 pessoas = 2160 ml\n\nComo Artemis usa a mesma proporção que sua mãe (30 ml de chá por cada 240 ml), podemos calcular o número de vezes que ela precisa multiplicar a quantidade de chá para atender à demanda total:\n\n2160 ml / 240 ml = 9\n\nIsso significa que ela precisa multiplicar a quantidade de chá por 9.\n\nAgora, vamos calcular a quantidade de chá necessária em mililitros:\n\n240 ml x 9 = 2160 ml\n\nPara converter essa quantidade para onças, precisamos saber que 1 onça é igual a 29,5735 ml. Portanto:\n\n2160 ml / 29,5735 ml/onça"
+    },
+    {
+      "id": "train_39",
+      "split": "train",
+      "gabarito": "15",
+      "resposta_modelo": "15",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de doces que Anna e Billy ganharam em seus respectivos loteamentos.\n\nAnna ganha 14 doces por casa e há 60 casas no seu loteamento. Portanto, ela ganhou:\n\n14 doces/casa x 60 casas = 840 doces\n\nJá Billy ganha 11 doces por casa e há 75 casas no seu loteamento. Portanto, ele ganhou:\n\n11 doces/casa x 75 casas = 825 doces\n\nAgora, precisamos saber quantos doces a mais Anna ganhou em comparação com Billy. Para isso, subtraímos a quantidade de doces que Billy ganhou da quantidade de doces que Anna ganhou:\n\n840 doces - 825 doces = 15 doces\n\nPortanto, Anna ganha 15 doces mais do que Billy."
+    },
+    {
+      "id": "train_40",
+      "split": "train",
+      "gabarito": "476",
+      "resposta_modelo": "400",
+      "acertou": false,
+      "resposta_completa": "Para calcular o valor total pago pelo Sr. Benson, precisamos primeiro calcular o desconto para cada ingresso e depois somar os valores.\n\nO desconto é de 5% para cada ingresso comprado que exceda 10. Isso significa que os primeiros 10 ingressos são pagos em preço normal (US$ 40), enquanto os 2 ingressos restantes (12-10=2) têm um desconto de 5%.\n\nO valor do desconto é de 5% sobre o preço normal, que é US$ 40. Portanto, o desconto para cada ingresso é:\n\nDesconto = 5% x US$ 40\nDesconto = 0,05 x US$ 40\nDesconto = US$ 2\n\nAgora, vamos calcular o valor total pago pelo Sr. Benson:\n\nValor dos primeiros 10 ingressos:\n10 x US$ 40 = US$ 400\n\nValor"
+    },
+    {
+      "id": "train_41",
+      "split": "train",
+      "gabarito": "500",
+      "resposta_modelo": "2",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular quanto Rachel precisa gastar para ter o mesmo valor que Sara, mas dobro do que Sara gastou nos itens específicos mencionados.\n\nSara gastou:\n- US$ 50 em sapatos\n- US$ 200 em vestido\n\nTotal gasto por Sara: US$ 250\n\nRachel quer gastar o dobro do que Sara gastou nos itens específicos, mas não especificamos se ela também vai comprar um vestido. Vamos considerar dois cenários:\n\n1. Rachel compra apenas sapatos e vestidos como Sara, mas com o dobro do valor de cada item.\n   - Sapatos: 2 x US$ 50 = US$ 100\n   - Vestido: 2 x US$ 200 = US$ 400\n\nTotal gasto por Rachel nesse cenário: US$ 500\n\n2. Rachel compra apenas sapatos, pois não há informações sobre o vestido"
+    },
+    {
+      "id": "train_42",
+      "split": "train",
+      "gabarito": "99",
+      "resposta_modelo": "99",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular o total de bananas coletadas pela família de macacos. \n\n6 pilhas tinham 9 mãos, cada mão com 14 bananas. Então, o total de bananas dessas pilhas é:\n6 x 9 x 14 = 756\n\nAs outras 4 pilhas tinham 12 mãos, cada mão com 9 bananas. Então, o total de bananas dessas pilhas é:\n4 x 12 x 9 = 432\n\nO total de bananas coletadas pela família é a soma desses dois totais:\n756 + 432 = 1188\n\nAgora, precisamos saber quantas bananas cada macaco vai receber se dividirem as bananas igualmente entre si. Há 12 macacos na família.\n\nPara calcular isso, dividimos o total de bananas pelo número de macacos:\n1188 ÷ 12 = 99"
+    },
+    {
+      "id": "train_43",
+      "split": "train",
+      "gabarito": "60",
+      "resposta_modelo": "4",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos entender a sequência dos terremotos e como afetam o número de edifícios desabados.\n\nO primeiro terremoto causa 4 edifícios a desabar.\n\nO segundo terremoto causa o dobro do número de edifícios desabados do anterior, que é 2 x 4 = 8 edifícios.\n\nO terceiro terremoto causa o dobro do número de edifícios desabados do anterior, que é 2 x 8 = 16 edifícios.\n\nO quarto terremoto causa o dobro do número de edifícios desabados do anterior, que é 2 x 16 = 32 edifícios.\n\nNo entanto, a pergunta inclui os edifícios do primeiro terremoto. Portanto, precisamos adicionar os 4 edifícios do primeiro terremoto"
+    },
+    {
+      "id": "train_44",
+      "split": "train",
+      "gabarito": "300",
+      "resposta_modelo": "700",
+      "acertou": false,
+      "resposta_completa": "Para encontrar a quantia que James gasta em materiais de curso, precisamos primeiro calcular quanto ele gasta em cada categoria e depois subtrair essas quantidades do seu orçamento total.\n\nO orçamento de James é de US$ 1.000 por semestre.\n\nEle gasta:\n- 30% em alimentação: 0,3 x $1000 = $300\n- 15% em hospedagem: 0,15 x $1000 = $150\n- 25% em entretenimento: 0,25 x $1000 = $250\n\nAgora, vamos calcular quanto ele gasta em materiais de curso. Ele gasta o restante do seu orçamento após as despesas mencionadas acima.\n\nTotal gasto em alimentação, hospedagem e entretenimento: $300 + $150 + $250 = $700\n\nQuantidade restante para materiais de curso"
+    },
+    {
+      "id": "train_45",
+      "split": "train",
+      "gabarito": "99",
+      "resposta_modelo": "99",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o custo total das guloseimas e adicioná-lo ao custo da piñata.\n\nCusto dos sacos de Reese's:\n4 sacos x US$ 9 por saco = US$ 36\n\nCusto dos sacos de Snickers:\n3 sacos x US$ 5 por saco = US$ 15\n\nCusto dos sacos de Skittles:\n5 sacos x US$ 7 por saco = US$ 35\n\nCusto total das guloseimas:\nUS$ 36 + US$ 15 + US$ 35 = US$ 86\n\nAdicionando o custo da piñata:\nUS$ 86 + US$ 13 = US$ 99\n\nResposta: 99"
+    },
+    {
+      "id": "train_46",
+      "split": "train",
+      "gabarito": "1920",
+      "resposta_modelo": "1920",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar o tempo total que Carolyn passa praticando violino. Como ela pratica três vezes mais do que piano, podemos multiplicar o tempo de piano por 3:\n\n20 minutos x 3 = 60 minutos\n\nAgora, somamos o tempo de piano e violino para encontrar o tempo total semanal:\n\n20 minutos + 60 minutos = 80 minutos\n\nComo Carolyn pratica seis dias por semana, podemos multiplicar o tempo total semanal por 6:\n\n80 minutos x 6 = 480 minutos\n\nPara encontrar o tempo total mensal, precisamos multiplicar o tempo semanal por 4 (número de semanas em um mês):\n\n480 minutos x 4 = 1920 minutos\n\nPortanto, a resposta é:\n\nResposta: 1920"
+    },
+    {
+      "id": "train_47",
+      "split": "train",
+      "gabarito": "15",
+      "resposta_modelo": "15",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o tempo necessário para cada parte do download e adicioná-los.\n\nNo início, 60 megabytes são baixados a uma taxa de 5 megabytes por segundo. Portanto, o tempo necessário para essa parte é:\n\n60 / 5 = 12 segundos\n\nA partir daí, os 30 megabytes restantes (90 - 60) são baixados a uma taxa de 10 megabytes por segundo. Portanto, o tempo necessário para essa parte é:\n\n30 / 10 = 3 segundos\n\nO tempo total necessário para fazer o download completo é a soma desses dois tempos:\n\n12 + 3 = 15 segundos"
+    },
+    {
+      "id": "train_48",
+      "split": "train",
+      "gabarito": "10",
+      "resposta_modelo": "10",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a quantidade de dígitos de pi que Carlos memorizou. Como Mina memorizou seis vezes mais dígitos de pi que Carlos e ela memorizou 24 dígitos, podemos dividir 24 por 6 para encontrar a quantidade de dígitos de pi que Carlos memorizou.\n\n24 ÷ 6 = 4\n\nAgora que sabemos que Carlos memorizou 4 dígitos de pi, podemos encontrar a quantidade de dígitos de pi que Sam memorizou. Como Sam memorizou seis dígitos de pi a mais do que Carlos, podemos adicionar 6 ao número de dígitos de pi que Carlos memorizou.\n\n4 + 6 = 10\n\nPortanto, Sam memorizou 10 dígitos de pi."
+    },
+    {
+      "id": "train_49",
+      "split": "train",
+      "gabarito": "48",
+      "resposta_modelo": "48",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos começar pelo final e ir para trás.\n\nLaurie coletou 36 projéteis. Ben recebeu apenas um terço do que Laurie fez, então ele coletou:\n\n36 / 3 = 12\n\nAlan coletou quatro vezes mais projéteis que Ben, então ele coletou:\n\n4 x 12 = 48"
+    },
+    {
+      "id": "train_50",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "3",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular quanto Gerald gasta em uma temporada de beisebol e quanto ele pode economizar. \n\nGerald gasta US$ 100 por mês em suprimentos de beisebol e sua temporada dura 4 meses. Portanto, ele gasta:\n\nUS$ 100 x 4 = US$ 400\n\nEm uma temporada de beisebol.\n\nAgora, vamos calcular quanto Gerald pode economizar:\n\nGerald cobra US$ 10 por cada tarefa (varrendo, limpando e cortando grama). Para saber quantas tarefas ele precisa realizar em média por mês para economizar para seus suprimentos, precisamos dividir o valor total que ele gasta em uma temporada de beisebol pelo número de meses em que ele não joga beisebol:\n\n4 (mês) - 1 (mes de jogo) = 3 meses\n\nPortanto, Gerald"
+    },
+    {
+      "id": "train_51",
+      "split": "train",
+      "gabarito": "160",
+      "resposta_modelo": "32",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a área do tecido total e subtrair as áreas dos retângulos que Ann cortou.\n\nÁrea do tecido total = comprimento x largura\n= 16 pés x 12 pés\n= 192 pés quadrados\n\nÁrea do retângulo para sala de estar = comprimento x largura\n= 4 pés x 6 pés\n= 24 pés quadrados\n\nÁrea do retângulo para quarto = comprimento x largura\n= 2 pés x 4 pés\n= 8 pés quadrados\n\nÁrea total de tecido cortado = Área do retângulo para sala de estar + Área do retângulo para quarto\n= 24 pés quadrados + 8 pés quadrados\n= 32 pés quadrados\n\nÁrea de tecido restante = Área do tecido total -"
+    },
+    {
+      "id": "train_52",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "5",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar o número total de lápis que Arnel tinha antes de dividir com seus amigos. Como ele guardou 10 lápis e seus amigos receberam 8 lápis cada, podemos calcular o número total de lápis distribuídos como:\n\n5 amigos x 8 lápis = 40 lápis\n\nAgora, sabemos que Arnel guardou 10 lápis, então o número total de lápis que ele tinha antes de dividir é:\n\n40 lápis (distribuídos) + 10 lápis (guardados) = 50 lápis\n\nComo cada caixa tinha o mesmo número de lápis e havia 10 caixas, podemos calcular o número de lápis em cada caixa como:\n\n50 lápis ÷ 10 caixas = 5 lápis por caixa"
+    },
+    {
+      "id": "train_53",
+      "split": "train",
+      "gabarito": "36",
+      "resposta_modelo": "36",
+      "acertou": true,
+      "resposta_completa": "Vamos resolver o problema!\n\nCaleb comprou 10 caixas de sorvete e 4 caixas de iogurte congelado. Cada caixa de sorvete custa US$ 4 e cada caixa de iogurte congelado custa US$ 1.\n\nO valor total gasto em sorvete é: 10 x US$ 4 = US$ 40\n\nO valor total gasto em iogurte congelado é: 4 x US$ 1 = US$ 4\n\nA diferença entre o valor gasto em sorvete e o valor gasto em iogurte congelado é: US$ 40 - US$ 4 = US$ 36\n\nPortanto, Caleb gastou US$ 36 mais em sorvete do que em iogurte congelado.\n\nResposta: 36"
+    },
+    {
+      "id": "train_54",
+      "split": "train",
+      "gabarito": "11",
+      "resposta_modelo": "1",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, vamos passo a passo:\n\n1. Leah ganhava US$ 28 e gastou um sétimo em um milk-shake. Um sétimo é igual a 1/7, então ela gastou 28 x (1/7) = US$ 4.\n\n2. Depois de gastar o dinheiro no milk-shake, Leah tinha US$ 28 - US$ 4 = US$ 24 restantes.\n\n3. Ela colocou metade do dinheiro restante em sua conta poupança. Metade de US$ 24 é igual a 24 x (1/2) = US$ 12.\n\n4. Isso significa que ela deixou US$ 24 - US$ 12 = US$ 12 na carteira.\n\n5. Seu cachorro pegou sua carteira e destruiu todo o dinheiro, exceto US$ 1. Isso significa que Leah"
+    },
+    {
+      "id": "train_55",
+      "split": "train",
+      "gabarito": "75",
+      "resposta_modelo": "50",
+      "acertou": false,
+      "resposta_completa": "Para encontrar a resposta, precisamos primeiro calcular a quantidade total de flores que não são rosas. \n\nQuantidade de flores que não são rosas = (Quantidade de tulipas + Quantidade de margaridas) - Quantidade de rosas\n= (40 + 35) - 25\n= 75 - 25\n= 50\n\nAgora, vamos calcular o porcentagem de flores que não são rosas:\n\nPorcentagem = (Quantidade de flores que não são rosas / Quantidade total de flores) * 100\n= (50 / 100) * 100\n= 50%\n\nResposta: 50"
+    },
+    {
+      "id": "train_56",
+      "split": "train",
+      "gabarito": "45",
+      "resposta_modelo": "45",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar o tempo total que Leo passou trabalhando. Ele conseguiu terminar sua tarefa em 2 horas, ou seja, 120 minutos.\n\nComo ele terminou a primeira parte da tarefa em 25 minutos e demorou o dobro para terminar a segunda parte, podemos calcular o tempo que ele passou na segunda parte:\n\nTempo da segunda parte = 2 x Tempo da primeira parte\n= 2 x 25\n= 50 minutos\n\nAgora, sabemos que Leo passou 120 minutos trabalhando e que 75 minutos foram usados para as duas primeiras partes. Então, podemos encontrar o tempo que ele passou na terceira parte:\n\nTempo da terceira parte = Tempo total - Tempo das primeiras duas partes\n= 120 - 75\n= 45 minutos\n\nPortanto, Leo terminou a terceira parte da tarefa em"
+    },
+    {
+      "id": "train_57",
+      "split": "train",
+      "gabarito": "2",
+      "resposta_modelo": "2",
+      "acertou": true,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\n1. Liza começou com 10 quilos de manteiga.\n2. Ela usou metade (10/2 = 5 quilos) para biscoitos de chocolate.\n3. Ela usou um quinto (10/5 = 2 quilos) para biscoitos de manteiga de amendoim.\n4. A quantidade de manteiga restante é: 10 - 5 - 2 = 3 quilos\n5. Ela usou um terço (3/3 = 1 quilo) da manteiga restante para biscoitos açucarados.\n6. A quantidade de manteiga sobrando é: 3 - 1 = 2 quilos\n\nResposta: 2"
+    },
+    {
+      "id": "train_58",
+      "split": "train",
+      "gabarito": "320",
+      "resposta_modelo": "320",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de dinheiro recebido pelos 60 alunos. \n\nPrimeiramente, vamos encontrar a quantidade de alunos que receberam US$ 6 por dia e a quantidade que recebeu US$ 4 por dia.\n\n2/3 dos alunos receberam US$ 6 por dia, então:\n\n(2/3) x 60 = 40 alunos\n\nO restante (1 - 2/3) = 1/3 dos alunos recebeu US$ 4 por dia, então:\n\n(1/3) x 60 = 20 alunos\n\nAgora, vamos calcular a quantidade total de dinheiro recebida pelos 60 alunos:\n\n40 alunos x US$ 6/dia = US$ 240\n20 alunos x US$ 4/dia = US$ 80\n\nQuantidade total de dinheiro recebido: US$ 240 + US$ 80 = US$ 320"
+    },
+    {
+      "id": "train_59",
+      "split": "train",
+      "gabarito": "120",
+      "resposta_modelo": "70",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, vamos calcular a quantidade total de moedas que Joanne coletou e subtraí-la do valor inicial.\n\nValor inicial = 15 + 35 + 50 - 15\n= 85\n\nAgora, vamos calcular o valor final:\n\nResposta: 70"
+    },
+    {
+      "id": "train_60",
+      "split": "train",
+      "gabarito": "96",
+      "resposta_modelo": "128",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de jogos que as duas filhas de Jerry disputarão e, em seguida, multiplicar por 4 (horas de prática) para encontrar o tempo total gasto na prática.\n\nCada filha tem 8 jogos. Como há duas filhas, o número total de jogos é:\n\n2 x 8 = 16\n\nComo cada jogo dura 2 horas, o tempo total gasto em jogos é:\n\n16 x 2 = 32 horas\n\nAgora, precisamos multiplicar esse tempo por 4 (horas de prática) para encontrar o tempo total gasto na prática:\n\n32 x 4 = 128 horas\n\nPortanto, Jerry passará 128 horas no campo observando suas filhas brincarem e praticarem."
+    },
+    {
+      "id": "train_61",
+      "split": "train",
+      "gabarito": "200",
+      "resposta_modelo": "180",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, vamos dividir em etapas:\n\n1. O urso precisa ganhar 450 quilos.\n2. Ganhou um quinto do peso necessário com as frutas durante o verão, que é 450 x (1/5) = 90 quilos.\n3. Isso significa que ainda precisa ganhar 450 - 90 = 360 quilos.\n4. Durante o outono, ele ganha o dobro do peso restante com as bolotas, que é 2 x 360 = 720 quilos.\n5. No entanto, isso inclui tanto o peso necessário quanto o peso extra, então precisamos subtrair o peso necessário: 720 - 360 = 360 quilos.\n6. O salmão representa metade do peso restante que precisa ganhar, que é 360 x (1/2) = 180 quilos.\n\nPortanto, o urso ganhou 180"
+    },
+    {
+      "id": "train_62",
+      "split": "train",
+      "gabarito": "15",
+      "resposta_modelo": "14",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a quantidade de óleo em 14 latas (24 - 10 = 14).\n\nCada lata que tem 8 litros é igual a 1/2 da lata com 16 litros. Então, 10 latas com 8 litros cada são iguais a 5 latas com 16 litros cada.\n\nAgora, vamos calcular a quantidade de óleo em 14 latas:\n\n290 = 14 x 20,86 (ou seja, 14 latas com 16 litros cada)\n\nDividindo ambos os lados por 14, temos:\n\n20,86 ≈ 1,5\n\nEntão, cada uma das 10 latas que tem 8 litros de óleo é igual a 4 latas com 16 litros de óleo.\n\nAgora, vamos calcular a quantidade de óleo em cada lata restante (14"
+    },
+    {
+      "id": "train_63",
+      "split": "train",
+      "gabarito": "59",
+      "resposta_modelo": "-1",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular a diferença entre a meta de Shawna (30 abdominais) e a soma dos abdominais que ela conseguiu fazer nas duas primeiras datas (12 + 19 = 31).\n\nComo Shawna não conseguiu atingir sua meta na segunda-feira, mas conseguiu mais do que a diferença entre sua meta e o número de abdominais feitos na segunda-feira, precisamos calcular a diferença entre sua meta e o número total de abdominais feitos nas duas primeiras datas.\n\nDiferença = Meta - (Abdominais feitos na segunda-feira + Abdominais feitos na terça-feira)\n= 30 - (12 + 19)\n= 30 - 31\n= -1\n\nComo a diferença é negativa, isso significa que Shawna está abaixo de sua meta. Para atingir sua meta mínima e compens"
+    },
+    {
+      "id": "train_64",
+      "split": "train",
+      "gabarito": "840",
+      "resposta_modelo": "840",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o salário de James em ambos os empregos e adicioná-los.\n\nSalário em seu emprego principal:\nJames ganha US$ 20 por hora e trabalha 30 horas. Portanto, seu salário é:\n\n20 x 30 = US$ 600\n\nSalário em seu segundo emprego:\nEle ganha 20% menos do que seu salário no emprego principal, então sua taxa de pagamento é:\n\n20 - (20% de 20) = 20 - 4 = US$ 16 por hora\n\nEle trabalha metade do tempo do seu emprego principal, ou seja, 30/2 = 15 horas. Portanto, seu salário é:\n\n16 x 15 = US$ 240\n\nAgora, somamos os dois salários para encontrar o total semanal de James:\n\n600 + 240 = US$ 840"
+    },
+    {
+      "id": "train_65",
+      "split": "train",
+      "gabarito": "558",
+      "resposta_modelo": "30",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o total do que Lee ganhou, considerando tanto a gorjeta quanto o valor da mão de obra.\n\nPrimeiramente, calculemos o valor total da mão de obra. Lee cobra US$ 33 por gramado e cortou 16 gramados, então:\n\nValor da mão de obra = 33 x 16 = US$ 528\n\nEm seguida, calculemos o valor total das gorjetas. Cada cliente deu uma gorjeta de US$ 10 e há 3 clientes, então:\n\nValor total das gorjetas = 10 x 3 = US$ 30\n\nAgora, somamos o valor da mão de obra e o valor total das gorjetas para encontrar o total do que Lee ganhou:\n\nTotal ganho = Valor da mão de obra + Valor total das gorjetas\n= US$ 528 + US$ 30\n="
+    },
+    {
+      "id": "train_66",
+      "split": "train",
+      "gabarito": "520",
+      "resposta_modelo": "220",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver o problema passo a passo!\n\n1. O valor inicial do laptop é US$ 1.000.\n2. A loja aceita pagamento parcelado de $ 65 por mês, desde que seja feito um pagamento inicial de 20% do valor total.\n3. Primeiro, calculemos o valor do pagamento inicial: 20% de US$ 1.000 = 0,20 x US$ 1.000 = US$ 200.\n4. O saldo após o pagamento inicial é: US$ 1.000 - US$ 200 = US$ 800.\n5. Tara quer pagar $ 20 adicionais pela entrada, então o novo valor do pagamento inicial é: US$ 200 + US$ 20 = US$ 220.\n6. Agora, calculemos o saldo após o pagamento inicial com o adicional de US$ 20: US$ 800 - US$ 220 ="
+    },
+    {
+      "id": "train_67",
+      "split": "train",
+      "gabarito": "6",
+      "resposta_modelo": "3",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a distância total que Jesse e Mia percorreram nos primeiros 4 dias e subtrair essa distância da distância total de 30 milhas para encontrar a distância restante que eles tiveram que percorrer nos últimos 3 dias.\n\nDistância total percorrida por Jesse nos primeiros 3 dias:\n(2/3) x 3 = 2\n\nDistância total percorrida por Mia nos primeiros 4 dias:\n3 x 4 = 12\n\nDistância total percorrida por ambos nos primeiros 4 dias:\n2 + 12 = 14\n\nDistância restante que eles tiveram que percorrer nos últimos 3 dias:\n30 - 14 = 16\n\nAgora, precisamos calcular a média da distância que Jesse e Mia tiveram que percorrer nos últimos 3 dias. Como ambos cor"
+    },
+    {
+      "id": "train_68",
+      "split": "train",
+      "gabarito": "90",
+      "resposta_modelo": "270",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a quantidade de moedas que cada pessoa tem. \n\nA proporção de moedas é 10:45, e o número total de moedas é 440. Para encontrar a quantidade de moedas que cada pessoa tem, podemos dividir o número total de moedas pelo somatório da proporção:\n\n10 + 45 = 55\n\nEntão, podemos calcular a quantidade de moedas que cada pessoa tem:\n\nElsa: (10/55) x 440 = 80\nAmália: (45/55) x 440 = 360\n\nAgora, sabemos que Amália gastou 3/4 do que tem em brinquedos. Para encontrar a quantidade de moedas que ela gastou, podemos calcular:\n\n(3/4) x 360 = 270\n\nPara encontrar a quantidade de moedas que Amália permanecerá,"
+    },
+    {
+      "id": "train_69",
+      "split": "train",
+      "gabarito": "49",
+      "resposta_modelo": "49",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de braços dos animais coletados por Carly.\n\nEla coletou 7 estrelas do mar com 5 braços cada, então o total de braços dessas estrelas é:\n\n7 x 5 = 35 braços\n\nAlém disso, ela também coletou uma estrela do mar com 14 braços. Portanto, o total de braços dos animais coletados por Carly é:\n\n35 + 14 = 49 braços"
+    },
+    {
+      "id": "train_70",
+      "split": "train",
+      "gabarito": "19",
+      "resposta_modelo": "68",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver o problema passo a passo!\n\nPrimeiramente, sabemos que Martha tem 68 maçãs. Como Tim tem metade das maçãs que Martha tem, podemos calcular a quantidade de maçãs que Tim tem:\n\nMaçãs de Tim = Maçãs de Martha / 2\n= 68 / 2\n= 34\n\nAgora sabemos que Tim tem 34 maçãs. Como ele tem 30 maçãs a menos que Martha e Harry têm metade das maçãs que Tim, podemos calcular a quantidade total de maçãs que Martha e Harry têm juntas:\n\nMaçãs de Martha + Maçãs de Harry = Maçãs de Tim + 30\n= 34 + 30\n= 64\n\nComo sabemos que Martha tem 68 maçãs, podemos calcular a quantidade de maçãs que Harry tem:\n\nMaçãs de Harry ="
+    },
+    {
+      "id": "train_71",
+      "split": "train",
+      "gabarito": "25",
+      "resposta_modelo": "25",
+      "acertou": true,
+      "resposta_completa": "Resposta: 25"
+    },
+    {
+      "id": "train_72",
+      "split": "train",
+      "gabarito": "54",
+      "resposta_modelo": "4",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\n1. O aquário é um cubo com 4 pés de comprimento, 6 pés de largura e 3 pés de altura. Para encontrar o volume do aquário em pés cúbicos, multiplicamos as dimensões:\n\nVolume = Comprimento x Largura x Altura\n= 4 x 6 x 3\n= 72 pés cúbicos\n\n2. Nancy preenche até a metade do aquário, o que significa que ela enche 1/2 x 72 = 36 pés cúbicos de água.\n\n3. Enquanto ela está fora, seu gato derrama metade da água no aquário, o que significa que ele derrama 1/2 x 36 = 18 pés cúbicos de água.\n\n4. Agora, Nancy volta e triplica a quantidade"
+    },
+    {
+      "id": "train_73",
+      "split": "train",
+      "gabarito": "3",
+      "resposta_modelo": "3",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de pessoas que Roger precisa fornecer lanche e dividir por 6, pois cada embalagem tem 6 bolsas individuais.\n\nTotal de pessoas = membros do time + treinadores + ajudantes\n= 13 + 3 + 2\n= 18\n\nAgora, vamos dividir o total de pessoas pelo número de bolsas em cada pacote:\n\n18 / 6 = 3\n\nPortanto, Roger precisa comprar 3 pacotes de mistura para trilhas."
+    },
+    {
+      "id": "train_74",
+      "split": "train",
+      "gabarito": "28",
+      "resposta_modelo": "28",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, vamos começar analisando as informações fornecidas:\n\n1. A primeira pessoa perdeu 27 quilos.\n2. A segunda pessoa perdeu 7 quilos a menos que a primeira. Isso significa que ela perdeu 27 - 7 = 20 quilos.\n3. As duas pessoas restantes perderam a mesma quantia.\n\nAgora, vamos calcular o total de quilos perdidos pelas primeiras duas pessoas:\n\n27 (primeira pessoa) + 20 (segunda pessoa) = 47 quilos\n\nO total de quilos perdidos é 103, então os dois últimos indivíduos perderam:\n\n103 - 47 = 56 quilos\n\nComo as duas pessoas restantes perderam a mesma quantia, podemos dividir o total por 2 para encontrar a quantidade que cada uma perdeu:\n\n56 / 2 = 28 quilos\n\nPortanto, cada uma"
+    },
+    {
+      "id": "train_75",
+      "split": "train",
+      "gabarito": "15",
+      "resposta_modelo": "12",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o custo total do café da manhã que Dale e Andrew comeram.\n\nDale comeu 2 fatias de torrada (2 x £1 = £2) e 2 ovos (2 x £3 = £6). O total é £2 + £6 = £8.\n\nAndrew comeu 1 fatia de torrada (£1) e 2 ovos (£3). O total é £1 + £3 = £4.\n\nO custo total do café da manhã é a soma dos custos de Dale e Andrew, que é £8 + £4 = £12.\n\nResposta: 12"
+    },
+    {
+      "id": "train_76",
+      "split": "train",
+      "gabarito": "768",
+      "resposta_modelo": "768",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos seguir os passos abaixo:\n\n1. Primeiro, calculemos a quantidade de pepinos produzidos:\n   Quantidade de pepinos = 237 - 60\n   Quantidade de pepinos = 177\n\n2. Em seguida, calculemos a quantidade de pimentões produzidos (dobro da quantidade de pepinos):\n   Quantidade de pimentões = 2 x 177\n   Quantidade de pimentões = 354\n\n3. Finalmente, somamos as quantidades de batatas, pepinos e pimentões para encontrar a total:\n   Total de vegetais = 237 + 177 + 354\n   Total de vegetais = 768\n\nResposta: 768"
+    },
+    {
+      "id": "train_77",
+      "split": "train",
+      "gabarito": "85",
+      "resposta_modelo": "85",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a perda de peso do boxeador ao longo dos 4 meses de luta.\n\nPerda de peso por mês = 3 kg\nNúmero de meses = 4\n\nPerda total de peso = Perda de peso por mês x Número de meses\n= 3 kg/mês x 4 meses\n= 12 kg\n\nPeso inicial do boxeador = 97 kg\nPeso final do boxeador = Peso inicial - Perda total de peso\n= 97 kg - 12 kg\n= 85 kg\n\nPortanto, o boxeador pesará 85 kg no dia da luta."
+    },
+    {
+      "id": "train_78",
+      "split": "train",
+      "gabarito": "4",
+      "resposta_modelo": "4",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular a quantidade total de fatias que foram cortadas das tortas de biscoito. Como Manny ganhou 3 anos de tortas e cada uma foi cortada em 10 fatias, temos:\n\n3 anos x 10 fatias/ano = 30 fatias\n\nAgora, precisamos calcular a quantidade total de pessoas que vão comer as fatias. Manny tem 24 colegas de classe, o Sr. Keith (que é seu professor) e ele mesmo também vão comer uma fatia, então:\n\n24 colegas + 1 professor + 1 Manny = 26 pessoas\n\nAgora, vamos subtrair a quantidade de pessoas que vão comer das fatias da quantidade total de fatias para saber quantas sobrariam:\n\n30 fatias - 26 pessoas = 4 fatias"
+    },
+    {
+      "id": "train_79",
+      "split": "train",
+      "gabarito": "70",
+      "resposta_modelo": "70",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a experiência combinada de James e seu parceiro.\n\nJames passa 40 anos ensinando, então sua experiência é de 40 anos.\n\nSeu parceiro leciona há menos 10 anos do que James, então sua experiência é de 40 - 10 = 30 anos.\n\nA experiência combinada é a soma das experiências individuais:\n\nExperiência combinada = Experiência de James + Experiência de seu parceiro\n= 40 anos + 30 anos\n= 70 anos\n\nPortanto, a resposta é:\n\nResposta: 70"
+    },
+    {
+      "id": "train_80",
+      "split": "train",
+      "gabarito": "100",
+      "resposta_modelo": "100",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantas latas de leite Jennifer comprou inicialmente. Sabemos que ela comprou 6 latas adicionais para cada 5 latas que Mark comprou e que Mark comprou 50 latas.\n\nPrimeiramente, vamos calcular o número de latas adicionais que Jennifer comprou:\n\n50 latas (Mark) / 5 latas = 10\n\nComo Jennifer comprou 6 latas adicionais para cada 5 latas que Mark comprou, ela comprou:\n\n10 x 6 = 60 latas adicionais\n\nAgora, vamos calcular o número total de latas que Jennifer comprou inicialmente. Sabemos que ela comprou 40 latas iniciais e 60 latas adicionais.\n\n40 + 60 = 100\n\nPortanto, a resposta é:\n\nResposta: 100"
+    },
+    {
+      "id": "train_81",
+      "split": "train",
+      "gabarito": "14",
+      "resposta_modelo": "15",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\n1. Na primeira rodada, Sam pulou 16 vezes e Jeff pulou 15 vezes (1 salto menos que Sam).\n2. No segundo round, Jeff pulou 3 saltos a menos que Sam, então Jeff pulou 13 saltos (16 - 3 = 13) e Sam pulou 16 saltos.\n3. No terceiro round, Jeff pulou mais 4 vezes que Sam, então Jeff pulou 20 saltos (16 + 4 = 20) e Sam pulou 16 saltos.\n4. Na última rodada, Jeff completou apenas metade dos saltos de Sam, então Jeff pulou 8 saltos (16/2 = 8) e Sam pulou 16 saltos.\n\nAgora, vamos calcular o número médio de pulos por rodada completados por Jeff:\n\nRodada 1: 15\n"
+    },
+    {
+      "id": "train_82",
+      "split": "train",
+      "gabarito": "700",
+      "resposta_modelo": "700",
+      "acertou": true,
+      "resposta_completa": "Para calcular a renda total de Irene, precisamos primeiro encontrar o valor da hora normal e do valor das horas extras.\n\nValor da hora normal = Salário semanal / Horas trabalhadas\n= US$ 500 / 40 horas\n= US$ 12,50 por hora\n\nValor das horas extras = Salário extras por hora extra x Horas extras\n= US$ 20 x (50 - 40)\n= US$ 20 x 10\n= US$ 200\n\nRenda total = Valor da hora normal x Horas trabalhadas + Valor das horas extras\n= US$ 12,50 x 40 + US$ 200\n= US$ 500 + US$ 200\n= US$ 700"
+    },
+    {
+      "id": "train_83",
+      "split": "train",
+      "gabarito": "54",
+      "resposta_modelo": "44",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular a quantidade total de chapéus que Paityn e Zola têm juntos. Em seguida, podemos dividir essa quantidade igualmente entre os dois amigos.\n\nPaityn tem 20 chapéus vermelhos e 24 chapéus azuis, então ela tem:\n\n20 + 24 = 44 chapéus\n\nZola tem 4/5 vezes mais chapéus vermelhos do que Paityn, então ela tem:\n\n(4/5) x 20 = 16 chapéus vermelhos\n\nE o dobro de chapéus azuis do que Paityn, então ela tem:\n\n2 x 24 = 48 chapéus azuis\n\nA quantidade total de chapéus que Zola tem é:\n\n16 + 48 = 64 chapéus\n\nA quantidade total de chapéus que eles têm juntos é:\n\n44 (Paityn) +"
+    },
+    {
+      "id": "train_84",
+      "split": "train",
+      "gabarito": "90",
+      "resposta_modelo": "99",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de quartos disponíveis e subtrair 1 (pois o último andar está indisponível).\n\nCada andar tem 10 quartos, e há 10 andares. Portanto, a quantidade total de quartos é:\n\n10 andares x 10 quartos/andar = 100 quartos\n\nSubtraindo 1 quarto do último andar, que está indisponível, obtemos:\n\n100 quartos - 1 quarto = 99 quartos\n\nPortanto, Hans poderia ser hospedado em 99 quartos diferentes."
+    },
+    {
+      "id": "train_85",
+      "split": "train",
+      "gabarito": "5",
+      "resposta_modelo": "2",
+      "acertou": false,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\nVamos começar com as informações fornecidas:\n\n* Jolyn é 2 meses mais velha que Therese.\n* Therese é 5 meses mais velha que Aivo.\n* Leon é 2 meses mais velho que Aivo.\n\nPodemos criar uma sequência de idades baseada nessa informação:\n\nAivo -> Therese (5 meses) -> Jolyn (2 meses)\nou\nAivo -> Leon (2 meses)\n\nAgora, vamos encontrar a idade de Jolyn em relação à de Leon. Se Aivo é x anos, então:\n* Therese é x + 5 anos.\n* Jolyn é (x + 5) + 2 = x + 7 anos.\n* Leon é x + 2 anos.\n\nAgora, vamos encontrar a diferença entre as idades de Jolyn e Leon:\n\nDiferença = Id"
+    },
+    {
+      "id": "train_86",
+      "split": "train",
+      "gabarito": "6",
+      "resposta_modelo": "6",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantos dólares Peter gastou em refrigerantes. Ele trouxe US$ 2 e saiu com US$ 0,50, então ele gastou US$ 2 - US$ 0,50 = US$ 1,50.\n\nAgora, sabemos que o refrigerante custa US$ 0,25 a onça. Para saber quantas onças de refrigerante Peter comprou, precisamos dividir o valor total que ele gastou (US$ 1,50) pelo preço por onça (US$ 0,25).\n\nQuantas onças = US$ 1,50 / US$ 0,25\n= 6\n\nPortanto, Peter comprou 6 onças de refrigerante."
+    },
+    {
+      "id": "train_87",
+      "split": "train",
+      "gabarito": "600",
+      "resposta_modelo": "1200",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular o novo peso da vaca e então encontrar a diferença no valor que ela pode ser vendida.\n\nO peso inicial da vaca é de 400 libras. O peso aumentou para 1,5 vezes seu peso inicial, então:\n\nNovo peso = Peso inicial x 1,5\n= 400 x 1,5\n= 600 libras\n\nAgora, precisamos calcular a diferença no valor que ela pode ser vendida. A vaca é vendida por US$3 o quilo, então:\n\nValor inicial = Peso inicial x Preço por quilo\n= 400 x 3\n= US$1200\n\nValor novo = Novo peso x Preço por quilo\n= 600 x 3\n= US$1800\n\nDiferença no valor = Valor novo - Valor inicial\n= US$1800 - US$1200\n="
+    },
+    {
+      "id": "train_88",
+      "split": "train",
+      "gabarito": "258",
+      "resposta_modelo": "258",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantas lagartixas Brandon vendeu no ano anterior. Como ele vendeu o dobro do que no ano passado, podemos calcular isso como segue:\n\nQuantidade de lagartixas vendidas no ano anterior = 2 x Quantidade de lagartixas vendidas no ano passado\n= 2 x 86\n= 172\n\nAgora, para encontrar a quantidade total de lagartixas vendidas nos últimos dois anos, precisamos adicionar as quantidades de ambos os anos:\n\nQuantidade total de lagartixas vendidas = Quantidade de lagartixas vendidas no ano passado + Quantidade de lagartixas vendidas no ano anterior\n= 86 + 172\n= 258\n\nPortanto, a resposta é: Resposta: 258"
+    },
+    {
+      "id": "train_89",
+      "split": "train",
+      "gabarito": "216",
+      "resposta_modelo": "40",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o número total de livros que Krystian pega emprestados todos os dias da semana, considerando que ele trabalha de segunda a sexta-feira e que seu número de livros emprestados na sexta-feira é 40% maior que a média diária.\n\nMédia diária: 40 livros\nSexta-feira: 40% mais do que a média, ou seja, 1,4 * 40 = 56 livros\n\nAgora, vamos calcular o número total de livros que Krystian pega emprestados todos os dias da semana:\n\nSegunda-feira: 40 livros\nTerça-feira: 40 livros\nQuarta-feira: 40 livros\nQuinta-feira: 40 livros\nSexta-feira: 56 livros\n\nTotal de livros por semana = 40 + 40 + 40"
+    },
+    {
+      "id": "train_90",
+      "split": "train",
+      "gabarito": "90",
+      "resposta_modelo": "28",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de xícaras de comida necessárias para cada mês e depois multiplicar por 3 (para os três meses).\n\nEm dezembro, janeiro e fevereiro, Herman alimenta os pássaros com:\n\n* 1/2 xícara pela manhã\n* 1/2 xícara à tarde\n\nIsso significa que ele alimenta os pássaros com 1 xícara por dia (0,5 + 0,5).\n\nAgora, precisamos calcular a quantidade total de xícaras necessárias para cada mês:\n\n* Dezembro: 31 dias x 1 xícara/dia = 31 xícaras\n* Janeiro: 31 dias x 1 xícara/dia = 31 xícaras\n* Fevereiro: 28 dias (considerando que fevereiro tem 28 ou"
+    },
+    {
+      "id": "train_91",
+      "split": "train",
+      "gabarito": "10",
+      "resposta_modelo": "12.50",
+      "acertou": false,
+      "resposta_completa": "Para calcular quanto John ganha por hora, precisamos primeiro saber quantos dólares ele ganha em total após ganhar o bônus de desempenho. Ele ganha US$ 80 por dia e ganha um bônus de US$ 20 por dia.\n\nEntão, o valor total que ele ganha por dia é: \n80 + 20 = 100\n\nAgora, precisamos calcular quanto ele ganha por hora. Ele trabalha 8 horas por dia e ganha US$ 100 por dia. \n\nPara calcular a taxa de pagamento por hora, dividimos o valor total por número de horas trabalhadas:\n100 / 8 = 12,5\n\nPortanto, John ganha US$ 12,50 por hora se decidir ganhar o bônus de desempenho."
+    },
+    {
+      "id": "train_92",
+      "split": "train",
+      "gabarito": "1825",
+      "resposta_modelo": "1825",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o total do que Sally e Bob ganharão em um ano e dividir isso por 2, pois eles economizam metade do que ganham.\n\nSally ganha $6 por dia. Em um ano (365 dias), ela ganhará:\n\n$6 x 365 = $2190\n\nBob ganha $4 por dia. Em um ano (365 dias), ele ganhará:\n\n$4 x 365 = $1460\n\nJuntos, eles ganharão:\n\n$2190 + $1460 = $3650\n\nEles economizarão metade desse valor, que é:\n\n$3650 / 2 = $1825\n\nPortanto, Sally e Bob terão economizado $1825 para a viagem."
+    },
+    {
+      "id": "train_93",
+      "split": "train",
+      "gabarito": "14000",
+      "resposta_modelo": "14.000",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular o custo total da carne bovina e do frango, e depois adicioná-los.\n\nCusto da carne bovina:\n1.000 libras x $8/kilo = $8.000\n\nDobro da quantidade de carne bovina pedida:\n2 x 1.000 libras = 2.000 libras\n\nCusto do frango:\n2.000 libras x $3/kilo = $6.000\n\nCusto total:\n$8.000 + $6.000 = $14.000"
+    },
+    {
+      "id": "train_94",
+      "split": "train",
+      "gabarito": "60",
+      "resposta_modelo": "60",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantas páginas John precisa escrever em total. Cada livro tem 400 páginas e ele precisa escrever 3 livros, então:\n\n400 páginas/livre x 3 livros = 1200 páginas\n\nComo John escreve 20 páginas por dia, podemos dividir o número total de páginas pelas páginas que ele escreve por dia para encontrar o tempo necessário:\n\n1200 páginas / 20 páginas/dia = 60 dias"
+    },
+    {
+      "id": "train_95",
+      "split": "train",
+      "gabarito": "64",
+      "resposta_modelo": "12",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular o valor das moedas que Alice tem e depois subtrair o valor das moedas de ferro.\n\nPrimeiramente, vamos calcular o valor total das 20 moedas. Como não há informações sobre o valor das moedas, vamos supor que elas são todas iguais. Suponha que cada moeda tenha um valor de $1 (dólar).\n\nO valor total das 20 moedas é: 20 x $1 = $20\n\nAgora, precisamos calcular o valor das moedas de ferro. 20% das moedas são moedas de ferro, então:\n\n20% de 20 = (20/100) x 20 = 4 moedas\n\nO valor total das 4 moedas de ferro é: 4 x $3 = $12\n\nAgora, subtraímos o valor das"
+    },
+    {
+      "id": "train_96",
+      "split": "train",
+      "gabarito": "126",
+      "resposta_modelo": "126",
+      "acertou": true,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade total de água coletada e depois multiplicar por preço unitário.\n\nPrimeiramente, calculemos a quantidade de água coletada em cada dia:\n\nSegunda-feira: 4 cm x 15 galões/cm = 60 galões\nTerça-feira: 3 cm x 15 galões/cm = 45 galões\n\nAgora, somamos as quantidades de água coletadas nos dois dias:\n\nTotal de água coletada = 60 + 45 = 105 galões\n\nComo James pode vender água por US$ 1,2 o galão, podemos calcular a quantidade total de dinheiro que ele ganhou vendendo toda a água:\n\nDinheiro ganho = Quantidade de água coletada x Preço unitário\n= 105 galões x US$ 1,2/galão\n= US$ 126\n\nRes"
+    },
+    {
+      "id": "train_97",
+      "split": "train",
+      "gabarito": "46",
+      "resposta_modelo": "10",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos saber quantos livros Nancy colocou na parte inferior do carrinho antes de guardá-los no fundo. Ela guardou 12 livros de história e 8 livros de romance na parte superior, então ela teve:\n\n12 + 8 = 20 livros\n\nMas metade dos livros da parte inferior eram livros de mistério, que ela colocou de volta no lugar. Isso significa que os outros 10 livros (metade de 20) também foram colocados de volta no lugar.\n\nAgora, ela guardou os livros restantes no fundo do carrinho, incluindo 5 romances de faroeste e 6 biografias. Ela teve:\n\n20 - 10 = 10 livros que não eram de mistério\n\nEla adicionou esses 10 livros ao fundo do carrinho com os outros livros"
+    },
+    {
+      "id": "train_98",
+      "split": "train",
+      "gabarito": "45",
+      "resposta_modelo": "45",
+      "acertou": true,
+      "resposta_completa": "Vamos resolver esse problema passo a passo!\n\n1. Hector deu 4 chicletes para Todd.\n2. Ele deu o dobro do que havia dado a Todd para Alisha, então ele deu 4 x 2 = 8 chicletes para Alisha.\n3. Ele deu 5 chicletes a menos de quatro vezes mais para Bobby do que havia dado para Alisha, então ele deu (4 x 8) - 5 = 27 chicletes para Bobby.\n4. Agora, somamos os chicletes que Hector deu para cada pessoa: 4 + 8 + 27 = 39\n5. Hector ainda tem 6 chicletes, então o número total de chicletes que ele comprou é: 39 + 6 = 45\n\nResposta: 45"
+    },
+    {
+      "id": "train_99",
+      "split": "train",
+      "gabarito": "3",
+      "resposta_modelo": "19.2",
+      "acertou": false,
+      "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de peixes em cada tanque e considerar a regra de um galão de água por centímetro de peixe.\n\nO primeiro tanque tem o dobro do tamanho do segundo tanque. Se o segundo tanque tiver 48 galões de água (considerando que é igual ao volume do primeiro, mas menor em tamanho), então o primeiro tanque teria 2 x 48 = 96 galões de água.\n\nA regra é um galão de água por centímetro de peixe. No segundo aquário, há peixes de cinco centímetros, então a quantidade de peixes que cabem no segundo aquário é 96 / 5 = 19,2 (aproximadamente).\n\nNo primeiro aquário, há peixes de sete centímetros, então a quantidade de peixes que cabem no primeiro aquário é"
+    }
+  ]
+}

@@ -1,190 +1,404 @@
 import json
+from pathlib import Path
 
 
-ARQ_FEWSHOT_ENEM = (
-    "resultados/few_shot/enem_few_shot.json"
+# ============================================================
+# PASTAS DOS EXPERIMENTOS
+# ============================================================
+
+PASTAS = {
+    "few_shot": {
+        "enem": Path(
+            "resultados/few_shot/enem"
+        ),
+
+        "gsm8k": Path(
+            "resultados/few_shot/gsm8k"
+        ),
+    },
+
+    "chain_of_thought": {
+        "enem": Path(
+            "resultados/chain_of_thought/enem"
+        ),
+
+        "gsm8k": Path(
+            "resultados/chain_of_thought/gsm8k"
+        ),
+    },
+
+    "self_consistency": {
+        "enem": Path(
+            "resultados/self_consistency/enem"
+        ),
+
+        "gsm8k": Path(
+            "resultados/self_consistency/gsm8k"
+        ),
+    },
+}
+
+
+PASTA_METRICAS = Path(
+    "resultados/metricas"
 )
 
-ARQ_FEWSHOT_GSM8K = (
-    "resultados/few_shot/gsm8k_few_shot.json"
-)
-
-ARQ_COT_ENEM = (
-    "resultados/chain_of_thought/enem_cot.json"
-)
-
-ARQ_COT_GSM8K = (
-    "resultados/chain_of_thought/gsm8k_cot.json"
-)
-
-ARQ_SC_ENEM = (
-    "resultados/self_consistency/enem_self_consistency.json"
-)
-
-ARQ_SC_GSM8K = (
-    "resultados/self_consistency/gsm8k_self_consistency.json"
+SAIDA_JSON = (
+    PASTA_METRICAS
+    / "historico_execucoes.json"
 )
 
 
-def carregar(path):
+# ============================================================
+# CARREGAMENTO
+# ============================================================
+
+def carregar_execucao(
+    caminho,
+    metodo,
+    dataset
+):
+
+    try:
+
+        with open(
+            caminho,
+            "r",
+            encoding="utf-8"
+        ) as f:
+
+            dados = json.load(f)
+
+        resultados = dados.get(
+            "resultados",
+            []
+        )
+
+        total = len(resultados)
+
+        acertos = sum(
+            1
+            for r in resultados
+            if r.get("acertou", False)
+        )
+
+        erros = total - acertos
+
+        precisao = (
+            acertos / total * 100
+            if total > 0
+            else 0
+        )
+
+        parametros = dados.get(
+            "parametros",
+            {}
+        )
+
+        return {
+            "id_execucao": dados.get(
+                "id_execucao",
+                caminho.stem
+            ),
+
+            "arquivo": caminho.name,
+
+            "data_execucao": dados.get(
+                "data_execucao",
+                ""
+            ),
+
+            "metodo": dados.get(
+                "metodo",
+                metodo
+            ),
+
+            "dataset": dados.get(
+                "dataset",
+                dataset
+            ),
+
+            "modelo": dados.get(
+                "modelo",
+                ""
+            ),
+
+            "total": total,
+
+            "acertos": acertos,
+
+            "erros": erros,
+
+            "precisao": round(
+                precisao,
+                2
+            ),
+
+            "limite": parametros.get(
+                "limite",
+                total
+            ),
+
+            "temperature": parametros.get(
+                "temperature",
+                ""
+            ),
+
+            "num_predict": parametros.get(
+                "num_predict",
+                ""
+            ),
+
+            "n_amostras": parametros.get(
+                "n_amostras",
+                ""
+            ),
+
+            "prompt_versao": dados.get(
+                "prompt_versao",
+                ""
+            )
+        }
+
+    except Exception as e:
+
+        print(
+            f"Erro em {caminho}: {e}"
+        )
+
+        return None
+
+
+# ============================================================
+# CARREGAR HISTÓRICO COMPLETO
+# ============================================================
+
+def carregar_historico():
+
+    historico = []
+
+    for metodo, datasets in PASTAS.items():
+
+        for dataset, pasta in datasets.items():
+
+            if not pasta.exists():
+                continue
+
+            arquivos = sorted(
+                pasta.glob("*.json")
+            )
+
+            for arquivo in arquivos:
+
+                execucao = carregar_execucao(
+                    arquivo,
+                    metodo,
+                    dataset
+                )
+
+                if execucao:
+                    historico.append(
+                        execucao
+                    )
+
+    return historico
+
+
+# ============================================================
+# EXIBIR HISTÓRICO
+# ============================================================
+
+def exibir_historico(historico):
+
+    print()
+    print("=" * 100)
+    print("HISTÓRICO DE EXPERIMENTOS")
+    print("=" * 100)
+
+    for execucao in historico:
+
+        print()
+
+        print(
+            f"ID: {execucao['id_execucao']}"
+        )
+
+        print(
+            f"  Método     : "
+            f"{execucao['metodo']}"
+        )
+
+        print(
+            f"  Dataset    : "
+            f"{execucao['dataset']}"
+        )
+
+        print(
+            f"  Modelo     : "
+            f"{execucao['modelo']}"
+        )
+
+        print(
+            f"  Total      : "
+            f"{execucao['total']}"
+        )
+
+        print(
+            f"  Acertos    : "
+            f"{execucao['acertos']}"
+        )
+
+        print(
+            f"  Erros      : "
+            f"{execucao['erros']}"
+        )
+
+        print(
+            f"  Precisão   : "
+            f"{execucao['precisao']:.2f}%"
+        )
+
+
+# ============================================================
+# AGRUPAMENTO PARA COMPARAÇÃO
+# ============================================================
+
+def agrupar_por_dataset_total(
+    historico
+):
+
+    grupos = {}
+
+    for execucao in historico:
+
+        chave = (
+            execucao["dataset"],
+            execucao["total"]
+        )
+
+        if chave not in grupos:
+            grupos[chave] = []
+
+        grupos[chave].append(
+            execucao
+        )
+
+    return grupos
+
+
+# ============================================================
+# COMPARAÇÕES
+# ============================================================
+
+def exibir_comparacoes(
+    historico
+):
+
+    grupos = agrupar_por_dataset_total(
+        historico
+    )
+
+    print()
+    print("=" * 100)
+    print("COMPARAÇÕES POR TAMANHO DA AMOSTRA")
+    print("=" * 100)
+
+    for (
+        dataset,
+        total
+    ), execucoes in sorted(
+        grupos.items()
+    ):
+
+        metodos_presentes = set(
+            e["metodo"]
+            for e in execucoes
+        )
+
+        # Só mostra comparação quando houver
+        # pelo menos duas técnicas
+        if len(metodos_presentes) < 2:
+            continue
+
+        print()
+        print(
+            f"{dataset.upper()} "
+            f"- {total} questões"
+        )
+
+        print("-" * 60)
+
+        for execucao in execucoes:
+
+            print(
+                f"{execucao['metodo']:<22} "
+                f"{execucao['precisao']:>6.2f}% "
+                f"| "
+                f"{execucao['acertos']}/"
+                f"{execucao['total']} "
+                f"| "
+                f"{execucao['id_execucao']}"
+            )
+
+
+# ============================================================
+# SALVAR HISTÓRICO
+# ============================================================
+
+def salvar_historico(
+    historico
+):
+
+    PASTA_METRICAS.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
     with open(
-        path,
-        "r",
+        SAIDA_JSON,
+        "w",
         encoding="utf-8"
     ) as f:
 
-        return json.load(f)["resultados"]
+        json.dump(
+            {
+                "total_execucoes": (
+                    len(historico)
+                ),
+                "execucoes": historico
+            },
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
 
 
-def calcular(nome, resultados):
-
-    total = len(resultados)
-
-    acertos = sum(
-        1
-        for r in resultados
-        if r["acertou"]
-    )
-
-    erros = total - acertos
-
-    precisao = (
-        acertos / total * 100
-        if total > 0 else 0
-    )
-
-    print()
-    print("=" * 60)
-    print(nome)
-    print("=" * 60)
-
-    print(f"Total     : {total}")
-    print(f"Acertos   : {acertos}")
-    print(f"Erros     : {erros}")
-    print(f"Precisão  : {precisao:.2f}%")
-
-    return precisao
-
+# ============================================================
+# MAIN
+# ============================================================
 
 def main():
 
-    fs_enem = carregar(
-        ARQ_FEWSHOT_ENEM
+    historico = carregar_historico()
+
+    salvar_historico(
+        historico
     )
 
-    fs_gsm8k = carregar(
-        ARQ_FEWSHOT_GSM8K
+    exibir_historico(
+        historico
     )
 
-    cot_enem = carregar(
-        ARQ_COT_ENEM
-    )
-
-    cot_gsm8k = carregar(
-        ARQ_COT_GSM8K
-    )
-
-    sc_enem = carregar(
-        ARQ_SC_ENEM
-    )
-
-    sc_gsm8k = carregar(
-        ARQ_SC_GSM8K
-    )
-
-    p_fs_enem = calcular(
-        "Few-Shot ENEM",
-        fs_enem
-    )
-
-    p_cot_enem = calcular(
-        "Chain-of-Thought ENEM",
-        cot_enem
-    )
-
-    p_sc_enem = calcular(
-        "Self-Consistency ENEM",
-        sc_enem
-    )
-
-    p_fs_gsm8k = calcular(
-        "Few-Shot GSM8K",
-        fs_gsm8k
-    )
-
-    p_cot_gsm8k = calcular(
-        "Chain-of-Thought GSM8K",
-        cot_gsm8k
-    )
-
-    p_sc_gsm8k = calcular(
-        "Self-Consistency GSM8K",
-        sc_gsm8k
+    exibir_comparacoes(
+        historico
     )
 
     print()
-    print("=" * 60)
-    print("COMPARAÇÃO DAS TÉCNICAS")
-    print("=" * 60)
-
-    print()
-    print("ENEM")
+    print("=" * 100)
 
     print(
-        f"Few-Shot          : {p_fs_enem:.2f}%"
-    )
-
-    print(
-        f"Chain-of-Thought  : {p_cot_enem:.2f}%"
-    )
-
-    print(
-        f"Self-Consistency  : {p_sc_enem:.2f}%"
-    )
-
-    print()
-    print("GSM8K")
-
-    print(
-        f"Few-Shot          : {p_fs_gsm8k:.2f}%"
-    )
-
-    print(
-        f"Chain-of-Thought  : {p_cot_gsm8k:.2f}%"
-    )
-
-    print(
-        f"Self-Consistency  : {p_sc_gsm8k:.2f}%"
-    )
-
-    print()
-    print("=" * 60)
-    print("GANHOS RELATIVOS")
-    print("=" * 60)
-
-    print()
-
-    print(
-        f"CoT vs Few-Shot (ENEM): "
-        f"{p_cot_enem - p_fs_enem:+.2f} p.p."
-    )
-
-    print(
-        f"SC vs CoT (ENEM): "
-        f"{p_sc_enem - p_cot_enem:+.2f} p.p."
-    )
-
-    print()
-
-    print(
-        f"CoT vs Few-Shot (GSM8K): "
-        f"{p_cot_gsm8k - p_fs_gsm8k:+.2f} p.p."
-    )
-
-    print(
-        f"SC vs CoT (GSM8K): "
-        f"{p_sc_gsm8k - p_cot_gsm8k:+.2f} p.p."
+        f"Histórico salvo em: "
+        f"{SAIDA_JSON}"
     )
 
 

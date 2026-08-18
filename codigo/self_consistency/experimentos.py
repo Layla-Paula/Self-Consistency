@@ -35,14 +35,15 @@ def executar_experimento_self_consistency(
             resposta_extraida
         )
 
-    resposta_final, votos, distribuicao = voto_majoritario(
+    resultado_votacao = voto_majoritario(
         respostas_extraidas
     )
 
     return {
         "respostas_extraidas": respostas_extraidas,
-        "distribuicao_votos": distribuicao,
-        "resposta_modelo": resposta_final,
-        "votos_resposta_modelo": votos,
+        "distribuicao_votos": resultado_votacao["distribuicao"],
+        "resposta_modelo": resultado_votacao["vencedora"],
+        "votos_resposta_modelo": resultado_votacao["votos"],
+        "houve_empate": resultado_votacao["houve_empate"],
         "amostras": respostas_brutas
     }
