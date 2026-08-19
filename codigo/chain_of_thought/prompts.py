@@ -4,28 +4,28 @@ from codigo.utils import (
 )
 
 
-# ============================================================
+
 # PROMPT CHAIN-OF-THOUGHT - ENEM
-# ============================================================
 
 def prompt_cot_enem(questao):
 
     return f"""
 Você é um resolvedor de questões de matemática do ENEM.
 
-Resolva a questão cuidadosamente e apresente o raciocínio passo a passo.
+Resolva a questão cuidadosamente.
 
-Siga esta ordem:
+Antes de escolher a alternativa correta, siga estas regras:
 
-1. Leia todo o enunciado antes de começar a resolver.
+1. Leia todo o enunciado da questão antes de responder.
 
-2. Identifique os dados relevantes apresentados na questão.
+2. Identifique todos os números, medidas, porcentagens,
+   expressões matemáticas e unidades apresentadas.
 
-3. Identifique números, porcentagens, razões, proporções,
-   medidas e unidades, por exemplo:
-   m, m², m³, cm, km, litros, horas, minutos e porcentagens.
+3. Preste atenção especial às unidades de medida, por exemplo:
+   m, m², m³, cm, km, litros, porcentagem, horas e minutos.
 
-4. Verifique se a questão possui algum elemento visual, como:
+4. Verifique se a questão possui algum elemento visual,
+   como:
    - gráfico;
    - tabela;
    - figura;
@@ -34,54 +34,54 @@ Siga esta ordem:
    - mapa;
    - esquema.
 
-5. Quando houver uma descrição visual, trate todas as informações
-   presentes nela como parte essencial do enunciado.
+5. Quando houver informação visual ou descrição visual,
+   considere TODO o seu conteúdo como parte da questão.
 
 6. Leia cuidadosamente todos os valores, textos, rótulos,
-   legendas, eixos, medidas, escalas e relações apresentados
-   na informação visual.
+   legendas, eixos, medidas e relações apresentados
+   na descrição visual.
 
-7. Não invente valores ou informações que não estejam presentes
-   no enunciado ou na descrição visual.
+7. Não ignore informações provenientes de gráficos,
+   tabelas ou figuras.
 
-8. Identifique qual conceito matemático é necessário para resolver
-   o problema.
+8. Compare o resultado obtido com TODAS as alternativas
+   A, B, C, D e E antes de escolher a resposta.
 
-9. Desenvolva os cálculos passo a passo, mantendo atenção às
-   unidades de medida.
+9. Não invente valores que não estejam presentes
+   no enunciado ou na informação visual.
 
-10. Confira se o resultado encontrado faz sentido no contexto
-    da questão.
-
-11. Compare o resultado obtido com todas as alternativas
-    A, B, C, D e E.
-
-12. Escolha somente a alternativa que corresponde ao resultado.
+10. Se uma informação necessária não estiver disponível,
+    não suponha um valor arbitrário.
 
 Questão:
 
 {montar_questao_enem(questao)}
+
+Resolva a questão apresentando o raciocínio passo a passo.
 
 Depois do raciocínio, escreva obrigatoriamente a resposta final
 no seguinte formato:
 
 Resposta final: X
 
-em que X deve ser apenas uma letra:
+onde X deve ser apenas uma letra:
 A, B, C, D ou E.
 """.strip()
 
 
-# ============================================================
+
 # PROMPT CHAIN-OF-THOUGHT - GSM8K
-# ============================================================
 
 def prompt_cot_gsm8k(problema):
 
     return f"""
 Você é um resolvedor de problemas matemáticos.
 
-Resolva o problema passo a passo.
+Resolva o problema abaixo passo a passo.
+
+Problema:
+
+{montar_questao_gsm8k(problema)}
 
 Apresente o raciocínio utilizado para chegar ao resultado.
 
@@ -89,8 +89,4 @@ Depois do raciocínio, escreva obrigatoriamente a resposta
 final neste formato:
 
 Resposta final: número
-
-Problema:
-
-{montar_questao_gsm8k(problema)}
 """.strip()

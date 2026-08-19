@@ -1,9 +1,9 @@
 from collections import Counter
 
 
-# ============================================================
+
 # VOTAÇÃO MAJORITÁRIA
-# ============================================================
+
 
 def voto_majoritario(respostas):
 
@@ -22,7 +22,8 @@ def voto_majoritario(respostas):
             "vencedora": "",
             "votos": 0,
             "distribuicao": {},
-            "houve_empate": False
+            "houve_empate": False,
+            "total_respostas_validas": 0
         }
 
     contagem = Counter(
@@ -44,9 +45,10 @@ def voto_majoritario(respostas):
         len(vencedoras) > 1
     )
 
-    # Mantemos a primeira resposta mais frequente
-    # para garantir que sempre exista uma saída final.
-    vencedora = vencedoras[0]
+    if houve_empate:
+        vencedora = ""
+    else:
+        vencedora = vencedoras[0]
 
     return {
         "vencedora": vencedora,
@@ -61,5 +63,9 @@ def voto_majoritario(respostas):
 
         "houve_empate": (
             houve_empate
+        ),
+
+        "total_respostas_validas": (
+            len(respostas_validas)
         )
     }

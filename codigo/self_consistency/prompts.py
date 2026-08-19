@@ -4,9 +4,9 @@ from codigo.chain_of_thought.prompts import (
 )
 
 
-# ============================================================
+
 # SELF-CONSISTENCY - ENEM
-# ============================================================
+
 
 def prompt_self_consistency_enem(
     questao
@@ -17,9 +17,9 @@ def prompt_self_consistency_enem(
     )
 
 
-# ============================================================
+
 # SELF-CONSISTENCY - GSM8K
-# ============================================================
+
 
 def prompt_self_consistency_gsm8k(
     problema

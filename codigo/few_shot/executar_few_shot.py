@@ -1,7 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 
-from tqdm import tqdm
+from tqdm import tqdm  # barra de progresso
 
 from codigo.utils import (
     carregar_enem,
@@ -20,9 +20,9 @@ from codigo.few_shot.prompts import (
 )
 
 
-# ============================================================
+
 # CONFIGURAÇÕES
-# ============================================================
+
 
 METODO = "few_shot"
 MODELO = "llama3.2"
@@ -36,9 +36,8 @@ PASTA_GSM8K = Path(
 )
 
 
-# ============================================================
 # CRIA IDENTIFICADOR DA EXECUÇÃO
-# ============================================================
+
 
 def criar_id_execucao(dataset, limite, pasta):
     """
@@ -47,9 +46,9 @@ def criar_id_execucao(dataset, limite, pasta):
     few_shot_enem_20260817_100_1
     """
 
-    data = datetime.now().strftime("%Y%m%d")
+    data = datetime.now().strftime("%Y%m%d") #20260818
 
-    limite_nome = (
+    limite_nome = ( # Se: limite = 100 então: limite_nome = "100"
         str(limite)
         if limite is not None
         else "todos"
@@ -61,11 +60,12 @@ def criar_id_execucao(dataset, limite, pasta):
 
     pasta.mkdir(
         parents=True,
-        exist_ok=True
+        exist_ok=True # se a pasta já existir, não gere erro.
     )
 
     numero_execucao = 1
 
+  # Cria um loop que continuará até encontrar um nome de arquivo que ainda não exista
     while True:
 
         id_execucao = (
@@ -79,12 +79,11 @@ def criar_id_execucao(dataset, limite, pasta):
         if not caminho.exists():
             return id_execucao
 
+   # Caso o arquivo já exista, incrementa o número da execução
         numero_execucao += 1
 
 
-# ============================================================
 # EXECUÇÃO ENEM
-# ============================================================
 
 def executar_enem(limite=None):
 
@@ -102,6 +101,7 @@ def executar_enem(limite=None):
     resultados = []
 
     print()
+    # Imprime 60 sinais de "="
     print("=" * 60)
     print("FEW-SHOT - ENEM")
     print("=" * 60)
@@ -111,17 +111,17 @@ def executar_enem(limite=None):
     print(f"Quantidade: {len(questoes)}")
     print()
 
-    for q in tqdm(
+    for q in tqdm( # para cada questão q dentro de questoes, cria a barra de progresso
         questoes,
         desc="Few-Shot ENEM"
     ):
 
-        prompt = prompt_few_shot_enem(q)
+        prompt = prompt_few_shot_enem(q) #questão atual é enviada
 
         resposta_completa = consultar_ollama(
             prompt=prompt,
-            temperature=0.0,
-            num_predict=200
+            temperature=0.0, # Reduz a aleatoriedade da geração
+            num_predict=200 # Limita a quantidade máxima de tokens que o Ollama pode gerar
         )
 
         resposta_modelo = (
@@ -153,9 +153,9 @@ def executar_enem(limite=None):
 
         resultados.append(item)
 
-    # ========================================================
+   
     # MÉTRICAS
-    # ========================================================
+    
 
     total = len(resultados)
 
@@ -173,9 +173,8 @@ def executar_enem(limite=None):
         else 0
     )
 
-    # ========================================================
     # DADOS DA EXECUÇÃO
-    # ========================================================
+  
 
     dados = {
         "id_execucao": id_execucao,
@@ -200,9 +199,9 @@ def executar_enem(limite=None):
         "resultados": resultados
     }
 
-    # ========================================================
+   
     # SALVAMENTO
-    # ========================================================
+  
 
     PASTA_ENEM.mkdir(
         parents=True,
@@ -219,10 +218,9 @@ def executar_enem(limite=None):
         dados
     )
 
-    # ========================================================
+ 
     # RESUMO
-    # ========================================================
-
+   
     print()
     print(f"Salvo: {caminho}")
     print(f"Total: {total}")
@@ -232,9 +230,9 @@ def executar_enem(limite=None):
     print()
 
 
-# ============================================================
+
 # EXECUÇÃO GSM8K
-# ============================================================
+
 
 def executar_gsm8k(limite=None):
 
@@ -294,8 +292,10 @@ def executar_gsm8k(limite=None):
         item = {
             "id": p.get(
                 "id",
-                i
+                i #Se não tiver, usa 0, 1, 2, 3 etc
             ),
+            # Registra o split do dataset.
+            # Caso não exista, usa string vazia.
             "split": p.get(
                 "split",
                 ""
@@ -310,13 +310,13 @@ def executar_gsm8k(limite=None):
 
         resultados.append(item)
 
-    # ========================================================
+   
     # MÉTRICAS
-    # ========================================================
 
+    # Conta quantos problemas foram avaliados
     total = len(resultados)
 
-    acertos = sum(
+    acertos = sum(  # Conta quantas respostas foram corretas
         1
         for resultado in resultados
         if resultado["acertou"]
@@ -330,9 +330,9 @@ def executar_gsm8k(limite=None):
         else 0
     )
 
-    # ========================================================
+  
     # DADOS DA EXECUÇÃO
-    # ========================================================
+   
 
     dados = {
         "id_execucao": id_execucao,
@@ -345,7 +345,8 @@ def executar_gsm8k(limite=None):
         "total": total,
         "acertos": acertos,
         "erros": erros,
-        "precisao": round(
+        "precisao": round( 
+        # arredondada para duas casas
             precisao,
             2
         ),
@@ -357,9 +358,9 @@ def executar_gsm8k(limite=None):
         "resultados": resultados
     }
 
-    # ========================================================
+  
     # SALVAMENTO
-    # ========================================================
+  
 
     PASTA_GSM8K.mkdir(
         parents=True,
@@ -376,9 +377,9 @@ def executar_gsm8k(limite=None):
         dados
     )
 
-    # ========================================================
+  
     # RESUMO
-    # ========================================================
+   
 
     print()
     print(f"Salvo: {caminho}")
@@ -389,16 +390,16 @@ def executar_gsm8k(limite=None):
     print()
 
 
-# ============================================================
+
 # EXECUÇÃO PRINCIPAL
-# ============================================================
+
 
 if __name__ == "__main__":
 
     executar_enem(
-        limite=100
+        limite=500
     )
 
     executar_gsm8k(
-        limite=100
+        limite=500
     )

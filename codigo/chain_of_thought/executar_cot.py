@@ -20,9 +20,9 @@ from codigo.chain_of_thought.prompts import (
 )
 
 
-# ============================================================
+
 # CONFIGURAÇÕES
-# ============================================================
+
 
 METODO = "chain_of_thought"
 MODELO = "llama3.2"
@@ -36,9 +36,9 @@ PASTA_GSM8K = Path(
 )
 
 
-# ============================================================
+
 # CRIA IDENTIFICADOR DA EXECUÇÃO
-# ============================================================
+
 
 def criar_id_execucao(dataset, limite, pasta):
     """
@@ -92,9 +92,9 @@ def criar_id_execucao(dataset, limite, pasta):
         numero_execucao += 1
 
 
-# ============================================================
+
 # EXECUÇÃO ENEM
-# ============================================================
+
 
 def executar_enem(limite=None):
 
@@ -126,15 +126,15 @@ def executar_enem(limite=None):
         desc="CoT ENEM"
     ):
 
-        # ----------------------------------------------------
+        
         # Montagem do prompt
-        # ----------------------------------------------------
+       
 
         prompt = prompt_cot_enem(q)
 
-        # ----------------------------------------------------
+       
         # Consulta ao Ollama
-        # ----------------------------------------------------
+      
 
         resposta_completa = consultar_ollama(
             prompt=prompt,
@@ -142,9 +142,9 @@ def executar_enem(limite=None):
             num_predict=800
         )
 
-        # ----------------------------------------------------
+     
         # Extração da resposta
-        # ----------------------------------------------------
+      
 
         resposta_modelo = (
             extrair_letra_resposta(
@@ -158,9 +158,9 @@ def executar_enem(limite=None):
             resposta_modelo == gabarito
         )
 
-        # ----------------------------------------------------
+      
         # Resultado individual
-        # ----------------------------------------------------
+      
 
         item = {
             "numero": q["numero"],
@@ -179,9 +179,9 @@ def executar_enem(limite=None):
 
         resultados.append(item)
 
-    # ========================================================
+
     # MÉTRICAS
-    # ========================================================
+
 
     total = len(resultados)
 
@@ -199,9 +199,9 @@ def executar_enem(limite=None):
         else 0
     )
 
-    # ========================================================
+ 
     # DADOS DA EXECUÇÃO
-    # ========================================================
+  
 
     dados = {
         "id_execucao": id_execucao,
@@ -236,9 +236,9 @@ def executar_enem(limite=None):
         "resultados": resultados
     }
 
-    # ========================================================
+
     # SALVAMENTO
-    # ========================================================
+  
 
     PASTA_ENEM.mkdir(
         parents=True,
@@ -255,9 +255,9 @@ def executar_enem(limite=None):
         dados
     )
 
-    # ========================================================
+  
     # RESUMO
-    # ========================================================
+  
 
     print()
     print(f"Salvo: {caminho}")
@@ -268,9 +268,9 @@ def executar_enem(limite=None):
     print()
 
 
-# ============================================================
+
 # EXECUÇÃO GSM8K
-# ============================================================
+
 
 def executar_gsm8k(limite=None):
 
@@ -304,25 +304,23 @@ def executar_gsm8k(limite=None):
         )
     ):
 
-        # ----------------------------------------------------
+       
         # Montagem do prompt
-        # ----------------------------------------------------
 
         prompt = prompt_cot_gsm8k(p)
 
-        # ----------------------------------------------------
+        
         # Consulta ao Ollama
-        # ----------------------------------------------------
 
         resposta_completa = consultar_ollama(
             prompt=prompt,
-            temperature=0.0,
-            num_predict=800
+            temperature=0.0, # controla o quanto o modelo varia nas respostas (deixa o modelo mais previsível no 0)
+            num_predict=800  # controla o tamanho máximo da resposta que ele pode gerar
         )
 
-        # ----------------------------------------------------
+     
         # Extração
-        # ----------------------------------------------------
+      
 
         resposta_modelo = (
             extrair_resposta_numerica(
@@ -339,9 +337,9 @@ def executar_gsm8k(limite=None):
             gabarito
         )
 
-        # ----------------------------------------------------
+     
         # Resultado individual
-        # ----------------------------------------------------
+      
 
         item = {
             "id": p.get(
@@ -367,9 +365,9 @@ def executar_gsm8k(limite=None):
 
         resultados.append(item)
 
-    # ========================================================
+
     # MÉTRICAS
-    # ========================================================
+   
 
     total = len(resultados)
 
@@ -387,9 +385,9 @@ def executar_gsm8k(limite=None):
         else 0
     )
 
-    # ========================================================
+  
     # DADOS DA EXECUÇÃO
-    # ========================================================
+  
 
     dados = {
         "id_execucao": id_execucao,
@@ -424,9 +422,9 @@ def executar_gsm8k(limite=None):
         "resultados": resultados
     }
 
-    # ========================================================
+   
     # SALVAMENTO
-    # ========================================================
+   
 
     PASTA_GSM8K.mkdir(
         parents=True,
@@ -443,9 +441,9 @@ def executar_gsm8k(limite=None):
         dados
     )
 
-    # ========================================================
+  
     # RESUMO
-    # ========================================================
+  
 
     print()
     print(f"Salvo: {caminho}")
@@ -456,16 +454,16 @@ def executar_gsm8k(limite=None):
     print()
 
 
-# ============================================================
+
 # EXECUÇÃO PRINCIPAL
-# ============================================================
+
 
 if __name__ == "__main__":
 
     executar_enem(
-        limite=100
+        limite=500
     )
 
     executar_gsm8k(
-        limite=100
+        limite=500
     )

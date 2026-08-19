@@ -17,9 +17,8 @@ import os
 import time
 from datetime import datetime
 
-# =====================================================
+
 # PASTAS
-# =====================================================
 
 PASTA_BASE = "dados/gsm8k"
 
@@ -38,15 +37,15 @@ ARQ_FINAL = os.path.join(
     "gsm8k_ptbr.json"
 )
 
-# =====================================================
+
 # CRIAR PASTA
-# =====================================================
+
 
 os.makedirs(PASTA_BASE, exist_ok=True)
 
-# =====================================================
+
 # BAIXAR DATASET
-# =====================================================
+
 
 def baixar_gsm8k():
 
@@ -81,9 +80,9 @@ def baixar_gsm8k():
 
     return dados
 
-# =====================================================
+
 # SALVAR ORIGINAL
-# =====================================================
+
 
 def salvar_original(dados):
 
@@ -100,9 +99,9 @@ def salvar_original(dados):
             indent=2
         )
 
-# =====================================================
+
 # CARREGAR PROGRESSO
-# =====================================================
+
 
 def carregar_progresso():
 
@@ -118,9 +117,9 @@ def carregar_progresso():
 
     return []
 
-# =====================================================
+
 # SALVAR PROGRESSO
-# =====================================================
+
 
 def salvar_progresso(lista):
 
@@ -137,9 +136,9 @@ def salvar_progresso(lista):
             indent=2
         )
 
-# =====================================================
+
 # TRADUTOR
-# =====================================================
+
 
 translator = GoogleTranslator(
     source="en",
@@ -158,9 +157,9 @@ def traduzir(texto):
 
         return texto
 
-# =====================================================
+
 # TRADUÇÃO
-# =====================================================
+
 
 def traduzir_dataset(dados):
 
@@ -235,9 +234,9 @@ def traduzir_dataset(dados):
 
     return traduzidos
 
-# =====================================================
+
 # JSON FINAL
-# =====================================================
+
 
 def gerar_json_final(traduzidos):
 
@@ -274,9 +273,9 @@ def gerar_json_final(traduzidos):
             indent=2
         )
 
-# =====================================================
+
 # MAIN
-# =====================================================
+
 
 def main():
 

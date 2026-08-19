@@ -11,13 +11,13 @@ Questão:
 Uma loja vende um produto por R$ 80,00. Em uma promoção, concede desconto de 25%.
 Qual é o preço final?
 
-A) R$ 20,00
+A) R$ 60,00
 B) R$ 40,00
 C) R$ 55,00
-D) R$ 60,00
+D) R$ 20,00
 E) R$ 75,00
 
-Resposta: D
+Resposta: A
 
 
 Exemplo 2:
@@ -43,10 +43,10 @@ Se 3 cadernos custam R$ 18,00, quanto custam 5 cadernos iguais?
 A) R$ 24,00
 B) R$ 25,00
 C) R$ 28,00
-D) R$ 30,00
-E) R$ 36,00
+D) R$ 36,00
+E) R$ 30,00
 
-Resposta: D
+Resposta: E
 
 Exemplo 4 — Gráfico
 
@@ -65,12 +65,12 @@ Quantos estudantes estão matriculados,
 ao todo, nos três cursos?
 
 A) 80
-B) 100
+B) 120
 C) 110
-D) 120
+D) 100
 E) 130
 
-Resposta: D
+Resposta: B
 
 
 Exemplo 5 — Tabela
@@ -92,11 +92,11 @@ nos três meses?
 
 A) 300
 B) 350
-C) 380
-D) 400
+C) 400
+D) 380
 E) 420
 
-Resposta: D
+Resposta: C
 
 
 Exemplo 6 — Figura geométrica

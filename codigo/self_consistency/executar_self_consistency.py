@@ -23,9 +23,9 @@ from codigo.self_consistency.experimentos import (
 )
 
 
-# ============================================================
+
 # CONFIGURAÇÕES
-# ============================================================
+
 
 METODO = "self_consistency"
 MODELO = "llama3.2"
@@ -43,9 +43,8 @@ PASTA_GSM8K = Path(
 )
 
 
-# ============================================================
 # IDENTIFICAÇÃO DA EXECUÇÃO
-# ============================================================
+
 
 def criar_id_execucao(dataset, limite, pasta):
     """
@@ -92,9 +91,9 @@ def criar_id_execucao(dataset, limite, pasta):
         numero_execucao += 1
 
 
-# ============================================================
+
 # EXECUÇÃO ENEM
-# ============================================================
+
 
 def executar_enem(limite=None):
 
@@ -198,9 +197,9 @@ def executar_enem(limite=None):
 
         resultados.append(item)
 
-    # ========================================================
+   
     # MÉTRICAS
-    # ========================================================
+   
 
     total = len(resultados)
 
@@ -218,9 +217,9 @@ def executar_enem(limite=None):
         else 0
     )
 
-    # --------------------------------------------------------
+   
     # MÉTRICAS DE VOTAÇÃO
-    # --------------------------------------------------------
+  
 
     unanimidades = sum(
         1
@@ -257,9 +256,9 @@ def executar_enem(limite=None):
         else 0
     )
 
-    # --------------------------------------------------------
+ 
     # MÉTRICAS VISUAIS ENEM
-    # --------------------------------------------------------
+  
 
     com_imagem = [
         r
@@ -301,9 +300,9 @@ def executar_enem(limite=None):
         else 0
     )
 
-    # ========================================================
+  
     # DADOS DA EXECUÇÃO
-    # ========================================================
+
 
     dados = {
         "id_execucao": id_execucao,
@@ -374,9 +373,9 @@ def executar_enem(limite=None):
         "resultados": resultados
     }
 
-    # ========================================================
+   
     # SALVAMENTO
-    # ========================================================
+
 
     caminho = (
         PASTA_ENEM
@@ -388,9 +387,9 @@ def executar_enem(limite=None):
         dados
     )
 
-    # ========================================================
+  
     # RESUMO
-    # ========================================================
+ 
 
     print()
     print(f"Salvo: {caminho}")
@@ -439,9 +438,9 @@ def executar_enem(limite=None):
     print()
 
 
-# ============================================================
+
 # EXECUÇÃO GSM8K
-# ============================================================
+
 
 def executar_gsm8k(limite=None):
 
@@ -556,9 +555,9 @@ def executar_gsm8k(limite=None):
 
         resultados.append(item)
 
-    # ========================================================
+  
     # MÉTRICAS
-    # ========================================================
+  
 
     total = len(resultados)
 
@@ -611,9 +610,9 @@ def executar_gsm8k(limite=None):
         else 0
     )
 
-    # ========================================================
+   
     # DADOS
-    # ========================================================
+  
 
     dados = {
         "id_execucao": id_execucao,
@@ -660,9 +659,9 @@ def executar_gsm8k(limite=None):
         "resultados": resultados
     }
 
-    # ========================================================
+   
     # SALVAMENTO
-    # ========================================================
+   
 
     caminho = (
         PASTA_GSM8K
@@ -674,9 +673,9 @@ def executar_gsm8k(limite=None):
         dados
     )
 
-    # ========================================================
+ 
     # RESUMO
-    # ========================================================
+  
 
     print()
     print(f"Salvo: {caminho}")
@@ -699,9 +698,9 @@ def executar_gsm8k(limite=None):
     print()
 
 
-# ============================================================
+
 # EXECUÇÃO PRINCIPAL
-# ============================================================
+
 
 if __name__ == "__main__":
 
