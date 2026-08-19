@@ -1,11 +1,11 @@
 from codigo.utils import consultar_ollama
 from codigo.self_consistency.votacao import voto_majoritario
 
-
+# cria a função que executa a tecnica self_consistency
 def executar_experimento_self_consistency(
     prompt,
     extrair_resposta,
-    n_amostras=5,
+    n_amostras=5, # 5 respostas para a mesma questão
     temperature=0.7,
     num_predict=800
 ):

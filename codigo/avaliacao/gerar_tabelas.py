@@ -1,16 +1,16 @@
 import json
 from pathlib import Path
 
-from openpyxl import Workbook
-from openpyxl.styles import (
+from openpyxl import Workbook # cria um arquivo excel
+from openpyxl.styles import ( # ferramentas do excel
     Font,
     PatternFill,
     Alignment,
     Border,
     Side,
 )
-from openpyxl.utils import get_column_letter
-from openpyxl.worksheet.table import (
+from openpyxl.utils import get_column_letter # converte numero de coluna em letra
+from openpyxl.worksheet.table import ( #transformar os dados em tabela de excel
     Table,
     TableStyleInfo,
 )

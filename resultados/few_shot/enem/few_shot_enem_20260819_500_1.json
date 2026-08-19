@@ -1,0 +1,4518 @@
+{
+  "id_execucao": "few_shot_enem_20260819_500_1",
+  "data_execucao": "2026-08-19T10:19:24",
+  "metodo": "few_shot",
+  "dataset": "enem",
+  "modelo": "llama3.2",
+  "total": 500,
+  "acertos": 93,
+  "erros": 407,
+  "precisao": 18.6,
+  "parametros": {
+    "temperature": 0.0,
+    "num_predict": 200,
+    "limite": 500
+  },
+  "resultados": [
+    {
+      "numero": 136,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o gráfico apresentado e extrair a informação necessária.\n\nO gráfico mostra as faixas percentuais de pessoas com 60 anos ou mais em todo o mundo, divididas por faixa de idade. A coluna da direita representa os números das faixas percentuais.\n\nEm 1950, havia 95 milhões de pessoas com 60 anos ou mais nos países desenvolvidos, que representam entre 10% e 15% da população total.\n\nPara encontrar a probabilidade de se escolher uma pessoa com 60 anos ou mais na população dos países desenvolvidos em 2050, precisamos calcular o número total de pessoas com 60 anos ou mais em 2050.\n\nO gráfico não fornece explicitamente os números para 2050. No entanto, podemos observar que a faixa percentual de pessoas com 60 anos ou mais aument"
+    },
+    {
+      "numero": 139,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 142,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 147,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a taxa média de variação é calculada como a diferença entre o valor máximo e o valor mínimo dividido pelo número de valores.\n\nVamos analisar os dados da tabela:\n\n| Produção (toneladas) | Emissão de dióxido de carbono (ppm) |\n| --- | --- |\n| 100 | 20 |\n| 200 | 40 |\n| 300 | 60 |\n| 400 | 80 |\n\nO valor máximo é 80 ppm e o valor mínimo é 20 ppm. A diferença entre eles é 60 ppm.\n\nAgora, dividimos a diferença pelo número de valores (4):\n\n60 ppm / 4 = 15 ppm\n\nIsso significa que a taxa média de variação é de 15 ppm por tonelada produzida.\n\nPara encontrar o valor máximo da taxa média de variação, precis"
+    },
+    {
+      "numero": 148,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a distância total que o paciente precisa caminhar é igual à diferença entre a altura da rampa e a altura alcançada pelo paciente.\n\nA altura da rampa é de 2,2 metros e a altura alcançada pelo paciente é de 0,8 metro. Portanto, a distância total que o paciente precisa caminhar é:\n\nDistância = Altura da rampa - Altura alcançada pelo paciente\n= 2,2 m - 0,8 m\n= 1,4 m\n\nNo entanto, o paciente já se deslocou 3,2 metros. Portanto, a distância que ele ainda precisa caminhar é:\n\nDistância = Distância total - Deslocamento anterior\n= 1,4 m - 3,2 m (não, isso não faz sentido, pois o paciente está sendo deslocado para cima)\n"
+    },
+    {
+      "numero": 155,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 160,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 165,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2009,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a mediana das cotações mensais do ovo extra branco nesse período, precisamos primeiro ordenar os valores de forma crescente.\n\nOs valores são:\n\n* R$ 73,10\n* R$ 81,60\n* R$ 82,00\n* R$ 83,00\n* R$ 84,00\n* R$ 84,60\n* R$ 85,30\n\nComo há um número par de valores (7), a mediana será o valor médio dos dois valores do meio. Os dois valores do meio são os terceiros e quarto valores da lista ordenada.\n\nA ordem correta é:\n\n1. R$ 73,10\n2. R$ 81,60\n3. R$ 82,00\n4. R$ 83,00\n5. R$ 84,00\n6. R$ 84,60\n7. R"
+    },
+    {
+      "numero": 168,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o número de campos de futebol correspondente à área aproximada do bioma Pantanal, precisamos dividir a área do Pantanal por 1 (área de um campo de futebol) e multiplicar pelo número total de campos que cabem na área.\n\nÁrea do Pantanal: 150.355 km²\nÁrea de um campo de futebol: 120 m x 90 m = 10.800 m²\n\nPrimeiro, convertamos a área do Pantanal para metros quadrados:\n1 km² = 1.000.000 m²\nPortanto, 150.355 km² é igual a:\n150.355 km² x 1.000.000 m²/km² = 150.355.000.000 m²\n\nAgora, dividimos a área do Pantanal por 10.800 m² (área de um campo de futebol):\n150.355.000"
+    },
+    {
+      "numero": 169,
+      "ano": 2009,
+      "gabarito": "D",
+      "resposta_modelo": "D",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 170,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2009,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2009,
+      "gabarito": "C",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 179,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2009,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o desmatamento médio por estado em 2009, precisamos calcular a média dos valores apresentados no gráfico para cada estado e considerar o crescimento de 10,5% em relação aos dados de 2004.\n\nVamos calcular a média dos valores:\n\n1º Mato Grosso: (10416 + 7293) / 2 = 8844,5\n2º Pará: (10416 + 3463) / 2 = 6939,5\n3º Rondônia: (3463 + 797) / 2 = 2250\n4º Amazonas: (797 + 549) / 2 = 673\n5º Maranhão: (549 + 326) / 2 = 437,5\n6º Acre: (326 + 136) / 2 = 181\n7º Roraima: (136 + 4"
+    },
+    {
+      "numero": 141,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o percurso do helicóptero e como ele afeta a altitude da região.\n\nO helicóptero começa em um ponto X = (20; 60) e segue o seguinte percurso:\n\n1. 0,8° L (Leste): O helicóptero se move 0,8 graus de longitude para o leste.\n2. 0,5° N (Norte): Em seguida, ele se move 0,5 graus de latitude para o norte.\n3. 0,2° O (Oeste): Depois, ele se move 0,2 graus de longitude para o oeste.\n4. 0,1° S (Sul): Em seguida, ele se move 0,1 grau de latitude para o sul.\n5. 0,4° N: Ele continua se movendo 0,"
+    },
+    {
+      "numero": 148,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a geometria envolvida e calcular as áreas dos triângulos mencionados.\n\nO triângulo ABC é um triângulo retângulo, pois tem ângulo direto (90 graus). A área de um triângulo retângulo pode ser calculada usando a fórmula:\n\nÁrea = (base × altura) / 2\n\nNesse caso, a base e a altura do triângulo ABC são as mesmas, pois é um triângulo retângulo. Vamos chamar essas medidas de \"x\".\n\nA área do triângulo ABC é então:\n\nÁrea(ABC) = (x × x) / 2\n= x^2 / 2\n\nO triângulo AMC é formado pelos pontos médios dos lados do triângulo ABC. Isso significa que a base e a altura desse triângulo são metade da base e"
+    },
+    {
+      "numero": 153,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o melhor trajeto para Paula, precisamos calcular a probabilidade de engarrafamento para cada opção.\n\nVamos analisar cada opção:\n\nA) E1E3: A probabilidade de engarrafamento no deslocamento do ponto C ao ponto B passando pela estrada E1 é 20% (100% - 30%) e a probabilidade de engarrafamento passando pela estrada E3 é 50%. Portanto, a probabilidade total de engarrafamento para essa opção é: 0,2 x 0,5 = 0,10 ou 10%.\n\nB) E1E4: A probabilidade de engarrafamento no deslocamento do ponto C ao ponto B passando pela estrada E1 é 20% e a probabilidade de engarrafamento passando pela estrada E4 é 40% (100% - 60%). Portanto, a"
+    },
+    {
+      "numero": 157,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular o volume do cilindro e somar a camada de concreto.\n\nO diâmetro do cilindro é de 2 m, então o raio é de 1 m. A altura do cilindro é de 4 m.\n\nO volume do cilindro é:\n\nV = πr²h\n= (3,1)(1)²(4)\n= 12,4 m³\n\nA camada de concreto tem uma espessura de 20 cm, ou seja, 0,2 m. O diâmetro da base do cilindro é de 2 m, então o raio é de 1 m.\n\nO volume da camada de concreto é:\n\nV = πr²h\n= (3,1)(1)²(0,2)\n= 0,62 m³\n\nAgora, somamos os volumes do cilind"
+    },
+    {
+      "numero": 158,
+      "ano": 2010,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos usar a lei dos cosenos para encontrar a altura do balão.\n\nVamos começar com as informações fornecidas:\n\n* A pessoa está a 1,8 km da posição vertical do balão e o avistou sob um ângulo de 60°.\n* A outra pessoa está a 5,5 km da posição vertical do balão, alinhada com a primeira, e no mesmo sentido, e o avistou sob um ângulo de 30°.\n\nAqui estão os passos para resolver:\n\n1. Desenhe um triângulo com as seguintes informações:\n * Lado 1: 1,8 km (distância da pessoa à posição vertical do balão)\n * Ângulo 1: 60°\n * Lado 2: 5,5 km (distância da segunda pessoa à posição vertical do balão)\n * Ângulo 2: 30"
+    },
+    {
+      "numero": 161,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o raio da perfuração da peça, precisamos entender a relação entre a base triangular e a perfuração circular.\n\nA base triangular tem dimensões de 6 cm, 8 cm e 10 cm. Para encontrar o raio da perfuração, precisamos considerar que a perfuração é tangente às faces laterais do prisma reto com base triangular.\n\nConsiderando a figura apresentada, podemos observar que a perfuração circular está inscrita na base triangular de forma que seu centro coincide com o centro da base. Isso significa que o raio da perfuração é igual à distância entre o centro da base e uma das suas bordas.\n\nA distância entre o centro da base e uma das suas bordas pode ser encontrada usando a fórmula do triângulo 30-60-90, que é:\n\nDistância = (base) / 2\n\nNesse caso, consider"
+    },
+    {
+      "numero": 165,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 166,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a mediana das quantidades de gols marcados pelos artilheiros das Copas do Mundo, precisamos primeiro ordenar os valores de acordo com a quantidade de gols.\n\nOs dados são:\n\n* Pelé: 3 gols\n* Gerd Müller: 10 gols\n* Just Fontaine: 13 gols\n* Ronaldo: 15 gols\n* Miroslav Klose: 16 gols\n* Jürgen Klinsmann: 9 gols\n* Zinedine Zidane: 8 gols\n* Thomas Müller: 14 gols\n\nA ordem correta é:\n\n3, 8, 9, 10, 13, 14, 15, 16\n\nComo há um número impar de valores (8), a mediana é o valor do meio, que é o quarto valor da lista.\n\nPortanto, a mediana das quantidades de g"
+    },
+    {
+      "numero": 168,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos encontrar o volume de champanhe que pode caber na taça com formato de cone e igualar esse volume ao volume da taça com formato de hemisfério.\n\nO volume de uma esfera (taça com formato de hemisfério) é dada pela fórmula:\n\nV = (4/3)πr³\n\nOnde r é o raio da esfera.\n\nA altura do cone (taça com formato de cone) é igual à distância entre a base e o vértice, que é também o raio da esfera. Portanto, podemos considerar que o volume do cone é:\n\nV = (1/3)πr²h\n\nOnde h é a altura do cone.\n\nComo os volumes devem ser iguais, podemos estabelecer a seguinte equação:\n\n(4/3)πr³ = (1/3)π"
+    },
+    {
+      "numero": 169,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a dinâmica do Salto Triplo e como o alcance diminui ao longo dos saltos.\n\nO problema informa que:\n\n- O alcance diminui 1,2 m de um salto para outro.\n- O alcance diminui 1,5 m de um salto para outro.\n\nConsiderando que o atleta quer alcançar uma meta de 17,4 m e que o alcance diminui em 1,2 m do segundo para o primeiro salto e em 1,5 m do terceiro para o segundo salto, podemos inferir que:\n\n- O alcance do terceiro salto (antes de cair) deve ser maior que o da segunda metade do terceiro salto (quando cai), mas menor que o da primeira metade do terceiro salto.\n- A diferença entre a segunda metade e a primeira met"
+    },
+    {
+      "numero": 170,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2010,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2010,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 179,
+      "ano": 2010,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2010,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 137,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 148,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos converter as altitudes liberadas na Finlândia e no restante do continente europeu para a mesma unidade de medida.\n\nA altitude liberada na Finlândia é de 31 mil pés. Para convertê-la para metros, multiplicamos por 3,3 (pois 1 metro equivale a aproximadamente 3,3 pés):\n\n31.000 pés x 3,3 m/pé = 103.300 m\n\nA altitude liberada no restante do continente europeu é de 6.000 metros.\n\nPara encontrar a diferença entre as duas altitudes, subtraímos a altitude da Finlândia da altitude do continente europeu:\n\nDiferença = Altitude do continente europeu - Altitude da Finlândia\n= 6.000 m - 103.300 m\n= -97.300 m\n\nComo estamos procurando"
+    },
+    {
+      "numero": 149,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o conceito de polígonos e suas propriedades em relação a rotações.\n\nUm polígono é um polygono (uma palavra que foi usada anteriormente para se referir a um poligono) com várias arestas. O número de arestas é igual ao número de vértices do polígono.\n\nA questão menciona que o polígono é invariante por rotações, em torno de seu centro. Isso significa que, se você fizer uma rotação de 360 graus (ou qualquer múltiplo inteiro de 360 graus) em torno do centro do polígono, ele voltará ao mesmo lugar.\n\nAgora, vamos analisar as opções:\n\n- A) 45°: Uma rotação de 45 graus não faria com que o polígono voltasse ao mesmo lugar"
+    },
+    {
+      "numero": 153,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o percentual médio de medalhistas de ouro da região Nordeste, precisamos calcular a média dos valores apresentados.\n\nOs valores são:\n\n* 2005: 15%\n* 2006: 17%\n* 2007: 18%\n* 2008: 19%\n* 2009: 20%\n\nPara calcular a média, somamos os valores e dividimos por 5 (número de anos):\n\n(15 + 17 + 18 + 19 + 20) / 5 = 89 / 5 = 17,8%\n\nNo entanto, o problema pede o percentual médio. Para obter isso, precisamos converter a média para porcentagem:\n\n17,8% ≈ 18,0%\n\nPortanto, a resposta correta é:\n\nResposta: C"
+    },
+    {
+      "numero": 155,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 157,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o padrão de crescimento das passagens vendidas pela empresa aérea.\n\nEm janeiro, foram vendidas 33.000 passagens.\nEm fevereiro, o número aumentou para 34.500 passagens, o que representa um aumento de 1.500 passagens (34.500 - 33.000).\nEm março, o número aumentou novamente para 36.000 passagens, o que representa um aumento de 2.000 passagens (36.000 - 34.500).\n\nObservando os aumentos, podemos notar que o padrão de crescimento é um aumento de 1.500 passagens no mês seguinte após cada mês.\n\nAgora, vamos calcular o número de passagens vendidas em julho do ano passado:\n\nEm abril, o número de passagens seria: 34.500 + 1.500 = 36.000\n"
+    },
+    {
+      "numero": 163,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 165,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular a quantidade de água necessária para encher completamente o copo com a mistura.\n\nO volume do copo é igual à sua área de base multiplicada pela sua altura. A área de base é πr², onde r é o raio do copo. O raio é metade do diâmetro, então r = 2 cm.\n\nVolume = πr²h\n= π(2)²(10)\n= 40π\n\nAgora precisamos calcular a quantidade de água necessária para encher completamente o copo com a mistura. A mistura é composta por 5 partes de água e 1 parte de açúcar, então a proporção de água no copo deve ser 5/6.\n\nQuantidade de água = (5/6) × Volume do copo\n= (5/6) × 40π\n\nPara calcular o valor"
+    },
+    {
+      "numero": 168,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2011,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2011,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2011,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 178,
+      "ano": 2011,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 180,
+      "ano": 2011,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2012,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos analisar a figura e as escalas utilizadas para cada árvore.\n\nIgualando as alturas das árvores com base nas escalas fornecidas:\n\n- Árvore I: 1 cm = 100 mm (ou 0,1 m)\n- Árvore II: 2 cm = 100 mm (ou 0,1 m)\n- Árvore III: 2 cm = 300 mm (ou 0,3 m)\n- Árvore IV: 1 cm = 300 mm (ou 0,3 m)\n- Árvore V: 2 cm = 300 mm (ou 0,3 m)\n\nAgora, vamos comparar as alturas das árvores com base nas escalas:\n\n- Árvore I: 1 cm = 100 mm\n- Árvore II: 2 cm = 100 mm\n"
+    },
+    {
+      "numero": 138,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2012,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2012,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos primeiro calcular o número de dias em que o maquinista pode viajar ao longo do ano.\n\nO ano tem 365 dias e o maquinista não pode viajar nos dias de 1º a 10 de junho, então ele não pode viajar durante 10 dias. Além disso, ele só pode viajar a cada 4 dias, então precisamos dividir o número total de dias disponíveis pelo período entre viagens.\n\nPrimeiro, calculemos o número de dias disponíveis para viagens:\n\n365 (dias do ano) - 10 (dias de férias) = 355 dias\n\nAgora, calculemos o número de dias entre viagens:\n\n4 (dias entre viagens)\n\nDividimos o número total de dias disponíveis pelo período entre viagens:\n\n355 ÷ 4 = 88,75\n\nComo não podemos ter uma fração de dia"
+    },
+    {
+      "numero": 147,
+      "ano": 2012,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 148,
+      "ano": 2012,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 149,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2012,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 156,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2012,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2012,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para determinar qual investidor fez o melhor negócio, precisamos calcular a diferença entre o valor da ação ao comprar e ao vender.\n\nInvestidor 1:\n- Compra: 100 reais\n- Venda: 150 reais\nDiferença: +50 reais\n\nInvestidor 2:\n- Compra: 200 reais\n- Venda: 330 reais\nDiferença: +130 reais\n\nInvestidor 3:\n- Compra: 280 reais\n- Venda: 380 reais\nDiferença: +100 reais\n\nInvestidor 4:\n- Compra: 150 reais\n- Venda: 200 reais\nDiferença: +50 reais\n\nInvestidor 5:\n- Compra: 330 reais\n- Venda: 460 reais\nDiferença: +130 reais\n\nComparando as diferenças"
+    },
+    {
+      "numero": 159,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2012,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para encontrar a escala entre a pista feita pelo professor e a percorrida por Dean Karnazes, precisamos saber o comprimento da pista do maratonista americano.\n\nO maratonista Dean Karnazes correu 75 milhas (km) em 10 dias. Para converter isso para centímetros, precisamos multiplicar por 1000 (pois há 100 cm em 1 m) e depois multiplicar novamente por 1000 (pois há 100 cm em 1 m):\n\n75 km x 1000 m/km = 75.000 m\n75.000 m x 1000 cm/m = 75.000.000 cm\n\nAgora, precisamos encontrar a escala entre a pista feita pelo professor e a percorrida por Dean Karnazes. A pista do professor tem comprimento de 60 cm, enquanto a percorrida do maratonista americano é de"
+    },
+    {
+      "numero": 162,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos seguir os passos abaixo:\n\n1. Leia todo o enunciado da questão antes de responder.\n\n2. Identifique todos os números, medidas, porcentagens,\n   expressões matemáticas e unidades apresentadas.\n\n3. Preste atenção especial às unidades de medida, por exemplo:\n   m, m², m³, cm, km, litros, porcentagem, horas e minutos.\n\n4. Verifique se a questão possui algum elemento visual,\n   como:\n   - gráfico;\n   - tabela;\n   - figura;\n   - desenho;\n   - diagrama;\n   - mapa;\n   - esquema.\n\n5. Quando houver informação visual ou descrição visual,\n   considere TODO o seu conteúdo como parte da questão.\n\n6. Leia cuidadosamente todos os valores, textos, rótulos,\n   legendas, eixos, medidas e relações apresent"
+    },
+    {
+      "numero": 164,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a probabilidade de que uma pessoa escolhida ao acaso entre as que opinaram ter assinalado que o conto “Contos de Halloween” é “Chato”, precisamos primeiro calcular a quantidade total de pessoas que votaram como “Chato”.\n\nDe acordo com o gráfico, 21% dos visitantes votaram como “Chato”. Como há 500 visitantes distintos, podemos calcular:\n\n21% de 500 = 0,21 x 500 = 105\n\nPortanto, 105 pessoas votaram como “Chato”.\n\nA probabilidade de uma pessoa escolhida ao acaso entre as que opinaram ter assinalado que o conto é “Chato” é então:\n\n105/500 = 0,21\n\nMas essa não é a resposta correta. Precisamos considerar apenas os votos que foram expressos como “Chato”, sem incluir aqueles que não votaram.\n\nA probabilidade"
+    },
+    {
+      "numero": 165,
+      "ano": 2012,
+      "gabarito": "A",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 167,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 168,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos seguir os passos abaixo:\n\n1. Leia todo o enunciado da questão antes de responder.\n\n2. Identifique todos os números, medidas, porcentagens,\n   expressões matemáticas e unidades apresentadas.\n\n3. Preste atenção especial às unidades de medida, por exemplo:\n   mg/dL\n\n4. Verifique se a questão possui algum elemento visual,\n   como gráfico, tabela ou figura.\n\n5. Quando houver informação visual ou descrição visual,\n   considere TODO o seu conteúdo como parte da questão.\n\n6. Leia cuidadosamente todos os valores, textos, rótulos,\n   legendas, eixos, medidas e relações apresentados\n   na descrição visual.\n\n7. Não ignore informações provenientes de gráficos,\n   tabelas ou figuras.\n\n8. Compare o resultado obtido com TODAS as alternativas\n   A, B, C"
+    },
+    {
+      "numero": 172,
+      "ano": 2012,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2012,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2012,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2012,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 177,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2012,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2013,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a altura do líquido contido na taça, precisamos determinar o valor de C na função f(x) = 3/2 x^2 - 6x + C.\n\nO vértice da parábola é representado pelo ponto V, que está localizado sobre o eixo x. Isso significa que a coordenada y do vértice é igual à altura do líquido contido na taça, ou seja, C.\n\nPara encontrar o vértice, podemos usar a fórmula:\n\nx = -b / 2a\n\nNessa equação, a = 3/2 e b = -6. Substituindo esses valores, obtemos:\n\nx = -(-6) / (2 * 3/2)\nx = 6 / 3\nx = 2\n\nAgora que temos o valor de x, podemos substituí-lo na equação f(x)"
+    },
+    {
+      "numero": 137,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 139,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a probabilidade de dois eventos ocorrerem juntos é calculada como o produto das probabilidades individuais dos eventos.\n\nVamos calcular as probabilidades individuais:\n\n- A probabilidade de um comprador ter feito sua compra em fevereiro de 2012 é igual à área do segmento de barra que representa os compradores de fevereiro, dividida pela área total do gráfico. Nesse caso, a área do segmento de barra para fevereiro é 30 (compradores) e a área total do gráfico é 90 (compradores totais). Portanto, a probabilidade de um comprador ter feito sua compra em fevereiro é 30/90 = 1/3.\n\n- A probabilidade de um comprador ter feito sua compra no produto B em fevereiro de 2012 também é igual à área do segmento de barra"
+    },
+    {
+      "numero": 143,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 148,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o lucro médio anual de cada empresa, precisamos dividir o lucro acumulado por tempo de existência.\n\nLucro médio anual = Lucro acumulado / Tempo de existência\n\nVamos calcular isso para cada empresa:\n\nF: 3,0 milhões / 2 anos = 1,5 milhões/anos\nG: 24 milhões / 2 anos = 12 milhões/anos\nH: 25 milhões / 2,5 anos = 10 milhões/anos\nM: 15 milhões / 1,5 anos = 10 milhões/anos\nP: 9 milhões / 1,5 anos = 6 milhões/anos\n\nAgora, vamos comparar os lucros médios anuais:\n\n* F: 1,5 milhões/anos\n* G: 12 milhões/anos\n* H: 10 milhões/anos\n"
+    },
+    {
+      "numero": 149,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2013,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2013,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular o número total de gotas de água que foram desperdiçadas durante o período de 6 horas (da meia-noite às seis horas da manhã).\n\nPrimeiramente, vamos calcular o número de segundos em 6 horas:\n\n6 horas x 60 minutos/hora = 360 minutos\n360 minutos x 60 segundos/minuto = 21.600 segundos\n\nComo a torneira pinga uma gota a cada 3 segundos, podemos dividir o total de segundos por 3 para encontrar o número de gotas:\n\n21.600 segundos ÷ 3 segundos/gota = 7.200 gotas\n\nCada gota tem um volume de 0,2 mL, então o total de água desperdiçada em mililitros é:\n\n7.200 gotas x 0,2 mL/gota = 1.440 mL\n\nPara converter mililitros para litros,"
+    },
+    {
+      "numero": 161,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2013,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 165,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "D",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Para encontrar o tempo mínimo de espera para que a porta possa ser aberta, precisamos saber quando a temperatura do forno atinge 39 ºC.\n\nDada a expressão T(t) = −t^2/4 + 400, podemos substituir t = x e T(x) = 39:\n\n−x^2/4 + 400 = 39\n\nSubtraindo 400 de ambos os lados:\n\n−x^2/4 = -361\n\nMultiplicando ambos os lados por −4:\n\nx^2 = 1444\n\nTomando a raiz quadrada de ambos os lados:\n\nx = √1444 ≈ 38,0\n\nPortanto, o tempo mínimo de espera para que a porta possa ser aberta é aproximadamente 38 minutos.\n\nResposta: D"
+    },
+    {
+      "numero": 166,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a relação entre as escalas dos mapas do Rio de Janeiro e do Brasil.\n\nO mapa do Rio de Janeiro é ampliado em 2 vezes (ou seja, o estado ocupa 2 vezes mais espaço no mapa do que na realidade), enquanto o mapa do Brasil é ampliado em 1/3 (ou seja, o estado ocupa 1/3 do espaço do mapa do Brasil).\n\nPara encontrar o número de vezes que a área do Rio de Janeiro foi ampliada no mapa do Brasil, precisamos multiplicar as duas escalas:\n\n2 (ampliação do mapa do Rio de Janeiro) x 1/3 (ampliação do mapa do Brasil) = 2/3\n\nPortanto, a área do Rio de Janeiro foi ampliada 2/3 vezes no mapa do Brasil.\n\nResposta: C"
+    },
+    {
+      "numero": 168,
+      "ano": 2013,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a bandeja tem uma base quadrada e que os copos têm um formato específico.\n\nDado que AC = 7/5 BD, podemos começar a desenhar o diagrama:\n\nAqui está o diagrama:\n\n\nSe l for o lado da base da bandeja, então l é igual ao dobro de AC (porque a base é quadrada). Portanto, l = 2AC.\n\nComo AC = 7/5 BD, podemos substituir isso em l = 2AC:\n\nl = 2(7/5 BD)\nl = 14/5 BD\n\nAgora, precisamos encontrar o menor valor da razão l/BD para que a bandeja possa acomodar exatamente quatro copos.\n\nPara isso, precisamos considerar a relação entre os tamanhos dos copos e a base da bandeja. Como a base é quadrada,"
+    },
+    {
+      "numero": 172,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: E"
+    },
+    {
+      "numero": 174,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2013,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2013,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 178,
+      "ano": 2013,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 179,
+      "ano": 2013,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2013,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "B",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 144,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que o volume de uma lata retangular é dado pela fórmula V = lwh, onde l é a largura, w é a altura e h é a profundidade.\n\nDado que as dimensões da lata atual são 40 cm x 24 cm x 24 cm, podemos calcular seu volume como:\n\nV = 40 cm x 24 cm x 24 cm = 23.040 cm³\n\nAgora, precisamos encontrar a nova altura da lata, sabendo que as dimensões de sua base devem ser 25% maiores que as da lata atual.\n\nSe a largura e profundidade forem aumentadas em 25%, elas se tornarão:\n\nLargura = 40 cm + (0,25 x 40 cm) = 50 cm\nProfundidade = 24 cm + (0,25 x 24 cm) ="
+    },
+    {
+      "numero": 147,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 148,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender como o teste é interrompido e como a probabilidade de terminar na quinta pergunta está relacionada à probabilidade de o candidato errar.\n\nO teste termina quando o psicólogo fizer a décima pergunta ou quando o candidato der a segunda resposta errada. Isso significa que, para calcular a probabilidade de o teste terminar na quinta pergunta, precisamos considerar dois casos:\n\n1. O teste termina antes da décima pergunta (ou seja, antes do 9º item) e o candidato não errou duas vezes.\n2. O teste termina na décima pergunta.\n\nVamos calcular a probabilidade de cada caso:\n\n**Caso 1: Teste termina antes da décima pergunta**\n\nA probabilidade de o teste terminar antes da décima pergunta é igual à probabilidade de o candidato não errar duas vezes"
+    },
+    {
+      "numero": 153,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "D",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: D"
+    },
+    {
+      "numero": 155,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender como a Cosip é calculada e como ela afeta o custo total da conta de energia elétrica.\n\nA Cosip é fixa em cada faixa de consumo e varia de acordo com a faixa de consumo mensal (kWh). Neste caso, a Cosip é:\n\n- 0,00 R$ para até 80 kWh\n- 2,00 R$ para 80 a 100 kWh\n- 3,00 R$ para 100 a 140 kWh\n- 4,50 R$\n\nO valor do kWh (com tributos) é de R$ 0,50.\n\nO custo total da conta de energia elétrica é obtido pelo produto entre o consumo (em kWh) e o valor da tarifa do kWh (com tributos), adicionado à Cosip. Portanto, podemos criar uma equação para representar isso:\n\nCusto Total = (Valor"
+    },
+    {
+      "numero": 157,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o plano mais vantajoso para a pessoa que pretende gastar exatamente R$ 30,00 por mês com telefone, precisamos analisar as propostas de planos telefônicos apresentadas.\n\nO gráfico mostra que:\n\n- Plano A: 5 minutos gratuitos\n- Plano B: 10 minutos gratuitos\n- Plano C: 15 minutos gratuitos\n- Plano D: 20 minutos gratuitos\n- Plano E: 25 minutos gratuitos\n\nConsiderando o valor mensal de cada plano, podemos calcular a quantidade de tempo que pode ser utilizado sem gastar mais do que R$ 30,00 por mês.\n\nPlano A: 5 minutos x R$ 6,00 = R$ 30,00 (exatamente o valor desejado)\nPlano B: 10 minutos x R$ 4,50 = R$ 45,00 ("
+    },
+    {
+      "numero": 158,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Para encontrar a expressão da função polinomial f(x), devemos analisar as condições dadas pelo professor:\n\n• A nota zero permanece zero.\n• A nota 10 permanece 10.\n• A nota 5 passa a ser 6.\n\nEssas condições podem ser representadas pelas seguintes equações:\n\nf(0) = 0\nf(10) = 10\nf(5) = 6\n\nComo a função é polinomial de grau menor que 3, podemos supor que f(x) tem a forma ax^2 + bx + c.\n\nSubstituindo as condições dadas na equação, obtemos:\n\na(0)^2 + b(0) + c = 0 => c = 0\na(10)^2 + b(10) + c = 10 => 100a + 10b + c = 10\na(5)^2"
+    },
+    {
+      "numero": 165,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 168,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 169,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 170,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos encontrar a mediana das notas obtidas por cada candidato nas quatro disciplinas e compará-las para determinar quem é o aprovado.\n\nVamos analisar as notas de cada candidato:\n\n- K: 8,5 (português), 9,2 (matemática), 7,8 (direito), 8,1 (informática)\n- L: 6,3 (português), 7,5 (matemática), 8,9 (direito), 7,1 (informática)\n- M: 9,0 (português), 8,8 (matemática), 9,5 (direito), 8,6 (informática)\n- N: 7,2 (português), 8,3 (matemática), 8,1 (direito), 7,4 (informática)\n"
+    },
+    {
+      "numero": 171,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular a área do silo e saber quanto forragem pode caber nessa área.\n\nPrimeiramente, vamos encontrar a largura do fundo:\n\nLargura do topo = 6 m + (0,5 m/m de altura) * 2 m\n= 6 m + 1 m\n= 7 m\n\nAgora, podemos calcular a área do silo:\n\nÁrea = Largura do fundo * Comprimento * Altura\n= 7 m * 20 m * 2 m\n= 280 m²\n\nSabemos que 1 tonelada de forragem ocupa 2 m³ desse tipo de silo. Portanto, podemos calcular a quantidade máxima de forragem que cabe no silo:\n\nQuantidade máxima de forragem = Área do silo / Volume por tonelada\n= 280 m² / 2 m"
+    },
+    {
+      "numero": 172,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a relação entre as duas partes cúbicas e como ela afeta o tempo necessário para encher o depósito.\n\nVamos começar com a informação de que a aresta da parte cúbica de baixo tem medida igual ao dobro da medida da aresta da parte cúbica de cima. Isso significa que, se considerarmos uma unidade de medida para as arestas (por exemplo, cm), a aresta da parte cúbica de baixo é 2x e a aresta da parte cúbica de cima é x.\n\nAgora, vamos analisar o tempo necessário para encher metade da parte de baixo. Sabemos que a torneira levou 8 minutos para encher metade da parte de baixo. Isso significa que a taxa de vazão da torneira é constante e pode ser calculada como:\n\nTaxa de"
+    },
+    {
+      "numero": 174,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2014,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2014,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2014,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 179,
+      "ano": 2014,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos determinar qual tipo de recipiente o secretário de saúde deve comprar para instalar 20 recipientes em cada escola e abastecê-los com álcool em gel na sua capacidade máxima.\n\nPrimeiramente, calculemos a quantidade total de álcool em gel disponível:\n\n16 galões x 4 litros/galão = 64 litros\n\nAgora, precisamos encontrar o tipo de recipiente que possa abastecer 20 recipientes com álcool em gel na sua capacidade máxima. Para isso, devemos calcular a quantidade total de álcool em gel necessária para cada escola:\n\n20 recipientes x capacidade máxima do recipiente = 20 x (capacidade do recipiente)\n\nComo não temos informações sobre a capacidade específica dos recipientes, vamos considerar as opções fornecidas e calcular a quantidade total de á"
+    },
+    {
+      "numero": 180,
+      "ano": 2014,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a probabilidade de um evento ocorrer é igual ao número de resultados favoráveis dividido pelo total de resultados possíveis.\n\nNesse caso, temos 100 senhas numeradas de 1 a 100, e queremos saber a probabilidade de uma senha sorteada ser um número de 1 a 20.\n\nO número de resultados favoráveis (senhas de 1 a 20) é 20.\nO total de resultados possíveis (senhas de 1 a 100) é 100.\n\nPortanto, a probabilidade de a senha sorteada ser um número de 1 a 20 é:\n\nProbabilidade = Número de resultados favoráveis / Total de resultados possíveis\n= 20/100\n= 1/5\n\nResposta: C"
+    },
+    {
+      "numero": 143,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a mediana dos tempos apresentados, precisamos primeiro ordenar os valores de forma crescente:\n\n20,50\n20,60\n20,70\n20,80\n20,90\n\nComo há um número par de valores (5), a mediana é o valor médio dos dois valores do meio. Nesse caso, os dois valores do meio são 20,70 e 20,80.\n\nA mediana = (20,70 + 20,80) / 2\n= 41,50 / 2\n= 20,75\n\nNo entanto, essa não é uma das alternativas apresentadas. Vamos verificar se há algum valor que possa ser considerado como a mediana.\n\nA mediana pode ser o valor do meio quando os valores estão ordenados de forma crescente e houver um número par de valores. Nesse caso, a ordem correta seria:\n\n20,50\n20,60\n20"
+    },
+    {
+      "numero": 144,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver o problema, precisamos calcular o volume da cisterna atual e compará-lo com o volume desejado.\n\nO volume de um cilindro é dado pela fórmula:\n\nV = πr²h\n\nonde V é o volume, r é o raio e h é a altura.\n\nA cisterna atual tem diâmetro de 2 m, então o raio é:\n\nr = 2/2 = 1 m\n\nE a altura é de 3 m.\n\nO volume da cisterna atual é:\n\nV = π(1)²(3) ≈ 3,0(1)(3) = 9,0 m³\n\nAgora, precisamos calcular o raio necessário para atingir um volume de 81 m³. Podemos usar a mesma fórmula:\n\n81 = πr²(3)\n\nDividindo ambos os lados por 3 e multiplicando por π, ob"
+    },
+    {
+      "numero": 147,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 148,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender como o poliedro P é formado a partir do cubo e como isso afeta a quantidade de cores necessárias para pintar as faces.\n\nO cubo tem 6 faces, cada uma delas sendo um quadrado com arestas menores que metade da aresta do cubo. Com o corte plano em cada um dos cantos do cubo, retira-se o canto, que é um tetraedro de arestas menores do que metade da aresta do cubo.\n\nQuando cortamos os vértices do cubo para formar o poliedro P, estamos removendo 8 tetraedros (um de cada face do cubo). Cada tetraedro tem 4 faces, mas essas faces são menores que as faces do cubo original. No entanto, quando pintamos as faces do poliedro P, precis"
+    },
+    {
+      "numero": 150,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o preço do pão especial que maximizará a quantidade vendida sem diminuir a média de arrecadação diária, precisamos analisar a equação dada:\n\nq = 400 - 100p\n\nOnde q é a quantidade de pães especiais vendidos diariamente e p é o preço em reais.\n\nPara maximizar a quantidade vendida (q), precisamos encontrar o valor de p que faça com que a equação seja igual à sua expressão derivada, pois isso representa o ponto de inflexão da função. \n\nA equação derivada de q = 400 - 100p é:\n\ndq/dp = -100\n\nPara maximizar a quantidade vendida, precisamos encontrar o valor de p que faça com que dq/dp seja igual a zero.\n\n-100 = 0 não tem solução, pois a derivada nunca será igual a zero. \n\nA equação q ="
+    },
+    {
+      "numero": 151,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "E",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: E"
+    },
+    {
+      "numero": 153,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 158,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos primeiro calcular a renda média mensal dos brasileiros que estão na faixa dos 10% mais pobres e daqueles que estão na faixa dos 10% mais ricos.\n\nPrimeiramente, vamos calcular a renda total dos 10% mais pobres. A soma de seus rendimentos é igual a 1,1% do total de rendimentos da população considerada. \n\nRenda total dos 10% mais pobres = (1,1/100) * R$ 1202,00\n= R$ 13,322\n\nAgora vamos calcular a renda média mensal desses brasileiros:\n\nRenda média mensal dos 10% mais pobres = R$ 13.322 / 0,1 (porque 10% é igual a 0,1)\n= R$ 133.22\n\nEm seguida, vamos calcular a rend"
+    },
+    {
+      "numero": 160,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "E",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos encontrar o comprimento máximo possível de cada pedaço de madeira sem deixar sobras e garantir que ele seja menor que 2 m.\n\nPrimeiro, vamos encontrar o comprimento máximo possível para cada tipo de tábuas:\n\n- Para as 40 tábuas de 540 cm: 540 cm / 2 = 270 cm (ou 2,7 m)\n- Para as 30 tábuas de 810 cm: 810 cm / 2 = 405 cm (ou 4,05 m)\n- Para as 10 tábuas de 1080 cm: 1080 cm / 2 = 540 cm (ou 5,4 m)\n\nComo o comprimento máximo para as primeiras duas categorias é menor que 2 m, vamos considerar esses valores. No entanto, a terceira categoria tem um valor maior que 2 m, então não podemos usar"
+    },
+    {
+      "numero": 163,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2015,
+      "gabarito": "A",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que o número de formas distintas de se acomodar a família nesse voo é equivalente ao número de maneiras de escolher 5 poltronas para as 7 pessoas (ou seja, 2 poltronas não estão disponíveis).\n\nO número de formas de escolher 5 poltronas entre 9 (considerando que 4 poltronas estão ocupadas) é dado pelo fatorial do número de poltronas disponíveis, dividido pelo fatorial do número de pessoas que precisam se acomodar:\n\nN = 9!/7! × 2!\n\nOnde N é o número de formas distintas de se acomodar a família nesse voo.\n\nPortanto, a resposta correta é:\n\nResposta: E"
+    },
+    {
+      "numero": 165,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para determinar o tipo de garrafa escolhida pela paciente, precisamos calcular a quantidade total de água que ela precisa beber antes do exame.\n\nA paciente precisa beber 1 copo de água de 150 mililitros a cada meia hora, durante as 10 horas que antecederiam o exame. Isso significa que ela precisa beber:\n\n* 2 copos (150 ml x 2) = 300 ml em uma hora\n* 4 copos (150 ml x 3) = 450 ml em duas horas\n* 6 copos (150 ml x 4) = 600 ml em três horas\n* 8 copos (150 ml x 5) = 750 ml em quatro horas\n* 10 copos (150 ml x 6) = 900 ml em cinco horas\n* 12 copos (150 ml x 7) = 1050 ml em"
+    },
+    {
+      "numero": 168,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 171,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2015,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 175,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2015,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 179,
+      "ano": 2015,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular as probabilidades de escolher o atleta que utilizou a substância proibida nos casos do Modo I, II e III.\n\nModo I: sortear três atletas dentre todos os participantes\nNesse caso, é necessário escolher 3 atletas de 20. A ordem em que eles são escolhidos não importa. Portanto, podemos usar a fórmula de combinação para calcular a probabilidade:\n\nP(I) = (10C3) / (20C3)\n\nonde 10C3 é o número de combinações de 3 atletas entre os 10 participantes e 20C3 é o número de combinações de 3 atletas entre todos os 20 participantes.\n\nP(I) = (10! / (3!(10-3)!)) / (20! / (3!(20-3)!))\n\n"
+    },
+    {
+      "numero": 180,
+      "ano": 2015,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o mês de produção máxima do produto sazonal, precisamos analisar a função P(x) = 8 + 5cos ((px - p)/6), onde x representa o mês do ano.\n\nO valor máximo da função ocorre quando o termo cos((px - p)/6) é igual a 1. Isso acontece quando (px - p)/6 = 0, ou seja, px = p.\n\nComo p é o mês de produção máxima, precisamos encontrar o valor de x que satisfaça essa condição.\n\nConsiderando que x = 1 associado ao mês de janeiro, x = 2 ao mês de fevereiro, e assim sucessivamente, até x = 12 associado ao mês de dezembro, podemos observar que:\n\n- Se p for o mês de produção máxima, então p deve ser um número inteiro entre 1"
+    },
+    {
+      "numero": 136,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "B",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 138,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos seguir os passos abaixo:\n\n1. Leia todo o enunciado da questão antes de responder.\n\n2. Identifique todos os números, medidas, porcentagens,\n   expressões matemáticas e unidades apresentadas.\n\n3. Preste atenção especial às unidades de medida, como:\n   m, cm, anos, meses\n\n4. Verifique se a questão possui algum elemento visual,\n   como gráfico ou tabela.\n\n5. Quando houver informação visual ou descrição visual,\n   considere TODO o seu conteúdo como parte da questão.\n\n6. Leia cuidadosamente todos os valores, textos, rótulos,\n   legendas, eixos, medidas e relações apresentados\n   na descrição visual.\n\n7. Não ignore informações provenientes de gráficos,\n   tabelas ou figuras.\n\n8. Compare o resultado obtido com TODAS as alternativas\n   A, B,"
+    },
+    {
+      "numero": 139,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o gráfico apresentado e calcular a vazão da bomba que foi ligada no início da segunda hora.\n\nO gráfico mostra dois segmentos de reta:\n\n1. O primeiro segmento representa o volume de água presente na cisterna em função do tempo, durante as primeiras duas horas. Nesse período, apenas uma bomba está funcionando.\n2. O segundo segmento representa o volume de água presente na cisterna em função do tempo, após a ligação da segunda bomba no início da segunda hora.\n\nA partir do gráfico, podemos observar que:\n\n* No início da primeira hora, o volume de água é de 4.000 L.\n* Após duas horas, o volume de água é de 2.500 L.\n\nIsso significa que as duas bombas juntas conseguiram esvaziar 1.500 L em uma hora (4."
+    },
+    {
+      "numero": 141,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular o volume de petróleo derramado após o acidente.\n\nO reservatório é um paralelepípedo retangular com dimensões 60 m x 10 m de base e 10 m de altura. O compartimento C é subdividido em três partes iguais por duas placas de aço retangulares com dimensões de 7 m de altura e 10 m de base.\n\nO volume do reservatório é:\n\nV = comprimento x largura x altura = 60 m x 10 m x 10 m = 6000 m³\n\nO compartimento C tem um terço do volume total, que é:\n\nV_C = V / 3 = 6000 m³ / 3 = 2000 m³\n\nA placa de aço retangular com dimensões de 7 m de altura e 10 m de base divide o compartimento C em duas"
+    },
+    {
+      "numero": 147,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que o adolescente está escolhendo um caminho aleatório para chegar à área IV sem passar por outras áreas e sem retornar.\n\nO mapa do parque apresenta 5 áreas (I, II, III, IV e V) com diferentes caminhos de acesso. O adolescente começa na entrada e pode escolher qualquer um dos caminhos disponíveis.\n\nA probabilidade de ele chegar à área IV sem passar por outras áreas e sem retornar é igual a:\n\n1 - (probabilidade de passar por alguma área + probabilidade de retornar)\n\nConsiderando que as opções existentes de percurso pelos caminhos apresentam iguais probabilidades de escolha, podemos calcular a probabilidade de passar por alguma área como segue:\n\n- Se o adolescente for para a área I, ele tem 2 opções (II ou III) para continuar.\n- Se ele for para a área"
+    },
+    {
+      "numero": 148,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos seguir os passos abaixo:\n\n1. Leia todo o enunciado da questão antes de responder.\n\n2. Identifique todos os números, medidas, porcentagens,\n   expressões matemáticas e unidades apresentadas.\n\n3. Preste atenção especial às unidades de medida, por exemplo:\n   m, m², m³, cm, km, litros, porcentagem, horas e minutos.\n\n4. Verifique se a questão possui algum elemento visual,\n   como:\n   - gráfico;\n   - tabela;\n   - figura;\n   - desenho;\n   - diagrama;\n   - mapa;\n   - esquema.\n\n5. Quando houver informação visual ou descrição visual,\n   considere TODO o seu conteúdo como parte da questão.\n\n6. Leia cuidadosamente todos os valores, textos, rótulos,\n   legendas, eixos, medidas e relações apresent"
+    },
+    {
+      "numero": 149,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: E"
+    },
+    {
+      "numero": 150,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos seguir alguns passos:\n\n1. Primeiramente, calculemos o valor de compra e venda do picolé no primeiro dia.\n\nValor de compra = R$ 16,00\nQuantidade de picolés = 20 picolés/caixa x 4 caixas = 80 picolés\n\nLucro obtido no primeiro dia = R$ 40,00\n\n2. Em seguida, calculemos o valor de venda do picolé no primeiro dia.\n\nValor de compra + lucro = Valor de venda\nR$ 16,00 + R$ 40,00 = R$ 56,00\n\nValor de venda por picolé = R$ 56,00 / 80 picolés = R$ 0,70\n\n3. Agora, calculemos o valor de venda do picolé no segundo dia.\n\nLucro previsto = 20% do luc"
+    },
+    {
+      "numero": 157,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 165,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 168,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a sequência de andares nos quais João e Pedro realizaram seus reparos.\n\nJoão efetuou reparos na parte hidráulica nos andares 1, 3, 5, 7, etc., de dois em dois andares. Isso significa que João trabalhou nos andares impares.\n\nPedro trabalhou na parte elétrica nos andares 1, 4, 7, 10, etc., de três em três andares. Isso significa que Pedro trabalhou nos andares múltiplos de 3.\n\nAgora, precisamos encontrar a sequência de andares nos quais ambos os trabalhadores realizaram seus reparos. Como João trabalha nos andares impares e Pedro nos andares múltiplos de 3, podemos criar uma tabela para representar as sequências:\n\n| Andar | João (impares"
+    },
+    {
+      "numero": 171,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2016,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2016,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 175,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2016,
+      "gabarito": "A",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 177,
+      "ano": 2016,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 179,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2016,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o lucro mínimo da empresa no mês de junho para que o gerente continue no cargo no próximo semestre, precisamos primeiro calcular a média do lucro mensal do semestre anterior.\n\nO lucro mensal dos meses de janeiro a maio é: 21 + 35 + 21 + 30 = 107 mil reais\n\nA média desse período é: 107 / 4 = 26,75 mil reais\n\nComo o gerente permanece no cargo se a média for, no mínimo, de 30 mil reais, e a média do semestre anterior foi de 26,75 mil reais, o lucro mínimo da empresa no mês de junho deve ser maior ou igual a 30 mil reais.\n\nPortanto, a resposta correta é:\n\nResposta: C"
+    },
+    {
+      "numero": 136,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 138,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 139,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "E",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular o número de senhas distintas possíveis para cada opção e compará-lo com o número esperado de clientes (1.000.000).\n\nVamos analisar cada opção:\n\nI. LDDDDD: Existem 26 letras possíveis para a primeira letra, 10 dígitos possíveis para o primeiro dígito, 10 dígitos possíveis para o segundo dígito e 10 dígitos possíveis para os quatro últimos dígitos. Portanto, o número de senhas distintas possíveis é: 26 x 10 x 10 x 10 x 10 = 2.600.000.\n\nII. DDDDDD: O mesmo raciocínio do exemplo anterior, mas com letras em vez de dígitos. O número de senhas distintas possíveis é: 10 x 10 x 10 x 10 = 10.000"
+    },
+    {
+      "numero": 141,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar o percentual de redução da intensidade luminosa quando x = 30º, precisamos primeiro calcular a intensidade luminosa em x = 0° e x = 90°.\n\nI(0°) = k\nI(90°) = 0 (pois sen(90°) = 0)\n\nAgora, vamos calcular I(30°):\n\nI(30°) = k ⋅ sin(30°)\n= k ⋅ 0,5\n\nQuando x = 30º, a intensidade luminosa é reduzida para 50% do seu valor máximo (k), pois:\n\nI(30°) / I(0°) = 0,5\nou equivalente:\nI(30°) = 0,5 ⋅ k\n\nIsso significa que a intensidade luminosa se reduz a 50% do seu valor máximo quando x = 30º.\n\nRes"
+    },
+    {
+      "numero": 147,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 148,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 149,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que o número de modelos distintos do brinquedo caminhão-cegonha é igual ao número de combinações possíveis das cores para os carrinhos, considerando que cada carrinho pode ter uma das quatro cores disponíveis (amarelo, branco, laranja e verde) e que há pelo menos um carrinho de cada cor.\n\nComo há 10 carrinhos em total, podemos usar a fórmula dos combinações para calcular o número de modelos distintos:\n\nN = 4^10\n\nOnde N é o número de modelos distintos do brinquedo caminhão-cegonha.\n\nPortanto, a resposta correta é:\n\nResposta: D"
+    },
+    {
+      "numero": 150,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para determinar qual pesquisa deverá ser utilizada, precisamos calcular o erro para cada pesquisa e compará-lo com a margem de erro pedida (0,02).\n\nO erro é calculado como:\n\nErro = √(σ² / N)\n\nonde σ é a margem de erro e N é o número de pessoas entrevistadas.\n\nVamos calcular o erro para cada pesquisa:\n\nP1: Erro = √(0,5² / 764) ≈ 0,005\nP2: Erro = √(0,4² / 784) ≈ 0,004\nP3: Erro = √(0,3² / 576) ≈ 0,003\nP4: Erro = √(0,2² / 441) ≈ 0,002\nP5: Erro = √(0,1² / 64) ≈ 0,001\n\nComparando os erros com a margem de"
+    },
+    {
+      "numero": 152,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular a altura mínima do viaduto para que o caminhão possa passar com segurança sob seu vão.\n\nPrimeiramente, calculemos a altura total do veículo com a carga:\n\nRaio externo de cada cano = 0,60 m\nAltura da carroceria = 1,30 m\nAltura dos canos = 2 x 0,60 m = 1,20 m\n\nPortanto, a altura total do veículo com a carga é:\n1,30 m + 1,20 m = 2,50 m\n\nAgora, calculemos a altura mínima do viaduto:\n\nAltura do vão do viaduto - Altura total do veículo com a carga ≥ 0,50 m\nAltura do vão do viaduto ≥ 2,50 m + 0,50 m = 3,00"
+    },
+    {
+      "numero": 158,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a relação entre o tempo gasto pelo motorista X e pelo motorista Y para executar a tarefa de digitação da mensagem.\n\nDito isso, vamos analisar as informações fornecidas:\n\n* O tempo gasto pelo motorista X olhando para seu celular enquanto digita a mensagem corresponde a 25% do tempo gasto pelo motorista Y para executar a mesma tarefa.\n\nIsso significa que se o tempo gasto pelo motorista Y for x, o tempo gasto pelo motorista X será 0,25x.\n\nAgora, vamos considerar a relação entre as distâncias percorridas às cegas por X e Y. Como ambos os motoristas dirigem com velocidade constante, a distância percorrida é diretamente proporcional ao tempo gasto.\n\nPortanto, se o motorista Y percorre uma distância d, o motor"
+    },
+    {
+      "numero": 163,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender como o desenhista projetista usou o compasso para criar a tampa circular.\n\nO ângulo formado pelas hastes do compasso é de 120°, e o comprimento das hastes é de 10 cm. Isso significa que o ângulo subtendido pelo arco entre as pontas C e B é de 120°.\n\nPara encontrar o raio da tampa circular, precisamos usar a relação entre o ângulo e o comprimento das hastes do compasso. \n\nO raio (r) pode ser calculado usando a fórmula:\n\nr = (comprimento das hastes) / (2 * sen(ângulo/2))\n\nSubstituindo os valores, temos:\n\nr = 10 cm / (2 * sen(120°/2))\nr = 10 cm / (2 * sen(60°))\nr ≈"
+    },
+    {
+      "numero": 164,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 165,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos considerar a combinação de cores diferentes para as regiões vizinhas da logomarca.\n\nComo há 4 cores (verde, amarelo, azul e branco) e 4 regiões (cada uma com uma cor diferente), podemos começar pensando em como escolher as cores para cada região de forma que elas sejam diferentes entre si. \n\nA primeira região pode ser pintada com qualquer uma das 4 cores. Isso significa que temos 4 opções para a primeira região.\n\nPara a segunda região, precisamos escolher uma cor diferente da primeira região. Como já escolhemos uma cor para a primeira região, restam 3 cores para escolher. \n\nPara a terceira região, precisamos escolher uma cor diferente das duas primeiras regiões. Com as 2 cores que ainda não foram usadas e"
+    },
+    {
+      "numero": 168,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o problema e calcular a quantidade de gasolina utilizada no reabastecimento.\n\nO tanque inicial do carro tinha 100 kg de gasolina. A densidade da gasolina é de 750 gramas por litro, então podemos converter o peso do combustível para litros:\n\n100 kg / 750 g/l = 0,1333 l (aproximadamente)\n\nA equipe reabasteceu o carro com a terça parte do que restou no tanque. Isso significa que a quantidade de gasolina adicionada é:\n\n(1/3) x (0,1333 l - x) = 20 / 0,075\n\nOnde x é a quantidade de gasolina utilizada durante a corrida.\n\nPara resolver x, podemos começar reorganizando a equação:\n\n(1/3) x (0,1333 l - x) = 20 / 0,075"
+    },
+    {
+      "numero": 170,
+      "ano": 2017,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 172,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 175,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2017,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a medida da altura H, precisamos analisar as informações fornecidas nas figuras.\n\nNa Figura 1, vemos que a abóbada é parabólica e tem uma base com medidas de 8 metros (lado AB) e 6 metros (lado BC). Além disso, a altura da abóbada é representada pela linha AC, que se estende desde o centro da base até o vértice da abóbada.\n\nNa Figura 2, vemos uma vista frontal da abóbada com medidas hipotéticas. A medida de H é representada pela linha AB, que tem uma relação com a altura da abóbada.\n\nPara encontrar a medida de H, precisamos usar a propriedade das parábolas: a distância do centro da base até o vértice é igual à metade da altitude da abóbada. Nesse caso, podemos usar a fórmula"
+    },
+    {
+      "numero": 177,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos analisar os dados apresentados e identificar a maior taxa de acesso à internet nos cinco sites.\n\nPrimeiramente, observamos que o tempo de acesso na sexta-feira foi:\n\n* Site X: 12 minutos\n* Site Y: 30 minutos\n* Site U: 40 minutos\n* Site Z: 10 minutos\n* Site W: 38 minutos\n\nAgora, precisamos encontrar a maior taxa de acesso. Para isso, podemos calcular o tempo total de acesso para cada site e dividir por 60 (minutos) para obter o tempo em horas.\n\nTempo total de acesso:\n\n* Site X: 12/60 = 0,2 horas\n* Site Y: 30/60 = 0,5 horas\n* Site U: 40/60 = 0,67 horas\n* Site Z: 10/60 = 0,17 horas\n* Site W:"
+    },
+    {
+      "numero": 178,
+      "ano": 2017,
+      "gabarito": "E",
+      "resposta_modelo": "E",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o que está sendo pedido e como calcular a diferença entre as razões da altura das colunas de um gráfico.\n\nO Gráfico 1 apresenta a preferência dos eleitores em relação a dois candidatos, com as colunas representando os votos recebidos por cada candidato. A largura das colunas é igual e o valor total é 100%.\n\nO Gráfico 2 apresenta o mesmo resultado do Gráfico 1, mas com uma alteração: a altura da coluna B foi reduzida.\n\nPara calcular a diferença entre as razões da altura das colunas de um gráfico, precisamos saber a relação entre a altura e a largura. Nesse caso, sabemos que a largura é igual para ambas as colunas (A e B), então podemos considerar apenas a relação entre a altura.\n\nNo Gráfico 1, a razão da altura"
+    },
+    {
+      "numero": 179,
+      "ano": 2017,
+      "gabarito": "A",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 180,
+      "ano": 2017,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 136,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender como a redução de juros funciona e como calcular o valor presente.\n\nO valor presente P submetido a juros compostos com taxa i por um período de tempo n produz um valor futuro V determinado pela fórmula:\n\nVP = P(1 + i)^n\n\nNesse caso, temos uma parcela mensal de R$ 820,00 e uma taxa de juros de 1,32% ao mês. Queremos saber qual é a primeira parcela que pode ser antecipada junto com a 30ª, desde que o desconto seja superior a 25% do valor da parcela.\n\nPrimeiramente, precisamos calcular o valor presente de uma parcela para saber quanto seria o desconto se for paga antecipadamente. Para isso, usaremos a fórmula:\n\nVP = P(1 + i)^n\n\nNesse caso, tem"
+    },
+    {
+      "numero": 138,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 139,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos encontrar o volume máximo de potes que podem caber em cada caixa organizadora.\n\nO volume de um cilindro é dado pela fórmula:\n\nV = πr²h\n\nonde r é o raio e h é a altura do cilindro.\n\nNesse caso, o diâmetro do pote é 4 cm, então o raio é 2 cm. A altura do pote é 6 cm.\n\nO volume de um pote é:\n\nV = π(2)²(6)\n= 12π\n\nAgora, precisamos encontrar a área da base de cada caixa organizadora para saber quantos potes cabem em cada uma delas.\n\nAs dimensões internas das caixas são:\n\nI: 30 cm x 20 cm\nII: 40 cm x 25 cm\nIII: 50 cm x 30 cm\nIV: 60 cm"
+    },
+    {
+      "numero": 141,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos analisar a informação visual apresentada no painel e entender como ela se relaciona com o tempo gasto pelas máquinas de raio-X.\n\nO painel mostra as seguintes informações:\n\n* Tempo gasto por cada máquina para escanear uma bagagem:\n + Máquina 1: 30 segundos\n + Máquina 2: 45 segundos\n + Máquina 3: 60 segundos\n + Máquina 4: 75 segundos\n + Máquina 5: 90 segundos\n* Número de pessoas presentes em cada fila:\n + Fila 1: 10 pessoas\n + Fila 2: 15 pessoas\n + Fila 3: 20 pessoas\n + Fila 4: 25 pessoas\n + Fila 5: 30 pessoas\n\nAgora, precisamos encontrar a máquina que oferece o menor tempo g"
+    },
+    {
+      "numero": 145,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 148,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": "true",
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": "false",
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 153,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 156,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos analisar a sequência de andares que o elevador subiu e desceu.\n\nO elevador subiu 7 andares, depois desceu 10, depois desceu mais 13, depois subiu 9, depois desceu 4 e finalmente parou no quinto andar. \n\nA partir do ponto onde o elevador parou, sabemos que ele subiu 7 andares, então deve estar no sétimo andar. \n\nDepois de subir 7 andares, o elevador desceu 10, então deve estar no -3º andar (seu local inicial). \n\nA partir do -3º andar, o elevador desceu mais 13 andares, então deve estar no -16º andar. \n\nDepois de subir 9 andares, o elevador está no -7º andar. \n\nDepois de subir 9"
+    },
+    {
+      "numero": 165,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "C",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 166,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a situação e calcular o número de perguntas de nível fácil necessárias para atingir a probabilidade desejada.\n\nInicialmente, 25% das 20 perguntas são de nível fácil, o que significa que há 5 perguntas de nível fácil na urna.\n\nO gerente quer aumentar a probabilidade de o primeiro participante retirar uma pergunta de nível fácil para 75%. Isso significa que o número de perguntas de nível fácil deve ser 3/4 do total das perguntas na urna após o aumento.\n\nSe x for o número de perguntas adicionais de nível fácil, o novo total de perguntas será 20 + x. A probabilidade de retirar uma pergunta de nível fácil é então:\n\n(5 + x) / (20 + x) = 3/4\n\nPara resolver x, podemos multiplicar ambos os l"
+    },
+    {
+      "numero": 168,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para estimar a cobertura de vacinação do ano de 2014, precisamos primeiro encontrar a variação linear entre os anos de 2013 e 2015.\n\nVariação = (59% - 67%) / 2 = -4%\n\nAgora, vamos aplicar essa variação linear para encontrar a cobertura de 2014:\n\nCobertura de 2014 = 67% + (-4%) * (2014 - 2013)\n= 67% + (-4%) * 1\n= 67% - 0,04%\n= 66,96%\n\nRounded para um decimal de duas casas decimais, a cobertura de vacinação do ano de 2014 seria aproximadamente 66,96%, que se aproxima da alternativa C) 63,5%."
+    },
+    {
+      "numero": 169,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender como a lente da câmera está sendo orientada e como isso afeta o ângulo de visão.\n\nInicialmente, a lente está apontada para o sentido Oeste. Com a 1ª mudança, ela é virada 135º no sentido anti-horário, o que significa que ela agora está apontada para o sentido Sudeste (SE).\n\nCom a 2ª mudança, ela é virada 60º no sentido horário, o que significa que ela agora está apontada para o sentido Nordeste (NE).\n\nCom a 3ª mudança, ela é virada 45º no sentido anti-horário, o que significa que ela agora está apontada para o sentido Noroeste (NO), mas com uma amplitude maior do que a mínima desejada.\n\nPara reduzir a amplitude da lente e colocá-la na"
+    },
+    {
+      "numero": 172,
+      "ano": 2018,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender a Lei de Moore e como ela afeta a densidade de transistores nos processadores.\n\nA Lei de Moore afirma que o número de transistores por centímetro quadrado do processador dobra a cada dois anos. Isso significa que se o número de transistores era de 100.000 em 1986, em 1990 teria sido de 200.000 (dobrado), e assim sucessivamente.\n\nPara calcular quando a empresa atingirá ou alcançará a densidade de 100 bilhões de transistores, precisamos saber o número de anos que leva para que essa densidade seja alcançada.\n\nA densidade de 100 bilhões de transistores é igual a 100.000.000.000 (100 trilhões) de transistores por centímetro quadrado.\n\nConsiderando que o número de transistores dobra a cada dois"
+    },
+    {
+      "numero": 175,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2018,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2018,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos seguir alguns passos e considerar todos os dados apresentados.\n\n1. Primeiramente, sabemos que 80 alunos não participaram da rifa, então o número total de alunos que compareceram é de 100 (total de alunos do colégio) + 80 (alunos que faltaram) = 180.\n2. O número total de bilhetes vendidos excedeu em 33 o número total de alunos do colégio, então podemos calcular o número total de bilhetes vendidos como: 100 (alunos do colégio) + 33 (excesso) = 133 bilhetes.\n3. Sabemos que 45 alunos compraram 2 bilhetes e alguns compraram apenas um bilhete. Vamos chamar o número de alunos que compraram somente um bilhete de x.\n4. O total de alunos que comprou um único bil"
+    },
+    {
+      "numero": 179,
+      "ano": 2018,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2018,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 137,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 142,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a atividade física que proporciona o maior consumo de quilocalorias por minuto, precisamos comparar os valores calóricos em cada atividade.\n\nVamos analisar os valores:\n\n* I: 140 kcal/min\n* II: 120 kcal/min\n* III: 100 kcal/min\n* IV: 80 kcal/min\n* V: 60 kcal/min\n\nO valor mais alto é de 140 kcal/min, que corresponde à atividade I. Portanto, a resposta correta é:\n\nResposta: A"
+    },
+    {
+      "numero": 144,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular a área de cada placa e somá-las.\n\nA área de um círculo é dada pela fórmula:\n\nÁrea = πr²\n\nO diâmetro da placa é 40 cm, então o raio (r) é:\n\nr = 40/2 = 20 cm\n\nSubstituindo o valor do raio na fórmula, temos:\n\nÁrea do círculo = π(20)²\n= 3,14(400)\n= 1256 cm²\n\nA placa também possui uma área retangular de 60 cm x 40 cm (comprimento e largura), que é:\n\nÁrea retangular = 60 x 40\n= 2400 cm²\n\nNo entanto, essa área não inclui a área do círculo. Para encontrar a área total da placa, precisamos subtrair a área"
+    },
+    {
+      "numero": 148,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 151,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos calcular a parcela financeira que cada um dos sócios receberá, com base na quantia total investida por cada um.\n\nO investimento inicial foi de R$ 1 000 000,00, e cada um dos três sócios contribuiu com um terço desse valor. Portanto, cada um dos três sócios investiu:\n\nR$ 1 000 000 / 3 = R$ 333 333,33\n\nQuando o quarto sócio entrou para a sociedade, os quatro sócios juntos investiram mais R$ 800 000,00. Cada um deles contribuiu com um quarto desse valor:\n\nR$ 800 000 / 4 = R$ 200 000\n\nA parcela financeira que cada um dos sócios receberá é proporcional à quantia total investida por cada um. Portanto, podemos"
+    },
+    {
+      "numero": 152,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que o valor a ser pago a cada empresa é inversamente proporcional à idade de uso da máquina cadastrada pela empresa.\n\nVamos calcular o valor a ser pago para cada empresa:\n\n1. A máquina com 2 anos de idade: valor = R$ 31.000 / (3 - 2) = R$ 31.000 / 1 = R$ 31.000\n2. A máquina com 3 anos de idade: valor = R$ 31.000 / (3 - 3) = R$ 31.000 / 0 = não definido (não é possível dividir por zero)\n3. A máquina com 5 anos de idade: valor = R$ 31.000 / (3 - 5) = R$ 31.000 / -2 = -R$ 15.500\n\nComo não podemos dividir pelo zero, a empresa"
+    },
+    {
+      "numero": 153,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 154,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 159,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a probabilidade de um motorista perceber pelo menos uma das placas instaladas é superior a 99/100.\n\nVamos usar a fórmula de probabilidade para encontrar o número mínimo de placas necessárias:\n\nP(pelo menos uma placa) = 1 - P(nenhuma placa)\n\nOnde P(nenhuma placa) é igual à probabilidade de um motorista não perceber nenhuma das placas, que é (1/2)^n, onde n é o número de placas.\n\nNós queremos que P(pelo menos uma placa) seja maior que 99/100, então:\n\n1 - (1/2)^n > 99/100\n\nRearrando a equação, obtemos:\n\n(1/2)^n < 1/100\n\nTomando o logaritmo de ambos os lados, podemos resolver para"
+    },
+    {
+      "numero": 160,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 161,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 163,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos analisar a informação fornecida e compará-la com as alternativas apresentadas.\n\nO problema afirma que cinco países foram avaliados e obtiveram os seguintes índices de desenvolvimento humano:\n\n* O primeiro país recebeu um valor X\n* O segundo país recebeu um valor X\n* O terceiro país recebeu um valor X 1/3\n* O quarto país recebeu um valor X 2\n* O último país recebeu um valor X 3\n\nO problema também afirma que nenhum desses países zerou ou atingiu o índice máximo.\n\nAgora, vamos comparar essas informações com as alternativas apresentadas:\n\nAlternativa A) O primeiro.\nAlternativa B) O segundo.\nAlternativa C) O terceiro.\nAlternativa D) O quarto.\nAlternativa E) O quinto.\n\nConsiderando que o índ"
+    },
+    {
+      "numero": 164,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 165,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 168,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos entender que a combinação de cores para os vagões é independente da ordem em que eles são montados no trem.\n\nVamos analisar as opções:\n\nA) C⁴₁₂ × C³₁₂ × C³₁₂ × C²₁₂\n\nEssa opção sugere que cada combinação de cores dos 4 vagões pintados na cor preta é multiplicada pelo número de combinações possíveis para os outros 3 vagões. No entanto, isso não leva em conta a ordem em que os vagões são montados.\n\nB) C⁴₁₂ + C³₈ + C³₅ + C²₂\n\nEssa opção sugere que cada combinação de cores é contada separadamente, mas não considera a ordem em que as combinações são combinadas.\n\nC) C⁴₁₂ × 2"
+    },
+    {
+      "numero": 172,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 173,
+      "ano": 2019,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 174,
+      "ano": 2019,
+      "gabarito": "C",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o conceito de taxa de urbanização e como ela é calculada.\n\nA taxa de urbanização é dada pela razão entre a população urbana e a população total do município (população rural + população urbana). Portanto, para calcular a taxa de urbanização de cada município, precisamos saber a população urbana e a população total.\n\nVamos analisar os gráficos apresentados:\n\nGráfico 1: População Urbana\n- Município I: 120.000 habitantes\n- Município II: 150.000 habitantes\n- Município III: 100.000 habitantes\n- Município IV: 80.000 habitantes\n- Município V: 60.000 habitantes\n\nGráfico 2: População Rural\n- Município I:"
+    },
+    {
+      "numero": 175,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 176,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 177,
+      "ano": 2019,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 178,
+      "ano": 2019,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 179,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 180,
+      "ano": 2019,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 138,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para encontrar a medida da altura da caixa de vidro que permitirá fazer a maior miniatura possível do troféu, precisamos considerar as distâncias mínimas entre a base do troféu e os lados laterais da caixa de vidro (1 cm) e o espaço entre a esfera e a tampa da caixa de vidro (2 cm).\n\nConsiderando a altura do troféu como 100 cm, incluindo sua base, a distância entre a base do troféu e a esfera é de 30 cm - 1 cm = 29 cm. Além disso, a distância entre o topo da esfera e a tampa da caixa de vidro é de 2 cm.\n\nPortanto, a altura da caixa de vidro deve ser maior que a soma dessas distâncias: 29 cm + 2 cm = 31 cm. Para fazer a maior miniatura"
+    },
+    {
+      "numero": 139,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 140,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 141,
+      "ano": 2020,
+      "gabarito": "",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Para resolver essa questão, precisamos entender o ciclo do amigo secreto e como ele afeta a probabilidade de que duas pessoas do casal sejam as primeiras a revelar.\n\nVamos analisar o problema passo a passo:\n\n1. Há 10 funcionários, incluindo um casal.\n2. A primeira pessoa sorteada é escolhida aleatoriamente.\n3. Se essa pessoa for uma das duas pessoas do casal, ela revelará seu amigo secreto e presenteará a outra pessoa do casal.\n4. Em seguida, o presenteado (a segunda pessoa do casal) revelará seu amigo secreto e presenteará à primeira pessoa sorteada.\n5. O ciclo continua até que todos sejam presenteados.\n\nAgora, vamos considerar os casos em que as duas pessoas do casal são as primeiras a revelar:\n\n* Se a primeira pessoa sorteada for uma das duas pessoas do casal,"
+    },
+    {
+      "numero": 142,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 143,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 144,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 145,
+      "ano": 2020,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 146,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 147,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 148,
+      "ano": 2020,
+      "gabarito": "D",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 149,
+      "ano": 2020,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 150,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos primeiro entender a relação entre o volume da caixa-d'água na maquete e o volume real.\n\nO volume da caixa-d'água na maquete é de 2 cm × 3,51 cm × 4 cm = 42,8 cm³. Já o volume real é de 28.080 litros.\n\nComo a escala é inversa à relação entre os tamanhos, precisamos encontrar a escala usada pelo arquiteto. Para isso, precisamos converter o volume real para centímetros cúbicos (cm³) e compará-lo com o volume da caixa-d'água na maquete.\n\n1 dm³ = 1000 cm³, então:\n\n28.080 L × 1000 cm³/L = 28.080.000 cm³\n\nAgora, podemos comparar os volumes:\n\n42,8 cm³ (maquete) / 28."
+    },
+    {
+      "numero": 151,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 152,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "B",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: B"
+    },
+    {
+      "numero": 153,
+      "ano": 2020,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 154,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 155,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 156,
+      "ano": 2020,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 157,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 158,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 160,
+      "ano": 2020,
+      "gabarito": "A",
+      "resposta_modelo": "A",
+      "acertou": true,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 161,
+      "ano": 2020,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 162,
+      "ano": 2020,
+      "gabarito": "C",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 163,
+      "ano": 2020,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 164,
+      "ano": 2020,
+      "gabarito": "D",
+      "resposta_modelo": "C",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: C"
+    },
+    {
+      "numero": 165,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 166,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 167,
+      "ano": 2020,
+      "gabarito": "D",
+      "resposta_modelo": "E",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Para resolver essa questão, precisamos analisar os dados apresentados nos gráficos e entender como eles relacionam-se com a arrecadação em espécie.\n\nPrimeiramente, observe que o perfume V tem um preço unitário de R$ 80,00 e uma porcentagem da quantidade vendida de 32%. Isso significa que 32% do total de unidades vendidas foi do perfume V. Para calcular a quantidade de unidades vendidas do perfume V, podemos multiplicar o preço unitário pelo percentual:\n\nQuantidade vendida do perfume V = (32/100) x Preço unitário\n= (32/100) x R$ 80,00\n= R$ 25,60\n\nAgora, calcule a arrecadação em espécie para cada perfume:\n\nArrecadação do perfume I = Quantidade vendida x Preço unitário\n= (13/100) x R$ "
+    },
+    {
+      "numero": 168,
+      "ano": 2020,
+      "gabarito": "B",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 169,
+      "ano": 2020,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 170,
+      "ano": 2020,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": false,
+      "resposta_completa": "Resposta: A"
+    },
+    {
+      "numero": 171,
+      "ano": 2020,
+      "gabarito": "E",
+      "resposta_modelo": "A",
+      "acertou": false,
+      "tem_imagem": true,
+      "resposta_completa": "Resposta: A"
+    }
+  ]
+}

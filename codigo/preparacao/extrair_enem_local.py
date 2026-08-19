@@ -1,14 +1,14 @@
-import os
-import re
+import os #arquivos do pc
+import re # encontrar questão ou alternativas
 import json
-import fitz
+import fitz # abrir pdfs, localizar textos
 
 PASTA_PDFS = "dados/enem/pdfs"
 PASTA_SAIDA = "dados/enem/extraidos"
 PASTA_IMAGENS = "dados/enem/imagens_questoes"
 PASTA_FINAL = "dados/enem/final"
 
-os.makedirs(PASTA_SAIDA, exist_ok=True)
+os.makedirs(PASTA_SAIDA, exist_ok=True) # se já existe não dê erro
 os.makedirs(PASTA_IMAGENS, exist_ok=True)
 os.makedirs(PASTA_FINAL, exist_ok=True)
 

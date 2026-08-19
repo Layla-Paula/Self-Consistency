@@ -1,13 +1,12 @@
-from collections import Counter
+from collections import Counter #contar automaticamente quantas vezes cada valor aparece em uma lista
 
 
 
 # VOTAÇÃO MAJORITÁRIA
 
-
 def voto_majoritario(respostas):
 
-    respostas_validas = [
+    respostas_validas = [ # só guarda a resposta se ela não for texto vazio ou ausencia de valor
         resposta
         for resposta in respostas
         if resposta not in [

@@ -52,7 +52,7 @@ SAIDA_JSON = (
 
 # CARREGAMENTO
 
-
+# lê um arquivo de execução
 def carregar_execucao(
     caminho,
     metodo,
@@ -172,7 +172,7 @@ def carregar_execucao(
 
 # CARREGAR HISTÓRICO COMPLETO
 
-
+# procura todos os json dos experimentos
 def carregar_historico():
 
     historico = []
@@ -262,7 +262,7 @@ def exibir_historico(historico):
 
 # AGRUPAMENTO PARA COMPARAÇÃO
 
-
+# junta execuções para ser comparadas
 def agrupar_por_dataset_total(
     historico
 ):
@@ -331,7 +331,7 @@ def exibir_comparacoes(
         for execucao in execucoes:
 
             print(
-                f"{execucao['metodo']:<22} "
+                f"{execucao['metodo']:<22} " # reserva 22 espaços
                 f"{execucao['precisao']:>6.2f}% "
                 f"| "
                 f"{execucao['acertos']}/"
