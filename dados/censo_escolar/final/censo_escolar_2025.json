@@ -1,0 +1,258 @@
+{
+  "dataset_info": {
+    "nome": "Censo Escolar 2025 — 50 questões do professor",
+    "total": 50
+  },
+  "questoes": [
+    {
+      "id": "censo_2025_01",
+      "pergunta": "Quantas escolas de Educação Básica estão registradas na Tabela de Matrícula 2025?",
+      "resposta_esperada": "178.766 escolas estão registradas na base."
+    },
+    {
+      "id": "censo_2025_02",
+      "pergunta": "Qual é o total de matrículas da Educação Básica (variável QT_MAT_BAS) somando-se todas as escolas da base?",
+      "resposta_esperada": "O total de matrículas da Educação Básica é 46.018.380. Esse valor confere com o número de 46 milhões de matrículas divulgado oficialmente pelo INEP na primeira etapa do Censo Escolar 2025."
+    },
+    {
+      "id": "censo_2025_03",
+      "pergunta": "A variável QT_MAT_BAS não inclui matrículas em dois tipos de turma. Quais são?",
+      "resposta_esperada": "Segundo o dicionário de dados, QT_MAT_BAS não inclui matrículas em turmas exclusivas de atividade complementar e nem em turmas exclusivas de Atendimento Educacional Especializado (AEE)."
+    },
+    {
+      "id": "censo_2025_04",
+      "pergunta": "Em quantos e quais Estados (UF) o Brasil está dividido nesta base?",
+      "resposta_esperada": "A base cobre 27 Unidades da Federação — as 26 estados mais o Distrito Federal."
+    },
+    {
+      "id": "censo_2025_05",
+      "pergunta": "Em quantos municípios distintos há pelo menos uma escola registrada?",
+      "resposta_esperada": "Há escolas em 5.571 municípios distintos."
+    },
+    {
+      "id": "censo_2025_06",
+      "pergunta": "O que representa a variável NU_ANO_CENSO, e qual é o valor único presente em todas as linhas desta base?",
+      "resposta_esperada": "NU_ANO_CENSO representa o ano de referência do Censo Escolar. Nesta base, o valor é uniformemente 2025 em todas as linhas."
+    },
+    {
+      "id": "censo_2025_07",
+      "pergunta": "Existe alguma escola registrada com QT_MAT_BAS igual a zero? O que essa verificação indica sobre a base?",
+      "resposta_esperada": "Não existe nenhuma escola com QT_MAT_BAS igual a zero nesta base (0 ocorrências). Isso indica que a Tabela de Matrícula, tal como recortada neste arquivo, já filtra apenas escolas com pelo menos uma matrícula ativa na Educação Básica — ou seja, escolas sem matrícula nessa categoria (por exemplo, que oferecem apenas cursos exclusivos de Educação Profissional não incluídos em QT_MAT_BAS) podem ter sido excluídas ou apresentam valor não nulo por outra via."
+    },
+    {
+      "id": "censo_2025_08",
+      "pergunta": "Qual é a diferença conceitual entre a variável CO_REDE e a variável TP_DEPENDENCIA?",
+      "resposta_esperada": "TP_DEPENDENCIA distingue quatro categorias: Federal, Estadual, Municipal e Privada. CO_REDE é uma variável derivada que agrupa essas quatro categorias em apenas duas: Pública (reunindo Federal, Estadual e Municipal) e Privada. CO_REDE foi criada, segundo o dicionário, “com o objetivo de facilitar a identificação e a extração de informações por Rede de Ensino”."
+    },
+    {
+      "id": "censo_2025_09",
+      "pergunta": "Quantas escolas pertencem à rede pública e quantas à rede privada?",
+      "resposta_esperada": "Rede pública: 137.020 escolas. Rede privada: 41.746 escolas."
+    },
+    {
+      "id": "censo_2025_10",
+      "pergunta": "Some as matrículas por dependência administrativa (Federal, Estadual, Municipal, Privada). Qual dependência concentra o maior número de matrículas?",
+      "resposta_esperada": "Some as matrículas por dependência administrativa:\nDependência | Matrículas | \nFederal | 383.526 | \nEstadual | 13.330.302 | \nMunicipal | 23.059.168 | \nPrivada | 9.245.384 |  A dependência Municipal concentra o maior número de matrículas, respondendo por mais da metade do total nacional."
+    },
+    {
+      "id": "censo_2025_11",
+      "pergunta": "Qual dependência administrativa possui o menor número de escolas, mas ainda assim atende a um volume relevante de alunos?",
+      "resposta_esperada": "A dependência Federal possui apenas 716 escolas, o menor número entre as quatro categorias — ainda assim, atende a 383.526 matrículas, refletindo o porte tipicamente grande dessas instituições (institutos federais, colégios de aplicação)."
+    },
+    {
+      "id": "censo_2025_12",
+      "pergunta": "Calcule a média de matrículas por escola para cada dependência administrativa. Qual dependência tem a maior média por escola, e o que isso pode indicar sobre o porte típico dessas instituições?",
+      "resposta_esperada": "Média de matrículas por escola, por dependência:\nDependência | Escolas | Matrículas | Média/escola\nFederal | 716 | 383.526 | 535,7\nEstadual | 29.732 | 13.330.302 | 448,3\nPrivada | 41.746 | 9.245.384 | 221,5\nMunicipal | 106.572 | 23.059.168 | 216,4 A dependência Federal tem a maior média de matrículas por escola (535,7), coerente com o perfil de instituições como os Institutos Federais, geralmente de grande porte e presença mais concentrada em polos regionais."
+    },
+    {
+      "id": "censo_2025_13",
+      "pergunta": "Compare a média de matrículas por escola da rede Municipal com a da rede Estadual. O que essa diferença sugere sobre a distribuição de escolas pequenas e grandes entre essas duas redes?",
+      "resposta_esperada": "A média municipal (216,4 matrículas/escola) é praticamente metade da média estadual (448,3). Isso sugere que a rede municipal é composta por um número muito maior de escolas pequenas — coerente com o papel histórico dos municípios na oferta de Educação Infantil e Anos Iniciais do Fundamental, etapas frequentemente atendidas em unidades de menor porte e mais capilarizadas territorialmente, inclusive em áreas rurais."
+    },
+    {
+      "id": "censo_2025_14",
+      "pergunta": "Entre as escolas privadas, qual variável do dicionário permite identificar se a escola é Particular, Comunitária, Confessional ou Filantrópica?",
+      "resposta_esperada": "A variável é TP_CATEGORIA_ESCOLA_PRIVADA, com quatro categorias: 1-Particular, 2-Comunitária, 3-Confessional, 4-Filantrópica."
+    },
+    {
+      "id": "censo_2025_15",
+      "pergunta": "Calcule o total de matrículas em escolas privadas Particulares e compare com o total em escolas Filantrópicas. Qual categoria concentra mais matrículas dentro da rede privada?",
+      "resposta_esperada": "Matrículas por categoria de escola privada:\nCategoria | Matrículas\nParticular | 7.085.034\nFilantrópica | 1.711.268\nComunitária | 299.736\nConfessional | 149.346 A categoria Particular concentra amplamente a maior parte das matrículas da rede privada — mais de 76% do total privado."
+    },
+    {
+      "id": "censo_2025_16",
+      "pergunta": "Uma escola tem IN_PODER_PUBLICO_PARCERIA = 1. O que essa informação indica sobre a natureza jurídica ou o financiamento dessa escola?",
+      "resposta_esperada": "IN_PODER_PUBLICO_PARCERIA = 1 indica que a escola possui parceria ou convênio firmado com a Administração Pública, para financiamento do atendimento educacional ou para oferta do itinerário de formação técnica e profissional do Ensino Médio, conforme definido no dicionário de dados."
+    },
+    {
+      "id": "censo_2025_17",
+      "pergunta": "Quantas escolas estão localizadas em área urbana e quantas em área rural?",
+      "resposta_esperada": "Urbana: 128.037 escolas. Rural: 50.729 escolas."
+    },
+    {
+      "id": "censo_2025_18",
+      "pergunta": "Qual é o total de matrículas em escolas urbanas e o total em escolas rurais?",
+      "resposta_esperada": "Urbana: 40.871.166 matrículas. Rural: 5.147.214 matrículas."
+    },
+    {
+      "id": "censo_2025_19",
+      "pergunta": "Calcule a média de matrículas por escola nas áreas urbana e rural separadamente. O que a diferença entre essas médias revela sobre o porte das escolas rurais brasileiras?",
+      "resposta_esperada": "Média de matrículas por escola, urbana x rural:\nLocalização | Escolas | Matrículas | Média/escola\nUrbana | 128.037 | 40.871.166 | 319,2\nRural | 50.729 | 5.147.214 | 101,5 A média urbana é mais de três vezes a rural. Isso revela que as escolas rurais brasileiras são, tipicamente, unidades de pequeno porte — muitas vezes escolas multisseriadas ou isoladas, atendendo poucas dezenas de alunos, refletindo o padrão histórico de capilarização escolar no campo."
+    },
+    {
+      "id": "censo_2025_20",
+      "pergunta": "Calcule o percentual de matrículas em zona rural sobre o total de matrículas, para cada uma das cinco regiões geográficas. Qual região apresenta o maior percentual de matrículas rurais?",
+      "resposta_esperada": "Percentual de matrículas rurais por região:\nRegião | % matrículas rurais\nNorte | 24,42%\nNordeste | 21,34%\nCentro-Oeste | 5,90%\nSul | 5,77%\nSudeste | 3,30% A região Norte apresenta o maior percentual de matrículas em zona rural."
+    },
+    {
+      "id": "censo_2025_21",
+      "pergunta": "Qual região apresenta o menor percentual de matrículas em zona rural, e a que fator socioeconômico ou geográfico isso pode estar associado?",
+      "resposta_esperada": "A região Sudeste apresenta o menor percentual (3,30%). Isso está associado ao seu elevado grau de urbanização e concentração populacional em grandes centros metropolitanos, em contraste com o padrão de ocupação mais dispersa e rural da Amazônia Legal (Norte) e do semiárido nordestino."
+    },
+    {
+      "id": "censo_2025_22",
+      "pergunta": "Quais são as cinco Unidades da Federação (UF) com o maior número total de matrículas na Educação Básica?",
+      "resposta_esperada": "As cinco UFs com mais matrículas: São Paulo (9.600.318), Minas Gerais (4.220.829), Bahia (3.345.058), Rio de Janeiro (3.319.771) e Paraná (2.438.428)."
+    },
+    {
+      "id": "censo_2025_23",
+      "pergunta": "Quais são as cinco Unidades da Federação com o menor número total de matrículas?",
+      "resposta_esperada": "As cinco UFs com menos matrículas: Roraima (186.395), Amapá (212.026), Acre (242.727), Rondônia (376.264) e Tocantins (380.768) — todas pertencentes à Região Norte, refletindo sua menor densidade populacional relativa."
+    },
+    {
+      "id": "censo_2025_24",
+      "pergunta": "Qual é o município brasileiro com o maior número de matrículas na Educação Básica segundo esta base?",
+      "resposta_esperada": "O município de São Paulo (SP), com 2.512.355 matrículas, é o de maior volume — mais que o dobro do segundo colocado, Rio de Janeiro (1.208.798)."
+    },
+    {
+      "id": "censo_2025_25",
+      "pergunta": "A variável TP_LOCALIZACAO_DIFERENCIADA identifica escolas situadas em contextos específicos. Some as matrículas registradas em escolas de Terra Indígena e em escolas de Comunidade Quilombola. Qual desses dois contextos concentra mais matrículas?",
+      "resposta_esperada": "Terra Indígena: 280.634 matrículas. Comunidade Quilombola: 288.673 matrículas. O contexto de Comunidade Quilombola concentra ligeiramente mais matrículas do que o de Terra Indígena, embora ambos representem parcelas pequenas (juntos, menos de 1,25%) do total nacional."
+    },
+    {
+      "id": "censo_2025_26",
+      "pergunta": "Some as matrículas de cada grande etapa de ensino: Educação Infantil, Ensino Fundamental, Ensino Médio, Educação Profissional e EJA. Qual etapa concentra o maior número de matrículas?",
+      "resposta_esperada": "Matrículas por grande etapa de ensino:\nEtapa | Matrículas\nEducação Infantil | 9.286.182\nEnsino Fundamental | 25.806.767\nEnsino Médio | 7.370.879\nEducação Profissional | 3.187.976\nEJA | 2.252.069 O Ensino Fundamental concentra, isoladamente, o maior número de matrículas — mais da metade do total da Educação Básica —, o que é esperado por ser a etapa de maior duração (9 anos) e de caráter obrigatório mais consolidado historicamente."
+    },
+    {
+      "id": "censo_2025_27",
+      "pergunta": "Dentro da Educação Infantil, compare o número de matrículas em Creche (QT_MAT_INF_CRE) com o número em Pré-Escola (QT_MAT_INF_PRE). Qual das duas etapas tem mais matrículas, e a que fator estrutural (obrigatoriedade escolar) isso pode estar relacionado?",
+      "resposta_esperada": "Creche: 4.182.646. Pré-Escola: 5.103.536. A Pré-Escola tem mais matrículas. Isso é coerente com o fato de a matrícula em Pré-Escola (4 e 5 anos) ser legalmente obrigatória no Brasil desde a Emenda Constitucional nº 59/2009, enquanto a Creche (0 a 3 anos), embora seja direito da criança, não tem a mesma obrigatoriedade universal de oferta compulsória por parte da família."
+    },
+    {
+      "id": "censo_2025_28",
+      "pergunta": "Compare o total de matrículas nos Anos Iniciais do Ensino Fundamental (QT_MAT_FUND_AI) com o total nos Anos Finais (QT_MAT_FUND_AF). O que essa diferença pode indicar sobre o fluxo escolar ao longo do Ensino Fundamental?",
+      "resposta_esperada": "Anos Iniciais: 14.514.244. Anos Finais: 11.292.523. A diferença de mais de 3,2 milhões de matrículas sugere a existência de evasão, retenção ou distorção idade-série ao longo do Ensino Fundamental — parte dos estudantes que iniciam os Anos Iniciais não chega, no mesmo volume, aos Anos Finais, fenômeno historicamente associado à transição entre o 5º e o 6º ano."
+    },
+    {
+      "id": "censo_2025_29",
+      "pergunta": "Some as matrículas por ano/série dos Anos Iniciais (1º ao 5º ano) e por ano/série dos Anos Finais (6º ao 9º ano). Construa uma tabela e identifique em qual ano específico há o maior número de matrículas.",
+      "resposta_esperada": "Matrículas por ano/série do Ensino Fundamental:\nAno | Matrículas | \n1º ano | 2.890.337 | \n2º ano | 2.874.392 | \n3º ano | 2.850.775 | \n4º ano | 2.984.869 | \n5º ano | 2.913.871 | \n6º ano | 2.919.014 | \n7º ano | 2.870.115 | \n8º ano | 2.840.218 | \n9º ano | 2.663.176 |  O 4º ano apresenta o maior número absoluto de matrículas entre todos os nove anos do Ensino Fundamental."
+    },
+    {
+      "id": "censo_2025_30",
+      "pergunta": "Observando as matrículas do Ensino Médio por série (1ª, 2ª e 3ª séries), há uma tendência de queda entre a 1ª e a 3ª série? Calcule os valores e discuta uma possível explicação para esse padrão (indicador de fluxo escolar).",
+      "resposta_esperada": "Matrículas por série do Ensino Médio:\nSérie | Matrículas\n1ª série | 2.746.470\n2ª série | 2.438.380\n3ª série | 2.109.116 Sim, há uma queda consistente entre a 1ª e a 3ª série (redução de aproximadamente 23,2% do início ao fim do Ensino Médio). Essa tendência é um indicador clássico de evasão escolar progressiva, fenômeno amplamente discutido nos relatórios do próprio Censo Escolar e associado a fatores como necessidade de trabalho, defasagem de aprendizagem acumulada e desmotivação ao longo da etapa."
+    },
+    {
+      "id": "censo_2025_31",
+      "pergunta": "Qual é o total de matrículas na Educação Profissional Técnica, e qual percentual isso representa do total de matrículas em Educação Profissional (QT_MAT_PROF)?",
+      "resposta_esperada": "Educação Profissional Técnica: 2.490.145 matrículas, de um total de 3.187.976 em Educação Profissional — o que representa 78,1% do total dessa modalidade, evidenciando o predomínio da formação técnica sobre a não-técnica (qualificação profissional e cursos FIC)."
+    },
+    {
+      "id": "censo_2025_32",
+      "pergunta": "Compare o número de matrículas em Curso Técnico Concomitante com o número em Curso Técnico Subsequente. O que diferencia essas duas formas de oferta, segundo o dicionário de dados?",
+      "resposta_esperada": "Técnico Concomitante: 348.446. Técnico Subsequente: 832.032. Segundo o dicionário, o Concomitante é cursado simultaneamente ao Ensino Médio regular (em instituições diferentes ou na mesma, mas sem articulação curricular formal), enquanto o Subsequente é cursado após a conclusão do Ensino Médio."
+    },
+    {
+      "id": "censo_2025_33",
+      "pergunta": "Qual é o total de matrículas na Educação de Jovens e Adultos (EJA), e que percentual isso representa do total geral de matrículas da Educação Básica (QT_MAT_BAS)?",
+      "resposta_esperada": "Total EJA: 2.252.069 matrículas, representando 4,89% do total geral de matrículas da Educação Básica."
+    },
+    {
+      "id": "censo_2025_34",
+      "pergunta": "Compare as matrículas de EJA no Ensino Fundamental com as matrículas de EJA no Ensino Médio. Qual etapa concentra mais estudantes dentro da modalidade EJA?",
+      "resposta_esperada": "EJA Fundamental: 1.406.442. EJA Médio: 845.627. A EJA Fundamental concentra mais estudantes que a EJA Médio, refletindo o maior contingente de jovens e adultos que ainda não concluíram sequer a etapa fundamental de escolarização."
+    },
+    {
+      "id": "censo_2025_35",
+      "pergunta": "A variável QT_MAT_BAS_LIBRAS registra matrículas em classes bilíngues de surdos. Qual é o total nacional dessa variável, e por que esse número é proporcionalmente pequeno diante do total geral de matrículas?",
+      "resposta_esperada": "QT_MAT_BAS_LIBRAS: 3.637 matrículas. O número é proporcionalmente muito pequeno porque se refere a um recorte extremamente específico — classes bilíngues exclusivas para surdos, com Libras como língua de instrução —, uma modalidade de oferta ainda pouco disseminada estruturalmente na rede escolar brasileira, distinta do atendimento de alunos surdos incluídos em classes comuns."
+    },
+    {
+      "id": "censo_2025_36",
+      "pergunta": "Qual é o total de matrículas do sexo feminino e do sexo masculino? Calcule a razão entre matrículas masculinas e femininas.",
+      "resposta_esperada": "Feminino: 22.735.128. Masculino: 23.283.252. Razão Masculino/Feminino: 1,0241 (ou seja, há aproximadamente 102 meninos matriculados para cada 100 meninas)."
+    },
+    {
+      "id": "censo_2025_37",
+      "pergunta": "Calcule o percentual de matrículas de cada sexo sobre o total. Existe uma diferença expressiva entre os dois grupos?",
+      "resposta_esperada": "Feminino: 49,4%. Masculino: 50,6%. A diferença é pequena — pouco mais de 1 ponto percentual —, refletindo uma distribuição relativamente equilibrada entre os sexos na matrícula da Educação Básica, com leve predominância masculina, compatível com a proporção natural de nascimentos por sexo."
+    },
+    {
+      "id": "censo_2025_38",
+      "pergunta": "Some as matrículas de estudantes autodeclarados pretos e pardos. Qual percentual esse total representa sobre o total de matrículas com cor/raça efetivamente declarada (ou seja, excluindo os registros como “Não Declarada”)?",
+      "resposta_esperada": "Pretos + Pardos: 23.149.061. Total declarado (excluindo “Não Declarada”): 39.742.803. Percentual: 58,25% — ou seja, mais da metade dos estudantes que declararam sua cor/raça se autodeclaram pretos ou pardos, valor coerente com o perfil demográfico da população escolar brasileira."
+    },
+    {
+      "id": "censo_2025_39",
+      "pergunta": "Qual grupo de cor/raça apresenta o menor número absoluto de matrículas na base, entre os declarados (excluindo “Não Declarada”)?",
+      "resposta_esperada": "O grupo Amarelo apresenta o menor número absoluto entre os declarados, com 167.379 matrículas — bem inferior até mesmo ao grupo Indígena (381.498)."
+    },
+    {
+      "id": "censo_2025_40",
+      "pergunta": "Qual é o total de matrículas classificadas como “Não Declarada” quanto à cor/raça, e que implicação isso tem para a confiabilidade de indicadores étnico-raciais construídos a partir dessa variável?",
+      "resposta_esperada": "6.275.577 matrículas estão classificadas como “Não Declarada” quanto à cor/raça — cerca de 13,6% do total geral. Esse volume expressivo de não declaração é uma limitação relevante para a construção de indicadores étnico-raciais robustos: qualquer proporção calculada apenas sobre os dados declarados pode não representar fielmente a distribuição real caso a não declaração não seja aleatória entre os grupos."
+    },
+    {
+      "id": "censo_2025_41",
+      "pergunta": "Compare o número de matrículas nas faixas etárias de 6 a 10 anos e de 11 a 14 anos. Essas faixas correspondem, em geral, a quais etapas de ensino?",
+      "resposta_esperada": "6 a 10 anos: 14.111.254. 11 a 14 anos: 11.194.106. A faixa de 6 a 10 anos corresponde, em geral, aos Anos Iniciais do Ensino Fundamental; a faixa de 11 a 14 anos corresponde predominantemente aos Anos Finais do Ensino Fundamental."
+    },
+    {
+      "id": "censo_2025_42",
+      "pergunta": "Qual é o total de matrículas na faixa etária de 18 anos ou mais, e a quais modalidades de ensino esse contingente provavelmente está mais associado?",
+      "resposta_esperada": "Total na faixa de 18 anos ou mais: 3.974.803. Esse contingente está fortemente associado a modalidades como EJA (Fundamental e Médio) e à Educação Profissional (cursos técnicos subsequentes e concomitantes), que atendem tipicamente públicos de maior idade, incluindo distorção idade-série acumulada em etapas regulares."
+    },
+    {
+      "id": "censo_2025_43",
+      "pergunta": "Observando as faixas etárias de 0 a 3 anos e de 4 a 5 anos, qual delas apresenta maior número de matrículas? Relacione sua resposta com a obrigatoriedade legal de matrícula na Pré-Escola a partir dos 4 anos.",
+      "resposta_esperada": "0 a 3 anos: 3.874.541. 4 a 5 anos: 4.968.651. A faixa de 4 a 5 anos apresenta maior número de matrículas, o que é coerente com a obrigatoriedade legal de matrícula na Pré-Escola a partir dos 4 anos de idade (EC nº 59/2009), diferentemente da Creche (0 a 3 anos), cuja oferta é um direito assegurado, mas sem a mesma exigência compulsória de matrícula universal."
+    },
+    {
+      "id": "censo_2025_44",
+      "pergunta": "Some as matrículas por turno: Diurno (QT_MAT_BAS_D), Noturno (QT_MAT_BAS_N) e EAD (QT_MAT_BAS_EAD). Qual turno concentra a grande maioria das matrículas?",
+      "resposta_esperada": "Diurno: 42.131.013. Noturno: 3.240.654. EAD: 646.713. O turno Diurno concentra amplamente a grande maioria das matrículas — mais de 91,5% do total —, reforçando o padrão predominantemente diurno da escolarização básica no Brasil."
+    },
+    {
+      "id": "censo_2025_45",
+      "pergunta": "Dentro do turno Diurno, compare as matrículas do turno Matutino com as do turno Vespertino. Qual dos dois é mais numeroso?",
+      "resposta_esperada": "Matutino: 24.171.117. Vespertino: 17.959.896. O turno Matutino é mais numeroso, concentrando cerca de 57,4% das matrículas diurnas."
+    },
+    {
+      "id": "censo_2025_46",
+      "pergunta": "Qual é o total de matrículas em Tempo Integral (QT_MAT_BAS_INT), e que percentual isso representa do total de matrículas da Educação Básica?",
+      "resposta_esperada": "Tempo Integral: 10.143.262 matrículas, representando 22,04% do total de matrículas da Educação Básica — ou seja, aproximadamente 1 em cada 5 estudantes brasileiros está matriculado em regime de tempo integral."
+    },
+    {
+      "id": "censo_2025_47",
+      "pergunta": "Qual é o total de matrículas de estudantes da Educação Especial (QT_MAT_ESP)? Que percentual isso representa do total de matrículas da Educação Básica?",
+      "resposta_esperada": "Educação Especial: 2.458.159 matrículas, representando 5,34% do total geral de matrículas da Educação Básica."
+    },
+    {
+      "id": "censo_2025_48",
+      "pergunta": "Compare o número de matrículas de Educação Especial em Classes Comuns (QT_MAT_ESP_CC) com o número em Classes Exclusivas (QT_MAT_ESP_CE). Qual modelo de atendimento predomina, e o que esse predomínio reflete em termos de política de inclusão escolar?",
+      "resposta_esperada": "Classes Comuns: 2.298.005. Classes Exclusivas: 160.154. As Classes Comuns predominam amplamente, respondendo por 93,48% das matrículas de Educação Especial. Esse predomínio reflete a consolidação da política nacional de educação inclusiva, que prioriza a matrícula de estudantes público-alvo da Educação Especial em turmas regulares do ensino comum, em vez de turmas ou escolas exclusivamente especializadas."
+    },
+    {
+      "id": "censo_2025_49",
+      "pergunta": "Qual é o total de matrículas de estudantes que utilizam transporte escolar público (QT_TRANSP_PUBLICO)? Compare a responsabilidade Estadual com a Municipal pelo transporte e identifique qual esfera arca com a maior parte dessa oferta.",
+      "resposta_esperada": "Transporte escolar público total: 9.078.809 matrículas. Responsabilidade Estadual: 1.431.234. Responsabilidade Municipal: 7.647.575. A esfera Municipal arca com a grande maioria da responsabilidade pelo transporte escolar público — mais de 84% do total —, refletindo o papel constitucional dos municípios na gestão da rede de Educação Infantil e Ensino Fundamental, etapas de sua responsabilidade prioritária."
+    },
+    {
+      "id": "censo_2025_50",
+      "pergunta": "Some as matrículas segundo a zona de residência do aluno (Urbana e Rural, variáveis QT_MAT_ZR_URB e QT_MAT_ZR_RUR). Compare esse resultado com a variável TP_LOCALIZACAO (localização da escola). É possível haver alunos residentes na zona rural matriculados em escolas localizadas na zona urbana? Justifique.",
+      "resposta_esperada": "Zona Urbana (residência do aluno): 38.397.441. Zona Rural (residência do aluno): 7.618.155. Comparando com TP_LOCALIZACAO (localização da escola: 40.871.166 urbana / 5.147.214 rural), percebe-se que o número de alunos residentes em zona rural (7.618.155) é maior que o número de matrículas em escolas localizadas em zona rural (5.147.214). Isso confirma que sim, é possível e frequente haver alunos residentes na zona rural matriculados em escolas urbanas — fenômeno associado ao transporte escolar rural, que desloca diariamente estudantes do campo para escolas de maior porte e infraestrutura situadas em áreas urbanas, prática comum sobretudo nas séries finais do Fundamental e no Ensino Médio."
+    }
+  ]
+}

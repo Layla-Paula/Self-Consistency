@@ -1,32 +1,14 @@
-
-#importa os prompts da técnica CoT, pois a self_consistency parte dela
-from codigo.chain_of_thought.prompts import (
-    prompt_cot_enem,
-    prompt_cot_gsm8k,
-)
+"""Self-Consistency reutiliza exatamente os prompts da técnica Chain-of-Thought."""
+from codigo.chain_of_thought.prompts import prompt_cot_gsm8k, prompt_cot_aqua_rat, prompt_cot_censo
 
 
-
-# SELF-CONSISTENCY - ENEM
-
-#recebe uma questão do enem
-def prompt_self_consistency_enem(
-    questao
-):
-
-    return prompt_cot_enem(
-        questao
-    )
+def prompt_self_consistency_gsm8k(problema, exemplos):
+    return prompt_cot_gsm8k(problema, exemplos)
 
 
+def prompt_self_consistency_aqua_rat(problema, exemplos):
+    return prompt_cot_aqua_rat(problema, exemplos)
 
-# SELF-CONSISTENCY - GSM8K
 
-
-def prompt_self_consistency_gsm8k(
-    problema
-):
-
-    return prompt_cot_gsm8k(
-        problema
-    )
+def prompt_self_consistency_censo(questao, contexto, exemplos, contextos_exemplos):
+    return prompt_cot_censo(questao, contexto, exemplos, contextos_exemplos)

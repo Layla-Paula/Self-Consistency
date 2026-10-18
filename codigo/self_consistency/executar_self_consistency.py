@@ -1,713 +1,223 @@
+"""Experimentos Self-Consistency: GSM8K, AQuA-RAT e Censo Escolar.
+
+"""
 from datetime import datetime
 from pathlib import Path
-
+import re
 from tqdm import tqdm
 
 from codigo.utils import (
-    carregar_enem,
-    carregar_gsm8k,
-    extrair_letra_resposta,
-    extrair_resposta_numerica,
-    extrair_gabarito_gsm8k,
-    comparar_numeros,
-    salvar_json,
+    carregar_gsm8k, carregar_aqua_rat, extrair_letra_resposta,
+    extrair_resposta_numerica, extrair_gabarito_gsm8k,
+    extrair_gabarito_aqua_rat, comparar_numeros, salvar_json,
 )
-
 from codigo.self_consistency.prompts import (
-    prompt_self_consistency_enem,
-    prompt_self_consistency_gsm8k,
+    prompt_self_consistency_gsm8k, prompt_self_consistency_aqua_rat,
+    prompt_self_consistency_censo,
 )
-
-from codigo.self_consistency.experimentos import (
-    executar_experimento_self_consistency,
-)
-
-
+from codigo.self_consistency.experimentos import executar_experimento_self_consistency
 
 # CONFIGURAÇÕES
-
-
-METODO = "self_consistency"
-MODELO = "llama3.2"
-
-N_AMOSTRAS = 5
-TEMPERATURE = 0.7
+METODO = 'self_consistency'
+MODELO = 'llama3.2'
+N_EXEMPLOS = 10  # Apenas GSM8K e AQuA-RAT; no Censo são sempre as 10 primeiras.
+N_AMOSTRAS = 5  # Quantas respostas independentes gerar por questão.
+TEMPERATURE = 0.7  # Permite explorar caminhos de resolução diferentes.
 NUM_PREDICT = 800
-
-PASTA_ENEM = Path(
-    "resultados/self_consistency/enem"
-)
-
-PASTA_GSM8K = Path(
-    "resultados/self_consistency/gsm8k"
-)
-
-
-# IDENTIFICAÇÃO DA EXECUÇÃO
+PASTAS = {
+    'gsm8k': Path('resultados/self_consistency/gsm8k'),
+    'aqua_rat': Path('resultados/self_consistency/aqua_rat'),
+    'censo': Path('resultados/self_consistency/censo'),
+}
 
 
 def criar_id_execucao(dataset, limite, pasta):
-    """
-    Exemplos:
-
-    self_consistency_enem_20260817_100_1
-    self_consistency_enem_20260817_100_2
-
-    self_consistency_gsm8k_20260817_100_1
-    """
-
-    data = datetime.now().strftime("%Y%m%d")
-
-    limite_nome = (
-        str(limite)
-        if limite is not None
-        else "todos"
-    )
-
-    prefixo = (
-        f"{METODO}_{dataset}_{data}_{limite_nome}_"
-    )
-
-    pasta.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    numero_execucao = 1
-
-    while True:
-
-        id_execucao = (
-            f"{prefixo}{numero_execucao}"
-        )
-
-        caminho = (
-            pasta / f"{id_execucao}.json"
-        )
-
-        if not caminho.exists():
-            return id_execucao
-
-        numero_execucao += 1
+    """Gera ID sequencial, sem sobrescrever resultados anteriores."""
+    pasta.mkdir(parents=True, exist_ok=True)
+    data = datetime.now().strftime('%Y%m%d')
+    nome_limite = str(limite) if limite is not None else 'todos'
+    prefixo = f'{METODO}_{dataset}_{data}_{nome_limite}_'
+    indice = 1
+    while (pasta / f'{prefixo}{indice}.json').exists():
+        indice += 1
+    return f'{prefixo}{indice}'
 
 
+def validar_limite(limite):
+    if limite is not None and (not isinstance(limite, int) or isinstance(limite, bool) or limite <= 0):
+        raise ValueError('limite deve ser inteiro positivo ou None.')
 
-# EXECUÇÃO ENEM
+
+def selecionar_exemplos(dataset, n=None):
+    """Usa os primeiros exemplos elegíveis do train, sempre na mesma ordem."""
+    n = N_EXEMPLOS if n is None else n
+    if not isinstance(n, int) or isinstance(n, bool) or n <= 0:
+        raise ValueError('n_exemplos deve ser inteiro positivo.')
+    carregar = carregar_gsm8k if dataset == 'gsm8k' else carregar_aqua_rat
+    exemplos, ids = [], set()
+    for q in carregar(split='train'):
+        ident = str(q.get('id', '')).strip()
+        if not ident or ident in ids:
+            continue
+        if dataset == 'gsm8k':
+            if not str(q.get('question_pt') or '').strip():
+                continue
+            if not str(q.get('answer_pt') or q.get('answer_en') or '').strip():
+                continue
+            if not extrair_gabarito_gsm8k(q):
+                continue
+        else:
+            if q.get('revisao_necessaria') is True:
+                continue
+            if not str(q.get('question_pt') or '').strip() or not str(q.get('rationale_pt') or '').strip():
+                continue
+            if not q.get('options_pt') or not q.get('correct'):
+                continue
+        exemplos.append(q)
+        ids.add(ident)
+        if len(exemplos) == n:
+            break
+    if len(exemplos) < n:
+        raise ValueError(f'{dataset}: apenas {len(exemplos)} exemplos elegíveis para {n} solicitados.')
+    return exemplos
 
 
-def executar_enem(limite=None):
-
-    questoes = carregar_enem()
-
-    if limite is not None:
-        questoes = questoes[:limite]
-
-    total_selecionado = len(questoes)
-
-    id_execucao = criar_id_execucao(
-        dataset="enem",
-        limite=total_selecionado,
-        pasta=PASTA_ENEM
-    )
-
-    resultados = []
-
-    print()
-    print("=" * 60)
-    print("SELF-CONSISTENCY - ENEM")
-    print("=" * 60)
-
-    print(f"ID da execução: {id_execucao}")
-    print(f"Modelo: {MODELO}")
-    print(f"Quantidade: {total_selecionado}")
-    print(f"Amostras por questão: {N_AMOSTRAS}")
-    print(f"Temperature: {TEMPERATURE}")
-    print()
-
-    for q in tqdm(
-        questoes,
-        desc="Self-Consistency ENEM"
-    ):
-
-        prompt = (
-            prompt_self_consistency_enem(q)
-        )
-
-        resultado_sc = (
-            executar_experimento_self_consistency(
-                prompt=prompt,
-                extrair_resposta=extrair_letra_resposta,
-                n_amostras=N_AMOSTRAS,
-                temperature=TEMPERATURE,
-                num_predict=NUM_PREDICT
-            )
-        )
-
-        gabarito = q["gabarito"]
-
-        resposta_modelo = (
-            resultado_sc["resposta_modelo"]
-        )
-
-        acertou = (
-            resposta_modelo == gabarito
-        )
-
-        item = {
-            "ano": q["ano"],
-            "numero": q["numero"],
-            "gabarito": gabarito,
-            "tem_imagem": q.get(
-                "tem_imagem",
-                False
-            ),
-
-            "respostas_extraidas": (
-                resultado_sc[
-                    "respostas_extraidas"
-                ]
-            ),
-
-            "distribuicao_votos": (
-                resultado_sc[
-                    "distribuicao_votos"
-                ]
-            ),
-
-            "resposta_modelo": resposta_modelo,
-
-            "votos_resposta_modelo": (
-                resultado_sc[
-                    "votos_resposta_modelo"
-                ]
-            ),
-
-            "houve_empate": (
-                resultado_sc[
-                    "houve_empate"
-                ]
-            ),
-
-            "acertou": acertou,
-
-            "amostras": (
-                resultado_sc["amostras"]
-            )
-        }
-
-        resultados.append(item)
-
-   
-    # MÉTRICAS
-   
-
+def metricas_votacao(resultados):
+    """Não presume que todo voto majoritário seja uma maioria absoluta."""
     total = len(resultados)
-
-    acertos = sum(
-        1
-        for r in resultados
-        if r["acertou"]
-    )
-
-    erros = total - acertos
-
-    precisao = (
-        acertos / total * 100
-        if total > 0
-        else 0
-    )
-
-   
-    # MÉTRICAS DE VOTAÇÃO
-  
-
-    unanimidades = sum(
-        1
-        for r in resultados
-        if r["votos_resposta_modelo"]
-        == N_AMOSTRAS
-    )
-
-    maioria_4 = sum(
-        1
-        for r in resultados
-        if r["votos_resposta_modelo"] == 4
-    )
-
-    maioria_3 = sum(
-        1
-        for r in resultados
-        if r["votos_resposta_modelo"] == 3
-    )
-
-    empates = sum(
-        1
-        for r in resultados
-        if r["houve_empate"]
-    )
-
-    media_votos = (
-        sum(
-            r["votos_resposta_modelo"]
-            for r in resultados
-        )
-        / total
-        if total > 0
-        else 0
-    )
-
- 
-    # MÉTRICAS VISUAIS ENEM
-  
-
-    com_imagem = [
-        r
-        for r in resultados
-        if r["tem_imagem"]
-    ]
-
-    sem_imagem = [
-        r
-        for r in resultados
-        if not r["tem_imagem"]
-    ]
-
-    acertos_com_imagem = sum(
-        1
-        for r in com_imagem
-        if r["acertou"]
-    )
-
-    acertos_sem_imagem = sum(
-        1
-        for r in sem_imagem
-        if r["acertou"]
-    )
-
-    precisao_com_imagem = (
-        acertos_com_imagem
-        / len(com_imagem)
-        * 100
-        if com_imagem
-        else 0
-    )
-
-    precisao_sem_imagem = (
-        acertos_sem_imagem
-        / len(sem_imagem)
-        * 100
-        if sem_imagem
-        else 0
-    )
-
-  
-    # DADOS DA EXECUÇÃO
-
-
-    dados = {
-        "id_execucao": id_execucao,
-
-        "data_execucao": datetime.now().isoformat(
-            timespec="seconds"
-        ),
-
-        "metodo": METODO,
-
-        "dataset": "enem",
-
-        "modelo": MODELO,
-
-        "total": total,
-
-        "acertos": acertos,
-
-        "erros": erros,
-
-        "precisao": round(
-            precisao,
-            2
-        ),
-
-        "parametros": {
-            "n_amostras": N_AMOSTRAS,
-            "temperature": TEMPERATURE,
-            "num_predict": NUM_PREDICT,
-            "limite": limite
-        },
-
-        "metricas_votacao": {
-            "unanimidades": unanimidades,
-            "maioria_4_de_5": maioria_4,
-            "maioria_3_de_5": maioria_3,
-            "empates": empates,
-            "media_votos_vencedor": round(
-                media_votos,
-                2
-            )
-        },
-
-        "metricas_visuais": {
-            "total_com_imagem": len(
-                com_imagem
-            ),
-            "acertos_com_imagem": (
-                acertos_com_imagem
-            ),
-            "precisao_com_imagem": round(
-                precisao_com_imagem,
-                2
-            ),
-
-            "total_sem_imagem": len(
-                sem_imagem
-            ),
-            "acertos_sem_imagem": (
-                acertos_sem_imagem
-            ),
-            "precisao_sem_imagem": round(
-                precisao_sem_imagem,
-                2
-            )
-        },
-
-        "resultados": resultados
+    return {
+        'unanimidades': sum(r['votos_resposta_modelo'] == N_AMOSTRAS and not r['houve_empate'] for r in resultados),
+        'vencedor_com_4_votos': sum(r['votos_resposta_modelo'] == 4 and not r['houve_empate'] for r in resultados),
+        'vencedor_com_3_votos': sum(r['votos_resposta_modelo'] == 3 and not r['houve_empate'] for r in resultados),
+        'empates': sum(r['houve_empate'] for r in resultados),
+        'sem_resposta_valida': sum(r['total_respostas_validas'] == 0 for r in resultados),
+        'media_votos_vencedor': round(sum(r['votos_resposta_modelo'] for r in resultados) / total, 2) if total else 0,
     }
 
-   
-    # SALVAMENTO
 
-
-    caminho = (
-        PASTA_ENEM
-        / f"{id_execucao}.json"
-    )
-
-    salvar_json(
-        str(caminho),
-        dados
-    )
-
-  
-    # RESUMO
- 
-
-    print()
-    print(f"Salvo: {caminho}")
-
-    print()
-    print("RESULTADO")
-    print(f"Total: {total}")
-    print(f"Acertos: {acertos}")
-    print(f"Erros: {erros}")
-    print(f"Precisão: {precisao:.2f}%")
-
-    print()
-    print("VOTAÇÃO")
-    print(f"Unanimidades: {unanimidades}")
-    print(f"Maioria 4/5: {maioria_4}")
-    print(f"Maioria 3/5: {maioria_3}")
-    print(f"Empates: {empates}")
-    print(
-        f"Média de votos vencedores: "
-        f"{media_votos:.2f}"
-    )
-
-    print()
-    print("QUESTÕES COM IMAGEM")
-    print(f"Total: {len(com_imagem)}")
-    print(
-        f"Acertos: "
-        f"{acertos_com_imagem}"
-    )
-    print(
-        f"Precisão: "
-        f"{precisao_com_imagem:.2f}%"
-    )
-
-    print()
-    print("QUESTÕES SEM IMAGEM")
-    print(f"Total: {len(sem_imagem)}")
-    print(
-        f"Acertos: "
-        f"{acertos_sem_imagem}"
-    )
-    print(
-        f"Precisão: "
-        f"{precisao_sem_imagem:.2f}%"
-    )
-    print()
-
-
-
-# EXECUÇÃO GSM8K
-
-
-def executar_gsm8k(limite=None):
-
-    problemas = carregar_gsm8k()
-
+def executar_dataset(dataset, limite=None, n_exemplos=None):
+    validar_limite(limite)
+    exemplos = selecionar_exemplos(dataset, n_exemplos)
+    carregar = carregar_gsm8k if dataset == 'gsm8k' else carregar_aqua_rat
+    teste = carregar(split='test')
     if limite is not None:
-        problemas = problemas[:limite]
-
-    total_selecionado = len(problemas)
-
-    id_execucao = criar_id_execucao(
-        dataset="gsm8k",
-        limite=total_selecionado,
-        pasta=PASTA_GSM8K
-    )
-
+        teste = teste[:limite]
+    ids_exemplos = [q['id'] for q in exemplos]
+    if set(ids_exemplos) & {q['id'] for q in teste}:
+        raise ValueError('Vazamento de dados: exemplo do train encontrado no test.')
+    pasta = PASTAS[dataset]
+    ident = criar_id_execucao(dataset, limite, pasta)
     resultados = []
-
-    print()
-    print("=" * 60)
-    print("SELF-CONSISTENCY - GSM8K")
-    print("=" * 60)
-
-    print(f"ID da execução: {id_execucao}")
-    print(f"Modelo: {MODELO}")
-    print(f"Quantidade: {total_selecionado}")
-    print(f"Amostras por questão: {N_AMOSTRAS}")
-    print(f"Temperature: {TEMPERATURE}")
-    print()
-
-    for i, p in enumerate(
-        tqdm(
-            problemas,
-            desc="Self-Consistency GSM8K"
+    prompt_fn = prompt_self_consistency_gsm8k if dataset == 'gsm8k' else prompt_self_consistency_aqua_rat
+    extrair = extrair_resposta_numerica if dataset == 'gsm8k' else extrair_letra_resposta
+    print(f'\nSELF-CONSISTENCY {dataset.upper()} | {len(teste)} questões | {N_AMOSTRAS} amostras/questão')
+    for q in tqdm(teste, desc=f'Self-Consistency {dataset}'):
+        prompt = prompt_fn(q, exemplos)
+        sc = executar_experimento_self_consistency(
+            prompt, extrair, n_amostras=N_AMOSTRAS,
+            temperature=TEMPERATURE, num_predict=NUM_PREDICT,
         )
-    ):
-
-        prompt = (
-            prompt_self_consistency_gsm8k(p)
-        )
-
-        resultado_sc = (
-            executar_experimento_self_consistency(
-                prompt=prompt,
-                extrair_resposta=(
-                    extrair_resposta_numerica
-                ),
-                n_amostras=N_AMOSTRAS,
-                temperature=TEMPERATURE,
-                num_predict=NUM_PREDICT
-            )
-        )
-
-        gabarito = (
-            extrair_gabarito_gsm8k(p)
-        )
-
-        resposta_modelo = (
-            resultado_sc["resposta_modelo"]
-        )
-
-        acertou = comparar_numeros(
-            resposta_modelo,
-            gabarito
-        )
-
-        item = {
-            "id": p.get(
-                "id",
-                i
-            ),
-
-            "split": p.get(
-                "split",
-                ""
-            ),
-
-            "gabarito": gabarito,
-
-            "respostas_extraidas": (
-                resultado_sc[
-                    "respostas_extraidas"
-                ]
-            ),
-
-            "distribuicao_votos": (
-                resultado_sc[
-                    "distribuicao_votos"
-                ]
-            ),
-
-            "resposta_modelo": resposta_modelo,
-
-            "votos_resposta_modelo": (
-                resultado_sc[
-                    "votos_resposta_modelo"
-                ]
-            ),
-
-            "houve_empate": (
-                resultado_sc[
-                    "houve_empate"
-                ]
-            ),
-
-            "acertou": acertou,
-
-            "amostras": (
-                resultado_sc["amostras"]
-            )
-        }
-
-        resultados.append(item)
-
-  
-    # MÉTRICAS
-  
-
+        gabarito = extrair_gabarito_gsm8k(q) if dataset == 'gsm8k' else extrair_gabarito_aqua_rat(q)
+        acertou = (comparar_numeros(sc['resposta_modelo'], gabarito)
+                   if dataset == 'gsm8k' else sc['resposta_modelo'] == gabarito)
+        resultados.append({'id': q['id'], 'split': q.get('split'), 'gabarito': gabarito,
+                           'acertou': acertou, **sc})
     total = len(resultados)
-
-    acertos = sum(
-        1
-        for r in resultados
-        if r["acertou"]
-    )
-
-    erros = total - acertos
-
-    precisao = (
-        acertos / total * 100
-        if total > 0
-        else 0
-    )
-
-    unanimidades = sum(
-        1
-        for r in resultados
-        if r["votos_resposta_modelo"]
-        == N_AMOSTRAS
-    )
-
-    maioria_4 = sum(
-        1
-        for r in resultados
-        if r["votos_resposta_modelo"] == 4
-    )
-
-    maioria_3 = sum(
-        1
-        for r in resultados
-        if r["votos_resposta_modelo"] == 3
-    )
-
-    empates = sum(
-        1
-        for r in resultados
-        if r["houve_empate"]
-    )
-
-    media_votos = (
-        sum(
-            r["votos_resposta_modelo"]
-            for r in resultados
-        )
-        / total
-        if total > 0
-        else 0
-    )
-
-   
-    # DADOS
-  
-
+    acertos = sum(r['acertou'] for r in resultados)
     dados = {
-        "id_execucao": id_execucao,
-
-        "data_execucao": datetime.now().isoformat(
-            timespec="seconds"
-        ),
-
-        "metodo": METODO,
-
-        "dataset": "gsm8k",
-
-        "modelo": MODELO,
-
-        "total": total,
-
-        "acertos": acertos,
-
-        "erros": erros,
-
-        "precisao": round(
-            precisao,
-            2
-        ),
-
-        "parametros": {
-            "n_amostras": N_AMOSTRAS,
-            "temperature": TEMPERATURE,
-            "num_predict": NUM_PREDICT,
-            "limite": limite
-        },
-
-        "metricas_votacao": {
-            "unanimidades": unanimidades,
-            "maioria_4_de_5": maioria_4,
-            "maioria_3_de_5": maioria_3,
-            "empates": empates,
-            "media_votos_vencedor": round(
-                media_votos,
-                2
-            )
-        },
-
-        "resultados": resultados
+        'id_execucao': ident, 'data_execucao': datetime.now().isoformat(timespec='seconds'),
+        'metodo': METODO, 'dataset': dataset, 'modelo': MODELO,
+        'total': total, 'acertos': acertos, 'erros': total - acertos,
+        'precisao': round(100 * acertos / total, 2) if total else 0,
+        'parametros': {'limite': limite, 'n_exemplos': len(exemplos), 'ids_exemplos': ids_exemplos,
+                       'split_exemplos': 'train', 'split_avaliacao': 'test',
+                       'n_amostras': N_AMOSTRAS, 'temperature': TEMPERATURE, 'num_predict': NUM_PREDICT},
+        'metricas_votacao': metricas_votacao(resultados), 'resultados': resultados,
     }
-
-   
-    # SALVAMENTO
-   
-
-    caminho = (
-        PASTA_GSM8K
-        / f"{id_execucao}.json"
-    )
-
-    salvar_json(
-        str(caminho),
-        dados
-    )
-
- 
-    # RESUMO
-  
-
-    print()
-    print(f"Salvo: {caminho}")
-    print(f"Total: {total}")
-    print(f"Acertos: {acertos}")
-    print(f"Erros: {erros}")
-    print(f"Precisão: {precisao:.2f}%")
-
-    print()
-    print("VOTAÇÃO")
-    print(f"Unanimidades: {unanimidades}")
-    print(f"Maioria 4/5: {maioria_4}")
-    print(f"Maioria 3/5: {maioria_3}")
-    print(f"Empates: {empates}")
-    print(
-        f"Média de votos vencedores: "
-        f"{media_votos:.2f}"
-    )
-
-    print()
+    caminho = pasta / f'{ident}.json'
+    salvar_json(str(caminho), dados)
+    print(f'Salvo: {caminho} | Acertos: {acertos}/{total} | Precisão: {dados["precisao"]:.2f}%')
+    return dados
 
 
+def executar_gsm8k(limite=None, n_exemplos=None):
+    return executar_dataset('gsm8k', limite, n_exemplos)
 
-# EXECUÇÃO PRINCIPAL
+
+def executar_aqua_rat(limite=None, n_exemplos=None):
+    return executar_dataset('aqua_rat', limite, n_exemplos)
 
 
-if __name__ == "__main__":
+# CENSO: votação por respostas numéricas não cobre respostas explicativas.
+# Mantemos TODAS as gerações para avaliação humana; não votamos sobre texto livre.
+def extrair_numero_censo(texto):
+    """Extrai um único valor apenas quando há resposta final estritamente numérica.
 
-    executar_enem(
-        limite=500
-    )
+    Não interpreta tabelas, porcentagens com explicações ou respostas com vários números.
+    """
+    if not texto:
+        return None
+    correspondencias = re.findall(r'(?im)^\s*Resposta final:\s*([+-]?\d[\d.,]*)\s*$', texto)
+    if not correspondencias:
+        return None
+    valor = correspondencias[-1].strip()
+    # Não tentar normalizar ambiguidades como 1.234 (milhar ou decimal).
+    return valor
 
-    executar_gsm8k(
-        limite=500
-    )
+
+def executar_censo(limite=None):
+    """Dez demonstrações fixas 01-10; questões 11-50 para avaliação."""
+    validar_limite(limite)
+    from codigo.utils import carregar_censo
+    from codigo.consulta_censo import verificar_consultas, SessaoCenso
+    questoes = sorted(carregar_censo(), key=lambda q: q['id'])
+    esperados = [f'censo_2025_{i:02d}' for i in range(1, 51)]
+    if [q['id'] for q in questoes] != esperados:
+        raise ValueError('Censo deve ter exatamente IDs 01 a 50, sem duplicatas.')
+    exemplos = questoes[:10]  # FIXO: não usa N_EXEMPLOS nem aleatoriedade.
+    teste = questoes[10:]
+    if limite is not None:
+        teste = teste[:limite]
+    # Exige consultas reais ao CSV para cada questão selecionada.
+    verificar_consultas(exemplos + teste)
+    sessao = SessaoCenso()
+    contextos_exemplos = {q['id']: sessao.consultar(q) for q in exemplos}
+    pasta = PASTAS['censo']
+    ident = criar_id_execucao('censo', limite, pasta)
+    resultados = []
+    print(f'\nSELF-CONSISTENCY CENSO | {len(teste)} questões | {N_AMOSTRAS} amostras/questão')
+    for q in tqdm(teste, desc='Self-Consistency Censo'):
+        contexto = sessao.consultar(q)
+        prompt = prompt_self_consistency_censo(q, contexto, exemplos, contextos_exemplos)
+        sc = executar_experimento_self_consistency(
+            prompt, extrair_numero_censo, n_amostras=N_AMOSTRAS,
+            temperature=TEMPERATURE, num_predict=NUM_PREDICT,
+        )
+        # Uma questão aberta pode ter respostas equivalentes com textos diferentes.
+        # O voto numérico é exploratório; não define acerto sem revisão.
+        resultados.append({'id': q['id'], 'gabarito_referencia': q.get('resposta_esperada'),
+                           'fonte_csv': str(sessao.caminho), 'avaliacao_humana_pendente': True,
+                           'votacao_numerica_apenas': True, **sc})
+    dados = {
+        'id_execucao': ident, 'data_execucao': datetime.now().isoformat(timespec='seconds'),
+        'metodo': METODO, 'dataset': 'censo', 'modelo': MODELO, 'total': len(resultados),
+        'acertos': None, 'erros': None, 'precisao': None,
+        'parametros': {'limite': limite, 'n_exemplos_censo_fixo': 10,
+                       'ids_exemplos': [q['id'] for q in exemplos],
+                       'ids_teste': [q['id'] for q in teste],
+                       'n_amostras': N_AMOSTRAS, 'temperature': TEMPERATURE,
+                       'num_predict': NUM_PREDICT},
+        'metricas_votacao_numerica': metricas_votacao(resultados),
+        'avaliacao_humana_pendente': True, 'resultados': resultados,
+    }
+    caminho = pasta / f'{ident}.json'
+    salvar_json(str(caminho), dados)
+    print(f'Salvo: {caminho} | Avaliação humana pendente')
+    return dados
+
+
+if __name__ == '__main__':
+    executar_gsm8k(limite=500)
+    executar_aqua_rat(limite=500)
+    # Habilitar quando as consultas do Censo estiverem implementadas e validadas:
+    executar_censo(limite=20)

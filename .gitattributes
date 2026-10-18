@@ -1,0 +1,4 @@
+dados/aqua_rat/**/*.json filter=lfs diff=lfs merge=lfs -text
+dados/censo_escolar/**/*.csv filter=lfs diff=lfs merge=lfs -text
+dados/censo_escolar/**/*.zip filter=lfs diff=lfs merge=lfs -text
+dados/gsm8k/**/*.json filter=lfs diff=lfs merge=lfs -text

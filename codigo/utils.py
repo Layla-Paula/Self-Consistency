@@ -1,311 +1,225 @@
-import os
-import re
+
 import json
+import math
+import re
 import time
+from pathlib import Path
+
 import requests
-
-
-
-# CONFIGURAÇÃO
 
 MODELO_OLLAMA = "llama3.2"
 URL_OLLAMA = "http://localhost:11434/api/generate"
-
-DATASET_ENEM = "dados/enem/final/enem_matematica_completo.json"
-DATASET_GSM8K = "dados/gsm8k/final/gsm8k_ptbr.json"
-
-
-# DATASETS
-
-def carregar_enem():
-    with open(
-        DATASET_ENEM,
-        "r",
-        encoding="utf-8"
-    ) as f:
-        dados = json.load(f)
-
-    return dados["questoes"]
+DATASET_GSM8K = Path("dados/gsm8k/final/gsm8k_ptbr.json")
+DATASET_AQUA_RAT = Path("dados/aqua_rat/final/aqua_rat_ptbr.json")
+DATASET_CENSO = Path("dados/censo_escolar/final/censo_escolar_2025.json")
 
 
-def carregar_gsm8k():
-    with open(
-        DATASET_GSM8K,
-        "r",
-        encoding="utf-8"
-    ) as f:
-        dados = json.load(f)
-
-    return dados["problemas"]
+def carregar_json(caminho):
+    with open(caminho, "r", encoding="utf-8") as arquivo:
+        return json.load(arquivo)
 
 
+def salvar_json(caminho, dados):
+    caminho = Path(caminho)
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    with caminho.open("w", encoding="utf-8") as arquivo:
+        json.dump(dados, arquivo, ensure_ascii=False, indent=2)
 
-# FORMATAÇÃO
 
-def formatar_alternativas(alternativas): # Recebe as alternativas e transforma essas alternativas em texto formatado com o valor associado das alternativa
+def carregar_registros(caminho):
+    dados = carregar_json(caminho)
+    if isinstance(dados, list):
+        return dados
+    if isinstance(dados, dict):
+        for chave in ("problemas", "questoes", "questions"):
+            if isinstance(dados.get(chave), list):
+                return dados[chave]
+    raise ValueError(f"Estrutura de questões não reconhecida: {caminho}")
+
+
+def filtrar_split(registros, split=None):
+    if split is None:
+        return registros
+    return [item for item in registros if item.get("split") == split]
+
+
+def carregar_gsm8k(split=None):
+    return filtrar_split(carregar_registros(DATASET_GSM8K), split)
+
+
+def carregar_aqua_rat(split=None):
+    return filtrar_split(carregar_registros(DATASET_AQUA_RAT), split)
+
+
+def carregar_censo(split=None):
+    registros = carregar_registros(DATASET_CENSO)
+    if split is not None:
+        raise ValueError("O Censo Escolar não possui splits definidos no JSON atual.")
+    return registros
+
+
+def formatar_alternativas(alternativas):
+    """Aceita dict A-E ou lista de cinco textos, com ou sem prefixo A)."""
+    if isinstance(alternativas, list):
+        if len(alternativas) != 5:
+            raise ValueError("AQuA-RAT precisa de exatamente cinco alternativas.")
+        convertidas = {}
+        for letra, texto in zip("ABCDE", alternativas):
+            texto = str(texto).strip()
+            prefixo = re.match(r"^\s*([A-E])\s*[).:\-]\s*(.+)$", texto, re.I | re.S)
+            if prefixo:
+                letra_encontrada = prefixo.group(1).upper()
+                if letra_encontrada != letra:
+                    raise ValueError(f"Alternativa fora de ordem: esperado {letra}, recebido {letra_encontrada}.")
+                texto = prefixo.group(2).strip()
+            convertidas[letra] = texto
+        alternativas = convertidas
+    if not isinstance(alternativas, dict):
+        raise ValueError("Alternativas devem ser uma lista ou dicionário.")
+    alternativas = {str(chave).upper(): valor for chave, valor in alternativas.items()}
     linhas = []
-
-    for letra in ["A", "B", "C", "D", "E"]:
-
-        valor = alternativas.get(
-            letra,
-            ""
-        )
-
-        if valor:
-            linhas.append(
-                f"{letra}) {valor}"
-            )
-
+    for letra in "ABCDE":
+        valor = alternativas.get(letra)
+        if valor is None or not str(valor).strip():
+            raise ValueError(f"Alternativa {letra} ausente.")
+        linhas.append(f"{letra}) {str(valor).strip()}")
     return "\n".join(linhas)
 
 
-def montar_questao_enem(questao): # Monta o texto que será enviado ao modelo.
-
-    return f"""
-Questão {questao["numero"]} - ENEM {questao["ano"]}
-
-{questao["enunciado"]}
-
-Alternativas:
-{formatar_alternativas(questao["alternativas"])}
-""".strip()
-
-
 def montar_questao_gsm8k(problema):
-
-    return (
-        problema.get("question_pt")
-        or problema.get("problema")
-        or problema.get("question")
-        or ""
-    )
+    enunciado = str(problema.get("question_pt") or problema.get("problema") or problema.get("question") or "").strip()
+    if not enunciado:
+        raise ValueError("GSM8K sem enunciado.")
+    return enunciado
 
 
+def montar_questao_aqua_rat(problema):
+    enunciado = str(problema.get("question_pt") or problema.get("pergunta") or problema.get("question") or "").strip()
+    alternativas = problema.get("options_pt") or problema.get("alternativas") or problema.get("options")
+    if not enunciado or alternativas is None:
+        raise ValueError("AQuA-RAT sem enunciado ou alternativas.")
+    return f"{enunciado}\n\nAlternativas:\n{formatar_alternativas(alternativas)}"
 
-# RESPOSTAS
+
+def montar_questao_censo(questao, contexto=None):
+    """Recebe contexto calculado externamente; nunca utiliza resposta_esperada."""
+    enunciado = str(questao.get("pergunta") or questao.get("enunciado") or "").strip()
+    if not enunciado:
+        raise ValueError("Censo Escolar sem pergunta.")
+    if contexto is None:
+        contexto = questao.get("contexto")
+    contexto = str(contexto or "").strip()
+    if not contexto:
+        # Impede avaliar como análise de dados uma pergunta sem dados disponíveis.
+        raise ValueError(f"Questão {questao.get('id', '?')} sem contexto dos microdados. Prepare a consulta antes de executar.")
+    return f"Dados do Censo Escolar 2025:\n{contexto}\n\nPergunta:\n{enunciado}"
+
 
 def extrair_letra_resposta(texto):
-
     if not texto:
         return ""
-
-    texto = texto.upper().strip()
-        # \s*      = zero ou mais espaços
-        # [:\-]?   = ":" ou "-", opcionais
-        # ([A-E])  = captura uma letra entre A e E
+    texto = str(texto).upper().strip()
     padroes = [
-        r"RESPOSTA FINAL\s*[:\-]?\s*([A-E])",
-        r"ALTERNATIVA CORRETA\s*[:\-]?\s*([A-E])",
-        r"ALTERNATIVA\s*[:\-]?\s*([A-E])",
-        r"RESPOSTA\s*[:\-]?\s*([A-E])",
-        r"\b([A-E])\b"
+        r"RESPOSTA\s+FINAL\s*[:=\-]?\s*\**\(?([A-E])\)?\b",
+        r"ALTERNATIVA\s+CORRETA\s*[:=\-]?\s*\**\(?([A-E])\)?\b",
+        r"(?:ALTERNATIVA|RESPOSTA)\s*[:=\-]?\s*\**\(?([A-E])\)?\b",
     ]
-
     for padrao in padroes:
+        encontrados = re.findall(padrao, texto)
+        if encontrados:
+            return encontrados[-1]
+    encontrado = re.fullmatch(r"\**\s*\(?([A-E])\)?\s*[.)]?\s*\**", texto)
+    return encontrado.group(1) if encontrado else ""
 
-        m = re.search(
-            padrao,
-            texto
-        )
 
-        if m:
-            return m.group(1)
+NUMERO = r"-?(?:\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)"
 
-    return ""
+
+def normalizar_numero(texto):
+    valor = str(texto).strip().replace(" ", "")
+    if "," in valor and "." in valor:
+        valor = valor.replace(".", "").replace(",", ".") if valor.rfind(",") > valor.rfind(".") else valor.replace(",", "")
+    elif "," in valor:
+        valor = valor.replace(",", ".")
+    elif re.fullmatch(r"-?\d{1,3}(?:\.\d{3})+", valor):
+        valor = valor.replace(".", "")
+    return float(valor)
 
 
 def extrair_resposta_numerica(texto):
-
     if not texto:
         return ""
-
-    texto = texto.strip()
-
+    texto = str(texto)
     padroes = [
-        r"RESPOSTA FINAL\s*[:\-]?\s*([\-]?\d+(?:[,.]\d+)?)",
-        r"RESPOSTA\s*[:\-]?\s*([\-]?\d+(?:[,.]\d+)?)",
-        r"####\s*([\-]?\d+(?:[,.]\d+)?)"
+        rf"RESPOSTA\s+FINAL\s*[:=\-]?\s*(?:R\$\s*)?({NUMERO})",
+        rf"RESPOSTA\s*[:=\-]?\s*(?:R\$\s*)?({NUMERO})",
+        rf"####\s*({NUMERO})",
     ]
-
     for padrao in padroes:
-
-        m = re.search(
-            padrao,
-            texto,
-            re.I
-        )
-
-        if m:
-            return (
-                m.group(1)
-                .replace(",", ".")
-            )
-
-    numeros = re.findall(
-        r"[\-]?\d+(?:[,.]\d+)?",
-        texto
-    )
-
-    if numeros:
-        return (
-            numeros[-1]
-            .replace(",", ".")
-        )
-
-    return ""
+        encontrados = re.findall(padrao, texto, re.I)
+        if encontrados:
+            return encontrados[-1]
+    encontrados = re.findall(NUMERO, texto)
+    return encontrados[-1] if encontrados else ""
 
 
 def extrair_gabarito_gsm8k(problema):
+    resposta = str(problema.get("resposta") or problema.get("answer_en") or problema.get("answer") or problema.get("answer_pt") or "")
+    encontrado = re.search(rf"####\s*({NUMERO})", resposta)
+    if encontrado:
+        return encontrado.group(1)
+    encontrado = re.search(rf"({NUMERO})\s*$", resposta)
+    return encontrado.group(1) if encontrado else ""
 
-    resposta = (
-        problema.get("resposta")
-        or problema.get("answer_pt")
-        or problema.get("answer")
-        or ""
-    )
 
-    m = re.search(
-        r"####\s*([\-]?\d+(?:[,.]\d+)?)",
-        resposta
-    )
+def extrair_gabarito_aqua_rat(problema):
+    letra = str(problema.get("correct") or problema.get("gabarito") or "").upper().strip()
+    if len(letra) != 1 or letra not in "ABCDE":
+        raise ValueError(f"Gabarito AQuA-RAT inválido: {letra!r}")
+    return letra
 
-    if m:
-        return (
-            m.group(1)
-            .replace(",", ".")
-        )
 
-    m = re.search(
-        r"([\-]?\d+(?:[,.]\d+)?)$",
-        resposta.strip()
-    )
-
-    if m:
-        return (
-            m.group(1)
-            .replace(",", ".")
-        )
-
-    return ""
+def extrair_gabarito_censo(questao):
+    return questao.get("resposta_esperada") or questao.get("gabarito") or questao.get("resposta") or ""
 
 
 def comparar_numeros(a, b):
-
     try:
-
-        valor_a = float(
-            str(a).replace(",", ".")
-        )
-
-        valor_b = float(
-            str(b).replace(",", ".")
-        )
-
-        return valor_a == valor_b
-
-    except Exception:
-
-        return (
-            str(a).strip()
-            ==
-            str(b).strip()
-        )
+        valor_a, valor_b = normalizar_numero(a), normalizar_numero(b)
+        return math.isfinite(valor_a) and math.isfinite(valor_b) and math.isclose(valor_a, valor_b, rel_tol=0, abs_tol=1e-9)
+    except (ValueError, TypeError, OverflowError):
+        return False
 
 
-
-# OLLAMA
-
-# Função responsável por enviar um prompt ao Ollama e receber a resposta produzida pelo modelo.
-def consultar_ollama(
-    prompt,
-    temperature=0.0, #  Controla a aleatoriedade das respostas.
-    num_predict=512 # Número máximo de tokens que o modelo poderá gerar
-):
-
+def consultar_ollama(prompt, temperature=0.0, num_predict=512, retornar_metricas=False):
     payload = {
         "model": MODELO_OLLAMA,
         "prompt": prompt,
-        "stream": False,  # False significa que a resposta será retornada inteira, e não enviada aos poucos em streaming
-        "options": {
-            "temperature": temperature,
-            "num_predict": num_predict
-        }
+        "stream": False,
+        "options": {"temperature": temperature, "num_predict": num_predict},
     }
-
-    # Permite realizar até três tentativas de comunicação com o Ollama
-
     for tentativa in range(1, 4):
-
         try:
-
-            resposta = requests.post(
-                URL_OLLAMA,
-                json=payload,
-                timeout=300   # 300 segundos = 5 minutos.
-            )
-
+            inicio = time.perf_counter()
+            resposta = requests.post(URL_OLLAMA, json=payload, timeout=300)
             resposta.raise_for_status()
-
             dados = resposta.json()
-
-            return dados.get(
-                "response",
-                ""
-            )
-
-        except Exception as e:
-
-            print()
-            print(
-                f"Erro no Ollama "
-                f"(tentativa {tentativa}/3): {e}"
-            )
-
+            duracao = time.perf_counter() - inicio
+            texto = dados.get("response", "")
+            if retornar_metricas:
+                return {
+                    "resposta": texto,
+                    "tempo_total_segundos": duracao,
+                    "total_duration_ns": dados.get("total_duration"),
+                    "prompt_eval_count": dados.get("prompt_eval_count"),
+                    "prompt_eval_duration_ns": dados.get("prompt_eval_duration"),
+                    "eval_count": dados.get("eval_count"),
+                    "eval_duration_ns": dados.get("eval_duration"),
+                }
+            return texto
+        except (requests.RequestException, ValueError) as erro:
+            print(f"Erro no Ollama (tentativa {tentativa}/3): {erro}")
             if tentativa < 3:
-
-                print(
-                    "Tentando novamente..."
-                )
-
                 time.sleep(5)
-
-    print(
-        "Falha após 3 tentativas."
-    )
-
+    print("Falha após 3 tentativas.")
     return None
-
-
-
-# ARQUIVOS
-
-
-def salvar_json(
-    caminho,
-    dados
-):
-
-    diretorio = os.path.dirname(
-        caminho
-    )
-
-    if diretorio:
-
-        os.makedirs( # Cria a pasta caso ela ainda não exista.
-            diretorio,
-            exist_ok=True
-        )
-
-    with open(
-        caminho,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            dados,
-            f,
-            ensure_ascii=False,
-            indent=2
-        )

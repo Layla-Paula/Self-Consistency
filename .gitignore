@@ -1,0 +1,19 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Configurações locais
+.env
+
+# Backups e arquivos temporários
+*.backup.json
+*.tmp
+
+# Arquivos de progresso de tradução
+dados/gsm8k/traducoes/progresso_traducao*.json
+dados/aqua_rat/traducoes/*.jsonl
