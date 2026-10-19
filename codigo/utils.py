@@ -10,7 +10,7 @@ import requests
 MODELO_OLLAMA = "llama3.2"
 URL_OLLAMA = "http://localhost:11434/api/generate"
 DATASET_GSM8K = Path("dados/gsm8k/final/gsm8k_ptbr.json")
-DATASET_AQUA_RAT = Path("dados/aqua_rat/final/aqua_rat_ptbr.json")
+DATASET_AQUA_RAT = Path("dados/aqua_rat/final/aqua_rat_ptbr_argos.json")
 DATASET_CENSO = Path("dados/censo_escolar/final/censo_escolar_2025.json")
 
 

@@ -1,280 +1,670 @@
-"""Execução Few-shot para GSM8K, AQuA-RAT e Censo, com exemplos reais.
+"""Execução Few-shot: GSM8K, AQuA-RAT e Censo Escolar.
 
 """
+import json
+import os
+import statistics
+import time
 from datetime import datetime
 from pathlib import Path
+
 from tqdm import tqdm
-
+import re
+import unicodedata
 from codigo.utils import (
-    carregar_gsm8k, carregar_aqua_rat, consultar_ollama,
-    extrair_letra_resposta, extrair_resposta_numerica,
+    carregar_gsm8k, carregar_aqua_rat, carregar_censo, consultar_ollama,
     extrair_gabarito_gsm8k, extrair_gabarito_aqua_rat,
-    comparar_numeros, salvar_json,
+    extrair_gabarito_censo, extrair_resposta_numerica,
+    extrair_letra_resposta, comparar_numeros,
+    montar_questao_gsm8k, montar_questao_aqua_rat,
 )
-from codigo.few_shot.prompts import prompt_few_shot_gsm8k, prompt_few_shot_aqua_rat
+from codigo.few_shot.prompts import (
+    prompt_few_shot_gsm8k, prompt_few_shot_aqua_rat,
+    prompt_few_shot_censo,
+)
 
-# CONFIGURAÇÕES
-METODO = 'few_shot'
-MODELO = 'llama3.2'
-PASTAS = {
-    'gsm8k': Path('resultados/few_shot/gsm8k'),
-    'aqua_rat': Path('resultados/few_shot/aqua_rat'),
-}
-TEMPERATURE = 0.0  # Reduz a aleatoriedade da geração.
-NUM_PREDICT = 200   # Limita o máximo de tokens de saída.
-N_EXEMPLOS = 10     # Altere aqui para 15, 20 etc. Quantidade de demonstrações reais do split train.
+try:
+    import psutil
+except ImportError:
+    psutil = None
 
+MODELO = "llama3.2"
+TEMPERATURE = 0.0
+NUM_PREDICT = 500
+N_EXEMPLOS = {"gsm8k": 10, "aqua_rat": 10, "censo": 5}
+SALVAR_CADA = 10
+PARAR_APOS_FALHAS = 3
+PASTA_BASE = Path("resultados/few_shot")
 
-
-# CRIA IDENTIFICADOR DA EXECUÇÃO
-
-def criar_id_execucao(dataset, limite, pasta):
-    """Exemplo: few_shot_gsm8k_20261017_todos_1"""
-    data = datetime.now().strftime('%Y%m%d')
-    limite_nome = str(limite) if limite is not None else 'todos'
-    prefixo = f'{METODO}_{dataset}_{data}_{limite_nome}_'
-    pasta.mkdir(parents=True, exist_ok=True)  # Não gera erro se já existir.
-    numero_execucao = 1
-    while True:  # Procura um nome que ainda não exista.
-        identificador = f'{prefixo}{numero_execucao}'
-        if not (pasta / f'{identificador}.json').exists():
-            return identificador
-        numero_execucao += 1
+# Faixas temáticas das 50 questões do Censo (posições no JSON).
+# A seleção é automática, determinística e alterna entre os seis blocos.
+BLOCOS_CENSO = [(1, 8), (9, 16), (17, 25), (26, 35), (36, 43), (44, 50)]
 
 
-# SELEÇÃO REPRODUZÍVEL DOS EXEMPLOS REAIS
+# Avaliação do Censo incorporada: este arquivo não depende de revisao_censo.py.
+def _normalizar(texto):
+    texto = unicodedata.normalize('NFKD', str(texto).lower())
+    return ''.join(c for c in texto if not unicodedata.combining(c))
 
-def selecionar_exemplos(dataset, n=None):
-    if n is None:
-        n = N_EXEMPLOS
-    if not isinstance(n, int) or n <= 0:
-        raise ValueError('A quantidade de exemplos deve ser um inteiro positivo.')
-    carregar = carregar_gsm8k if dataset == 'gsm8k' else carregar_aqua_rat
-    candidatos = carregar(split='train')
+
+def _numeros(texto):
+    # Captura milhares brasileiros (178.766) e inteiros sem separador (178766).
+    tokens = re.findall(r'(?<![\w])\d{1,3}(?:\.\d{3})+(?:,\d+)?|(?<![\w])\d+(?:[.,]\d+)?', str(texto))
+    valores = set()
+    for token in tokens:
+        if re.fullmatch(r'\d{1,3}(?:\.\d{3})+', token):
+            valores.add(int(token.replace('.', '')))
+        elif token.isdigit():
+            valores.add(int(token))
+    return valores
+
+
+def _avaliacao_deterministica(gabarito, resposta):
+    """Só confirma acerto quando há um número único e inequívoco no gabarito.
+
+    Não usa coincidência de números para aprovar perguntas de comparação,
+    interpretação, múltiplas categorias ou percentuais.
+    """
+    numeros = {n for n in _numeros(gabarito) if n >= 1000}
+    if len(numeros) != 1:
+        return None
+    valor = next(iter(numeros))
+    # Valores isolados não bastam quando o gabarito exige explicação conceitual.
+    palavras = _normalizar(gabarito)
+    if any(p in palavras for p in ('segundo o dicionario', 'representa', 'distingue',
+                                   'significa', 'indica que', 'percentual', 'media',
+                                   'categoria', 'por dependencia', 'por regiao',
+                                   'por localizacao', 'compar')):
+        return None
+    # Garante que a resposta afirma o valor e não apenas o inclui em código de exemplo.
+    texto = re.sub(r'```.*?```', '', str(resposta), flags=re.S)
+    if valor in _numeros(texto):
+        return True, 'Valor principal do gabarito encontrado na resposta em texto.'
+    return None
+
+
+def _extrair_json(texto):
+    if not texto:
+        return None
+    try:
+        return json.loads(texto)
+    except (ValueError, TypeError):
+        trecho = re.search(r'\{[\s\S]*\}', str(texto))
+        if trecho:
+            try:
+                return json.loads(trecho.group())
+            except ValueError:
+                pass
+    return None
+
+
+def _tem_valor(texto, valor):
+    """Reconhece inteiros com ou sem separadores de milhar."""
+    return valor in _numeros(texto)
+
+
+def _criterios_censo(questao, resposta):
+    """Rubricas objetivas para as questões 01–20, com base nos gabaritos.
+
+    Não utiliza a resposta esperada como resposta do modelo. O ID apenas
+    seleciona os critérios; o texto produzido precisa satisfazê-los.
+    As demais questões continuam na avaliação semântica automática.
+    """
+    identificador = str(questao.get('id', ''))
+    try:
+        numero = int(identificador.rsplit('_', 1)[-1])
+    except ValueError:
+        return None
+    t = _normalizar(resposta)
+    tem = lambda x: _tem_valor(resposta, x)
+    def decisao(ok, explicacao):
+        return {'acertou': bool(ok), 'motivo': explicacao,
+                'revisao_necessaria': False, 'metodo_avaliacao': 'rubrica_objetiva_censo'}
+
+    if numero == 1:
+        return decisao(tem(178766), 'Verificação do total de escolas.')
+    if numero == 2:
+        return decisao(tem(46018380), 'Verificação do total de matrículas, não apenas do código proposto.')
+    if numero == 3:
+        return decisao(('atividade complementar' in t and ('aee' in t or 'atendimento educacional especializado' in t)),
+                       'Devem ser identificados os dois tipos de turma excluídos.')
+    if numero == 4:
+        return decisao(bool(re.search(r'(?<!\d)27(?!\d)', t)) and ('uf' in t or 'unidade' in t or 'estado' in t),
+                       'Deve informar as 27 unidades da federação, não somente listar parte delas.')
+    if numero == 5:
+        return decisao(tem(5571) and not ('uf' in t and 'value_counts' in t),
+                       'Deve identificar 5.571 municípios distintos; contar UFs não resolve.')
+    if numero == 6:
+        return decisao('nu_ano_censo' in t and '2025' in t and ('ano' in t or 'referencia' in t),
+                       'Variável, significado e ano de referência.')
+    if numero == 7:
+        afirmacao = re.search(r'\b(sim|existe|existem|ha)\b.{0,75}(escola|qt_mat_bas)', t)
+        negativa = bool(re.search(r'\b(nao existe|nao ha|nenhuma escola|zero ocorrencias|0 ocorrencias)\b', t))
+        return decisao(negativa and not afirmacao, 'Não há escolas com QT_MAT_BAS igual a zero; afirmação positiva contradiz o gabarito.')
+    if numero == 8:
+        correta = ('co_rede' in t and 'tp_dependencia' in t and
+                   ('publica' in t and 'privada' in t) and
+                   ('federal' in t and 'estadual' in t and 'municipal' in t))
+        bloco = re.search(r'co_rede.{0,180}(?:tp_dependencia|ja a variavel)', t, flags=re.S)
+        erro_rede = bool(bloco and all(x in bloco.group() for x in ('federal', 'estadual', 'municipal', 'privada')))
+        return decisao(correta and not erro_rede and ('duas' in t or '2 categoria' in t or 'publica e privada' in t),
+                       'CO_REDE agrupa pública/privada; TP_DEPENDENCIA possui quatro categorias.')
+    if numero == 9:
+        return decisao(tem(137020) and tem(41746), 'Contagens das redes pública e privada.')
+    if numero == 10:
+        return decisao(all(tem(v) for v in (383526, 13330302, 23059168, 9245384)) and 'municipal' in t,
+                       'Quatro totais de matrículas por dependência e predominância municipal.')
+    if numero == 11:
+        return decisao('federal' in t and tem(716) and tem(383526),
+                       'Menor dependência é federal, com 716 escolas e 383.526 matrículas.')
+    if numero == 12:
+        ok = all(x in t for x in ('federal', 'estadual', 'municipal', 'privada')) and all(x in t for x in ('535', '448', '216', '221'))
+        return decisao(ok, 'Médias por todas as quatro dependências e identificação da maior.')
+    if numero == 13:
+        return decisao('municipal' in t and 'estadual' in t and '216' in t and '448' in t and
+                       ('metade' in t or 'dobro' in t or 'menor' in t),
+                       'Comparação efetiva entre as médias municipal e estadual.')
+    if numero == 14:
+        return decisao('tp_categoria_escola_privada' in t and all(x in t for x in
+                       ('particular', 'comunitaria', 'confessional', 'filantropica')),
+                       'Variável e as quatro categorias privadas.')
+    if numero == 15:
+        return decisao(tem(7085034) and tem(1711268) and 'particular' in t and 'filantropica' in t and
+                       ('maior' in t or 'mais matriculas' in t or 'superior' in t or 'concentra' in t),
+                       'Matrículas particular e filantrópica e comparação conclusiva entre ambas.')
+    if numero == 16:
+        return decisao('parceria' in t and 'poder publico' in t and ('financiamento' in t or 'convenio' in t),
+                       'Interpretação da parceria com o poder público.')
+    if numero == 17:
+        return decisao(tem(128037) and tem(50729), 'Contagens de escolas urbanas e rurais.')
+    if numero == 18:
+        return decisao(tem(40871166) and tem(5147214), 'Totais de matrículas urbanas e rurais.')
+    if numero == 19:
+        return decisao('319' in t and '101' in t and 'urbana' in t and 'rural' in t and '270' not in t,
+                       'Médias urbana e rural corretas, sem valor urbano contraditório.')
+    if numero == 20:
+        return decisao(all(x in t for x in ('24,42', '21,34', '5,90', '5,77', '3,30')) and 'norte' in t,
+                       'Percentuais das cinco regiões e identificação da maior.')
+    # Questões que pedem listas de UFs: compara cada sigla com seu valor, sem exigir ordem.
+    # Não avalia explicações adicionais, apenas os cinco resultados solicitados.
+    if numero in (22, 23):
+        esperados = ({'SP': 9600318, 'MG': 4220829, 'BA': 3345058,
+                      'RJ': 3319771, 'PR': 2438428} if numero == 22 else
+                     {'RR': 186395, 'AP': 212026, 'AC': 242727,
+                      'RO': 376264, 'TO': 380768})
+        nomes = {'SP': 'sao paulo', 'MG': 'minas gerais', 'BA': 'bahia',
+                 'RJ': 'rio de janeiro', 'PR': 'parana', 'RR': 'roraima',
+                 'AP': 'amapa', 'AC': 'acre', 'RO': 'rondonia', 'TO': 'tocantins'}
+        # Exige que cada valor esteja associado à UF correspondente.
+        linhas = re.split(r'\n|;', resposta)
+        def par_presente(sigla, valor):
+            for linha in linhas:
+                uf = (re.search(r'(?<![A-Za-z])' + sigla + r'(?![A-Za-z])', linha, re.I)
+                      or nomes[sigla] in _normalizar(linha))
+                if uf and _tem_valor(linha, valor):
+                    return True
+            return False
+        ok = all(par_presente(sigla, valor) for sigla, valor in esperados.items())
+        return decisao(ok, 'Conferência dos cinco pares UF e total de matrículas, independentemente da ordem.')
+    return None
+
+
+def avaliar_censo(questao, resposta, consultar_ollama=None):
+    """Avalia automaticamente em acerto/erro; sem revisão manual."""
+    gabarito = str(questao.get('resposta_esperada') or questao.get('gabarito') or '').strip()
+    enunciado = str(questao.get('pergunta') or questao.get('enunciado') or '').strip()
+    resposta = str(resposta or '').strip()
+    if not resposta:
+        return {'acertou': False, 'motivo': 'Modelo não forneceu resposta.',
+                'revisao_necessaria': False, 'metodo_avaliacao': 'resposta_vazia'}
+    if not gabarito:
+        return {'acertou': False, 'motivo': 'Gabarito ausente; não foi possível confirmar acerto.',
+                'revisao_necessaria': False, 'metodo_avaliacao': 'gabarito_ausente'}
+
+    # Primeiro aplica critérios verificáveis para as questões cobertas por rubricas.
+    resultado = _criterios_censo(questao, resposta)
+    if resultado is not None:
+        return resultado
+
+    # Para as demais questões, usa um avaliador semântico em JSON estrito.
+    if consultar_ollama is None:
+        return {'acertou': False, 'motivo': 'Sem avaliador para confirmar a resposta.',
+                'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_indisponivel'}
+    prompt = f"""Você corrige respostas do Censo Escolar. Julgue APENAS a resposta dada,
+comparando-a com a questão e o gabarito. Não avalie a intenção nem a qualidade
+aparente do código: se o valor pedido não foi efetivamente respondido, está errado.
+Avalie o RESULTADO solicitado, não a explicação ou o procedimento.
+Se o resultado solicitado estiver correto, marque CORRETA mesmo com explicação ruim.
+Listas podem vir em qualquer ordem, exceto quando a pergunta exigir uma ordem.
+Resultado ausente, ambíguo ou incorreto é INCORRETA. Nunca use INCERTO.
+Responda com JSON válido, sem markdown, neste formato:
+{{"veredito":"CORRETA","justificativa":"motivo específico"}}
+
+QUESTÃO: {enunciado}
+GABARITO: {gabarito}
+RESPOSTA: {resposta}"""
+    try:
+        texto = consultar_ollama(prompt, temperature=0, num_predict=220)
+        julgamento = _extrair_json(texto)
+    except Exception as erro:
+        julgamento = None
+        detalhe = f'Falha no avaliador: {erro}'
+    else:
+        detalhe = 'O avaliador não retornou JSON válido.'
+    if not isinstance(julgamento, dict):
+        return {'acertou': False, 'motivo': detalhe, 'revisao_necessaria': False,
+                'metodo_avaliacao': 'avaliador_inconclusivo'}
+    veredito = str(julgamento.get('veredito', '')).upper().strip()
+    justificativa = str(julgamento.get('justificativa', '')).strip()
+    if veredito not in ('CORRETA', 'INCORRETA') or not justificativa:
+        return {'acertou': False, 'motivo': justificativa or 'Veredito inconclusivo.',
+                'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_inconclusivo'}
+    return {'acertou': veredito == 'CORRETA', 'motivo': justificativa,
+            'revisao_necessaria': False, 'metodo_avaliacao': 'llm_como_avaliador'}
+
+
+
+
+def ordem_exemplos_censo(registros):
+    """Intercala questões de todos os blocos, sem sorteio e sem repetir posições.
+
+    Em cada bloco, prioriza questões próximas ao centro; com mais exemplos,
+    preserva todos os exemplos já selecionados com uma quantidade menor.
+    """
+    blocos = []
+    for inicio, fim in BLOCOS_CENSO:
+        posicoes = [i for i in range(inicio - 1, min(fim, len(registros)))]
+        centro = (inicio + fim - 2) / 2
+        posicoes.sort(key=lambda i: (abs(i - centro), i))
+        blocos.append(posicoes)
+
+    ordem = []
+    for rodada in range(max(map(len, blocos), default=0)):
+        for bloco in blocos:
+            if rodada < len(bloco):
+                ordem.append(bloco[rodada])
+
+    # Se a lista crescer além das 50 questões originais, não omitir novas posições.
+    ordem.extend(range(min(50, len(registros)), len(registros)))
+    return ordem
+
+
+def agora():
+    return datetime.now().isoformat(timespec="seconds")
+
+
+def salvar(caminho, dados):
+    caminho = Path(caminho)
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    temporario = caminho.with_suffix(".tmp")
+    with temporario.open("w", encoding="utf-8") as arquivo:
+        json.dump(dados, arquivo, ensure_ascii=False, indent=2)
+    os.replace(temporario, caminho)
+
+
+def selecionar_exemplos(dataset, registros, quantidade):
+    if not isinstance(quantidade, int) or isinstance(quantidade, bool) or quantidade < 1:
+        raise ValueError("A quantidade de exemplos deve ser um inteiro positivo.")
+
+    if dataset == "censo":
+        if quantidade >= len(registros):
+            raise ValueError("O Censo precisa ter questões fora das demonstrações.")
+        ordem = ordem_exemplos_censo(registros)
+        exemplos = [registros[i] for i in ordem[:quantidade]]
+        if len(exemplos) != quantidade:
+            raise ValueError("Não há exemplos suficientes no Censo.")
+        if any(not str(e.get("resposta_esperada") or "").strip() for e in exemplos):
+            raise ValueError("Há demonstração do Censo sem resposta_esperada.")
+        return exemplos
+
     exemplos = []
-    ids = set()
-    for q in candidatos:
-        identificador = str(q.get('id', '')).strip()
-        if not identificador or identificador in ids:
+    vistos = set()
+    for questao in registros:
+        if questao.get("split") != "train":
+            continue
+        identificador = str(questao.get("id", ""))
+        if not identificador or identificador in vistos:
             continue
         try:
-            if dataset == 'gsm8k':
-                from codigo.utils import montar_questao_gsm8k
-                montar_questao_gsm8k(q)
-                if not extrair_gabarito_gsm8k(q):
+            if dataset == "gsm8k":
+                montar_questao_gsm8k(questao)
+                if not extrair_gabarito_gsm8k(questao):
                     continue
             else:
-                from codigo.utils import montar_questao_aqua_rat
-                montar_questao_aqua_rat(q)
-                extrair_gabarito_aqua_rat(q)
-                # A marcação ajuda a evitar exemplos já sinalizados como problemáticos.
-                # Não garante qualidade semântica; revisão humana continua recomendada.
-                if q.get('revisao_necessaria') is True:
+                montar_questao_aqua_rat(questao)
+                extrair_gabarito_aqua_rat(questao)
+                if questao.get("revisao_necessaria") is True:
                     continue
-        except (ValueError, TypeError, KeyError):
+        except (ValueError, KeyError, TypeError):
             continue
-        exemplos.append(q)
-        ids.add(identificador)
-        if len(exemplos) == n:
+        exemplos.append(questao)
+        vistos.add(identificador)
+        if len(exemplos) == quantidade:
             break
-    if len(exemplos) != n:
-        raise ValueError(f'{dataset}: apenas {len(exemplos)} exemplos elegíveis no train; necessários {n}.')
+    if len(exemplos) != quantidade:
+        raise ValueError(f"Foram encontrados apenas {len(exemplos)} exemplos válidos.")
     return exemplos
 
 
-# EXECUÇÃO GSM8K / AQUA-RAT
+def metricas(resultados, tempo_total, quantidade, dataset):
+    independentes = [r for r in resultados if r["avaliacao_independente"]]
+    corrigidas = [r for r in resultados if isinstance(r["acertou"], bool)]
+    corrigidas_independentes = [r for r in independentes if isinstance(r["acertou"], bool)]
+    teste = [r for r in resultados if r.get("split") == "test" and not r["usada_como_exemplo"]]
+    corrigidas_teste = [r for r in teste if isinstance(r["acertou"], bool)]
+    tempos = [r["tempo_segundos"] for r in resultados]
 
-def executar_dataset(dataset, limite=None, n_exemplos=None):
-    if n_exemplos is None:
-        n_exemplos = N_EXEMPLOS
-    if dataset not in PASTAS:
-        raise ValueError(f'Dataset desconhecido: {dataset}')
-    if limite is not None and (not isinstance(limite, int) or limite <= 0):
-        raise ValueError('limite deve ser um inteiro positivo ou None.')
+    def acuracia(itens):
+        return round(100 * sum(r["acertou"] for r in itens) / len(itens), 2) if itens else None
 
-    carregar = carregar_gsm8k if dataset == 'gsm8k' else carregar_aqua_rat
-    exemplos = selecionar_exemplos(dataset, n=n_exemplos)
-    questoes = carregar(split='test')
-    if limite is not None:
-        questoes = questoes[:limite]
+    def media(chave):
+        valores = [r[chave] for r in resultados if isinstance(r.get(chave), (int, float))]
+        return round(statistics.mean(valores), 2) if valores else None
+
+    def resumo(itens):
+        return {
+            "questoes": len(itens),
+            "acertos": sum(r["acertou"] for r in itens),
+            "erros": sum(not r["acertou"] for r in itens),
+            "acuracia_percentual": acuracia(itens),
+        }
+
+    por_split = {}
+    if dataset != "censo":
+        for split in ("train", "validation", "test"):
+            itens = [r for r in corrigidas if r["split"] == split]
+            if itens:
+                por_split[split] = resumo(itens)
+
+    return {
+        "exemplos_utilizados": quantidade,
+        "questoes_executadas": len(resultados),
+        "questoes_independentes": len(independentes),
+        "questoes_corrigidas": len(corrigidas),
+        "questoes_independentes_corrigidas": len(corrigidas_independentes),
+        "acertos": sum(r["acertou"] for r in corrigidas),
+        "acertos_gerais": sum(r["acertou"] for r in corrigidas),
+        "erros_gerais": sum(not r["acertou"] for r in corrigidas),
+        "erros": sum(not r["acertou"] for r in corrigidas),
+        "acuracia_independente_percentual": acuracia(corrigidas_independentes),
+        "questoes_teste": len(teste),
+        "acertos_teste": sum(r["acertou"] for r in corrigidas_teste),
+        "acuracia_teste_percentual": acuracia(corrigidas_teste),
+        "acuracia_geral_percentual": acuracia(corrigidas),
+        "acuracia_por_split": por_split,
+        "respostas_sem_extracao": sum(not r["resposta_valida"] for r in resultados),
+        "revisoes_necessarias": sum(r["revisao_necessaria"] for r in resultados),
+        "tempo_total_segundos": round(tempo_total, 2),
+        "tempo_medio_segundos": round(statistics.mean(tempos), 2) if tempos else None,
+        "tokens_entrada": sum(r.get("tokens_entrada") or 0 for r in resultados),
+        "tokens_saida": sum(r.get("tokens_saida") or 0 for r in resultados),
+        "cpu_media_percentual": media("cpu_percentual"),
+        "ram_media_percentual": media("ram_percentual"),
+    }
+
+
+def recursos():
+    if psutil is None:
+        return {"cpu_percentual": None, "ram_percentual": None}
+    return {
+        "cpu_percentual": psutil.cpu_percent(interval=None),
+        "ram_percentual": psutil.virtual_memory().percent,
+    }
+
+
+def identificador_novo(dataset, limite, quantidade):
+    pasta = PASTA_BASE / dataset
+    pasta.mkdir(parents=True, exist_ok=True)
+    data = datetime.now().strftime("%Y%m%d")
+    prefixo = f"few_shot_{dataset}_{data}_q{'todos' if limite is None else limite}_ex{quantidade}_run"
+    indice = 1
+    while any((pasta / f"{prefixo}{indice}{sufixo}").exists()
+              for sufixo in (".json", ".progresso.json")):
+        indice += 1
+    return f"{prefixo}{indice:02d}"
+
+
+def tempo_legivel(segundos):
+    horas, resto = divmod(round(segundos), 3600)
+    minutos, segundos = divmod(resto, 60)
+    return f"{horas}h {minutos}min {segundos}s" if horas else f"{minutos}min {segundos}s"
+
+
+def mostrar_resumo(dataset, dados, caminho):
+    m = dados["metricas"]
+    acuracia = m["acuracia_independente_percentual"]
+    acuracia_geral = m["acuracia_geral_percentual"]
+    print(f"\n{dataset.upper()} | Few-shot")
+    print(f"Questões executadas: {m['questoes_executadas']}")
+    print(f"Questões corrigidas: {m['questoes_corrigidas']}")
+    print(f"Exemplos utilizados: {m['exemplos_utilizados']}")
+    print(f"Acertos: {m['acertos']}")
+    print(f"Erros: {m['erros']}")
+    print(f"Acurácia geral: {acuracia_geral:.2f}%" if acuracia_geral is not None else "Acurácia geral: indisponível")
+    # Acurácia do teste e avaliação independente ficam detalhadas somente no JSON.
+    print(f"Tempo total: {tempo_legivel(m['tempo_total_segundos'])}")
+    tempo_medio = m["tempo_medio_segundos"]
+    print(f"Tempo médio: {tempo_medio:.2f}s" if tempo_medio is not None else "Tempo médio: indisponível")
+    print(f"Resultados salvos em: {caminho}")
+
+
+def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
+    carregadores = {
+        "gsm8k": carregar_gsm8k,
+        "aqua_rat": carregar_aqua_rat,
+        "censo": carregar_censo,
+    }
+    if dataset not in carregadores:
+        raise ValueError(f"Dataset desconhecido: {dataset}")
+    if limite is not None and (not isinstance(limite, int) or isinstance(limite, bool) or limite < 1):
+        raise ValueError("O limite deve ser None ou inteiro positivo.")
+
+    quantidade = N_EXEMPLOS[dataset] if n_exemplos is None else n_exemplos
+    registros = carregadores[dataset](split=None)
+    ids = [str(q.get("id", "")) for q in registros]
+    if not all(ids) or len(ids) != len(set(ids)):
+        raise ValueError("Há IDs ausentes ou duplicados no dataset.")
+
+    exemplos = selecionar_exemplos(dataset, registros, quantidade)
+    ids_exemplos = {str(e["id"]) for e in exemplos}
+
+    # Exclui automaticamente as questões utilizadas como exemplos, pelos IDs.
+    # Preserva a ordem original e aplica o limite somente após a exclusão.
+    questoes_disponiveis = [
+        questao for questao in registros
+        if str(questao["id"]) not in ids_exemplos
+    ]
+    questoes = (questoes_disponiveis[:limite]
+               if limite is not None else questoes_disponiveis)
     if not questoes:
-        raise ValueError(f'Nenhuma questão encontrada para {dataset}, split=test.')
+        raise ValueError("Nenhuma questão disponível para avaliação após excluir os exemplos.")
 
-    # Proteção contra vazamento: nenhum ID do train selecionado pode estar no test.
-    ids_exemplos = [str(q['id']) for q in exemplos]
-    ids_teste = {str(q.get('id', '')) for q in questoes}
-    if ids_teste.intersection(ids_exemplos):
-        raise ValueError('Vazamento de dados: há IDs de exemplos presentes no test.')
+    sessao = None
+    contextos_exemplos = None
+    if dataset == "censo":
+        try:
+            from codigo.consulta_censo import SessaoCenso, verificar_consultas
+        except ImportError as erro:
+            raise ImportError(
+                "O Censo exige SessaoCenso e verificar_consultas em codigo/consulta_censo.py."
+            ) from erro
+        verificar_consultas(exemplos + questoes)
+        sessao = SessaoCenso()
+        contextos_exemplos = {str(e["id"]): sessao.consultar(e) for e in exemplos}
 
-    pasta = PASTAS[dataset]
-    id_execucao = criar_id_execucao(dataset, limite, pasta)
-    resultados = []
-    print('\n' + '=' * 60)
-    print(f'{METODO.upper()} - {dataset.upper()}')
-    print(f'ID da execução: {id_execucao} | Modelo: {MODELO}')
-    print(f'Questões do test: {len(questoes)} | Exemplos do train: {len(exemplos)}')
-    print('IDs dos exemplos:', ', '.join(ids_exemplos))
-    print('=' * 60)
-
-    for i, q in enumerate(tqdm(questoes, desc=f'Few-shot {dataset}')):
-        if dataset == 'gsm8k':
-            prompt = prompt_few_shot_gsm8k(q, exemplos)
-            gabarito = extrair_gabarito_gsm8k(q)
-        else:
-            prompt = prompt_few_shot_aqua_rat(q, exemplos)
-            gabarito = extrair_gabarito_aqua_rat(q)
-
-        resposta_completa = consultar_ollama(
-            prompt=prompt, temperature=TEMPERATURE,
-            num_predict=NUM_PREDICT,
-        )
-        if dataset == 'aqua_rat':
-            resposta_modelo = extrair_letra_resposta(resposta_completa)
-            acertou = bool(resposta_modelo) and resposta_modelo == gabarito
-        else:
-            resposta_modelo = extrair_resposta_numerica(resposta_completa)
-            acertou = comparar_numeros(resposta_modelo, gabarito)
-
-        resultados.append({
-            'id': q.get('id', i), 'split': q.get('split', ''),
-            'gabarito': gabarito, 'resposta_modelo': resposta_modelo,
-            'acertou': acertou, 'resposta_completa': resposta_completa,
-            'erro_consulta': resposta_completa is None,
-        })
-
-    # MÉTRICAS
-    total = len(resultados)
-    acertos = sum(1 for r in resultados if r['acertou'] is True)
-    erros = total - acertos
-    precisao = round(acertos / total * 100, 2) if total else None
-
-    # DADOS DA EXECUÇÃO
-    dados = {
-        'id_execucao': id_execucao,
-        'data_execucao': datetime.now().isoformat(timespec='seconds'),
-        'metodo': METODO, 'dataset': dataset, 'modelo': MODELO,
-        'total': total, 'acertos': acertos, 'erros': erros,
-        'precisao': precisao,
-        'parametros': {
-            'temperature': TEMPERATURE, 'num_predict': NUM_PREDICT,
-            'limite': limite, 'split_avaliacao': 'test',
-            'split_exemplos': 'train', 'n_exemplos': n_exemplos,
-            'selecao_exemplos': 'primeiros_elegiveis_na_ordem_do_json',
-            'ids_exemplos': ids_exemplos,
-        },
-        'resultados': resultados,
+    pasta = PASTA_BASE / dataset
+    pasta.mkdir(parents=True, exist_ok=True)
+    nome = (Path(retomar).name.removesuffix(".progresso.json") if retomar
+            else identificador_novo(dataset, limite, quantidade))
+    caminho = pasta / f"{nome}.json"
+    progresso = pasta / f"{nome}.progresso.json"
+    parametros = {
+        "modelo": MODELO,
+        "temperatura": TEMPERATURE,
+        "limite": limite,
+        "maximo_tokens_resposta": NUM_PREDICT,
+        "quantidade_exemplos": quantidade,
+        "ids_exemplos": [str(e["id"]) for e in exemplos],
+        "ids_questoes": [str(q["id"]) for q in questoes],
+        "criterio_avaliacao": "test_sem_demonstracoes" if dataset != "censo" else "fora_das_demonstracoes",
     }
+    if retomar:
+        with progresso.open("r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
+        if dados["parametros"] != parametros:
+            raise ValueError("Os parâmetros atuais diferem do checkpoint.")
+        resultados = dados["resultados"]
+    else:
+        resultados = []
+        dados = {
+            "id_execucao": nome,
+            "tecnica": "few_shot",
+            "dataset": dataset,
+            "data_inicio": agora(),
+            "parametros": parametros,
+            "resultados": resultados,
+            "status": "em_andamento",
+        }
 
-    # SALVAMENTO
-    caminho = pasta / f'{id_execucao}.json'
-    salvar_json(caminho, dados)
+    concluidos = {str(r["id"]) for r in resultados}
+    if len(concluidos) != len(resultados):
+        raise ValueError("Checkpoint contém questões duplicadas.")
+    pendentes = [q for q in questoes if str(q["id"]) not in concluidos]
+    tempo_anterior = dados.get("tempo_acumulado_segundos", 0.0)
+    inicio = time.perf_counter()
+    falhas_seguidas = 0
+    print(f"\n{dataset.upper()} | {len(questoes)} questões | {quantidade} exemplos | pendentes: {len(pendentes)}")
 
-    # RESUMO
-    print(f'\nSalvo: {caminho}')
-    print(f'Total: {total} | Acertos: {acertos} | Erros: {erros}')
-    print(f'Precisão: {precisao:.2f}%')
+    def checkpoint():
+        total = tempo_anterior + time.perf_counter() - inicio
+        dados["tempo_acumulado_segundos"] = total
+        dados["metricas_parciais"] = metricas(resultados, total, quantidade, dataset)
+        salvar(progresso, dados)
+
+    try:
+        for questao in tqdm(pendentes, desc=f"Few-shot {dataset}"):
+            demonstracao = str(questao["id"]) in ids_exemplos
+            if dataset == "gsm8k":
+                exemplos_prompt = [e for e in exemplos if str(e["id"]) != str(questao["id"])]
+                if not exemplos_prompt:
+                    raise ValueError("É necessário ter outra demonstração para avaliar esta questão.")
+                prompt = prompt_few_shot_gsm8k(questao, exemplos_prompt)
+                gabarito = extrair_gabarito_gsm8k(questao)
+            elif dataset == "aqua_rat":
+                exemplos_prompt = [e for e in exemplos if str(e["id"]) != str(questao["id"])]
+                if not exemplos_prompt:
+                    raise ValueError("É necessário ter outra demonstração para avaliar esta questão.")
+                prompt = prompt_few_shot_aqua_rat(questao, exemplos_prompt)
+                gabarito = extrair_gabarito_aqua_rat(questao)
+            else:
+                contexto = sessao.consultar(questao)
+                # Para questões de demonstração, exclui a própria questão do prompt.
+                exemplos_prompt = [e for e in exemplos if str(e["id"]) != str(questao["id"])]
+                if not exemplos_prompt:
+                    raise ValueError("Censo precisa de pelo menos dois exemplos para executar demonstrações.")
+                prompt = prompt_few_shot_censo(questao, contexto, exemplos_prompt, contextos_exemplos)
+                gabarito = extrair_gabarito_censo(questao)
+
+            inicio_questao = time.perf_counter()
+            info = consultar_ollama(
+                prompt, temperature=TEMPERATURE,
+                num_predict=NUM_PREDICT, retornar_metricas=True,
+            )
+            duracao = round(time.perf_counter() - inicio_questao, 3)
+            if not isinstance(info, dict):
+                info = {"resposta": None}
+            texto = info.get("resposta")
+            erro_consulta = texto is None
+
+            if dataset == "gsm8k":
+                resposta = extrair_resposta_numerica(texto)
+                valida = bool(resposta)
+                acertou = comparar_numeros(resposta, gabarito) if valida else False
+            elif dataset == "aqua_rat":
+                resposta = extrair_letra_resposta(texto)
+                valida = bool(resposta)
+                acertou = resposta == gabarito if valida else False
+            else:
+                resposta = str(texto).strip() if texto is not None else ""
+                valida = bool(resposta)
+                # Avalia automaticamente com o gabarito, sem usá-lo no prompt da questão.
+                # Respostas inconclusivas ou sem resultado identificável são erros.
+                avaliacao_censo = avaliar_censo(questao, resposta, consultar_ollama)
+                acertou = avaliacao_censo["acertou"]
+
+            independente = not demonstracao and (dataset == "censo" or questao.get("split") == "test")
+            revisao = False  # Avaliação binária: não há fila de revisão.
+            if erro_consulta:
+                motivo = "Falha na consulta ao modelo"
+            elif not valida:
+                motivo = "Resposta não identificada"
+            elif acertou is False:
+                motivo = "Resposta incorreta"
+            elif acertou is None:
+                motivo = "Avaliação inconclusiva"
+            else:
+                motivo = None
+
+            if dataset == "censo" and not erro_consulta:
+                motivo = avaliacao_censo["motivo"]
+
+            resultados.append({
+                "id": str(questao["id"]),
+                "split": questao.get("split"),
+                "usada_como_exemplo": demonstracao,
+                "avaliacao_independente": independente,
+                "gabarito": gabarito,
+                "resposta": resposta,
+                "texto_modelo": texto,
+                "resposta_valida": valida,
+                "acertou": acertou,
+                "motivo": motivo,
+                "revisao_necessaria": revisao,
+                "metodo_avaliacao": (avaliacao_censo["metodo_avaliacao"] if dataset == "censo" else "comparacao_exata"),
+                "tempo_segundos": duracao,
+                "tokens_entrada": info.get("prompt_eval_count"),
+                "tokens_saida": info.get("eval_count"),
+                **recursos(),
+            })
+            falhas_seguidas = falhas_seguidas + 1 if erro_consulta else 0
+            if len(resultados) % SALVAR_CADA == 0 or falhas_seguidas >= PARAR_APOS_FALHAS:
+                checkpoint()
+            if falhas_seguidas >= PARAR_APOS_FALHAS:
+                raise RuntimeError("Ollama não respondeu após três questões consecutivas; progresso salvo.")
+    except BaseException:
+        checkpoint()
+        raise
+
+    dados["data_fim"] = agora()
+    dados["status"] = "concluido"
+    dados["tempo_acumulado_segundos"] = tempo_anterior + time.perf_counter() - inicio
+    dados["metricas"] = metricas(resultados, dados["tempo_acumulado_segundos"], quantidade, dataset)
+    dados.pop("metricas_parciais", None)
+    salvar(caminho, dados)
+    if progresso.exists():
+        progresso.unlink()
+    mostrar_resumo(dataset, dados, caminho)
     return dados
 
 
-# EXECUÇÃO CENSO ESCOLAR — AMOSTRAGEM ALEATÓRIA REPRODUZÍVEL
-# O JSON original não é alterado. O sorteio separa demonstrações e avaliação.
-# Para cada questão, a evidência deve vir do CSV, nunca de resposta_esperada.
-
-def executar_censo(limite=None, n_exemplos=None, seed=2026):
-    import random
-    from codigo.utils import carregar_censo, montar_questao_censo
-    from codigo.consulta_censo import contexto_censo
-    from codigo.few_shot.prompts import prompt_few_shot_censo
-
-    if n_exemplos is None:
-        n_exemplos = N_EXEMPLOS
-    if not isinstance(n_exemplos, int) or n_exemplos <= 0:
-        raise ValueError('n_exemplos deve ser um inteiro positivo.')
-    if limite is not None and (not isinstance(limite, int) or limite <= 0):
-        raise ValueError('limite deve ser um inteiro positivo ou None.')
-    questoes = carregar_censo()
-    if len(questoes) <= n_exemplos:
-        raise ValueError('O Censo precisa ter mais questões do que exemplos.')
-    if len({q['id'] for q in questoes}) != len(questoes):
-        raise ValueError('IDs duplicados no Censo.')
-    rng = random.Random(seed)  # Mesma seed = mesma amostra.
-    embaralhadas = sorted(questoes, key=lambda q: q['id'])
-    rng.shuffle(embaralhadas)
-    # Sem alterar o JSON: primeiras n demonstrações, restantes para avaliação.
-    exemplos = embaralhadas[:n_exemplos]
-    teste = embaralhadas[n_exemplos:]
-    if limite is not None:
-        teste = teste[:limite]
-
-    # Valida se TODAS as questões possuem consultas implementadas antes do Ollama.
-    # Cada questão é consultada na execução desta técnica; não usamos um JSON
-    # de contextos pré-calculados nem a resposta_esperada como evidência.
-    from codigo.consulta_censo import verificar_consultas, SessaoCenso
-    verificar_consultas(exemplos + teste)
-    sessao = SessaoCenso()
-    contextos_exemplos = {}
-    for exemplo in exemplos:
-        contextos_exemplos[exemplo['id']] = sessao.consultar(exemplo)
-    # Não consultar todas as questões de avaliação antecipadamente.
-    # A consulta é realizada dentro do loop, antes de cada prompt.
-
-    pasta = Path('resultados/few_shot/censo')
-    identificador = criar_id_execucao('censo', limite, pasta)
-    resultados = []
-    for q in tqdm(teste, desc='Few-shot Censo'):
-        contexto_atual = sessao.consultar(q)  # Consulta o CSV nesta questão.
-        prompt = prompt_few_shot_censo(q, contexto_atual, exemplos, contextos_exemplos)
-        resposta = consultar_ollama(prompt, temperature=TEMPERATURE, num_predict=NUM_PREDICT)
-        # Questões abertas: não calcular acerto por igualdade de strings.
-        resultados.append({
-            'id': q['id'], 'resposta_modelo': resposta,
-            'erro_ollama': resposta is None, 'fonte_csv': str(sessao.caminho),
-            'gabarito_referencia': q.get('resposta_esperada'),
-            'avaliacao_humana_pendente': True,
-        })
-    dados = {
-        'id_execucao': identificador, 'metodo': METODO, 'dataset': 'censo',
-        'modelo': MODELO, 'total': len(resultados),
-        'data_execucao': datetime.now().isoformat(timespec='seconds'),
-        'parametros': {'seed': seed, 'n_exemplos': n_exemplos,
-                       'temperature': TEMPERATURE, 'num_predict': NUM_PREDICT,
-                       'ids_exemplos': [q['id'] for q in exemplos],
-                       'ids_teste': [q['id'] for q in teste],
-                       'divisao': 'sorteio_em_memoria_sem_modificar_json'},
-        'resultados': resultados,
-    }
-    caminho = pasta / f'{identificador}.json'
-    salvar_json(caminho, dados)
-    print(f'\nSalvo: {caminho} | Questões: {len(resultados)} | Avaliação humana pendente')
-    return dados
+def executar_gsm8k(limite=None, n_exemplos=None, retomar=None):
+    return executar_dataset("gsm8k", limite, n_exemplos, retomar)
 
 
-# FUNÇÕES DE EXECUÇÃO POR DATASET
-# Mantêm a mesma forma de chamada utilizada anteriormente no projeto.
-# limite=500: avalia até 500 questões do conjunto de teste.
-# limite=None: avalia todas as questões disponíveis para teste.
-# n_exemplos=None: utiliza N_EXEMPLOS (10 por padrão) do train.
-
-def executar_gsm8k(limite=None, n_exemplos=None):
-    return executar_dataset('gsm8k', limite=limite, n_exemplos=n_exemplos)
+def executar_aqua_rat(limite=None, n_exemplos=None, retomar=None):
+    return executar_dataset("aqua_rat", limite, n_exemplos, retomar)
 
 
-def executar_aqua_rat(limite=None, n_exemplos=None):
-    return executar_dataset('aqua_rat', limite=limite, n_exemplos=n_exemplos)
+def executar_censo(limite=None, n_exemplos=None, retomar=None):
+    return executar_dataset("censo", limite, n_exemplos, retomar)
 
 
-# EXECUÇÃO PRINCIPAL
+if __name__ == "__main__":
+    executar_gsm8k(limite=500)
+    executar_aqua_rat(limite=500)
+    executar_censo(limite=20)
 
-if __name__ == '__main__':
-    executar_gsm8k(
-        limite=500
-    )
 
-    executar_aqua_rat(
-        limite=500
-    )
-
-    # Descomente quando as consultas do Censo estiverem validadas.
-    executar_censo(
-        limite=20
-    )
+    # executar_gsm8k()
+    # executar_aqua_rat()
+    # executar_censo()

@@ -2,6 +2,7 @@
 
 """
 from datetime import datetime
+import time
 from pathlib import Path
 from tqdm import tqdm
 
@@ -12,6 +13,8 @@ from codigo.utils import (
     comparar_numeros, salvar_json,
 )
 from codigo.chain_of_thought.prompts import prompt_cot_gsm8k, prompt_cot_aqua_rat
+# Reutiliza exatamente a mesma avaliação binária do Few-shot; não depende de revisao_censo.py.
+from codigo.few_shot.executar_few_shot import avaliar_censo, selecionar_exemplos as selecionar_exemplos_few_shot
 
 # CONFIGURAÇÕES
 METODO = 'chain_of_thought'
@@ -22,20 +25,21 @@ PASTAS = {
 }
 TEMPERATURE = 0.0  # Reduz a aleatoriedade da geração.
 NUM_PREDICT = 800   # Limita o máximo de tokens de saída.
-N_EXEMPLOS = 10     # Altere aqui para 15, 20 etc. Quantidade de demonstrações reais do split train.
+N_EXEMPLOS = 10     # Quantidade de demonstrações para GSM8K e AQuA-RAT.
+N_EXEMPLOS_CENSO = 5  # Mesma seleção temática do Few-shot; altere se necessário.
 
 
 # CRIA IDENTIFICADOR DA EXECUÇÃO
 
-def criar_id_execucao(dataset, limite, pasta):
+def criar_id_execucao(dataset, limite, pasta, quantidade):
     """Exemplo: chain_of_thought_gsm8k_20261017_todos_1"""
     data = datetime.now().strftime('%Y%m%d')
     limite_nome = str(limite) if limite is not None else 'todos'
-    prefixo = f'{METODO}_{dataset}_{data}_{limite_nome}_'
+    prefixo = f'{METODO}_{dataset}_{data}_q{limite_nome}_ex{quantidade}_run'
     pasta.mkdir(parents=True, exist_ok=True)  # Não gera erro se já existir.
     numero_execucao = 1
     while True:  # Procura um nome que ainda não exista.
-        identificador = f'{prefixo}{numero_execucao}'
+        identificador = f'{prefixo}{numero_execucao:02d}'
         if not (pasta / f'{identificador}.json').exists():
             return identificador
         numero_execucao += 1
@@ -111,7 +115,7 @@ def executar_dataset(dataset, limite=None, n_exemplos=None):
         raise ValueError('Vazamento de dados: há IDs de exemplos presentes no test.')
 
     pasta = PASTAS[dataset]
-    id_execucao = criar_id_execucao(dataset, limite, pasta)
+    id_execucao = criar_id_execucao(dataset, limite, pasta, n_exemplos)
     resultados = []
     print('\n' + '=' * 60)
     print(f'{METODO.upper()} - {dataset.upper()}')
@@ -181,71 +185,144 @@ def executar_dataset(dataset, limite=None, n_exemplos=None):
     return dados
 
 
-# EXECUÇÃO CENSO ESCOLAR — DEZ PRIMEIRAS QUESTÕES FIXAS.
-# NÃO utiliza N_EXEMPLOS, n_exemplos, sorteio ou seed.
-# Exemplos: IDs 01 a 10. Avaliação: IDs 11 a 50.
+# EXECUÇÃO CENSO ESCOLAR — exemplos distribuídos pelos blocos temáticos.
+# Seleção idêntica à do Few-shot; cada exemplo é excluído da avaliação pelo ID.
+# As resoluções CoT são geradas para as demonstrações a partir dos dados do CSV.
 
-def executar_censo(limite=None):
+def criar_raciocinios_censo(exemplos, contextos):
+    """Prepara uma resolução passo a passo para cada exemplo, sem usar questões de teste."""
+    from codigo.utils import montar_questao_censo
+
+    raciocinios = {}
+    for exemplo in tqdm(exemplos, desc='Preparando demonstrações CoT do Censo'):
+        identificador = str(exemplo['id'])
+        gabarito = str(exemplo['resposta_esperada']).strip()
+        contexto = contextos[identificador]
+        prompt = f"""Elabore uma resolução didática, passo a passo, para esta questão já resolvida
+sobre os microdados do Censo Escolar 2025. Esta resolução será uma demonstração
+Chain-of-Thought para outra questão.
+
+Use SOMENTE a pergunta, os dados fornecidos e o resultado de referência.
+Identifique as variáveis relevantes, explique os cálculos, filtros e comparações
+que os dados permitirem, e conclua com o resultado informado.
+Não invente números, cálculos ou justificativas que não possam ser verificados
+nos dados. Não copie a pergunta nem repita o gabarito inteiro como explicação.
+Se o contexto não permitir justificar alguma parte, indique essa limitação.
+
+{montar_questao_censo(exemplo, contexto)}
+Resultado de referência: {gabarito}
+
+Resolução passo a passo:"""
+        resolucao = consultar_ollama(prompt, temperature=0, num_predict=NUM_PREDICT)
+        if not resolucao or not str(resolucao).strip():
+            raise RuntimeError(f'Não foi possível preparar a demonstração CoT {identificador}.')
+        raciocinios[identificador] = str(resolucao).strip()
+    return raciocinios
+
+
+def executar_censo(limite=None, n_exemplos=None):
     from codigo.utils import carregar_censo
     from codigo.chain_of_thought.prompts import prompt_cot_censo
+    from codigo.consulta_censo import verificar_consultas, SessaoCenso
 
     if limite is not None and (not isinstance(limite, int) or isinstance(limite, bool) or limite <= 0):
         raise ValueError('limite deve ser um inteiro positivo ou None.')
-    questoes = carregar_censo()
-    if len(questoes) != 50:
-        raise ValueError('Esperadas exatamente 50 questões no Censo Escolar.')
-    if len({q['id'] for q in questoes}) != 50:
-        raise ValueError('IDs duplicados no Censo.')
-    # Ordenar pelos IDs garante que são realmente as questões 01 a 10.
-    ordenadas = sorted(questoes, key=lambda q: q['id'])
-    ids_esperados = [f'censo_2025_{i:02d}' for i in range(1, 51)]
-    if [q['id'] for q in ordenadas] != ids_esperados:
-        raise ValueError('Os IDs do Censo devem ir de censo_2025_01 a censo_2025_50.')
-    exemplos = ordenadas[:10]  # FIXO nesta técnica.
-    teste = ordenadas[10:]    # Nenhuma questão de exemplo entra no teste.
-    if limite is not None:
-        teste = teste[:limite]
+    quantidade = N_EXEMPLOS_CENSO if n_exemplos is None else n_exemplos
+    registros = carregar_censo()
+    ids = [str(q.get('id', '')) for q in registros]
+    if not registros or not all(ids) or len(set(ids)) != len(ids):
+        raise ValueError('O Censo precisa conter questões com IDs únicos e válidos.')
 
-    # Valida se TODAS as questões selecionadas possuem consultas implementadas antes do Ollama.
-    # Cada questão é consultada na execução desta técnica; não usamos um JSON
-    # de contextos pré-calculados nem a resposta_esperada como evidência.
-    from codigo.consulta_censo import verificar_consultas, SessaoCenso
+    # Usa a mesma distribuição entre blocos temáticos adotada no Few-shot.
+    exemplos = selecionar_exemplos_few_shot('censo', registros, quantidade)
+    ids_exemplos = {str(q['id']) for q in exemplos}
+    disponiveis = [q for q in registros if str(q['id']) not in ids_exemplos]
+    teste = disponiveis[:limite] if limite is not None else disponiveis
+    if not teste:
+        raise ValueError('Nenhuma questão independente disponível para avaliação.')
+
     verificar_consultas(exemplos + teste)
     sessao = SessaoCenso()
-    contextos_exemplos = {}
-    for exemplo in exemplos:
-        contextos_exemplos[exemplo['id']] = sessao.consultar(exemplo)
-    # Não consultar todas as questões de avaliação antecipadamente.
-    # A consulta é realizada dentro do loop, antes de cada prompt.
+    contextos_exemplos = {str(e['id']): sessao.consultar(e) for e in exemplos}
+    inicio = time.perf_counter()
+    raciocinios_exemplos = criar_raciocinios_censo(exemplos, contextos_exemplos)
 
     pasta = Path('resultados/chain_of_thought/censo')
-    identificador = criar_id_execucao('censo', limite, pasta)
+    identificador = criar_id_execucao('censo', limite, pasta, len(exemplos))
     resultados = []
+    print(f'\nCENSO | Chain-of-Thought | {len(teste)} questões | {len(exemplos)} exemplos')
+    print('IDs das demonstrações:', ', '.join(str(e['id']) for e in exemplos))
+
     for q in tqdm(teste, desc='Chain-of-Thought Censo'):
-        contexto_atual = sessao.consultar(q)  # Consulta o CSV nesta questão.
-        prompt = prompt_cot_censo(q, contexto_atual, exemplos, contextos_exemplos)
-        resposta = consultar_ollama(prompt, temperature=TEMPERATURE, num_predict=NUM_PREDICT)
-        # Questões abertas: não calcular acerto por igualdade de strings.
+        contexto_atual = sessao.consultar(q)
+        prompt = prompt_cot_censo(q, contexto_atual, exemplos, contextos_exemplos,
+                                  raciocinios_exemplos)
+        inicio_questao = time.perf_counter()
+        info = consultar_ollama(prompt, temperature=TEMPERATURE,
+                               num_predict=NUM_PREDICT, retornar_metricas=True)
+        duracao = round(time.perf_counter() - inicio_questao, 3)
+        if not isinstance(info, dict):
+            info = {'resposta': None}
+        resposta = str(info.get('resposta') or '').strip()
+        avaliacao = avaliar_censo(q, resposta, consultar_ollama)
         resultados.append({
-            'id': q['id'], 'resposta_modelo': resposta,
-            'erro_ollama': resposta is None, 'fonte_csv': str(sessao.caminho),
-            'gabarito_referencia': q.get('resposta_esperada'),
-            'avaliacao_humana_pendente': True,
+            'id': str(q['id']),
+            'split': q.get('split'),
+            'usada_como_exemplo': False,
+            'avaliacao_independente': True,
+            'gabarito': q.get('resposta_esperada'),
+            'resposta': resposta,
+            'texto_modelo': resposta,
+            'resposta_valida': bool(resposta),
+            'acertou': bool(avaliacao['acertou']),
+            'motivo': avaliacao['motivo'],
+            'metodo_avaliacao': avaliacao['metodo_avaliacao'],
+            'tempo_segundos': duracao,
+            'tokens_entrada': info.get('prompt_eval_count'),
+            'tokens_saida': info.get('eval_count'),
+            'fonte_csv': str(sessao.caminho),
         })
+
+    total = len(resultados)
+    acertos = sum(r['acertou'] for r in resultados)
+    erros = total - acertos
+    acuracia = round(100 * acertos / total, 2) if total else None
     dados = {
-        'id_execucao': identificador, 'metodo': METODO, 'dataset': 'censo',
-        'modelo': MODELO, 'total': len(resultados),
+        'id_execucao': identificador,
+        'tecnica': METODO,
+        'metodo': METODO,
+        'dataset': 'censo',
+        'modelo': MODELO,
         'data_execucao': datetime.now().isoformat(timespec='seconds'),
-        'parametros': {'n_exemplos_censo_fixo': 10,
-                       'temperature': TEMPERATURE, 'num_predict': NUM_PREDICT,
-                       'ids_exemplos': [q['id'] for q in exemplos],
-                       'ids_teste': [q['id'] for q in teste],
-                       'divisao': 'primeiras_10_demonstracoes_restantes_40_avaliacao'},
+        'parametros': {
+            'temperatura': TEMPERATURE,
+            'maximo_tokens_resposta': NUM_PREDICT,
+            'limite': limite,
+            'quantidade_exemplos': len(exemplos),
+            'ids_exemplos': [str(q['id']) for q in exemplos],
+            'ids_questoes': [str(q['id']) for q in teste],
+            'criterio_avaliacao': 'fora_das_demonstracoes',
+            'criterio_correcao': 'resposta_final_binaria',
+            'selecao_exemplos': 'blocos_tematicos_igual_few_shot',
+            'raciocinios_exemplos': raciocinios_exemplos,
+        },
+        'metricas': {
+            'questoes_executadas': total,
+            'questoes_independentes': total,
+            'questoes_corrigidas': total,
+            'exemplos_utilizados': len(exemplos),
+            'acertos': acertos,
+            'erros': erros,
+            'acuracia_geral_percentual': acuracia,
+            'acuracia_independente_percentual': acuracia,
+            'tempo_total_segundos': round(time.perf_counter() - inicio, 2),
+        },
         'resultados': resultados,
     }
     caminho = pasta / f'{identificador}.json'
     salvar_json(caminho, dados)
-    print(f'\nSalvo: {caminho} | Questões: {len(resultados)} | Avaliação humana pendente')
+    print(f'\nAcertos: {acertos} | Erros: {erros} | Acurácia: {acuracia:.2f}%')
+    print(f'Resultados salvos em: {caminho}')
     return dados
 
 
@@ -271,7 +348,6 @@ if __name__ == '__main__':
         limite=500
     )
 
-    # Descomente após implementar e validar as consultas necessárias do Censo.
     executar_censo(
         limite=20
     )
