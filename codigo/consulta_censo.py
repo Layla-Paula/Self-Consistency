@@ -183,28 +183,42 @@ class SessaoCenso:
         d = self._dados
         temas = plano['temas']
         pergunta = str(questao.get('pergunta') or questao.get('enunciado'))
-        linhas = [f'Fonte: {self.caminho.name}; registros: {d["total"]}; escolas distintas (CO_ENTIDADE): {d["escolas"]}.',
-                  f'Matriculas QT_MAT_BAS: {d["somas"]["QT_MAT_BAS"]}.']
+        # O contexto nao inclui gabarito nem raciocinio da questao avaliada.
+        # Disponibiliza contagens e somas primarias para que o modelo calcule
+        # medias, percentuais, diferencas, comparacoes e rankings.
+        linhas = [f'Fonte dos dados: {self.caminho.name}.',
+                  'Valores abaixo sao contagens ou somas extraidas do CSV. ',
+                  'Calcule os indicadores derivados solicitados na pergunta.']
         if 'estrutura' in temas:
-            linhas += [f'Escolas com QT_MAT_BAS igual a zero: {d["zeros"]}.',
+            linhas += [f'Registros de escolas na tabela: {d["total"]}.',
+                      f'Escolas distintas (CO_ENTIDADE): {d["escolas"]}.',
+                      f'Total de matriculas (QT_MAT_BAS): {d["somas"]["QT_MAT_BAS"]}.',
+                      f'Escolas com QT_MAT_BAS igual a zero: {d["zeros"]}.',
                       f'Anos observados (NU_ANO_CENSO): {dict(d["anos"])}.',
                       f'UFs distintas: {len(d["ufs"])}; municipios distintos: {len({m[1] for m in d["municipios"]})}.',
                       f'UFs: {", ".join(sorted(d["ufs"]))}.']
         if 'administracao' in temas or 'localizacao' in temas:
-            for grupo in (GRUPOS['administracao'] if 'administracao' in temas else ()) + (('TP_LOCALIZACAO','TP_LOCALIZACAO_DIFERENCIADA') if 'localizacao' in temas else ()):
+            grupos_relevantes = (GRUPOS['administracao'] if 'administracao' in temas else ()) + (('TP_LOCALIZACAO','TP_LOCALIZACAO_DIFERENCIADA') if 'localizacao' in temas else ())
+            for grupo in grupos_relevantes:
                 if grupo not in d['grupos']:
                     continue
-                linhas.append(f'Agrupamento por {grupo} (codigo: escolas; matriculas; media por escola):')
+                linhas.append(f'Agrupamento por {grupo} (codigo: numero de escolas; total de matriculas):')
                 for codigo, (escolas, matriculas) in sorted(d['grupos'][grupo].items()):
-                    linhas.append(f'  {codigo}: {escolas}; {matriculas}; {matriculas/escolas:.2f}')
+                    linhas.append(f'  {codigo}: {escolas}; {matriculas}')
         if 'localizacao' in temas:
-            linhas.append('Regioes (matriculas totais; matriculas em escolas rurais; percentual rural):')
-            for reg, (t, rural) in sorted(d['regiao'].items()):
-                linhas.append(f'  {reg}: {t}; {rural}; {100*rural/t:.2f}%' if t else f'  {reg}: sem matriculas')
+            linhas.append('Regioes (total de matriculas; matriculas em escolas rurais):')
+            for reg, (total_regiao, rural) in sorted(d['regiao'].items()):
+                linhas.append(f'  {reg}: {total_regiao}; {rural}')
         if 'territorio' in temas:
-            linhas.append('Matriculas por UF: ' + '; '.join(f'{k}={v}' for k,v in sorted(d['ufs'].items(), key=lambda x:-x[1])))
-            top = sorted(d['municipios'].items(), key=lambda x:-x[1])[:10]
-            linhas.append('10 municipios com mais matriculas: ' + '; '.join(f'{nome}/{uf} ({codigo})={valor}' for (uf,codigo,nome),valor in top))
+            # Ordem alfabetica: nao fornece ranking previamente calculado.
+            linhas.append('Matriculas por UF: ' + '; '.join(f'{k}={v}' for k,v in sorted(d['ufs'].items())))
+            # Para a pergunta sobre o maior municipio, fornece candidatos com
+            # suas somas primarias, sem identificar qual e o vencedor.
+            if 'municipio' in simplificar(pergunta) and 'maior' in simplificar(pergunta):
+                candidatos = sorted(d['municipios'].items(), key=lambda x:-x[1])[:10]
+                linhas.append('Municipios candidatos (municipio/UF, codigo: matriculas): ' + '; '.join(
+                    f'{nome}/{uf} ({codigo}): {valor}'
+                    for (uf,codigo,nome),valor in sorted(candidatos, key=lambda item:(item[0][2],item[0][0]))))
         # Identifica o tema pela pergunta, nao pelo numero da questao.
         conjuntos = {'etapas':ETAPAS, 'perfil':PERFIL, 'turno':TURNO,
                      'inclusao':INCLUSAO, 'transporte':TRANSPORTE, 'residencia':RESIDENCIA}
@@ -212,6 +226,11 @@ class SessaoCenso:
             if tema in temas:
                 linhas.append(f'Indicadores do tema {tema}:')
                 linhas.extend(f'  {c}: {d["somas"][c]}' for c in colunas if c in self.colunas)
+        # O total geral e fornecido apenas quando necessario como denominador
+        # de um percentual ou comparacao com o conjunto de matriculas.
+        if ('percentual' in simplificar(pergunta) or 'total geral' in simplificar(pergunta)
+                or 'total de matriculas da educacao basica' in simplificar(pergunta)):
+            linhas.append(f'Total geral QT_MAT_BAS (denominador): {d["somas"]["QT_MAT_BAS"]}')
         # Series especificas sao reconhecidas pelo texto da pergunta.
         t = simplificar(pergunta)
         if 'serie' in t or 'ano especifico' in t:

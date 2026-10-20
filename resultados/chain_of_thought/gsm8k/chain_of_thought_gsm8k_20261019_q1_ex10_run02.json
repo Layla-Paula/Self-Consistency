@@ -1,0 +1,82 @@
+{
+  "id_execucao": "chain_of_thought_gsm8k_20261019_q1_ex10_run02",
+  "tecnica": "chain_of_thought",
+  "dataset": "gsm8k",
+  "data_inicio": "2026-10-19T16:15:08",
+  "parametros": {
+    "modelo": "llama3.2",
+    "temperatura": 0.0,
+    "limite": 1,
+    "maximo_tokens_resposta": 800,
+    "quantidade_exemplos": 10,
+    "ids_exemplos": [
+      "train_0",
+      "train_1",
+      "train_2",
+      "train_3",
+      "train_4",
+      "train_5",
+      "train_6",
+      "train_7",
+      "train_8",
+      "train_9"
+    ],
+    "ids_questoes": [
+      "train_10"
+    ],
+    "criterio_avaliacao": "todos_splits_sem_demonstracoes",
+    "tipo_demonstracao": "questao_raciocinio_resposta",
+    "origem_raciocinios_censo": null
+  },
+  "resultados": [
+    {
+      "id": "train_10",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "avaliacao_independente": true,
+      "gabarito": "121",
+      "resposta": "",
+      "texto_modelo": null,
+      "resposta_valida": false,
+      "falha_tecnica": true,
+      "acertou": null,
+      "motivo": "Falha na consulta ao modelo",
+      "revisao_necessaria": false,
+      "metodo_avaliacao": "falha_tecnica",
+      "tempo_segundos": 67.83,
+      "tokens_entrada": null,
+      "tokens_saida": null,
+      "cpu_percentual": 44.2,
+      "ram_percentual": 88.6
+    }
+  ],
+  "status": "concluido",
+  "data_fim": "2026-10-19T16:16:16",
+  "tempo_acumulado_segundos": 67.85018099995796,
+  "metricas": {
+    "exemplos_utilizados": 10,
+    "questoes_executadas": 1,
+    "questoes_independentes": 1,
+    "questoes_corrigidas": 0,
+    "questoes_independentes_corrigidas": 0,
+    "acertos": 0,
+    "acertos_gerais": 0,
+    "erros_gerais": 0,
+    "erros": 0,
+    "acuracia_independente_percentual": null,
+    "questoes_teste": 0,
+    "acertos_teste": 0,
+    "acuracia_teste_percentual": null,
+    "acuracia_geral_percentual": null,
+    "acuracia_por_split": {},
+    "respostas_sem_extracao": 0,
+    "falhas_tecnicas": 1,
+    "revisoes_necessarias": 0,
+    "tempo_total_segundos": 67.85,
+    "tempo_medio_segundos": 67.83,
+    "tokens_entrada": 0,
+    "tokens_saida": 0,
+    "cpu_media_percentual": 44.2,
+    "ram_media_percentual": 88.6
+  }
+}

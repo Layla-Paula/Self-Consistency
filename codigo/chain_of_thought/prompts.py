@@ -28,7 +28,7 @@ def _demonstracoes_gsm8k(exemplos):
 
 
 # DEMONSTRAÇÕES DE RACIOCÍNIO — AQUA-RAT
-# rationale_pt só é utilizado em exemplos do train; nunca na questão do test.
+# rationale_pt só é utilizado em exemplos do train; nunca na questão avaliada.
 def _demonstracoes_aqua_rat(exemplos):
     blocos = []
     for indice, exemplo in enumerate(exemplos, 1):
@@ -43,7 +43,7 @@ def _demonstracoes_aqua_rat(exemplos):
 
 
 def prompt_cot_gsm8k(problema, exemplos):
-    """CoT com demonstrações reais do train e problema atual do test."""
+    """CoT com demonstrações reais do train e problema atual de qualquer split."""
     if not exemplos:
         raise ValueError('CoT GSM8K precisa de exemplos do train.')
     return f'''Você resolve problemas matemáticos. Observe os exemplos com resoluções intermediárias.

@@ -1,0 +1,44 @@
+{
+  "id_execucao": "chain_of_thought_gsm8k_20261019_q1_ex10_run01",
+  "data_execucao": "2026-10-19T16:20:21",
+  "metodo": "chain_of_thought",
+  "dataset": "gsm8k",
+  "modelo": "llama3.2",
+  "total": 1,
+  "acertos": 1,
+  "erros": 0,
+  "precisao": 100.0,
+  "parametros": {
+    "temperature": 0.0,
+    "num_predict": 800,
+    "limite": 1,
+    "split_avaliacao": "test",
+    "split_exemplos": "train",
+    "n_exemplos": 10,
+    "selecao_exemplos": "primeiros_elegiveis_na_ordem_do_json",
+    "tipo_demonstracao": "questao_resolucao_resposta",
+    "ids_exemplos": [
+      "train_0",
+      "train_1",
+      "train_2",
+      "train_3",
+      "train_4",
+      "train_5",
+      "train_6",
+      "train_7",
+      "train_8",
+      "train_9"
+    ]
+  },
+  "resultados": [
+    {
+      "id": "test_0",
+      "split": "test",
+      "gabarito": "18",
+      "resposta_modelo": "18",
+      "acertou": true,
+      "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, precisamos saber quantos ovos Janet vende todos os dias. Ela põe 16 ovos por dia e come 3 ovos todos os dias, então ela vende:\n\n16 - 3 = 13 ovos por dia\n\nEla também faz muffins com 4 ovos todos os dias, então ela vende:\n\n13 - 4 = 9 ovos por dia\n\nAgora, precisamos saber quanto ela ganha por ovo. Ela vende os ovos por $2 por ovo, então:\n\n9 ovos x $2/ovo = $18 por dia\n\nResposta final: 18",
+      "erro_consulta": false
+    }
+  ]
+}

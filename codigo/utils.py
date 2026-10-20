@@ -1,3 +1,4 @@
+"""Utilitários compartilhados dos experimentos com Ollama."""
 
 import json
 import math
@@ -70,7 +71,10 @@ def formatar_alternativas(alternativas):
             if prefixo:
                 letra_encontrada = prefixo.group(1).upper()
                 if letra_encontrada != letra:
-                    raise ValueError(f"Alternativa fora de ordem: esperado {letra}, recebido {letra_encontrada}.")
+                    raise ValueError(
+                        f"Alternativa fora de ordem: esperado {letra}, "
+                        f"recebido {letra_encontrada}."
+                    )
                 texto = prefixo.group(2).strip()
             convertidas[letra] = texto
         alternativas = convertidas
@@ -87,15 +91,29 @@ def formatar_alternativas(alternativas):
 
 
 def montar_questao_gsm8k(problema):
-    enunciado = str(problema.get("question_pt") or problema.get("problema") or problema.get("question") or "").strip()
+    enunciado = str(
+        problema.get("question_pt")
+        or problema.get("problema")
+        or problema.get("question")
+        or ""
+    ).strip()
     if not enunciado:
         raise ValueError("GSM8K sem enunciado.")
     return enunciado
 
 
 def montar_questao_aqua_rat(problema):
-    enunciado = str(problema.get("question_pt") or problema.get("pergunta") or problema.get("question") or "").strip()
-    alternativas = problema.get("options_pt") or problema.get("alternativas") or problema.get("options")
+    enunciado = str(
+        problema.get("question_pt")
+        or problema.get("pergunta")
+        or problema.get("question")
+        or ""
+    ).strip()
+    alternativas = (
+        problema.get("options_pt")
+        or problema.get("alternativas")
+        or problema.get("options")
+    )
     if not enunciado or alternativas is None:
         raise ValueError("AQuA-RAT sem enunciado ou alternativas.")
     return f"{enunciado}\n\nAlternativas:\n{formatar_alternativas(alternativas)}"
@@ -110,8 +128,10 @@ def montar_questao_censo(questao, contexto=None):
         contexto = questao.get("contexto")
     contexto = str(contexto or "").strip()
     if not contexto:
-        # Impede avaliar como análise de dados uma pergunta sem dados disponíveis.
-        raise ValueError(f"Questão {questao.get('id', '?')} sem contexto dos microdados. Prepare a consulta antes de executar.")
+        raise ValueError(
+            f"Questão {questao.get('id', '?')} sem contexto dos microdados. "
+            "Prepare a consulta antes de executar."
+        )
     return f"Dados do Censo Escolar 2025:\n{contexto}\n\nPergunta:\n{enunciado}"
 
 
@@ -138,7 +158,11 @@ NUMERO = r"-?(?:\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)"
 def normalizar_numero(texto):
     valor = str(texto).strip().replace(" ", "")
     if "," in valor and "." in valor:
-        valor = valor.replace(".", "").replace(",", ".") if valor.rfind(",") > valor.rfind(".") else valor.replace(",", "")
+        valor = (
+            valor.replace(".", "").replace(",", ".")
+            if valor.rfind(",") > valor.rfind(".")
+            else valor.replace(",", "")
+        )
     elif "," in valor:
         valor = valor.replace(",", ".")
     elif re.fullmatch(r"-?\d{1,3}(?:\.\d{3})+", valor):
@@ -164,7 +188,13 @@ def extrair_resposta_numerica(texto):
 
 
 def extrair_gabarito_gsm8k(problema):
-    resposta = str(problema.get("resposta") or problema.get("answer_en") or problema.get("answer") or problema.get("answer_pt") or "")
+    resposta = str(
+        problema.get("resposta")
+        or problema.get("answer_en")
+        or problema.get("answer")
+        or problema.get("answer_pt")
+        or ""
+    )
     encontrado = re.search(rf"####\s*({NUMERO})", resposta)
     if encontrado:
         return encontrado.group(1)
@@ -186,26 +216,54 @@ def extrair_gabarito_censo(questao):
 def comparar_numeros(a, b):
     try:
         valor_a, valor_b = normalizar_numero(a), normalizar_numero(b)
-        return math.isfinite(valor_a) and math.isfinite(valor_b) and math.isclose(valor_a, valor_b, rel_tol=0, abs_tol=1e-9)
+        return (
+            math.isfinite(valor_a)
+            and math.isfinite(valor_b)
+            and math.isclose(valor_a, valor_b, rel_tol=0, abs_tol=1e-9)
+        )
     except (ValueError, TypeError, OverflowError):
         return False
 
 
-def consultar_ollama(prompt, temperature=0.0, num_predict=512, retornar_metricas=False):
+def consultar_ollama(
+    prompt,
+    temperature=0.0,
+    num_predict=512,
+    retornar_metricas=False,
+    num_ctx=8192,
+):
+    """Consulta o Ollama até 3 vezes; falhas retornam metadados, não acerto/erro.
+
+    Mantém retornar_metricas como quarto argumento para compatibilidade com
+    chamadas posicionais antigas. O chamador decide como registrar a falha.
+    """
     payload = {
         "model": MODELO_OLLAMA,
         "prompt": prompt,
         "stream": False,
-        "options": {"temperature": temperature, "num_predict": num_predict},
+        "options": {
+            "temperature": temperature,
+            "num_predict": num_predict,
+            "num_ctx": num_ctx,
+        },
     }
+
+    ultimo_erro = None
+    inicio_total = time.perf_counter()
+
     for tentativa in range(1, 4):
         try:
-            inicio = time.perf_counter()
             resposta = requests.post(URL_OLLAMA, json=payload, timeout=300)
             resposta.raise_for_status()
             dados = resposta.json()
-            duracao = time.perf_counter() - inicio
+            if not isinstance(dados, dict):
+                raise ValueError("O Ollama retornou um JSON que não é um objeto.")
+
             texto = dados.get("response", "")
+            if texto is None or not isinstance(texto, str):
+                raise ValueError("O Ollama retornou um campo 'response' inválido.")
+
+            duracao = time.perf_counter() - inicio_total
             if retornar_metricas:
                 return {
                     "resposta": texto,
@@ -215,11 +273,33 @@ def consultar_ollama(prompt, temperature=0.0, num_predict=512, retornar_metricas
                     "prompt_eval_duration_ns": dados.get("prompt_eval_duration"),
                     "eval_count": dados.get("eval_count"),
                     "eval_duration_ns": dados.get("eval_duration"),
+                    "tentativas": tentativa,
+                    "erro_detalhado": None,
                 }
             return texto
+
         except (requests.RequestException, ValueError) as erro:
-            print(f"Erro no Ollama (tentativa {tentativa}/3): {erro}")
+            ultimo_erro = f"{type(erro).__name__}: {erro}"
+            if isinstance(erro, requests.HTTPError) and erro.response is not None:
+                detalhe_servidor = erro.response.text.strip()[:1000]
+                if detalhe_servidor:
+                    ultimo_erro += f" | Resposta do Ollama: {detalhe_servidor}"
+
+            print(f"Erro no Ollama (tentativa {tentativa}/3): {ultimo_erro}")
             if tentativa < 3:
                 time.sleep(5)
-    print("Falha após 3 tentativas.")
+
+    print("Falha técnica após 3 tentativas. A execução pode avançar para a próxima questão.")
+    if retornar_metricas:
+        return {
+            "resposta": None,
+            "tempo_total_segundos": time.perf_counter() - inicio_total,
+            "total_duration_ns": None,
+            "prompt_eval_count": None,
+            "prompt_eval_duration_ns": None,
+            "eval_count": None,
+            "eval_duration_ns": None,
+            "tentativas": 3,
+            "erro_detalhado": ultimo_erro,
+        }
     return None

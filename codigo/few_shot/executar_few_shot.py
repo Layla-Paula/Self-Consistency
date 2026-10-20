@@ -1,5 +1,4 @@
 """Execução Few-shot: GSM8K, AQuA-RAT e Censo Escolar.
-
 """
 import json
 import os
@@ -7,7 +6,6 @@ import statistics
 import time
 from datetime import datetime
 from pathlib import Path
-
 from tqdm import tqdm
 import re
 import unicodedata
@@ -22,34 +20,29 @@ from codigo.few_shot.prompts import (
     prompt_few_shot_gsm8k, prompt_few_shot_aqua_rat,
     prompt_few_shot_censo,
 )
-
 try:
     import psutil
 except ImportError:
     psutil = None
-
 MODELO = "llama3.2"
 TEMPERATURE = 0.0
 NUM_PREDICT = 500
 N_EXEMPLOS = {"gsm8k": 10, "aqua_rat": 10, "censo": 5}
 SALVAR_CADA = 10
-PARAR_APOS_FALHAS = 3
 PASTA_BASE = Path("resultados/few_shot")
-
 # Faixas temáticas das 50 questões do Censo (posições no JSON).
 # A seleção é automática, determinística e alterna entre os seis blocos.
 BLOCOS_CENSO = [(1, 8), (9, 16), (17, 25), (26, 35), (36, 43), (44, 50)]
-
-
 # Avaliação do Censo incorporada: este arquivo não depende de revisao_censo.py.
 def _normalizar(texto):
     texto = unicodedata.normalize('NFKD', str(texto).lower())
     return ''.join(c for c in texto if not unicodedata.combining(c))
-
-
 def _numeros(texto):
     # Captura milhares brasileiros (178.766) e inteiros sem separador (178766).
-    tokens = re.findall(r'(?<![\w])\d{1,3}(?:\.\d{3})+(?:,\d+)?|(?<![\w])\d+(?:[.,]\d+)?', str(texto))
+    tokens = re.findall(
+        r'(?<![\w])\d{1,3}(?:\.\d{3})+(?:,\d+)?|(?<![\w])\d+(?:[.,]\d+)?',
+        str(texto),
+    )
     valores = set()
     for token in tokens:
         if re.fullmatch(r'\d{1,3}(?:\.\d{3})+', token):
@@ -61,7 +54,6 @@ def _numeros(texto):
 
 def _avaliacao_deterministica(gabarito, resposta):
     """Só confirma acerto quando há um número único e inequívoco no gabarito.
-
     Não usa coincidência de números para aprovar perguntas de comparação,
     interpretação, múltiplas categorias ou percentuais.
     """
@@ -81,8 +73,6 @@ def _avaliacao_deterministica(gabarito, resposta):
     if valor in _numeros(texto):
         return True, 'Valor principal do gabarito encontrado na resposta em texto.'
     return None
-
-
 def _extrair_json(texto):
     if not texto:
         return None
@@ -96,16 +86,11 @@ def _extrair_json(texto):
             except ValueError:
                 pass
     return None
-
-
 def _tem_valor(texto, valor):
     """Reconhece inteiros com ou sem separadores de milhar."""
     return valor in _numeros(texto)
-
-
 def _criterios_censo(questao, resposta):
     """Rubricas objetivas para as questões 01–20, com base nos gabaritos.
-
     Não utiliza a resposta esperada como resposta do modelo. O ID apenas
     seleciona os critérios; o texto produzido precisa satisfazê-los.
     As demais questões continuam na avaliação semântica automática.
@@ -120,7 +105,6 @@ def _criterios_censo(questao, resposta):
     def decisao(ok, explicacao):
         return {'acertou': bool(ok), 'motivo': explicacao,
                 'revisao_necessaria': False, 'metodo_avaliacao': 'rubrica_objetiva_censo'}
-
     if numero == 1:
         return decisao(tem(178766), 'Verificação do total de escolas.')
     if numero == 2:
@@ -207,8 +191,6 @@ def _criterios_censo(questao, resposta):
         ok = all(par_presente(sigla, valor) for sigla, valor in esperados.items())
         return decisao(ok, 'Conferência dos cinco pares UF e total de matrículas, independentemente da ordem.')
     return None
-
-
 def avaliar_censo(questao, resposta, consultar_ollama=None):
     """Avalia automaticamente em acerto/erro; sem revisão manual."""
     gabarito = str(questao.get('resposta_esperada') or questao.get('gabarito') or '').strip()
@@ -220,15 +202,13 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
     if not gabarito:
         return {'acertou': False, 'motivo': 'Gabarito ausente; não foi possível confirmar acerto.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'gabarito_ausente'}
-
     # Primeiro aplica critérios verificáveis para as questões cobertas por rubricas.
     resultado = _criterios_censo(questao, resposta)
     if resultado is not None:
         return resultado
-
     # Para as demais questões, usa um avaliador semântico em JSON estrito.
     if consultar_ollama is None:
-        return {'acertou': False, 'motivo': 'Sem avaliador para confirmar a resposta.',
+        return {'acertou': None, 'motivo': 'Sem avaliador para confirmar a resposta.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_indisponivel'}
     prompt = f"""Você corrige respostas do Censo Escolar. Julgue APENAS a resposta dada,
 comparando-a com a questão e o gabarito. Não avalie a intenção nem a qualidade
@@ -239,7 +219,6 @@ Listas podem vir em qualquer ordem, exceto quando a pergunta exigir uma ordem.
 Resultado ausente, ambíguo ou incorreto é INCORRETA. Nunca use INCERTO.
 Responda com JSON válido, sem markdown, neste formato:
 {{"veredito":"CORRETA","justificativa":"motivo específico"}}
-
 QUESTÃO: {enunciado}
 GABARITO: {gabarito}
 RESPOSTA: {resposta}"""
@@ -252,22 +231,17 @@ RESPOSTA: {resposta}"""
     else:
         detalhe = 'O avaliador não retornou JSON válido.'
     if not isinstance(julgamento, dict):
-        return {'acertou': False, 'motivo': detalhe, 'revisao_necessaria': False,
+        return {'acertou': None, 'motivo': detalhe, 'revisao_necessaria': False,
                 'metodo_avaliacao': 'avaliador_inconclusivo'}
     veredito = str(julgamento.get('veredito', '')).upper().strip()
     justificativa = str(julgamento.get('justificativa', '')).strip()
     if veredito not in ('CORRETA', 'INCORRETA') or not justificativa:
-        return {'acertou': False, 'motivo': justificativa or 'Veredito inconclusivo.',
+        return {'acertou': None, 'motivo': justificativa or 'Veredito inconclusivo.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_inconclusivo'}
     return {'acertou': veredito == 'CORRETA', 'motivo': justificativa,
             'revisao_necessaria': False, 'metodo_avaliacao': 'llm_como_avaliador'}
-
-
-
-
 def ordem_exemplos_censo(registros):
     """Intercala questões de todos os blocos, sem sorteio e sem repetir posições.
-
     Em cada bloco, prioriza questões próximas ao centro; com mais exemplos,
     preserva todos os exemplos já selecionados com uma quantidade menor.
     """
@@ -277,22 +251,16 @@ def ordem_exemplos_censo(registros):
         centro = (inicio + fim - 2) / 2
         posicoes.sort(key=lambda i: (abs(i - centro), i))
         blocos.append(posicoes)
-
     ordem = []
     for rodada in range(max(map(len, blocos), default=0)):
         for bloco in blocos:
             if rodada < len(bloco):
                 ordem.append(bloco[rodada])
-
     # Se a lista crescer além das 50 questões originais, não omitir novas posições.
     ordem.extend(range(min(50, len(registros)), len(registros)))
     return ordem
-
-
 def agora():
     return datetime.now().isoformat(timespec="seconds")
-
-
 def salvar(caminho, dados):
     caminho = Path(caminho)
     caminho.parent.mkdir(parents=True, exist_ok=True)
@@ -300,12 +268,9 @@ def salvar(caminho, dados):
     with temporario.open("w", encoding="utf-8") as arquivo:
         json.dump(dados, arquivo, ensure_ascii=False, indent=2)
     os.replace(temporario, caminho)
-
-
 def selecionar_exemplos(dataset, registros, quantidade):
     if not isinstance(quantidade, int) or isinstance(quantidade, bool) or quantidade < 1:
         raise ValueError("A quantidade de exemplos deve ser um inteiro positivo.")
-
     if dataset == "censo":
         if quantidade >= len(registros):
             raise ValueError("O Censo precisa ter questões fora das demonstrações.")
@@ -316,7 +281,6 @@ def selecionar_exemplos(dataset, registros, quantidade):
         if any(not str(e.get("resposta_esperada") or "").strip() for e in exemplos):
             raise ValueError("Há demonstração do Censo sem resposta_esperada.")
         return exemplos
-
     exemplos = []
     vistos = set()
     for questao in registros:
@@ -344,21 +308,16 @@ def selecionar_exemplos(dataset, registros, quantidade):
     if len(exemplos) != quantidade:
         raise ValueError(f"Foram encontrados apenas {len(exemplos)} exemplos válidos.")
     return exemplos
-
-
 def metricas(resultados, tempo_total, quantidade, dataset):
-    independentes = [r for r in resultados if r["avaliacao_independente"]]
-    corrigidas = [r for r in resultados if isinstance(r["acertou"], bool)]
-    corrigidas_independentes = [r for r in independentes if isinstance(r["acertou"], bool)]
-    teste = [r for r in resultados if r.get("split") == "test" and not r["usada_como_exemplo"]]
-    corrigidas_teste = [r for r in teste if isinstance(r["acertou"], bool)]
-    tempos = [r["tempo_segundos"] for r in resultados]
+    validos = [r for r in resultados if not r.get("falha_tecnica", False)]
+    avaliadas = [r for r in validos if isinstance(r.get("acertou"), bool)]
+    tempos = [r["tempo_segundos"] for r in validos]
 
     def acuracia(itens):
         return round(100 * sum(r["acertou"] for r in itens) / len(itens), 2) if itens else None
 
     def media(chave):
-        valores = [r[chave] for r in resultados if isinstance(r.get(chave), (int, float))]
+        valores = [r[chave] for r in validos if isinstance(r.get(chave), (int, float))]
         return round(statistics.mean(valores), 2) if valores else None
 
     def resumo(itens):
@@ -372,32 +331,33 @@ def metricas(resultados, tempo_total, quantidade, dataset):
     por_split = {}
     if dataset != "censo":
         for split in ("train", "validation", "test"):
-            itens = [r for r in corrigidas if r["split"] == split]
+            itens = [r for r in avaliadas if r.get("split") == split]
             if itens:
                 por_split[split] = resumo(itens)
 
     return {
         "exemplos_utilizados": quantidade,
         "questoes_executadas": len(resultados),
-        "questoes_independentes": len(independentes),
-        "questoes_corrigidas": len(corrigidas),
-        "questoes_independentes_corrigidas": len(corrigidas_independentes),
-        "acertos": sum(r["acertou"] for r in corrigidas),
-        "acertos_gerais": sum(r["acertou"] for r in corrigidas),
-        "erros_gerais": sum(not r["acertou"] for r in corrigidas),
-        "erros": sum(not r["acertou"] for r in corrigidas),
-        "acuracia_independente_percentual": acuracia(corrigidas_independentes),
-        "questoes_teste": len(teste),
-        "acertos_teste": sum(r["acertou"] for r in corrigidas_teste),
-        "acuracia_teste_percentual": acuracia(corrigidas_teste),
-        "acuracia_geral_percentual": acuracia(corrigidas),
+        "questoes_avaliadas": len(avaliadas),
+        "acertos": sum(r["acertou"] for r in avaliadas),
+        "erros": sum(not r["acertou"] for r in avaliadas),
+        "falhas_tecnicas": sum(bool(r.get("falha_tecnica", False)) for r in resultados),
+        "detalhes_falhas_tecnicas": [
+            {
+                "id": r["id"],
+                "motivo": r.get("motivo"),
+                "tentativas": r.get("tentativas_consulta"),
+            }
+            for r in resultados if r.get("falha_tecnica", False)
+        ],
+        "acuracia_percentual": acuracia(avaliadas),
         "acuracia_por_split": por_split,
-        "respostas_sem_extracao": sum(not r["resposta_valida"] for r in resultados),
-        "revisoes_necessarias": sum(r["revisao_necessaria"] for r in resultados),
+        "respostas_sem_extracao": sum(not r["resposta_valida"] for r in validos),
+        "revisoes_necessarias": sum(r["revisao_necessaria"] for r in validos),
         "tempo_total_segundos": round(tempo_total, 2),
         "tempo_medio_segundos": round(statistics.mean(tempos), 2) if tempos else None,
-        "tokens_entrada": sum(r.get("tokens_entrada") or 0 for r in resultados),
-        "tokens_saida": sum(r.get("tokens_saida") or 0 for r in resultados),
+        "tokens_entrada": sum(r.get("tokens_entrada") or 0 for r in validos),
+        "tokens_saida": sum(r.get("tokens_saida") or 0 for r in validos),
         "cpu_media_percentual": media("cpu_percentual"),
         "ram_media_percentual": media("ram_percentual"),
     }
@@ -410,8 +370,6 @@ def recursos():
         "cpu_percentual": psutil.cpu_percent(interval=None),
         "ram_percentual": psutil.virtual_memory().percent,
     }
-
-
 def identificador_novo(dataset, limite, quantidade):
     pasta = PASTA_BASE / dataset
     pasta.mkdir(parents=True, exist_ok=True)
@@ -422,29 +380,22 @@ def identificador_novo(dataset, limite, quantidade):
               for sufixo in (".json", ".progresso.json")):
         indice += 1
     return f"{prefixo}{indice:02d}"
-
-
 def tempo_legivel(segundos):
     horas, resto = divmod(round(segundos), 3600)
     minutos, segundos = divmod(resto, 60)
     return f"{horas}h {minutos}min {segundos}s" if horas else f"{minutos}min {segundos}s"
-
-
 def mostrar_resumo(dataset, dados, caminho):
     m = dados["metricas"]
-    acuracia = m["acuracia_independente_percentual"]
-    acuracia_geral = m["acuracia_geral_percentual"]
+    acuracia = m["acuracia_percentual"]
     print(f"\n{dataset.upper()} | Few-shot")
     print(f"Questões executadas: {m['questoes_executadas']}")
-    print(f"Questões corrigidas: {m['questoes_corrigidas']}")
+    print(f"Questões avaliadas: {m['questoes_avaliadas']}")
     print(f"Exemplos utilizados: {m['exemplos_utilizados']}")
     print(f"Acertos: {m['acertos']}")
     print(f"Erros: {m['erros']}")
-    print(f"Acurácia geral: {acuracia_geral:.2f}%" if acuracia_geral is not None else "Acurácia geral: indisponível")
-    # Acurácia do teste e avaliação independente ficam detalhadas somente no JSON.
-    print(f"Tempo total: {tempo_legivel(m['tempo_total_segundos'])}")
-    tempo_medio = m["tempo_medio_segundos"]
-    print(f"Tempo médio: {tempo_medio:.2f}s" if tempo_medio is not None else "Tempo médio: indisponível")
+    print(f"Falhas técnicas: {m['falhas_tecnicas']}")
+    print(f"Acurácia: {acuracia:.2f}%" if acuracia is not None else "Acurácia: indisponível")
+    print(f"Tempo de execução: {tempo_legivel(m['tempo_total_segundos'])}")
     print(f"Resultados salvos em: {caminho}")
 
 
@@ -458,16 +409,13 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         raise ValueError(f"Dataset desconhecido: {dataset}")
     if limite is not None and (not isinstance(limite, int) or isinstance(limite, bool) or limite < 1):
         raise ValueError("O limite deve ser None ou inteiro positivo.")
-
     quantidade = N_EXEMPLOS[dataset] if n_exemplos is None else n_exemplos
     registros = carregadores[dataset](split=None)
     ids = [str(q.get("id", "")) for q in registros]
     if not all(ids) or len(ids) != len(set(ids)):
         raise ValueError("Há IDs ausentes ou duplicados no dataset.")
-
     exemplos = selecionar_exemplos(dataset, registros, quantidade)
     ids_exemplos = {str(e["id"]) for e in exemplos}
-
     # Exclui automaticamente as questões utilizadas como exemplos, pelos IDs.
     # Preserva a ordem original e aplica o limite somente após a exclusão.
     questoes_disponiveis = [
@@ -478,7 +426,6 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                if limite is not None else questoes_disponiveis)
     if not questoes:
         raise ValueError("Nenhuma questão disponível para avaliação após excluir os exemplos.")
-
     sessao = None
     contextos_exemplos = None
     if dataset == "censo":
@@ -491,7 +438,6 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         verificar_consultas(exemplos + questoes)
         sessao = SessaoCenso()
         contextos_exemplos = {str(e["id"]): sessao.consultar(e) for e in exemplos}
-
     pasta = PASTA_BASE / dataset
     pasta.mkdir(parents=True, exist_ok=True)
     nome = (Path(retomar).name.removesuffix(".progresso.json") if retomar
@@ -506,7 +452,7 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         "quantidade_exemplos": quantidade,
         "ids_exemplos": [str(e["id"]) for e in exemplos],
         "ids_questoes": [str(q["id"]) for q in questoes],
-        "criterio_avaliacao": "test_sem_demonstracoes" if dataset != "censo" else "fora_das_demonstracoes",
+        "criterio_avaliacao": "todos_splits_sem_demonstracoes" if dataset != "censo" else "fora_das_demonstracoes",
     }
     if retomar:
         with progresso.open("r", encoding="utf-8") as arquivo:
@@ -525,22 +471,18 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
             "resultados": resultados,
             "status": "em_andamento",
         }
-
     concluidos = {str(r["id"]) for r in resultados}
     if len(concluidos) != len(resultados):
         raise ValueError("Checkpoint contém questões duplicadas.")
     pendentes = [q for q in questoes if str(q["id"]) not in concluidos]
     tempo_anterior = dados.get("tempo_acumulado_segundos", 0.0)
     inicio = time.perf_counter()
-    falhas_seguidas = 0
     print(f"\n{dataset.upper()} | {len(questoes)} questões | {quantidade} exemplos | pendentes: {len(pendentes)}")
-
     def checkpoint():
         total = tempo_anterior + time.perf_counter() - inicio
         dados["tempo_acumulado_segundos"] = total
         dados["metricas_parciais"] = metricas(resultados, total, quantidade, dataset)
         salvar(progresso, dados)
-
     try:
         for questao in tqdm(pendentes, desc=f"Few-shot {dataset}"):
             demonstracao = str(questao["id"]) in ids_exemplos
@@ -564,7 +506,6 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                     raise ValueError("Censo precisa de pelo menos dois exemplos para executar demonstrações.")
                 prompt = prompt_few_shot_censo(questao, contexto, exemplos_prompt, contextos_exemplos)
                 gabarito = extrair_gabarito_censo(questao)
-
             inicio_questao = time.perf_counter()
             info = consultar_ollama(
                 prompt, temperature=TEMPERATURE,
@@ -575,6 +516,22 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                 info = {"resposta": None}
             texto = info.get("resposta")
             erro_consulta = texto is None
+            if erro_consulta:
+                motivo = info.get("erro_detalhado") or info.get("erro") or "Falha na consulta ao Ollama"
+                resultados.append({
+                    "id": str(questao["id"]), "split": questao.get("split"),
+                    "usada_como_exemplo": False, "avaliacao_independente": False,
+                    "gabarito": gabarito, "resposta": None, "texto_modelo": None,
+                    "resposta_valida": False, "acertou": None,
+                    "falha_tecnica": True, "motivo": motivo,
+                    "tentativas_consulta": info.get("tentativas", 3),
+                    "revisao_necessaria": False, "metodo_avaliacao": "falha_tecnica_consulta",
+                    "tempo_segundos": duracao, "tokens_entrada": None,
+                    "tokens_saida": None, **recursos(),
+                })
+                print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {motivo}. Avançando.")
+                checkpoint()
+                continue
 
             if dataset == "gsm8k":
                 resposta = extrair_resposta_numerica(texto)
@@ -591,6 +548,24 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                 # Respostas inconclusivas ou sem resultado identificável são erros.
                 avaliacao_censo = avaliar_censo(questao, resposta, consultar_ollama)
                 acertou = avaliacao_censo["acertou"]
+                if acertou is None:
+                    motivo = "Falha na avaliação do Censo: " + avaliacao_censo["motivo"]
+                    resultados.append({
+                        "id": str(questao["id"]), "split": questao.get("split"),
+                        "usada_como_exemplo": False, "avaliacao_independente": False,
+                        "gabarito": gabarito, "resposta": resposta, "texto_modelo": texto,
+                        "resposta_valida": valida, "acertou": None,
+                        "falha_tecnica": True, "motivo": motivo,
+                        "tentativas_consulta": 3,
+                        "revisao_necessaria": False,
+                        "metodo_avaliacao": "falha_tecnica_avaliador",
+                        "tempo_segundos": duracao,
+                        "tokens_entrada": info.get("prompt_eval_count"),
+                        "tokens_saida": info.get("eval_count"), **recursos(),
+                    })
+                    print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {motivo}. Avançando.")
+                    checkpoint()
+                    continue
 
             independente = not demonstracao and (dataset == "censo" or questao.get("split") == "test")
             revisao = False  # Avaliação binária: não há fila de revisão.
@@ -604,10 +579,8 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                 motivo = "Avaliação inconclusiva"
             else:
                 motivo = None
-
             if dataset == "censo" and not erro_consulta:
                 motivo = avaliacao_censo["motivo"]
-
             resultados.append({
                 "id": str(questao["id"]),
                 "split": questao.get("split"),
@@ -618,6 +591,8 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                 "texto_modelo": texto,
                 "resposta_valida": valida,
                 "acertou": acertou,
+                "falha_tecnica": False,
+                "tentativas_consulta": info.get("tentativas", 1),
                 "motivo": motivo,
                 "revisao_necessaria": revisao,
                 "metodo_avaliacao": (avaliacao_censo["metodo_avaliacao"] if dataset == "censo" else "comparacao_exata"),
@@ -626,15 +601,11 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                 "tokens_saida": info.get("eval_count"),
                 **recursos(),
             })
-            falhas_seguidas = falhas_seguidas + 1 if erro_consulta else 0
-            if len(resultados) % SALVAR_CADA == 0 or falhas_seguidas >= PARAR_APOS_FALHAS:
+            if len(resultados) % SALVAR_CADA == 0:
                 checkpoint()
-            if falhas_seguidas >= PARAR_APOS_FALHAS:
-                raise RuntimeError("Ollama não respondeu após três questões consecutivas; progresso salvo.")
     except BaseException:
         checkpoint()
         raise
-
     dados["data_fim"] = agora()
     dados["status"] = "concluido"
     dados["tempo_acumulado_segundos"] = tempo_anterior + time.perf_counter() - inicio
@@ -645,26 +616,20 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         progresso.unlink()
     mostrar_resumo(dataset, dados, caminho)
     return dados
-
-
 def executar_gsm8k(limite=None, n_exemplos=None, retomar=None):
     return executar_dataset("gsm8k", limite, n_exemplos, retomar)
-
-
 def executar_aqua_rat(limite=None, n_exemplos=None, retomar=None):
     return executar_dataset("aqua_rat", limite, n_exemplos, retomar)
-
-
 def executar_censo(limite=None, n_exemplos=None, retomar=None):
     return executar_dataset("censo", limite, n_exemplos, retomar)
+
 
 
 if __name__ == "__main__":
     executar_gsm8k(limite=500)
     executar_aqua_rat(limite=500)
     executar_censo(limite=20)
-
-
+    
     # executar_gsm8k()
     # executar_aqua_rat()
     # executar_censo()
