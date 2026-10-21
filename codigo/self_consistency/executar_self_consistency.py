@@ -9,6 +9,11 @@ import unicodedata
 from datetime import datetime
 from pathlib import Path
 from tqdm import tqdm
+from codigo.protocolo_experimentos import (
+    selecionar_exemplos_comuns, pasta_configuracao, novo_nome, resumo_protocolo,
+    N_EXEMPLOS_PADRAO, ordem_exemplos_censo,
+    USAR_LIMITE_PADRAO, resolver_limite
+)
 from codigo.utils import (
     carregar_gsm8k, carregar_aqua_rat, carregar_censo, consultar_ollama,
     extrair_gabarito_gsm8k, extrair_gabarito_aqua_rat,
@@ -22,6 +27,7 @@ from codigo.self_consistency.prompts import (
     prompt_self_consistency_censo,
 )
 from codigo.self_consistency.experimentos import executar_experimento_self_consistency
+from codigo.self_consistency.votacao import voto_censo_semantico
 try:
     import psutil
 except ImportError:
@@ -31,10 +37,8 @@ MODELO = "llama3.2"
 TEMPERATURE = 0.7
 NUM_PREDICT = 800
 N_AMOSTRAS = 5
-N_EXEMPLOS = {"gsm8k": 10, "aqua_rat": 10, "censo": 5}
 SALVAR_CADA = 10
 PASTA_BASE = Path("resultados/self_consistency")
-BLOCOS_CENSO = [(1, 8), (9, 16), (17, 25), (26, 35), (36, 43), (44, 50)]
 
 def _normalizar(texto):
     texto = unicodedata.normalize('NFKD', str(texto).lower())
@@ -248,29 +252,6 @@ RESPOSTA: {resposta}"""
             'metodo_avaliacao': 'avaliador_inconclusivo',
             'tentativas_avaliador': 3}
 
-def ordem_exemplos_censo(registros):
-    """Intercala questões de todos os blocos, sem sorteio e sem repetir posições.
-
-    Em cada bloco, prioriza questões próximas ao centro; com mais exemplos,
-    preserva todos os exemplos já selecionados com uma quantidade menor.
-    """
-    blocos = []
-    for inicio, fim in BLOCOS_CENSO:
-        posicoes = [i for i in range(inicio - 1, min(fim, len(registros)))]
-        centro = (inicio + fim - 2) / 2
-        posicoes.sort(key=lambda i: (abs(i - centro), i))
-        blocos.append(posicoes)
-
-    ordem = []
-    for rodada in range(max(map(len, blocos), default=0)):
-        for bloco in blocos:
-            if rodada < len(bloco):
-                ordem.append(bloco[rodada])
-
-    # Se a lista crescer além das 50 questões originais, não omitir novas posições.
-    ordem.extend(range(min(50, len(registros)), len(registros)))
-    return ordem
-
 def agora():
     return datetime.now().isoformat(timespec='seconds')
 
@@ -292,49 +273,7 @@ def recursos():
 
 
 def selecionar_exemplos(dataset, registros, quantidade):
-    if not isinstance(quantidade, int) or isinstance(quantidade, bool) or quantidade < 1:
-        raise ValueError('Quantidade de exemplos deve ser um inteiro positivo.')
-    if dataset == 'censo':
-        if quantidade >= len(registros):
-            raise ValueError('Censo precisa ter questões fora das demonstrações.')
-        ordem = ordem_exemplos_censo(registros)
-        exemplos = [registros[i] for i in ordem[:quantidade]]
-        if any(not str(e.get('resposta_esperada') or '').strip() for e in exemplos):
-            raise ValueError('Demonstração Censo sem resposta_esperada.')
-        if any(not str(e.get('raciocinio') or '').strip() for e in exemplos):
-            raise ValueError('Demonstração Censo sem raciocínio no JSON preparado.')
-        return exemplos
-    exemplos, vistos = [], set()
-    for q in registros:
-        if q.get('split') != 'train':
-            continue
-        identificador = str(q.get('id', ''))
-        if not identificador or identificador in vistos:
-            continue
-        try:
-            if dataset == 'gsm8k':
-                montar_questao_gsm8k(q)
-                if not extrair_gabarito_gsm8k(q):
-                    continue
-                if not str(q.get('answer_pt') or q.get('answer_en') or q.get('answer') or '').strip():
-                    continue
-            else:
-                montar_questao_aqua_rat(q)
-                extrair_gabarito_aqua_rat(q)
-                if not str(q.get('rationale_pt') or '').strip():
-                    continue
-                if q.get('revisao_necessaria') is True:
-                    continue
-        except (ValueError, KeyError, TypeError):
-            continue
-        exemplos.append(q)
-        vistos.add(identificador)
-        if len(exemplos) == quantidade:
-            break
-    if len(exemplos) != quantidade:
-        raise ValueError(f'Apenas {len(exemplos)} exemplos elegíveis de {quantidade}.')
-    return exemplos
-
+    return selecionar_exemplos_comuns(dataset, registros, quantidade)
 
 def metricas(resultados, tempo_total, quantidade, dataset):
     avaliadas = [r for r in resultados if not r.get('falha_tecnica', False)
@@ -361,6 +300,7 @@ def metricas(resultados, tempo_total, quantidade, dataset):
     return {
         'exemplos_utilizados': quantidade,
         'amostras_por_questao': N_AMOSTRAS,
+        'votacao_censo': 'equivalencia_deterministica_ou_selecao_semantica_cega',
         'questoes_executadas': len(resultados),
         'questoes_avaliadas': len(avaliadas),
         'acertos': sum(r['acertou'] for r in avaliadas),
@@ -388,23 +328,15 @@ def metricas(resultados, tempo_total, quantidade, dataset):
             'empates': sum(r['houve_empate'] for r in votos),
             'sem_resposta_valida': sum(r['total_respostas_validas'] == 0 for r in votos),
             'media_votos_vencedor': (round(statistics.mean(
-                r['votos_resposta_modelo'] for r in votos), 2) if votos else None),
+                r['votos_resposta_modelo'] for r in votos if isinstance(r['votos_resposta_modelo'], int)), 2)
+                if any(isinstance(r['votos_resposta_modelo'], int) for r in votos) else None),
         },
     }
 
 
 def identificador_novo(dataset, limite, quantidade):
-    pasta = PASTA_BASE / dataset
-    pasta.mkdir(parents=True, exist_ok=True)
-    data = datetime.now().strftime('%Y%m%d')
-    prefixo = (f'self_consistency_{dataset}_{data}_q'
-               f'{"todos" if limite is None else limite}_ex{quantidade}_run')
-    indice = 1
-    while any((pasta / f'{prefixo}{indice:02d}{sufixo}').exists()
-              for sufixo in ('.json', '.progresso.json')):
-        indice += 1
-    return f'{prefixo}{indice:02d}'
-
+    pasta = pasta_configuracao("self_consistency", dataset, limite, quantidade)
+    return novo_nome("self_consistency", dataset, pasta)
 
 def tempo_legivel(segundos):
     horas, resto = divmod(round(segundos), 3600)
@@ -428,15 +360,13 @@ def mostrar_resumo(dataset, dados, caminho):
     print(f'Resultados salvos em: {caminho}')
 
 
-def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
+def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     carregadores = {'gsm8k': carregar_gsm8k,
                     'aqua_rat': carregar_aqua_rat, 'censo': carregar_censo}
     if dataset not in carregadores:
         raise ValueError(f'Dataset desconhecido: {dataset}')
-    if limite is not None and (not isinstance(limite, int)
-                              or isinstance(limite, bool) or limite < 1):
-        raise ValueError('limite deve ser None ou inteiro positivo.')
-    quantidade = N_EXEMPLOS[dataset] if n_exemplos is None else n_exemplos
+    limite = resolver_limite(dataset, limite)
+    quantidade = N_EXEMPLOS_PADRAO[dataset] if n_exemplos is None else n_exemplos
     registros = carregadores[dataset](split=None)
     ids = [str(q.get('id', '')) for q in registros]
     if not all(ids) or len(ids) != len(set(ids)):
@@ -456,8 +386,7 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         contextos_exemplos = {str(q['id']): sessao.consultar(q) for q in exemplos}
         raciocinios_exemplos = {str(q['id']): str(q['raciocinio']).strip()
                                 for q in exemplos}
-    pasta = PASTA_BASE / dataset
-    pasta.mkdir(parents=True, exist_ok=True)
+    pasta = pasta_configuracao("self_consistency", dataset, limite, quantidade)
     nome = (Path(retomar).name.removesuffix('.progresso.json') if retomar
             else identificador_novo(dataset, limite, quantidade))
     caminho = pasta / f'{nome}.json'
@@ -470,8 +399,13 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         'ids_questoes': [str(q['id']) for q in questoes],
         'criterio_avaliacao': 'todos_splits_sem_demonstracoes',
         'tipo_demonstracao': 'questao_raciocinio_resposta',
+        'votacao_censo': 'seletor_semantico_sem_gabarito_v1' if dataset == 'censo' else 'frequencia_simples',
         'origem_raciocinios_censo': 'json_preparado' if dataset == 'censo' else None,
     }
+    parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
+    parametros['top_k'] = 40
+    parametros['top_p'] = 0.9
+    parametros['num_ctx'] = 8192
     if retomar:
         with progresso.open('r', encoding='utf-8') as arquivo:
             dados = json.load(arquivo)
@@ -522,8 +456,11 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
             sc = executar_experimento_self_consistency(
                 prompt, extrair, n_amostras=N_AMOSTRAS,
                 temperature=TEMPERATURE, num_predict=NUM_PREDICT,
-                normalizar_voto=(normalizar_voto_gsm8k if dataset == 'gsm8k'
-                                 else normalizar_voto_censo if dataset == 'censo' else None),
+                normalizar_voto=(normalizar_voto_gsm8k if dataset == 'gsm8k' else None),
+                selecionar_votacao=(
+                    (lambda respostas: voto_censo_semantico(
+                        str(questao.get('pergunta') or questao.get('enunciado') or ''),
+                        respostas, consultar_ollama)) if dataset == 'censo' else None),
             )
             if sc['falha_tecnica']:
                 acertou = None
@@ -612,20 +549,20 @@ def extrair_resposta_final_censo(texto):
     return resposta
 
 
-def executar_gsm8k(limite=None, n_exemplos=None, retomar=None):
+def executar_gsm8k(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     return executar_dataset('gsm8k', limite, n_exemplos, retomar)
 
 
-def executar_aqua_rat(limite=None, n_exemplos=None, retomar=None):
+def executar_aqua_rat(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     return executar_dataset('aqua_rat', limite, n_exemplos, retomar)
 
 
-def executar_censo(limite=None, n_exemplos=None, retomar=None):
+def executar_censo(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     return executar_dataset('censo', limite, n_exemplos, retomar)
 
 
 if __name__ == '__main__':
-    executar_gsm8k(limite=500)
-    executar_aqua_rat(limite=500)
-    executar_censo(limite=20)
+    executar_gsm8k()
+    executar_aqua_rat()
+    executar_censo()
     

@@ -6,7 +6,7 @@ from codigo.self_consistency.votacao import voto_majoritario
 
 def executar_experimento_self_consistency(
     prompt, extrair_resposta, n_amostras=5, temperature=0.7,
-    num_predict=800, normalizar_voto=None,
+    num_predict=800, normalizar_voto=None, selecionar_votacao=None,
 ):
     """Cada geração tem até três tentativas de transporte feitas em utils.
 
@@ -52,7 +52,17 @@ def executar_experimento_self_consistency(
         if falha:
             break
     incompleto = len(amostras) != n_amostras or any(a['falha_tecnica'] for a in amostras)
-    votacao = (voto_majoritario(respostas) if not incompleto else
+    motivo_seletor = None
+    if not incompleto and selecionar_votacao is not None:
+        try:
+            votacao = selecionar_votacao(respostas)
+        except Exception as erro:
+            incompleto = True
+            motivo_seletor = f'{type(erro).__name__}: {erro}'
+    elif not incompleto:
+        votacao = voto_majoritario(respostas)
+    if incompleto:
+        votacao = (
                {'vencedora': '', 'votos': 0, 'distribuicao': {},
                 'houve_empate': False, 'total_respostas_validas': 0})
     return {
@@ -64,11 +74,13 @@ def executar_experimento_self_consistency(
         'total_respostas_validas': votacao['total_respostas_validas'],
         'amostras': amostras,
         'falha_tecnica': incompleto,
-        'motivo_falha_tecnica': next(
+        'motivo_falha_tecnica': motivo_seletor or next(
             (a['erro_detalhado'] or 'Falha na consulta ao Ollama'
              for a in amostras if a['falha_tecnica']), None
         ),
         'tempo_segundos': round(time.perf_counter() - inicio, 3),
+        'metodo_votacao': votacao.get('metodo_votacao'),
+        'detalhes_votacao': {k: v for k, v in votacao.items() if k not in ('vencedora', 'votos', 'distribuicao', 'houve_empate', 'total_respostas_validas')},
         'tokens_entrada': sum(a['tokens_entrada'] or 0 for a in amostras),
         'tokens_saida': sum(a['tokens_saida'] or 0 for a in amostras),
     }

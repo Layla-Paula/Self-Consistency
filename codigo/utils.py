@@ -1,4 +1,4 @@
-"""Utilitários compartilhados dos experimentos com Ollama."""
+"""Utilitários compartilhados """
 
 import json
 import math
@@ -231,6 +231,8 @@ def consultar_ollama(
     num_predict=512,
     retornar_metricas=False,
     num_ctx=8192,
+    top_k=40,
+    top_p=0.9,
 ):
     """Consulta o Ollama até 3 vezes; falhas retornam metadados, não acerto/erro.
 
@@ -245,6 +247,8 @@ def consultar_ollama(
             "temperature": temperature,
             "num_predict": num_predict,
             "num_ctx": num_ctx,
+            "top_k": top_k,
+            "top_p": top_p,
         },
     }
 

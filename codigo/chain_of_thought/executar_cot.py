@@ -9,6 +9,11 @@ from datetime import datetime
 from pathlib import Path
 
 from tqdm import tqdm
+from codigo.protocolo_experimentos import (
+    selecionar_exemplos_comuns, pasta_configuracao, novo_nome, resumo_protocolo,
+    N_EXEMPLOS_PADRAO, ordem_exemplos_censo,
+    USAR_LIMITE_PADRAO, resolver_limite
+)
 import re
 import unicodedata
 from codigo.utils import (
@@ -30,25 +35,23 @@ except ImportError:
 MODELO = "llama3.2"
 TEMPERATURE = 0.0
 NUM_PREDICT = 800
-N_EXEMPLOS = {"gsm8k": 10, "aqua_rat": 10, "censo": 5}
 SALVAR_CADA = 10
 PASTA_BASE = Path("resultados/chain_of_thought")
 
 # Faixas temáticas das 50 questões do Censo (posições no JSON).
 # A seleção é automática, determinística e alterna entre os seis blocos.
-BLOCOS_CENSO = [(1, 8), (9, 16), (17, 25), (26, 35), (36, 43), (44, 50)]
 
-# Avaliação do Censo incorporada: este arquivo não depende de revisao_censo.py.
+# Avaliação do Censo 
 def _normalizar(texto):
     texto = unicodedata.normalize('NFKD', str(texto).lower())
     return ''.join(c for c in texto if not unicodedata.combining(c))
 
 def _numeros(texto):
     # Captura milhares brasileiros (178.766) e inteiros sem separador (178766).
-    tokens = re.findall(r'(?\<![\w])\d{1,3}(?:\\.\d{3})+(?:,\d+)?|(?\<![\w])\d+(?:[.,]\d+)?', str(texto))
+    tokens = re.findall(r'(?<![\w])\d{1,3}(?:\.\d{3})+(?:,\d+)?|(?<![\w])\d+(?:[.,]\d+)?', str(texto))
     valores = set()
     for token in tokens:
-        if re.fullmatch(r'\d{1,3}(?:\\.\d{3})+', token):
+        if re.fullmatch(r'\d{1,3}(?:\.\d{3})+', token):
             valores.add(int(token.replace('.', '')))
         elif token.isdigit():
             valores.add(int(token))
@@ -125,9 +128,9 @@ def _criterios_censo(questao, resposta):
         siglas = ('AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO',
                   'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI',
                   'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO')
-        lista_completa = all(re.search(r'(?\<![A-Za-z])' + uf + r'(?![A-Za-z])',
+        lista_completa = all(re.search(r'(?<![A-Za-z])' + uf + r'(?![A-Za-z])',
                                        resposta, re.I) for uf in siglas)
-        return decisao(bool(re.search(r'(?\<!\d)27(?!\d)', t)) and lista_completa,
+        return decisao(bool(re.search(r'(?<!\d)27(?!\d)', t)) and lista_completa,
                        'Deve informar 27 e listar todas as 27 siglas das UFs.')
     if numero == 5:
         return decisao(tem(5571) and not ('uf' in t and 'value_counts' in t),
@@ -197,7 +200,7 @@ def _criterios_censo(questao, resposta):
         linhas = re.split(r'\n|;', resposta)
         def par_presente(sigla, valor):
             for linha in linhas:
-                uf = (re.search(r'(?\<![A-Za-z])' + sigla + r'(?![A-Za-z])', linha, re.I)
+                uf = (re.search(r'(?<![A-Za-z])' + sigla + r'(?![A-Za-z])', linha, re.I)
                       or nomes[sigla] in _normalizar(linha))
                 if uf and _tem_valor(linha, valor):
                     return True
@@ -215,7 +218,7 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
         return {'acertou': False, 'motivo': 'Modelo não forneceu resposta.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'resposta_vazia'}
     if not gabarito:
-        return {'acertou': False, 'motivo': 'Gabarito ausente; não foi possível confirmar acerto.',
+        return {'acertou': None, 'motivo': 'Gabarito ausente; não foi possível confirmar acerto.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'gabarito_ausente'}
 
     # Primeiro aplica critérios verificáveis para as questões cobertas por rubricas.
@@ -227,7 +230,7 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
 
     # Para as demais questões (e rubricas negativas), usa avaliação semântica.
     if consultar_ollama is None:
-        return {'acertou': False, 'motivo': 'Sem avaliador para confirmar a resposta.',
+        return {'acertou': None, 'motivo': 'Sem avaliador para confirmar a resposta.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_indisponivel'}
     prompt = f"""Você corrige respostas do Censo Escolar. Julgue APENAS a resposta dada,
 comparando-a com a questão e o gabarito. Não avalie a intenção nem a qualidade
@@ -242,47 +245,37 @@ Responda com JSON válido, sem markdown, neste formato:
 QUESTÃO: {enunciado}
 GABARITO: {gabarito}
 RESPOSTA: {resposta}"""
-    try:
-        texto = consultar_ollama(prompt, temperature=0, num_predict=220)
-        julgamento = _extrair_json(texto)
-    except Exception as erro:
-        julgamento = None
-        detalhe = f'Falha no avaliador: {erro}'
-    else:
-        detalhe = 'O avaliador não retornou JSON válido.'
-    if not isinstance(julgamento, dict):
-        return {'acertou': None, 'motivo': detalhe, 'revisao_necessaria': False,
-                'metodo_avaliacao': 'avaliador_inconclusivo'}
-    veredito = str(julgamento.get('veredito', '')).upper().strip()
-    justificativa = str(julgamento.get('justificativa', '')).strip()
-    if veredito not in ('CORRETA', 'INCORRETA') or not justificativa:
-        return {'acertou': None, 'motivo': justificativa or 'Veredito inconclusivo.',
-                'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_inconclusivo'}
-    return {'acertou': veredito == 'CORRETA', 'motivo': justificativa,
-            'revisao_necessaria': False, 'metodo_avaliacao': 'llm_como_avaliador'}
-
-def ordem_exemplos_censo(registros):
-    """Intercala questões de todos os blocos, sem sorteio e sem repetir posições.
-
-    Em cada bloco, prioriza questões próximas ao centro; com mais exemplos,
-    preserva todos os exemplos já selecionados com uma quantidade menor.
-    """
-    blocos = []
-    for inicio, fim in BLOCOS_CENSO:
-        posicoes = [i for i in range(inicio - 1, min(fim, len(registros)))]
-        centro = (inicio + fim - 2) / 2
-        posicoes.sort(key=lambda i: (abs(i - centro), i))
-        blocos.append(posicoes)
-
-    ordem = []
-    for rodada in range(max(map(len, blocos), default=0)):
-        for bloco in blocos:
-            if rodada < len(bloco):
-                ordem.append(bloco[rodada])
-
-    # Se a lista crescer além das 50 questões originais, não omitir novas posições.
-    ordem.extend(range(min(50, len(registros)), len(registros)))
-    return ordem
+    # Até três julgamentos quando o avaliador responde JSON inválido.
+    # Cada chamada também tem os retries de conexão definidos em utils.py.
+    ultimo_motivo = 'Avaliador inconclusivo.'
+    for tentativa_avaliador in range(1, 4):
+        try:
+            info_avaliador = consultar_ollama(
+                prompt, temperature=0, num_predict=220, retornar_metricas=True,
+            )
+            if not isinstance(info_avaliador, dict):
+                info_avaliador = {'resposta': None, 'tentativas': 3,
+                                  'erro_detalhado': 'Avaliador sem metadados.'}
+            julgamento = _extrair_json(info_avaliador.get('resposta'))
+        except Exception as erro:
+            julgamento = None
+            ultimo_motivo = f'Falha no avaliador: {erro}'
+        else:
+            ultimo_motivo = (info_avaliador.get('erro_detalhado')
+                             or 'O avaliador não retornou JSON válido.')
+        if isinstance(julgamento, dict):
+            veredito = str(julgamento.get('veredito', '')).upper().strip()
+            justificativa = str(julgamento.get('justificativa', '')).strip()
+            if veredito in ('CORRETA', 'INCORRETA') and justificativa:
+                return {'acertou': veredito == 'CORRETA', 'motivo': justificativa,
+                        'revisao_necessaria': False,
+                        'metodo_avaliacao': 'llm_como_avaliador',
+                        'tentativas_avaliador': tentativa_avaliador}
+            ultimo_motivo = justificativa or 'Veredito inconclusivo.'
+    return {'acertou': None, 'motivo': ultimo_motivo,
+            'revisao_necessaria': False,
+            'metodo_avaliacao': 'avaliador_inconclusivo',
+            'tentativas_avaliador': 3}
 
 def agora():
     return datetime.now().isoformat(timespec="seconds")
@@ -296,51 +289,7 @@ def salvar(caminho, dados):
     os.replace(temporario, caminho)
 
 def selecionar_exemplos(dataset, registros, quantidade):
-    if not isinstance(quantidade, int) or isinstance(quantidade, bool) or quantidade < 1:
-        raise ValueError("A quantidade de exemplos deve ser um inteiro positivo.")
-
-    if dataset == "censo":
-        if quantidade >= len(registros):
-            raise ValueError("O Censo precisa ter questões fora das demonstrações.")
-        ordem = ordem_exemplos_censo(registros)
-        exemplos = [registros[i] for i in ordem[:quantidade]]
-        if len(exemplos) != quantidade:
-            raise ValueError("Não há exemplos suficientes no Censo.")
-        if any(not str(e.get("resposta_esperada") or "").strip() for e in exemplos):
-            raise ValueError("Há demonstração do Censo sem resposta_esperada.")
-        return exemplos
-
-    exemplos = []
-    vistos = set()
-    for questao in registros:
-        if questao.get("split") != "train":
-            continue
-        identificador = str(questao.get("id", ""))
-        if not identificador or identificador in vistos:
-            continue
-        try:
-            if dataset == "gsm8k":
-                montar_questao_gsm8k(questao)
-                if not extrair_gabarito_gsm8k(questao):
-                    continue
-                if not str(questao.get("answer_pt") or questao.get("answer_en") or questao.get("answer") or "").strip():
-                    continue
-            else:
-                montar_questao_aqua_rat(questao)
-                extrair_gabarito_aqua_rat(questao)
-                if not str(questao.get("rationale_pt") or "").strip():
-                    continue
-                if questao.get("revisao_necessaria") is True:
-                    continue
-        except (ValueError, KeyError, TypeError):
-            continue
-        exemplos.append(questao)
-        vistos.add(identificador)
-        if len(exemplos) == quantidade:
-            break
-    if len(exemplos) != quantidade:
-        raise ValueError(f"Foram encontrados apenas {len(exemplos)} exemplos válidos.")
-    return exemplos
+    return selecionar_exemplos_comuns(dataset, registros, quantidade)
 
 def metricas(resultados, tempo_total, quantidade, dataset):
     """Falhas técnicas não participam da acurácia nem das médias de desempenho."""
@@ -401,15 +350,8 @@ def recursos():
     }
 
 def identificador_novo(dataset, limite, quantidade):
-    pasta = PASTA_BASE / dataset
-    pasta.mkdir(parents=True, exist_ok=True)
-    data = datetime.now().strftime("%Y%m%d")
-    prefixo = f"chain_of_thought_{dataset}_{data}_q{'todos' if limite is None else limite}_ex{quantidade}_run"
-    indice = 1
-    while any((pasta / f"{prefixo}{indice:02d}{sufixo}").exists()
-              for sufixo in (".json", ".progresso.json")):
-        indice += 1
-    return f"{prefixo}{indice:02d}"
+    pasta = pasta_configuracao("chain_of_thought", dataset, limite, quantidade)
+    return novo_nome("chain_of_thought", dataset, pasta)
 
 def tempo_legivel(segundos):
     horas, resto = divmod(round(segundos), 3600)
@@ -430,7 +372,7 @@ def mostrar_resumo(dataset, dados, caminho):
     print(f"Tempo de execução: {tempo_legivel(m['tempo_total_segundos'])}")
     print(f"Resultados salvos em: {caminho}")
 
-def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
+def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     carregadores = {
         "gsm8k": carregar_gsm8k,
         "aqua_rat": carregar_aqua_rat,
@@ -438,10 +380,8 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
     }
     if dataset not in carregadores:
         raise ValueError(f"Dataset desconhecido: {dataset}")
-    if limite is not None and (not isinstance(limite, int) or isinstance(limite, bool) or limite < 1):
-        raise ValueError("O limite deve ser None ou inteiro positivo.")
-
-    quantidade = N_EXEMPLOS[dataset] if n_exemplos is None else n_exemplos
+    limite = resolver_limite(dataset, limite)
+    quantidade = N_EXEMPLOS_PADRAO[dataset] if n_exemplos is None else n_exemplos
     registros = carregadores[dataset](split=None)
     ids = [str(q.get("id", "")) for q in registros]
     if not all(ids) or len(ids) != len(set(ids)):
@@ -483,8 +423,7 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
                 )
             raciocinios_exemplos[str(exemplo["id"])] = raciocinio
 
-    pasta = PASTA_BASE / dataset
-    pasta.mkdir(parents=True, exist_ok=True)
+    pasta = pasta_configuracao("chain_of_thought", dataset, limite, quantidade)
     nome = (Path(retomar).name.removesuffix(".progresso.json") if retomar
             else identificador_novo(dataset, limite, quantidade))
     caminho = pasta / f"{nome}.json"
@@ -501,6 +440,10 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
         "tipo_demonstracao": "questao_raciocinio_resposta",
         "origem_raciocinios_censo": "json_preparado" if dataset == "censo" else None,
     }
+    parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
+    parametros['top_k'] = 40
+    parametros['top_p'] = 0.9
+    parametros['num_ctx'] = 8192
     if retomar:
         with progresso.open("r", encoding="utf-8") as arquivo:
             dados = json.load(arquivo)
@@ -677,20 +620,17 @@ def executar_dataset(dataset, limite=None, n_exemplos=None, retomar=None):
     mostrar_resumo(dataset, dados, caminho)
     return dados
 
-def executar_gsm8k(limite=None, n_exemplos=None, retomar=None):
+def executar_gsm8k(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     return executar_dataset("gsm8k", limite, n_exemplos, retomar)
 
-def executar_aqua_rat(limite=None, n_exemplos=None, retomar=None):
+def executar_aqua_rat(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     return executar_dataset("aqua_rat", limite, n_exemplos, retomar)
 
-def executar_censo(limite=None, n_exemplos=None, retomar=None):
+def executar_censo(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     return executar_dataset("censo", limite, n_exemplos, retomar)
 
 if __name__ == "__main__":
-    executar_gsm8k(limite=500)
-    executar_aqua_rat(limite=500)
-    executar_censo(limite=20)
+    executar_gsm8k()
+    executar_aqua_rat()
+    executar_censo()
 
-    # executar_gsm8k()
-    # executar_aqua_rat()
-    # executar_censo()

@@ -1,8 +1,4 @@
 """Consultas orientadas pelo ENUNCIADO aos microdados do Censo Escolar 2025.
-
-Nao usa o ID para escolher consultas, nem usa resposta_esperada/gabarito.
-Calcula indicadores verificaveis do CSV e apresenta somente o tema pertinente.
-Nao exige arquivos auxiliares JSON nem dicionario externo.
 """
 import csv
 import re

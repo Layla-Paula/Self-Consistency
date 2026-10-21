@@ -28,7 +28,7 @@ def _demonstracoes_gsm8k(exemplos):
 
 
 # DEMONSTRAÇÕES DE RACIOCÍNIO — AQUA-RAT
-# rationale_pt só é utilizado em exemplos do train; nunca na questão avaliada.
+# rationale_pt só é utilizado em exemplos do train
 def _demonstracoes_aqua_rat(exemplos):
     blocos = []
     for indice, exemplo in enumerate(exemplos, 1):
