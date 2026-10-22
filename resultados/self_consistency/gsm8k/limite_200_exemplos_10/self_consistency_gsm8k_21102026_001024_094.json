@@ -18601,42 +18601,992 @@
       },
       "tokens_entrada": 10740,
       "tokens_saida": 1337
+    },
+    {
+      "id": "train_190",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "46",
+      "resposta": "48",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou empate na votação.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 46.1,
+      "ram_percentual": 85.0,
+      "respostas_extraidas": [
+        "48",
+        "49",
+        "48",
+        "48",
+        "24"
+      ],
+      "distribuicao_votos": {
+        "48": 3,
+        "49": 1,
+        "24": 1
+      },
+      "resposta_modelo": "48",
+      "votos_resposta_modelo": 3,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, precisamos encontrar a idade de Dexter, que é 8 anos.\n\nDarcy é duas vezes mais velha que Dexter, então sua idade é 2 x 8 = 16 anos.\n\nDallas é 3 vezes mais velha que Darcy, então sua idade é 3 x 16 = 48 anos.\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2133,
+          "tokens_saida": 86,
+          "tempo_consulta_segundos": 7.493735500029288
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos saber a idade de Dallas no ano passado. Sabemos que Darcy é duas vezes mais velha do que Dexter, que é 8 anos, então Darcy tem 2*8 = 16 anos.\n\nComo Dallas foi 3 vezes mais velho que Darcy no ano passado, podemos calcular sua idade no ano passado como:\n\nIdade de Dallas no ano passado = 3 * Idade de Darcy no ano passado\n= 3 * 16\n= 48 anos\n\nAgora, para encontrar a idade de Dallas agora, precisamos somar 1 ano ao seu idade no ano passado:\n\nIdade de Dallas agora = Idade de Dallas no ano passado + 1 ano\n= 48 anos + 1 ano\n= 49 anos\n\nResposta final: 49",
+          "resposta_extraida": "49",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2133,
+          "tokens_saida": 179,
+          "tempo_consulta_segundos": 13.838451500050724
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, precisamos começar identificando as idades dos irmãos.\n\nDexter é 8 anos agora, e sua irmã Darcy é duas vezes mais velha, então Darcy é 8*2 = 16 anos.\n\nDallas é três vezes mais velha do que Darcy, então Dallas é 3*16 = 48 anos.\n\nPortanto, a resposta final é:\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2133,
+          "tokens_saida": 93,
+          "tempo_consulta_segundos": 7.859657899942249
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Vamos resolver o problema.\n\nPrimeiro, precisamos saber a idade de Dexter, que é 8 anos. Darcy é duas vezes mais velha do que Dexter, então Darcy tem 2*8 = 16 anos.\n\nDallas é 3 vezes mais velho que Darcy, então Dallas tem 3*16 = 48 anos.\n\nAgora que sabemos a idade de Dallas, podemos dizer que ela tem 48 anos agora.\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2133,
+          "tokens_saida": 101,
+          "tempo_consulta_segundos": 8.360815400024876
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver esse problema passo a passo!\n\nSuponha que a idade de Dexter agora é x.\n\nComo Darcy é duas vezes mais velha que Dexter, sua idade é 2x.\n\nAgora, sabemos que Darcy é 8 anos. Portanto, podemos criar a equação:\n\n2x = 8\n\nPara resolver x, podemos dividir ambos os lados da equação por 2:\n\nx = 8/2\nx = 4\n\nAgora que sabemos a idade de Dexter, podemos encontrar a idade de Darcy, que é 2x:\n\nIdade de Darcy = 2x\n= 2(4)\n= 8\n\nAgora, sabemos que Dallas é 3 vezes mais velho que Darcy. Portanto, podemos criar a equação:\n\nIdade de Dallas = 3(Idade de Darcy)\n= 3(8)\n= 24\n\nPortanto, a idade de Dallas agora é 24 anos.\n\nResposta final: 24",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2133,
+          "tokens_saida": 218,
+          "tempo_consulta_segundos": 16.656984200002626
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 54.211,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10665,
+      "tokens_saida": 677
+    },
+    {
+      "id": "train_191",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "96",
+      "resposta": "64",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou empate na votação.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 58.0,
+      "ram_percentual": 89.3,
+      "respostas_extraidas": [
+        "64",
+        "64",
+        "46",
+        "64",
+        "64"
+      ],
+      "distribuicao_votos": {
+        "64": 4,
+        "46": 1
+      },
+      "resposta_modelo": "64",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, calculemos a quantidade de doninhas e coelhos que as raposas pegaram em uma semana.\n\nCada raposa pega 4 doninhas por semana, e há 3 raposas, então as raposas pegam 4 x 3 = 12 doninhas por semana.\n\nCada raposa pega 2 coelhos por semana, e há 3 raposas, então as raposas pegam 2 x 3 = 6 coelhos por semana.\n\nAgora, calculemos a quantidade de doninhas e coelhos que as raposas pegaram em 3 semanas.\n\nDoninhas: 12 doninhas/semana x 3 semanas = 36 doninhas\nCoelhos: 6 coelhos/semana x 3 semanas = 18 coelhos\n\nAgora, calculemos a quantidade de doninhas e coelhos que sobraram.\n\nDoninhas: 100 doninhas - 36 doninhas = 64 doninhas\nCoelhos: 50 coelhos - 18 coelhos = 32 coelhos\n\nPortanto, após 3 semanas, 64 doninhas e 32 coelhos sobraram.\n\nResposta final: 64, 32",
+          "resposta_extraida": "64",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2173,
+          "tokens_saida": 290,
+          "tempo_consulta_segundos": 21.917288600001484
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de animais que cada raposa pegou durante 3 semanas.\n\nCada raposa pega 4 doninhas e 2 coelhos por semana. Vamos calcular a quantidade de animais que cada raposa pegou durante 3 semanas:\n\n* Doninhas: 4 doninhas/semana x 3 semanas = 12 doninhas\n* Coelhos: 2 coelhos/semana x 3 semanas = 6 coelhos\n\nAgora, precisamos calcular a quantidade total de animais que as raposas pegaram durante 3 semanas. Há 3 raposas, então:\n\n* Doninhas: 12 doninhas x 3 raposas = 36 doninhas\n* Coelhos: 6 coelhos x 3 raposas = 18 coelhos\n\nAgora, precisamos calcular a quantidade de animais que ficarão na seção da floresta após as raposas terem caçado os roedores. Há inicialmente 100 doninhas e 50 coelhos, então:\n\n* Doninhas: 100 doninhas - 36 doninhas = 64 doninhas\n* Coelhos: 50 coelhos - 18 coelhos = 32 coelhos\n\nPortanto, após 3 semanas, restarão 64 doninhas e 32 coelhos na seção da floresta.\n\nResposta final: 64",
+          "resposta_extraida": "64",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2173,
+          "tokens_saida": 323,
+          "tempo_consulta_segundos": 26.58814240002539
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, vamos primeiro calcular a quantidade de doninhas e coelhos que cada raposa pega por semana.\n\nCada raposa pega 4 doninhas e 2 coelhos por semana, então em total, as 3 raposas pegarão:\n\n3 raposas x (4 doninhas + 2 coelhos) = 3 x 6 = 18 doninhas e coelhos por semana\n\nAgora, vamos calcular a quantidade de doninhas e coelhos que ficarão após 3 semanas. Como as raposas pegam 18 doninhas e coelhos por semana, em 3 semanas, elas pegarão:\n\n3 semanas x 18 doninhas e coelhos por semana = 54 doninhas e coelhos\n\nAgora, vamos subtrair essa quantidade de doninhas e coelhos da quantidade inicial:\n\n100 doninhas - 54 doninhas = 46 doninhas\n50 coelhos - 54 coelhos (não é possível que os coelhos sejam 54, pois o problema diz que as raposas pegam 2 coelhos por semana. Vamos reescrever o problema para encontrar o número correto de coelhos) \n50 coelhos - 6 coelhos (3 raposas x 2 coelhos) = 44 coelhos\n\nAgora, vamos verificar as unidades. A quantidade de doninhas e coelhos deve ser um número inteiro. Portanto, a quantidade de coelhos que ficará após 3 semanas é 44, e a quantidade de doninhas que ficará é 46.\n\nResposta final: 46 doninhas e 44 coelhos",
+          "resposta_extraida": "46",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2173,
+          "tokens_saida": 380,
+          "tempo_consulta_segundos": 33.07065959996544
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiramente, calculemos a quantidade de doninhas e coelhos caçados por semana:\n\nDoninhas: 3 raposas x 4 doninhas/raposa/ semana = 12 doninhas caçadas por semana\nCoelhos: 3 raposas x 2 coelhos/raposa/ semana = 6 coelhos caçados por semana\n\nAgora, calculemos a quantidade de doninhas e coelhos que sobrarão após 3 semanas:\n\nDoninhas: 100 doninhas - 12 doninhas caçadas por semana x 3 semanas = 100 - 36 = 64 doninhas\nCoelhos: 50 coelhos - 6 coelhos caçados por semana x 3 semanas = 50 - 18 = 32 coelhos\n\nResposta final: 64",
+          "resposta_extraida": "64",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2173,
+          "tokens_saida": 203,
+          "tempo_consulta_segundos": 16.01129719999153
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular a quantidade de doninhas e coelhos que serão caçados por cada raposa e, em seguida, calcular a quantidade total que será caçada por todas as raposas.\n\nCada raposa pega uma média de 4 doninhas e 2 coelhos por semana. Há 3 raposas, então a quantidade total de doninhas que serão caçadas por semana é:\n\n4 doninhas/raposa x 3 raposas = 12 doninhas\n\nE a quantidade total de coelhos que serão caçados por semana é:\n\n2 coelhos/raposa x 3 raposas = 6 coelhos\n\nAgora, precisamos calcular a quantidade total de doninhas e coelhos que serão caçados por 3 semanas. Para isso, multiplicamos a quantidade caçada por semana por 3:\n\nDoninhas: 12 doninhas/semana x 3 semanas = 36 doninhas\n\nCoelhos: 6 coelhos/semana x 3 semanas = 18 coelhos\n\nAgora, precisamos subtrair a quantidade caçada de cada grupo de animais do número inicial para saber quantos ficarão:\n\nDoninhas: 100 doninhas - 36 doninhas = 64 doninhas\n\nCoelhos: 50 coelhos - 18 coelhos = 32 coelhos\n\nPortanto, após 3 semanas, restarão 64 doninhas e 32 coelhos na seção da floresta.\n\nResposta final: 64",
+          "resposta_extraida": "64",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2173,
+          "tokens_saida": 351,
+          "tempo_consulta_segundos": 26.29831360001117
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 123.887,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10865,
+      "tokens_saida": 1547
+    },
+    {
+      "id": "train_192",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "670",
+      "resposta": "670",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 48.2,
+      "ram_percentual": 88.9,
+      "respostas_extraidas": [
+        "1340",
+        "670",
+        "670",
+        "670",
+        "670"
+      ],
+      "distribuicao_votos": {
+        "1340": 1,
+        "670": 4
+      },
+      "resposta_modelo": "670",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Para calcular o custo médio em todos os produtos vendidos hoje, precisamos calcular o total gasto com os iPhones, iPads e Apple TVs e dividir por 100.\n\nO custo total dos iPhones é de 100 x $1000 = $100.000\n\nO custo total dos iPads é de 20 x $900 = $18.000\n\nO custo total dos Apple TVs é de 80 x $200 = $16.000\n\nO custo total de todos os produtos vendidos é a soma dos custos dos iPhones, iPads e Apple TVs:\n\n$100.000 + $18.000 + $16.000 = $134.000\n\nPara calcular o custo médio, dividimos o total gasto por 100:\n\n$134.000 ÷ 100 = $1.340\n\nPortanto, o custo médio em todos os produtos vendidos hoje foi de $1.340.\n\nResposta final: 1340",
+          "resposta_extraida": "1340",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2168,
+          "tokens_saida": 205,
+          "tempo_consulta_segundos": 16.07863040000666
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para calcular o custo médio em todos os produtos vendidos hoje, precisamos calcular o valor total gasto com os produtos vendidos e dividir por número de produtos vendidos.\n\nPrimeiramente, calculamos o valor total gasto com os iPhones vendidos:\n100 iPhones x $1000/iPhone = $100.000\n\nEm seguida, calculamos o valor total gasto com os iPads vendidos:\n20 iPads x $900/iPad = $18.000\n\nE, finalmente, calculamos o valor total gasto com as Apple TVs vendidas:\n80 Apple TVs x $200/Apple TV = $16.000\n\nAgora, precisamos calcular o valor total gasto com todos os produtos vendidos:\n$100.000 + $18.000 + $16.000 = $134.000\n\nAlém disso, precisamos calcular o número total de produtos vendidos:\n100 iPhones + 20 iPads + 80 Apple TVs = 200 produtos\n\nAgora, podemos calcular o custo médio em todos os produtos vendidos:\n$134.000 ÷ 200 produtos = $670,00\n\nResposta final: 670",
+          "resposta_extraida": "670",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2168,
+          "tokens_saida": 247,
+          "tempo_consulta_segundos": 18.693750499980524
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para encontrar o custo médio em todos os produtos vendidos hoje, precisamos calcular o custo total de todos os produtos e dividir por número total de produtos.\n\nCusto total de iPhones = 100 * $1000 = $100.000\nCusto total de iPads = 20 * $900 = $18.000\nCusto total de Apple TVs = 80 * $200 = $16.000\nCusto total de todos os produtos = $100.000 + $18.000 + $16.000 = $134.000\n\nNúmero total de produtos = 100 iPhones + 20 iPads + 80 Apple TVs = 200 produtos\n\nCusto médio em todos os produtos = Custo total de todos os produtos ÷ Número total de produtos\n= $134.000 ÷ 200\n= $670,00\n\nResposta final: 670",
+          "resposta_extraida": "670",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2168,
+          "tokens_saida": 187,
+          "tempo_consulta_segundos": 14.216960399993695
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para encontrar o custo médio de todos os produtos vendidos hoje, precisamos primeiro encontrar o total de dinheiro arrecadado com os produtos e depois dividir por todo os produtos.\n\nPrimeiramente, calculemos o total de dinheiro arrecadado com os iPhones:\n100 iPhones * $1000/iPhone = $100,000\n\nAgora, calculemos o total de dinheiro arrecadado com os iPads:\n20 iPads * $900/iPad = $18,000\n\nE, por fim, calculemos o total de dinheiro arrecadado com os Apple TVs:\n80 Apple TVs * $200/Apple TV = $16,000\n\nAgora, somemos todos os montantes:\n$100,000 + $18,000 + $16,000 = $134,000\n\nAgora, para encontrar o custo médio de todos os produtos, dividimos o total de dinheiro arrecadado por todos os produtos:\n$134,000 / (100 iPhones + 20 iPads + 80 Apple TVs)\n= $134,000 / 200\n= $670\n\nResposta final: 670",
+          "resposta_extraida": "670",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2168,
+          "tokens_saida": 243,
+          "tempo_consulta_segundos": 18.564581000013277
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. Primeiro, precisamos encontrar o custo total de todos os produtos vendidos:\n\nCusto de iPhones: 100 x $1000 = $100.000\nCusto de iPads: 20 x $900 = $18.000\nCusto de Apple TVs: 80 x $200 = $16.000\n\nTotal de custo: $100.000 + $18.000 + $16.000 = $134.000\n\n2. Em seguida, precisamos encontrar o número total de produtos vendidos:\n\n100 iPhones + 20 iPads + 80 Apple TVs = 200 produtos\n\n3. Agora, podemos encontrar o custo médio em todos os produtos vendidos dividindo o total de custo pelo número de produtos:\n\nCusto médio = Total de custo / Número de produtos\n= $134.000 / 200\n= $670,00\n\nResposta final: 670",
+          "resposta_extraida": "670",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2168,
+          "tokens_saida": 207,
+          "tempo_consulta_segundos": 15.69912669993937
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 83.255,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10840,
+      "tokens_saida": 1089
+    },
+    {
+      "id": "train_193",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "160",
+      "resposta": "153.6",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou empate na votação.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 56.8,
+      "ram_percentual": 88.9,
+      "respostas_extraidas": [
+        "160",
+        "153.6",
+        "160",
+        "153.6",
+        "153.6"
+      ],
+      "distribuicao_votos": {
+        "160": 2,
+        "153.6": 3
+      },
+      "resposta_modelo": "153.6",
+      "votos_resposta_modelo": 3,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Problema:\n\nA Melody plantou girassóis de dois pacotes de sementes diferentes. Ela descobriu que os girassóis do Packet A eram 20% mais altos que os girassóis do Packet B. Se os girassóis do Packet A tinham 192 polegadas de altura, qual a altura dos girassóis do Packet B?\n\nResolução:\n\nPrimeiro, precisamos encontrar o aumento de altura nos girassóis do Packet A em relação aos do Packet B. Para isso, precisamos converter o aumento de 20% para uma fração. Isso é feito dividindo o aumento por 100:\n\n20% = 20/100 = 0,2\n\nAgora que temos a fração, podemos encontrar o aumento de altura nos girassóis do Packet A em relação aos do Packet B:\n\nAumento de altura = 192 polegadas x 0,2 = 38,4 polegadas\n\nComo os girassóis do Packet A são 20% mais altos que os do Packet B, podemos deduzir que a altura do Packet B é 20% menor que a do Packet A. Para encontrar a altura do Packet B, precisamos dividir a altura do Packet A pelo aumento de altura:\n\nAltura do Packet B = Altura do Packet A / (1 + Aumento de altura)\n= 192 polegadas / (1 + 0,2)\n= 192 polegadas / 1,2\n= 160 polegadas\n\nResposta final: 160",
+          "resposta_extraida": "160",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2174,
+          "tokens_saida": 342,
+          "tempo_consulta_segundos": 26.746215399936773
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos encontrar a altura dos girassóis do Packet B, sabendo que eles são 20% mais altos que os girassóis do Packet A.\n\nA altura dos girassóis do Packet A é de 192 polegadas. Para encontrar a altura dos girassóis do Packet B, precisamos multiplicar a altura dos girassóis do Packet A por 0,8 (ou 80%), pois 20% é o mesmo que 0,2, e 100% - 20% = 80%.\n\nEntão, a altura dos girassóis do Packet B é igual a:\n192 x 0,8 = 153,6 polegadas.\n\nResposta final: 153,6",
+          "resposta_extraida": "153.6",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2174,
+          "tokens_saida": 161,
+          "tempo_consulta_segundos": 14.153121099923737
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, precisamos saber a altura dos girassóis do Packet B e, para isso, precisamos usar a relação entre as alturas dos dois tipos de girassóis.\n\nA equação para essa relação é:\n\nAltura do Packet A = Altura do Packet B + (Altura do Packet B * 0,20)\n\nLogo, substituindo a altura do Packet A com 192, obtemos:\n\n192 = Altura do Packet B + (Altura do Packet B * 0,20)\n\nResolvendo para a altura do Packet B, temos:\n\n192 = Altura do Packet B + 0,20 * Altura do Packet B\n192 = 1,20 * Altura do Packet B\n\nDividindo 192 entre 1,20, temos:\n\nAltura do Packet B = 160\n\nResposta final: 160",
+          "resposta_extraida": "160",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2174,
+          "tokens_saida": 186,
+          "tempo_consulta_segundos": 15.936318599968217
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos encontrar a altura dos girassóis do Packet B.\n\nPrimeiro, devemos encontrar o aumento de altura dos girassóis do Packet A em relação aos girassóis do Packet B. Como os girassóis do Packet A são 20% mais altos que os girassóis do Packet B, podemos calcular esse aumento como:\n\n20% de 192 = 0,20 x 192 = 38,4 polegadas\n\nAgora, devemos subtrair esse aumento de altura da altura dos girassóis do Packet A para encontrar a altura dos girassóis do Packet B:\n\n192 - 38,4 = 153,6 polegadas\n\nPortanto, a altura dos girassóis do Packet B é de 153,6 polegadas.\n\nResposta final: 153,6",
+          "resposta_extraida": "153.6",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2174,
+          "tokens_saida": 185,
+          "tempo_consulta_segundos": 16.419251800049096
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema.\n\nPrimeiramente, sabemos que os girassóis do Packet A são 20% mais altos que os girassóis do Packet B. Isso significa que a altura dos girassóis do Packet B é igual a 100% - 20% = 80% da altura dos girassóis do Packet A.\n\nAgora, se os girassóis do Packet A têm 192 polegadas de altura, podemos calcular a altura dos girassóis do Packet B da seguinte forma:\n\nAltura do Packet A = 192 polegadas\n80% da altura do Packet A = 0,8 x 192 = 153,6 polegadas\n\nPortanto, a altura dos girassóis do Packet B é igual a 153,6 polegadas.\n\nResposta final: 153,6",
+          "resposta_extraida": "153.6",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2174,
+          "tokens_saida": 185,
+          "tempo_consulta_segundos": 15.72268270002678
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 88.98,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10870,
+      "tokens_saida": 1059
+    },
+    {
+      "id": "train_194",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "322",
+      "resposta": "322",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 60.2,
+      "ram_percentual": 85.6,
+      "respostas_extraidas": [
+        "322",
+        "322",
+        "322",
+        "322",
+        "322"
+      ],
+      "distribuicao_votos": {
+        "322": 5
+      },
+      "resposta_modelo": "322",
+      "votos_resposta_modelo": 5,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Para calcular o custo total dos presentes após o desconto, precisamos primeiro calcular o custo total dos presentes antes do desconto.\n\nCusto de 3 camisas polo: 3 x $26 = $78\nCusto de 2 colares: 2 x $83 = $166\nCusto do jogo de computador: $90\n\nTotal de custo dos presentes antes do desconto: $78 + $166 + $90 = $334\n\nO Sr. Grey recebeu um desconto de $12, então precisamos subtrair esse valor do total de custo:\n\n$334 - $12 = $322\n\nPortanto, o custo total dos presentes após o desconto é $322.\n\nResposta final: 322",
+          "resposta_extraida": "322",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2184,
+          "tokens_saida": 161,
+          "tempo_consulta_segundos": 13.281108499970287
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nO Sr. Grey comprou 3 camisas polo por $26 cada, então o valor total das camisas é:\n\n3 x $26 = $78\n\nEle comprou 2 colares por $83 cada, então o valor total dos colares é:\n\n2 x $83 = $166\n\nEle comprou 1 jogo de computador por $90, então o valor total do jogo de computador é:\n\n1 x $90 = $90\n\nO valor total dos presentes antes do desconto é:\n\n$78 + $166 + $90 = $334\n\nO Sr. Grey recebeu um desconto de $12, então o valor total dos presentes após o desconto é:\n\n$334 - $12 = $322\n\nResposta final: 322",
+          "resposta_extraida": "322",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2184,
+          "tokens_saida": 171,
+          "tempo_consulta_segundos": 14.112794200074859
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nO Sr. Grey comprou:\n\n* 3 camisas polo por $26 cada, então o total é 3 x $26 = $78\n* 2 colares por $83 cada, então o total é 2 x $83 = $166\n* 1 jogo de computador por $90\n\nO valor total dos presentes antes do desconto é: $78 + $166 + $90 = $334\n\nO Sr. Grey recebeu um desconto de $12, então o valor total após o desconto é: $334 - $12 = $322\n\nResposta final: 322",
+          "resposta_extraida": "322",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2184,
+          "tokens_saida": 139,
+          "tempo_consulta_segundos": 15.09819739998784
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para encontrar o custo total dos presentes após o desconto, precisamos primeiro calcular o valor total dos presentes antes do desconto.\n\nCusto de 3 camisas polo: 3 x $26 = $78\nCusto de 2 colares: 2 x $83 = $166\nCusto do jogo de computador: $90\nValor total dos presentes antes do desconto: $78 + $166 + $90 = $334\n\nComo o Sr. Grey recebeu um desconto de $12, precisamos subtrair esse valor do total:\n\n$334 - $12 = $322\n\nResposta final: 322",
+          "resposta_extraida": "322",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2184,
+          "tokens_saida": 137,
+          "tempo_consulta_segundos": 13.991336299921386
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema.\n\nO Sr. Grey comprou 3 camisas polo por $26 cada, então o custo total é 3 x 26 = $78.\n\nEle comprou 2 colares por $83 cada, então o custo total é 2 x 83 = $166.\n\nEle comprou 1 jogo de computador por $90, então o custo total é $90.\n\nO desconto é de $12, então vamos subtrair isso do custo total:\n\n$78 + $166 + $90 = $334\n\n$334 - $12 = $322\n\nResposta final: 322",
+          "resposta_extraida": "322",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2184,
+          "tokens_saida": 133,
+          "tempo_consulta_segundos": 12.051534800091758
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 68.538,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10920,
+      "tokens_saida": 741
+    },
+    {
+      "id": "train_195",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "30",
+      "resposta": "30",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 50.8,
+      "ram_percentual": 88.0,
+      "respostas_extraidas": [
+        "30",
+        "30",
+        "30",
+        "30",
+        "30"
+      ],
+      "distribuicao_votos": {
+        "30": 5
+      },
+      "resposta_modelo": "30",
+      "votos_resposta_modelo": 5,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\nProblema:\nMary comprou 5 caixas de bebidas a $6 cada caixa e 10 caixas de pizzas a $14 cada caixa para sua festa de pizza. Pagou 200 dólares por todos os itens. Quanto é que ela recebeu?\n\nCálculos necessários:\n\n1. Cálculo do custo total das caixas de bebidas:\n5 caixas de bebidas x $6/caixa = $30\n2. Cálculo do custo total das caixas de pizzas:\n10 caixas de pizzas x $14/caixa = $140\n3. Cálculo do custo total de todos os itens:\n$30 (bebidas) + $140 (pizzas) = $170\n\nVerificação das unidades:\nO problema não especifica unidades para o custo total, então podemos assumir que é em dólares.\n\nCálculo do valor recebido:\nMary pagou $200 por todos os itens, mas o custo total é de $170, então ela recebeu:\n\n$200 - $170 = $30\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2149,
+          "tokens_saida": 253,
+          "tempo_consulta_segundos": 21.45754550001584
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular o total gastado por Mary em caixas de bebidas e pizzas.\n\nElas comprou 5 caixas de bebidas a $6 cada caixa, então o total é 5 * 6 = $30.\n\nElas também comprou 10 caixas de pizzas a $14 cada caixa, então o total é 10 * 14 = $140.\n\nO total gastado em ambos os itens é $30 + $140 = $170.\n\nMas Mary pagou apenas $200, então ela recebeu:\n\n$200 - $170 = $30\n\nPortanto, Mary recebeu $30.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2149,
+          "tokens_saida": 145,
+          "tempo_consulta_segundos": 11.990357700036839
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, precisamos encontrar o valor total de todos os itens que Mary comprou e depois subtrair esse valor do valor total que ela pagou.\n\nO valor total de todas as caixas de bebidas é 5 x $6 = $30.\n\nO valor total de todas as caixas de pizzas é 10 x $14 = $140.\n\nO valor total de todos os itens é $30 + $140 = $170.\n\nMary pagou $200 em total, então o valor que ela recebeu é o valor total que ela pagou menos o valor total de todos os itens.\n\nO valor que ela recebeu é $200 - $170 = $30.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2149,
+          "tokens_saida": 149,
+          "tempo_consulta_segundos": 11.714434299967252
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular o valor total de todas as caixas de bebidas e pizzas que Mary comprou.\n\nCada caixa de bebidas custa $6, então 5 caixas vão custar 5*$6 = $30.\n\nCada caixa de pizzas custa $14, então 10 caixas vão custar 10*$14 = $140.\n\nO valor total de todas as caixas de bebidas e pizzas é $30 + $140 = $170.\n\nMary pagou $200 por todos os itens, então ela recebeu $200 - $170 = $30.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2149,
+          "tokens_saida": 141,
+          "tempo_consulta_segundos": 11.023671800037846
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos saber o valor total que Mary pagou, que é de $200. Então, podemos calcular o valor total de todos os itens que ela comprou:\n\n5 caixas de bebidas x $6/cixa = $30\n10 caixas de pizzas x $14/cixa = $140\nO valor total de todos os itens é $30 + $140 = $170\n\nAgora, podemos calcular o valor que Mary recebeu:\n\nPagamento total = $200\nValor total dos itens = $170\n\nPara calcular o valor que Mary recebeu, precisamos subtrair o valor total dos itens do pagamento total:\n\nValor recebido = Pagamento total - Valor total dos itens\n= $200 - $170\n= $30\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2149,
+          "tokens_saida": 170,
+          "tempo_consulta_segundos": 13.877295600017533
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 70.065,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10745,
+      "tokens_saida": 858
+    },
+    {
+      "id": "train_196",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "15",
+      "resposta": "15",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 64.4,
+      "ram_percentual": 93.3,
+      "respostas_extraidas": [
+        "15",
+        "15",
+        "168",
+        "15",
+        "14"
+      ],
+      "distribuicao_votos": {
+        "15": 3,
+        "168": 1,
+        "14": 1
+      },
+      "resposta_modelo": "15",
+      "votos_resposta_modelo": 3,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. Primeiro, devemos encontrar a idade de Herbert atualmente. Sabemos que Herbert é 10 anos mais novo que Kris, que tem 24 anos. Portanto, a idade de Herbert é:\n\n24 - 10 = 14 anos\n\n2. Agora, precisamos encontrar a idade de Herbert no próximo ano. Para isso, somamos 1 ano à idade atual de Herbert:\n\n14 + 1 = 15 anos\n\nResposta final: 15",
+          "resposta_extraida": "15",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2119,
+          "tokens_saida": 109,
+          "tempo_consulta_segundos": 9.999441800056957
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos saber a idade de Herbert agora e calcular sua idade no próximo ano. Sabemos que Kris tem 24 anos e que Herbert é 10 anos mais novo que Kris. Para encontrar a idade de Herbert agora, podemos subtrair 10 anos da idade de Kris:\n\nIdade de Herbert agora = Idade de Kris agora - 10 anos\n= 24 anos - 10 anos\n= 14 anos\n\nAgora que sabemos a idade de Herbert agora, podemos calcular sua idade no próximo ano. Como é um ano, precisamos acrescentar 1 ano à idade de Herbert agora:\n\nIdade de Herbert no próximo ano = Idade de Herbert agora + 1 ano\n= 14 anos + 1 ano\n= 15 anos\n\nResposta final: 15",
+          "resposta_extraida": "15",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2119,
+          "tokens_saida": 169,
+          "tempo_consulta_segundos": 15.820381500059739
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\nProblema:\nHerbert é 10 anos mais novo que Kris. Se Kris tem 24 anos agora, que idade terá Herbert no próximo ano?\n\nResolução:\n\n1. Primeiro, precisamos saber a idade de Herbert agora. Como Herbert é 10 anos mais novo que Kris, podemos calcular sua idade como: Idade de Herbert = Idade de Kris - 10\n   Idade de Herbert = 24 - 10\n   Idade de Herbert = 14 anos\n\n2. Agora que sabemos a idade de Herbert, precisamos calcular sua idade no próximo ano. Como um ano tem 12 meses, precisamos multiplicar a idade de Herbert por 12 para saber sua idade no próximo ano:\n   Idade de Herbert no próximo ano = Idade de Herbert x 12\n   Idade de Herbert no próximo ano = 14 x 12\n   Idade de Herbert no próximo ano = 168 anos\n\nNo entanto, é importante notar que a idade de Herbert no próximo ano não pode ser maior que 100 anos. Portanto, precisamos revisar o resultado.\n\n3. Revisando o resultado, vemos que a idade de Herbert no próximo ano é 168 anos, o que é menor que 100 anos. Portanto, a idade de Herbert no próximo ano é válida.\n\nResposta final: 168",
+          "resposta_extraida": "168",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2119,
+          "tokens_saida": 294,
+          "tempo_consulta_segundos": 24.017921500024386
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Problema:\n\nHerbert é 10 anos mais novo que Kris. Se Kris tem 24 anos agora, que idade terá Herbert no próximo ano?\n\nResolução:\n\nKris tem 24 anos agora, e Herbert é 10 anos mais novo, então Herbert tem 24 - 10 = 14 anos.\n\nNo próximo ano, Kris terá 24 + 1 = 25 anos.\n\nHerbert terá 14 + 1 = 15 anos.\n\nResposta final: 15",
+          "resposta_extraida": "15",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2119,
+          "tokens_saida": 104,
+          "tempo_consulta_segundos": 9.031875799992122
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a idade de Herbert, que é 10 anos mais nova que Kris. Se Kris tem 24 anos, então Herbert tem 24 - 10 = 14 anos.\n\nAgora, precisamos saber a idade de Herbert no próximo ano. Como o ano que vem é um ano normal, não há necessidade de considerar a idade de Herbert no ano que vem. Então, a idade de Herbert no próximo ano será a mesma que a idade de Herbert agora, que é 14 anos.\n\nResposta final: 14",
+          "resposta_extraida": "14",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2119,
+          "tokens_saida": 118,
+          "tempo_consulta_segundos": 14.085380299948156
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 72.957,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10595,
+      "tokens_saida": 794
+    },
+    {
+      "id": "train_197",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "24",
+      "resposta": "24",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 62.3,
+      "ram_percentual": 80.4,
+      "respostas_extraidas": [
+        "0",
+        "24",
+        "24",
+        "24",
+        "24"
+      ],
+      "distribuicao_votos": {
+        "0": 1,
+        "24": 4
+      },
+      "resposta_modelo": "24",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, vamos calcular a quantidade de rolos de jantar que cada pessoa come. Como metade das pessoas come 1 1/2 rolos e a outra metade come 1/2 rolo, podemos calcular a quantidade total de rolos consumidos como:\n\n* 8 pessoas x 1 1/2 rolos = 12 rolos\n* 8 pessoas x 1/2 rolo = 4 rolos\n\nTotal de rolos consumidos: 12 + 4 = 16 rolos\n\nComo há 16 pessoas e 16 rolos de jantar, não há sobras.\n\nNo entanto, é importante notar que a pergunta pergunta a quantos rolos sobram. Para isso, precisamos verificar se há mais rolos do que as pessoas comeram. \n\nComo 16 pessoas comeram 16 rolos, não há sobras.\n\nResposta final: 0",
+          "resposta_extraida": "0",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2153,
+          "tokens_saida": 205,
+          "tempo_consulta_segundos": 21.991373000084423
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiramente, vamos calcular a quantidade de pessoas que comem 1 1/2 rolos e a quantidade que comem 1/2 rolo:\n\n* 1 1/2 rolos = 3/2 rolos (converte a fração para uma fração decimal)\n* 1/2 rolo = 0,5 rolo (converte a fração para uma fração decimal)\n\nAgora, vamos calcular a quantidade de pessoas que comem 1 1/2 rolos e a quantidade que comem 1/2 rolo:\n\n* 1 1/2 rolos: 16/2 = 8 pessoas (metade das pessoas)\n* 1/2 rolo: 16/2 = 8 pessoas (metade das pessoas)\n\nAgora, vamos calcular a quantidade total de rolos que são consumidos:\n\n* 8 pessoas x 3/2 rolos = 12 rolos\n* 8 pessoas x 0,5 rolo = 4 rolos\n* Total de rolos consumidos: 12 + 4 = 16 rolos\n\nAgora, vamos verificar as unidades: os rolos são unidades de medida, então não há necessidade de converter unidades.\n\nAgora, vamos calcular a quantidade de rolos sobrantes:\n\n* Quantidade total de rolos disponíveis: 40 rolos\n* Quantidade de rolos consumidos: 16 rolos\n* Quantidade de rolos sobrantes: 40 - 16 = 24 rolos\n\nResposta final: 24",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2153,
+          "tokens_saida": 347,
+          "tempo_consulta_segundos": 29.553070400026627
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiramente, precisamos saber quantas pessoas estão no jantar. Como já foi mencionado, há 16 pessoas.\n\nAgora, precisamos saber quantos rolos de jantar cada pessoa come. Há duas partes:\n\n1. A metade das pessoas come 1 1/2 rolos cada.\n2. A outra metade come 1/2 rolo cada.\n\nVamos calcular a quantidade de pessoas em cada grupo:\n\n* 16 pessoas / 2 = 8 pessoas (para a primeira parte)\n* 16 pessoas / 2 = 8 pessoas (para a segunda parte)\n\nAgora, vamos calcular a quantidade de rolos de jantar que cada pessoa come:\n\n* 8 pessoas x 1 1/2 rolos/persona = 8 x 1,5 = 12 rolos\n* 8 pessoas x 1/2 rolo/persona = 8 x 0,5 = 4 rolos\n\nAgora, vamos calcular a quantidade total de rolos de jantar consumidos:\n\n* 12 rolos (primeira parte) + 4 rolos (segunda parte) = 16 rolos\n\nComo há 40 rolos de jantar disponíveis, vamos calcular a quantidade de rolos de jantar sobrando:\n\n* 40 rolos - 16 rolos = 24 rolos\n\nPortanto, sobram 24 rolos de jantar.\n\nResposta final: 24",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2153,
+          "tokens_saida": 320,
+          "tempo_consulta_segundos": 24.021171000087634
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiramente, precisamos saber quantas pessoas estão no jantar e quantos rolos de jantar estão disponíveis. Estamos ditas que há 16 pessoas e 40 rolos de jantar.\n\nAgora, precisamos saber quantos rolos de jantar cada pessoa vai comer. A metade das pessoas vai comer 1 1/2 rolos e a outra metade vai comer 1/2 rolo. Para saber quantas pessoas estão na primeira metade e na segunda metade, precisamos dividir o total de pessoas pelo 2, pois elas são metades iguais:\n\n16 pessoas / 2 = 8 pessoas na primeira metade\n8 pessoas na segunda metade\n\nAgora, precisamos calcular quantos rolos de jantar cada pessoa vai comer:\n\nA primeira metade (8 pessoas) vai comer 1 1/2 rolos, então:\n\n1 1/2 rolos x 8 pessoas = 12 rolos\n\nA segunda metade (8 pessoas) vai comer 1/2 rolo, então:\n\n1/2 rolo x 8 pessoas = 4 rolos\n\nAgora, precisamos saber quantos rolos de jantar sobram. Para isso, precisamos saber quantos rolos de jantar foram consumidos e quantos rolos de jantar estão disponíveis.\n\nVamos calcular a quantidade total de rolos de jantar consumidos:\n\n12 rolos (primeira metade) + 4 rolos (segunda metade) = 16 rolos\n\nAgora, precisamos saber quantos rolos de jantar estão disponíveis. Estamos ditas que há 40 rolos de jantar disponíveis.\n\nPara saber quantos rolos de jantar sobram, precisamos subtrair a quantidade de rolos consumidos da quantidade disponível:\n\n40 rolos - 16 rolos = 24 rolos\n\nPortanto, sobram 24 rolos de jantar.\n\nResposta final: 24",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2153,
+          "tokens_saida": 435,
+          "tempo_consulta_segundos": 32.35504789999686
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, precisamos saber quantas pessoas vão comer 1 1/2 rolos e quantas vão comer 1/2 rolo. Como há 16 pessoas e metade delas vão comer 1 1/2 rolos e a outra metade vão comer 1/2 rolo, podemos dividir as pessoas em dois grupos de 8 pessoas cada.\n\nO grupo que come 1 1/2 rolos tem 8 pessoas x 1 1/2 rolos/pessoa = 12 rolos.\n\nO grupo que come 1/2 rolo tem 8 pessoas x 1/2 rolo/pessoa = 4 rolos.\n\nAgora, precisamos saber quantos rolos são necessários em total. Vamos calcular a quantidade total de rolos necessários:\n\n* 12 rolos (do grupo que come 1 1/2 rolos) + 4 rolos (do grupo que come 1/2 rolo) = 16 rolos.\n\nMas há 40 rolos disponíveis, então precisamos saber quantos sobram. Vamos subtrair a quantidade necessária da quantidade disponível:\n\n40 rolos (disponíveis) - 16 rolos (necessários) = 24 rolos.\n\nPortanto, sobram 24 rolos de jantar.\n\nResposta final: 24",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2153,
+          "tokens_saida": 303,
+          "tempo_consulta_segundos": 22.29110600007698
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 130.214,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10765,
+      "tokens_saida": 1610
+    },
+    {
+      "id": "train_198",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "30",
+      "resposta": "30",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 49.3,
+      "ram_percentual": 84.3,
+      "respostas_extraidas": [
+        "30",
+        "30",
+        "30",
+        "30",
+        "30"
+      ],
+      "distribuicao_votos": {
+        "30": 5
+      },
+      "resposta_modelo": "30",
+      "votos_resposta_modelo": 5,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nO objetivo de Rosie é correr 20 milhas para a semana. Ela já correu uma certa quantidade de milhas nas quatro primeiras dias da semana. Vamos calcular a quantidade total de milhas que Rosie correu nas primeiras quatro dias:\n\nSegunda-feira: 6 milhas/hora x 1 hora = 6 milhas\nTerça-feira: 6 milhas/hora x (30 minutos / 60 minutos) = 6 milhas x 0,5 = 3 milhas\nQuarta-feira: 6 milhas/hora x 1 hora = 6 milhas\nQuinta-feira: 6 milhas/hora x (20 minutos / 60 minutos) = 6 milhas x 0,33 = 2 milhas\n\nTotal de milhas corridas nas quatro primeiras dias = 6 + 3 + 6 + 2 = 17 milhas\n\nPara alcançar o objetivo de correr 20 milhas para a semana, Rosie precisa correr 20 - 17 = 3 milhas na sexta-feira.\n\nComo Rosie corre 6 milhas/hora, ela precisará correr 3 milhas / 6 milhas/hora = 0,5 horas (ou 30 minutos) na sexta-feira.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 293,
+          "tempo_consulta_segundos": 21.790186500060372
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar o tempo total que Rosie passou correndo durante as quatro primeiras horas da semana.\n\nEla corre 1 hora na segunda-feira, 30 minutos na terça-feira, 1 hora na quarta-feira e 20 minutos na quinta-feira. Convertendo todos os tempos para horas, temos:\n\n2ª-feira: 1 hora\n3ª-feira: 0,5 horas\n4ª-feira: 1 hora\n5ª-feira: 0,33 horas\n\nAgora, vamos calcular o tempo total que Rosie passou correndo:\n\n1 (segunda-feira) + 0,5 (terça-feira) + 1 (quarta-feira) + 0,33 (quinta-feira) = 2,83 horas\n\nAgora que sabemos o tempo total que Rosie passou correndo durante as quatro primeiras horas, podemos calcular o tempo total que ela passou correndo na semana. Ela corre 6 milhas por hora e quer fugir 20 milhas por semana, então precisamos primeiro calcular o tempo total necessário para correr 20 milhas:\n\n20 milhas / 6 milhas/hora = 3,33 horas\n\nAgora que sabemos o tempo total necessário para correr 20 milhas, podemos calcular o tempo que Rosie passou correndo durante as quatro primeiras horas e subtraindo isso do tempo total necessário, temos:\n\n3,33 - 2,83 = 0,50 horas\n\nAgora que sabemos o tempo total necessário para correr 20 milhas, sabemos que Rosie precisa correr 0,50 horas para alcançar sua meta de 20 milhas. Para saber quantos minutos ela precisa correr na sexta-feira, precisamos converter o tempo de horas para minutos:\n\n0,50 horas x 60 minutos/hora = 30 minutos\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 414,
+          "tempo_consulta_segundos": 30.577888899948448
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema!\n\nPara começar, precisamos calcular a distância total que Rosie corre em cada dia:\n\n* Segunda-feira: 6 milhas/hora x 1 hora = 6 milhas\n* Terça-feira: 6 milhas/hora x (30 minutos / 60 minutos) = 3 milhas\n* Quarta-feira: 6 milhas/hora x 1 hora = 6 milhas\n* Quinta-feira: 6 milhas/hora x (20 minutos / 60 minutos) = 2 milhas\n\nAgora, vamos calcular a distância total que Rosie corre em 4 dias:\n\n6 + 3 + 6 + 2 = 17 milhas\n\nIsso significa que Rosie ainda precisa correr 20 - 17 = 3 milhas para atingir o objetivo de fugir 20 milhas por semana.\n\nComo Rosie corre 6 milhas por hora, precisará correr por:\n\n3 milhas / 6 milhas/hora = 0,5 hora\n\nAgora, precisamos converter essa hora para minutos:\n\n0,5 hora x 60 minutos/hora = 30 minutos\n\nPortanto, Rosie precisa correr por 30 minutos na sexta-feira para atingir o objetivo de fugir 20 milhas por semana.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 285,
+          "tempo_consulta_segundos": 21.11504069995135
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro calcular a distância total que Rosie corre durante a semana.\n\nRosie corre:\n- 1 hora na segunda-feira, o que é 1*6=6 milhas\n- 30 minutos na terça-feira, o que é 0,5*6=3 milhas\n- 1 hora na quarta-feira, o que é 1*6=6 milhas\n- 20 minutos na quinta-feira, o que é 0,33*6=2 milhas\n\nA distância total que Rosie corre durante a semana é a soma da distância corrida em cada dia:\n6 + 3 + 6 + 2 = 17 milhas\n\nRosie quer fugir 20 milhas na semana, então precisa correr mais 20 - 17 = 3 milhas.\n\nComo Rosie corre 6 milhas por hora, ela precisa correr por 3/6 = 0,5 horas.\n\nComo 1 hora = 60 minutos, 0,5 horas = 0,5 * 60 = 30 minutos.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 238,
+          "tempo_consulta_segundos": 17.657638799981214
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro encontrar a distância total que Rosie corre nas quatro primeiras horas da semana.\n\nNuma segunda-feira, ela corre por 1 hora, então a distância que ela percorreu é 6 * 1 = 6 milhas.\n\nNuma terça-feira, ela corre por 30 minutos, então a distância que ela percorreu é 6 * (30/60) = 3 milhas.\n\nNuma quarta-feira, ela corre por 1 hora, então a distância que ela percorreu é 6 * 1 = 6 milhas.\n\nNuma quinta-feira, ela corre por 20 minutos, então a distância que ela percorreu é 6 * (20/60) = 2 milhas.\n\nA distância total que Rosie corre nas quatro primeiras horas é 6 + 3 + 6 + 2 = 17 milhas.\n\nAgora, precisamos encontrar a distância que Rosie ainda precisa correr para atingir sua meta de 20 milhas. Isso é 20 - 17 = 3 milhas.\n\nComo Rosie corre 6 milhas por hora, ela precisará correr por 3/6 = 0,5 horas para atingir sua meta.\n\nComo 1 hora é igual a 60 minutos, 0,5 horas é igual a 0,5 * 60 = 30 minutos.\n\nPortanto, Rosie precisa correr 30 minutos na sexta-feira para atingir sua meta.\n\nResposta final: 30",
+          "resposta_extraida": "30",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 331,
+          "tempo_consulta_segundos": 24.32599719997961
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 115.468,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10810,
+      "tokens_saida": 1561
+    },
+    {
+      "id": "train_199",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "150",
+      "resposta": "150",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 49.4,
+      "ram_percentual": 81.3,
+      "respostas_extraidas": [
+        "150",
+        "150",
+        "150",
+        "150",
+        "9000"
+      ],
+      "distribuicao_votos": {
+        "150": 4,
+        "9000": 1
+      },
+      "resposta_modelo": "150",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema!\n\nGary comprou seu primeiro carro usado por $6,000. Ele recebeu o dinheiro emprestado ao pai, que disse que lhe podia pagar o valor total em 5 anos. No entanto, Gary decidiu que pagaria ao pai o valor total em 2 anos.\n\nPrimeiramente, vamos calcular o valor total que Gary precisa pagar em 5 anos:\n\nValor total = $6,000\n\nAgora, vamos calcular o valor total que Gary precisa pagar em 2 anos:\n\nValor total = $6,000\n\nComo Gary está pagando o valor total em 2 anos em vez de 5 anos, ele está gastando mais dinheiro por mês para pagar o empréstimo. Vamos calcular a diferença:\n\nDiferença = Valor total (5 anos) - Valor total (2 anos)\n= $6,000 - $6,000\n= $0\n\nNo entanto, isso não significa que Gary não está gastando mais dinheiro por mês. Em vez disso, isso significa que ele está gastando o mesmo valor total, mas em um período de tempo mais curto.\n\nAgora, vamos calcular o valor que Gary precisa pagar por mês em 2 anos:\n\nValor mensal = Valor total / Número de meses\n= $6,000 / 24 meses\n= $250\n\nAgora, vamos calcular o valor que Gary precisava pagar por mês em 5 anos:\n\nValor mensal = Valor total / Número de meses\n= $6,000 / 60 meses\n= $100\n\nComo Gary está pagando mais dinheiro por mês, precisamos calcular a diferença:\n\nDiferença = Valor mensal (2 anos) - Valor mensal (5 anos)\n= $250 - $100\n= $150\n\nPortanto, Gary está gastando $150 mais por mês para pagar o empréstimo em 2 anos em vez de 5 anos.\n\nResposta final: 150",
+          "resposta_extraida": "150",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2176,
+          "tokens_saida": 422,
+          "tempo_consulta_segundos": 31.375904600019567
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema!\n\nGary emprestou $6.000 ao pai em 5 anos. Ele decidiu pagar o valor total em 2 anos, o que significa que ele precisa pagar o valor total em uma fração de tempo menor.\n\nPara encontrar o valor mensal, precisamos dividir o valor total pelo número de meses que ele tem para pagar o empréstimo. Nesse caso, ele tem 2 anos, o que é igual a 24 meses (2 anos x 12 meses por ano).\n\nO valor total do empréstimo é $6.000, e ele tem 24 meses para pagar. Portanto, o valor mensal é:\n\n$6.000 ÷ 24 meses = $250 por mês\n\nAgora, vamos calcular o valor mensal se Gary pagasse o empréstimo em 5 anos. Nesse caso, ele tem 60 meses (5 anos x 12 meses por ano).\n\nO valor total do empréstimo é $6.000, e ele tem 60 meses para pagar. Portanto, o valor mensal é:\n\n$6.000 ÷ 60 meses = $100 por mês\n\nAgora, vamos encontrar a diferença entre os valores mensais. Isso nos dará a quantia que Gary está gastando por mês para pagar o empréstimo em 2 anos em vez de 5 anos:\n\nDiferença = $250 por mês - $100 por mês = $150 por mês\n\nResposta final: 150",
+          "resposta_extraida": "150",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2176,
+          "tokens_saida": 328,
+          "tempo_consulta_segundos": 23.962263699970208
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular a diferença de valor que Gary precisa pagar ao pai em 2 anos em vez de 5 anos.\n\nO valor total do empréstimo é $6,000. Se Gary pagasse o valor total em 5 anos, ele pagaria:\n\n$6,000 / 5 anos = $1,200 por ano\n$1,200 por ano / 12 meses por ano = $100 por mês\n\nSe Gary pagasse o valor total em 2 anos, ele pagaria:\n\n$6,000 / 2 anos = $3,000 por ano\n$3,000 por ano / 12 meses por ano = $250 por mês\n\nAgora, precisamos encontrar a diferença entre os valores mensais. Isso é:\n\n$250 por mês - $100 por mês = $150 por mês\n\nPortanto, Gary está gastando $150 mais por mês para pagar o empréstimo em 2 anos em vez de 5 anos.\n\nResposta final: 150",
+          "resposta_extraida": "150",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2176,
+          "tokens_saida": 224,
+          "tempo_consulta_segundos": 16.96721490006894
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiramente, precisamos saber o valor total do empréstimo, que é o valor do carro usado:\n\nValor do carro usado = $6.000\n\nGary pediu o dinheiro emprestado ao pai por 5 anos. Para encontrar o valor mensal do empréstimo, precisamos dividir o valor total pelo número de anos e pelo número de meses por ano:\n\nValor mensal = Valor total / (Número de anos x Número de meses por ano)\n= $6.000 / (5 x 12)\n= $6.000 / 60\n= $100,00 por mês\n\nAgora, Gary decidiu pagar o valor total em 2 anos. Para encontrar o valor mensal do empréstimo, precisamos dividir o valor total pelo novo número de anos e pelo número de meses por ano:\n\nValor mensal = Valor total / (Número de anos x Número de meses por ano)\n= $6.000 / (2 x 12)\n= $6.000 / 24\n= $250,00 por mês\n\nAgora, precisamos saber quantos mais Gary está gastando por mês para pagar o empréstimo em 2 anos em vez de 5 anos. Para isso, subtraímos o valor mensal do empréstimo em 5 anos do valor mensal do empréstimo em 2 anos:\n\nDiferença de valor mensal = Valor mensal em 2 anos - Valor mensal em 5 anos\n= $250,00 - $100,00\n= $150,00 por mês\n\nResposta final: 150",
+          "resposta_extraida": "150",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2176,
+          "tokens_saida": 359,
+          "tempo_consulta_segundos": 26.251550500048324
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema!\n\nGary comprou seu primeiro carro usado por $6.000. Ele pediu o dinheiro emprestado ao pai e o pai disse que lhe podia pagar o valor total em 5 anos. No entanto, Gary decidiu que pagaria ao pai o valor total em 2 anos.\n\nPara encontrar o valor mensal do empréstimo em 5 anos, podemos dividir o valor total do carro ($6.000) pelo número de anos:\n\n$6.000 ÷ 5 anos = $1.200 por ano\n$1.200 por ano ÷ 12 meses por ano = $100 por mês\n\nAgora, vamos encontrar o valor mensal do empréstimo em 2 anos:\n\n$6.000 ÷ 2 anos = $3.000 por ano\n$3.000 por ano ÷ 12 meses por ano = $250 por mês\n\nComo Gary está pagando o empréstimo em 2 anos em vez de 5, ele está pagando mais por mês. Para encontrar a diferença, podemos subtrair o valor mensal do empréstimo em 2 anos do valor mensal do empréstimo em 5 anos:\n\n$100 por mês - $250 por mês = -$150 por mês\n\nNo entanto, isso significa que Gary está pagando menos por mês em vez de mais. Para encontrar a quantia em que Gary está gastando mais por mês, podemos multiplicar a diferença pelo número de meses de 5 anos (60 meses):\n\n$150 por mês x 60 meses = $9.000\n\nPortanto, Gary está gastando $9.000 mais por mês para pagar o empréstimo em 2 anos em vez de 5 anos.\n\nResposta final: 9000",
+          "resposta_extraida": "9000",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2176,
+          "tokens_saida": 393,
+          "tempo_consulta_segundos": 28.851472900016233
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 127.41,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10880,
+      "tokens_saida": 1726
     }
   ],
-  "status": "em_andamento",
-  "tempo_acumulado_segundos": 36883.6446743001,
-  "metricas_parciais": {
+  "status": "concluido",
+  "tempo_acumulado_segundos": 37818.80028600001,
+  "data_fim": "2026-10-21T10:40:43",
+  "metricas": {
     "exemplos_utilizados": 10,
     "amostras_por_questao": 5,
     "votacao_censo": "equivalencia_deterministica_ou_selecao_semantica_cega",
-    "questoes_executadas": 190,
-    "questoes_avaliadas": 190,
-    "acertos": 131,
-    "erros": 59,
+    "questoes_executadas": 200,
+    "questoes_avaliadas": 200,
+    "acertos": 138,
+    "erros": 62,
     "falhas_tecnicas": 0,
     "detalhes_falhas_tecnicas": [],
-    "acuracia_percentual": 68.95,
+    "acuracia_percentual": 69.0,
     "acuracia_por_split": {
       "train": {
-        "questoes": 190,
-        "acertos": 131,
-        "erros": 59,
-        "acuracia_percentual": 68.95
+        "questoes": 200,
+        "acertos": 138,
+        "erros": 62,
+        "acuracia_percentual": 69.0
       }
     },
     "respostas_sem_extracao": 0,
     "revisoes_necessarias": 0,
-    "tempo_total_segundos": 36883.64,
-    "tempo_medio_segundos": 194.1,
-    "tokens_entrada": 2058325,
-    "tokens_saida": 233950,
-    "cpu_media_percentual": 52.97,
-    "ram_media_percentual": 93.92,
+    "tempo_total_segundos": 37818.8,
+    "tempo_medio_segundos": 189.07,
+    "tokens_entrada": 2166280,
+    "tokens_saida": 245612,
+    "cpu_media_percentual": 53.05,
+    "ram_media_percentual": 93.55,
     "metricas_votacao": {
-      "unanimidades": 57,
+      "unanimidades": 60,
       "empates": 26,
       "sem_resposta_valida": 0,
-      "media_votos_vencedor": 3.4
+      "media_votos_vencedor": 3.43
     }
   }
 }
