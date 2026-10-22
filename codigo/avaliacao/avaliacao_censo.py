@@ -204,6 +204,32 @@ def _criterios_censo(questao, resposta):
         citadas = _ufs_citadas(resposta)
         return decisao(citadas == esperadas,
                        'Comparação exata do conjunto das cinco UFs; ordem e valores não exigidos.')
+    # Casos em que o juiz semântico aceitou contradições verificáveis.
+    if numero == 28:
+        # A pergunta exige a comparação; inverter a direção é erro inequívoco.
+        invertida = bool(re.search(r'anos iniciais.{0,100}(?:menor(?:es)?|menos|inferior(?:es)?)\s+(?:que|do que|aos?)', t, re.S))
+        invertida |= bool(re.search(r'anos finais.{0,100}(?:maior(?:es)?|mais|superior(?:es)?)\s+(?:que|do que|aos?)', t, re.S))
+        invertida |= bool(re.search(r'anos iniciais.{0,65}(?:menos|menor(?:es)?|inferior(?:es)?).{0,65}anos finais', t, re.S))
+        if invertida:
+            return decisao(False, 'Contradição: Anos Iniciais têm MAIS matrículas que Anos Finais.')
+        # Para as demais respostas, exigir validação semântica, pois podem citar só a tendência.
+        return None
+    if numero == 41:
+        etapas_incorretas = bool(re.search(r'11\s*a\s*14\s*anos.{0,100}(?:ensino medio|anos iniciais)', t, re.S))
+        etapas_incorretas |= bool(re.search(r'6\s*a\s*10\s*anos.{0,100}(?:ensino medio|anos finais)', t, re.S))
+        if etapas_incorretas:
+            return decisao(False, 'Correspondência das faixas etárias às etapas de ensino incorreta.')
+        return None
+    if numero == 43:
+        # Não aceitar separadores numéricos malformados como se fossem totais corretos.
+        if re.search(r'(?<!\d)496\.8651(?!\d)', t):
+            return decisao(False, 'Total de 4 a 5 anos foi escrito incorretamente: 496.8651.')
+        return None
+    if numero == 44:
+        # A pergunta também solicita quantidades por turno; só a predominância não basta.
+        if not all(tem(n) for n in (42131013, 3240654, 646713)):
+            return decisao(False, 'Faltam os totais de Diurno, Noturno e EAD solicitados na questão.')
+        return None
     # Questões com resultado numérico inequívoco, além das 01–23.
     if numero == 24:
         return decisao(tem(2512355) and ('sao paulo' in t or re.search(r'\bsp\b', t)),
@@ -234,7 +260,7 @@ def _criterios_censo(questao, resposta):
     return None
 
 def avaliar_censo(questao, resposta, consultar_ollama=None):
-    """Avalia automaticamente em acerto/erro; sem revisão manual."""
+    """Avalia com rubricas e juiz; indecisão requer revisão, não falha de geração."""
     gabarito = str(questao.get('resposta_esperada') or questao.get('gabarito') or '').strip()
     enunciado = str(questao.get('pergunta') or questao.get('enunciado') or '').strip()
     resposta = str(resposta or '').strip()
@@ -242,7 +268,7 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
         return {'acertou': False, 'motivo': 'Modelo não forneceu resposta.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'resposta_vazia'}
     if not gabarito:
-        return {'acertou': None, 'motivo': 'Gabarito ausente; não foi possível confirmar acerto.',
+        return {'acertou': False, 'motivo': 'Gabarito ausente; avaliação conservadora como erro.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'gabarito_ausente'}
 
     # Primeiro aplica critérios verificáveis para as questões cobertas por rubricas.
@@ -254,7 +280,7 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
 
     # Para as demais questões (e rubricas negativas), usa avaliação semântica.
     if consultar_ollama is None:
-        return {'acertou': None, 'motivo': 'Sem avaliador para confirmar a resposta.',
+        return {'acertou': False, 'motivo': 'Sem avaliador: resposta não confirmada, contada como erro.',
                 'revisao_necessaria': False, 'metodo_avaliacao': 'avaliador_indisponivel'}
     prompt = f"""Você corrige respostas do Censo Escolar. Julgue APENAS a resposta dada,
 comparando-a com a questão e o gabarito. Não avalie a intenção nem a qualidade
@@ -296,7 +322,7 @@ RESPOSTA: {resposta}"""
                         'metodo_avaliacao': 'llm_como_avaliador',
                         'tentativas_avaliador': tentativa_avaliador}
             ultimo_motivo = justificativa or 'Veredito inconclusivo.'
-    return {'acertou': None, 'motivo': ultimo_motivo,
+    return {'acertou': False, 'motivo': ultimo_motivo + ' Contada como erro por ausência de confirmação.',
             'revisao_necessaria': False,
             'metodo_avaliacao': 'avaliador_inconclusivo',
             'tentativas_avaliador': 3}

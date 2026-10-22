@@ -37,10 +37,19 @@ def executar_experimento_self_consistency(
                 extraida = str(normalizar_voto(extraida)).strip()
             except (ValueError, TypeError, OverflowError):
                 pass
+        # Uma geração concluída sem letra/número final é erro do modelo,
+        # não falha de transporte. A amostra não participa da votação.
+        # O Ollama informa 'length' quando para por limite de tokens.
+        motivo_parada = info.get('done_reason')
+        limite_tokens = motivo_parada == 'length'
         amostras.append({
             'amostra': indice,
             'resposta_completa': texto,
             'resposta_extraida': extraida,
+            'resposta_valida': bool(extraida),
+            'sem_extracao': not bool(extraida) and not falha,
+            'limite_tokens_atingido': limite_tokens,
+            'motivo_parada': motivo_parada,
             'falha_tecnica': falha,
             'tentativas_consulta': info.get('tentativas', 3),
             'erro_detalhado': info.get('erro_detalhado'),
@@ -73,6 +82,8 @@ def executar_experimento_self_consistency(
         'houve_empate': votacao['houve_empate'],
         'total_respostas_validas': votacao['total_respostas_validas'],
         'amostras': amostras,
+        'amostras_sem_extracao': sum(a['sem_extracao'] for a in amostras),
+        'amostras_limite_tokens': sum(a['limite_tokens_atingido'] for a in amostras),
         'falha_tecnica': incompleto,
         'motivo_falha_tecnica': motivo_seletor or next(
             (a['erro_detalhado'] or 'Falha na consulta ao Ollama'

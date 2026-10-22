@@ -69,6 +69,7 @@ def metricas(resultados, tempo_total, quantidade, dataset):
     avaliadas = [r for r in resultados if not r.get('falha_tecnica', False)
                  and isinstance(r.get('acertou'), bool)]
     falhas = [r for r in resultados if r.get('falha_tecnica', False)]
+    pendentes_avaliacao = [r for r in resultados if not r.get('falha_tecnica', False) and r.get('acertou') is None]
     def acuracia(itens):
         return round(100 * sum(r['acertou'] for r in itens) / len(itens), 2) if itens else None
     def media(chave):
@@ -96,6 +97,7 @@ def metricas(resultados, tempo_total, quantidade, dataset):
         'acertos': sum(r['acertou'] for r in avaliadas),
         'erros': sum(not r['acertou'] for r in avaliadas),
         'falhas_tecnicas': len(falhas),
+        'avaliacoes_pendentes': len(pendentes_avaliacao),
         'detalhes_falhas_tecnicas': [
             {'id': r['id'], 'motivo': r.get('motivo'),
              'amostras_realizadas': len(r.get('amostras', [])),
@@ -106,7 +108,25 @@ def metricas(resultados, tempo_total, quantidade, dataset):
         'acuracia_por_split': por_split,
         'respostas_sem_extracao': sum(r.get('total_respostas_validas', 0) < N_AMOSTRAS
                                      for r in avaliadas),
-        'revisoes_necessarias': 0,
+        'questoes_com_amostras_invalidas': sum(any(not a.get('resposta_extraida') and not a.get('falha_tecnica')
+                                                   for a in r.get('amostras', [])) for r in avaliadas),
+        'amostras_sem_extracao': sum(sum(not a.get('resposta_extraida') and not a.get('falha_tecnica')
+                                        for a in r.get('amostras', [])) for r in avaliadas),
+        'amostras_limite_tokens': sum(sum(a.get('limite_tokens_atingido', False)
+                                       for a in r.get('amostras', [])) for r in avaliadas),
+        'questoes_com_limite_tokens': sum(any(a.get('limite_tokens_atingido', False)
+                                              for a in r.get('amostras', [])) for r in avaliadas),
+        'questoes_sem_vencedor': sum(not r.get('resposta_modelo') for r in avaliadas),
+        'questoes_maioria_incorreta': sum(bool(r.get('resposta_modelo')) and not r['acertou']
+                                         for r in avaliadas),
+        'questoes_empate': sum(bool(r.get('houve_empate')) for r in avaliadas),
+        'ids_questoes_sem_vencedor': [r['id'] for r in avaliadas if not r.get('resposta_modelo')],
+        'ids_questoes_maioria_incorreta': [r['id'] for r in avaliadas
+                                          if r.get('resposta_modelo') and not r['acertou']],
+        'ids_questoes_com_limite_tokens': [r['id'] for r in avaliadas
+                                           if any(a.get('limite_tokens_atingido', False)
+                                                  for a in r.get('amostras', []))],
+        'revisoes_necessarias': sum(bool(r.get('revisao_necessaria')) for r in resultados),
         'tempo_total_segundos': round(tempo_total, 2),
         'tempo_medio_segundos': media('tempo_segundos'),
         'tokens_entrada': sum(r.get('tokens_entrada') or 0 for r in avaliadas),
@@ -144,6 +164,12 @@ def mostrar_resumo(dataset, dados, caminho):
     print(f"Acertos: {m['acertos']}")
     print(f"Erros: {m['erros']}")
     print(f"Falhas técnicas: {m['falhas_tecnicas']}")
+    print(f"Amostras sem extração: {m['amostras_sem_extracao']}")
+    print(f"Amostras interrompidas pelo limite de tokens: {m['amostras_limite_tokens']}")
+    print(f"Questões com empate: {m['questoes_empate']}")
+    print(f"Questões sem resposta vencedora: {m['questoes_sem_vencedor']}")
+    print(f"Questões com vencedora incorreta: {m['questoes_maioria_incorreta']}")
+    print(f"Avaliações pendentes: {m.get('avaliacoes_pendentes', 0)}")
     a = m['acuracia_percentual']
     print(f'Acurácia: {a:.2f}%' if a is not None else 'Acurácia: indisponível')
     print(f"Tempo de execução: {tempo_legivel(m['tempo_total_segundos'])}")
@@ -191,6 +217,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         'tipo_demonstracao': 'questao_raciocinio_resposta',
         'votacao_censo': 'seletor_semantico_sem_gabarito_v1' if dataset == 'censo' else 'frequencia_simples',
         'origem_raciocinios_censo': 'json_preparado' if dataset == 'censo' else None,
+        'versao_prompt_aqua_rat': 'curto_com_resposta_prioritaria_v4' if dataset == 'aqua_rat' else None,
     }
     parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
     parametros['top_k'] = 40
@@ -256,16 +283,19 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 acertou = None
                 motivo = sc['motivo_falha_tecnica']
                 metodo = 'falha_tecnica_consulta'
+                revisao = False
             elif dataset == 'gsm8k':
                 acertou = (comparar_numeros(sc['resposta_modelo'], gabarito)
                            if sc['resposta_modelo'] else False)
                 motivo = None if acertou else 'Resposta incorreta ou empate na votação.'
                 metodo = 'comparacao_exata'
+                revisao = False
             elif dataset == 'aqua_rat':
                 acertou = (sc['resposta_modelo'] == gabarito
                            if sc['resposta_modelo'] else False)
                 motivo = None if acertou else 'Resposta incorreta ou empate na votação.'
                 metodo = 'comparacao_exata'
+                revisao = False
             else:
                 # Avalia a resposta vencedora; empate ou ausência de voto é erro,
                 # não falha de transporte. A avaliação semântica é automática.
@@ -273,14 +303,13 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                     acertou = False
                     motivo = 'Empate ou nenhuma resposta final extraída.'
                     metodo = 'votacao_sem_vencedor'
+                    revisao = False
                 else:
                     avaliacao = avaliar_censo(questao, sc['resposta_modelo'], consultar_ollama)
                     acertou = avaliacao['acertou']
                     motivo = avaliacao['motivo']
                     metodo = avaliacao['metodo_avaliacao']
-                    if acertou is None:
-                        sc['falha_tecnica'] = True
-                        metodo = 'falha_tecnica_avaliador'
+                    revisao = bool(avaliacao.get('revisao_necessaria', acertou is None))
             resultado = {
                 'id': str(questao['id']), 'split': questao.get('split'),
                 'usada_como_exemplo': False, 'gabarito': gabarito,
@@ -288,7 +317,10 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 'resposta_valida': bool(sc['resposta_modelo']),
                 'acertou': acertou, 'falha_tecnica': sc['falha_tecnica'],
                 'motivo': motivo, 'metodo_avaliacao': metodo,
-                'revisao_necessaria': False, **recursos(), **sc,
+                'revisao_necessaria': revisao, **recursos(), **sc,
+                'tipo_resultado': ('falha_tecnica' if sc['falha_tecnica'] else
+                                   'sem_vencedor' if not sc['resposta_modelo'] else
+                                   'acerto' if acertou else 'vencedora_incorreta'),
             }
             # Os campos finais de avaliação prevalecem sobre metadados de sc.
             resultado.update(acertou=acertou, motivo=motivo,
@@ -296,6 +328,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             resultados.append(resultado)
             if sc['falha_tecnica']:
                 print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {motivo}. Avançando.")
+                checkpoint()
+            elif revisao:
+                print(f"\n[AVALIAÇÃO PENDENTE] {dataset}/{questao['id']}: {motivo}. Resposta preservada.")
                 checkpoint()
             elif len(resultados) % SALVAR_CADA == 0:
                 checkpoint()

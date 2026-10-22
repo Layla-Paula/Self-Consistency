@@ -1,28 +1,17 @@
-from codigo.utils import extrair_letra_resposta, extrair_resposta_numerica
+import unittest
+from codigo.utils import extrair_letra_resposta
 
-def testar():
-    casos_aqua = {
-        "A resposta correta é D) $45": "D",
-        "A única opção que é igual é C) 12.": "C",
-        "Resposta final: B": "B",
-        "Alternativa correta: E": "E",
-        "Resposta final: Nenhum valor": "",
-        "A) 12\nB) 20\nC) 30": "",
-    }
-    casos_gsm = {
-        "Resposta final: 72": "72",
-        "Resposta final: 3x/4": "",
-        "Resposta final: 12/5": "",
-        "48 + 24 = 72": "",
-        "Resposta final: 1.234,50": "1.234,50",
-    }
-    for texto, esperado in casos_aqua.items():
-        obtido = extrair_letra_resposta(texto)
-        assert obtido == esperado, (texto, esperado, obtido)
-    for texto, esperado in casos_gsm.items():
-        obtido = extrair_resposta_numerica(texto)
-        assert obtido == esperado, (texto, esperado, obtido)
-    print("Todos os testes passaram.")
+class TestarAlternativas(unittest.TestCase):
+    def test_alternativas_validas(self):
+        casos = {'Resposta final: C':'C','Resposta: B':'B', 'Resposta: E':'E', 'Resposta: B\nResposta final: D':'D', 'A resposta correta é D) $45':'D',
+                 'A única opção que é igual é C) 12.':'C', 'Alternativa correta: E':'E',
+                 'Resposta final: B\n':'B', 'C':'C', 'Ans: A':'A',
+                 'Resposta final: A\nResposta final: D':'D'}
+        for texto, esperado in casos.items():
+            with self.subTest(texto=texto): self.assertEqual(extrair_letra_resposta(texto), esperado)
+    def test_sem_alternativa_final(self):
+        for texto in ('', 'Vamos tentar novamente. A) 5 B) 10', 'Resposta final: Nenhum valor',
+                      'Não sei a resposta', 'A) 10\nB) 20\nC) 30'):
+            with self.subTest(texto=texto): self.assertEqual(extrair_letra_resposta(texto), '')
 
-if __name__ == "__main__":
-    testar()
+if __name__ == '__main__': unittest.main(verbosity=2)

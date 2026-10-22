@@ -136,20 +136,29 @@ def montar_questao_censo(questao, contexto=None):
 
 
 def extrair_letra_resposta(texto):
+    """Extrai decisão explícita A-E, inclusive 'Resposta: B' do Few-shot.
+
+    Não extrai letras apenas por aparecerem na lista de alternativas.
+    Quando há várias declarações explícitas, usa a última.
+    """
     if not texto:
         return ""
-    texto = str(texto).upper().strip()
-    padroes = [
-        r"RESPOSTA\s+FINAL\s*[:=\-]?\s*\**\(?([A-E])\)?\b",
-        r"ALTERNATIVA\s+CORRETA\s*[:=\-]?\s*\**\(?([A-E])\)?\b",
-        r"(?:ALTERNATIVA|RESPOSTA)\s*[:=\-]?\s*\**\(?([A-E])\)?\b",
-    ]
-    for padrao in padroes:
-        encontrados = re.findall(padrao, texto)
-        if encontrados:
-            return encontrados[-1]
-    encontrado = re.fullmatch(r"\**\s*\(?([A-E])\)?\s*[.)]?\s*\**", texto)
-    return encontrado.group(1) if encontrado else ""
+    texto = str(texto).strip()
+    padrao = re.compile(
+        r"(?:\b(?:resposta\s+final|resposta\s+correta|resposta|alternativa\s+correta|"
+        r"alternativa\s+escolhida|op[cç][aã]o\s+correta|"
+        r"(?:a\s+)?[uú]nica\s+(?:alternativa|op[cç][aã]o)(?:\s+que\s+[eé]\s+igual)?|"
+        r"(?:a\s+)?(?:resposta|alternativa|op[cç][aã]o)\s+(?:[eé]|seria)|"
+        r"escolho|marco|assinalo|opto\s+pela|ans(?:wer)?)\b)"
+        r"\s*(?:(?:correta|[eé]|seria)\s*)?(?:[:=]|->|[-–])?\s*"
+        r"\**\(?([A-E])\)?(?=$|[\s).,:;!\-–*])", re.I
+    )
+    achados = list(padrao.finditer(texto))
+    if achados:
+        return achados[-1].group(1).upper()
+    ultima = next((linha.strip() for linha in reversed(texto.splitlines()) if linha.strip()), "")
+    isolada = re.fullmatch(r"(?:\*\*)?\(?([A-E])\)?[.)]?(?:\*\*)?", ultima, re.I)
+    return isolada.group(1).upper() if isolada else ""
 
 
 NUMERO = r"-?(?:\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)"
@@ -171,21 +180,34 @@ def normalizar_numero(texto):
 
 
 def extrair_resposta_numerica(texto):
+    """Recupera números finais declarados, inclusive 'Resposta: 72' do Few-shot.
+
+    Não usa números soltos de cálculos intermediários como resposta final.
+    """
     if not texto:
         return ""
-    texto = str(texto)
-    padroes = [
-        rf"RESPOSTA\s+FINAL\s*[:=\-]?\s*(?:R\$\s*)?({NUMERO})",
-        rf"RESPOSTA\s*[:=\-]?\s*(?:R\$\s*)?({NUMERO})",
-        rf"####\s*({NUMERO})",
-    ]
-    for padrao in padroes:
-        encontrados = re.findall(padrao, texto, re.I)
-        if encontrados:
-            return encontrados[-1]
-    encontrados = re.findall(NUMERO, texto)
-    return encontrados[-1] if encontrados else ""
-
+    texto = str(texto).strip()
+    marcadores = list(re.finditer(r"(?:\bresposta\s+final\b|\bresposta\b|####)\s*[:=\-]?\s*", texto, re.I))
+    if not marcadores:
+        linhas = [linha.strip() for linha in texto.splitlines() if linha.strip()]
+        if not linhas:
+            return ""
+        ultima = " ".join(linhas[-2:])
+        conclusao = re.search(
+            rf"(?:portanto|assim|logo|resultado|total|pagou|ganhou|sobrou|restam|precisa de)"
+            rf"[^\n]*?({NUMERO})\s*(?:\w+)?[.!]?\s*$", ultima, re.I)
+        if not conclusao or re.search(r"[a-zA-Z]\s*[/+*^]\s*\d", ultima):
+            return ""
+        return conclusao.group(1)
+    trecho = (texto[marcadores[-1].end():].splitlines() or [""])[0].strip()
+    trecho = re.sub(r"^(?:R\$|US\$|\$)\s*", "", trecho, flags=re.I)
+    numero = re.match(rf"({NUMERO})(?![\w/])", trecho)
+    if not numero:
+        return ""
+    resto = trecho[numero.end():].lstrip()
+    if re.match(r"[+*/^=]|-(?=\s*\d)|[xX]\s*(?:/|\d)", resto):
+        return ""
+    return numero.group(1)
 
 def extrair_gabarito_gsm8k(problema):
     resposta = str(
@@ -228,7 +250,7 @@ def comparar_numeros(a, b):
 def consultar_ollama(
     prompt,
     temperature=0.0,
-    num_predict=800,
+    num_predict=512,
     retornar_metricas=False,
     num_ctx=8192,
     top_k=40,
@@ -277,6 +299,8 @@ def consultar_ollama(
                     "prompt_eval_duration_ns": dados.get("prompt_eval_duration"),
                     "eval_count": dados.get("eval_count"),
                     "eval_duration_ns": dados.get("eval_duration"),
+                    "done_reason": dados.get("done_reason"),
+                    "done": dados.get("done"),
                     "tentativas": tentativa,
                     "erro_detalhado": None,
                 }
@@ -303,6 +327,8 @@ def consultar_ollama(
             "prompt_eval_duration_ns": None,
             "eval_count": None,
             "eval_duration_ns": None,
+            "done_reason": None,
+            "done": None,
             "tentativas": 3,
             "erro_detalhado": ultimo_erro,
         }

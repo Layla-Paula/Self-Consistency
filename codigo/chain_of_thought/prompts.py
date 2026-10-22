@@ -60,21 +60,34 @@ Resposta final: número'''.strip()
 
 
 def prompt_cot_aqua_rat(problema, exemplos):
-    """CoT com rationale_pt dos exemplos; não acessa o gabarito da questão atual."""
+    """CoT objetivo para AQuA-RAT; compartilhado com Self-Consistency.
+
+    O gabarito da questão avaliada nunca é enviado ao modelo.
+    """
     if not exemplos:
         raise ValueError('CoT AQuA-RAT precisa de exemplos do train.')
-    return f'''Você resolve questões matemáticas de múltipla escolha. Observe exemplos com resoluções.
+    return f'''Você resolve questões matemáticas de múltipla escolha.
+Observe as demonstrações resolvidas e use-as apenas como exemplos do método.
 
 {_demonstracoes_aqua_rat(exemplos)}
 
-Agora resolva uma NOVA questão. Mostre os cálculos relevantes e confira as cinco alternativas.
+Resolva a NOVA questão abaixo de modo objetivo.
+
+REGRAS DE RESOLUÇÃO:
+1. Identifique os dados relevantes e escolha UMA estratégia matemática adequada.
+2. Mostre somente as operações necessárias, sem repetir cálculos já feitos.
+3. Se uma tentativa não avançar, não recomece a mesma conta nem teste valores indefinidamente: use uma relação matemática mais direta ou verifique as alternativas.
+4. Compare o resultado com as opções A, B, C, D e E e encerre com uma única alternativa.
+5. Evite copiar o enunciado, listar hipóteses repetidas, abrir novas tentativas após obter um resultado ou continuar explicando depois da conclusão.
+6. Se não conseguir resolver integralmente, escolha a alternativa mais sustentada pelos cálculos disponíveis; não invente operações ou valores.
 
 Questão:
 {montar_questao_aqua_rat(problema)}
 
-Termine obrigatoriamente com uma linha no formato:
+Apresente a resolução de forma breve e finalize OBRIGATORIAMENTE com:
 Resposta final: X
-Onde X é uma única letra de A a E.'''.strip()
+
+Substitua X por uma única letra de A a E. Não escreva nada após a resposta final.'''.strip()
 
 
 # CENSO ESCOLAR — demonstrações reais selecionadas automaticamente do JSON.
