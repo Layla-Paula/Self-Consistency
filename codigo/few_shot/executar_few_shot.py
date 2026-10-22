@@ -31,7 +31,7 @@ except ImportError:
     psutil = None
 MODELO = "llama3.2"
 TEMPERATURE = 0.0
-NUM_PREDICT = 800
+NUM_PREDICT = 1200
 SALVAR_CADA = 10
 PASTA_BASE = Path("resultados/few_shot")
 # Faixas temáticas das 50 questões do Censo (posições no JSON).

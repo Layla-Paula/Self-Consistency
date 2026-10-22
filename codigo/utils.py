@@ -228,7 +228,7 @@ def comparar_numeros(a, b):
 def consultar_ollama(
     prompt,
     temperature=0.0,
-    num_predict=512,
+    num_predict=800,
     retornar_metricas=False,
     num_ctx=8192,
     top_k=40,

@@ -1,0 +1,1074 @@
+{
+  "id_execucao": "self_consistency_gsm8k_21102026_222707_646",
+  "tecnica": "self_consistency",
+  "dataset": "gsm8k",
+  "data_inicio": "2026-10-21T22:27:07",
+  "parametros": {
+    "modelo": "llama3.2",
+    "temperatura": 0.7,
+    "limite": 10,
+    "maximo_tokens_resposta": 1200,
+    "quantidade_exemplos": 10,
+    "n_amostras": 5,
+    "ids_exemplos": [
+      "train_5712",
+      "train_1819",
+      "train_1181",
+      "train_6465",
+      "train_3025",
+      "train_2803",
+      "train_2643",
+      "train_2026",
+      "train_6428",
+      "train_1753"
+    ],
+    "ids_questoes": [
+      "train_0",
+      "train_1",
+      "train_2",
+      "train_3",
+      "train_4",
+      "train_5",
+      "train_6",
+      "train_7",
+      "train_8",
+      "train_9"
+    ],
+    "criterio_avaliacao": "todos_splits_sem_demonstracoes",
+    "tipo_demonstracao": "questao_raciocinio_resposta",
+    "votacao_censo": "frequencia_simples",
+    "origem_raciocinios_censo": null,
+    "protocolo": {
+      "versao": "2.2",
+      "dataset": "gsm8k",
+      "split_censo": "splits_originais",
+      "criterio_censo": null,
+      "limite": 10,
+      "quantidade_exemplos": 10,
+      "ids_exemplos": [
+        "train_5712",
+        "train_1819",
+        "train_1181",
+        "train_6465",
+        "train_3025",
+        "train_2803",
+        "train_2643",
+        "train_2026",
+        "train_6428",
+        "train_1753"
+      ],
+      "ids_questoes": [
+        "train_0",
+        "train_1",
+        "train_2",
+        "train_3",
+        "train_4",
+        "train_5",
+        "train_6",
+        "train_7",
+        "train_8",
+        "train_9"
+      ],
+      "sha256_ids_questoes": "7a1375b5b6b472c1c771a66a7c1a4e366dac05ac228abbd07530891bb7d87f44",
+      "selecao": "pseudoaleatoria_treino_sem_reposicao",
+      "semente_exemplos": 42,
+      "ordem_avaliacao": "ordem_original_apos_excluir_demonstracoes"
+    },
+    "top_k": 40,
+    "top_p": 0.9,
+    "num_ctx": 8192
+  },
+  "resultados": [
+    {
+      "id": "train_0",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "72",
+      "resposta": "72",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 53.3,
+      "ram_percentual": 84.0,
+      "respostas_extraidas": [
+        "72",
+        "3",
+        "72",
+        "24",
+        "48"
+      ],
+      "distribuicao_votos": {
+        "72": 2,
+        "3": 1,
+        "24": 1,
+        "48": 1
+      },
+      "resposta_modelo": "72",
+      "votos_resposta_modelo": 2,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema.\n\nNatalia vendeu 48 clipes em abril. Em maio, ela vendeu metade dos clipes que vendeu em abril, o que é 48/2 = 24 clipes.\n\nAgora, vamos somar os clipes que Natalia vendeu em abril e maio:\n\n48 (clipes vendidos em abril) + 24 (clipes vendidos em maio) = 72 clipes\n\nPortanto, Natalia vendeu 72 clipes em abril e maio.\n\nResposta final: 72",
+          "resposta_extraida": "72",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2137,
+          "tokens_saida": 126,
+          "tempo_consulta_segundos": 47.24449830001686
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos saber quantos clipes Natalia tinha inicialmente. Vamos chamar essa quantidade de \"x\".\n\nNatalia vendeu metade dos clipes em abril, então ela vendeu x/2 clipes em abril.\n\nEm maio, ela vendeu metade dos clipes que vendeu em abril, então ela vendeu (x/2)/2 = x/4 clipes em maio.\n\nEm total, Natalia vendeu x/2 + x/4 clipes em abril e maio.\n\nPodemos combinar os termos:\n\nx/2 + x/4 = (2x + x)/4 = 3x/4\n\nPortanto, Natalia vendeu 3x/4 clipes em abril e maio.\n\nResposta final: 3x/4",
+          "resposta_extraida": "3",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2137,
+          "tokens_saida": 180,
+          "tempo_consulta_segundos": 69.12594599998556
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema:\n\nNatalia vendeu clipes a 48 de seus amigos em abril, e depois vendeu metade dos clipes em maio.\n\nPara encontrar o número total de clipes vendidos, precisamos calcular o número de clipes vendidos em maio. Como Natalia vendeu metade dos clipes em maio, podemos calcular isso como:\n\n48 (clipes vendidos em abril) / 2 = 24 clipes vendidos em maio\n\nAgora, podemos encontrar o número total de clipes vendidos adicionando os clipes vendidos em abril e maio:\n\n48 (clipes vendidos em abril) + 24 (clipes vendidos em maio) = 72 clipes\n\nPortanto, Natalia vendeu 72 clipes em abril e maio.\n\nResposta final: 72",
+          "resposta_extraida": "72",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2137,
+          "tokens_saida": 184,
+          "tempo_consulta_segundos": 96.7077311000321
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos saber o número total de clipes que Natalia tinha inicialmente. Vamos assumir que ela começou com um número de x clipes.\n\nEm abril, ela vendeu 48 clipes, então o número de clipes que ela tem agora é x - 48.\n\nEm maio, ela vendeu metade dos clipes, o que significa que ela vendeu (x - 48) / 2 clipes.\n\nO número total de clipes que ela vendeu em abril e maio é a suma de 48 e (x - 48) / 2.\n\nVamos calcular o número total de clipes:\n\n48 + (x - 48) / 2\n\nPara simplificar a equação, podemos combinar os termos:\n\n48 + x/2 - 24\n\nSimplificando ainda mais:\n\nx/2 + 24\n\nAgora, precisamos saber o número total de clipes que Natalia tinha inicialmente (x). Infelizmente, não há informações suficientes para determinar o valor de x. Portanto, não podemos fornecer uma resposta numérica final.\n\nNo entanto, se você fornecer o valor de x, posso ajudá-lo a calcular o número total de clipes que Natalia vendeu em abril e maio.\n\nResposta final:",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2137,
+          "tokens_saida": 288,
+          "tempo_consulta_segundos": 133.38897649990395
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos saber o número total de clipes que Natalia tinha antes de vender metade deles. Vamos chamar esse número de \"X\".\n\nNatalia vendeu metade dos clipes em maio, então ela vendeu X/2 clipes em maio.\n\nEm abril, ela vendeu 48 clipes.\n\nPara encontrar o número total de clipes que Natalia tinha antes de vender metade deles, podemos criar uma equação com base nos fatos que sabemos:\n\nX - X/2 = 48 (essa é a quantidade de clipes que vendeu em abril)\n\nPara resolver essa equação, podemos começar multiplicando ambos os lados por 2 para eliminar a fração:\n\n2X - X = 96\n\nEm seguida, podemos combinar as variáveis:\n\nX = 96\n\nAgora que sabemos que X = 96, podemos encontrar o número de clipes que Natalia vendeu em maio:\n\nX/2 = 96/2 = 48\n\nPortanto, Natalia vendeu 48 clipes em abril e 48 clipes em maio.\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2137,
+          "tokens_saida": 255,
+          "tempo_consulta_segundos": 110.97684549994301
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 457.45,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10685,
+      "tokens_saida": 1033
+    },
+    {
+      "id": "train_1",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "10",
+      "resposta": "10",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 60.9,
+      "ram_percentual": 89.5,
+      "respostas_extraidas": [
+        "10",
+        "10",
+        "10",
+        "9.96",
+        "10"
+      ],
+      "distribuicao_votos": {
+        "10": 4,
+        "9.96": 1
+      },
+      "resposta_modelo": "10",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Para calcular quanto Weng ganhou, precisamos saber quantos minutos de tempo ela passou babysitting e, em seguida, multiplicar esse tempo por seu salário por hora.\n\n1. Primeiro, precisamos saber quantos minutos Weng passou babysitting. Ela passou 50 minutos. Como o salário é por hora, precisamos convertê-lo para horas. Uma hora tem 60 minutos, então:\n\n50 minutos / 60 minutos/hora = 5/6 horas\n\n2. Agora que sabemos quantas horas Weng trabalhou, podemos calcular seu salário. Ela ganha $12 por hora e trabalhou 5/6 de hora, então:\n\nSalário = Preço por hora x Tempo (em horas)\nSalário = $12 x (5/6)\n\nPara calcular o valor, precisamos multiplicar 12 por 5 e dividir por 6:\n\n12 x 5 = 60\n60 / 6 = 10\n\nResposta final: 10",
+          "resposta_extraida": "10",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2127,
+          "tokens_saida": 214,
+          "tempo_consulta_segundos": 109.80402140005026
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema de Weng:\n\nEla ganha $12 por hora de babysitting.\nEla trabalhou por 50 minutos, que é uma fração de uma hora.\n\nPara encontrar o valor total que ela ganhou, precisamos converter os 50 minutos para horas:\n\n50 minutos / 60 minutos por hora = 5/6 horas\n\nAgora, multiplicamos o valor por hora por Weng pelo tempo trabalhado:\n\n12 dólares/hora x 5/6 horas = 12 x 5/6 = 10 dólares\n\nPortanto, Weng ganhou $10.\n\nResposta final: 10",
+          "resposta_extraida": "10",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2127,
+          "tokens_saida": 137,
+          "tempo_consulta_segundos": 51.86481040006038
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para calcular o quanto Weng ganhou, precisamos saber quanto tempo ela passou babysitting. Ela passou 50 minutos, mas ganha por hora. Portanto, precisamos convertê-la para horas.\n\n50 minutos / 60 minutos = 0,833 horas\n\nWeng ganha 12 dólares por hora, então podemos multiplicar o tempo por hora para calcular o ganho:\n\n0,833 horas x 12 dólares/hora = 10,00 dólares\n\nResposta final: 10",
+          "resposta_extraida": "10",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2127,
+          "tokens_saida": 112,
+          "tempo_consulta_segundos": 66.80296840006486
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para calcular quanto ganho Weng, precisamos saber o número total de minutos que ela trabalhou e multiplicá-lo pelo seu salário por hora.\n\nO tempo total de trabalho de Weng foi de 50 minutos, então precisamos convertê-lo para horas. Como há 60 minutos em uma hora, podemos calcular o tempo total de trabalho em horas como:\n\n50 minutos / 60 minutos/hora = 0,83 horas\n\nAgora que sabemos o tempo total de trabalho em horas, podemos calcular o valor total de trabalho multiplicando-o pelo seu salário por hora:\n\n0,83 horas * $12/hora = $9,96\n\nResposta final: 9.96",
+          "resposta_extraida": "9.96",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2127,
+          "tokens_saida": 144,
+          "tempo_consulta_segundos": 126.39580840000417
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para calcular o quanto Weng ganhou, precisamos saber quantos dólares ela ganhou por minuto e multiplicar isso pelo tempo que trabalhou.\n\nEla ganha 12 dólares por hora e há 60 minutos em uma hora, então ela ganha:\n\n12 dólares/hora ÷ 60 minutos/hora = 0,2 dólares/mino\n\nEla trabalhou por 50 minutos, então ganhou:\n\n0,2 dólares/mino x 50 minutos = 10 dólares\n\nResposta final: 10",
+          "resposta_extraida": "10",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2127,
+          "tokens_saida": 121,
+          "tempo_consulta_segundos": 73.64986070001032
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 428.522,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10635,
+      "tokens_saida": 728
+    },
+    {
+      "id": "train_2",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "5",
+      "resposta": "5",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 53.8,
+      "ram_percentual": 92.8,
+      "respostas_extraidas": [
+        "5",
+        "5",
+        "5",
+        "5",
+        "5"
+      ],
+      "distribuicao_votos": {
+        "5": 5
+      },
+      "resposta_modelo": "5",
+      "votos_resposta_modelo": 5,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nProblema: A Betty está a poupar dinheiro para uma carteira nova que custa 100 dólares. A Betty só tem metade do dinheiro que precisa. Seus pais decidiram dar-lhe $15 para esse fim, e seus avós duas vezes mais do que seus pais. Quanto mais dinheiro a Betty precisa para comprar a carteira?\n\nResolução:\n\n1. A Betty só tem metade do dinheiro que precisa, então ela tem 100/2 = 50 dólares.\n2. Seus pais decidiram dar-lhe $15, então ela agora tem 50 + 15 = 65 dólares.\n3. Seus avós decidiram dar-lhe duas vezes mais do que seus pais, então eles devem dar-lhe 2 x 15 = 30 dólares.\n4. Agora, a Betty tem 65 + 30 = 95 dólares.\n5. A carteira nova custa 100 dólares, então a Betty precisa de mais 100 - 95 = 5 dólares.\n\nResposta final: 5",
+          "resposta_extraida": "5",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 243,
+          "tempo_consulta_segundos": 116.73208460002206
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Problema:\n\nA Betty está a poupar dinheiro para uma carteira nova que custa 100 dólares. A Betty só tem metade do dinheiro que precisa. Seus pais decidiram dar-lhe $15 para esse fim, e seus avós duas vezes mais do que seus pais. Quanto mais dinheiro a Betty precisa para comprar a carteira?\n\nResolução:\n\nA Betty tem metade do dinheiro que precisa, então 100/2 = 50 dólares.\n\nSeus pais decidiram dar-lhe $15 para esse fim, então ela tem 50 + 15 = 65 dólares.\n\nSeus avós decidiram dar-lhe duas vezes mais do que seus pais, então 2*$15 = $30.\n\nAgora, ela tem 65 + 30 = 95 dólares.\n\nPara comprar a carteira, ela precisa de 100 dólares, então ela precisa de 100 - 95 = 5 dólares mais.\n\nResposta final: 5",
+          "resposta_extraida": "5",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 213,
+          "tempo_consulta_segundos": 53.307913600001484
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nProblema:\nA Betty está a poupar dinheiro para uma carteira nova que custa 100 dólares. A Betty só tem metade do dinheiro que precisa. Seus pais decidiram dar-lhe $15 para esse fim, e seus avós duas vezes mais do que seus pais. Quanto mais dinheiro a Betty precisa para comprar a carteira?\n\nPrimeiro, vamos calcular a quantia que a Betty já tem:\nA Betty tem metade do dinheiro que precisa, então:\n100/2 = 50 dólares\n\nAgora, vamos calcular a quantia que seus pais lhe deram:\nSeus pais lhe deram $15, então:\n\nAgora, vamos calcular a quantia que seus avós lhe deram:\nSeus avós lhe deram duas vezes mais do que seus pais, então:\n15 x 2 = 30 dólares\n\nAgora, vamos calcular a quantia total que a Betty já tem:\n50 + 15 + 30 = 95 dólares\n\nComo a carteira custa 100 dólares e a Betty já tem 95 dólares, ela precisa de mais:\n100 - 95 = 5 dólares\n\nResposta final: 5",
+          "resposta_extraida": "5",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 273,
+          "tempo_consulta_segundos": 132.91751090006437
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, vamos começar com as informações que temos:\n\n* A carteira nova custa $100.\n* A Betty só tem metade do dinheiro que precisa, o que significa que ela precisa de $100/2 = $50.\n* Seus pais decidiram dar-lhe $15 para esse fim.\n\nComo seus avós decidiram dar-lhe duas vezes mais do que seus pais, isso significa que eles vão dar-lhe 2*$15 = $30.\n\nAgora, vamos calcular o total de dinheiro que a Betty tem:\n\n* A Betty tem $50 (dinheiro que ela própria pôde economizar).\n* Seus pais lhe dão $15.\n* Seus avós lhe dão $30.\n\nO total de dinheiro que a Betty tem é: $50 + $15 + $30 = $95.\n\nComo a carteira nova custa $100 e a Betty tem $95, isso significa que ela ainda precisa de:\n\n$100 - $95 = $5\n\nResposta final: 5",
+          "resposta_extraida": "5",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 220,
+          "tempo_consulta_segundos": 63.96228430001065
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. A Betty só tem metade do dinheiro que precisa, o que significa que ela tem 100/2 = 50 dólares.\n\n2. Seus pais decidiram dar-lhe $15 para esse fim, então ela agora tem 50 + 15 = 65 dólares.\n\n3. Seus avós decidiram dar-lhe duas vezes mais do que seus pais, o que significa que eles lhe dão 2 * 15 = 30 dólares.\n\n4. Agora, a Betty tem 65 + 30 = 95 dólares.\n\n5. A carteira nova custa 100 dólares, e a Betty tem 95 dólares, então ela precisa de mais 100 - 95 = 5 dólares.\n\nResposta final: 5",
+          "resposta_extraida": "5",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2162,
+          "tokens_saida": 181,
+          "tempo_consulta_segundos": 132.63855719997082
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 499.565,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10810,
+      "tokens_saida": 1130
+    },
+    {
+      "id": "train_3",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "42",
+      "resposta": "42",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 54.1,
+      "ram_percentual": 97.5,
+      "respostas_extraidas": [
+        "42",
+        "42",
+        "42",
+        "42",
+        "42"
+      ],
+      "distribuicao_votos": {
+        "42": 5
+      },
+      "resposta_modelo": "42",
+      "votos_resposta_modelo": 5,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro saber quantas páginas a Julie já leu.\n\nOntem, ela leu 12 páginas, e hoje ela leu o dobro de páginas que ontem, ou seja, 12 * 2 = 24 páginas.\n\nPortanto, o total de páginas que ela já leu é 12 + 24 = 36 páginas.\n\nO livro tem 120 páginas e já leu 36, então as páginas restantes são 120 - 36 = 84 páginas.\n\nA Julie quer ler metade das páginas restantes amanhã, então ela deve ler 84 / 2 = 42 páginas.\n\nResposta final: 42",
+          "resposta_extraida": "42",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2155,
+          "tokens_saida": 153,
+          "tempo_consulta_segundos": 80.73067790002096
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos primeiro saber quantas páginas a Julie já leu e quantas páginas restam para ela ler.\n\nA Julie leu 12 páginas ontem e hoje ela leu o dobro de páginas que ontem, então ela leu 12*2 = 24 páginas hoje.\n\nO número total de páginas que ela já leu é 12 + 24 = 36 páginas.\n\nO livro tem 120 páginas e ela já leu 36, então as páginas restantes são 120 - 36 = 84 páginas.\n\nA Julie quer ler metade das páginas restantes, então ela precisa ler 84/2 = 42 páginas.\n\nResposta final: 42",
+          "resposta_extraida": "42",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2155,
+          "tokens_saida": 158,
+          "tempo_consulta_segundos": 87.25694029999431
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o número de páginas que a Julie ainda precisa ler.\n\n1. A Julie leu 12 páginas ontem, então o número de páginas restantes é:\n120 - 12 = 108 páginas\n\n2. Hoje, ela leu o dobro de páginas que ontem, então ela leu 12*2 = 24 páginas.\n\n3. O número de páginas restantes agora é:\n108 - 24 = 84 páginas\n\n4. A Julie quer ler metade das páginas restantes amanhã, então ela precisa ler:\n84/2 = 42 páginas\n\nResposta final: 42",
+          "resposta_extraida": "42",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2155,
+          "tokens_saida": 145,
+          "tempo_consulta_segundos": 89.31892709992826
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nA Julie está a ler um livro de 120 páginas e já leu 12 páginas ontem. Para encontrar o número de páginas restantes, subtraímos as páginas já lidas das páginas totais:\n\n120 páginas (totais) - 12 páginas (leidas ontem) = 108 páginas (restantes)\n\nAgora, ela leu o dobro de páginas que ontem, que é 2 * 12 = 24 páginas. Para encontrar o número de páginas restantes após hoje, subtraímos as páginas já lidas hoje das páginas restantes:\n\n108 páginas (restantes) - 24 páginas (leidas hoje) = 84 páginas (restantes)\n\nAgora, ela quer ler metade das páginas restantes amanhã. Para encontrar o número de páginas que ela deve ler, dividimos as páginas restantes pelo 2:\n\n84 páginas (restantes) / 2 = 42 páginas\n\nResposta final: 42",
+          "resposta_extraida": "42",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2155,
+          "tokens_saida": 236,
+          "tempo_consulta_segundos": 74.52597980003338
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos seguir os seguintes passos:\n\n1. Calcular o número de páginas que Julie leu ontem e hoje:\n   - Ontem: 12 páginas\n   - Hoje: Dobro de ontem, então hoje ela leu 12 x 2 = 24 páginas\n\n2. Calcular o número total de páginas que Julie já leu:\n   - Ontem: 12 páginas\n   - Hoje: 24 páginas\n   - Total: 12 + 24 = 36 páginas\n\n3. Calcular o número de páginas que ainda restam:\n   - Páginas totais: 120 páginas\n   - Páginas lidas: 36 páginas\n   - Páginas restantes: 120 - 36 = 84 páginas\n\n4. Calcular o número de páginas que Julie deve ler amanhã:\n   - Ela quer ler metade das páginas restantes, então ela deve ler 84 x 0,5 = 42 páginas\n\nResposta final: 42",
+          "resposta_extraida": "42",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2155,
+          "tokens_saida": 234,
+          "tempo_consulta_segundos": 167.50772540003527
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 499.347,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10775,
+      "tokens_saida": 926
+    },
+    {
+      "id": "train_4",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "624",
+      "resposta": "312",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou empate na votação.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 53.6,
+      "ram_percentual": 89.6,
+      "respostas_extraidas": [
+        "312",
+        "312",
+        "312",
+        "624",
+        "504"
+      ],
+      "distribuicao_votos": {
+        "312": 3,
+        "624": 1,
+        "504": 1
+      },
+      "resposta_modelo": "312",
+      "votos_resposta_modelo": 3,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o número total de páginas que James escreve por ano.\n\nPrimeiro, vamos calcular o número total de páginas que James escreve por semana. Ele escreve uma carta de 3 páginas para cada amigo, e escreve duas cartas por semana. Isso significa que escreve 3 x 2 = 6 páginas por semana.\n\nComo há 52 semanas por ano, o número total de páginas que James escreve por ano é 6 x 52 = 312 páginas.\n\nResposta final: 312",
+          "resposta_extraida": "312",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2120,
+          "tokens_saida": 120,
+          "tempo_consulta_segundos": 99.66958380001597
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\nO James escreve uma carta de 3 páginas a 2 amigos diferentes duas vezes por semana. Isso significa que ele escreve 2 x 3 = 6 páginas por semana.\n\nComo ele escreve 6 páginas por semana, e há 52 semanas em um ano, ele escreve um total de 6 x 52 = 312 páginas por ano.\n\nResposta final: 312",
+          "resposta_extraida": "312",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2120,
+          "tokens_saida": 98,
+          "tempo_consulta_segundos": 124.69696450000629
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema!\n\nO número de páginas por semana é igual ao número de páginas por carta multiplicado pelo número de cartas por semana. Como James escreve uma carta de 3 páginas por semana para 2 amigos, cada semana ele escreve 3 x 2 = 6 páginas.\n\nComo James escreve duas cartas por semana, o número de páginas por ano é igual ao número de páginas por semana multiplicado pelo número de semanas por ano. Há 52 semanas por ano, então:\n\n6 páginas/semana x 52 semanas/ano = 312 páginas/ano\n\nResposta final: 312",
+          "resposta_extraida": "312",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2120,
+          "tokens_saida": 138,
+          "tempo_consulta_segundos": 55.0791898999596
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver este problema, precisamos primeiro calcular o número de páginas que James escreve por semana.\n\nJames escreve uma carta de 3 páginas para cada amigo, e tem 2 amigos. Então, ele escreve 3 x 2 = 6 páginas por semana para um amigo.\n\nComo ele escreve duas vezes por semana, ele escreve 6 x 2 = 12 páginas por semana para os dois amigos.\n\nPara saber quantas páginas ele escreve por ano, precisamos multiplicar o número de páginas que ele escreve por semana pelo número de semanas por ano. Há 52 semanas por ano, então:\n\n12 páginas por semana x 52 semanas por ano = 624 páginas por ano\n\nResposta final: 624",
+          "resposta_extraida": "624",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2120,
+          "tokens_saida": 162,
+          "tempo_consulta_segundos": 116.44121680001263
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o número total de páginas escritas por James em uma semana e depois multiplicar por 52.\n\nJames escreve uma carta de 3 páginas a 2 amigos diferentes duas vezes por semana, então ele escreve 3 * 2 = 6 páginas por semana.\n\nComo uma semana tem 7 dias, James escreve 6 * 7 = 42 páginas por mês.\n\nPara calcular o número total de páginas escritas por ano, multiplicamos o número de páginas escritas por mês por 12:\n\n42 * 12 = 504 páginas por ano.\n\nResposta final: 504",
+          "resposta_extraida": "504",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2120,
+          "tokens_saida": 139,
+          "tempo_consulta_segundos": 88.90153849998023
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 484.795,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10600,
+      "tokens_saida": 657
+    },
+    {
+      "id": "train_5",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "35",
+      "resposta": "23",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou empate na votação.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 53.2,
+      "ram_percentual": 89.7,
+      "respostas_extraidas": [
+        "23",
+        "41",
+        "23",
+        "23",
+        "35"
+      ],
+      "distribuicao_votos": {
+        "23": 3,
+        "41": 1,
+        "35": 1
+      },
+      "resposta_modelo": "23",
+      "votos_resposta_modelo": 3,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiramente, vamos calcular o número de flores roxas. Como há 80% mais de flores roxas do que as amarelas, podemos calcular isso como:\n\n80% de 10 = 0,8 x 10 = 8\n\nPortanto, há 8 flores roxas.\n\nAgora, vamos calcular o número de flores verdes. Como existem apenas 25% das flores verdes que existem flores amarelas e roxas, podemos calcular isso como:\n\n25% de 10 + 8 = 0,25 x (10 + 8) = 0,25 x 18 = 4,5\n\nComo não podemos ter uma fração de flor, vamos considerar que o número de flores verdes é aproximadamente 5 (poderia ser 4 ou 6, mas não podemos ter uma fração de flor).\n\nAgora, vamos somar o número de flores amarelas, roxas e verdes para encontrar o número total de flores:\n\n10 (amarelas) + 8 (roxas) + 5 (verdes) = 23\n\nResposta final: 23",
+          "resposta_extraida": "23",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2169,
+          "tokens_saida": 266,
+          "tempo_consulta_segundos": 126.24394499999471
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema!\n\nPrimeiramente, vamos encontrar o número de flores roxas. Como há 80% mais de flores roxas que as amarelas, podemos calcular isso como:\n\n80% de 10 = 0,8 x 10 = 8\n\nEntão, há 8 flores roxas.\n\nAgora, vamos encontrar o número de flores verdes. Como há 25% das flores verdes que existem flores amarelas e roxas, podemos calcular isso como:\n\n25% de 90 = 0,25 x 90 = 22,5\n\nComo não podemos ter uma fração de uma flor, vamos considerar que 22,5 é aproximadamente 23 (considerando que 22,5 é muito próximo de 23).\n\nAssim, há aproximadamente 23 flores verdes.\n\nAgora, vamos encontrar o número total de flores no jardim. Adicionamos as flores amarelas, roxas e verdes:\n\n10 (amarelas) + 8 (roxas) + 23 (verdes) = 41\n\nPortanto, Mark tem 41 flores no seu jardim.\n\nResposta final: 41",
+          "resposta_extraida": "41",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2169,
+          "tokens_saida": 266,
+          "tempo_consulta_segundos": 102.53600119997282
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, vamos calcular o número de flores amarelas e roxas. Há 10 flores amarelas e 80% mais deles em roxo, então:\n\n10 x 0,80 = 8 (número de flores roxas)\n\nAgora, vamos calcular o número de flores verdes. Há 25% das flores verdes que existem flores amarelas e roxas, então:\n\n25% de 10 = 0,25 x 10 = 2,5 (número de flores verdes)\n\nComo não podemos ter uma fração de flor, vamos considerar que cada flor verde é equivalente a 2 flores amarelas ou roxas. Isso significa que há 2,5 x 2 = 5 flores verdes.\n\nAgora, vamos calcular o número total de flores. Há 10 flores amarelas, 8 flores roxas e 5 flores verdes:\n\n10 + 8 + 5 = 23\n\nResposta final: 23",
+          "resposta_extraida": "23",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2169,
+          "tokens_saida": 245,
+          "tempo_consulta_segundos": 93.15948300005402
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o número de flores de cada cor.\n\nPrimeiro, vamos calcular o número de flores roxas. Como existem 80% mais flores roxas do que as amarelas, podemos calcular isso como:\n\n80% de 10 = 0,8 x 10 = 8\n\nAgora, vamos calcular o número de flores verdes. Como existem apenas 25% das flores verdes que existem flores amarelas e roxas, podemos calcular isso como:\n\n25% de 10 + 8 = 0,25 x (10 + 8) = 0,25 x 18 = 4,5\n\nComo não podemos ter uma fração de uma flor, vamos considerar que o número de flores verdes é de 5 (ponto médio entre 4 e 6).\n\nAgora, podemos calcular o número total de flores:\n\nFlores amarelas: 10\nFlores roxas: 8\nFlores verdes: 5\n\nTotal de flores: 10 + 8 + 5 = 23",
+          "resposta_extraida": "23",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2169,
+          "tokens_saida": 247,
+          "tempo_consulta_segundos": 93.60987160005607
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nO problema indica que Mark tem um jardim com flores de três cores diferentes: amarelas, roxas e verdes. Nós sabemos que ele plantou 10 flores amarelas.\n\nPara encontrar o número de flores roxas, precisamos saber que há 80% mais flores roxas do que as flores amarelas. Isso significa que o número de flores roxas é 10 (fiores amarelas) + (80% de 10) = 10 + 8 = 18.\n\nAgora, precisamos saber o número de flores verdes. O problema indica que existem apenas 25% das flores verdes que existem flores amarelas e roxas. Isso significa que o número de flores verdes é 25% de 28 (10 + 18), que é 7.\n\nPara encontrar o número total de flores, precisamos adicionar as flores amarelas, roxas e verdes. Nós temos 10 (fiores amarelas) + 18 (fiores roxas) + 7 (fiores verdes) = 35.\n\nResposta final: 35",
+          "resposta_extraida": "35",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2169,
+          "tokens_saida": 272,
+          "tempo_consulta_segundos": 77.12547480000649
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 492.681,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10845,
+      "tokens_saida": 1296
+    },
+    {
+      "id": "train_6",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "48",
+      "resposta": "48",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 53.6,
+      "ram_percentual": 96.4,
+      "respostas_extraidas": [
+        "48",
+        "24",
+        "48",
+        "48",
+        "48"
+      ],
+      "distribuicao_votos": {
+        "48": 4,
+        "24": 1
+      },
+      "resposta_modelo": "48",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema!\n\nO Albert compra 2 pizzas grandes e 2 pizzas pequenas. Uma pizza grande tem 16 fatias e uma pequena pizza tem 8 fatias.\n\nPrimeiramente, vamos calcular o número total de fatias de pizza que Albert compra:\n\n2 pizzas grandes x 16 fatias = 32 fatias\n2 pizzas pequenas x 8 fatias = 16 fatias\n\nEm seguida, vamos adicionar as fatias de pizza para obter o total:\n\n32 fatias + 16 fatias = 48 fatias\n\nPortanto, Albert pode comer 48 fatias de pizza no dia.",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2152,
+          "tokens_saida": 134,
+          "tempo_consulta_segundos": 162.0353587999707
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o número total de fatias de pizza que o Albert tem e, em seguida, dividir por 2, pois ele quer saber quantas fatias comerá em uma pizza.\n\nUma pizza grande tem 16 fatias e ele tem 2 pizzas grandes, então ele tem 2*16 = 32 fatias.\n\nUma pizza pequena tem 8 fatias e ele tem 2 pizzas pequenas, então ele tem 2*8 = 16 fatias.\n\nO número total de fatias de pizza que o Albert tem é 32 + 16 = 48 fatias.\n\nComo ele quer saber quantas fatias comerá em uma pizza, precisamos dividir o número total de fatias por 2, pois uma pizza tem 2 fatias.\n\n48 ÷ 2 = 24\n\nPortanto, o Albert pode comer 24 fatias de pizza em um dia.\n\nResposta final: 24",
+          "resposta_extraida": "24",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2152,
+          "tokens_saida": 202,
+          "tempo_consulta_segundos": 104.93106909992639
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. Primeiro, vamos calcular o número total de fatias de cada tipo de pizza:\n\nPizza grande: 16 fatias\nPizza pequena: 8 fatias\n\n2. Em seguida, vamos calcular o número total de fatias de todas as pizzas:\n\n2 pizzas grandes x 16 fatias = 32 fatias\n2 pizzas pequenas x 8 fatias = 16 fatias\nTotal de fatias = 32 + 16 = 48 fatias\n\n3. O Albert quer saber quantos pedaços ele pode comer. Suponha que cada fatia é um pedaço de pizza. Portanto, o número total de pedaços é igual ao número de fatias.\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2152,
+          "tokens_saida": 166,
+          "tempo_consulta_segundos": 79.65093669993803
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o número total de fatias de pizza que Albert pode comer.\n\nUma pizza grande tem 16 fatias e ele compra 2 pizzas grandes, então ele tem 16 x 2 = 32 fatias de pizza grande.\n\nUma pizza pequena tem 8 fatias e ele compra 2 pizzas pequenas, então ele tem 8 x 2 = 16 fatias de pizza pequena.\n\nAgora, precisamos somar o número de fatias de pizza grande e pizza pequena para saber o número total de fatias que ele pode comer. \n\n32 (fatias de pizza grande) + 16 (fatias de pizza pequena) = 48\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2152,
+          "tokens_saida": 156,
+          "tempo_consulta_segundos": 100.03530979994684
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema.\n\nPrimeiro, precisamos saber o número total de fatias em cada tipo de pizza. Uma pizza grande tem 16 fatias e ele compra 2 pizzas grandes, então ele tem 2*16 = 32 fatias de pizza grande.\n\nUma pizza pequena tem 8 fatias e ele compra 2 pizzas pequenas, então ele tem 2*8 = 16 fatias de pizza pequena.\n\nAgora, vamos calcular o número total de fatias em todas as pizzas. Isso é 32 (fatias de pizza grande) + 16 (fatias de pizza pequena) = 48 fatias.\n\nResposta final: 48",
+          "resposta_extraida": "48",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2152,
+          "tokens_saida": 145,
+          "tempo_consulta_segundos": 112.0271443000529
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 558.691,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10760,
+      "tokens_saida": 803
+    },
+    {
+      "id": "train_7",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "16",
+      "resposta": "16",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 52.7,
+      "ram_percentual": 98.7,
+      "respostas_extraidas": [
+        "16",
+        "16",
+        "16",
+        "16",
+        "16"
+      ],
+      "distribuicao_votos": {
+        "16": 5
+      },
+      "resposta_modelo": "16",
+      "votos_resposta_modelo": 5,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. Ken começa com uma caixa sem nada, o que significa que o peso inicial da caixa é 0 libras.\n2. Ele adiciona jujuba para trazer o peso para 2 libras, o que significa que a quantidade de jujuba adicionada é 2 - 0 = 2 libras.\n3. Ele acrescenta brownies suficientes para fazer o peso triplicar, o que significa que o peso final da caixa é 2 x 3 = 6 libras. Por isso, a quantidade de brownies adicionados é 6 - 2 = 4.\n4. Ele acrescenta mais 2 libras de jujuba, o que adiciona mais 2 libras ao peso final da caixa, deixando-o em 6 + 2 = 8 libras.\n5. Ele adiciona goma minhocas para dobrar o peso mais uma vez, o que significa que o peso final da caixa é 8 x 2 = 16 libras.\n\nPortanto, o peso final da caixa de guloseimas é de 16 libras.\n\nResposta final: 16",
+          "resposta_extraida": "16",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2227,
+          "tokens_saida": 258,
+          "tempo_consulta_segundos": 106.4384820999112
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nO peso inicial da caixa é 2 libras.\n\nKen adicionou brownies suficientes para fazer o peso triplicar, então o peso passou para 2 x 3 = 6 libras.\n\nEm seguida, ele adicionou mais 2 libras de jujuba, o que aumentou o peso para 6 + 2 = 8 libras.\n\nFinalmente, ele adicionou bastante goma minhocas para dobrar o peso mais uma vez, então o peso final da caixa de guloseimas é 8 x 2 = 16 libras.\n\nPortanto, o peso final da caixa de guloseimas é 16 libras.\n\nResposta final: 16",
+          "resposta_extraida": "16",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2227,
+          "tokens_saida": 161,
+          "tempo_consulta_segundos": 131.2167704999447
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Para resolver esse problema, vamos seguir os passos abaixo:\n\n1. O peso inicial da caixa de jujuba é de 2 libras.\n2. Ken adicionou brownies suficientes para fazer o peso triplicar, então o novo peso é 2 x 3 = 6 libras.\n3. Ele acrescentou mais 2 libras de jujuba, então o peso é 6 + 2 = 8 libras.\n4. Finalmente, ele acrescentou bastante goma minhocas para dobrar o peso mais uma vez, então o peso final é 8 x 2 = 16 libras.\n\nPortanto, o peso final da caixa de guloseimas é de 16 libras.\n\nResposta final: 16",
+          "resposta_extraida": "16",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2227,
+          "tokens_saida": 163,
+          "tempo_consulta_segundos": 91.27802700002212
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. A caixa pesa 2 libras após o adição de jujuba.\n2. Ken adicionou brownies suficientes para fazer o peso triplicar. Isso significa que o peso da caixa aumentou de 2 libras para 2 x 3 = 6 libras.\n3. Em seguida, Ken adicionou mais 2 libras de jujuba. Isso aumenta o peso da caixa de 6 libras para 6 + 2 = 8 libras.\n4. Finalmente, Ken adicionou goma minhocas suficientes para dobrar o peso mais uma vez. Isso significa que o peso da caixa aumentou de 8 libras para 8 x 2 = 16 libras.\n\nPortanto, o peso final da caixa de guloseimas é de 16 libras.\n\nResposta final: 16",
+          "resposta_extraida": "16",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2227,
+          "tokens_saida": 202,
+          "tempo_consulta_segundos": 97.31272729998454
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. A caixa pesava 2 libras de jujuba.\n2. Ken acrescentou brownies suficientes para fazer o peso triplicar, então o peso da caixa passou a ser 2 x 3 = 6 libras.\n3. Em seguida, ele acrescentou mais 2 libras de jujuba, então o peso da caixa passou a ser 6 + 2 = 8 libras.\n4. Finalmente, ele acrescentou bastante goma minhocas para dobrar o peso mais uma vez, então o peso da caixa passou a ser 8 x 2 = 16 libras.\n\nPortanto, o peso final da caixa de guloseimas, em libras, é de 16 libras.\n\nResposta final: 16",
+          "resposta_extraida": "16",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2227,
+          "tokens_saida": 185,
+          "tempo_consulta_segundos": 124.9583091000095
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 551.214,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 11135,
+      "tokens_saida": 969
+    },
+    {
+      "id": "train_8",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "41",
+      "resposta": "41",
+      "resposta_valida": true,
+      "acertou": true,
+      "falha_tecnica": false,
+      "motivo": null,
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 54.8,
+      "ram_percentual": 98.3,
+      "respostas_extraidas": [
+        "41",
+        "57",
+        "41",
+        "41",
+        "41"
+      ],
+      "distribuicao_votos": {
+        "41": 4,
+        "57": 1
+      },
+      "resposta_modelo": "41",
+      "votos_resposta_modelo": 4,
+      "houve_empate": false,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Vamos resolver esse problema passo a passo.\n\nPrimeiro, vamos calcular o total gasto em roupas que a Alexis não comprou nos sapatos:\n\nCamisa de botão: $30\nCalças de fato: $46\nCasaco de fato: $38\nMeias: $11\nCinto: $18\n\nTotal gasto em roupas que não são os sapatos: $30 + $46 + $38 + $11 + $18 = $143\n\nAgora, vamos calcular o total gasto em roupas que a Alexis não gastou em sapatos. Ela ainda tem $16 do seu orçamento, então o total gasto em roupas que não são os sapatos e que ela não gastou em sapatos é:\n\n$143 + $16 = $159\n\nAgora, vamos calcular o valor do orçamento de $200. Como a Alexis gastou $159 em roupas que não são os sapatos e que ela não gastou em sapatos, o valor do orçamento que ela gastou em sapatos é:\n\n$200 - $159 = $41\n\nResposta final: 41",
+          "resposta_extraida": "41",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2242,
+          "tokens_saida": 250,
+          "tempo_consulta_segundos": 124.9877708000131
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, vamos calcular o valor total gasto por Alexis nos itens que ela tem o recibo:\n\nCamisa de botão: 30 dólares\nCalças de fato: 46 dólares\nCasaco de fato: 38 dólares\nMeias: 11 dólares\nCinto: 18 dólares\n\nTotal gasto nos itens com recibo: 30 + 46 + 38 + 11 + 18 = 143 dólares\n\nAgora, vamos calcular o valor total gasto por Alexis, incluindo o valor do orçamento restante:\n\nOrçamento restante: 16 dólares\nValor total gasto: 143 dólares (com recibo) + 16 dólares (orçamento restante) = 159 dólares\n\nComo Alexis gastou todo o seu orçamento de 200 dólares, o valor do par de sapatos é igual ao valor total gasto menos o valor dos itens com recibo:\n\nValor do par de sapatos: 200 dólares - 143 dólares = 57 dólares\n\nResposta final: 57",
+          "resposta_extraida": "57",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2242,
+          "tokens_saida": 260,
+          "tempo_consulta_segundos": 148.86426459997892
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema passo a passo.\n\nPrimeiro, vamos calcular o valor total gasto por Alexis em todos os itens, exceto nos sapatos:\n\n* Camisa de botão: 30 dólares\n* Calças de fato: 46 dólares\n* Casaco de fato: 38 dólares\n* Meias: 11 dólares\n* Cinto: 18 dólares\n\nTotal gasto em itens conhecidos: 30 + 46 + 38 + 11 + 18 = 143 dólares\n\nAgora, vamos calcular o valor total gasto por Alexis, incluindo os sapatos:\n\nSe ela gastou 143 dólares em todos os itens, exceto os sapatos, e ainda tem 16 dólares do seu orçamento, isso significa que o valor total do seu orçamento de 200 dólares é:\n\n143 + 16 = 159 dólares\n\nAgora, vamos encontrar o valor gasto nos sapatos. Se o valor total do orçamento é de 200 dólares e o valor total gasto em todos os itens, exceto os sapatos, é de 159 dólares, então o valor gasto nos sapatos é:\n\n200 - 159 = 41 dólares\n\nPortanto, a Alexis pagou 41 dólares nos sapatos.\n\nResposta final: 41",
+          "resposta_extraida": "41",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2242,
+          "tokens_saida": 304,
+          "tempo_consulta_segundos": 105.74640519998502
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para encontrar o valor dos sapatos, precisamos primeiro calcular o valor total de tudo o que a Alexis comprou, exceto os sapatos.\n\nO valor total de tudo o que a Alexis comprou, exceto os sapatos, é:\n\n30 + 46 + 38 + 11 + 18 = 143 dólares\n\nAgora, vamos encontrar o valor total de tudo o que a Alexis comprou, incluindo os sapatos. Sua conta é de 200 dólares e ela ainda tem 16 dólares do seu orçamento, então o valor total de tudo o que ela comprou é:\n\n200 - 16 = 184 dólares\n\nAgora, vamos subtrair o valor total de tudo o que a Alexis comprou, exceto os sapatos, do valor total de tudo o que ela comprou:\n\n184 - 143 = 41 dólares\n\nIsso significa que o valor dos sapatos é de 41 dólares.\n\nResposta final: 41",
+          "resposta_extraida": "41",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2242,
+          "tokens_saida": 215,
+          "tempo_consulta_segundos": 123.53471579996403
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Vamos resolver o problema passo a passo:\n\n1. Primeiro, precisamos saber o total gasto pela Alexis, exceto pelos sapatos:\n\nCamisa de botão: $30\nCalças de fato: $46\nCasaco de fato: $38\nMeias: $11\nCinto: $18\n\nTotal gasto exceto por sapatos: $30 + $46 + $38 + $11 + $18 = $143\n\n2. Agora, precisamos saber o total gasto pela Alexis, incluindo os sapatos. Sabemos que ela ainda tem $16 do seu orçamento, então o total gasto deve ser:\n\n$200 (orçamento inicial) - $16 (dinheiro restante) = $184\n\n3. Agora, podemos encontrar o valor gasto nos sapatos:\n\nTotal gasto (incluindo sapatos) - Total gasto exceto por sapatos = Valor gasto nos sapatos\n$184 - $143 = $41\n\nPortanto, a Alexis pagou $41 pelos sapatos.\n\nResposta final: 41",
+          "resposta_extraida": "41",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2242,
+          "tokens_saida": 232,
+          "tempo_consulta_segundos": 165.68048939993605
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 668.826,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 11210,
+      "tokens_saida": 1261
+    },
+    {
+      "id": "train_9",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "990",
+      "resposta": "",
+      "resposta_valida": false,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou empate na votação.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "cpu_percentual": 51.7,
+      "ram_percentual": 87.7,
+      "respostas_extraidas": [
+        "450",
+        "1170",
+        "198",
+        "942",
+        "950.07"
+      ],
+      "distribuicao_votos": {
+        "450": 1,
+        "1170": 1,
+        "198": 1,
+        "942": 1,
+        "950.07": 1
+      },
+      "resposta_modelo": "",
+      "votos_resposta_modelo": 1,
+      "houve_empate": true,
+      "total_respostas_validas": 5,
+      "amostras": [
+        {
+          "amostra": 1,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o tempo total que Tina trabalhou e encontrar o tempo de horas extras.\n\nTina trabalhou 10 horas por dia por 5 dias, então o tempo total de trabalho é:\n\n10 horas/dia x 5 dias = 50 horas\n\nComo Tina trabalhou mais de 8 horas por turno, ela é elegível para horas extras. O tempo de horas extras é:\n\n50 horas - 40 horas (8 horas por turno x 5 dias) = 10 horas\n\nO salário por hora é de $18,00 e o salário por hora de horas extras é de $18,00 + ($18,00 x 0,5) = $18,00 + $9,00 = $27,00.\n\nAgora, vamos calcular o salário total:\n\n* Salário por hora: 10 horas x $18,00 = $180,00\n* Salário por hora de horas extras: 10 horas x $27,00 = $270,00\n* Salário total: $180,00 + $270,00 = $450,00\n\nResposta final: 450",
+          "resposta_extraida": "450",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2165,
+          "tokens_saida": 240,
+          "tempo_consulta_segundos": 131.0139503000537
+        },
+        {
+          "amostra": 2,
+          "resposta_completa": "Vamos resolver o problema de Tina.\n\nPrimeiramente, vamos calcular o valor total que Tina ganha por trabalhar 10 horas por dia por 5 dias. Como ela ganha $18.00 por hora, o valor total é:\n\n10 horas x $18.00/hora = $180.00 por dia\n\nComo ela trabalha 5 dias, o valor total é:\n\n$180.00 x 5 = $900.00\n\nAgora, vamos calcular o valor das horas extras. Tina trabalha 2 horas extras por dia, pois ela trabalha 10 horas e é paga por 8 horas. Ela é paga por sua hora de trabalho + 1/2 do seu salário por hora, ou seja, $18.00 + ($18.00/2) = $18.00 + $9.00 = $27.00 por hora.\n\nO valor total das horas extras é:\n\n2 horas x $27.00/hora = $54.00 por dia\n\nComo ela trabalha 5 dias, o valor total das horas extras é:\n\n$54.00 x 5 = $270.00\n\nAgora, vamos adicionar o valor total do trabalho regular e o valor total das horas extras para encontrar o valor total que Tina ganha:\n\n$900.00 + $270.00 = $1.170.00\n\nResposta final: 1170",
+          "resposta_extraida": "1170",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2165,
+          "tokens_saida": 295,
+          "tempo_consulta_segundos": 108.5296119999839
+        },
+        {
+          "amostra": 3,
+          "resposta_completa": "Vamos resolver o problema:\n\nProblema:\nTina ganha $18,00 por hora. Se ela trabalhar mais do que 8 horas por turno, ela é elegível para horas extras, que é paga pelo seu salário por hora + 1/2 do seu salário por hora. Se ela trabalhar 10 horas por dia para 5 dias, quanto dinheiro ela ganha?\n\nResolução:\n\nPrimeiramente, vamos calcular a quantidade de horas extras que Tina trabalhará. Ela trabalhará 10 horas por dia, mas apenas as horas extras serão pagas como horas extras. As horas extras são aquelas que vão além de 8 horas.\n\nHoras extras = 10 horas - 8 horas = 2 horas\n\nAgora, vamos calcular o valor das horas extras. O valor das horas extras é o salário por hora + 1/2 do salário por hora.\n\nValor das horas extras = $18,00 + ($18,00 / 2)\n= $18,00 + $9,00\n= $27,00\n\nAgora, vamos calcular o valor total de todas as horas trabalhadas, incluindo as horas extras.\n\nValor total de horas trabalhadas = (8 horas x $18,00) + (2 horas x $27,00)\n= (8 x $18,00) + (2 x $27,00)\n= $144,00 + $54,00\n= $198,00\n\nResposta final: $198,00",
+          "resposta_extraida": "198",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2165,
+          "tokens_saida": 322,
+          "tempo_consulta_segundos": 119.46017510001548
+        },
+        {
+          "amostra": 4,
+          "resposta_completa": "Para resolver esse problema, precisamos calcular o valor total de horas trabalhadas e separar as horas normais das horas extras.\n\nTina trabalha 10 horas por dia, por 5 dias, então o total de horas trabalhadas é:\n\n10 horas/dia x 5 dias = 50 horas\n\nComo Tina trabalha mais de 8 horas por turno, ela é elegível para horas extras. Para calcular o número de horas extras, precisamos subtrair as horas normais do total de horas trabalhadas:\n\n50 horas - 8 horas = 42 horas extras\n\nO salário por hora é de $18,00 e o salário por hora extra é de $18,00 + $1,00 = $19,00. Portanto, o valor das horas extras é:\n\n42 horas extras x $19,00/hora extra = $798,00\n\nO valor das horas normais é:\n\n8 horas x $18,00/hora = $144,00\n\nO valor total de dinheiro que Tina ganha é a soma do valor das horas normais e das horas extras:\n\n$144,00 + $798,00 = $942,00\n\nResposta final: 942",
+          "resposta_extraida": "942",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2165,
+          "tokens_saida": 252,
+          "tempo_consulta_segundos": 72.998538200045
+        },
+        {
+          "amostra": 5,
+          "resposta_completa": "Para calcular o salário de Tina, precisamos saber o número total de horas que ela trabalhou e o número de horas extras que ela recebeu.\n\nPrimeiro, vamos calcular o número total de horas que Tina trabalhou:\n\nEla trabalhou 10 horas por dia por 5 dias, então o número total de horas que ela trabalhou é:\n\n10 horas/dia x 5 dias = 50 horas\n\nComo Tina trabalhou mais do que 8 horas por turno, ela é elegível para horas extras. Para calcular o número de horas extras, precisamos saber o número de horas extras que ela recebeu. Nesse caso, não é especificado, então vamos assumir que ela recebeu todas as horas extras possíveis.\n\nO salário de Tina por hora é $18.00, e o salário por hora de horas extras é $18.00 + $1.00 = $19.00. Para calcular o número de horas extras, precisamos dividir o número total de horas que ela trabalhou pelo salário por hora de horas extras:\n\n50 horas / $19.00/hora = 2.63 horas extras (aproximadamente)\n\nAgora, vamos calcular o salário de Tina:\n\nSalário por hora = $18.00/hora x 50 horas = $900.00\nSalário por hora de horas extras = $19.00/hora x 2.63 horas = $50.07\n\nO salário de Tina é a soma do salário por hora e do salário por hora de horas extras:\n\nSalário = $900.00 + $50.07 = $950.07\n\nResposta final: 950.07",
+          "resposta_extraida": "950.07",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 2165,
+          "tokens_saida": 350,
+          "tempo_consulta_segundos": 72.56161290011369
+        }
+      ],
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 504.575,
+      "metodo_votacao": "frequencia_simples",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_simples"
+      },
+      "tokens_entrada": 10825,
+      "tokens_saida": 1459
+    }
+  ],
+  "status": "concluido",
+  "tempo_acumulado_segundos": 5145.819642500021,
+  "data_fim": "2026-10-21T23:52:53",
+  "metricas": {
+    "exemplos_utilizados": 10,
+    "amostras_por_questao": 5,
+    "votacao_censo": "equivalencia_deterministica_ou_selecao_semantica_cega",
+    "questoes_executadas": 10,
+    "questoes_avaliadas": 10,
+    "acertos": 7,
+    "erros": 3,
+    "falhas_tecnicas": 0,
+    "detalhes_falhas_tecnicas": [],
+    "acuracia_percentual": 70.0,
+    "acuracia_por_split": {
+      "train": {
+        "questoes": 10,
+        "acertos": 7,
+        "erros": 3,
+        "acuracia_percentual": 70.0
+      }
+    },
+    "respostas_sem_extracao": 0,
+    "revisoes_necessarias": 0,
+    "tempo_total_segundos": 5145.82,
+    "tempo_medio_segundos": 514.57,
+    "tokens_entrada": 108280,
+    "tokens_saida": 10262,
+    "cpu_media_percentual": 54.17,
+    "ram_media_percentual": 92.42,
+    "metricas_votacao": {
+      "unanimidades": 3,
+      "empates": 1,
+      "sem_resposta_valida": 0,
+      "media_votos_vencedor": 3.6
+    }
+  }
+}

@@ -3,6 +3,7 @@
 import re
 import json
 import unicodedata
+from collections import Counter
 
 def _normalizar(texto):
     texto = unicodedata.normalize('NFKD', str(texto).lower())
@@ -60,6 +61,53 @@ def _tem_valor(texto, valor):
     """Reconhece inteiros com ou sem separadores de milhar."""
     return valor in _numeros(texto)
 
+# Siglas e nomes de UFs reconhecidos com fronteiras de palavra.
+_UFS = {
+    'AC':'acre','AL':'alagoas','AP':'amapa','AM':'amazonas',
+    'BA':'bahia','CE':'ceara','DF':'distrito federal','ES':'espirito santo',
+    'GO':'goias','MA':'maranhao','MT':'mato grosso','MS':'mato grosso do sul',
+    'MG':'minas gerais','PA':'para','PB':'paraiba','PR':'parana',
+    'PE':'pernambuco','PI':'piaui','RJ':'rio de janeiro',
+    'RN':'rio grande do norte','RS':'rio grande do sul','RO':'rondonia',
+    'RR':'roraima','SC':'santa catarina','SP':'sao paulo',
+    'SE':'sergipe','TO':'tocantins',
+}
+
+def _ufs_citadas(resposta):
+    texto = _normalizar(resposta)
+    # Primeiro retira nomes completos para não confundir 'mato grosso' com MS.
+    encontradas = set()
+    for uf, nome in sorted(_UFS.items(), key=lambda par: -len(par[1])):
+        if uf == 'PA':  # 'para' é também uma preposição comum.
+            continue
+        padrao = r'(?<![a-z])' + re.escape(nome) + r'(?![a-z])'
+        if re.search(padrao, texto):
+            encontradas.add(uf)
+            texto = re.sub(padrao, ' ', texto)
+    for uf in _UFS:
+        if uf == 'PA':
+            if re.search(r'(?<![A-Za-z])PA(?![A-Za-z])', str(resposta)):
+                encontradas.add(uf)
+            continue
+        if re.search(r'(?<![a-z])' + uf.lower() + r'(?![a-z])', texto):
+            encontradas.add(uf)
+    return encontradas
+
+def _par_numero(resposta, rotulos, valor):
+    # Não basta mencionar o número correto em qualquer ponto do texto.
+    linhas = re.split(r'[\n;]', _normalizar(resposta))
+    for linha in linhas:
+        if any(re.search(r'\b' + re.escape(r) + r'\b', linha) for r in rotulos):
+            if _tem_valor(linha, valor):
+                return True
+    return False
+
+def _contradicao_soma(resposta, valores):
+    # Sinaliza a apresentação de uma soma como total da categoria.
+    texto = _normalizar(resposta)
+    return any(re.search(r'(?<!\d)' + str(v) + r'\s*\+\s*\d', texto)
+               for v in valores)
+
 def _criterios_censo(questao, resposta):
     """Rubricas objetivas para as questões 01–20, com base nos gabaritos.
 
@@ -79,7 +127,7 @@ def _criterios_censo(questao, resposta):
                 'revisao_necessaria': False, 'metodo_avaliacao': 'rubrica_objetiva_censo'}
 
     if numero == 1:
-        return decisao(tem(178766), 'Verificação do total de escolas.')
+        return decisao(tem(178766) and not re.search(r'(?<!\d)0\s+escolas\b', t), 'Total correto de escolas, sem afirmação contraditória.')
     if numero == 2:
         return decisao(tem(46018380), 'Verificação do total de matrículas, não apenas do código proposto.')
     if numero == 3:
@@ -113,7 +161,7 @@ def _criterios_censo(questao, resposta):
         return decisao(correta and not erro_rede and ('duas' in t or '2 categoria' in t or 'publica e privada' in t),
                        'CO_REDE agrupa pública/privada; TP_DEPENDENCIA possui quatro categorias.')
     if numero == 9:
-        return decisao(tem(137020) and tem(41746), 'Contagens das redes pública e privada.')
+        return decisao(tem(137020) and tem(41746) and 'publica' in t and 'privada' in t, 'Contagens das redes pública e privada.')
     if numero == 10:
         return decisao(all(tem(v) for v in (383526, 13330302, 23059168, 9245384)) and 'municipal' in t,
                        'Quatro totais de matrículas por dependência e predominância municipal.')
@@ -139,36 +187,50 @@ def _criterios_censo(questao, resposta):
         return decisao('parceria' in t and 'poder publico' in t and ('financiamento' in t or 'convenio' in t),
                        'Interpretação da parceria com o poder público.')
     if numero == 17:
-        return decisao(tem(128037) and tem(50729), 'Contagens de escolas urbanas e rurais.')
+        return decisao(_par_numero(resposta, ('urbana', 'urbanas'), 128037) and _par_numero(resposta, ('rural', 'rurais'), 50729) and not _contradicao_soma(resposta, (128037, 50729)), 'Exige os dois totais por localização, sem apresentar somas contraditórias como totais.')
     if numero == 18:
-        return decisao(tem(40871166) and tem(5147214), 'Totais de matrículas urbanas e rurais.')
+        return decisao(_par_numero(resposta, ('urbana', 'urbanas'), 40871166) and _par_numero(resposta, ('rural', 'rurais'), 5147214) and not re.search(r'\b(iguais|mesmo total|mesma quantidade)\b', t), 'Totais corretos de matrículas urbanas e rurais, sem afirmar igualdade.')
     if numero == 19:
         return decisao('319' in t and '101' in t and 'urbana' in t and 'rural' in t and '270' not in t,
                        'Médias urbana e rural corretas, sem valor urbano contraditório.')
     if numero == 20:
         return decisao(all(x in t for x in ('24,42', '21,34', '5,90', '5,77', '3,30')) and 'norte' in t,
                        'Percentuais das cinco regiões e identificação da maior.')
-    # Questões que pedem listas de UFs: compara cada sigla com seu valor, sem exigir ordem.
-    # Não avalia explicações adicionais, apenas os cinco resultados solicitados.
+    # As questões 22 e 23 pedem QUAIS UFs, não os valores por UF.
+    # Não exigir os números evita falsos negativos de respostas corretas.
     if numero in (22, 23):
-        esperados = ({'SP': 9600318, 'MG': 4220829, 'BA': 3345058,
-                      'RJ': 3319771, 'PR': 2438428} if numero == 22 else
-                     {'RR': 186395, 'AP': 212026, 'AC': 242727,
-                      'RO': 376264, 'TO': 380768})
-        nomes = {'SP': 'sao paulo', 'MG': 'minas gerais', 'BA': 'bahia',
-                 'RJ': 'rio de janeiro', 'PR': 'parana', 'RR': 'roraima',
-                 'AP': 'amapa', 'AC': 'acre', 'RO': 'rondonia', 'TO': 'tocantins'}
-        # Exige que cada valor esteja associado à UF correspondente.
-        linhas = re.split(r'\n|;', resposta)
-        def par_presente(sigla, valor):
-            for linha in linhas:
-                uf = (re.search(r'(?<![A-Za-z])' + sigla + r'(?![A-Za-z])', linha, re.I)
-                      or nomes[sigla] in _normalizar(linha))
-                if uf and _tem_valor(linha, valor):
-                    return True
-            return False
-        ok = all(par_presente(sigla, valor) for sigla, valor in esperados.items())
-        return decisao(ok, 'Conferência dos cinco pares UF e total de matrículas, independentemente da ordem.')
+        esperadas = ({'SP', 'MG', 'BA', 'RJ', 'PR'} if numero == 22 else
+                     {'RR', 'AP', 'AC', 'RO', 'TO'})
+        citadas = _ufs_citadas(resposta)
+        return decisao(citadas == esperadas,
+                       'Comparação exata do conjunto das cinco UFs; ordem e valores não exigidos.')
+    # Questões com resultado numérico inequívoco, além das 01–23.
+    if numero == 24:
+        return decisao(tem(2512355) and ('sao paulo' in t or re.search(r'\bsp\b', t)),
+                       'Município São Paulo/SP e total 2.512.355.')
+    if numero == 31:
+        return decisao(tem(2490145) and ('78,1' in t or '78.1' in t),
+                       'Total técnico e percentual sobre Educação Profissional.')
+    if numero == 33:
+        return decisao(tem(2252069) and ('4,89' in t or '4.89' in t),
+                       'Total EJA e percentual correto.')
+    if numero == 35:
+        return decisao(tem(3637), 'Total nacional de matrículas em classes bilíngues de surdos.')
+    if numero == 40:
+        return decisao(tem(6275577) and ('nao declarad' in t),
+                       'Total de não declaradas e identificação da categoria.')
+    if numero == 42:
+        return decisao(tem(3974803) and ('eja' in t or 'profissional' in t),
+                       'Total de 18+ e modalidade associada.')
+    if numero == 46:
+        return decisao(tem(10143262) and ('22,04' in t or '22.04' in t),
+                       'Total em tempo integral e percentual.')
+    if numero == 47:
+        return decisao(tem(2458159) and ('5,34' in t or '5.34' in t),
+                       'Total Educação Especial e percentual.')
+    if numero == 49:
+        return decisao(all(tem(x) for x in (9078809, 1431234, 7647575)) and 'municipal' in t,
+                       'Totais de transporte escolar e predomínio municipal.')
     return None
 
 def avaliar_censo(questao, resposta, consultar_ollama=None):
@@ -185,12 +247,9 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
 
     # Primeiro aplica critérios verificáveis para as questões cobertas por rubricas.
     resultado = _criterios_censo(questao, resposta)
-    # Se a rubrica rejeitar, consulte o avaliador semântico para evitar
-    # falsos negativos causados por formatação, sinônimos ou ordem da resposta.
-    # Rubricas exatas e verificaveis nao podem ser anuladas por um juiz LLM.
-    # Evita falso positivo como "zero escolas" para o total 178766.
-    id_num = str(questao.get('id', '')).rsplit('_', 1)[-1]
-    if resultado is not None and (resultado['acertou'] or id_num in ('01', '02', '17', '18', '22', '23')):
+    # Rubricas objetivas prevalecem sobre o avaliador LLM.
+    # Um erro objetivo não pode ser transformado em acerto pelo juiz semântico.
+    if resultado is not None:
         return resultado
 
     # Para as demais questões (e rubricas negativas), usa avaliação semântica.
@@ -205,7 +264,7 @@ Se o resultado solicitado estiver correto, marque CORRETA mesmo com explicação
 Listas podem vir em qualquer ordem, exceto quando a pergunta exigir uma ordem.
 Resultado ausente, ambíguo ou incorreto é INCORRETA. Nunca use INCERTO.
 Responda com JSON válido, sem markdown, neste formato:
-{{"veredito":"CORRETA","justificativa":"motivo específico"}}
+{{"veredito":"CORRETA","justificativa":"motivo breve"}}
 
 QUESTÃO: {enunciado}
 GABARITO: {gabarito}
@@ -216,7 +275,7 @@ RESPOSTA: {resposta}"""
     for tentativa_avaliador in range(1, 4):
         try:
             info_avaliador = consultar_ollama(
-                prompt, temperature=0, num_predict=220, retornar_metricas=True,
+                prompt, temperature=0, num_predict=120, retornar_metricas=True,
             )
             if not isinstance(info_avaliador, dict):
                 info_avaliador = {'resposta': None, 'tentativas': 3,

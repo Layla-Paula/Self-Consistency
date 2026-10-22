@@ -35,7 +35,7 @@ except ImportError:
 
 MODELO = "llama3.2"
 TEMPERATURE = 0.7
-NUM_PREDICT = 800
+NUM_PREDICT = 1200
 N_AMOSTRAS = 5
 SALVAR_CADA = 10
 PASTA_BASE = Path("resultados/self_consistency")
