@@ -64,6 +64,22 @@ def executar_consultas_demonstracao(sessao, exemplos):
     return blocos
 
 
+def _extrair_resposta_final(texto):
+    """Devolve o texto escrito pelo modelo depois de 'Resposta final:', sem blocos SQL,
+    sem linhas DICIONARIO e sem saida FERRAMENTA. Nao inventa nada: so recorta o que o modelo escreveu."""
+    achado = list(re.finditer(r'(?i)resposta\s+final\s*:?', texto or ''))
+    if not achado:
+        return None
+    resto = texto[achado[-1].end():]
+    resto = re.split(r'(?im)^\s*FERRAMENTA\s*:', resto, maxsplit=1)[0]
+    resto = re.sub(r'```sql[\s\S]*?```', '', resto, flags=re.I)
+    resto = re.sub(r'(?im)^\s*DICIONARIO\s*:.*$', '', resto)
+    resto = resto.replace('```', '').strip()
+    # Não aceitar outra solicitação de ferramenta como resposta.
+    resto = re.split(r'(?im)^\s*(?:DICIONARIO\s*:|```sql)', resto, maxsplit=1)[0].strip()
+    return resto or None
+
+
 def _chave(tipo, comando):
     if tipo == 'sql':
         return tipo, re.sub(r'\s+', ' ', comando).strip().rstrip(';').lower()
@@ -109,6 +125,24 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
                              'tokens_saida': info.get('eval_count')})
         return info
 
+    def finalizar(extra, motivo_sucesso):
+        """Pede uma resposta final explícita sem executar novas ferramentas."""
+        nonlocal resposta_final, motivo, reparos
+        while reparos < MAX_REPAROS:
+            reparos += 1
+            info = chamar(extra)
+            if info.get('resposta') is None:
+                motivo = 'falha_ollama'
+                return
+            bruto = str(info['resposta']).strip()
+            candidata = _extrair_resposta_final(bruto)
+            # Na finalização, somente uma resposta explícita e sem comandos é válida.
+            if candidata and evidencia and _comando(bruto)[0] is None:
+                resposta_final = candidata
+                motivo = motivo_sucesso
+                return
+        motivo = 'finalizacao_sem_resposta'
+
     while True:
         info = chamar()
         texto = info.get('resposta')
@@ -117,28 +151,33 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
             break
         texto = str(texto).strip()
         tipo, comando = _comando(texto)
+        candidata = _extrair_resposta_final(texto)
+
         if not tipo:
-            if texto:
-                if evidencia:
-                    # Saida FERRAMENTA escrita pelo LLM nao e observacao executada.
-                    resposta_final = re.split(r'(?im)^\s*FERRAMENTA\s*:', texto, maxsplit=1)[0].strip()
-                    motivo = 'resposta_com_evidencia'
-                else:
-                    motivo = 'resposta_sem_consulta'
-            else:
+            if candidata and evidencia:
+                resposta_final = candidata
+                motivo = 'resposta_com_evidencia'
+            elif not texto:
                 motivo = 'resposta_vazia'
+            elif not evidencia:
+                motivo = 'resposta_sem_consulta'
+            else:
+                motivo = 'resposta_sem_formato_final'
             break
 
         chave = _chave(tipo, comando)
         if chave in vistos:
             repeticoes += 1
             motivo = 'consulta_repetida'
-            if repeticoes >= MAX_REPETICOES:
-                break
-            continue
+            # Não aceita resposta misturada com consulta repetida.
+            # A finalização será solicitada em uma rodada separada,
+            # utilizando exclusivamente o histórico das ferramentas executadas.
+            break
+
         if len(consultas) >= MAX_CONSULTAS:
             motivo = 'limite_consultas'
             break
+
         vistos.add(chave)
         try:
             resultado = (sessao.executar_sql(comando) if tipo == 'sql'
@@ -146,33 +185,35 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
         except Exception as erro:
             resultado = {'erro': f'{type(erro).__name__}: {erro}'}
         consultas.append({'tipo': tipo, 'comando': comando, 'resultado': resultado})
-        if isinstance(resultado, dict) and 'erro' not in resultado:
+        sucesso = isinstance(resultado, dict) and 'erro' not in resultado
+        if sucesso:
             evidencia = True
         historico.append('ASSISTENTE:\n' + _cortar_apos_comando(texto, tipo) + '\nFERRAMENTA:\n' +
                          json.dumps(resultado, ensure_ascii=False, default=str))
+
+        # A resposta escrita junto de um comando novo é ignorada (foi escrita antes de ver o
+        # resultado). O laço continua: na próxima rodada o modelo já vê a observação real
+        # e pode responder ou consultar de novo.
         if len(consultas) >= MAX_CONSULTAS:
             motivo = 'limite_consultas'
             break
 
-    # Consulta repetida ou limite atingido: uma rodada FINAL separada, sem ferramenta.
-    # O limite de consultas não equivale ao limite de chamadas ao modelo.
-    if motivo in ('consulta_repetida', 'limite_consultas') and reparos < MAX_REPAROS:
-        reparos += 1
+    # A resposta final deve vir após evidência real; não fabricar resposta a
+    # partir de resultados SQL, nem tratar comandos como resposta textual.
+    if motivo in ('consulta_repetida', 'limite_consultas',
+                  'resposta_sem_formato_final', 'resposta_vazia') and not resposta_final:
         if motivo == 'consulta_repetida':
             historico.append('SISTEMA: consulta repetida bloqueada. NÃO execute novamente: ' + comando)
-        extra = ('\n\nAGORA É OBRIGATÓRIO FINALIZAR. Não peça ferramentas, não repita SQL. '
-                 'Responda com Resposta final: ... usando apenas as evidências existentes. '
-                 'Se insuficientes, explique o que falta.')
-        info = chamar(extra)
-        texto = info.get('resposta')
-        if texto is not None and str(texto).strip() and _comando(str(texto))[0] is None:
-            if evidencia:
-                resposta_final = re.split(r'(?im)^\s*FERRAMENTA\s*:', str(texto), maxsplit=1)[0].strip()
-                motivo = 'resposta_apos_finalizacao'
-            else:
-                motivo = 'sem_evidencia_apos_finalizacao'
+        if evidencia:
+            finalizar(
+                '\n\nAGORA É OBRIGATÓRIO FINALIZAR. Não peça ferramentas, não repita SQL, '
+                'não escreva DICIONARIO:. Escreva apenas: Resposta final: ... usando '
+                'exclusivamente os resultados reais no histórico. Se insuficientes, '
+                'diga explicitamente que os dados consultados não permitem responder.',
+                'resposta_apos_finalizacao',
+            )
         else:
-            motivo = 'finalizacao_sem_resposta'
+            motivo = 'finalizacao_sem_evidencia'
 
     # Preserva TODAS as gerações, inclusive as rejeitadas e as que contêm SQL.
     texto_descartado = '\n\n'.join(
