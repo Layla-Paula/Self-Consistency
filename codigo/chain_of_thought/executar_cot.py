@@ -253,7 +253,14 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         salvar(progresso, dados)
 
     try:
-        for questao in tqdm(pendentes, desc=f"Chain-of-Thought {dataset}"):
+        for questao in tqdm(
+            pendentes,
+            desc=f"Chain-of-Thought {dataset}",
+            ncols=78,
+            ascii=True,
+            mininterval=1.0,
+            leave=True,
+        ):
             demonstracao = str(questao["id"]) in ids_exemplos
             if dataset == "gsm8k":
                 exemplos_prompt = [e for e in exemplos if str(e["id"]) != str(questao["id"])]
@@ -306,8 +313,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                     "tempo_segundos": duracao, "tokens_entrada": None,
                     "tokens_saida": None, "consultas_censo": info.get("consultas_censo", []) if dataset == "censo" else [], "texto_descartado": info.get("texto_descartado", ""), "transcricoes_censo": info.get("transcricoes_censo", []), "motivo_encerramento_censo": info.get("motivo_encerramento_censo"), "consultas_repetidas_bloqueadas": info.get("consultas_repetidas_bloqueadas", 0), **{k: info.get(k) for k in ("cpu_ollama_percentual", "ram_ollama_pico_mib", "ram_ollama_media_mib", "amostras_monitoramento")},
                 })
-                print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {detalhe}. "
-                      "Fora da acurácia; avançando.")
+                tqdm.write(f"[FALHA TÉCNICA] {dataset}/{questao['id']}: {detalhe}. "
+                           "Fora da acurácia; avançando.")
                 checkpoint()
                 continue
 

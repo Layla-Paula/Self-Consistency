@@ -15,8 +15,8 @@ VERSAO_PROTOCOLO = '2.2'
 # None explícito: avalia todas as questões elegíveis.
 USAR_LIMITE_PADRAO = object()
 
-LIMITES_PADRAO = {'gsm8k': 5, 
-                  'aqua_rat': 5, 
+LIMITES_PADRAO = {'gsm8k': 500, 
+                  'aqua_rat': 500, 
                   'censo': 20}
 
 #LIMITES_PADRAO = {'gsm8k': None, 
