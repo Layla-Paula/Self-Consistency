@@ -1,5 +1,6 @@
 """Execução Self-Consistency: GSM8K, AQuA-RAT e Censo Escolar.
 """
+from codigo.agente_censo import consultar_censo_agente, executar_consultas_demonstracao
 import json
 import os
 import re
@@ -33,7 +34,8 @@ try:
 except ImportError:
     psutil = None
 
-MODELO = "llama3.2"
+from codigo.utils import MODELO_OLLAMA, SEMENTE_OLLAMA
+MODELO = MODELO_OLLAMA
 TEMPERATURE = 0.7
 NUM_PREDICT = 1200
 N_AMOSTRAS = 5
@@ -131,8 +133,9 @@ def metricas(resultados, tempo_total, quantidade, dataset):
         'tempo_medio_segundos': media('tempo_segundos'),
         'tokens_entrada': sum(r.get('tokens_entrada') or 0 for r in avaliadas),
         'tokens_saida': sum(r.get('tokens_saida') or 0 for r in avaliadas),
-        'cpu_media_percentual': media('cpu_percentual'),
-        'ram_media_percentual': media('ram_percentual'),
+        'cpu_ollama_media_percentual': media('cpu_ollama_percentual'),
+        'ram_ollama_pico_mib': max((r['ram_ollama_pico_mib'] for r in avaliadas if r.get('ram_ollama_pico_mib') is not None), default=None),
+        'ram_ollama_media_mib': media('ram_ollama_media_mib'),
         'metricas_votacao': {
             'unanimidades': sum(r['votos_resposta_modelo'] == N_AMOSTRAS for r in votos),
             'empates': sum(r['houve_empate'] for r in votos),
@@ -195,11 +198,13 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
     if not questoes:
         raise ValueError('Nenhuma questão disponível após excluir demonstrações.')
     sessao, contextos_exemplos, raciocinios_exemplos = None, None, None
+    consultas_exemplos = None
     if dataset == 'censo':
         from codigo.consulta_censo import SessaoCenso, verificar_consultas
         verificar_consultas(exemplos + questoes)
         sessao = SessaoCenso()
-        contextos_exemplos = {str(q['id']): sessao.consultar(q) for q in exemplos}
+        contextos_exemplos = {str(q['id']): "Consulte a tabela matriculas por SQL." for q in exemplos}
+        consultas_exemplos = executar_consultas_demonstracao(sessao, exemplos)
         raciocinios_exemplos = {str(q['id']): str(q['raciocinio']).strip()
                                 for q in exemplos}
     pasta = pasta_configuracao("self_consistency", dataset, limite, quantidade)
@@ -208,7 +213,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
     caminho = pasta / f'{nome}.json'
     progresso = pasta / f'{nome}.progresso.json'
     parametros = {
-        'modelo': MODELO, 'temperatura': TEMPERATURE,
+        'modelo': MODELO, 'seed': SEMENTE_OLLAMA, 'temperatura': TEMPERATURE,
         'limite': limite, 'maximo_tokens_resposta': NUM_PREDICT,
         'quantidade_exemplos': quantidade, 'n_amostras': N_AMOSTRAS,
         'ids_exemplos': [str(q['id']) for q in exemplos],
@@ -219,6 +224,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         'origem_raciocinios_censo': 'json_preparado' if dataset == 'censo' else None,
         'versao_prompt_aqua_rat': 'curto_com_resposta_prioritaria_v4' if dataset == 'aqua_rat' else None,
     }
+    if dataset == 'censo':
+        parametros['arquitetura_censo'] = 'agente_sql_direto_v1_max_5_consultas'
+        parametros['demonstracoes_censo'] = 'consultas_sql_executadas_v1'
     parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
     parametros['top_k'] = 40
     parametros['top_p'] = 0.9
@@ -266,7 +274,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 contexto = sessao.consultar(questao)
                 prompt = prompt_self_consistency_censo(
                     questao, contexto, exemplos, contextos_exemplos,
-                    raciocinios_exemplos,
+                    raciocinios_exemplos, consultas_exemplos,
                 )
                 gabarito = extrair_gabarito_censo(questao)
                 extrair = extrair_resposta_final_censo
@@ -274,6 +282,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 prompt, extrair, n_amostras=N_AMOSTRAS,
                 temperature=TEMPERATURE, num_predict=NUM_PREDICT,
                 normalizar_voto=(normalizar_voto_gsm8k if dataset == 'gsm8k' else None),
+                consultar_modelo=((lambda **kwargs: consultar_censo_agente(
+                    sessao=sessao, **kwargs)) if dataset == 'censo' else None),
+                semente_base=SEMENTE_OLLAMA,
                 selecionar_votacao=(
                     (lambda respostas: voto_censo_semantico(
                         str(questao.get('pergunta') or questao.get('enunciado') or ''),
@@ -287,13 +298,13 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             elif dataset == 'gsm8k':
                 acertou = (comparar_numeros(sc['resposta_modelo'], gabarito)
                            if sc['resposta_modelo'] else False)
-                motivo = None if acertou else 'Resposta incorreta ou empate na votação.'
+                motivo = None if acertou else 'Resposta incorreta ou ausência de resposta válida.'
                 metodo = 'comparacao_exata'
                 revisao = False
             elif dataset == 'aqua_rat':
                 acertou = (sc['resposta_modelo'] == gabarito
                            if sc['resposta_modelo'] else False)
-                motivo = None if acertou else 'Resposta incorreta ou empate na votação.'
+                motivo = None if acertou else 'Resposta incorreta ou ausência de resposta válida.'
                 metodo = 'comparacao_exata'
                 revisao = False
             else:
@@ -301,7 +312,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 # não falha de transporte. A avaliação semântica é automática.
                 if not sc['resposta_modelo']:
                     acertou = False
-                    motivo = 'Empate ou nenhuma resposta final extraída.'
+                    motivo = 'Nenhuma resposta final extraída.'
                     metodo = 'votacao_sem_vencedor'
                     revisao = False
                 else:
@@ -317,7 +328,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 'resposta_valida': bool(sc['resposta_modelo']),
                 'acertou': acertou, 'falha_tecnica': sc['falha_tecnica'],
                 'motivo': motivo, 'metodo_avaliacao': metodo,
-                'revisao_necessaria': revisao, **recursos(), **sc,
+                'revisao_necessaria': revisao, **sc,
                 'tipo_resultado': ('falha_tecnica' if sc['falha_tecnica'] else
                                    'sem_vencedor' if not sc['resposta_modelo'] else
                                    'acerto' if acertou else 'vencedora_incorreta'),
@@ -350,11 +361,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
 
 
 def normalizar_voto_gsm8k(texto):
-    """Votações de 1000, 1.000 e 1000,0 representam o mesmo número."""
-    valor = normalizar_numero(texto)
-    if not (abs(valor) < float('inf')):
-        raise ValueError('Número não finito.')
-    return str(int(valor)) if valor.is_integer() else format(valor, '.12g')
+    from codigo.self_consistency.votacao import normalizar_voto_gsm8k as normalizador
+    return normalizador(texto)
 
 
 def normalizar_voto_censo(texto):

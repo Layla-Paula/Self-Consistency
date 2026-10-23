@@ -1,0 +1,1156 @@
+DICIONÁRIO OFICIAL INEP - TABELA DE MATRÍCULA
+Origem: dicionário_dados_educação_básica.xlsx
+Descrição e categorias transcritas da planilha original.
+
+VARIÁVEL: NU_ANO_CENSO
+DESCRIÇÃO: Ano do Censo
+CATEGORIAS: 
+
+VARIÁVEL: NO_REGIAO
+DESCRIÇÃO: Nome da Região Geográfica
+CATEGORIAS: 
+
+VARIÁVEL: CO_REGIAO
+DESCRIÇÃO: Código da Região Geográfica
+CATEGORIAS: 
+
+VARIÁVEL: NO_UF
+DESCRIÇÃO: Nome da Unidade da Federação
+CATEGORIAS: 
+
+VARIÁVEL: SG_UF
+DESCRIÇÃO: Sigla da Unidade da Federação
+CATEGORIAS: 
+
+VARIÁVEL: CO_UF
+DESCRIÇÃO: Código da Unidade da Federação
+CATEGORIAS: 
+
+VARIÁVEL: NO_MUNICIPIO
+DESCRIÇÃO: Nome do Município
+CATEGORIAS: 
+
+VARIÁVEL: CO_MUNICIPIO
+DESCRIÇÃO: Código do Município
+CATEGORIAS: 
+
+VARIÁVEL: NO_REGIAO_GEOG_INTERM
+DESCRIÇÃO: Nome da Região Geográfica Intermediária
+CATEGORIAS: 
+NOTAS: A Fundação Instituto Brasileiro de Geografia e Estatísticas (IBGE), propôs em 2017 uma nova divisão geográfica regional do Brasil que corresponde às antigas Mesorregiões e Microrregiões. Assim, a partir de 2019, as regiões geográficas regionais são classificadas em Regiões Geográficas Intermediárias e Regiões Imediatas. No Censo Escolar, para fins de comparação ao longo dos anos, foram mantidas as variáveis de Mesorregiões e Microrregiões.
+
+VARIÁVEL: CO_REGIAO_GEOG_INTERM
+DESCRIÇÃO: Código da Região Geográfica Intermediária
+CATEGORIAS: 
+
+VARIÁVEL: NO_REGIAO_GEOG_IMED
+DESCRIÇÃO: Nome da Região Geográfica Imediata
+CATEGORIAS: 
+
+VARIÁVEL: CO_REGIAO_GEOG_IMED
+DESCRIÇÃO: Código da Região Geográfica Imediata
+CATEGORIAS: 
+
+VARIÁVEL: NO_DISTRITO
+DESCRIÇÃO: Divisão Intramunicipal - Nome do Distrito
+CATEGORIAS: 
+
+VARIÁVEL: CO_DISTRITO
+DESCRIÇÃO: Divisão Intramunicipal - Código do Distrito
+CATEGORIAS: 
+
+VARIÁVEL: NO_SUBDISTRITO
+DESCRIÇÃO: Divisão Intramunicipal - Nome do Subdistrito
+CATEGORIAS: 
+NOTAS: A partir do Censo Escolar de 2025, a coleta de informações passou a contemplar dados geográficos desagregados pelo Código das Regiões Administrativas exclusivamente para o Distrito Federal. Em decorrência dessa alteração, nos Microdados, o nome e o código das Regiões Administrativas do Distrito Federal passaram a ser incorporados às variáveis de Código e Nome do Distrito. Assim, nesta versão dos Microdados, as variáveis NO_REGIAO_ADMINISTRATIVA e CO_REGIAO_ADMINISTRATIVA foram, respectivamente, integradas às variáveis NO_DISTRITO e CO_DISTRITO.
+
+VARIÁVEL: CO_SUBDISTRITO
+DESCRIÇÃO: Divisão Intramunicipal - Código do Subdistrito
+CATEGORIAS: 
+
+VARIÁVEL: NO_ENTIDADE
+DESCRIÇÃO: Nome da Escola
+CATEGORIAS: 
+
+VARIÁVEL: CO_ENTIDADE
+DESCRIÇÃO: Código da Escola
+CATEGORIAS: 
+
+VARIÁVEL: CO_REDE
+DESCRIÇÃO: Rede de Ensino
+CATEGORIAS: 1 - Pública
+2 - Privada
+
+VARIÁVEL: TP_DEPENDENCIA
+DESCRIÇÃO: Dependência Administrativa
+CATEGORIAS: 1 - Federal
+2 - Estadual
+3 - Municipal
+4 - Privada
+
+VARIÁVEL: TP_CATEGORIA_ESCOLA_PRIVADA
+DESCRIÇÃO: Categoria da escola privada
+CATEGORIAS: 1 - Particular
+2 - Comunitária
+3 - Confessional
+4 - Filantrópica
+- Não aplicável para escolas públicas
+
+VARIÁVEL: TP_LOCALIZACAO
+DESCRIÇÃO: Localização
+CATEGORIAS: 1 - Urbana
+2 - Rural
+
+VARIÁVEL: TP_LOCALIZACAO_DIFERENCIADA
+DESCRIÇÃO: Localização diferenciada da escola
+CATEGORIAS: 0 - A escola não está em área de localização diferenciada
+1 - Área de assentamento
+2 - Terra indígena
+3 - Comunidade quilombola
+8 - Área onde se localizam povos e comunidades tradicionais
+NOTAS: De 2007 a 2011: 0 - Não se aplica 1 - Área de assentamento 2 - Terra indígena 3 - Área remanescente de quilombos De 2012 a 2018: 0 - A escola não está em área de localização diferenciada 1 - Área de assentamento 2 - Terra indígena 3 - Área remanescente de quilombos 4 - Unidade de uso sustentável 5 - Unidade de uso sustentável em terra indígena 6 - Unidade de uso sustentável em área remanescente de quilombos De 2019 a 2022: 0 - A escola não está em área de localização diferenciada 1 - Área de assentamento 2 - Terra indígena 3 - Área onde se localiza comunidade remanescente de quilombos Em 2023 foi adicionada a categoria 8: 8 - Área onde se localizam povos e comunidades tradicionais
+
+VARIÁVEL: IN_PODER_PUBLICO_PARCERIA
+DESCRIÇÃO: Parceria ou convênio com o poder público (parceria ou convênio firmado entre a Administração Pública e instituições privadas ou instituições públicas de ensino, autarquias e fundações da administração indireta e demais instituições de educação profissional técnica de nível médio dos serviços sociais autônomos que integram o sistema federal de ensino, para financiamento do atendimento educacional ou para a oferta do itinerário de formação técnica e profissional do ensino médio)
+CATEGORIAS: 0 - Não
+1 - Sim
+NOTAS: Entre 2007 e 2021: A variável IN_CONVENIADA_PP foi renomeada para: IN_PODER_PUBLICO_PARCERIA
+
+VARIÁVEL: TP_PODER_PUBLICO_PARCERIA
+DESCRIÇÃO: Poder público responsável pela parceria ou convênio entre a Administração Pública e outras instituições
+CATEGORIAS: 1 - Municipal
+2 - Estadual
+3 - Estadual e Municipal
+- Não aplicável  para escolas sem parceria ou convênio com o poder público
+NOTAS: Entre 2007 e 2021: A variável TP_CONVENIO_PODER_PUBLICO foi renomeada para: TP_PODER_PUBLICO_PARCERIA
+
+VARIÁVEL: QT_MAT_BAS
+DESCRIÇÃO: Número de Matrículas da Educação Básica
+CATEGORIAS: 
+NOTAS: Não inclui matrículas em turmas exclusivas de atividade complementar e nem em turmas exclusivas de Atendimento Educacional Especializado. Em síntese, a Educação Básica compreende matrículas nas seguintes etapas e modalidades de ensino: Educação Infantil, Ensino Fundamental, Ensino Médio, Curso Técnico Concomitante, Curso Técnico Subsequente, Itinerário Formativo Técnico Profissional Exclusivo - Curso Técnico (não articulado ao ensino médio regular), Curso FIC Concomitante, Itinerário Formativo Técnico Profissional Exclusivo - Qualificação Profissional (não articulado ao ensino médio regular) e Educação de Jovens e Adultos (EJA).
+
+VARIÁVEL: QT_MAT_INF
+DESCRIÇÃO: Número de Matrículas da Educação Infantil
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_INF_CRE
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Creche
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_INF_PRE
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Pré-Escola
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI_1
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - 1º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI_2
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - 2º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI_3
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - 3º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI_4
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - 4º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI_5
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - 5º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AF
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AF_6
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - 6º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AF_7
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - 7º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AF_8
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - 8º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AF_9
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - 9º Ano
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_1
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - 1º ano/1ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_2
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - 2º ano/2ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_3
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - 3º ano/3ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_4
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - 4º ano/4ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_NS
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Não Seriado
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_PROP
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Propedêutico
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_PROP_1
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Propedêutico - 1º ano/1ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_PROP_2
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Propedêutico - 2º ano/2ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_PROP_3
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Propedêutico - 3º ano/3ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_PROP_4
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Propedêutico - 4º ano/4ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_PROP_NS
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Propedêutico - Não Seriado
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_MT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico ofertado na mesma turma
+CATEGORIAS: 
+NOTAS: Não inclui o Ensino Médio Normal/Magistério. Antigo nome da variável: QT_MAT_MED_ARTI_IFTP_CT_MT.
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_OTME
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico ofertado em outra turma da mesma escola
+CATEGORIAS: 
+NOTAS: Não inclui o Ensino Médio Normal/Magistério. Antigo nome da variável: QT_MAT_MED_ARTI_IFTP_CT_OTME.
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_OE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico ofertado em outra escola
+CATEGORIAS: 
+NOTAS: Não inclui o Ensino Médio Normal/Magistério. Antigo nome da variável: QT_MAT_MED_ARTI_IFTP_CT_OE.
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_1
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico - 1º ano/1ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_2
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico - 2º ano/2ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_3
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico - 3º ano/3ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_4
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico - 4º ano/4ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_CT_NS
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Curso Técnico do Itinerário Formativo Técnico Profissional (IFTP) - Curso Técnico - Não Seriado
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_MT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional ofertado na mesma turma
+CATEGORIAS: Educação Profissional Não-Técnica
+NOTAS: Não inclui o Ensino Médio Normal/Magistério. Antigo nome da variável: QT_MAT_MED_ARTI_IFTP_QP_MT.
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_OTME
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional ofertado em outra turma da mesma escola
+CATEGORIAS: Educação Profissional Não-Técnica
+NOTAS: Não inclui o Ensino Médio Normal/Magistério. Antigo nome da variável: QT_MAT_MED_ARTI_IFTP_QP_OTME.
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_OE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional ofertado em outra escola
+CATEGORIAS: Educação Profissional Não-Técnica
+NOTAS: Não inclui o Ensino Médio Normal/Magistério. Antigo nome da variável: QT_MAT_MED_ARTI_IFTP_QP_OE.
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_1
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional - 1º ano/1ª Série
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_2
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional - 2º ano/2ª Série
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_3
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional - 3º ano/3ª Série
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_4
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional - 4º ano/4ª Série
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_MED_IFTP_QP_NS
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular (Formação Geral Básica - FGB) articuladas ao Itinerário Formativo Técnico Profissional (IFTP) - Qualificação Profissional - Não Seriado
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_MED_NM
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Modalidade Normal/Magistério
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_NM_1
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Modalidade Normal/Magistério - 1º ano/1ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_NM_2
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Modalidade Normal/Magistério - 2º ano/2ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_NM_3
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Modalidade Normal/Magistério - 3º ano/3ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_NM_4
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Modalidade Normal/Magistério - 4º ano/4ª Série
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_IFA
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Itinerário formativo de aprofundamento (IFA). Percursos educacionais estruturados de livre escolha dos estudantes, que permite aos educandos o aprofundamento de suas aprendizagens e de seu desenvolvimento em uma ou em mais áreas do conhecimento. Deve realizar-se por meio da oferta de projetos interdisciplinares e integradores, organizados com ênfase nos componentes curriculares que compõem a(s) área(s) de conhecimento eleitas, de modo a ampliar o diálogo entre as dimensões teóricas e práticas dos conteúdos, a consideração e valorização da diversidade territorial e cultural do Brasil e as escolhas estabelecidas na proposta pedagógica de cada unidade escolar.
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_LING
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Linguagens e suas tecnologias
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_LING_MT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Linguagens e suas tecnologias na mesma turma
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_LING_OTME
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Linguagens e suas tecnologias em outra turma da mesma escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_LING_OE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Linguagens e suas tecnologias em outra escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_MATE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Matemática e suas tecnologias
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_MATE_MT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Matemática e suas tecnologias na mesma turma
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_MATE_OTME
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Matemática e suas tecnologias em outra turma da mesma escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_MATE_OE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Matemática e suas tecnologias em outra escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_CIENC
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências da natureza e suas tecnologias
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_CIENC_MT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências da natureza e suas tecnologias na mesma turma
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_CIENC_OTME
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências da natureza e suas tecnologias em outra turma da mesma escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_CIENC_OE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências da natureza e suas tecnologias em outra escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_HUMA
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências humanas e sociais aplicadas
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_HUMA_MT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências humanas e sociais aplicadas na mesma turma
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_HUMA_OTME
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências humanas e sociais aplicadas em outra turma da mesma escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_MED_IFA_HUMA_OE
+DESCRIÇÃO: Número de Matrículas do Ensino Médio Regular - Área do Itinerário formativo de aprofundamento (IFA) - Ciências humanas e sociais aplicadas em outra escola
+CATEGORIAS: Aplicável apenas para turmas de ensino médio regular (propedêutico ou normal/magistério)
+
+VARIÁVEL: QT_MAT_PROF
+DESCRIÇÃO: Número de Matrículas da Educação Profissional
+CATEGORIAS: 
+NOTAS: Modo profissionalizante de ensino correspondente às turmas de cursos técnicos de nível médio nas formas articuladas (integrada ou concomitante), ou subsequente ao ensino médio e de normal/magistério, e as turmas de cursos profissionalizantes não-técnicos. Inclui as seguintes etapas de ensino: Ensino Médio articulado ao Itinerário Formativo Técnico Profissional - Curso Técnico, Ensino Médio Normal/Magistério, Curso Técnico Concomitante, Curso Técnico Subsequente, Curso Técnico Integrado à EJA de Nível Médio, Itinerário Formativo Técnico Profissional Exclusivo - Curso Técnico (não articulado ao ensino médio regular), Curso FIC Concomitante, Curso FIC Integrado à EJA de Nível Fundamental, Curso FIC Integrado à EJA de Nível Médio, Ensino Médio articulado ao Itinerário Formativo Técnico Profissional - Qualificação Profissional e Itinerário Formativo Técnico Profissional Exclusivo - Qualificação Profissional (não articulado ao ensino médio regular).
+
+VARIÁVEL: QT_MAT_PROF_TEC
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica
+CATEGORIAS: 
+NOTAS: Modo profissionalizante de ensino correspondente às turmas de cursos técnicos de nível médio nas formas articuladas (integrada ou concomitante), ou subsequente ao ensino médio e de normal/magistério. Inclui as seguintes etapas de ensino: Ensino Médio articulado ao Itinerário Formativo Técnico Profissional - Curso Técnico, Ensino Médio Normal/Magistério, Curso Técnico Concomitante, Curso Técnico Subsequente, Curso Técnico Integrado à EJA de Nível Médio, Itinerário Formativo Técnico Profissional Exclusivo - Curso Técnico (não articulado ao ensino médio regular).
+
+VARIÁVEL: QT_MAT_PROF_TEC_CONC
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Curso Técnico Concomitante
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_TEC_SUBS
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Curso Técnico Subsequente
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_TEC_IFTP_CT
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Itinerário Formativo Técnico Profissional (IFTP) Exclusivo - Curso Técnico (não articulado ao ensino médio regular)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_NAO_TEC
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Não-Técnica
+CATEGORIAS: 
+NOTAS: A Educação Profissional Não-Técnica inclui matrículas nas seguintes etapas de ensino: Curso FIC Concomitante, Curso FIC Integrado à EJA de Nível Fundamental, Curso FIC Integrado à EJA de Nível Médio, Ensino Médio articulado ao Itinerário Formativo Técnico Profissional - Qualificação Profissional e Itinerário Formativo Técnico Profissional Exclusivo - Qualificação Profissional (não articulado ao ensino médio regular).
+
+VARIÁVEL: QT_MAT_PROF_IFTP_QP
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Itinerário Formativo Técnico Profissional (IFTP) Exclusivo - Qualificação Profissional (não articulado ao ensino médio regular)
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_PROF_FIC_CONC
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Curso FIC Concomitante
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_EJA
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_FUND
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_FUND_NPROF
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Sem componente profissionalizante
+CATEGORIAS: 
+NOTAS: Não inclui as matrículas do Curso FIC Integrado na Modalidade EJA de Nível Fundamental
+
+VARIÁVEL: QT_MAT_EJA_FUND_AI
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Anos Iniciais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_FUND_AF
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Anos Finais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_FUND_FIC
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Curso FIC Integrado na Modalidade EJA de Nível Fundamental
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_EJA_MED
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio
+CATEGORIAS: 
+NOTAS: Inclui as matrículas da EJA - Ensino Médio, EJA - Ensino Médio - Curso FIC Integrado na Modalidade EJA de Nível Médio, e EJA - Ensino Médio - Curso Técnico Integrado na Modalidade EJA de Nível Médio
+
+VARIÁVEL: QT_MAT_EJA_MED_NPROF
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Sem componente profissionalizante
+CATEGORIAS: 
+NOTAS: Não inclui as matrículas do Curso FIC Integrado na Modalidade EJA de Nível Médio e do Curso Técnico Integrado na Modalidade EJA de Nível Médio
+
+VARIÁVEL: QT_MAT_EJA_MED_FIC
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Curso FIC Integrado na Modalidade EJA de Nível Médio
+CATEGORIAS: Educação Profissional Não-Técnica
+
+VARIÁVEL: QT_MAT_EJA_MED_TEC
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Curso Técnico Integrado na Modalidade EJA de Nível Médio
+CATEGORIAS: Deve ser considerada também como uma etapa Profissional Técnica
+
+VARIÁVEL: QT_MAT_ESP
+DESCRIÇÃO: Número de Matrículas da Educação Especial
+CATEGORIAS: 
+NOTAS: Número de matrículas de alunos com alguma deficiência, transtorno do espectro autista ou altas habilidades/superdotação.
+
+VARIÁVEL: QT_MAT_ESP_INF
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação Infantil
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_INF_CRE
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação Infantil - Creche
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_INF_PRE
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação Infantil - Pré-Escola
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_FUND
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_FUND_AI
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Ensino Fundamental - Anos Iniciais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_FUND_AF
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Ensino Fundamental - Anos Finais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_MED
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Ensino Médio
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_PROF
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação Profissional
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_PROF_TEC
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação Profissional Técnica
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_EJA
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação de Jovens e Adultos (EJA)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_EJA_FUND
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação de Jovens e Adultos (EJA) - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_EJA_MED
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Educação de Jovens e Adultos (EJA) - Ensino Médio
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns
+CATEGORIAS: 
+NOTAS: Número de matrículas de alunos com alguma deficiência, transtorno do espectro autista ou altas habilidades/superdotação em Classes Comuns do Ensino Regular e/ou Educação de Jovens Adultos (EJA).
+
+VARIÁVEL: QT_MAT_ESP_CC_INF
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação Infantil
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_INF_CRE
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação Infantil - Creche
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_INF_PRE
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação Infantil - Pré-Escola
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_FUND
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_FUND_AI
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Ensino Fundamental - Anos Iniciais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_FUND_AF
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Ensino Fundamental - Anos Finais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_MED
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Ensino Médio
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_PROF
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação Profissional
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_PROF_TEC
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação Profissional Técnica
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_EJA
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação de Jovens e Adultos (EJA)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_EJA_FUND
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação de Jovens e Adultos (EJA) - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_EJA_MED
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Educação de Jovens e Adultos (EJA) - Ensino Médio
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas
+CATEGORIAS: 
+NOTAS: Número de matrículas de alunos com alguma deficiência, transtorno do espectro autista ou altas habilidades/superdotação em Classes Exclusivas (Escolas exclusivamente especializadas e/ou em classes especiais do Ensino Regular e/ou Educação de Jovens e Adultos (EJA))
+
+VARIÁVEL: QT_MAT_ESP_CE_INF
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação Infantil
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_INF_CRE
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação Infantil - Creche
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_INF_PRE
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação Infantil - Pré-Escola
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_FUND
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_FUND_AI
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Ensino Fundamental - Anos Iniciais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_FUND_AF
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Ensino Fundamental - Anos Finais
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_MED
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Ensino Médio
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_PROF
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação Profissional
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_PROF_TEC
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação Profissional Técnica
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_EJA
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação de Jovens e Adultos (EJA)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_EJA_FUND
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação de Jovens e Adultos (EJA) - Ensino Fundamental
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_EJA_MED
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Educação de Jovens e Adultos (EJA) - Ensino Médio
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_FEM
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Feminino
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_MASC
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Masculino
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_ND
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Cor/Raça Não Declarada
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_BRANCA
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Cor/Raça Branca
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_PRETA
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Cor/Raça Preta
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_PARDA
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Cor/Raça Parda
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_AMARELA
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Cor/Raça Amarela
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_INDIGENA
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Cor/Raça Indígena
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_0_3
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Até 3 anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+NOTAS: Faixa etária calculada com base na idade do aluno na data de referência do Censo Escolar (última quarta-feira do mês de maio)
+
+VARIÁVEL: QT_MAT_BAS_4_5
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 4 e 5 anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_6_10
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 6 e 10 anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_11_14
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 11 e 14 anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_15_17
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 15 e 17 anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_18_MAIS
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Com 18 ou mais anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_0_3_REF_31_03
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Até 3 anos de idade na data de referência (31 de março de 2025)
+CATEGORIAS: 
+NOTAS: Faixa etária calculada com base na idade do aluno na data de referência fixada pelo Conselho Nacional de Educação, correspondente a 31 de março, em conformidade com a Resolução CNE/CEB nº 05/2009
+
+VARIÁVEL: QT_MAT_BAS_4_5_REF_31_03
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 4 e 5 anos de idade na data de referência (31 de março de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_6_10_REF_31_03
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 6 e 10 anos de idade na data de referência (31 de março de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_11_14_REF_31_03
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 11 e 14 anos de idade na data de referência (31 de março de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_15_17_REF_31_03
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Entre 15 e 17 anos de idade na data de referência (31 de março de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_18_MAIS_REF_31_03
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Com 18 ou mais anos de idade na data de referência do Censo Escolar (última quarta-feira do mês de maio de 2025)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_D
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_BAS_DM
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_BAS_DV
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_BAS_N
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_BAS_EAD
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_INF_CRE_D
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Creche - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_INF_CRE_DM
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Creche - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_INF_CRE_DV
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Creche - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_INF_CRE_N
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Creche - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_INF_PRE_D
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Pré-Escola - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_INF_PRE_DM
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Pré-Escola - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_INF_PRE_DV
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Pré-Escola - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_INF_PRE_N
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Pré-Escola - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_FUND_D
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_FUND_DM
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_FUND_DV
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_FUND_N
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_FUND_AI_D
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_FUND_AI_DM
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_FUND_AI_DV
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_FUND_AI_N
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_FUND_AF_D
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_FUND_AF_DM
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_FUND_AF_DV
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_FUND_AF_N
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_MED_D
+DESCRIÇÃO: Número de Matrículas do Ensino Médio - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_MED_DM
+DESCRIÇÃO: Número de Matrículas do Ensino Médio - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_MED_DV
+DESCRIÇÃO: Número de Matrículas do Ensino Médio - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_MED_N
+DESCRIÇÃO: Número de Matrículas do Ensino Médio - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_MED_EAD
+DESCRIÇÃO: Número de Matrículas do Ensino Médio - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_D
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_PROF_DM
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_PROF_DV
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_PROF_N
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_PROF_EAD
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_TEC_D
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_PROF_TEC_DM
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_PROF_TEC_DV
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_PROF_TEC_N
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_PROF_TEC_EAD
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_D
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_EJA_DM
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_EJA_DV
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_EJA_N
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_EJA_EAD
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_FUND_D
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_EJA_FUND_DM
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_EJA_FUND_DV
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_EJA_FUND_N
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_EJA_FUND_EAD
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_MED_D
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_EJA_MED_DM
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_EJA_MED_DV
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_EJA_MED_N
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_EJA_MED_EAD
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_D
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_ESP_DM
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_ESP_DV
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_ESP_N
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_ESP_EAD
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_D
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_ESP_CC_DM
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_ESP_CC_DV
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_ESP_CC_N
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_ESP_CC_EAD
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_D
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Turno Diurno
+CATEGORIAS: 
+NOTAS: Diurno - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 17:59h.
+
+VARIÁVEL: QT_MAT_ESP_CE_DM
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Turno Diurno - Matutino
+CATEGORIAS: 
+NOTAS: Diurno Matutino - Quando a maior parte das atividades da turma são realizadas no período entre 6h e 11:59h.
+
+VARIÁVEL: QT_MAT_ESP_CE_DV
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Turno Diurno - Vespertino
+CATEGORIAS: 
+NOTAS: Diurno Vespertino - Quando a maior parte das atividades da turma são realizadas no período entre 12h e 17:59h.
+
+VARIÁVEL: QT_MAT_ESP_CE_N
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Turno Noturno
+CATEGORIAS: 
+NOTAS: Noturno - quando a maior parte das atividades da turma são realizadas entre 18h e 5:59h.
+
+VARIÁVEL: QT_MAT_ESP_CE_EAD
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Turno não aplicável para turmas semipresenciais ou de Educação a Distância (EAD)
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_INT
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_INF_INT
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Tempo Integral
+CATEGORIAS: 
+NOTAS: Considera-se em tempo integral, o tempo de permanência semanal do aluno na turma de escolarização presencial (minutos/semana) maior ou igual a 35 horas semanais, e os que estão em turmas de escolarização presenciais com carga horária menor que 35 horas semanais, mas que somado ao tempo de permanência semanal em turmas de atividade complementar (mesma rede ou outra rede), de atendimento educacional especializado (mesma rede ou outra rede) e em turmas exclusivas de itinerário formativo (mesma rede ou outra rede), atinja as 35 horas ou mais.
+
+VARIÁVEL: QT_MAT_INF_CRE_INT
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Creche - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_INF_PRE_INT
+DESCRIÇÃO: Número de Matrículas da Educação Infantil - Pré-Escola - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_INT
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AI_INT
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Iniciais - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_FUND_AF_INT
+DESCRIÇÃO: Número de Matrículas do Ensino Fundamental - Anos Finais - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_MED_INT
+DESCRIÇÃO: Número de Matrículas do Ensino Médio - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_INT
+DESCRIÇÃO: Número de Matrículas da Educação Profissional - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_PROF_TEC_INT
+DESCRIÇÃO: Número de Matrículas da Educação Profissional Técnica - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_INT
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_FUND_INT
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Fundamental - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_EJA_MED_INT
+DESCRIÇÃO: Número de Matrículas da Educação de Jovens e Adultos (EJA) - Ensino Médio - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_INT
+DESCRIÇÃO: Número de Matrículas da Educação Especial - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CC_INT
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Comuns - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ESP_CE_INT
+DESCRIÇÃO: Número de Matrículas da Educação Especial em Classes Exclusivas - Tempo Integral
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_BAS_LIBRAS
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Classe bilíngue de surdos tendo a Libras (Língua Brasileira de Sinais) como língua de instrução, ensino, comunicação e interação e a língua portuguesa escrita como segunda língua
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ZR_URB
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Localização/Zona de residência do Aluno - Urbana
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ZR_RUR
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Localização/Zona de residência do Aluno - Rural
+CATEGORIAS: 
+
+VARIÁVEL: QT_MAT_ZR_NA
+DESCRIÇÃO: Número de Matrículas da Educação Básica - Localização/Zona de residência do Aluno - Não aplicável para alunos residentes no exterior
+CATEGORIAS: 
+
+VARIÁVEL: QT_TRANSP_PUBLICO
+DESCRIÇÃO: Número de Matrículas da Educação Básica de alunos que utilizam transporte escolar público
+CATEGORIAS: 
+
+VARIÁVEL: QT_TRANSP_RESP_EST
+DESCRIÇÃO: Número de Matrículas da Educação Básica segundo o poder público responsável pelo transporte escolar - Estadual
+CATEGORIAS: 
+
+VARIÁVEL: QT_TRANSP_RESP_MUN
+DESCRIÇÃO: Número de Matrículas da Educação Básica segundo o poder público responsável pelo transporte escolar - Municipal
+CATEGORIAS: 

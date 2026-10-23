@@ -1,8 +1,8 @@
 {
-  "id_execucao": "few_shot_gsm8k_22102026_175845_844",
+  "id_execucao": "few_shot_gsm8k_22102026_215743_079",
   "tecnica": "few_shot",
   "dataset": "gsm8k",
-  "data_inicio": "2026-10-22T17:58:45",
+  "data_inicio": "2026-10-22T21:57:43",
   "parametros": {
     "modelo": "llama3.2",
     "temperatura": 0.0,
@@ -89,11 +89,15 @@
       "motivo": null,
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 8.375,
+      "tempo_segundos": 5.746,
       "tokens_entrada": 1053,
       "tokens_saida": 6,
-      "cpu_percentual": 36.5,
-      "ram_percentual": 85.6
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.82,
+      "ram_ollama_pico_mib": 11.02,
+      "ram_ollama_media_mib": 8.07,
+      "amostras_monitoramento": 40
     },
     {
       "id": "train_1",
@@ -109,11 +113,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 50.439,
+      "tempo_segundos": 3.015,
       "tokens_entrada": 1043,
       "tokens_saida": 6,
-      "cpu_percentual": 46.3,
-      "ram_percentual": 91.6
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.0,
+      "ram_ollama_pico_mib": 9.79,
+      "ram_ollama_media_mib": 8.45,
+      "amostras_monitoramento": 24
     },
     {
       "id": "train_2",
@@ -129,11 +137,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 24.187,
+      "tempo_segundos": 3.191,
       "tokens_entrada": 1078,
       "tokens_saida": 6,
-      "cpu_percentual": 66.7,
-      "ram_percentual": 91.2
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.0,
+      "ram_ollama_pico_mib": 14.97,
+      "ram_ollama_media_mib": 11.81,
+      "amostras_monitoramento": 25
     },
     {
       "id": "train_3",
@@ -149,11 +161,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 36.509,
+      "tempo_segundos": 3.246,
       "tokens_entrada": 1071,
       "tokens_saida": 6,
-      "cpu_percentual": 69.2,
-      "ram_percentual": 90.5
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.0,
+      "ram_ollama_pico_mib": 15.32,
+      "ram_ollama_media_mib": 15.07,
+      "amostras_monitoramento": 25
     },
     {
       "id": "train_4",
@@ -169,11 +185,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 20.543,
+      "tempo_segundos": 2.894,
       "tokens_entrada": 1036,
       "tokens_saida": 6,
-      "cpu_percentual": 50.9,
-      "ram_percentual": 90.6
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.0,
+      "ram_ollama_pico_mib": 15.67,
+      "ram_ollama_media_mib": 15.42,
+      "amostras_monitoramento": 22
     },
     {
       "id": "train_5",
@@ -189,11 +209,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 21.697,
+      "tempo_segundos": 3.248,
       "tokens_entrada": 1085,
       "tokens_saida": 6,
-      "cpu_percentual": 51.0,
-      "ram_percentual": 89.1
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.48,
+      "ram_ollama_pico_mib": 16.45,
+      "ram_ollama_media_mib": 15.95,
+      "amostras_monitoramento": 25
     },
     {
       "id": "train_6",
@@ -209,11 +233,15 @@
       "motivo": null,
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 30.076,
+      "tempo_segundos": 3.144,
       "tokens_entrada": 1068,
       "tokens_saida": 6,
-      "cpu_percentual": 51.7,
-      "ram_percentual": 90.5
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.5,
+      "ram_ollama_pico_mib": 16.77,
+      "ram_ollama_media_mib": 16.55,
+      "amostras_monitoramento": 25
     },
     {
       "id": "train_7",
@@ -229,11 +257,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 27.665,
+      "tempo_segundos": 3.654,
       "tokens_entrada": 1143,
       "tokens_saida": 6,
-      "cpu_percentual": 51.7,
-      "ram_percentual": 89.1
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.43,
+      "ram_ollama_pico_mib": 16.89,
+      "ram_ollama_media_mib": 16.82,
+      "amostras_monitoramento": 28
     },
     {
       "id": "train_8",
@@ -249,11 +281,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 24.22,
+      "tempo_segundos": 3.798,
       "tokens_entrada": 1158,
       "tokens_saida": 6,
-      "cpu_percentual": 49.9,
-      "ram_percentual": 89.4
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 1.24,
+      "ram_ollama_pico_mib": 26.93,
+      "ram_ollama_media_mib": 19.02,
+      "amostras_monitoramento": 30
     },
     {
       "id": "train_9",
@@ -269,16 +305,20 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 33.183,
+      "tempo_segundos": 3.251,
       "tokens_entrada": 1081,
       "tokens_saida": 6,
-      "cpu_percentual": 53.0,
-      "ram_percentual": 93.5
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.97,
+      "ram_ollama_pico_mib": 26.98,
+      "ram_ollama_media_mib": 26.95,
+      "amostras_monitoramento": 24
     }
   ],
   "status": "concluido",
-  "tempo_acumulado_segundos": 276.9428548000287,
-  "data_fim": "2026-10-22T18:03:22",
+  "tempo_acumulado_segundos": 35.22273010003846,
+  "data_fim": "2026-10-22T21:58:18",
   "metricas": {
     "exemplos_utilizados": 10,
     "questoes_executadas": 10,
@@ -298,11 +338,12 @@
     },
     "respostas_sem_extracao": 0,
     "revisoes_necessarias": 0,
-    "tempo_total_segundos": 276.94,
-    "tempo_medio_segundos": 27.69,
+    "tempo_total_segundos": 35.22,
+    "tempo_medio_segundos": 3.52,
     "tokens_entrada": 10816,
     "tokens_saida": 60,
-    "cpu_media_percentual": 52.69,
-    "ram_media_percentual": 90.11
+    "cpu_ollama_media_percentual": 0.44,
+    "ram_ollama_pico_mib": 26.98,
+    "ram_ollama_media_mib": 15.41
   }
 }

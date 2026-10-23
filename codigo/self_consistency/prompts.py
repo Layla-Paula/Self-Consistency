@@ -14,7 +14,9 @@ def prompt_self_consistency_aqua_rat(problema, exemplos):
 
 def prompt_self_consistency_censo(
     questao, contexto, exemplos, contextos_exemplos, raciocinios_exemplos,
+    consultas_exemplos=None,
 ):
     return prompt_cot_censo(
         questao, contexto, exemplos, contextos_exemplos, raciocinios_exemplos,
+        consultas_exemplos,
     )

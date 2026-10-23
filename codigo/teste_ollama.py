@@ -1,11 +1,26 @@
-import json
 
-with open(
-    "dados/enem/final/enem_matematica_completo.json",
-    encoding="utf-8"
-) as f:
-    dados = json.load(f)
+"""Teste rápido da conexão Ollama, sem avaliar datasets nem alterar resultados."""
 
-print(len(dados["questoes"]))
+from codigo.utils import consultar_ollama, MODELO_OLLAMA, SEMENTE_OLLAMA
 
-print(dados["questoes"][0].keys())
+
+def main():
+    print(f"Modelo: {MODELO_OLLAMA} | seed: {SEMENTE_OLLAMA}")
+
+    resultado = consultar_ollama(
+        "Responda apenas: OK",
+        temperature=0.0,
+        num_predict=32,
+        retornar_metricas=True
+    )
+
+    print("Resposta:", resultado.get("resposta"))
+    print("Erro:", resultado.get("erro_detalhado"))
+    print("Tokens:", resultado.get("prompt_eval_count"), resultado.get("eval_count"))
+
+    if resultado.get("resposta") is None:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

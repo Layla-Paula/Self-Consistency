@@ -8,301 +8,456 @@
       "id": "censo_2025_01",
       "pergunta": "Quantas escolas de Educação Básica estão registradas na Tabela de Matrícula 2025?",
       "resposta_esperada": "178.766 escolas estão registradas na base.",
-      "raciocinio": "1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar CO_ENTIDADE como código da escola. 3. Contar os códigos distintos com COUNT(DISTINCT CO_ENTIDADE), evitando contar duas vezes a mesma escola. 4. A contagem resulta em 178.766 escolas."
+      "raciocinio": "1. Consultar a tabela SQL matriculas, criada a partir da Tabela_Matricula_2025_V2.csv. 2. Identificar CO_ENTIDADE como código da escola. 3. Contar os códigos distintos com COUNT(DISTINCT CO_ENTIDADE), evitando contar duas vezes a mesma escola. 4. A contagem resulta em 178.766 escolas.",
+      "consultas_sql": [
+        "SELECT COUNT(DISTINCT CO_ENTIDADE) AS escolas FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_02",
       "pergunta": "Qual é o total de matrículas da Educação Básica (variável QT_MAT_BAS) somando-se todas as escolas da base?",
       "resposta_esperada": "O total de matrículas da Educação Básica é 46.018.380. Esse valor confere com o número de 46 milhões de matrículas divulgado oficialmente pelo INEP na primeira etapa do Censo Escolar 2025.",
-      "raciocinio": "1. Identificar QT_MAT_BAS, quantidade de matrículas da Educação Básica por escola. 2. Converter os valores para inteiros e somar QT_MAT_BAS em todas as linhas, sem agrupar por escola ou região. 3. A soma é 46.018.380 matrículas; não confundir soma de matrículas com contagem de escolas."
+      "raciocinio": "1. Identificar QT_MAT_BAS, quantidade de matrículas da Educação Básica por escola. 2. Converter os valores para inteiros e somar QT_MAT_BAS em todas as linhas, sem agrupar por escola ou região. 3. A soma é 46.018.380 matrículas; não confundir soma de matrículas com contagem de escolas.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS) AS matriculas FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_03",
       "pergunta": "A variável QT_MAT_BAS não inclui matrículas em dois tipos de turma. Quais são?",
       "resposta_esperada": "Segundo o dicionário de dados, QT_MAT_BAS não inclui matrículas em turmas exclusivas de atividade complementar e nem em turmas exclusivas de Atendimento Educacional Especializado (AEE).",
-      "raciocinio": "1. Consultar a definição de QT_MAT_BAS no Dicionário de Variáveis da Educação Básica, pois a exclusão de modalidades não pode ser deduzida apenas de somas do CSV. 2. Identificar as duas exclusões descritas: turmas exclusivas de atividade complementar e turmas exclusivas de Atendimento Educacional Especializado (AEE). 3. Informar ambas, sem subtrair valores da tabela."
+      "raciocinio": "1. Consultar a definição de QT_MAT_BAS no Dicionário de Variáveis da Educação Básica, pois a exclusão de modalidades não pode ser deduzida apenas de somas do CSV. 2. Identificar as duas exclusões descritas: turmas exclusivas de atividade complementar e turmas exclusivas de Atendimento Educacional Especializado (AEE). 3. Informar ambas, sem subtrair valores da tabela.",
+      "consultas_sql": [
+        "DICIONARIO: QT_MAT_BAS"
+      ]
     },
     {
       "id": "censo_2025_04",
       "pergunta": "Em quantos e quais Estados (UF) o Brasil está dividido nesta base?",
-      "resposta_esperada": "A base cobre 27 Unidades da Federação — as 26 estados mais o Distrito Federal.",
-      "raciocinio": "1. Localizar SG_UF (sigla) ou CO_UF (código da Unidade da Federação). 2. Obter valores distintos não vazios com COUNT(DISTINCT SG_UF). 3. A contagem é 27 UFs. 4. Interpretar corretamente: 26 estados e o Distrito Federal. 5. Listar as 27 UFs: AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE e TO."
+      "resposta_esperada": "A base cobre 27 Unidades da Federação — os 26 estados mais o Distrito Federal: AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO",
+      "raciocinio": "1. Localizar SG_UF (sigla) ou CO_UF (código da Unidade da Federação). 2. Obter valores distintos não vazios com COUNT(DISTINCT SG_UF). 3. A contagem é 27 UFs. 4. Interpretar corretamente: 26 estados e o Distrito Federal. 5. Listar as 27 UFs: AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE e TO.",
+      "consultas_sql": [
+        "SELECT COUNT(*) AS total_ufs, GROUP_CONCAT(SG_UF, ', ') AS siglas FROM (SELECT DISTINCT SG_UF FROM matriculas WHERE SG_UF IS NOT NULL AND TRIM(SG_UF) <> '' ORDER BY SG_UF)"
+      ]
     },
     {
       "id": "censo_2025_05",
       "pergunta": "Em quantos municípios distintos há pelo menos uma escola registrada?",
       "resposta_esperada": "Há escolas em 5.571 municípios distintos.",
-      "raciocinio": "1. Identificar CO_MUNICIPIO, código do município em que a escola está localizada. 2. Considerar todas as escolas registradas e contar os códigos municipais distintos, ignorando duplicatas. 3. COUNT(DISTINCT CO_MUNICIPIO) resulta em 5.571 municípios com pelo menos uma escola."
+      "raciocinio": "1. Identificar CO_MUNICIPIO, código do município em que a escola está localizada. 2. Considerar todas as escolas registradas e contar os códigos municipais distintos, ignorando duplicatas. 3. COUNT(DISTINCT CO_MUNICIPIO) resulta em 5.571 municípios com pelo menos uma escola.",
+      "consultas_sql": [
+        "SELECT COUNT(DISTINCT CO_MUNICIPIO) AS municipios FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_06",
       "pergunta": "O que representa a variável NU_ANO_CENSO, e qual é o valor único presente em todas as linhas desta base?",
       "resposta_esperada": "NU_ANO_CENSO representa o ano de referência do Censo Escolar. Nesta base, o valor é uniformemente 2025 em todas as linhas.",
-      "raciocinio": "1. Consultar a definição de NU_ANO_CENSO no dicionário: ano de referência do levantamento. 2. Obter os valores distintos dessa coluna no CSV. 3. Verificar que todas as linhas apresentam o único valor 2025. 4. Informar significado e valor, sem confundir com ano de fundação da escola."
+      "raciocinio": "1. Consultar a definição de NU_ANO_CENSO no dicionário: ano de referência do levantamento. 2. Obter os valores distintos dessa coluna no CSV. 3. Verificar que todas as linhas apresentam o único valor 2025. 4. Informar significado e valor, sem confundir com ano de fundação da escola.",
+      "consultas_sql": [
+        "DICIONARIO: NU_ANO_CENSO",
+        "SELECT NU_ANO_CENSO, COUNT(*) AS linhas FROM matriculas GROUP BY NU_ANO_CENSO"
+      ]
     },
     {
       "id": "censo_2025_07",
       "pergunta": "Existe alguma escola registrada com QT_MAT_BAS igual a zero? O que essa verificação indica sobre a base?",
       "resposta_esperada": "Não existe nenhuma escola com QT_MAT_BAS igual a zero nesta base (0 ocorrências). Isso indica que a Tabela de Matrícula, tal como recortada neste arquivo, já filtra apenas escolas com pelo menos uma matrícula ativa na Educação Básica — ou seja, escolas sem matrícula nessa categoria (por exemplo, que oferecem apenas cursos exclusivos de Educação Profissional não incluídos em QT_MAT_BAS) podem ter sido excluídas ou apresentam valor não nulo por outra via.",
-      "raciocinio": "1. Ler QT_MAT_BAS como número em cada registro. 2. Filtrar os registros em que QT_MAT_BAS = 0 e contá-los. 3. O filtro retorna zero escolas. 4. Concluir apenas que nenhuma escola desta tabela apresenta zero matrículas nessa variável; a causa exata do recorte depende da documentação da base."
+      "raciocinio": "1. Ler QT_MAT_BAS como número em cada registro. 2. Filtrar os registros em que QT_MAT_BAS = 0 e contá-los. 3. O filtro retorna zero escolas. 4. Concluir apenas que nenhuma escola desta tabela apresenta zero matrículas nessa variável; a causa exata do recorte depende da documentação da base.",
+      "consultas_sql": [
+        "SELECT COUNT(*) AS escolas_com_zero FROM matriculas WHERE QT_MAT_BAS = 0"
+      ]
     },
     {
       "id": "censo_2025_08",
       "pergunta": "Qual é a diferença conceitual entre a variável CO_REDE e a variável TP_DEPENDENCIA?",
       "resposta_esperada": "TP_DEPENDENCIA distingue quatro categorias: Federal, Estadual, Municipal e Privada. CO_REDE é uma variável derivada que agrupa essas quatro categorias em apenas duas: Pública (reunindo Federal, Estadual e Municipal) e Privada. CO_REDE foi criada, segundo o dicionário, “com o objetivo de facilitar a identificação e a extração de informações por Rede de Ensino”.",
-      "raciocinio": "1. Consultar as definições de TP_DEPENDENCIA e CO_REDE no dicionário. 2. TP_DEPENDENCIA distingue Federal (1), Estadual (2), Municipal (3) e Privada (4). 3. CO_REDE agrega as três primeiras na rede Pública (1) e a última na Privada (2). 4. Explicar que uma variável detalha a administração e a outra resume a rede."
+      "raciocinio": "1. Consultar as definições de TP_DEPENDENCIA e CO_REDE no dicionário. 2. TP_DEPENDENCIA distingue Federal (1), Estadual (2), Municipal (3) e Privada (4). 3. CO_REDE agrega as três primeiras na rede Pública (1) e a última na Privada (2). 4. Explicar que uma variável detalha a administração e a outra resume a rede.",
+      "consultas_sql": [
+        "DICIONARIO: CO_REDE",
+        "DICIONARIO: TP_DEPENDENCIA"
+      ]
     },
     {
       "id": "censo_2025_09",
       "pergunta": "Quantas escolas pertencem à rede pública e quantas à rede privada?",
       "resposta_esperada": "Rede pública: 137.020 escolas. Rede privada: 41.746 escolas.",
-      "raciocinio": "1. Usar CO_REDE para separar as escolas em Pública (código 1) e Privada (código 2). 2. Contar CO_ENTIDADE distinta em cada grupo. 3. Encontrar 137.020 escolas públicas e 41.746 privadas. 4. Conferir: 137.020 + 41.746 = 178.766 escolas."
+      "raciocinio": "1. Usar CO_REDE para separar as escolas em Pública (código 1) e Privada (código 2). 2. Contar CO_ENTIDADE distinta em cada grupo. 3. Encontrar 137.020 escolas públicas e 41.746 privadas. 4. Conferir: 137.020 + 41.746 = 178.766 escolas.",
+      "consultas_sql": [
+        "SELECT CO_REDE, COUNT(DISTINCT CO_ENTIDADE) AS escolas FROM matriculas GROUP BY CO_REDE ORDER BY CO_REDE"
+      ]
     },
     {
       "id": "censo_2025_10",
       "pergunta": "Some as matrículas por dependência administrativa (Federal, Estadual, Municipal, Privada). Qual dependência concentra o maior número de matrículas?",
       "resposta_esperada": "Some as matrículas por dependência administrativa:\nDependência | Matrículas | \nFederal | 383.526 | \nEstadual | 13.330.302 | \nMunicipal | 23.059.168 | \nPrivada | 9.245.384 |  A dependência Municipal concentra o maior número de matrículas, respondendo por mais da metade do total nacional.",
-      "raciocinio": "1. Agrupar os registros por TP_DEPENDENCIA: 1 Federal, 2 Estadual, 3 Municipal e 4 Privada. 2. Somar QT_MAT_BAS em cada grupo: 383.526; 13.330.302; 23.059.168; 9.245.384. 3. Conferir que a soma dos quatro grupos é 46.018.380. 4. Comparar os totais e identificar Municipal como maior, com cerca de 50,11% do total."
+      "raciocinio": "1. Agrupar os registros por TP_DEPENDENCIA: 1 Federal, 2 Estadual, 3 Municipal e 4 Privada. 2. Somar QT_MAT_BAS em cada grupo: 383.526; 13.330.302; 23.059.168; 9.245.384. 3. Conferir que a soma dos quatro grupos é 46.018.380. 4. Comparar os totais e identificar Municipal como maior, com cerca de 50,11% do total.",
+      "consultas_sql": [
+        "SELECT TP_DEPENDENCIA, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_DEPENDENCIA ORDER BY matriculas DESC"
+      ]
     },
     {
       "id": "censo_2025_11",
       "pergunta": "Qual dependência administrativa possui o menor número de escolas, mas ainda assim atende a um volume relevante de alunos?",
       "resposta_esperada": "A dependência Federal possui apenas 716 escolas, o menor número entre as quatro categorias — ainda assim, atende a 383.526 matrículas, refletindo o porte tipicamente grande dessas instituições (institutos federais, colégios de aplicação).",
-      "raciocinio": "1. Agrupar as escolas por TP_DEPENDENCIA e contar CO_ENTIDADE em cada grupo. 2. Comparar Federal 716, Estadual 29.732, Municipal 106.572 e Privada 41.746 escolas. 3. Identificar Federal como menor quantidade. 4. Somar QT_MAT_BAS apenas no grupo Federal: 383.526 matrículas. 5. Relacionar o volume de matrículas ao porte médio das instituições, sem afirmar que todas são grandes."
+      "raciocinio": "1. Agrupar as escolas por TP_DEPENDENCIA e contar CO_ENTIDADE em cada grupo. 2. Comparar Federal 716, Estadual 29.732, Municipal 106.572 e Privada 41.746 escolas. 3. Identificar Federal como menor quantidade. 4. Somar QT_MAT_BAS apenas no grupo Federal: 383.526 matrículas. 5. Relacionar o volume de matrículas ao porte médio das instituições, sem afirmar que todas são grandes.",
+      "consultas_sql": [
+        "SELECT TP_DEPENDENCIA, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_DEPENDENCIA ORDER BY escolas"
+      ]
     },
     {
       "id": "censo_2025_12",
       "pergunta": "Calcule a média de matrículas por escola para cada dependência administrativa. Qual dependência tem a maior média por escola, e o que isso pode indicar sobre o porte típico dessas instituições?",
       "resposta_esperada": "Média de matrículas por escola, por dependência:\nDependência | Escolas | Matrículas | Média/escola\nFederal | 716 | 383.526 | 535,7\nEstadual | 29.732 | 13.330.302 | 448,3\nPrivada | 41.746 | 9.245.384 | 221,5\nMunicipal | 106.572 | 23.059.168 | 216,4 A dependência Federal tem a maior média de matrículas por escola (535,7), coerente com o perfil de instituições como os Institutos Federais, geralmente de grande porte e presença mais concentrada em polos regionais.",
-      "raciocinio": "1. Agrupar por TP_DEPENDENCIA. 2. Para cada grupo, contar escolas distintas e somar QT_MAT_BAS. 3. Dividir matrículas por escolas: Federal 383.526/716 ≈ 535,7; Estadual 13.330.302/29.732 ≈ 448,3; Privada 9.245.384/41.746 ≈ 221,5; Municipal 23.059.168/106.572 ≈ 216,4. 4. Identificar a maior média, Federal, e explicar que a média sugere maior porte típico, sem provar o tamanho de cada escola."
+      "raciocinio": "1. Agrupar por TP_DEPENDENCIA. 2. Para cada grupo, contar escolas distintas e somar QT_MAT_BAS. 3. Dividir matrículas por escolas: Federal 383.526/716 ≈ 535,7; Estadual 13.330.302/29.732 ≈ 448,3; Privada 9.245.384/41.746 ≈ 221,5; Municipal 23.059.168/106.572 ≈ 216,4. 4. Identificar a maior média, Federal, e explicar que a média sugere maior porte típico, sem provar o tamanho de cada escola.",
+      "consultas_sql": [
+        "SELECT TP_DEPENDENCIA, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas, ROUND(1.0 * SUM(QT_MAT_BAS) / COUNT(DISTINCT CO_ENTIDADE), 1) AS media FROM matriculas GROUP BY TP_DEPENDENCIA ORDER BY media DESC"
+      ]
     },
     {
       "id": "censo_2025_13",
       "pergunta": "Compare a média de matrículas por escola da rede Municipal com a da rede Estadual. O que essa diferença sugere sobre a distribuição de escolas pequenas e grandes entre essas duas redes?",
       "resposta_esperada": "A média municipal (216,4 matrículas/escola) é praticamente metade da média estadual (448,3). Isso sugere que a rede municipal é composta por um número muito maior de escolas pequenas — coerente com o papel histórico dos municípios na oferta de Educação Infantil e Anos Iniciais do Fundamental, etapas frequentemente atendidas em unidades de menor porte e mais capilarizadas territorialmente, inclusive em áreas rurais.",
-      "raciocinio": "1. Filtrar TP_DEPENDENCIA = 3 (Municipal) e = 2 (Estadual). 2. Calcular média = SUM(QT_MAT_BAS)/COUNT(DISTINCT CO_ENTIDADE). 3. Municipal: 23.059.168/106.572 ≈ 216,4; Estadual: 13.330.302/29.732 ≈ 448,3. 4. Comparar: a média estadual é aproximadamente 2,07 vezes a municipal. 5. Interpretar como indício de unidades municipais menores em média, sem inferir a distribuição individual apenas dessas médias."
+      "raciocinio": "1. Filtrar TP_DEPENDENCIA = 3 (Municipal) e = 2 (Estadual). 2. Calcular média = SUM(QT_MAT_BAS)/COUNT(DISTINCT CO_ENTIDADE). 3. Municipal: 23.059.168/106.572 ≈ 216,4; Estadual: 13.330.302/29.732 ≈ 448,3. 4. Comparar: a média estadual é aproximadamente 2,07 vezes a municipal. 5. Interpretar como indício de unidades municipais menores em média, sem inferir a distribuição individual apenas dessas médias.",
+      "consultas_sql": [
+        "SELECT TP_DEPENDENCIA, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas, ROUND(1.0 * SUM(QT_MAT_BAS) / COUNT(DISTINCT CO_ENTIDADE), 1) AS media FROM matriculas WHERE TP_DEPENDENCIA IN ('2', '3') GROUP BY TP_DEPENDENCIA"
+      ]
     },
     {
       "id": "censo_2025_14",
       "pergunta": "Entre as escolas privadas, qual variável do dicionário permite identificar se a escola é Particular, Comunitária, Confessional ou Filantrópica?",
       "resposta_esperada": "A variável é TP_CATEGORIA_ESCOLA_PRIVADA, com quatro categorias: 1-Particular, 2-Comunitária, 3-Confessional, 4-Filantrópica.",
-      "raciocinio": "1. Consultar o dicionário de variáveis para identificar a classificação das escolas privadas. 2. Localizar TP_CATEGORIA_ESCOLA_PRIVADA no CSV. 3. Conferir os códigos: 1 Particular, 2 Comunitária, 3 Confessional, 4 Filantrópica. 4. Responder com o nome da variável e as quatro categorias; CO_REDE sozinho só separa pública de privada."
+      "raciocinio": "1. Consultar o dicionário de variáveis para identificar a classificação das escolas privadas. 2. Localizar TP_CATEGORIA_ESCOLA_PRIVADA no CSV. 3. Conferir os códigos: 1 Particular, 2 Comunitária, 3 Confessional, 4 Filantrópica. 4. Responder com o nome da variável e as quatro categorias; CO_REDE sozinho só separa pública de privada.",
+      "consultas_sql": [
+        "DICIONARIO: TP_CATEGORIA_ESCOLA_PRIVADA"
+      ]
     },
     {
       "id": "censo_2025_15",
       "pergunta": "Calcule o total de matrículas em escolas privadas Particulares e compare com o total em escolas Filantrópicas. Qual categoria concentra mais matrículas dentro da rede privada?",
       "resposta_esperada": "Matrículas por categoria de escola privada:\nCategoria | Matrículas\nParticular | 7.085.034\nFilantrópica | 1.711.268\nComunitária | 299.736\nConfessional | 149.346 A categoria Particular concentra amplamente a maior parte das matrículas da rede privada — mais de 76% do total privado.",
-      "raciocinio": "1. Filtrar escolas privadas (TP_DEPENDENCIA = 4). 2. Agrupar por TP_CATEGORIA_ESCOLA_PRIVADA e somar QT_MAT_BAS. 3. Particular (1): 7.085.034; Filantrópica (4): 1.711.268; Comunitária (2): 299.736; Confessional (3): 149.346. 4. Comparar Particular e Filantrópica: Particular é maior. 5. Calcular 7.085.034/9.245.384 × 100 ≈ 76,6% das matrículas privadas."
+      "raciocinio": "1. Filtrar escolas privadas (TP_DEPENDENCIA = 4). 2. Agrupar por TP_CATEGORIA_ESCOLA_PRIVADA e somar QT_MAT_BAS. 3. Particular (1): 7.085.034; Filantrópica (4): 1.711.268; Comunitária (2): 299.736; Confessional (3): 149.346. 4. Comparar Particular e Filantrópica: Particular é maior. 5. Calcular 7.085.034/9.245.384 × 100 ≈ 76,6% das matrículas privadas.",
+      "consultas_sql": [
+        "SELECT TP_CATEGORIA_ESCOLA_PRIVADA, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE TP_DEPENDENCIA = '4' GROUP BY TP_CATEGORIA_ESCOLA_PRIVADA ORDER BY matriculas DESC"
+      ]
     },
     {
       "id": "censo_2025_16",
       "pergunta": "Uma escola tem IN_PODER_PUBLICO_PARCERIA = 1. O que essa informação indica sobre a natureza jurídica ou o financiamento dessa escola?",
       "resposta_esperada": "IN_PODER_PUBLICO_PARCERIA = 1 indica que a escola possui parceria ou convênio firmado com a Administração Pública, para financiamento do atendimento educacional ou para oferta do itinerário de formação técnica e profissional do Ensino Médio, conforme definido no dicionário de dados.",
-      "raciocinio": "1. Identificar IN_PODER_PUBLICO_PARCERIA como indicador de parceria com o poder público. 2. Consultar o dicionário para interpretar o valor 1 como presença de parceria/convênio. 3. Explicar que a parceria pode envolver financiamento do atendimento educacional ou oferta de itinerário técnico-profissional. 4. Não concluir que a escola é pública: parceria e dependência administrativa são características diferentes."
+      "raciocinio": "1. Identificar IN_PODER_PUBLICO_PARCERIA como indicador de parceria com o poder público. 2. Consultar o dicionário para interpretar o valor 1 como presença de parceria/convênio. 3. Explicar que a parceria pode envolver financiamento do atendimento educacional ou oferta de itinerário técnico-profissional. 4. Não concluir que a escola é pública: parceria e dependência administrativa são características diferentes.",
+      "consultas_sql": [
+        "DICIONARIO: IN_PODER_PUBLICO_PARCERIA"
+      ]
     },
     {
       "id": "censo_2025_17",
       "pergunta": "Quantas escolas estão localizadas em área urbana e quantas em área rural?",
       "resposta_esperada": "Urbana: 128.037 escolas. Rural: 50.729 escolas.",
-      "raciocinio": "1. Identificar TP_LOCALIZACAO no CSV: 1 Urbana, 2 Rural. 2. Agrupar os registros por esses códigos e contar CO_ENTIDADE distinta. 3. Encontrar 128.037 escolas urbanas e 50.729 rurais. 4. Conferir que a soma é 178.766."
+      "raciocinio": "1. Identificar TP_LOCALIZACAO no CSV: 1 Urbana, 2 Rural. 2. Agrupar os registros por esses códigos e contar CO_ENTIDADE distinta. 3. Encontrar 128.037 escolas urbanas e 50.729 rurais. 4. Conferir que a soma é 178.766.",
+      "consultas_sql": [
+        "SELECT TP_LOCALIZACAO, COUNT(DISTINCT CO_ENTIDADE) AS escolas FROM matriculas GROUP BY TP_LOCALIZACAO ORDER BY TP_LOCALIZACAO"
+      ]
     },
     {
       "id": "censo_2025_18",
       "pergunta": "Qual é o total de matrículas em escolas urbanas e o total em escolas rurais?",
       "resposta_esperada": "Urbana: 40.871.166 matrículas. Rural: 5.147.214 matrículas.",
-      "raciocinio": "1. Agrupar por TP_LOCALIZACAO: 1 Urbana e 2 Rural. 2. Somar QT_MAT_BAS em cada grupo, sem contar somente escolas. 3. Obter 40.871.166 matrículas em escolas urbanas e 5.147.214 em escolas rurais. 4. Conferir a soma de 46.018.380 matrículas."
+      "raciocinio": "1. Agrupar por TP_LOCALIZACAO: 1 Urbana e 2 Rural. 2. Somar QT_MAT_BAS em cada grupo, sem contar somente escolas. 3. Obter 40.871.166 matrículas em escolas urbanas e 5.147.214 em escolas rurais. 4. Conferir a soma de 46.018.380 matrículas.",
+      "consultas_sql": [
+        "SELECT TP_LOCALIZACAO, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_LOCALIZACAO ORDER BY TP_LOCALIZACAO"
+      ]
     },
     {
       "id": "censo_2025_19",
       "pergunta": "Calcule a média de matrículas por escola nas áreas urbana e rural separadamente. O que a diferença entre essas médias revela sobre o porte das escolas rurais brasileiras?",
       "resposta_esperada": "Média de matrículas por escola, urbana x rural:\nLocalização | Escolas | Matrículas | Média/escola\nUrbana | 128.037 | 40.871.166 | 319,2\nRural | 50.729 | 5.147.214 | 101,5 A média urbana é mais de três vezes a rural. Isso revela que as escolas rurais brasileiras são, tipicamente, unidades de pequeno porte — muitas vezes escolas multisseriadas ou isoladas, atendendo poucas dezenas de alunos, refletindo o padrão histórico de capilarização escolar no campo.",
-      "raciocinio": "1. Agrupar por TP_LOCALIZACAO. 2. Contar escolas e somar QT_MAT_BAS: Urbana 128.037 escolas e 40.871.166 matrículas; Rural 50.729 escolas e 5.147.214 matrículas. 3. Calcular médias: Urbana 40.871.166/128.037 ≈ 319,2; Rural 5.147.214/50.729 ≈ 101,5. 4. Comparar: a média urbana supera a rural em mais de três vezes. 5. Interpretar como diferença de porte médio, não como medida do tamanho de cada escola."
+      "raciocinio": "1. Agrupar por TP_LOCALIZACAO. 2. Contar escolas e somar QT_MAT_BAS: Urbana 128.037 escolas e 40.871.166 matrículas; Rural 50.729 escolas e 5.147.214 matrículas. 3. Calcular médias: Urbana 40.871.166/128.037 ≈ 319,2; Rural 5.147.214/50.729 ≈ 101,5. 4. Comparar: a média urbana supera a rural em mais de três vezes. 5. Interpretar como diferença de porte médio, não como medida do tamanho de cada escola.",
+      "consultas_sql": [
+        "SELECT TP_LOCALIZACAO, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas, ROUND(1.0 * SUM(QT_MAT_BAS) / COUNT(DISTINCT CO_ENTIDADE), 1) AS media FROM matriculas GROUP BY TP_LOCALIZACAO ORDER BY TP_LOCALIZACAO"
+      ]
     },
     {
       "id": "censo_2025_20",
       "pergunta": "Calcule o percentual de matrículas em zona rural sobre o total de matrículas, para cada uma das cinco regiões geográficas. Qual região apresenta o maior percentual de matrículas rurais?",
       "resposta_esperada": "Percentual de matrículas rurais por região:\nRegião | % matrículas rurais\nNorte | 24,42%\nNordeste | 21,34%\nCentro-Oeste | 5,90%\nSul | 5,77%\nSudeste | 3,30% A região Norte apresenta o maior percentual de matrículas em zona rural.",
-      "raciocinio": "1. Agrupar as matrículas por NO_REGIAO e TP_LOCALIZACAO. 2. Para cada região, calcular 100 × SUM(QT_MAT_BAS das escolas rurais, TP_LOCALIZACAO=2) / SUM(QT_MAT_BAS de todas as escolas da região). 3. Obter Norte 24,42%; Nordeste 21,34%; Centro-Oeste 5,90%; Sul 5,77%; Sudeste 3,30%. 4. Comparar os cinco percentuais e identificar Norte como maior. 5. O denominador é o total regional, não o total nacional."
+      "raciocinio": "1. Desconsiderar a escola sem região informada (NO_REGIAO vazio): ela formaria um grupo NULL, com percentual próprio, e distorceria a comparação. 2. Agrupar as matrículas por NO_REGIAO e TP_LOCALIZACAO. 3. Para cada região, calcular 100 × SUM(QT_MAT_BAS das escolas rurais, TP_LOCALIZACAO=2) / SUM(QT_MAT_BAS de todas as escolas da região). 4. Obter Norte 24,42%; Nordeste 21,34%; Centro-Oeste 5,90%; Sul 5,77%; Sudeste 3,30%. 5. Comparar os cinco percentuais e identificar Norte como maior. 6. O denominador é o total regional, não o total nacional.",
+      "consultas_sql": [
+        "SELECT NO_REGIAO, ROUND(100.0 * SUM(CASE WHEN TP_LOCALIZACAO = '2' THEN QT_MAT_BAS ELSE 0 END) / SUM(QT_MAT_BAS), 2) AS pct_rural FROM matriculas WHERE NO_REGIAO IS NOT NULL AND TRIM(NO_REGIAO) <> '' GROUP BY NO_REGIAO ORDER BY pct_rural DESC"
+      ]
     },
     {
       "id": "censo_2025_21",
       "pergunta": "Qual região apresenta o menor percentual de matrículas em zona rural, e a que fator socioeconômico ou geográfico isso pode estar associado?",
       "resposta_esperada": "A região Sudeste apresenta o menor percentual (3,30%). Isso está associado ao seu elevado grau de urbanização e concentração populacional em grandes centros metropolitanos, em contraste com o padrão de ocupação mais dispersa e rural da Amazônia Legal (Norte) e do semiárido nordestino.",
-      "raciocinio": "1. Calcular para cada NO_REGIAO o percentual de matrículas em escolas rurais: 100 × matrículas com TP_LOCALIZACAO=2 / matrículas totais da região. 2. Comparar os cinco resultados; o Sudeste tem o menor, cerca de 3,30%. 3. Associar como hipótese à elevada urbanização e concentração metropolitana da região. 4. Ressaltar que o CSV descreve matrículas e não comprova sozinho a causa socioeconômica."
+      "raciocinio": "1. Desconsiderar a escola sem região informada (NO_REGIAO vazio): ela formaria um grupo NULL, com percentual próprio, e distorceria a comparação. 2. Calcular para cada NO_REGIAO o percentual de matrículas em escolas rurais: 100 × matrículas com TP_LOCALIZACAO=2 / matrículas totais da região. 3. Comparar os cinco resultados; o Sudeste tem o menor, cerca de 3,30%. 4. Associar como hipótese à elevada urbanização e concentração metropolitana da região. 5. Ressaltar que o CSV descreve matrículas e não comprova sozinho a causa socioeconômica.",
+      "consultas_sql": [
+        "SELECT NO_REGIAO, ROUND(100.0 * SUM(CASE WHEN TP_LOCALIZACAO = '2' THEN QT_MAT_BAS ELSE 0 END) / SUM(QT_MAT_BAS), 2) AS pct_rural FROM matriculas WHERE NO_REGIAO IS NOT NULL AND TRIM(NO_REGIAO) <> '' GROUP BY NO_REGIAO ORDER BY pct_rural ASC"
+      ]
     },
     {
       "id": "censo_2025_22",
       "pergunta": "Quais são as cinco Unidades da Federação (UF) com o maior número total de matrículas na Educação Básica?",
       "resposta_esperada": "As cinco UFs com mais matrículas: São Paulo (9.600.318), Minas Gerais (4.220.829), Bahia (3.345.058), Rio de Janeiro (3.319.771) e Paraná (2.438.428).",
-      "raciocinio": "1. Agrupar os registros por SG_UF. 2. Somar QT_MAT_BAS de todas as escolas em cada UF. 3. Ordenar os totais em ordem decrescente e selecionar as cinco primeiras: SP 9.600.318; MG 4.220.829; BA 3.345.058; RJ 3.319.771; PR 2.438.428. 4. Informar os nomes correspondentes: São Paulo, Minas Gerais, Bahia, Rio de Janeiro e Paraná."
+      "raciocinio": "1. Desconsiderar a escola sem UF informada (SG_UF vazio): ela formaria um grupo NULL e distorceria o ranking; ela só entra em totais nacionais. 2. Agrupar os registros por SG_UF. 3. Somar QT_MAT_BAS de todas as escolas em cada UF. 4. Ordenar os totais em ordem decrescente e selecionar as cinco primeiras: SP 9.600.318; MG 4.220.829; BA 3.345.058; RJ 3.319.771; PR 2.438.428. 5. Informar os nomes correspondentes: São Paulo, Minas Gerais, Bahia, Rio de Janeiro e Paraná.",
+      "consultas_sql": [
+        "SELECT SG_UF, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE SG_UF IS NOT NULL AND TRIM(SG_UF) <> '' GROUP BY SG_UF ORDER BY matriculas DESC LIMIT 5"
+      ]
     },
     {
       "id": "censo_2025_23",
       "pergunta": "Quais são as cinco Unidades da Federação com o menor número total de matrículas?",
       "resposta_esperada": "As cinco UFs com menos matrículas: Roraima (186.395), Amapá (212.026), Acre (242.727), Rondônia (376.264) e Tocantins (380.768) — todas pertencentes à Região Norte, refletindo sua menor densidade populacional relativa.",
-      "raciocinio": "1. Agrupar os registros por SG_UF e somar QT_MAT_BAS em cada UF. 2. Ordenar os 27 totais em ordem crescente. 3. Selecionar as cinco primeiras: RR 186.395; AP 212.026; AC 242.727; RO 376.264; TO 380.768. 4. Informar Roraima, Amapá, Acre, Rondônia e Tocantins. 5. A posição no ranking resulta da soma, não do número de escolas."
+      "raciocinio": "1. Desconsiderar a escola sem UF informada (SG_UF vazio): ela formaria um grupo NULL e distorceria o ranking; ela só entra em totais nacionais. 2. Agrupar os registros por SG_UF e somar QT_MAT_BAS em cada UF. 3. Ordenar os 27 totais em ordem crescente. 4. Selecionar as cinco primeiras: RR 186.395; AP 212.026; AC 242.727; RO 376.264; TO 380.768. 5. Informar Roraima, Amapá, Acre, Rondônia e Tocantins. 6. A posição no ranking resulta da soma, não do número de escolas.",
+      "consultas_sql": [
+        "SELECT SG_UF, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE SG_UF IS NOT NULL AND TRIM(SG_UF) <> '' GROUP BY SG_UF ORDER BY matriculas ASC LIMIT 5"
+      ]
     },
     {
       "id": "censo_2025_24",
       "pergunta": "Qual é o município brasileiro com o maior número de matrículas na Educação Básica segundo esta base?",
       "resposta_esperada": "O município de São Paulo (SP), com 2.512.355 matrículas, é o de maior volume — mais que o dobro do segundo colocado, Rio de Janeiro (1.208.798).",
-      "raciocinio": "1. Agrupar as linhas pelo código CO_MUNICIPIO (e usar NO_MUNICIPIO e SG_UF para apresentar o nome). 2. Somar QT_MAT_BAS para cada município. 3. Ordenar em ordem decrescente. 4. Identificar São Paulo/SP com 2.512.355 matrículas; o segundo é Rio de Janeiro/RJ com 1.208.798. 5. Não confundir município com estado de São Paulo."
+      "raciocinio": "1. Agrupar as linhas pelo código CO_MUNICIPIO (e usar NO_MUNICIPIO e SG_UF para apresentar o nome). 2. Somar QT_MAT_BAS para cada município. 3. Ordenar em ordem decrescente. 4. Identificar São Paulo/SP com 2.512.355 matrículas; o segundo é Rio de Janeiro/RJ com 1.208.798. 5. Não confundir município com estado de São Paulo.",
+      "consultas_sql": [
+        "SELECT CO_MUNICIPIO, NO_MUNICIPIO, SG_UF, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE CO_MUNICIPIO IS NOT NULL GROUP BY CO_MUNICIPIO, NO_MUNICIPIO, SG_UF ORDER BY matriculas DESC LIMIT 2"
+      ]
     },
     {
       "id": "censo_2025_25",
       "pergunta": "A variável TP_LOCALIZACAO_DIFERENCIADA identifica escolas situadas em contextos específicos. Some as matrículas registradas em escolas de Terra Indígena e em escolas de Comunidade Quilombola. Qual desses dois contextos concentra mais matrículas?",
       "resposta_esperada": "Terra Indígena: 280.634 matrículas. Comunidade Quilombola: 288.673 matrículas. O contexto de Comunidade Quilombola concentra ligeiramente mais matrículas do que o de Terra Indígena, embora ambos representem parcelas pequenas (juntos, menos de 1,25%) do total nacional.",
-      "raciocinio": "1. Consultar o dicionário de TP_LOCALIZACAO_DIFERENCIADA: código 2 corresponde a Terra Indígena e 3 a Comunidade Quilombola. 2. Filtrar cada código separadamente e somar QT_MAT_BAS. 3. Obter Terra Indígena 280.634 e Comunidade Quilombola 288.673. 4. Comparar os totais: Quilombola supera Indígena em 8.039 matrículas."
+      "raciocinio": "1. Consultar o dicionário de TP_LOCALIZACAO_DIFERENCIADA: código 2 corresponde a Terra Indígena e 3 a Comunidade Quilombola. 2. Filtrar cada código separadamente e somar QT_MAT_BAS. 3. Obter Terra Indígena 280.634 e Comunidade Quilombola 288.673. 4. Comparar os totais: Quilombola supera Indígena em 8.039 matrículas.",
+      "consultas_sql": [
+        "SELECT TP_LOCALIZACAO_DIFERENCIADA, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE TP_LOCALIZACAO_DIFERENCIADA IN ('2', '3') GROUP BY TP_LOCALIZACAO_DIFERENCIADA"
+      ]
     },
     {
       "id": "censo_2025_26",
       "pergunta": "Some as matrículas de cada grande etapa de ensino: Educação Infantil, Ensino Fundamental, Ensino Médio, Educação Profissional e EJA. Qual etapa concentra o maior número de matrículas?",
       "resposta_esperada": "Matrículas por grande etapa de ensino:\nEtapa | Matrículas\nEducação Infantil | 9.286.182\nEnsino Fundamental | 25.806.767\nEnsino Médio | 7.370.879\nEducação Profissional | 3.187.976\nEJA | 2.252.069 O Ensino Fundamental concentra, isoladamente, o maior número de matrículas — mais da metade do total da Educação Básica —, o que é esperado por ser a etapa de maior duração (9 anos) e de caráter obrigatório mais consolidado historicamente.",
-      "raciocinio": "1. Identificar as variáveis de grandes etapas QT_MAT_INF, QT_MAT_FUND, QT_MAT_MED, QT_MAT_PROF e QT_MAT_EJA. 2. Somar cada coluna em todas as escolas: Infantil 9.286.182; Fundamental 25.806.767; Médio 7.370.879; Profissional 3.187.976; EJA 2.252.069. 3. Comparar os cinco totais e identificar Ensino Fundamental como maior. 4. Não somar esses totais para obter o total geral sem verificar sobreposições de modalidades."
+      "raciocinio": "1. Identificar as variáveis de grandes etapas QT_MAT_INF, QT_MAT_FUND, QT_MAT_MED, QT_MAT_PROF e QT_MAT_EJA. 2. Somar cada coluna em todas as escolas: Infantil 9.286.182; Fundamental 25.806.767; Médio 7.370.879; Profissional 3.187.976; EJA 2.252.069. 3. Comparar os cinco totais e identificar Ensino Fundamental como maior. 4. Não somar esses totais para obter o total geral sem verificar sobreposições de modalidades.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_INF) AS qt_mat_inf, SUM(QT_MAT_FUND) AS qt_mat_fund, SUM(QT_MAT_MED) AS qt_mat_med, SUM(QT_MAT_PROF) AS qt_mat_prof, SUM(QT_MAT_EJA) AS qt_mat_eja FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_27",
       "pergunta": "Dentro da Educação Infantil, compare o número de matrículas em Creche (QT_MAT_INF_CRE) com o número em Pré-Escola (QT_MAT_INF_PRE). Qual das duas etapas tem mais matrículas, e a que fator estrutural (obrigatoriedade escolar) isso pode estar relacionado?",
       "resposta_esperada": "Creche: 4.182.646. Pré-Escola: 5.103.536. A Pré-Escola tem mais matrículas. Isso é coerente com o fato de a matrícula em Pré-Escola (4 e 5 anos) ser legalmente obrigatória no Brasil desde a Emenda Constitucional nº 59/2009, enquanto a Creche (0 a 3 anos), embora seja direito da criança, não tem a mesma obrigatoriedade universal de oferta compulsória por parte da família.",
-      "raciocinio": "1. Somar QT_MAT_INF_CRE em todas as escolas: 4.182.646 matrículas. 2. Somar QT_MAT_INF_PRE: 5.103.536 matrículas. 3. Comparar e encontrar 920.890 matrículas a mais na Pré-Escola. 4. Relacionar a diferença à obrigatoriedade de matrícula a partir dos 4 anos, prevista na legislação; essa relação é contextual, não causalidade demonstrada pela tabela."
+      "raciocinio": "1. Somar QT_MAT_INF_CRE em todas as escolas: 4.182.646 matrículas. 2. Somar QT_MAT_INF_PRE: 5.103.536 matrículas. 3. Comparar e encontrar 920.890 matrículas a mais na Pré-Escola. 4. Relacionar a diferença à obrigatoriedade de matrícula a partir dos 4 anos, prevista na legislação; essa relação é contextual, não causalidade demonstrada pela tabela.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_INF_CRE) AS qt_mat_inf_cre, SUM(QT_MAT_INF_PRE) AS qt_mat_inf_pre FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_28",
       "pergunta": "Compare o total de matrículas nos Anos Iniciais do Ensino Fundamental (QT_MAT_FUND_AI) com o total nos Anos Finais (QT_MAT_FUND_AF). O que essa diferença pode indicar sobre o fluxo escolar ao longo do Ensino Fundamental?",
       "resposta_esperada": "Anos Iniciais: 14.514.244. Anos Finais: 11.292.523. A diferença de mais de 3,2 milhões de matrículas sugere a existência de evasão, retenção ou distorção idade-série ao longo do Ensino Fundamental — parte dos estudantes que iniciam os Anos Iniciais não chega, no mesmo volume, aos Anos Finais, fenômeno historicamente associado à transição entre o 5º e o 6º ano.",
-      "raciocinio": "1. Somar QT_MAT_FUND_AI (Anos Iniciais): 14.514.244. 2. Somar QT_MAT_FUND_AF (Anos Finais): 11.292.523. 3. Subtrair: diferença de 3.221.721 matrículas. 4. Discutir possíveis fatores de fluxo escolar, como evasão, retenção e variação entre coortes, sem tratar a comparação transversal de 2025 como prova de abandono dos mesmos alunos."
+      "raciocinio": "1. Somar QT_MAT_FUND_AI (Anos Iniciais): 14.514.244. 2. Somar QT_MAT_FUND_AF (Anos Finais): 11.292.523. 3. Subtrair: diferença de 3.221.721 matrículas. 4. Discutir possíveis fatores de fluxo escolar, como evasão, retenção e variação entre coortes, sem tratar a comparação transversal de 2025 como prova de abandono dos mesmos alunos.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_FUND_AI) AS qt_mat_fund_ai, SUM(QT_MAT_FUND_AF) AS qt_mat_fund_af FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_29",
       "pergunta": "Some as matrículas por ano/série dos Anos Iniciais (1º ao 5º ano) e por ano/série dos Anos Finais (6º ao 9º ano). Construa uma tabela e identifique em qual ano específico há o maior número de matrículas.",
       "resposta_esperada": "Matrículas por ano/série do Ensino Fundamental:\nAno | Matrículas | \n1º ano | 2.890.337 | \n2º ano | 2.874.392 | \n3º ano | 2.850.775 | \n4º ano | 2.984.869 | \n5º ano | 2.913.871 | \n6º ano | 2.919.014 | \n7º ano | 2.870.115 | \n8º ano | 2.840.218 | \n9º ano | 2.663.176 |  O 4º ano apresenta o maior número absoluto de matrículas entre todos os nove anos do Ensino Fundamental.",
-      "raciocinio": "1. Somar separadamente QT_MAT_FUND_AI_1 a QT_MAT_FUND_AI_5 e QT_MAT_FUND_AF_6 a QT_MAT_FUND_AF_9. 2. Obter, do 1º ao 9º ano: 2.890.337; 2.874.392; 2.850.775; 2.984.869; 2.913.871; 2.919.014; 2.870.115; 2.840.218; 2.663.176. 3. Organizar em tabela com ano e matrículas. 4. Comparar as nove somas e identificar o 4º ano, com 2.984.869, como maior."
+      "raciocinio": "1. Somar separadamente QT_MAT_FUND_AI_1 a QT_MAT_FUND_AI_5 e QT_MAT_FUND_AF_6 a QT_MAT_FUND_AF_9. 2. Obter, do 1º ao 9º ano: 2.890.337; 2.874.392; 2.850.775; 2.984.869; 2.913.871; 2.919.014; 2.870.115; 2.840.218; 2.663.176. 3. Organizar em tabela com ano e matrículas. 4. Comparar as nove somas e identificar o 4º ano, com 2.984.869, como maior.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_FUND_AI_1) AS qt_mat_fund_ai_1, SUM(QT_MAT_FUND_AI_2) AS qt_mat_fund_ai_2, SUM(QT_MAT_FUND_AI_3) AS qt_mat_fund_ai_3, SUM(QT_MAT_FUND_AI_4) AS qt_mat_fund_ai_4, SUM(QT_MAT_FUND_AI_5) AS qt_mat_fund_ai_5, SUM(QT_MAT_FUND_AF_6) AS qt_mat_fund_af_6, SUM(QT_MAT_FUND_AF_7) AS qt_mat_fund_af_7, SUM(QT_MAT_FUND_AF_8) AS qt_mat_fund_af_8, SUM(QT_MAT_FUND_AF_9) AS qt_mat_fund_af_9 FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_30",
       "pergunta": "Observando as matrículas do Ensino Médio por série (1ª, 2ª e 3ª séries), há uma tendência de queda entre a 1ª e a 3ª série? Calcule os valores e discuta uma possível explicação para esse padrão (indicador de fluxo escolar).",
       "resposta_esperada": "Matrículas por série do Ensino Médio:\nSérie | Matrículas\n1ª série | 2.746.470\n2ª série | 2.438.380\n3ª série | 2.109.116 Sim, há uma queda consistente entre a 1ª e a 3ª série (redução de aproximadamente 23,2% do início ao fim do Ensino Médio). Essa tendência é um indicador clássico de evasão escolar progressiva, fenômeno amplamente discutido nos relatórios do próprio Censo Escolar e associado a fatores como necessidade de trabalho, defasagem de aprendizagem acumulada e desmotivação ao longo da etapa.",
-      "raciocinio": "1. Somar as variáveis QT_MAT_MED_1, QT_MAT_MED_2 e QT_MAT_MED_3, correspondentes às três séries. 2. Encontrar 1ª 2.746.470; 2ª 2.438.380; 3ª 2.109.116. 3. Verificar a redução entre as séries. 4. Calcular (2.746.470 − 2.109.116)/2.746.470 × 100 ≈ 23,2%. 5. Apontar evasão ou retenção como hipóteses, não como causas comprovadas por um único retrato anual."
+      "raciocinio": "1. Somar as variáveis QT_MAT_MED_1, QT_MAT_MED_2 e QT_MAT_MED_3, correspondentes às três séries. 2. Encontrar 1ª 2.746.470; 2ª 2.438.380; 3ª 2.109.116. 3. Verificar a redução entre as séries. 4. Calcular (2.746.470 − 2.109.116)/2.746.470 × 100 ≈ 23,2%. 5. Apontar evasão ou retenção como hipóteses, não como causas comprovadas por um único retrato anual.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_MED_1) AS qt_mat_med_1, SUM(QT_MAT_MED_2) AS qt_mat_med_2, SUM(QT_MAT_MED_3) AS qt_mat_med_3 FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_31",
       "pergunta": "Qual é o total de matrículas na Educação Profissional Técnica, e qual percentual isso representa do total de matrículas em Educação Profissional (QT_MAT_PROF)?",
       "resposta_esperada": "Educação Profissional Técnica: 2.490.145 matrículas, de um total de 3.187.976 em Educação Profissional — o que representa 78,1% do total dessa modalidade, evidenciando o predomínio da formação técnica sobre a não-técnica (qualificação profissional e cursos FIC).",
-      "raciocinio": "1. Somar QT_MAT_PROF_TEC em todas as escolas: 2.490.145 matrículas técnicas. 2. Somar QT_MAT_PROF: 3.187.976 matrículas na Educação Profissional. 3. Calcular 100 × 2.490.145/3.187.976 ≈ 78,1%. 4. Informar numerador, denominador e percentual."
+      "raciocinio": "1. Somar QT_MAT_PROF_TEC em todas as escolas: 2.490.145 matrículas técnicas. 2. Somar QT_MAT_PROF: 3.187.976 matrículas na Educação Profissional. 3. Calcular 100 × 2.490.145/3.187.976 ≈ 78,1%. 4. Informar numerador, denominador e percentual.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_PROF_TEC) AS tecnica, SUM(QT_MAT_PROF) AS profissional, ROUND(100.0 * SUM(QT_MAT_PROF_TEC) / SUM(QT_MAT_PROF), 1) AS pct FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_32",
       "pergunta": "Compare o número de matrículas em Curso Técnico Concomitante com o número em Curso Técnico Subsequente. O que diferencia essas duas formas de oferta, segundo o dicionário de dados?",
       "resposta_esperada": "Técnico Concomitante: 348.446. Técnico Subsequente: 832.032. Segundo o dicionário, o Concomitante é cursado simultaneamente ao Ensino Médio regular (em instituições diferentes ou na mesma, mas sem articulação curricular formal), enquanto o Subsequente é cursado após a conclusão do Ensino Médio.",
-      "raciocinio": "1. Somar QT_MAT_PROF_TEC_CONC: 348.446 matrículas em cursos técnicos concomitantes. 2. Somar QT_MAT_PROF_TEC_SUBS: 832.032 matrículas em cursos subsequentes. 3. Comparar: Subsequente é maior. 4. Consultar o dicionário: Concomitante ocorre durante o Ensino Médio; Subsequente ocorre após sua conclusão. 5. Não confundir as duas formas com curso técnico integrado."
+      "raciocinio": "1. Somar QT_MAT_PROF_TEC_CONC: 348.446 matrículas em cursos técnicos concomitantes. 2. Somar QT_MAT_PROF_TEC_SUBS: 832.032 matrículas em cursos subsequentes. 3. Comparar: Subsequente é maior. 4. Como a pergunta pede a diferença segundo o dicionário de dados, consultar a variável que reúne as duas formas (DICIONARIO: QT_MAT_PROF_TEC), pois QT_MAT_PROF_TEC_CONC e QT_MAT_PROF_TEC_SUBS só trazem o nome. 5. Usar a nota do dicionário: cursos técnicos de nível médio nas formas articuladas (integrada ou concomitante), ou subsequente ao ensino médio. 6. Concluir: o Concomitante é articulado ao Ensino Médio, cursado junto com ele; o Subsequente é posterior ao Ensino Médio. 7. Não confundir as duas formas com curso técnico integrado.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_PROF_TEC_CONC) AS qt_mat_prof_tec_conc, SUM(QT_MAT_PROF_TEC_SUBS) AS qt_mat_prof_tec_subs FROM matriculas",
+        "DICIONARIO: QT_MAT_PROF_TEC"
+      ]
     },
     {
       "id": "censo_2025_33",
       "pergunta": "Qual é o total de matrículas na Educação de Jovens e Adultos (EJA), e que percentual isso representa do total geral de matrículas da Educação Básica (QT_MAT_BAS)?",
       "resposta_esperada": "Total EJA: 2.252.069 matrículas, representando 4,89% do total geral de matrículas da Educação Básica.",
-      "raciocinio": "1. Somar QT_MAT_EJA: 2.252.069 matrículas. 2. Somar QT_MAT_BAS: 46.018.380 matrículas. 3. Calcular 100 × 2.252.069/46.018.380 ≈ 4,89%. 4. Informar o total de EJA e sua proporção no total geral."
+      "raciocinio": "1. Somar QT_MAT_EJA: 2.252.069 matrículas. 2. Somar QT_MAT_BAS: 46.018.380 matrículas. 3. Calcular 100 × 2.252.069/46.018.380 ≈ 4,89%. 4. Informar o total de EJA e sua proporção no total geral.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_EJA) AS eja, SUM(QT_MAT_BAS) AS total, ROUND(100.0 * SUM(QT_MAT_EJA) / SUM(QT_MAT_BAS), 2) AS pct FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_34",
       "pergunta": "Compare as matrículas de EJA no Ensino Fundamental com as matrículas de EJA no Ensino Médio. Qual etapa concentra mais estudantes dentro da modalidade EJA?",
       "resposta_esperada": "EJA Fundamental: 1.406.442. EJA Médio: 845.627. A EJA Fundamental concentra mais estudantes que a EJA Médio, refletindo o maior contingente de jovens e adultos que ainda não concluíram sequer a etapa fundamental de escolarização.",
-      "raciocinio": "1. Somar QT_MAT_EJA_FUND: 1.406.442 matrículas. 2. Somar QT_MAT_EJA_MED: 845.627 matrículas. 3. Comparar os valores: EJA Fundamental é maior por 560.815 matrículas. 4. Interpretar a predominância como perfil da modalidade, sem inferir trajetórias individuais."
+      "raciocinio": "1. Somar QT_MAT_EJA_FUND: 1.406.442 matrículas. 2. Somar QT_MAT_EJA_MED: 845.627 matrículas. 3. Comparar os valores: EJA Fundamental é maior por 560.815 matrículas. 4. Interpretar a predominância como perfil da modalidade, sem inferir trajetórias individuais.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_EJA_FUND) AS qt_mat_eja_fund, SUM(QT_MAT_EJA_MED) AS qt_mat_eja_med FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_35",
       "pergunta": "A variável QT_MAT_BAS_LIBRAS registra matrículas em classes bilíngues de surdos. Qual é o total nacional dessa variável, e por que esse número é proporcionalmente pequeno diante do total geral de matrículas?",
       "resposta_esperada": "QT_MAT_BAS_LIBRAS: 3.637 matrículas. O número é proporcionalmente muito pequeno porque se refere a um recorte extremamente específico — classes bilíngues exclusivas para surdos, com Libras como língua de instrução —, uma modalidade de oferta ainda pouco disseminada estruturalmente na rede escolar brasileira, distinta do atendimento de alunos surdos incluídos em classes comuns.",
-      "raciocinio": "1. Localizar QT_MAT_BAS_LIBRAS no CSV e somar seus valores: 3.637 matrículas. 2. Comparar com o total QT_MAT_BAS de 46.018.380, reconhecendo sua pequena participação. 3. Consultar o dicionário para delimitar o indicador às classes bilíngues de surdos. 4. Explicar que não equivale ao total de estudantes surdos nem a todos os estudantes com atendimento em Libras."
+      "raciocinio": "1. Localizar QT_MAT_BAS_LIBRAS no CSV e somar seus valores: 3.637 matrículas. 2. Comparar com o total QT_MAT_BAS de 46.018.380, reconhecendo sua pequena participação. 3. Consultar o dicionário para delimitar o indicador às classes bilíngues de surdos. 4. Explicar que não equivale ao total de estudantes surdos nem a todos os estudantes com atendimento em Libras.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_LIBRAS) AS qt_mat_bas_libras FROM matriculas",
+        "DICIONARIO: QT_MAT_BAS_LIBRAS"
+      ]
     },
     {
       "id": "censo_2025_36",
       "pergunta": "Qual é o total de matrículas do sexo feminino e do sexo masculino? Calcule a razão entre matrículas masculinas e femininas.",
       "resposta_esperada": "Feminino: 22.735.128. Masculino: 23.283.252. Razão Masculino/Feminino: 1,0241 (ou seja, há aproximadamente 102 meninos matriculados para cada 100 meninas).",
-      "raciocinio": "1. Somar QT_MAT_BAS_FEM: 22.735.128. 2. Somar QT_MAT_BAS_MASC: 23.283.252. 3. Calcular razão Masculino/Feminino = 23.283.252/22.735.128 ≈ 1,0241. 4. Interpretar como aproximadamente 102,4 matrículas masculinas para cada 100 femininas."
+      "raciocinio": "1. Somar QT_MAT_BAS_FEM: 22.735.128. 2. Somar QT_MAT_BAS_MASC: 23.283.252. 3. Calcular razão Masculino/Feminino = 23.283.252/22.735.128 ≈ 1,0241. 4. Interpretar como aproximadamente 102,4 matrículas masculinas para cada 100 femininas.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_FEM) AS feminino, SUM(QT_MAT_BAS_MASC) AS masculino, ROUND(1.0 * SUM(QT_MAT_BAS_MASC) / SUM(QT_MAT_BAS_FEM), 4) AS razao FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_37",
       "pergunta": "Calcule o percentual de matrículas de cada sexo sobre o total. Existe uma diferença expressiva entre os dois grupos?",
       "resposta_esperada": "Feminino: 49,4%. Masculino: 50,6%. A diferença é pequena — pouco mais de 1 ponto percentual —, refletindo uma distribuição relativamente equilibrada entre os sexos na matrícula da Educação Básica, com leve predominância masculina, compatível com a proporção natural de nascimentos por sexo.",
-      "raciocinio": "1. Somar QT_MAT_BAS_FEM (22.735.128), QT_MAT_BAS_MASC (23.283.252) e QT_MAT_BAS (46.018.380). 2. Calcular 100 × feminino/total ≈ 49,4% e 100 × masculino/total ≈ 50,6%. 3. Comparar os percentuais: diferença de aproximadamente 1,2 ponto percentual, pequena."
+      "raciocinio": "1. Somar QT_MAT_BAS_FEM (22.735.128), QT_MAT_BAS_MASC (23.283.252) e QT_MAT_BAS (46.018.380). 2. Calcular 100 × feminino/total ≈ 49,4% e 100 × masculino/total ≈ 50,6%. 3. Comparar os percentuais: diferença de aproximadamente 1,2 ponto percentual, pequena.",
+      "consultas_sql": [
+        "SELECT ROUND(100.0 * SUM(QT_MAT_BAS_FEM) / SUM(QT_MAT_BAS), 1) AS pct_fem, ROUND(100.0 * SUM(QT_MAT_BAS_MASC) / SUM(QT_MAT_BAS), 1) AS pct_masc FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_38",
       "pergunta": "Some as matrículas de estudantes autodeclarados pretos e pardos. Qual percentual esse total representa sobre o total de matrículas com cor/raça efetivamente declarada (ou seja, excluindo os registros como “Não Declarada”)?",
       "resposta_esperada": "Pretos + Pardos: 23.149.061. Total declarado (excluindo “Não Declarada”): 39.742.803. Percentual: 58,25% — ou seja, mais da metade dos estudantes que declararam sua cor/raça se autodeclaram pretos ou pardos, valor coerente com o perfil demográfico da população escolar brasileira.",
-      "raciocinio": "1. Somar QT_MAT_BAS_PRETA = 2.301.626 e QT_MAT_BAS_PARDA = 20.847.435; juntos 23.149.061. 2. Calcular o total de cor/raça declarada subtraindo QT_MAT_BAS_ND do total: 46.018.380 − 6.275.577 = 39.742.803. 3. Dividir 23.149.061 por 39.742.803 e multiplicar por 100: aproximadamente 58,25%. 4. Usar apenas declarados como denominador, conforme o enunciado."
+      "raciocinio": "1. Somar QT_MAT_BAS_PRETA = 2.301.626 e QT_MAT_BAS_PARDA = 20.847.435; juntos 23.149.061. 2. Calcular o total de cor/raça declarada subtraindo QT_MAT_BAS_ND do total: 46.018.380 − 6.275.577 = 39.742.803. 3. Dividir 23.149.061 por 39.742.803 e multiplicar por 100: aproximadamente 58,25%. 4. Usar apenas declarados como denominador, conforme o enunciado.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_PRETA) + SUM(QT_MAT_BAS_PARDA) AS pretos_pardos, SUM(QT_MAT_BAS) - SUM(QT_MAT_BAS_ND) AS declarados, ROUND(100.0 * (SUM(QT_MAT_BAS_PRETA) + SUM(QT_MAT_BAS_PARDA)) / (SUM(QT_MAT_BAS) - SUM(QT_MAT_BAS_ND)), 2) AS pct FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_39",
       "pergunta": "Qual grupo de cor/raça apresenta o menor número absoluto de matrículas na base, entre os declarados (excluindo “Não Declarada”)?",
       "resposta_esperada": "O grupo Amarelo apresenta o menor número absoluto entre os declarados, com 167.379 matrículas — bem inferior até mesmo ao grupo Indígena (381.498).",
-      "raciocinio": "1. Somar as colunas de cor/raça declarada: QT_MAT_BAS_BRANCA, PRETA, PARDA, AMARELA e INDIGENA. 2. Excluir QT_MAT_BAS_ND (não declarada) da comparação. 3. Comparar as somas: Amarela tem 167.379, abaixo de Indígena (381.498) e dos demais grupos. 4. Identificar Amarela como menor grupo declarado."
+      "raciocinio": "1. Somar as colunas de cor/raça declarada: QT_MAT_BAS_BRANCA, PRETA, PARDA, AMARELA e INDIGENA. 2. Excluir QT_MAT_BAS_ND (não declarada) da comparação. 3. Comparar as somas: Amarela tem 167.379, abaixo de Indígena (381.498) e dos demais grupos. 4. Identificar Amarela como menor grupo declarado.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_BRANCA) AS qt_mat_bas_branca, SUM(QT_MAT_BAS_PRETA) AS qt_mat_bas_preta, SUM(QT_MAT_BAS_PARDA) AS qt_mat_bas_parda, SUM(QT_MAT_BAS_AMARELA) AS qt_mat_bas_amarela, SUM(QT_MAT_BAS_INDIGENA) AS qt_mat_bas_indigena FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_40",
       "pergunta": "Qual é o total de matrículas classificadas como “Não Declarada” quanto à cor/raça, e que implicação isso tem para a confiabilidade de indicadores étnico-raciais construídos a partir dessa variável?",
       "resposta_esperada": "6.275.577 matrículas estão classificadas como “Não Declarada” quanto à cor/raça — cerca de 13,6% do total geral. Esse volume expressivo de não declaração é uma limitação relevante para a construção de indicadores étnico-raciais robustos: qualquer proporção calculada apenas sobre os dados declarados pode não representar fielmente a distribuição real caso a não declaração não seja aleatória entre os grupos.",
-      "raciocinio": "1. Somar QT_MAT_BAS_ND: 6.275.577 matrículas sem declaração de cor/raça. 2. Calcular 100 × 6.275.577/46.018.380 ≈ 13,6%. 3. Explicar que a ausência de declaração pode afetar proporções e comparações entre grupos. 4. Não presumir que os não declarados se distribuem igualmente entre categorias."
+      "raciocinio": "1. Somar QT_MAT_BAS_ND: 6.275.577 matrículas sem declaração de cor/raça. 2. Calcular 100 × 6.275.577/46.018.380 ≈ 13,6%. 3. Explicar que a ausência de declaração pode afetar proporções e comparações entre grupos. 4. Não presumir que os não declarados se distribuem igualmente entre categorias.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_ND) AS nao_declarada, ROUND(100.0 * SUM(QT_MAT_BAS_ND) / SUM(QT_MAT_BAS), 1) AS pct FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_41",
       "pergunta": "Compare o número de matrículas nas faixas etárias de 6 a 10 anos e de 11 a 14 anos. Essas faixas correspondem, em geral, a quais etapas de ensino?",
       "resposta_esperada": "6 a 10 anos: 14.111.254. 11 a 14 anos: 11.194.106. A faixa de 6 a 10 anos corresponde, em geral, aos Anos Iniciais do Ensino Fundamental; a faixa de 11 a 14 anos corresponde predominantemente aos Anos Finais do Ensino Fundamental.",
-      "raciocinio": "1. Somar QT_MAT_BAS_6_10: 14.111.254 matrículas. 2. Somar QT_MAT_BAS_11_14: 11.194.106. 3. Comparar: 6 a 10 anos apresenta maior total. 4. Relacionar, em termos de idade usual, 6–10 anos aos Anos Iniciais e 11–14 aos Anos Finais do Ensino Fundamental, admitindo distorção idade-série."
+      "raciocinio": "1. Somar QT_MAT_BAS_6_10: 14.111.254 matrículas. 2. Somar QT_MAT_BAS_11_14: 11.194.106. 3. Comparar: 6 a 10 anos apresenta maior total. 4. Relacionar, em termos de idade usual, 6–10 anos aos Anos Iniciais e 11–14 aos Anos Finais do Ensino Fundamental, admitindo distorção idade-série.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_6_10) AS qt_mat_bas_6_10, SUM(QT_MAT_BAS_11_14) AS qt_mat_bas_11_14 FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_42",
       "pergunta": "Qual é o total de matrículas na faixa etária de 18 anos ou mais, e a quais modalidades de ensino esse contingente provavelmente está mais associado?",
       "resposta_esperada": "Total na faixa de 18 anos ou mais: 3.974.803. Esse contingente está fortemente associado a modalidades como EJA (Fundamental e Médio) e à Educação Profissional (cursos técnicos subsequentes e concomitantes), que atendem tipicamente públicos de maior idade, incluindo distorção idade-série acumulada em etapas regulares.",
-      "raciocinio": "1. Somar QT_MAT_BAS_18_MAIS: 3.974.803 matrículas. 2. Identificar no dicionário que a coluna corresponde a estudantes de 18 anos ou mais. 3. Associar esse contingente, como interpretação provável, à EJA, à Educação Profissional e a estudantes com distorção idade-série. 4. Não afirmar que a coluna isoladamente distribui esse total por modalidade."
+      "raciocinio": "1. Somar QT_MAT_BAS_18_MAIS: 3.974.803 matrículas. 2. Identificar no dicionário que a coluna corresponde a estudantes de 18 anos ou mais. 3. Associar esse contingente, como interpretação provável, à EJA, à Educação Profissional e a estudantes com distorção idade-série. 4. Não afirmar que a coluna isoladamente distribui esse total por modalidade.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_18_MAIS) AS qt_mat_bas_18_mais FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_43",
       "pergunta": "Observando as faixas etárias de 0 a 3 anos e de 4 a 5 anos, qual delas apresenta maior número de matrículas? Relacione sua resposta com a obrigatoriedade legal de matrícula na Pré-Escola a partir dos 4 anos.",
       "resposta_esperada": "0 a 3 anos: 3.874.541. 4 a 5 anos: 4.968.651. A faixa de 4 a 5 anos apresenta maior número de matrículas, o que é coerente com a obrigatoriedade legal de matrícula na Pré-Escola a partir dos 4 anos de idade (EC nº 59/2009), diferentemente da Creche (0 a 3 anos), cuja oferta é um direito assegurado, mas sem a mesma exigência compulsória de matrícula universal.",
-      "raciocinio": "1. Somar QT_MAT_BAS_0_3: 3.874.541. 2. Somar QT_MAT_BAS_4_5: 4.968.651. 3. Comparar: a faixa 4–5 anos tem 1.094.110 matrículas a mais. 4. Relacionar o resultado à matrícula obrigatória na Pré-Escola a partir dos 4 anos, diferentemente da Creche; não atribuir toda a diferença apenas à legislação."
+      "raciocinio": "1. Somar QT_MAT_BAS_0_3: 3.874.541. 2. Somar QT_MAT_BAS_4_5: 4.968.651. 3. Comparar: a faixa 4–5 anos tem 1.094.110 matrículas a mais. 4. Relacionar o resultado à matrícula obrigatória na Pré-Escola a partir dos 4 anos, diferentemente da Creche; não atribuir toda a diferença apenas à legislação.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_0_3) AS qt_mat_bas_0_3, SUM(QT_MAT_BAS_4_5) AS qt_mat_bas_4_5 FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_44",
       "pergunta": "Some as matrículas por turno: Diurno (QT_MAT_BAS_D), Noturno (QT_MAT_BAS_N) e EAD (QT_MAT_BAS_EAD). Qual turno concentra a grande maioria das matrículas?",
       "resposta_esperada": "Diurno: 42.131.013. Noturno: 3.240.654. EAD: 646.713. O turno Diurno concentra amplamente a grande maioria das matrículas — mais de 91,5% do total —, reforçando o padrão predominantemente diurno da escolarização básica no Brasil.",
-      "raciocinio": "1. Somar QT_MAT_BAS_D (Diurno): 42.131.013. 2. Somar QT_MAT_BAS_N (Noturno): 3.240.654. 3. Somar QT_MAT_BAS_EAD: 646.713. 4. Comparar os três totais: Diurno é muito maior. 5. Calcular 42.131.013/46.018.380 × 100 ≈ 91,55% das matrículas."
+      "raciocinio": "1. Somar QT_MAT_BAS_D (Diurno): 42.131.013. 2. Somar QT_MAT_BAS_N (Noturno): 3.240.654. 3. Somar QT_MAT_BAS_EAD: 646.713. 4. Comparar os três totais: Diurno é muito maior. 5. Calcular 42.131.013/46.018.380 × 100 ≈ 91,55% das matrículas.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_D) AS qt_mat_bas_d, SUM(QT_MAT_BAS_N) AS qt_mat_bas_n, SUM(QT_MAT_BAS_EAD) AS qt_mat_bas_ead FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_45",
       "pergunta": "Dentro do turno Diurno, compare as matrículas do turno Matutino com as do turno Vespertino. Qual dos dois é mais numeroso?",
       "resposta_esperada": "Matutino: 24.171.117. Vespertino: 17.959.896. O turno Matutino é mais numeroso, concentrando cerca de 57,4% das matrículas diurnas.",
-      "raciocinio": "1. Somar QT_MAT_BAS_DM (Diurno Matutino): 24.171.117. 2. Somar QT_MAT_BAS_DV (Diurno Vespertino): 17.959.896. 3. Comparar: Matutino é maior. 4. Conferir 24.171.117 + 17.959.896 = 42.131.013 matrículas diurnas. 5. Calcular 24.171.117/42.131.013 × 100 ≈ 57,4%."
+      "raciocinio": "1. Somar QT_MAT_BAS_DM (Diurno Matutino): 24.171.117. 2. Somar QT_MAT_BAS_DV (Diurno Vespertino): 17.959.896. 3. Comparar: Matutino é maior. 4. Conferir 24.171.117 + 17.959.896 = 42.131.013 matrículas diurnas. 5. Calcular 24.171.117/42.131.013 × 100 ≈ 57,4%.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_DM) AS qt_mat_bas_dm, SUM(QT_MAT_BAS_DV) AS qt_mat_bas_dv FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_46",
       "pergunta": "Qual é o total de matrículas em Tempo Integral (QT_MAT_BAS_INT), e que percentual isso representa do total de matrículas da Educação Básica?",
       "resposta_esperada": "Tempo Integral: 10.143.262 matrículas, representando 22,04% do total de matrículas da Educação Básica — ou seja, aproximadamente 1 em cada 5 estudantes brasileiros está matriculado em regime de tempo integral.",
-      "raciocinio": "1. Somar QT_MAT_BAS_INT: 10.143.262 matrículas em tempo integral. 2. Somar QT_MAT_BAS: 46.018.380. 3. Calcular 100 × 10.143.262/46.018.380 ≈ 22,04%. 4. Apresentar total e percentual, sem confundir tempo integral com turno diurno."
+      "raciocinio": "1. Somar QT_MAT_BAS_INT: 10.143.262 matrículas em tempo integral. 2. Somar QT_MAT_BAS: 46.018.380. 3. Calcular 100 × 10.143.262/46.018.380 ≈ 22,04%. 4. Apresentar total e percentual, sem confundir tempo integral com turno diurno.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_BAS_INT) AS integral, SUM(QT_MAT_BAS) AS total, ROUND(100.0 * SUM(QT_MAT_BAS_INT) / SUM(QT_MAT_BAS), 2) AS pct FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_47",
       "pergunta": "Qual é o total de matrículas de estudantes da Educação Especial (QT_MAT_ESP)? Que percentual isso representa do total de matrículas da Educação Básica?",
       "resposta_esperada": "Educação Especial: 2.458.159 matrículas, representando 5,34% do total geral de matrículas da Educação Básica.",
-      "raciocinio": "1. Somar QT_MAT_ESP: 2.458.159 matrículas de Educação Especial. 2. Somar QT_MAT_BAS: 46.018.380. 3. Calcular 100 × 2.458.159/46.018.380 ≈ 5,34%. 4. Informar o total e a participação percentual."
+      "raciocinio": "1. Somar QT_MAT_ESP: 2.458.159 matrículas de Educação Especial. 2. Somar QT_MAT_BAS: 46.018.380. 3. Calcular 100 × 2.458.159/46.018.380 ≈ 5,34%. 4. Informar o total e a participação percentual.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_ESP) AS especial, SUM(QT_MAT_BAS) AS total, ROUND(100.0 * SUM(QT_MAT_ESP) / SUM(QT_MAT_BAS), 2) AS pct FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_48",
       "pergunta": "Compare o número de matrículas de Educação Especial em Classes Comuns (QT_MAT_ESP_CC) com o número em Classes Exclusivas (QT_MAT_ESP_CE). Qual modelo de atendimento predomina, e o que esse predomínio reflete em termos de política de inclusão escolar?",
       "resposta_esperada": "Classes Comuns: 2.298.005. Classes Exclusivas: 160.154. As Classes Comuns predominam amplamente, respondendo por 93,48% das matrículas de Educação Especial. Esse predomínio reflete a consolidação da política nacional de educação inclusiva, que prioriza a matrícula de estudantes público-alvo da Educação Especial em turmas regulares do ensino comum, em vez de turmas ou escolas exclusivamente especializadas.",
-      "raciocinio": "1. Somar QT_MAT_ESP_CC (Classes Comuns): 2.298.005. 2. Somar QT_MAT_ESP_CE (Classes Exclusivas): 160.154. 3. Conferir que ambas totalizam 2.458.159 matrículas de Educação Especial. 4. Calcular 100 × 2.298.005/2.458.159 ≈ 93,48%. 5. Identificar Classes Comuns como predominantes e relacionar o resultado à política de inclusão, sem concluir que o indicador sozinho mede qualidade da inclusão."
+      "raciocinio": "1. Somar QT_MAT_ESP_CC (Classes Comuns): 2.298.005. 2. Somar QT_MAT_ESP_CE (Classes Exclusivas): 160.154. 3. Conferir que ambas totalizam 2.458.159 matrículas de Educação Especial. 4. Calcular 100 × 2.298.005/2.458.159 ≈ 93,48%. 5. Identificar Classes Comuns como predominantes e relacionar o resultado à política de inclusão, sem concluir que o indicador sozinho mede qualidade da inclusão.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_ESP_CC) AS classes_comuns, SUM(QT_MAT_ESP_CE) AS classes_exclusivas, ROUND(100.0 * SUM(QT_MAT_ESP_CC) / SUM(QT_MAT_ESP), 2) AS pct_comuns FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_49",
       "pergunta": "Qual é o total de matrículas de estudantes que utilizam transporte escolar público (QT_TRANSP_PUBLICO)? Compare a responsabilidade Estadual com a Municipal pelo transporte e identifique qual esfera arca com a maior parte dessa oferta.",
       "resposta_esperada": "Transporte escolar público total: 9.078.809 matrículas. Responsabilidade Estadual: 1.431.234. Responsabilidade Municipal: 7.647.575. A esfera Municipal arca com a grande maioria da responsabilidade pelo transporte escolar público — mais de 84% do total —, refletindo o papel constitucional dos municípios na gestão da rede de Educação Infantil e Ensino Fundamental, etapas de sua responsabilidade prioritária.",
-      "raciocinio": "1. Somar QT_TRANSP_PUBLICO: 9.078.809 matrículas com transporte escolar público. 2. Somar QT_TRANSP_RESP_EST: 1.431.234 e QT_TRANSP_RESP_MUN: 7.647.575. 3. Conferir que as duas responsabilidades somam 9.078.809. 4. Comparar os totais: Municipal é maior. 5. Calcular 100 × 7.647.575/9.078.809 ≈ 84,2%."
+      "raciocinio": "1. Somar QT_TRANSP_PUBLICO: 9.078.809 matrículas com transporte escolar público. 2. Somar QT_TRANSP_RESP_EST: 1.431.234 e QT_TRANSP_RESP_MUN: 7.647.575. 3. Conferir que as duas responsabilidades somam 9.078.809. 4. Comparar os totais: Municipal é maior. 5. Calcular 100 × 7.647.575/9.078.809 ≈ 84,2%.",
+      "consultas_sql": [
+        "SELECT SUM(QT_TRANSP_PUBLICO) AS qt_transp_publico, SUM(QT_TRANSP_RESP_EST) AS qt_transp_resp_est, SUM(QT_TRANSP_RESP_MUN) AS qt_transp_resp_mun FROM matriculas"
+      ]
     },
     {
       "id": "censo_2025_50",
       "pergunta": "Some as matrículas segundo a zona de residência do aluno (Urbana e Rural, variáveis QT_MAT_ZR_URB e QT_MAT_ZR_RUR). Compare esse resultado com a variável TP_LOCALIZACAO (localização da escola). É possível haver alunos residentes na zona rural matriculados em escolas localizadas na zona urbana? Justifique.",
       "resposta_esperada": "Zona Urbana (residência do aluno): 38.397.441. Zona Rural (residência do aluno): 7.618.155. Comparando com TP_LOCALIZACAO (localização da escola: 40.871.166 urbana / 5.147.214 rural), percebe-se que o número de alunos residentes em zona rural (7.618.155) é maior que o número de matrículas em escolas localizadas em zona rural (5.147.214). Isso confirma que sim, é possível e frequente haver alunos residentes na zona rural matriculados em escolas urbanas — fenômeno associado ao transporte escolar rural, que desloca diariamente estudantes do campo para escolas de maior porte e infraestrutura situadas em áreas urbanas, prática comum sobretudo nas séries finais do Fundamental e no Ensino Médio.",
-      "raciocinio": "1. Somar QT_MAT_ZR_URB: 38.397.441 matrículas de residentes urbanos. 2. Somar QT_MAT_ZR_RUR: 7.618.155 de residentes rurais. 3. Separadamente, agrupar QT_MAT_BAS por TP_LOCALIZACAO da escola: Urbana 40.871.166; Rural 5.147.214. 4. Observar que residentes rurais são mais numerosos que matrículas em escolas rurais, o que é compatível com deslocamentos para escolas urbanas. 5. Ressaltar que totais marginais não identificam individualmente os trajetos nem provam quantos alunos rurais estudam em escolas urbanas; além disso, as duas somas de residência não cobrem exatamente o total geral, exigindo atenção a dados ausentes."
+      "raciocinio": "1. Somar QT_MAT_ZR_URB: 38.397.441 matrículas de residentes urbanos. 2. Somar QT_MAT_ZR_RUR: 7.618.155 de residentes rurais. 3. Separadamente, agrupar QT_MAT_BAS por TP_LOCALIZACAO da escola: Urbana 40.871.166; Rural 5.147.214. 4. Observar que residentes rurais são mais numerosos que matrículas em escolas rurais, o que é compatível com deslocamentos para escolas urbanas. 5. Ressaltar que totais marginais não identificam individualmente os trajetos nem provam quantos alunos rurais estudam em escolas urbanas; além disso, as duas somas de residência não cobrem exatamente o total geral, exigindo atenção a dados ausentes.",
+      "consultas_sql": [
+        "SELECT SUM(QT_MAT_ZR_URB) AS qt_mat_zr_urb, SUM(QT_MAT_ZR_RUR) AS qt_mat_zr_rur FROM matriculas",
+        "SELECT TP_LOCALIZACAO, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_LOCALIZACAO ORDER BY TP_LOCALIZACAO"
+      ]
     }
   ]
 }

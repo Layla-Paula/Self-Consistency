@@ -11,7 +11,7 @@ import unicodedata
 # 1. VOTAÇÃO MAJORITÁRIA — GSM8K E AQUA-RAT
 # ============================================================
 
-def voto_majoritario(respostas):
+def voto_majoritario(respostas, normalizar_voto=None):
     """Escolhe a resposta mais frequente entre as respostas válidas."""
 
     validas = [
@@ -27,25 +27,31 @@ def voto_majoritario(respostas):
             "distribuicao": {},
             "houve_empate": False,
             "total_respostas_validas": 0,
-            "metodo_votacao": "frequencia_simples",
+            "metodo_votacao": "frequencia_primeira_geracao",
         }
 
-    contagem = Counter(validas)
+    chaves = []
+    for resposta in validas:
+        if normalizar_voto is None:
+            chave = resposta
+        else:
+            try:
+                chave = str(normalizar_voto(resposta)).strip()
+            except (ValueError, TypeError, OverflowError):
+                chave = resposta
+        chaves.append(chave)
+    contagem = Counter(chaves)
     maior = max(contagem.values())
-
-    vencedoras = [
-        resposta
-        for resposta, votos in contagem.items()
-        if votos == maior
-    ]
-
+    vencedoras = [chave for chave, votos in contagem.items() if votos == maior]
+    # Empate: primeira geracao entre as chaves lideres.
+    vencedora = next(chave for chave in chaves if chave in vencedoras)
     return {
-        "vencedora": vencedoras[0] if len(vencedoras) == 1 else "",
+        "vencedora": vencedora,
         "votos": maior,
         "distribuicao": dict(contagem),
         "houve_empate": len(vencedoras) > 1,
         "total_respostas_validas": len(validas),
-        "metodo_votacao": "frequencia_simples",
+        "metodo_votacao": "frequencia_primeira_geracao",
     }
 
 
@@ -80,8 +86,6 @@ def _numero_unico(texto):
     if not re.fullmatch(r"-?\d[\d., ]*%?", texto):
         return None
 
-    percentual = texto.endswith("%")
-
     try:
         valor = normalizar_numero(
             texto.rstrip("%").strip()
@@ -90,8 +94,8 @@ def _numero_unico(texto):
         if not abs(valor) < float("inf"):
             return None
 
-        prefixo = "percentual:" if percentual else "numero:"
-
+        # Percentual e numero sem unidade NAO sao automaticamente equivalentes.
+        prefixo = "percentual:" if texto.endswith("%") else "numero:"
         return prefixo + format(valor, ".12g")
 
     except (ValueError, TypeError, OverflowError):
@@ -171,7 +175,8 @@ def voto_censo_semantico(
     """Seleciona a resposta mais consistente sem consultar o gabarito.
 
     Primeiro verifica equivalência determinística.
-    Quando não há maioria clara, consulta o seletor semântico.
+    Depois escolhe a resposta de maior frequência; empate usa a primeira geração.
+    O parâmetro consultar_ollama é mantido para compatibilidade, mas não é usado.
     """
 
     validas = [
@@ -196,133 +201,30 @@ def voto_censo_semantico(
     contagem = Counter(chaves)
     maximo = max(contagem.values())
 
-    # Há maioria absoluta: não precisa consultar o LLM.
-    if maximo > len(validas) / 2:
-        chave = next(
-            chave
-            for chave, votos in contagem.items()
-            if votos == maximo
-        )
-
-        posicao = chaves.index(chave)
-
-        return {
-            "vencedora": validas[posicao][1],
-            "votos": maximo,
-            "distribuicao": dict(contagem),
-            "houve_empate": False,
-            "total_respostas_validas": len(validas),
-            "metodo_votacao": "censo_equivalencia_deterministica",
-            "indice_selecionado": validas[posicao][0],
-            "tentativas_seletor": 0,
-        }
-
-    if consultar_ollama is None:
-        raise RuntimeError(
-            "Seletor semântico do Censo indisponível."
-        )
-
-    # Mantém os índices originais das cinco amostras.
-    indices_validos = {
-        indice
-        for indice, _ in validas
+    # A pluralidade vence mesmo sem maioria absoluta (por exemplo, 2-1-1-1).
+    # Empates na maior frequência: primeira amostra gerada entre as empatadas.
+    lideres = {chave for chave, votos in contagem.items() if votos == maximo}
+    posicao = next(i for i, chave in enumerate(chaves) if chave in lideres)
+    empate = len(lideres) > 1
+    return {
+        "vencedora": validas[posicao][1],
+        "votos": maximo,
+        "distribuicao": dict(contagem),
+        "houve_empate": empate,
+        "total_respostas_validas": len(validas),
+        "metodo_votacao": (
+            "censo_empate_primeira_geracao" if empate
+            else "censo_pluralidade_deterministica"
+        ),
+        "indice_selecionado": validas[posicao][0],
+        "tentativas_seletor": 0,
     }
 
-    opcoes = "\n".join(
-        f"{indice}. {resposta}"
-        for indice, resposta in validas
-    )
 
-    # CORREÇÃO PRINCIPAL:
-    # O seletor não deve gerar justificativas longas.
-    prompt = (
-        "Você deve selecionar a resposta mais consistente "
-        "entre as candidatas para a MESMA pergunta.\n"
-        "Compare significados, números, categorias e listas.\n"
-        "Respostas semanticamente equivalentes podem "
-        "estar escritas de maneiras diferentes.\n"
-        "NÃO consulte o gabarito: ele não foi fornecido.\n"
-        "NÃO resolva novamente a questão.\n"
-        "NÃO invente uma nova resposta.\n"
-        "Escolha somente um índice existente nas candidatas.\n"
-        "Se não houver consenso semântico claro, escolha 0.\n"
-        "Responda SOMENTE com um JSON curto.\n"
-        "NÃO escreva justificativas ou explicações.\n"
-        'Formato obrigatório: {"indice": 1}\n\n'
-        f"PERGUNTA:\n{pergunta}\n\n"
-        f"CANDIDATAS:\n{opcoes}"
-    )
-
-    ultimo_erro = "Seletor não retornou uma escolha válida."
-    ultima_resposta = ""
-
-    # Até três tentativas de seleção.
-    for tentativa in range(1, 4):
-
-        info = consultar_ollama(
-            prompt,
-            temperature=0,
-            num_predict=160,
-            retornar_metricas=True,
-        )
-
-        if not isinstance(info, dict):
-            ultimo_erro = "Consulta não retornou metadados."
-            continue
-
-        texto = info.get("resposta")
-
-        if texto is None:
-            ultimo_erro = (
-                info.get("erro_detalhado")
-                or "Falha técnica do seletor."
-            )
-            continue
-
-        ultima_resposta = str(texto)
-
-        indice = _extrair_indice(texto)
-
-        # O seletor declarou ausência de consenso.
-        if indice == 0:
-            return {
-                "vencedora": "",
-                "votos": 0,
-                "distribuicao": dict(contagem),
-                "houve_empate": True,
-                "total_respostas_validas": len(validas),
-                "metodo_votacao": "censo_semantica_sem_consenso",
-                "tentativas_seletor": tentativa,
-            }
-
-        # O índice corresponde a uma candidata existente.
-        if indice in indices_validos:
-
-            resposta = next(
-                resposta
-                for i, resposta in validas
-                if i == indice
-            )
-
-            return {
-                "vencedora": resposta,
-                "votos": None,
-                "distribuicao": dict(contagem),
-                "houve_empate": False,
-                "total_respostas_validas": len(validas),
-                "metodo_votacao": "censo_selecao_semantica_llm",
-                "indice_selecionado": indice,
-                "tentativas_seletor": tentativa,
-                "justificativa_seletor": "",
-            }
-
-        ultimo_erro = (
-            "JSON inválido ou índice fora das candidatas."
-        )
-
-    # Não inventa um vencedor quando o seletor falha.
-    raise RuntimeError(
-        "Falha técnica no seletor semântico do Censo: "
-        f"{ultimo_erro} "
-        f"Resposta recebida: {ultima_resposta[:200]!r}"
-    )
+def normalizar_voto_gsm8k(texto):
+    """Chave compartilhada por execução e auditoria; 1.000 = 1000."""
+    from codigo.utils import normalizar_numero
+    valor = normalizar_numero(texto)
+    if not abs(valor) < float('inf'):
+        raise ValueError('Número não finito.')
+    return str(int(valor)) if valor.is_integer() else format(valor, '.12g')

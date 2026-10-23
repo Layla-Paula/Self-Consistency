@@ -1,8 +1,8 @@
 {
-  "id_execucao": "few_shot_aqua_rat_22102026_193429_821",
+  "id_execucao": "few_shot_aqua_rat_22102026_215821_833",
   "tecnica": "few_shot",
   "dataset": "aqua_rat",
-  "data_inicio": "2026-10-22T19:34:29",
+  "data_inicio": "2026-10-22T21:58:22",
   "parametros": {
     "modelo": "llama3.2",
     "temperatura": 0.0,
@@ -89,11 +89,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 4.773,
+      "tempo_segundos": 6.712,
       "tokens_entrada": 1436,
       "tokens_saida": 5,
-      "cpu_percentual": 52.1,
-      "ram_percentual": 89.0
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.47,
+      "ram_ollama_pico_mib": 21.77,
+      "ram_ollama_media_mib": 16.57,
+      "amostras_monitoramento": 47
     },
     {
       "id": "aqua_rat_train_00001",
@@ -109,11 +113,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 11.997,
+      "tempo_segundos": 3.648,
       "tokens_entrada": 1429,
       "tokens_saida": 5,
-      "cpu_percentual": 51.0,
-      "ram_percentual": 89.1
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.0,
+      "ram_ollama_pico_mib": 22.08,
+      "ram_ollama_media_mib": 21.88,
+      "amostras_monitoramento": 29
     },
     {
       "id": "aqua_rat_train_00002",
@@ -129,11 +137,15 @@
       "motivo": null,
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 18.05,
+      "tempo_segundos": 3.713,
       "tokens_entrada": 1429,
       "tokens_saida": 5,
-      "cpu_percentual": 51.0,
-      "ram_percentual": 89.1
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.42,
+      "ram_ollama_pico_mib": 22.58,
+      "ram_ollama_media_mib": 22.23,
+      "amostras_monitoramento": 29
     },
     {
       "id": "aqua_rat_train_00003",
@@ -149,11 +161,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 13.141,
+      "tempo_segundos": 3.547,
       "tokens_entrada": 1429,
       "tokens_saida": 5,
-      "cpu_percentual": 49.1,
-      "ram_percentual": 88.9
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.44,
+      "ram_ollama_pico_mib": 22.58,
+      "ram_ollama_media_mib": 19.03,
+      "amostras_monitoramento": 28
     },
     {
       "id": "aqua_rat_train_00004",
@@ -169,11 +185,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 20.219,
+      "tempo_segundos": 3.619,
       "tokens_entrada": 1420,
       "tokens_saida": 5,
-      "cpu_percentual": 49.3,
-      "ram_percentual": 89.7
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.0,
+      "ram_ollama_pico_mib": 18.98,
+      "ram_ollama_media_mib": 18.87,
+      "amostras_monitoramento": 28
     },
     {
       "id": "aqua_rat_train_00005",
@@ -189,11 +209,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 3.388,
+      "tempo_segundos": 3.639,
       "tokens_entrada": 1425,
       "tokens_saida": 5,
-      "cpu_percentual": 32.2,
-      "ram_percentual": 88.1
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.87,
+      "ram_ollama_pico_mib": 18.98,
+      "ram_ollama_media_mib": 18.77,
+      "amostras_monitoramento": 28
     },
     {
       "id": "aqua_rat_train_00006",
@@ -209,11 +233,15 @@
       "motivo": null,
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 11.88,
+      "tempo_segundos": 3.694,
       "tokens_entrada": 1420,
       "tokens_saida": 5,
-      "cpu_percentual": 47.0,
-      "ram_percentual": 90.0
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.43,
+      "ram_ollama_pico_mib": 18.89,
+      "ram_ollama_media_mib": 17.88,
+      "amostras_monitoramento": 28
     },
     {
       "id": "aqua_rat_train_00007",
@@ -229,11 +257,15 @@
       "motivo": "Resposta incorreta",
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 19.684,
+      "tempo_segundos": 11.699,
       "tokens_entrada": 1389,
       "tokens_saida": 172,
-      "cpu_percentual": 51.3,
-      "ram_percentual": 89.6
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.27,
+      "ram_ollama_pico_mib": 18.38,
+      "ram_ollama_media_mib": 18.34,
+      "amostras_monitoramento": 89
     },
     {
       "id": "aqua_rat_train_00008",
@@ -249,11 +281,15 @@
       "motivo": null,
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 14.955,
+      "tempo_segundos": 3.8,
       "tokens_entrada": 1451,
       "tokens_saida": 5,
-      "cpu_percentual": 49.7,
-      "ram_percentual": 89.2
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.41,
+      "ram_ollama_pico_mib": 18.41,
+      "ram_ollama_media_mib": 18.31,
+      "amostras_monitoramento": 30
     },
     {
       "id": "aqua_rat_train_00009",
@@ -269,16 +305,20 @@
       "motivo": null,
       "revisao_necessaria": false,
       "metodo_avaliacao": "comparacao_exata",
-      "tempo_segundos": 33.098,
+      "tempo_segundos": 10.516,
       "tokens_entrada": 1396,
       "tokens_saida": 148,
-      "cpu_percentual": 51.7,
-      "ram_percentual": 89.4
+      "consultas_censo": [],
+      "rodadas_censo": 0,
+      "cpu_ollama_percentual": 0.89,
+      "ram_ollama_pico_mib": 18.82,
+      "ram_ollama_media_mib": 18.64,
+      "amostras_monitoramento": 79
     }
   ],
   "status": "concluido",
-  "tempo_acumulado_segundos": 151.21589059999678,
-  "data_fim": "2026-10-22T19:37:01",
+  "tempo_acumulado_segundos": 54.968397599994205,
+  "data_fim": "2026-10-22T21:59:17",
   "metricas": {
     "exemplos_utilizados": 10,
     "questoes_executadas": 10,
@@ -298,11 +338,12 @@
     },
     "respostas_sem_extracao": 0,
     "revisoes_necessarias": 0,
-    "tempo_total_segundos": 151.22,
-    "tempo_medio_segundos": 15.12,
+    "tempo_total_segundos": 54.97,
+    "tempo_medio_segundos": 5.46,
     "tokens_entrada": 14224,
     "tokens_saida": 360,
-    "cpu_media_percentual": 48.44,
-    "ram_media_percentual": 89.21
+    "cpu_ollama_media_percentual": 0.42,
+    "ram_ollama_pico_mib": 22.58,
+    "ram_ollama_media_mib": 19.05
   }
 }

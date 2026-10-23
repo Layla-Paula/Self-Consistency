@@ -2,7 +2,8 @@
 import copy
 import json
 import sys
-from collections import Counter
+from codigo.self_consistency.votacao import voto_majoritario
+from codigo.self_consistency.votacao import normalizar_voto_gsm8k
 from pathlib import Path
 
 from codigo.utils import extrair_letra_resposta, extrair_resposta_numerica, comparar_numeros
@@ -67,18 +68,21 @@ def analisar(caminho):
                     if novo != antigo:
                         alteracoes.append({'id': identificador, 'amostra': amostra.get('amostra'), 'antes': antigo, 'depois': novo})
                     amostra['resposta_extraida'] = novo
-                votos = Counter(a['resposta_extraida'] for a in amostras if a.get('resposta_extraida'))
-                maior = max(votos.values(), default=0)
-                lideres = [v for v, n in votos.items() if n == maior]
-                resposta = lideres[0] if len(lideres) == 1 else ''
+                respostas = [a.get('resposta_extraida', '') for a in amostras]
+                votacao = voto_majoritario(
+                    respostas,
+                    normalizar_voto=normalizar_voto_gsm8k if dataset == 'gsm8k' else None,
+                )
+                resposta = votacao['vencedora']
                 questao.update({
-                    'respostas_extraidas': [a.get('resposta_extraida', '') for a in amostras],
-                    'distribuicao_votos': dict(votos),
+                    'respostas_extraidas': respostas,
+                    'distribuicao_votos': votacao['distribuicao'],
                     'resposta_modelo': resposta,
                     'resposta': resposta,
-                    'votos_resposta_modelo': maior if resposta else 0,
-                    'houve_empate': len(lideres) > 1,
-                    'total_respostas_validas': sum(votos.values()),
+                    'votos_resposta_modelo': votacao['votos'],
+                    'houve_empate': votacao['houve_empate'],
+                    'total_respostas_validas': votacao['total_respostas_validas'],
+                    'metodo_votacao': votacao['metodo_votacao'],
                 })
             else:
                 texto = questao.get('texto_modelo')
@@ -121,7 +125,9 @@ def analisar(caminho):
         'metricas_originais': original.get('metricas', {}),
         'alteracoes_extracao': alteracoes,
         'ids_nao_revalidados_offline': nao_revalidados,
-        'observacao': 'Censo sem rubrica objetiva mantém veredito anterior; não houve nova avaliação semântica.',
+        'observacao': ('Censo sem rubrica objetiva mantém veredito anterior; não houve nova avaliação semântica. '
+                       'Resultados históricos do Censo preservam a seleção original: não é possível refazer '
+                       'agrupamentos semânticos somente a partir do vencedor armazenado.'),
     }
     dados['metricas'] = {
         **original.get('metricas', {}),

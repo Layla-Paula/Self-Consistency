@@ -1,263 +1,176 @@
-"""Consultas orientadas pelo ENUNCIADO aos microdados do Censo Escolar 2025.
+"""Censo 2025: modelo consulta microdados via SQL; nenhuma soma é pré-calculada no prompt.
+
+Requer apenas biblioteca padrão. Primeira execução importa o CSV para SQLite local.
+O banco é cache derivado do CSV, nunca do JSON de gabaritos.
 """
 import csv
+import hashlib
+import json
+import os
 import re
-import unicodedata
-from collections import Counter, defaultdict
+import sqlite3
+import time
 from pathlib import Path
 
 PASTA_CSV = Path('dados/censo_escolar/originais/microdados_2025')
-
-# As regras descrevem TEMAS, nao IDs de questoes. O texto define o tema.
-TEMAS = {
- 'estrutura': r'escolas.*registrad|total de matriculas da educacao basica|qt_mat_bas nao inclui|estados|\buf\b|municipios distintos|nu_ano_censo|igual a zero|co_rede.*tp_dependencia',
- 'administracao': r'rede publica|rede privada|dependencia administrativa|federal|estadual|municipal|escolas privadas|particular|filantrop|comunitaria|confessional|poder_publico_parceria|co_rede',
- 'localizacao': r'urbana|rural|localizacao|regioes geograficas|zona rural|zona urbana|terra indigena|quilombola',
- 'territorio': r'unidades da federacao|\buf\b|municipio brasileiro|estados|municipios distintos',
- 'etapas': r'educacao infantil|ensino fundamental|ensino medio|educacao profissional|\beja\b|creche|pre-escola|serie|anos iniciais|anos finais|tecnico|libras',
- 'perfil': r'sexo|feminino|masculino|cor/raca|preto|pardo|amarelo|indigena|nao declarada|faixa etaria|anos de idade|0 a 3|4 a 5|6 a 10|11 a 14|18 anos',
- 'turno': r'turno|diurno|noturno|ead|matutino|vespertino|tempo integral',
- 'inclusao': r'educacao especial|classes comuns|classes exclusivas|inclusao|libras',
- 'transporte': r'transporte escolar|transp_publico|transp_resp',
- 'residencia': r'zona de residencia|zr_urb|zr_rur|residencia do aluno',
-}
-
-GRUPOS = {
- 'administracao': ('CO_REDE','TP_DEPENDENCIA','TP_CATEGORIA_ESCOLA_PRIVADA','IN_PODER_PUBLICO_PARCERIA'),
- 'localizacao': ('TP_LOCALIZACAO','TP_LOCALIZACAO_DIFERENCIADA','NO_REGIAO'),
- 'territorio': ('SG_UF','CO_MUNICIPIO'),
-}
-
-ETAPAS = ('QT_MAT_INF','QT_MAT_INF_CRE','QT_MAT_INF_PRE','QT_MAT_FUND',
- 'QT_MAT_FUND_AI','QT_MAT_FUND_AF','QT_MAT_MED','QT_MAT_PROF',
- 'QT_MAT_PROF_TEC','QT_MAT_PROF_TEC_CONC','QT_MAT_PROF_TEC_SUBS',
- 'QT_MAT_EJA','QT_MAT_EJA_FUND','QT_MAT_EJA_MED','QT_MAT_BAS_LIBRAS')
-PERFIL = ('QT_MAT_BAS_FEM','QT_MAT_BAS_MASC','QT_MAT_BAS_ND',
- 'QT_MAT_BAS_BRANCA','QT_MAT_BAS_PRETA','QT_MAT_BAS_PARDA',
- 'QT_MAT_BAS_AMARELA','QT_MAT_BAS_INDIGENA',
- 'QT_MAT_BAS_0_3','QT_MAT_BAS_4_5','QT_MAT_BAS_6_10',
- 'QT_MAT_BAS_11_14','QT_MAT_BAS_15_17','QT_MAT_BAS_18_MAIS')
-TURNO = ('QT_MAT_BAS_D','QT_MAT_BAS_DM','QT_MAT_BAS_DV',
- 'QT_MAT_BAS_N','QT_MAT_BAS_EAD','QT_MAT_BAS_INT')
-INCLUSAO = ('QT_MAT_ESP','QT_MAT_ESP_CC','QT_MAT_ESP_CE','QT_MAT_BAS_LIBRAS')
-TRANSPORTE = ('QT_TRANSP_PUBLICO','QT_TRANSP_RESP_EST','QT_TRANSP_RESP_MUN')
-RESIDENCIA = ('QT_MAT_ZR_URB','QT_MAT_ZR_RUR','QT_MAT_ZR_NA')
-
-
-def simplificar(texto):
-    texto = unicodedata.normalize('NFKD', str(texto).lower())
-    return ''.join(c for c in texto if not unicodedata.combining(c))
+PASTA_CACHE = Path('dados/censo_escolar/cache_sql')
+CAMINHO_DICIONARIO = Path('dados/censo_escolar/originais/dicionario_variaveis.txt')
 
 
 def localizar_csv():
-    if not PASTA_CSV.is_dir():
-        raise FileNotFoundError(f'Pasta de microdados nao encontrada: {PASTA_CSV.resolve()}')
-    arquivos = [p for p in PASTA_CSV.rglob('*.csv') if 'matricula' in simplificar(p.stem)]
+    arquivos = sorted(PASTA_CSV.rglob('*.csv')) if PASTA_CSV.exists() else []
     preferidos = [p for p in arquivos if p.name.casefold() == 'tabela_matricula_2025_v2.csv']
     if len(preferidos) == 1:
         return preferidos[0]
     if len(arquivos) == 1:
         return arquivos[0]
-    raise FileNotFoundError(f'CSV de matriculas ambiguo/ausente em {PASTA_CSV}: {arquivos}')
+    raise FileNotFoundError(f'CSV não encontrado ou ambíguo em {PASTA_CSV}: {arquivos}')
 
 
-def abrir_tabela(caminho):
-    for codificacao in ('latin-1',):
-        try:
-            with caminho.open('r', encoding=codificacao) as f:
-                amostra = f.read(8192)
-            break
-        except UnicodeDecodeError:
-            continue
+def _leitor_csv(caminho):
+    arquivo = caminho.open('r', encoding='latin-1', newline='')
+    amostra = arquivo.read(4096)
+    arquivo.seek(0)
     delimitador = ';' if amostra.count(';') > amostra.count(',') else ','
-    arquivo = caminho.open('r', encoding=codificacao, newline='')
     return arquivo, csv.DictReader(arquivo, delimiter=delimitador)
-
-
-def numero(valor):
-    s = str(valor or '').strip()
-    if not s:
-        return 0
-    if not re.fullmatch(r'-?\d+', s):
-        raise ValueError(f'Valor nao inteiro no CSV: {valor!r}')
-    return int(s)
-
-
-def temas_da_pergunta(pergunta):
-    texto = simplificar(pergunta)
-    temas = {nome for nome, padrao in TEMAS.items() if re.search(padrao, texto)}
-    # Variaveis explicitas: consulta direta, sem depender de uma lista de IDs.
-    if 'qt_mat_' in texto:
-        temas.add('variaveis_explicitas')
-    if not temas:
-        raise NotImplementedError('Tema da pergunta nao reconhecido com seguranca; revise o enunciado.')
-    return temas
 
 
 class SessaoCenso:
     def __init__(self):
         self.caminho = localizar_csv()
-        arq, leitor = abrir_tabela(self.caminho)
+        arq, leitor = _leitor_csv(self.caminho)
         try:
             self.colunas = tuple(leitor.fieldnames or ())
         finally:
             arq.close()
-        if 'QT_MAT_BAS' not in self.colunas or 'CO_ENTIDADE' not in self.colunas:
-            raise ValueError('Tabela nao corresponde ao layout esperado de matriculas.')
-        self._dados = None
-        self.cache = {}
+        if not {'CO_ENTIDADE', 'QT_MAT_BAS'}.issubset(self.colunas):
+            raise ValueError('CSV não contém as colunas essenciais.')
+        self.colunas_numericas = {c for c in self.colunas if c.startswith('QT_')}
+        self.banco = PASTA_CACHE / 'matriculas_2025.sqlite3'
+        self.marca = PASTA_CACHE / 'matriculas_2025.fonte.json'
+        self._preparado = False
 
     def plano(self, questao):
         pergunta = str(questao.get('pergunta') or questao.get('enunciado') or '').strip()
         if not pergunta:
-            raise ValueError(f"Questao {questao.get('id')} sem pergunta")
-        temas = temas_da_pergunta(pergunta)
-        explicitas = set(re.findall(r'\b(?:QT|CO|TP|IN|NU|SG|NO)_[A-Z0-9_]+\b', pergunta.upper()))
-        faltantes = sorted(explicitas - set(self.colunas))
-        if faltantes:
-            raise KeyError(f'Variaveis citadas no enunciado ausentes no CSV: {faltantes}')
-        return {'temas': temas, 'variaveis': explicitas}
-
-    def _carregar(self):
-        if self._dados is not None:
-            return
-        # Um unico percurso pelo CSV para todas as questoes e demonstracoes.
-        somas = Counter()
-        grupos = defaultdict(lambda: defaultdict(lambda: [0, 0]))
-        regiao = defaultdict(lambda: [0, 0])
-        ufs = defaultdict(int)
-        municipios = defaultdict(int)
-        anos = Counter()
-        total = 0
-        zeros = 0
-        codigos_escolas = set()
-        # Somamos somente variaveis de quantidade, nao codigos categoricos.
-        colunas_qt = [c for c in self.colunas if c.startswith('QT_')]
-        arq, leitor = abrir_tabela(self.caminho)
-        try:
-            for linha in leitor:
-                total += 1
-                codigos_escolas.add(linha['CO_ENTIDADE'])
-                bas = numero(linha['QT_MAT_BAS'])
-                zeros += (bas == 0)
-                for coluna in colunas_qt:
-                    somas[coluna] += numero(linha[coluna])
-                anos[str(linha.get('NU_ANO_CENSO','')).strip()] += 1
-                for grupo in GRUPOS['administracao'] + GRUPOS['localizacao']:
-                    if grupo == 'NO_REGIAO':
-                        continue
-                    if grupo not in linha:
-                        continue
-                    chave = str(linha[grupo] or '').strip()
-                    if chave:
-                        grupos[grupo][chave][0] += 1
-                        grupos[grupo][chave][1] += bas
-                nome_regiao = str(linha.get('NO_REGIAO') or '').strip()
-                loc = str(linha.get('TP_LOCALIZACAO') or '').strip()
-                if nome_regiao:
-                    regiao[nome_regiao][0] += bas
-                    if loc == '2':
-                        regiao[nome_regiao][1] += bas
-                uf = str(linha.get('SG_UF') or '').strip()
-                if uf:
-                    ufs[uf] += bas
-                municipio = str(linha.get('CO_MUNICIPIO') or '').strip()
-                if municipio:
-                    municipios[(uf, municipio, str(linha.get('NO_MUNICIPIO') or '').strip())] += bas
-        finally:
-            arq.close()
-        self._dados = dict(somas=somas, grupos=grupos, regiao=regiao,
-                           ufs=ufs, municipios=municipios, anos=anos,
-                           total=total, escolas=len(codigos_escolas), zeros=zeros)
+            raise ValueError('Questão sem enunciado.')
+        return {'pergunta': pergunta}
 
     def consultar(self, questao):
-        chave = str(questao.get('id') or questao.get('pergunta'))
-        if chave in self.cache:
-            return self.cache[chave]
-        plano = self.plano(questao)
-        self._carregar()
-        d = self._dados
-        temas = plano['temas']
-        pergunta = str(questao.get('pergunta') or questao.get('enunciado'))
-        # O contexto nao inclui gabarito nem raciocinio da questao avaliada.
-        # Disponibiliza contagens e somas primarias para que o modelo calcule
-        # medias, percentuais, diferencas, comparacoes e rankings.
-        linhas = [f'Fonte dos dados: {self.caminho.name}.',
-                  'Valores abaixo sao contagens ou somas extraidas do CSV. ',
-                  'Calcule os indicadores derivados solicitados na pergunta.']
-        if 'estrutura' in temas:
-            linhas += [f'Registros de escolas na tabela: {d["total"]}.',
-                      f'Escolas distintas (CO_ENTIDADE): {d["escolas"]}.',
-                      f'Total de matriculas (QT_MAT_BAS): {d["somas"]["QT_MAT_BAS"]}.',
-                      f'Escolas com QT_MAT_BAS igual a zero: {d["zeros"]}.',
-                      f'Anos observados (NU_ANO_CENSO): {dict(d["anos"])}.',
-                      f'UFs distintas: {len(d["ufs"])}; municipios distintos: {len({m[1] for m in d["municipios"]})}.',
-                      f'UFs: {", ".join(sorted(d["ufs"]))}.']
-        if 'administracao' in temas or 'localizacao' in temas:
-            grupos_relevantes = (GRUPOS['administracao'] if 'administracao' in temas else ()) + (('TP_LOCALIZACAO','TP_LOCALIZACAO_DIFERENCIADA') if 'localizacao' in temas else ())
-            for grupo in grupos_relevantes:
-                if grupo not in d['grupos']:
-                    continue
-                linhas.append(f'Agrupamento por {grupo} (codigo: numero de escolas; total de matriculas):')
-                for codigo, (escolas, matriculas) in sorted(d['grupos'][grupo].items()):
-                    linhas.append(f'  {codigo}: {escolas}; {matriculas}')
-        if 'localizacao' in temas:
-            linhas.append('Regioes (total de matriculas; matriculas em escolas rurais):')
-            for reg, (total_regiao, rural) in sorted(d['regiao'].items()):
-                linhas.append(f'  {reg}: {total_regiao}; {rural}')
-        if 'territorio' in temas:
-            # Ordem alfabetica: nao fornece ranking previamente calculado.
-            linhas.append('Matriculas por UF: ' + '; '.join(f'{k}={v}' for k,v in sorted(d['ufs'].items())))
-            # Para a pergunta sobre o maior municipio, fornece candidatos com
-            # suas somas primarias, sem identificar qual e o vencedor.
-            if 'municipio' in simplificar(pergunta) and 'maior' in simplificar(pergunta):
-                candidatos = sorted(d['municipios'].items(), key=lambda x:-x[1])[:10]
-                linhas.append('Municipios candidatos (municipio/UF, codigo: matriculas): ' + '; '.join(
-                    f'{nome}/{uf} ({codigo}): {valor}'
-                    for (uf,codigo,nome),valor in sorted(candidatos, key=lambda item:(item[0][2],item[0][0]))))
-        # Identifica o tema pela pergunta, nao pelo numero da questao.
-        conjuntos = {'etapas':ETAPAS, 'perfil':PERFIL, 'turno':TURNO,
-                     'inclusao':INCLUSAO, 'transporte':TRANSPORTE, 'residencia':RESIDENCIA}
-        for tema, colunas in conjuntos.items():
-            if tema in temas:
-                linhas.append(f'Indicadores do tema {tema}:')
-                linhas.extend(f'  {c}: {d["somas"][c]}' for c in colunas if c in self.colunas)
-        # O total geral e fornecido apenas quando necessario como denominador
-        # de um percentual ou comparacao com o conjunto de matriculas.
-        if ('percentual' in simplificar(pergunta) or 'total geral' in simplificar(pergunta)
-                or 'total de matriculas da educacao basica' in simplificar(pergunta)):
-            linhas.append(f'Total geral QT_MAT_BAS (denominador): {d["somas"]["QT_MAT_BAS"]}')
-        # Series especificas sao reconhecidas pelo texto da pergunta.
-        t = simplificar(pergunta)
-        if 'serie' in t or 'ano especifico' in t:
-            if 'fundamental' in t:
-                colunas = [f'QT_MAT_FUND_AI_{i}' for i in range(1,6)] + [f'QT_MAT_FUND_AF_{i}' for i in range(6,10)]
-            elif 'medio' in t:
-                colunas = [f'QT_MAT_MED_{i}' for i in range(1,4)]
-            else:
-                colunas = []
-            linhas.extend(f'{c}: {d["somas"][c]}' for c in colunas if c in self.colunas)
-        # Variaveis mencionadas explicitamente sao sempre consultadas.
-        for c in sorted(plano['variaveis']):
-            if c.startswith('QT_'):
-                linhas.append(f'Soma solicitada {c}: {d["somas"][c]}')
-        linhas.append('Categorias codificadas devem ser interpretadas conforme a documentacao oficial.')
-        linhas.append('Estatisticas descritivas nao demonstram causalidade; interpretacoes exigem cautela.')
-        resultado = '\n'.join(linhas)
-        self.cache[chave] = resultado
-        return resultado
+        """Retorna SOMENTE esquema e documentação, nunca resultados de consultas."""
+        self.plano(questao)
+        lista = ', '.join(self.colunas)
+        texto = (
+            'Fonte: Tabela_Matricula_2025_V2.csv. Tabela SQL: matriculas.\n'
+            f'Colunas disponíveis: {lista}\n'
+            'Colunas QT_* são inteiros; outras colunas são texto. '
+            'Códigos categóricos devem ser comparados como strings, por exemplo TP_LOCALIZACAO = \'2\'.\n'
+            'Para contar escolas, use COUNT(DISTINCT CO_ENTIDADE). '
+            'Para somar matrículas, use SUM(QT_MAT_BAS). '
+            'Você deve formular e executar consultas; nenhum total foi fornecido antecipadamente.'
+        )
+        if CAMINHO_DICIONARIO.exists():
+            texto += '\nDicionário oficial disponível por ferramenta: DICIONARIO: CODIGO_DA_VARIAVEL.'
+        else:
+            texto += '\nDicionário oficial NÃO fornecido. Não afirme ter consultado definições oficiais.'
+        return texto
+
+    def preparar_banco(self):
+        if self._preparado:
+            return
+        PASTA_CACHE.mkdir(parents=True, exist_ok=True)
+        stat = self.caminho.stat()
+        fonte = {'arquivo': str(self.caminho.resolve()), 'bytes': stat.st_size,
+                 'mtime_ns': stat.st_mtime_ns, 'colunas': self.colunas}
+        if self.banco.exists() and self.marca.exists():
+            try:
+                if json.loads(self.marca.read_text(encoding='utf-8')) == fonte:
+                    self._preparado = True
+                    return
+            except (ValueError, OSError):
+                pass
+        temporario = self.banco.with_suffix('.tmp.sqlite3')
+        temporario.unlink(missing_ok=True)
+        conexao = sqlite3.connect(temporario)
+        try:
+            campos = ', '.join('"' + c + '" ' + ('INTEGER' if c in self.colunas_numericas else 'TEXT')
+                              for c in self.colunas)
+            conexao.execute(f'CREATE TABLE matriculas ({campos})')
+            insercao = 'INSERT INTO matriculas VALUES (' + ','.join('?' for _ in self.colunas) + ')'
+            arq, leitor = _leitor_csv(self.caminho)
+            try:
+                lote = []
+                for linha in leitor:
+                    valores = []
+                    for coluna in self.colunas:
+                        valor = (linha.get(coluna) or '').strip()
+                        if coluna in self.colunas_numericas:
+                            valores.append(int(valor) if valor else None)
+                        else:
+                            valores.append(valor or None)
+                    lote.append(tuple(valores))
+                    if len(lote) >= 250:
+                        conexao.executemany(insercao, lote)
+                        lote.clear()
+                if lote:
+                    conexao.executemany(insercao, lote)
+            finally:
+                arq.close()
+            conexao.commit()
+        except Exception:
+            conexao.close()
+            temporario.unlink(missing_ok=True)
+            raise
+        conexao.close()
+        os.replace(temporario, self.banco)
+        self.marca.write_text(json.dumps(fonte, ensure_ascii=False), encoding='utf-8')
+        self._preparado = True
+
+    def executar_sql(self, consulta):
+        consulta = str(consulta).strip().rstrip(';').strip()
+        if not re.match(r'^(SELECT|WITH)\b', consulta, flags=re.I):
+            raise ValueError('A ferramenta aceita somente SELECT ou WITH ... SELECT.')
+        if ';' in consulta or len(consulta) > 6000:
+            raise ValueError('Somente uma consulta SQL curta por chamada.')
+        self.preparar_banco()
+        conexao = sqlite3.connect(f'file:{self.banco.resolve().as_posix()}?mode=ro', uri=True)
+        inicio = time.monotonic()
+        try:
+            # Mesmo WITH que tente modificar dados não tem autorização.
+            permitidos = {sqlite3.SQLITE_SELECT, sqlite3.SQLITE_READ,
+                          sqlite3.SQLITE_FUNCTION, sqlite3.SQLITE_RECURSIVE}
+            conexao.set_authorizer(lambda acao, a, b, db, fonte:
+                                   sqlite3.SQLITE_OK if acao in permitidos else sqlite3.SQLITE_DENY)
+            conexao.set_progress_handler(lambda: 1 if time.monotonic() - inicio > 12 else 0, 20000)
+            cursor = conexao.execute(consulta)
+            nomes = [item[0] for item in cursor.description or []]
+            linhas = cursor.fetchmany(31)
+            truncado = len(linhas) > 30
+            resultado = [dict(zip(nomes, linha)) for linha in linhas[:30]]
+            return {'colunas': nomes, 'linhas': resultado, 'truncado': truncado,
+                    'duracao_sql_segundos': round(time.monotonic() - inicio, 3)}
+        finally:
+            conexao.close()
+
+    def consultar_dicionario(self, variavel):
+        """Busca somente o cabecalho exato da variavel no dicionario oficial."""
+        if not CAMINHO_DICIONARIO.is_file():
+            return {'erro': 'Dicionário oficial não encontrado.'}
+        variavel = str(variavel).strip().upper()
+        if not re.fullmatch(r'[A-Z][A-Z0-9_]{2,80}', variavel):
+            return {'erro': 'Código de variável inválido.'}
+        texto = CAMINHO_DICIONARIO.read_text(encoding='utf-8')
+        for bloco in re.split(r'\n\s*\n', texto):
+            linhas = bloco.strip().splitlines()
+            if linhas and linhas[0].strip().upper() == f'VARIÁVEL: {variavel}':
+                return {'variavel': variavel, 'trechos': [bloco.strip()]}
+        return {'erro': f'{variavel} não encontrada no dicionário.'}
 
 
 def verificar_consultas(questoes):
     sessao = SessaoCenso()
-    erros = []
-    for q in questoes:
-        try:
-            sessao.plano(q)
-        except (ValueError, KeyError, NotImplementedError) as e:
-            erros.append(f'{q.get("id")}: {e}')
-    if erros:
-        raise ValueError('Enunciados nao processaveis:\n' + '\n'.join(erros))
+    for questao in questoes:
+        sessao.plano(questao)
     return True
 
 

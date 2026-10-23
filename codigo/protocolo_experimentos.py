@@ -17,7 +17,7 @@ USAR_LIMITE_PADRAO = object()
 
 LIMITES_PADRAO = {'gsm8k': 10, 
                   'aqua_rat': 10, 
-                  'censo': None}
+                  'censo': 20}
 
 #LIMITES_PADRAO = {'gsm8k': None, 
 #                  'aqua_rat': None, 
@@ -67,6 +67,8 @@ def selecionar_exemplos_comuns(dataset, registros, quantidade):
             raise ValueError('Exemplo Censo sem resposta_esperada.')
         if any(not str(e.get('raciocinio') or '').strip() for e in exemplos):
             raise ValueError('Exemplo Censo sem raciocinio; necessário para CoT e SC.')
+        if any(not e.get('consultas_sql') for e in exemplos):
+            raise ValueError('Exemplo Censo sem consultas_sql; execute baixar_preparar_censo.py.')
         return exemplos
     exemplos, vistos = [], set()
     for q in registros:

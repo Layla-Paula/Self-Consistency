@@ -1,3 +1,4 @@
+from codigo.agente_censo import consultar_censo_agente, executar_consultas_demonstracao
 """Execução Few-shot: GSM8K, AQuA-RAT e Censo Escolar.
 """
 import json
@@ -29,7 +30,8 @@ try:
     import psutil
 except ImportError:
     psutil = None
-MODELO = "llama3.2"
+from codigo.utils import MODELO_OLLAMA, SEMENTE_OLLAMA
+MODELO = MODELO_OLLAMA
 TEMPERATURE = 0.0
 NUM_PREDICT = 1200
 SALVAR_CADA = 10
@@ -101,8 +103,9 @@ def metricas(resultados, tempo_total, quantidade, dataset):
         "tempo_medio_segundos": round(statistics.mean(tempos), 2) if tempos else None,
         "tokens_entrada": sum(r.get("tokens_entrada") or 0 for r in validos),
         "tokens_saida": sum(r.get("tokens_saida") or 0 for r in validos),
-        "cpu_media_percentual": media("cpu_percentual"),
-        "ram_media_percentual": media("ram_percentual"),
+        "cpu_ollama_media_percentual": media("cpu_ollama_percentual"),
+        "ram_ollama_pico_mib": max((r["ram_ollama_pico_mib"] for r in avaliadas if r.get("ram_ollama_pico_mib") is not None), default=None),
+        "ram_ollama_media_mib": media("ram_ollama_media_mib"),
     }
 
 
@@ -164,6 +167,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         raise ValueError("Nenhuma questão disponível para avaliação após excluir os exemplos.")
     sessao = None
     contextos_exemplos = None
+    consultas_exemplos = None
     if dataset == "censo":
         try:
             from codigo.consulta_censo import SessaoCenso, verificar_consultas
@@ -173,7 +177,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             ) from erro
         verificar_consultas(exemplos + questoes)
         sessao = SessaoCenso()
-        contextos_exemplos = {str(e["id"]): sessao.consultar(e) for e in exemplos}
+        contextos_exemplos = {str(e["id"]): "Consulte a tabela matriculas por SQL." for e in exemplos}
+        consultas_exemplos = executar_consultas_demonstracao(sessao, exemplos)
     pasta = pasta_configuracao("few_shot", dataset, limite, quantidade)
     nome = (Path(retomar).name.removesuffix(".progresso.json") if retomar
             else identificador_novo(dataset, limite, quantidade))
@@ -181,6 +186,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
     progresso = pasta / f"{nome}.progresso.json"
     parametros = {
         "modelo": MODELO,
+        "seed": SEMENTE_OLLAMA,
         "temperatura": TEMPERATURE,
         "limite": limite,
         "maximo_tokens_resposta": NUM_PREDICT,
@@ -189,6 +195,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         "ids_questoes": [str(q["id"]) for q in questoes],
         "criterio_avaliacao": "todos_splits_sem_demonstracoes" if dataset != "censo" else "fora_das_demonstracoes",
     }
+    if dataset == 'censo':
+        parametros['arquitetura_censo'] = 'agente_sql_direto_v1_max_5_consultas'
+        parametros['demonstracoes_censo'] = 'consultas_sql_executadas_v1'
     parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
     parametros['top_k'] = 40
     parametros['top_p'] = 0.9
@@ -245,13 +254,16 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 exemplos_prompt = [e for e in exemplos if str(e["id"]) != str(questao["id"])]
                 if not exemplos_prompt:
                     raise ValueError("Censo precisa de pelo menos dois exemplos para executar demonstrações.")
-                prompt = prompt_few_shot_censo(questao, contexto, exemplos_prompt, contextos_exemplos)
+                prompt = prompt_few_shot_censo(questao, contexto, exemplos_prompt, contextos_exemplos, consultas_exemplos)
                 gabarito = extrair_gabarito_censo(questao)
             inicio_questao = time.perf_counter()
-            info = consultar_ollama(
+            info = (consultar_censo_agente(
+                prompt, sessao, temperature=TEMPERATURE,
+                num_predict=NUM_PREDICT, retornar_metricas=True,
+            ) if dataset == "censo" else consultar_ollama(
                 prompt, temperature=TEMPERATURE,
                 num_predict=NUM_PREDICT, retornar_metricas=True,
-            )
+            ))
             duracao = round(time.perf_counter() - inicio_questao, 3)
             if not isinstance(info, dict):
                 info = {"resposta": None}
@@ -268,7 +280,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                     "tentativas_consulta": info.get("tentativas", 3),
                     "revisao_necessaria": False, "metodo_avaliacao": "falha_tecnica_consulta",
                     "tempo_segundos": duracao, "tokens_entrada": None,
-                    "tokens_saida": None, **recursos(),
+                    "tokens_saida": None, "consultas_censo": info.get("consultas_censo", []) if dataset == "censo" else [], "texto_descartado": info.get("texto_descartado", ""), "transcricoes_censo": info.get("transcricoes_censo", []), "motivo_encerramento_censo": info.get("motivo_encerramento_censo"), "consultas_repetidas_bloqueadas": info.get("consultas_repetidas_bloqueadas", 0), **{k: info.get(k) for k in ("cpu_ollama_percentual", "ram_ollama_pico_mib", "ram_ollama_media_mib", "amostras_monitoramento")},
                 })
                 print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {motivo}. Avançando.")
                 checkpoint()
@@ -302,7 +314,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                         "metodo_avaliacao": "falha_tecnica_avaliador",
                         "tempo_segundos": duracao,
                         "tokens_entrada": info.get("prompt_eval_count"),
-                        "tokens_saida": info.get("eval_count"), **recursos(),
+                        "tokens_saida": info.get("eval_count"),
+                "consultas_censo": info.get("consultas_censo", []) if dataset == "censo" else [], "texto_descartado": info.get("texto_descartado", ""), "transcricoes_censo": info.get("transcricoes_censo", []), "motivo_encerramento_censo": info.get("motivo_encerramento_censo"), "consultas_repetidas_bloqueadas": info.get("consultas_repetidas_bloqueadas", 0),
+                "rodadas_censo": info.get("rodadas_censo", 0) if dataset == "censo" else 0, **{k: info.get(k) for k in ("cpu_ollama_percentual", "ram_ollama_pico_mib", "ram_ollama_media_mib", "amostras_monitoramento")},
                     })
                     print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {motivo}. Avançando.")
                     checkpoint()
@@ -338,7 +352,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 "tempo_segundos": duracao,
                 "tokens_entrada": info.get("prompt_eval_count"),
                 "tokens_saida": info.get("eval_count"),
-                **recursos(),
+                "consultas_censo": info.get("consultas_censo", []) if dataset == "censo" else [], "texto_descartado": info.get("texto_descartado", ""), "transcricoes_censo": info.get("transcricoes_censo", []), "motivo_encerramento_censo": info.get("motivo_encerramento_censo"), "consultas_repetidas_bloqueadas": info.get("consultas_repetidas_bloqueadas", 0),
+                "rodadas_censo": info.get("rodadas_censo", 0) if dataset == "censo" else 0,
+                **{k: info.get(k) for k in ("cpu_ollama_percentual", "ram_ollama_pico_mib", "ram_ollama_media_mib", "amostras_monitoramento")},
             })
             if len(resultados) % SALVAR_CADA == 0:
                 checkpoint()

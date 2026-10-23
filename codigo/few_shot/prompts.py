@@ -54,7 +54,8 @@ Substitua X por uma única letra entre A e E.'''.strip()
 
 # CENSO: as demonstrações contêm dados calculados do CSV e respostas do train
 # sorteado; a questão avaliada recebe somente sua própria evidência e pergunta.
-def prompt_few_shot_censo(questao, contexto, exemplos, contextos):
+def prompt_few_shot_censo(questao, contexto, exemplos, contextos, consultas_exemplos=None):
+    """consultas_exemplos: {id: texto} com as consultas SQL e os resultados de cada demonstração."""
     if not exemplos:
         raise ValueError('Few-shot Censo precisa de demonstrações.')
     blocos = []
@@ -62,9 +63,16 @@ def prompt_few_shot_censo(questao, contexto, exemplos, contextos):
         resposta = str(exemplo.get('resposta_esperada') or '').strip()
         if not resposta:
             raise ValueError(f'Exemplo do Censo sem gabarito: {exemplo["id"]}')
+        consultas = ''
+        if consultas_exemplos is not None:
+            consultas = str(consultas_exemplos.get(str(exemplo['id'])) or '').strip()
+            if not consultas:
+                raise ValueError(f'Demonstração do Censo sem consultas SQL: {exemplo["id"]}')
+            consultas += '\n'
         blocos.append(
             f'Exemplo {i}:\n'
             f'{montar_questao_censo(exemplo, contextos[exemplo["id"]])}\n'
+            f'{consultas}'
             f'Resposta: {resposta}'
         )
     demonstracoes = '\n\n'.join(blocos)
@@ -72,7 +80,7 @@ def prompt_few_shot_censo(questao, contexto, exemplos, contextos):
 
 {demonstracoes}
 
-Agora responda uma nova questão usando SOMENTE os dados apresentados para ela:
+Agora responda uma nova questão consultando diretamente os microdados por SQL:
 {montar_questao_censo(questao, contexto)}
 
 Resposta:'''.strip()

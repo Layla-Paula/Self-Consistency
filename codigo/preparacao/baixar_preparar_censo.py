@@ -27,20 +27,22 @@ TOTAL_QUESTOES = 50
 TOTAL_ESCOLAS_REFERENCIA = 178766
 
 # Resoluções elaboradas para as demonstrações CoT, associadas aos números do DOCX.
-# Não são respostas originais do professor; confira contra a mesma versão dos microdados.
-RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar CO_ENTIDADE como código da escola. 3. '
-    'Contar os códigos distintos com COUNT(DISTINCT CO_ENTIDADE), evitando contar duas vezes a mesma '
-    'escola. 4. A contagem resulta em 178.766 escolas.',
- 2: '1. Identificar QT_MAT_BAS, quantidade de matrículas da Educação Básica por escola. 2. Converter os '
-    'valores para inteiros e somar QT_MAT_BAS em todas as linhas, sem agrupar por escola ou região. 3. '
-    'A soma é 46.018.380 matrículas; não confundir soma de matrículas com contagem de escolas.',
+# Não são respostas originais do professor; foram conferidas contra a mesma versão dos microdados.
+RACIOCINIOS_CENSO = {1: '1. Consultar a tabela SQL matriculas, criada a partir da Tabela_Matricula_2025_V2.csv. 2. '
+    'Identificar CO_ENTIDADE como código da escola. 3. Contar os códigos distintos com COUNT(DISTINCT '
+    'CO_ENTIDADE), evitando contar duas vezes a mesma escola. 4. A contagem resulta em 178.766 '
+    'escolas.',
+ 2: '1. Identificar QT_MAT_BAS, quantidade de matrículas da Educação Básica por escola. 2. Converter '
+    'os valores para inteiros e somar QT_MAT_BAS em todas as linhas, sem agrupar por escola ou região. '
+    '3. A soma é 46.018.380 matrículas; não confundir soma de matrículas com contagem de escolas.',
  3: '1. Consultar a definição de QT_MAT_BAS no Dicionário de Variáveis da Educação Básica, pois a '
     'exclusão de modalidades não pode ser deduzida apenas de somas do CSV. 2. Identificar as duas '
     'exclusões descritas: turmas exclusivas de atividade complementar e turmas exclusivas de '
     'Atendimento Educacional Especializado (AEE). 3. Informar ambas, sem subtrair valores da tabela.',
  4: '1. Localizar SG_UF (sigla) ou CO_UF (código da Unidade da Federação). 2. Obter valores distintos '
     'não vazios com COUNT(DISTINCT SG_UF). 3. A contagem é 27 UFs. 4. Interpretar corretamente: 26 '
-    'estados e o Distrito Federal. 5. Listar as 27 UFs: AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE e TO.',
+    'estados e o Distrito Federal. 5. Listar as 27 UFs: AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, '
+    'MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE e TO.',
  5: '1. Identificar CO_MUNICIPIO, código do município em que a escola está localizada. 2. Considerar '
     'todas as escolas registradas e contar os códigos municipais distintos, ignorando duplicatas. 3. '
     'COUNT(DISTINCT CO_MUNICIPIO) resulta em 5.571 municípios com pelo menos uma escola.',
@@ -53,8 +55,8 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
     'base.',
  8: '1. Consultar as definições de TP_DEPENDENCIA e CO_REDE no dicionário. 2. TP_DEPENDENCIA distingue '
     'Federal (1), Estadual (2), Municipal (3) e Privada (4). 3. CO_REDE agrega as três primeiras na '
-    'rede Pública (1) e a última na Privada (2). 4. Explicar que uma variável detalha a administração e '
-    'a outra resume a rede.',
+    'rede Pública (1) e a última na Privada (2). 4. Explicar que uma variável detalha a administração '
+    'e a outra resume a rede.',
  9: '1. Usar CO_REDE para separar as escolas em Pública (código 1) e Privada (código 2). 2. Contar '
     'CO_ENTIDADE distinta em cada grupo. 3. Encontrar 137.020 escolas públicas e 41.746 privadas. 4. '
     'Conferir: 137.020 + 41.746 = 178.766 escolas.',
@@ -82,55 +84,61 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
      'categorias; CO_REDE sozinho só separa pública de privada.',
  15: '1. Filtrar escolas privadas (TP_DEPENDENCIA = 4). 2. Agrupar por TP_CATEGORIA_ESCOLA_PRIVADA e '
      'somar QT_MAT_BAS. 3. Particular (1): 7.085.034; Filantrópica (4): 1.711.268; Comunitária (2): '
-     '299.736; Confessional (3): 149.346. 4. Comparar Particular e Filantrópica: Particular é maior. 5. '
-     'Calcular 7.085.034/9.245.384 × 100 ≈ 76,6% das matrículas privadas.',
+     '299.736; Confessional (3): 149.346. 4. Comparar Particular e Filantrópica: Particular é maior. '
+     '5. Calcular 7.085.034/9.245.384 × 100 ≈ 76,6% das matrículas privadas.',
  16: '1. Identificar IN_PODER_PUBLICO_PARCERIA como indicador de parceria com o poder público. 2. '
-     'Consultar o dicionário para interpretar o valor 1 como presença de parceria/convênio. 3. Explicar '
-     'que a parceria pode envolver financiamento do atendimento educacional ou oferta de itinerário '
-     'técnico-profissional. 4. Não concluir que a escola é pública: parceria e dependência '
+     'Consultar o dicionário para interpretar o valor 1 como presença de parceria/convênio. 3. '
+     'Explicar que a parceria pode envolver financiamento do atendimento educacional ou oferta de '
+     'itinerário técnico-profissional. 4. Não concluir que a escola é pública: parceria e dependência '
      'administrativa são características diferentes.',
  17: '1. Identificar TP_LOCALIZACAO no CSV: 1 Urbana, 2 Rural. 2. Agrupar os registros por esses '
      'códigos e contar CO_ENTIDADE distinta. 3. Encontrar 128.037 escolas urbanas e 50.729 rurais. 4. '
      'Conferir que a soma é 178.766.',
  18: '1. Agrupar por TP_LOCALIZACAO: 1 Urbana e 2 Rural. 2. Somar QT_MAT_BAS em cada grupo, sem contar '
-     'somente escolas. 3. Obter 40.871.166 matrículas em escolas urbanas e 5.147.214 em escolas rurais. '
-     '4. Conferir a soma de 46.018.380 matrículas.',
+     'somente escolas. 3. Obter 40.871.166 matrículas em escolas urbanas e 5.147.214 em escolas '
+     'rurais. 4. Conferir a soma de 46.018.380 matrículas.',
  19: '1. Agrupar por TP_LOCALIZACAO. 2. Contar escolas e somar QT_MAT_BAS: Urbana 128.037 escolas e '
      '40.871.166 matrículas; Rural 50.729 escolas e 5.147.214 matrículas. 3. Calcular médias: Urbana '
      '40.871.166/128.037 ≈ 319,2; Rural 5.147.214/50.729 ≈ 101,5. 4. Comparar: a média urbana supera a '
      'rural em mais de três vezes. 5. Interpretar como diferença de porte médio, não como medida do '
      'tamanho de cada escola.',
- 20: '1. Agrupar as matrículas por NO_REGIAO e TP_LOCALIZACAO. 2. Para cada região, calcular 100 × '
-     'SUM(QT_MAT_BAS das escolas rurais, TP_LOCALIZACAO=2) / SUM(QT_MAT_BAS de todas as escolas da '
-     'região). 3. Obter Norte 24,42%; Nordeste 21,34%; Centro-Oeste 5,90%; Sul 5,77%; Sudeste 3,30%. 4. '
-     'Comparar os cinco percentuais e identificar Norte como maior. 5. O denominador é o total '
-     'regional, não o total nacional.',
- 21: '1. Calcular para cada NO_REGIAO o percentual de matrículas em escolas rurais: 100 × matrículas '
-     'com TP_LOCALIZACAO=2 / matrículas totais da região. 2. Comparar os cinco resultados; o Sudeste '
-     'tem o menor, cerca de 3,30%. 3. Associar como hipótese à elevada urbanização e concentração '
-     'metropolitana da região. 4. Ressaltar que o CSV descreve matrículas e não comprova sozinho a '
-     'causa socioeconômica.',
- 22: '1. Agrupar os registros por SG_UF. 2. Somar QT_MAT_BAS de todas as escolas em cada UF. 3. Ordenar '
-     'os totais em ordem decrescente e selecionar as cinco primeiras: SP 9.600.318; MG 4.220.829; BA '
-     '3.345.058; RJ 3.319.771; PR 2.438.428. 4. Informar os nomes correspondentes: São Paulo, Minas '
-     'Gerais, Bahia, Rio de Janeiro e Paraná.',
- 23: '1. Agrupar os registros por SG_UF e somar QT_MAT_BAS em cada UF. 2. Ordenar os 27 totais em ordem '
-     'crescente. 3. Selecionar as cinco primeiras: RR 186.395; AP 212.026; AC 242.727; RO 376.264; TO '
-     '380.768. 4. Informar Roraima, Amapá, Acre, Rondônia e Tocantins. 5. A posição no ranking resulta '
-     'da soma, não do número de escolas.',
+ 20: '1. Desconsiderar a escola sem região informada (NO_REGIAO vazio): ela formaria um grupo NULL, '
+     'com percentual próprio, e distorceria a comparação. 2. Agrupar as matrículas por NO_REGIAO e '
+     'TP_LOCALIZACAO. 3. Para cada região, calcular 100 × SUM(QT_MAT_BAS das escolas rurais, '
+     'TP_LOCALIZACAO=2) / SUM(QT_MAT_BAS de todas as escolas da região). 4. Obter Norte 24,42%; '
+     'Nordeste 21,34%; Centro-Oeste 5,90%; Sul 5,77%; Sudeste 3,30%. 5. Comparar os cinco percentuais '
+     'e identificar Norte como maior. 6. O denominador é o total regional, não o total nacional.',
+ 21: '1. Desconsiderar a escola sem região informada (NO_REGIAO vazio): ela formaria um grupo NULL, '
+     'com percentual próprio, e distorceria a comparação. 2. Calcular para cada NO_REGIAO o percentual '
+     'de matrículas em escolas rurais: 100 × matrículas com TP_LOCALIZACAO=2 / matrículas totais da '
+     'região. 3. Comparar os cinco resultados; o Sudeste tem o menor, cerca de 3,30%. 4. Associar como '
+     'hipótese à elevada urbanização e concentração metropolitana da região. 5. Ressaltar que o CSV '
+     'descreve matrículas e não comprova sozinho a causa socioeconômica.',
+ 22: '1. Desconsiderar a escola sem UF informada (SG_UF vazio): ela formaria um grupo NULL e '
+     'distorceria o ranking; ela só entra em totais nacionais. 2. Agrupar os registros por SG_UF. 3. '
+     'Somar QT_MAT_BAS de todas as escolas em cada UF. 4. Ordenar os totais em ordem decrescente e '
+     'selecionar as cinco primeiras: SP 9.600.318; MG 4.220.829; BA 3.345.058; RJ 3.319.771; PR '
+     '2.438.428. 5. Informar os nomes correspondentes: São Paulo, Minas Gerais, Bahia, Rio de Janeiro '
+     'e Paraná.',
+ 23: '1. Desconsiderar a escola sem UF informada (SG_UF vazio): ela formaria um grupo NULL e '
+     'distorceria o ranking; ela só entra em totais nacionais. 2. Agrupar os registros por SG_UF e '
+     'somar QT_MAT_BAS em cada UF. 3. Ordenar os 27 totais em ordem crescente. 4. Selecionar as cinco '
+     'primeiras: RR 186.395; AP 212.026; AC 242.727; RO 376.264; TO 380.768. 5. Informar Roraima, '
+     'Amapá, Acre, Rondônia e Tocantins. 6. A posição no ranking resulta da soma, não do número de '
+     'escolas.',
  24: '1. Agrupar as linhas pelo código CO_MUNICIPIO (e usar NO_MUNICIPIO e SG_UF para apresentar o '
      'nome). 2. Somar QT_MAT_BAS para cada município. 3. Ordenar em ordem decrescente. 4. Identificar '
      'São Paulo/SP com 2.512.355 matrículas; o segundo é Rio de Janeiro/RJ com 1.208.798. 5. Não '
      'confundir município com estado de São Paulo.',
- 25: '1. Consultar o dicionário de TP_LOCALIZACAO_DIFERENCIADA: código 2 corresponde a Terra Indígena e '
-     '3 a Comunidade Quilombola. 2. Filtrar cada código separadamente e somar QT_MAT_BAS. 3. Obter '
+ 25: '1. Consultar o dicionário de TP_LOCALIZACAO_DIFERENCIADA: código 2 corresponde a Terra Indígena '
+     'e 3 a Comunidade Quilombola. 2. Filtrar cada código separadamente e somar QT_MAT_BAS. 3. Obter '
      'Terra Indígena 280.634 e Comunidade Quilombola 288.673. 4. Comparar os totais: Quilombola supera '
      'Indígena em 8.039 matrículas.',
  26: '1. Identificar as variáveis de grandes etapas QT_MAT_INF, QT_MAT_FUND, QT_MAT_MED, QT_MAT_PROF e '
-     'QT_MAT_EJA. 2. Somar cada coluna em todas as escolas: Infantil 9.286.182; Fundamental 25.806.767; '
-     'Médio 7.370.879; Profissional 3.187.976; EJA 2.252.069. 3. Comparar os cinco totais e identificar '
-     'Ensino Fundamental como maior. 4. Não somar esses totais para obter o total geral sem verificar '
-     'sobreposições de modalidades.',
+     'QT_MAT_EJA. 2. Somar cada coluna em todas as escolas: Infantil 9.286.182; Fundamental '
+     '25.806.767; Médio 7.370.879; Profissional 3.187.976; EJA 2.252.069. 3. Comparar os cinco totais '
+     'e identificar Ensino Fundamental como maior. 4. Não somar esses totais para obter o total geral '
+     'sem verificar sobreposições de modalidades.',
  27: '1. Somar QT_MAT_INF_CRE em todas as escolas: 4.182.646 matrículas. 2. Somar QT_MAT_INF_PRE: '
      '5.103.536 matrículas. 3. Comparar e encontrar 920.890 matrículas a mais na Pré-Escola. 4. '
      'Relacionar a diferença à obrigatoriedade de matrícula a partir dos 4 anos, prevista na '
@@ -139,21 +147,25 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
      '11.292.523. 3. Subtrair: diferença de 3.221.721 matrículas. 4. Discutir possíveis fatores de '
      'fluxo escolar, como evasão, retenção e variação entre coortes, sem tratar a comparação '
      'transversal de 2025 como prova de abandono dos mesmos alunos.',
- 29: '1. Somar separadamente QT_MAT_FUND_AI_1 a QT_MAT_FUND_AI_5 e QT_MAT_FUND_AF_6 a QT_MAT_FUND_AF_9. '
-     '2. Obter, do 1º ao 9º ano: 2.890.337; 2.874.392; 2.850.775; 2.984.869; 2.913.871; 2.919.014; '
-     '2.870.115; 2.840.218; 2.663.176. 3. Organizar em tabela com ano e matrículas. 4. Comparar as nove '
-     'somas e identificar o 4º ano, com 2.984.869, como maior.',
+ 29: '1. Somar separadamente QT_MAT_FUND_AI_1 a QT_MAT_FUND_AI_5 e QT_MAT_FUND_AF_6 a '
+     'QT_MAT_FUND_AF_9. 2. Obter, do 1º ao 9º ano: 2.890.337; 2.874.392; 2.850.775; 2.984.869; '
+     '2.913.871; 2.919.014; 2.870.115; 2.840.218; 2.663.176. 3. Organizar em tabela com ano e '
+     'matrículas. 4. Comparar as nove somas e identificar o 4º ano, com 2.984.869, como maior.',
  30: '1. Somar as variáveis QT_MAT_MED_1, QT_MAT_MED_2 e QT_MAT_MED_3, correspondentes às três séries. '
-     '2. Encontrar 1ª 2.746.470; 2ª 2.438.380; 3ª 2.109.116. 3. Verificar a redução entre as séries. 4. '
-     'Calcular (2.746.470 − 2.109.116)/2.746.470 × 100 ≈ 23,2%. 5. Apontar evasão ou retenção como '
+     '2. Encontrar 1ª 2.746.470; 2ª 2.438.380; 3ª 2.109.116. 3. Verificar a redução entre as séries. '
+     '4. Calcular (2.746.470 − 2.109.116)/2.746.470 × 100 ≈ 23,2%. 5. Apontar evasão ou retenção como '
      'hipóteses, não como causas comprovadas por um único retrato anual.',
  31: '1. Somar QT_MAT_PROF_TEC em todas as escolas: 2.490.145 matrículas técnicas. 2. Somar '
-     'QT_MAT_PROF: 3.187.976 matrículas na Educação Profissional. 3. Calcular 100 × 2.490.145/3.187.976 '
-     '≈ 78,1%. 4. Informar numerador, denominador e percentual.',
+     'QT_MAT_PROF: 3.187.976 matrículas na Educação Profissional. 3. Calcular 100 × '
+     '2.490.145/3.187.976 ≈ 78,1%. 4. Informar numerador, denominador e percentual.',
  32: '1. Somar QT_MAT_PROF_TEC_CONC: 348.446 matrículas em cursos técnicos concomitantes. 2. Somar '
      'QT_MAT_PROF_TEC_SUBS: 832.032 matrículas em cursos subsequentes. 3. Comparar: Subsequente é '
-     'maior. 4. Consultar o dicionário: Concomitante ocorre durante o Ensino Médio; Subsequente ocorre '
-     'após sua conclusão. 5. Não confundir as duas formas com curso técnico integrado.',
+     'maior. 4. Como a pergunta pede a diferença segundo o dicionário de dados, consultar a variável '
+     'que reúne as duas formas (DICIONARIO: QT_MAT_PROF_TEC), pois QT_MAT_PROF_TEC_CONC e '
+     'QT_MAT_PROF_TEC_SUBS só trazem o nome. 5. Usar a nota do dicionário: cursos técnicos de nível '
+     'médio nas formas articuladas (integrada ou concomitante), ou subsequente ao ensino médio. 6. '
+     'Concluir: o Concomitante é articulado ao Ensino Médio, cursado junto com ele; o Subsequente é '
+     'posterior ao Ensino Médio. 7. Não confundir as duas formas com curso técnico integrado.',
  33: '1. Somar QT_MAT_EJA: 2.252.069 matrículas. 2. Somar QT_MAT_BAS: 46.018.380 matrículas. 3. '
      'Calcular 100 × 2.252.069/46.018.380 ≈ 4,89%. 4. Informar o total de EJA e sua proporção no total '
      'geral.',
@@ -172,8 +184,8 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
      'percentuais: diferença de aproximadamente 1,2 ponto percentual, pequena.',
  38: '1. Somar QT_MAT_BAS_PRETA = 2.301.626 e QT_MAT_BAS_PARDA = 20.847.435; juntos 23.149.061. 2. '
      'Calcular o total de cor/raça declarada subtraindo QT_MAT_BAS_ND do total: 46.018.380 − 6.275.577 '
-     '= 39.742.803. 3. Dividir 23.149.061 por 39.742.803 e multiplicar por 100: aproximadamente 58,25%. '
-     '4. Usar apenas declarados como denominador, conforme o enunciado.',
+     '= 39.742.803. 3. Dividir 23.149.061 por 39.742.803 e multiplicar por 100: aproximadamente '
+     '58,25%. 4. Usar apenas declarados como denominador, conforme o enunciado.',
  39: '1. Somar as colunas de cor/raça declarada: QT_MAT_BAS_BRANCA, PRETA, PARDA, AMARELA e INDIGENA. '
      '2. Excluir QT_MAT_BAS_ND (não declarada) da comparação. 3. Comparar as somas: Amarela tem '
      '167.379, abaixo de Indígena (381.498) e dos demais grupos. 4. Identificar Amarela como menor '
@@ -184,11 +196,12 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
      'categorias.',
  41: '1. Somar QT_MAT_BAS_6_10: 14.111.254 matrículas. 2. Somar QT_MAT_BAS_11_14: 11.194.106. 3. '
      'Comparar: 6 a 10 anos apresenta maior total. 4. Relacionar, em termos de idade usual, 6–10 anos '
-     'aos Anos Iniciais e 11–14 aos Anos Finais do Ensino Fundamental, admitindo distorção idade-série.',
+     'aos Anos Iniciais e 11–14 aos Anos Finais do Ensino Fundamental, admitindo distorção '
+     'idade-série.',
  42: '1. Somar QT_MAT_BAS_18_MAIS: 3.974.803 matrículas. 2. Identificar no dicionário que a coluna '
      'corresponde a estudantes de 18 anos ou mais. 3. Associar esse contingente, como interpretação '
-     'provável, à EJA, à Educação Profissional e a estudantes com distorção idade-série. 4. Não afirmar '
-     'que a coluna isoladamente distribui esse total por modalidade.',
+     'provável, à EJA, à Educação Profissional e a estudantes com distorção idade-série. 4. Não '
+     'afirmar que a coluna isoladamente distribui esse total por modalidade.',
  43: '1. Somar QT_MAT_BAS_0_3: 3.874.541. 2. Somar QT_MAT_BAS_4_5: 4.968.651. 3. Comparar: a faixa 4–5 '
      'anos tem 1.094.110 matrículas a mais. 4. Relacionar o resultado à matrícula obrigatória na '
      'Pré-Escola a partir dos 4 anos, diferentemente da Creche; não atribuir toda a diferença apenas à '
@@ -196,9 +209,9 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
  44: '1. Somar QT_MAT_BAS_D (Diurno): 42.131.013. 2. Somar QT_MAT_BAS_N (Noturno): 3.240.654. 3. Somar '
      'QT_MAT_BAS_EAD: 646.713. 4. Comparar os três totais: Diurno é muito maior. 5. Calcular '
      '42.131.013/46.018.380 × 100 ≈ 91,55% das matrículas.',
- 45: '1. Somar QT_MAT_BAS_DM (Diurno Matutino): 24.171.117. 2. Somar QT_MAT_BAS_DV (Diurno Vespertino): '
-     '17.959.896. 3. Comparar: Matutino é maior. 4. Conferir 24.171.117 + 17.959.896 = 42.131.013 '
-     'matrículas diurnas. 5. Calcular 24.171.117/42.131.013 × 100 ≈ 57,4%.',
+ 45: '1. Somar QT_MAT_BAS_DM (Diurno Matutino): 24.171.117. 2. Somar QT_MAT_BAS_DV (Diurno '
+     'Vespertino): 17.959.896. 3. Comparar: Matutino é maior. 4. Conferir 24.171.117 + 17.959.896 = '
+     '42.131.013 matrículas diurnas. 5. Calcular 24.171.117/42.131.013 × 100 ≈ 57,4%.',
  46: '1. Somar QT_MAT_BAS_INT: 10.143.262 matrículas em tempo integral. 2. Somar QT_MAT_BAS: '
      '46.018.380. 3. Calcular 100 × 10.143.262/46.018.380 ≈ 22,04%. 4. Apresentar total e percentual, '
      'sem confundir tempo integral com turno diurno.',
@@ -206,9 +219,9 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
      '3. Calcular 100 × 2.458.159/46.018.380 ≈ 5,34%. 4. Informar o total e a participação percentual.',
  48: '1. Somar QT_MAT_ESP_CC (Classes Comuns): 2.298.005. 2. Somar QT_MAT_ESP_CE (Classes Exclusivas): '
      '160.154. 3. Conferir que ambas totalizam 2.458.159 matrículas de Educação Especial. 4. Calcular '
-     '100 × 2.298.005/2.458.159 ≈ 93,48%. 5. Identificar Classes Comuns como predominantes e relacionar '
-     'o resultado à política de inclusão, sem concluir que o indicador sozinho mede qualidade da '
-     'inclusão.',
+     '100 × 2.298.005/2.458.159 ≈ 93,48%. 5. Identificar Classes Comuns como predominantes e '
+     'relacionar o resultado à política de inclusão, sem concluir que o indicador sozinho mede '
+     'qualidade da inclusão.',
  49: '1. Somar QT_TRANSP_PUBLICO: 9.078.809 matrículas com transporte escolar público. 2. Somar '
      'QT_TRANSP_RESP_EST: 1.431.234 e QT_TRANSP_RESP_MUN: 7.647.575. 3. Conferir que as duas '
      'responsabilidades somam 9.078.809. 4. Comparar os totais: Municipal é maior. 5. Calcular 100 × '
@@ -220,6 +233,115 @@ RACIOCINIOS_CENSO = {1: '1. Abrir a Tabela_Matricula_2025_V2.csv. 2. Identificar
      'Ressaltar que totais marginais não identificam individualmente os trajetos nem provam quantos '
      'alunos rurais estudam em escolas urbanas; além disso, as duas somas de residência não cobrem '
      'exatamente o total geral, exigindo atenção a dados ausentes.'}
+
+# Consultas das demonstrações (Few-shot, CoT e Self-Consistency). SQL roda na tabela "matriculas";
+# "DICIONARIO: VARIAVEL" consulta o dicionário. Os RESULTADOS não ficam aqui: o programa executa
+# as consultas na base e no dicionário atuais antes de montar o prompt.
+# Rankings por UF/região excluem a escola sem UF/região informada (grupo NULL).
+CONSULTAS_CENSO = {1: ['SELECT COUNT(DISTINCT CO_ENTIDADE) AS escolas FROM matriculas'],
+ 2: ['SELECT SUM(QT_MAT_BAS) AS matriculas FROM matriculas'],
+ 3: ['DICIONARIO: QT_MAT_BAS'],
+ 4: ["SELECT COUNT(*) AS total_ufs, GROUP_CONCAT(SG_UF, ', ') AS siglas FROM (SELECT DISTINCT SG_UF "
+     "FROM matriculas WHERE SG_UF IS NOT NULL AND TRIM(SG_UF) <> '' ORDER BY SG_UF)"],
+ 5: ['SELECT COUNT(DISTINCT CO_MUNICIPIO) AS municipios FROM matriculas'],
+ 6: ['DICIONARIO: NU_ANO_CENSO',
+     'SELECT NU_ANO_CENSO, COUNT(*) AS linhas FROM matriculas GROUP BY NU_ANO_CENSO'],
+ 7: ['SELECT COUNT(*) AS escolas_com_zero FROM matriculas WHERE QT_MAT_BAS = 0'],
+ 8: ['DICIONARIO: CO_REDE', 'DICIONARIO: TP_DEPENDENCIA'],
+ 9: ['SELECT CO_REDE, COUNT(DISTINCT CO_ENTIDADE) AS escolas FROM matriculas GROUP BY CO_REDE ORDER BY '
+     'CO_REDE'],
+ 10: ['SELECT TP_DEPENDENCIA, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_DEPENDENCIA '
+      'ORDER BY matriculas DESC'],
+ 11: ['SELECT TP_DEPENDENCIA, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas '
+      'FROM matriculas GROUP BY TP_DEPENDENCIA ORDER BY escolas'],
+ 12: ['SELECT TP_DEPENDENCIA, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas, '
+      'ROUND(1.0 * SUM(QT_MAT_BAS) / COUNT(DISTINCT CO_ENTIDADE), 1) AS media FROM matriculas GROUP BY '
+      'TP_DEPENDENCIA ORDER BY media DESC'],
+ 13: ['SELECT TP_DEPENDENCIA, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas, '
+      'ROUND(1.0 * SUM(QT_MAT_BAS) / COUNT(DISTINCT CO_ENTIDADE), 1) AS media FROM matriculas WHERE '
+      "TP_DEPENDENCIA IN ('2', '3') GROUP BY TP_DEPENDENCIA"],
+ 14: ['DICIONARIO: TP_CATEGORIA_ESCOLA_PRIVADA'],
+ 15: ['SELECT TP_CATEGORIA_ESCOLA_PRIVADA, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE '
+      "TP_DEPENDENCIA = '4' GROUP BY TP_CATEGORIA_ESCOLA_PRIVADA ORDER BY matriculas DESC"],
+ 16: ['DICIONARIO: IN_PODER_PUBLICO_PARCERIA'],
+ 17: ['SELECT TP_LOCALIZACAO, COUNT(DISTINCT CO_ENTIDADE) AS escolas FROM matriculas GROUP BY '
+      'TP_LOCALIZACAO ORDER BY TP_LOCALIZACAO'],
+ 18: ['SELECT TP_LOCALIZACAO, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_LOCALIZACAO '
+      'ORDER BY TP_LOCALIZACAO'],
+ 19: ['SELECT TP_LOCALIZACAO, COUNT(DISTINCT CO_ENTIDADE) AS escolas, SUM(QT_MAT_BAS) AS matriculas, '
+      'ROUND(1.0 * SUM(QT_MAT_BAS) / COUNT(DISTINCT CO_ENTIDADE), 1) AS media FROM matriculas GROUP BY '
+      'TP_LOCALIZACAO ORDER BY TP_LOCALIZACAO'],
+ 20: ["SELECT NO_REGIAO, ROUND(100.0 * SUM(CASE WHEN TP_LOCALIZACAO = '2' THEN QT_MAT_BAS ELSE 0 END) "
+      '/ SUM(QT_MAT_BAS), 2) AS pct_rural FROM matriculas WHERE NO_REGIAO IS NOT NULL AND '
+      "TRIM(NO_REGIAO) <> '' GROUP BY NO_REGIAO ORDER BY pct_rural DESC"],
+ 21: ["SELECT NO_REGIAO, ROUND(100.0 * SUM(CASE WHEN TP_LOCALIZACAO = '2' THEN QT_MAT_BAS ELSE 0 END) "
+      '/ SUM(QT_MAT_BAS), 2) AS pct_rural FROM matriculas WHERE NO_REGIAO IS NOT NULL AND '
+      "TRIM(NO_REGIAO) <> '' GROUP BY NO_REGIAO ORDER BY pct_rural ASC"],
+ 22: ['SELECT SG_UF, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE SG_UF IS NOT NULL AND '
+      "TRIM(SG_UF) <> '' GROUP BY SG_UF ORDER BY matriculas DESC LIMIT 5"],
+ 23: ['SELECT SG_UF, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE SG_UF IS NOT NULL AND '
+      "TRIM(SG_UF) <> '' GROUP BY SG_UF ORDER BY matriculas ASC LIMIT 5"],
+ 24: ['SELECT CO_MUNICIPIO, NO_MUNICIPIO, SG_UF, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE '
+      'CO_MUNICIPIO IS NOT NULL GROUP BY CO_MUNICIPIO, NO_MUNICIPIO, SG_UF ORDER BY matriculas DESC '
+      'LIMIT 2'],
+ 25: ['SELECT TP_LOCALIZACAO_DIFERENCIADA, SUM(QT_MAT_BAS) AS matriculas FROM matriculas WHERE '
+      "TP_LOCALIZACAO_DIFERENCIADA IN ('2', '3') GROUP BY TP_LOCALIZACAO_DIFERENCIADA"],
+ 26: ['SELECT SUM(QT_MAT_INF) AS qt_mat_inf, SUM(QT_MAT_FUND) AS qt_mat_fund, SUM(QT_MAT_MED) AS '
+      'qt_mat_med, SUM(QT_MAT_PROF) AS qt_mat_prof, SUM(QT_MAT_EJA) AS qt_mat_eja FROM matriculas'],
+ 27: ['SELECT SUM(QT_MAT_INF_CRE) AS qt_mat_inf_cre, SUM(QT_MAT_INF_PRE) AS qt_mat_inf_pre FROM '
+      'matriculas'],
+ 28: ['SELECT SUM(QT_MAT_FUND_AI) AS qt_mat_fund_ai, SUM(QT_MAT_FUND_AF) AS qt_mat_fund_af FROM '
+      'matriculas'],
+ 29: ['SELECT SUM(QT_MAT_FUND_AI_1) AS qt_mat_fund_ai_1, SUM(QT_MAT_FUND_AI_2) AS qt_mat_fund_ai_2, '
+      'SUM(QT_MAT_FUND_AI_3) AS qt_mat_fund_ai_3, SUM(QT_MAT_FUND_AI_4) AS qt_mat_fund_ai_4, '
+      'SUM(QT_MAT_FUND_AI_5) AS qt_mat_fund_ai_5, SUM(QT_MAT_FUND_AF_6) AS qt_mat_fund_af_6, '
+      'SUM(QT_MAT_FUND_AF_7) AS qt_mat_fund_af_7, SUM(QT_MAT_FUND_AF_8) AS qt_mat_fund_af_8, '
+      'SUM(QT_MAT_FUND_AF_9) AS qt_mat_fund_af_9 FROM matriculas'],
+ 30: ['SELECT SUM(QT_MAT_MED_1) AS qt_mat_med_1, SUM(QT_MAT_MED_2) AS qt_mat_med_2, SUM(QT_MAT_MED_3) '
+      'AS qt_mat_med_3 FROM matriculas'],
+ 31: ['SELECT SUM(QT_MAT_PROF_TEC) AS tecnica, SUM(QT_MAT_PROF) AS profissional, ROUND(100.0 * '
+      'SUM(QT_MAT_PROF_TEC) / SUM(QT_MAT_PROF), 1) AS pct FROM matriculas'],
+ 32: ['SELECT SUM(QT_MAT_PROF_TEC_CONC) AS qt_mat_prof_tec_conc, SUM(QT_MAT_PROF_TEC_SUBS) AS '
+      'qt_mat_prof_tec_subs FROM matriculas',
+      'DICIONARIO: QT_MAT_PROF_TEC'],
+ 33: ['SELECT SUM(QT_MAT_EJA) AS eja, SUM(QT_MAT_BAS) AS total, ROUND(100.0 * SUM(QT_MAT_EJA) / '
+      'SUM(QT_MAT_BAS), 2) AS pct FROM matriculas'],
+ 34: ['SELECT SUM(QT_MAT_EJA_FUND) AS qt_mat_eja_fund, SUM(QT_MAT_EJA_MED) AS qt_mat_eja_med FROM '
+      'matriculas'],
+ 35: ['SELECT SUM(QT_MAT_BAS_LIBRAS) AS qt_mat_bas_libras FROM matriculas',
+      'DICIONARIO: QT_MAT_BAS_LIBRAS'],
+ 36: ['SELECT SUM(QT_MAT_BAS_FEM) AS feminino, SUM(QT_MAT_BAS_MASC) AS masculino, ROUND(1.0 * '
+      'SUM(QT_MAT_BAS_MASC) / SUM(QT_MAT_BAS_FEM), 4) AS razao FROM matriculas'],
+ 37: ['SELECT ROUND(100.0 * SUM(QT_MAT_BAS_FEM) / SUM(QT_MAT_BAS), 1) AS pct_fem, ROUND(100.0 * '
+      'SUM(QT_MAT_BAS_MASC) / SUM(QT_MAT_BAS), 1) AS pct_masc FROM matriculas'],
+ 38: ['SELECT SUM(QT_MAT_BAS_PRETA) + SUM(QT_MAT_BAS_PARDA) AS pretos_pardos, SUM(QT_MAT_BAS) - '
+      'SUM(QT_MAT_BAS_ND) AS declarados, ROUND(100.0 * (SUM(QT_MAT_BAS_PRETA) + SUM(QT_MAT_BAS_PARDA)) '
+      '/ (SUM(QT_MAT_BAS) - SUM(QT_MAT_BAS_ND)), 2) AS pct FROM matriculas'],
+ 39: ['SELECT SUM(QT_MAT_BAS_BRANCA) AS qt_mat_bas_branca, SUM(QT_MAT_BAS_PRETA) AS qt_mat_bas_preta, '
+      'SUM(QT_MAT_BAS_PARDA) AS qt_mat_bas_parda, SUM(QT_MAT_BAS_AMARELA) AS qt_mat_bas_amarela, '
+      'SUM(QT_MAT_BAS_INDIGENA) AS qt_mat_bas_indigena FROM matriculas'],
+ 40: ['SELECT SUM(QT_MAT_BAS_ND) AS nao_declarada, ROUND(100.0 * SUM(QT_MAT_BAS_ND) / SUM(QT_MAT_BAS), '
+      '1) AS pct FROM matriculas'],
+ 41: ['SELECT SUM(QT_MAT_BAS_6_10) AS qt_mat_bas_6_10, SUM(QT_MAT_BAS_11_14) AS qt_mat_bas_11_14 FROM '
+      'matriculas'],
+ 42: ['SELECT SUM(QT_MAT_BAS_18_MAIS) AS qt_mat_bas_18_mais FROM matriculas'],
+ 43: ['SELECT SUM(QT_MAT_BAS_0_3) AS qt_mat_bas_0_3, SUM(QT_MAT_BAS_4_5) AS qt_mat_bas_4_5 FROM '
+      'matriculas'],
+ 44: ['SELECT SUM(QT_MAT_BAS_D) AS qt_mat_bas_d, SUM(QT_MAT_BAS_N) AS qt_mat_bas_n, '
+      'SUM(QT_MAT_BAS_EAD) AS qt_mat_bas_ead FROM matriculas'],
+ 45: ['SELECT SUM(QT_MAT_BAS_DM) AS qt_mat_bas_dm, SUM(QT_MAT_BAS_DV) AS qt_mat_bas_dv FROM '
+      'matriculas'],
+ 46: ['SELECT SUM(QT_MAT_BAS_INT) AS integral, SUM(QT_MAT_BAS) AS total, ROUND(100.0 * '
+      'SUM(QT_MAT_BAS_INT) / SUM(QT_MAT_BAS), 2) AS pct FROM matriculas'],
+ 47: ['SELECT SUM(QT_MAT_ESP) AS especial, SUM(QT_MAT_BAS) AS total, ROUND(100.0 * SUM(QT_MAT_ESP) / '
+      'SUM(QT_MAT_BAS), 2) AS pct FROM matriculas'],
+ 48: ['SELECT SUM(QT_MAT_ESP_CC) AS classes_comuns, SUM(QT_MAT_ESP_CE) AS classes_exclusivas, '
+      'ROUND(100.0 * SUM(QT_MAT_ESP_CC) / SUM(QT_MAT_ESP), 2) AS pct_comuns FROM matriculas'],
+ 49: ['SELECT SUM(QT_TRANSP_PUBLICO) AS qt_transp_publico, SUM(QT_TRANSP_RESP_EST) AS '
+      'qt_transp_resp_est, SUM(QT_TRANSP_RESP_MUN) AS qt_transp_resp_mun FROM matriculas'],
+ 50: ['SELECT SUM(QT_MAT_ZR_URB) AS qt_mat_zr_urb, SUM(QT_MAT_ZR_RUR) AS qt_mat_zr_rur FROM matriculas',
+      'SELECT TP_LOCALIZACAO, SUM(QT_MAT_BAS) AS matriculas FROM matriculas GROUP BY TP_LOCALIZACAO '
+      'ORDER BY TP_LOCALIZACAO']}
 
 def salvar_json(caminho, dados):
     """Grava o JSON com segurança, substituindo o destino somente ao terminar."""
@@ -388,6 +510,11 @@ def converter_questoes_docx(caminho_docx):
                          f"Perguntas: {sorted(perguntas)}; respostas: {sorted(respostas)}")
     # Confere se cada raciocínio existe; os valores devem ser auditados nos microdados.
     # Os gabaritos permanecem exatamente como estão no documento do professor.
+    if set(CONSULTAS_CENSO) != numeros_esperados or any(
+        not isinstance(lista, list) or not lista or not all(isinstance(c, str) and c.strip() for c in lista)
+        for lista in CONSULTAS_CENSO.values()
+    ):
+        raise ValueError("Consultas do Censo incompletas: são necessárias as 50 listas de consultas.")
     if set(RACIOCINIOS_CENSO) != numeros_esperados or any(
         not isinstance(texto, str) or not texto.strip()
         for texto in RACIOCINIOS_CENSO.values()
@@ -405,6 +532,7 @@ def converter_questoes_docx(caminho_docx):
             "pergunta": pergunta["texto"],
             "resposta_esperada": resposta["texto"],
             "raciocinio": RACIOCINIOS_CENSO[numero],
+            "consultas_sql": CONSULTAS_CENSO[numero],
         })
     return {
         "dataset_info": {

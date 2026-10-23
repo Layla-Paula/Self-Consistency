@@ -20,6 +20,39 @@ def _numeros(texto):
             valores.add(int(token))
     return valores
 
+# Extracao numerica: separador de milhar brasileiro e decimais com virgula/ponto.
+# O texto original nao e modificado; nunca usar comparacao por substring.
+from decimal import Decimal, InvalidOperation
+
+_PADRAO_VALOR = re.compile(r"(?<![\w])[-+]?\d{1,3}(?:\.\d{3})+(?:,\d+)?(?![\w.,])|(?<![\w])[-+]?\d+(?:[.,]\d+)?(?![\w.,])")
+
+def _valores_decimais(texto):
+    valores = []
+    for m in _PADRAO_VALOR.finditer(str(texto)):
+        token = m.group()
+        if re.fullmatch(r"[-+]?\d{1,3}(?:\.\d{3})+(?:,\d+)?", token):
+            token = token.replace('.', '').replace(',', '.')
+        else:
+            token = token.replace(',', '.')
+        try:
+            valores.append(Decimal(token))
+        except InvalidOperation:
+            pass
+    return valores
+
+def _numero_exato(texto, esperado):
+    return Decimal(str(esperado).replace(',', '.')) in _valores_decimais(texto)
+
+def _rotulo_valor(texto, rotulo, esperado):
+    # O valor deve estar associado ao rotulo na mesma linha/segmento.
+    # Suporta 'Norte: 24,42%' e '24,42% - Norte'.
+    t = _normalizar(texto)
+    partes = re.split(r'[\n;|]', t)
+    for parte in partes:
+        if re.search(r'\b' + re.escape(_normalizar(rotulo)) + r'\b', parte) and _numero_exato(parte, esperado):
+            return True
+    return False
+
 def _avaliacao_deterministica(gabarito, resposta):
     """Só confirma acerto quando há um número único e inequívoco no gabarito.
 
@@ -59,7 +92,7 @@ def _extrair_json(texto):
 
 def _tem_valor(texto, valor):
     """Reconhece inteiros com ou sem separadores de milhar."""
-    return valor in _numeros(texto)
+    return _numero_exato(texto, valor)
 
 # Siglas e nomes de UFs reconhecidos com fronteiras de palavra.
 _UFS = {
@@ -134,14 +167,41 @@ def _criterios_censo(questao, resposta):
         return decisao(('atividade complementar' in t and ('aee' in t or 'atendimento educacional especializado' in t)),
                        'Devem ser identificados os dois tipos de turma excluídos.')
     if numero == 4:
-        # A pergunta exige a quantidade e a lista completa das 27 UFs.
-        siglas = ('AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO',
-                  'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI',
-                  'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO')
-        lista_completa = all(re.search(r'(?<![A-Za-z])' + uf + r'(?![A-Za-z])',
-                                       resposta, re.I) for uf in siglas)
-        return decisao(bool(re.search(r'(?<!\d)27(?!\d)', t)) and lista_completa,
-                       'Deve informar 27 e listar todas as 27 siglas das UFs.')
+        # A questão 04 exige contagem e identificação das 27 UFs.
+        # Aceita siglas ou nomes completos, sem confundir PA com a preposição "para".
+        ufs = {
+            'AC': 'acre', 'AL': 'alagoas', 'AP': 'amapa', 'AM': 'amazonas',
+            'BA': 'bahia', 'CE': 'ceara', 'DF': 'distrito federal',
+            'ES': 'espirito santo', 'GO': 'goias', 'MA': 'maranhao',
+            'MT': 'mato grosso', 'MS': 'mato grosso do sul',
+            'MG': 'minas gerais', 'PA': 'para', 'PB': 'paraiba',
+            'PR': 'parana', 'PE': 'pernambuco', 'PI': 'piaui',
+            'RJ': 'rio de janeiro', 'RN': 'rio grande do norte',
+            'RS': 'rio grande do sul', 'RO': 'rondonia',
+            'RR': 'roraima', 'SC': 'santa catarina',
+            'SP': 'sao paulo', 'SE': 'sergipe', 'TO': 'tocantins',
+        }
+        # Procura nomes completos do maior para o menor para evitar
+        # que "Mato Grosso" seja confundido com "Mato Grosso do Sul".
+        texto_nomes = t
+        identificadas = set()
+        for uf, nome in sorted(ufs.items(), key=lambda item: -len(item[1])):
+            if uf == 'PA':
+                # "para" isolado pode ser apenas uma preposição.
+                continue
+            padrao_nome = r'(?<![a-z])' + re.escape(nome) + r'(?![a-z])'
+            if re.search(padrao_nome, texto_nomes):
+                identificadas.add(uf)
+                texto_nomes = re.sub(padrao_nome, ' ', texto_nomes)
+        # Siglas são verificadas no texto original com letras maiúsculas.
+        # Isso impede que palavras comuns sejam tomadas como siglas.
+        for uf in ufs:
+            if re.search(r'(?<![A-Za-z])' + uf + r'(?![A-Za-z])', str(resposta)):
+                identificadas.add(uf)
+        quantidade = bool(re.search(r'(?<!\d)27(?!\d)', t))
+        completa = len(identificadas) == 27
+        return decisao(quantidade and completa,
+                       'Deve informar 27 UFs e identificar todas as 26 unidades estaduais e o Distrito Federal.')
     if numero == 5:
         return decisao(tem(5571) and not ('uf' in t and 'value_counts' in t),
                        'Deve identificar 5.571 municípios distintos; contar UFs não resolve.')
@@ -149,9 +209,9 @@ def _criterios_censo(questao, resposta):
         return decisao('nu_ano_censo' in t and '2025' in t and ('ano' in t or 'referencia' in t),
                        'Variável, significado e ano de referência.')
     if numero == 7:
-        afirmacao = re.search(r'\b(sim|existe|existem|ha)\b.{0,75}(escola|qt_mat_bas)', t)
-        negativa = bool(re.search(r'\b(nao existe|nao ha|nenhuma escola|zero ocorrencias|0 ocorrencias)\b', t))
-        return decisao(negativa and not afirmacao, 'Não há escolas com QT_MAT_BAS igual a zero; afirmação positiva contradiz o gabarito.')
+        negativa = bool(re.search(r'\b(nao\s+(?:existe|existem|ha)|nenhuma escola|zero ocorrencias|0 ocorrencias)\b', t))
+        afirmacao = bool(re.search(r'(?<!nao )\b(?:existe|existem|ha)\s+(?:alguma|uma|escola|escolas)', t)) and not negativa
+        return decisao(negativa and not afirmacao, 'Não há escolas com QT_MAT_BAS igual a zero.')
     if numero == 8:
         correta = ('co_rede' in t and 'tp_dependencia' in t and
                    ('publica' in t and 'privada' in t) and
@@ -169,10 +229,10 @@ def _criterios_censo(questao, resposta):
         return decisao('federal' in t and tem(716) and tem(383526),
                        'Menor dependência é federal, com 716 escolas e 383.526 matrículas.')
     if numero == 12:
-        ok = all(x in t for x in ('federal', 'estadual', 'municipal', 'privada')) and all(x in t for x in ('535', '448', '216', '221'))
+        ok = all(x in t for x in ('federal', 'estadual', 'municipal', 'privada')) and all(tem(x) for x in (535, 448, 216, 221))
         return decisao(ok, 'Médias por todas as quatro dependências e identificação da maior.')
     if numero == 13:
-        return decisao('municipal' in t and 'estadual' in t and '216' in t and '448' in t and
+        return decisao('municipal' in t and 'estadual' in t and tem(216) and tem(448) and
                        ('metade' in t or 'dobro' in t or 'menor' in t),
                        'Comparação efetiva entre as médias municipal e estadual.')
     if numero == 14:
@@ -184,18 +244,23 @@ def _criterios_censo(questao, resposta):
                        ('maior' in t or 'mais matriculas' in t or 'superior' in t or 'concentra' in t),
                        'Matrículas particular e filantrópica e comparação conclusiva entre ambas.')
     if numero == 16:
-        return decisao('parceria' in t and 'poder publico' in t and ('financiamento' in t or 'convenio' in t),
+        return decisao('parceria' in t and ('poder publico' in t or 'administracao publica' in t) and ('financiamento' in t or 'convenio' in t or 'itinerario' in t),
                        'Interpretação da parceria com o poder público.')
     if numero == 17:
         return decisao(_par_numero(resposta, ('urbana', 'urbanas'), 128037) and _par_numero(resposta, ('rural', 'rurais'), 50729) and not _contradicao_soma(resposta, (128037, 50729)), 'Exige os dois totais por localização, sem apresentar somas contraditórias como totais.')
     if numero == 18:
         return decisao(_par_numero(resposta, ('urbana', 'urbanas'), 40871166) and _par_numero(resposta, ('rural', 'rurais'), 5147214) and not re.search(r'\b(iguais|mesmo total|mesma quantidade)\b', t), 'Totais corretos de matrículas urbanas e rurais, sem afirmar igualdade.')
     if numero == 19:
-        return decisao('319' in t and '101' in t and 'urbana' in t and 'rural' in t and '270' not in t,
+        return decisao(tem(319) and tem(101) and 'urbana' in t and 'rural' in t and not tem(270),
                        'Médias urbana e rural corretas, sem valor urbano contraditório.')
     if numero == 20:
-        return decisao(all(x in t for x in ('24,42', '21,34', '5,90', '5,77', '3,30')) and 'norte' in t,
-                       'Percentuais das cinco regiões e identificação da maior.')
+        regioes = {'norte': '24.42', 'nordeste': '21.34', 'centro-oeste': '5.90', 'sul': '5.77', 'sudeste': '3.30'}
+        ok = all(_rotulo_valor(resposta, regiao, valor) for regiao, valor in regioes.items())
+        # Se a resposta agrupar varias regioes na mesma linha, a associacao
+        # nao e inequivoca; encaminhar ao avaliador semantico.
+        if any(sum(bool(re.search(r'\b'+re.escape(r)+r'\b', linha)) for r in regioes) > 1 for linha in _normalizar(resposta).splitlines()):
+            return None
+        return decisao(ok and 'norte' in t, 'Percentuais exatos associados às cinco regiões.')
     # As questões 22 e 23 pedem QUAIS UFs, não os valores por UF.
     # Não exigir os números evita falsos negativos de respostas corretas.
     if numero in (22, 23):
@@ -215,10 +280,9 @@ def _criterios_censo(questao, resposta):
         # Para as demais respostas, exigir validação semântica, pois podem citar só a tendência.
         return None
     if numero == 41:
-        etapas_incorretas = bool(re.search(r'11\s*a\s*14\s*anos.{0,100}(?:ensino medio|anos iniciais)', t, re.S))
-        etapas_incorretas |= bool(re.search(r'6\s*a\s*10\s*anos.{0,100}(?:ensino medio|anos finais)', t, re.S))
-        if etapas_incorretas:
-            return decisao(False, 'Correspondência das faixas etárias às etapas de ensino incorreta.')
+        # A associacao das faixas etarias as etapas pode aparecer em periodos
+        # diferentes; janelas de caracteres cruzam afirmacoes corretas.
+        # Deixar a avaliacao semantica decidir sem falso negativo automatico.
         return None
     if numero == 43:
         # Não aceitar separadores numéricos malformados como se fossem totais corretos.
@@ -235,10 +299,10 @@ def _criterios_censo(questao, resposta):
         return decisao(tem(2512355) and ('sao paulo' in t or re.search(r'\bsp\b', t)),
                        'Município São Paulo/SP e total 2.512.355.')
     if numero == 31:
-        return decisao(tem(2490145) and ('78,1' in t or '78.1' in t),
+        return decisao(tem(2490145) and _numero_exato(resposta, '78.1'),
                        'Total técnico e percentual sobre Educação Profissional.')
     if numero == 33:
-        return decisao(tem(2252069) and ('4,89' in t or '4.89' in t),
+        return decisao(tem(2252069) and _numero_exato(resposta, '4.89'),
                        'Total EJA e percentual correto.')
     if numero == 35:
         return decisao(tem(3637), 'Total nacional de matrículas em classes bilíngues de surdos.')
@@ -249,10 +313,10 @@ def _criterios_censo(questao, resposta):
         return decisao(tem(3974803) and ('eja' in t or 'profissional' in t),
                        'Total de 18+ e modalidade associada.')
     if numero == 46:
-        return decisao(tem(10143262) and ('22,04' in t or '22.04' in t),
+        return decisao(tem(10143262) and _numero_exato(resposta, '22.04'),
                        'Total em tempo integral e percentual.')
     if numero == 47:
-        return decisao(tem(2458159) and ('5,34' in t or '5.34' in t),
+        return decisao(tem(2458159) and _numero_exato(resposta, '5.34'),
                        'Total Educação Especial e percentual.')
     if numero == 49:
         return decisao(all(tem(x) for x in (9078809, 1431234, 7647575)) and 'municipal' in t,

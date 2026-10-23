@@ -93,7 +93,8 @@ Substitua X por uma única letra de A a E. Não escreva nada após a resposta fi
 # CENSO ESCOLAR — demonstrações reais selecionadas automaticamente do JSON.
 # Cada demonstração inclui contexto do CSV, resolução passo a passo e resposta.
 # A questão avaliada não aparece nas demonstrações e não recebe seu gabarito.
-def prompt_cot_censo(questao, contexto, exemplos, contextos_exemplos, raciocinios_exemplos):
+def prompt_cot_censo(questao, contexto, exemplos, contextos_exemplos, raciocinios_exemplos,
+                     consultas_exemplos=None):
     if not exemplos:
         raise ValueError('CoT Censo precisa de demonstrações.')
     ids_exemplos = {str(e['id']) for e in exemplos}
@@ -106,9 +107,16 @@ def prompt_cot_censo(questao, contexto, exemplos, contextos_exemplos, raciocinio
         raciocinio = str(raciocinios_exemplos.get(identificador) or '').strip()
         if not resposta or not raciocinio:
             raise ValueError(f'Demonstração incompleta: {identificador}')
+        consultas = ''
+        if consultas_exemplos is not None:
+            consultas = str(consultas_exemplos.get(identificador) or '').strip()
+            if not consultas:
+                raise ValueError(f'Demonstração do Censo sem consultas SQL: {identificador}')
+            consultas += '\n'
         blocos.append(
             f'Exemplo {indice}:\n'
             f'{montar_questao_censo(exemplo, contextos_exemplos[identificador])}\n'
+            f'{consultas}'
             f'Resolução passo a passo:\n{raciocinio}\n'
             f'Resposta final: {resposta}'
         )
@@ -119,7 +127,7 @@ Não invente valores nem use respostas de referência de outras questões.
 
 {demonstracoes}
 
-Agora resolva uma NOVA questão, usando SOMENTE os dados apresentados para ela.
+Agora resolva uma NOVA questão, formulando consultas SQL sobre os microdados, sem receber somas prontas.
 Explique as etapas relevantes e apresente o resultado solicitado.
 
 {montar_questao_censo(questao, contexto)}

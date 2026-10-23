@@ -7,8 +7,10 @@ import time
 from pathlib import Path
 
 import requests
+from codigo.monitor_ollama import MonitorOllama
 
-MODELO_OLLAMA = "llama3.2"
+MODELO_OLLAMA = "llama3.2:3b"
+SEMENTE_OLLAMA = 42
 URL_OLLAMA = "http://localhost:11434/api/generate"
 DATASET_GSM8K = Path("dados/gsm8k/final/gsm8k_ptbr.json")
 DATASET_AQUA_RAT = Path("dados/aqua_rat/final/aqua_rat_ptbr_argos.json")
@@ -136,30 +138,25 @@ def montar_questao_censo(questao, contexto=None):
 
 
 def extrair_letra_resposta(texto):
-    """Extrai decisão explícita A-E, inclusive 'Resposta: B' do Few-shot.
+    """Extrai apenas letras A-E em declaracoes explicitas ou linha isolada.
 
-    Não extrai letras apenas por aparecerem na lista de alternativas.
-    Quando há várias declarações explícitas, usa a última.
+    Aceita 'Resposta: a', 'a)' e 'Alternativa: A'.
+    Rejeita 'A resposta e a mais simples' e outras frases com artigo.
     """
     if not texto:
         return ""
     texto = str(texto).strip()
+    # Depois da letra so pontuacao ou fim de linha; nunca outra palavra.
     padrao = re.compile(
-        r"(?:\b(?:resposta\s+final|resposta\s+correta|resposta|alternativa\s+correta|"
-        r"alternativa\s+escolhida|op[cç][aã]o\s+correta|"
-        r"(?:a\s+)?[uú]nica\s+(?:alternativa|op[cç][aã]o)(?:\s+que\s+[eé]\s+igual)?|"
-        r"(?:a\s+)?(?:resposta|alternativa|op[cç][aã]o)\s+(?:[eé]|seria)|"
-        r"escolho|marco|assinalo|opto\s+pela|ans(?:wer)?)\b)"
-        r"\s*(?:(?:correta|[eé]|seria)\s*)?(?:[:=]|->|[-–])?\s*"
-        r"\**\(?([A-E])\)?(?=$|[\s).,:;!\-–*])", re.I
-    )
+        r"(?im)\b(?:resposta(?:\s+final|\s+correta)?|alternativa(?:\s+correta)?|"
+        r"op[cç][aã]o(?:\s+correta)?|answer)\s*(?:(?:e|é|seria)\s+)?"
+        r"[:=]?\s*\**\(?([A-E])\)?\**(?=\s*(?:$|[).,;!]))", re.I)
     achados = list(padrao.finditer(texto))
     if achados:
         return achados[-1].group(1).upper()
-    ultima = next((linha.strip() for linha in reversed(texto.splitlines()) if linha.strip()), "")
-    isolada = re.fullmatch(r"(?:\*\*)?\(?([A-E])\)?[.)]?(?:\*\*)?", ultima, re.I)
-    return isolada.group(1).upper() if isolada else ""
-
+    ultima = next((l.strip() for l in reversed(texto.splitlines()) if l.strip()), "")
+    m = re.fullmatch(r"(?:\*\*)?\(?([A-E])\)?[.)]?(?:\*\*)?", ultima, re.I)
+    return m.group(1).upper() if m else ""
 
 NUMERO = r"-?(?:\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)"
 
@@ -255,6 +252,7 @@ def consultar_ollama(
     num_ctx=8192,
     top_k=40,
     top_p=0.9,
+    seed=SEMENTE_OLLAMA,
 ):
     """Consulta o Ollama até 3 vezes; falhas retornam metadados, não acerto/erro.
 
@@ -271,6 +269,7 @@ def consultar_ollama(
             "num_ctx": num_ctx,
             "top_k": top_k,
             "top_p": top_p,
+            "seed": seed,
         },
     }
 
@@ -279,7 +278,8 @@ def consultar_ollama(
 
     for tentativa in range(1, 4):
         try:
-            resposta = requests.post(URL_OLLAMA, json=payload, timeout=300)
+            with MonitorOllama() as monitor:
+                resposta = requests.post(URL_OLLAMA, json=payload, timeout=300)
             resposta.raise_for_status()
             dados = resposta.json()
             if not isinstance(dados, dict):
@@ -303,6 +303,7 @@ def consultar_ollama(
                     "done": dados.get("done"),
                     "tentativas": tentativa,
                     "erro_detalhado": None,
+                    **monitor.resultado(),
                 }
             return texto
 
@@ -331,5 +332,9 @@ def consultar_ollama(
             "done": None,
             "tentativas": 3,
             "erro_detalhado": ultimo_erro,
+            "cpu_ollama_percentual": None,
+            "ram_ollama_pico_mib": None,
+            "ram_ollama_media_mib": None,
+            "amostras_monitoramento": 0,
         }
     return None
