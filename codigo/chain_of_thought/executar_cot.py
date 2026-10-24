@@ -256,10 +256,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         for questao in tqdm(
             pendentes,
             desc=f"Chain-of-Thought {dataset}",
-            ncols=78,
-            ascii=True,
-            mininterval=1.0,
-            leave=True,
+            bar_format="{desc}: {percentage:3.0f}%|{bar:16}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]", ascii=" #", mininterval=1.0, leave=True,
         ):
             demonstracao = str(questao["id"]) in ids_exemplos
             if dataset == "gsm8k":

@@ -1,6 +1,6 @@
 """Execução Self-Consistency: GSM8K, AQuA-RAT e Censo Escolar.
 """
-from codigo.agente_censo import consultar_censo_agente, executar_consultas_demonstracao
+from codigo.agente_censo import consultar_censo_agente
 import json
 import os
 import re
@@ -198,13 +198,11 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
     if not questoes:
         raise ValueError('Nenhuma questão disponível após excluir demonstrações.')
     sessao, contextos_exemplos, raciocinios_exemplos = None, None, None
-    consultas_exemplos = None
     if dataset == 'censo':
         from codigo.consulta_censo import SessaoCenso, verificar_consultas
         verificar_consultas(exemplos + questoes)
         sessao = SessaoCenso()
         contextos_exemplos = {str(q['id']): "Consulte a tabela matriculas por SQL." for q in exemplos}
-        consultas_exemplos = executar_consultas_demonstracao(sessao, exemplos)
         raciocinios_exemplos = {str(q['id']): str(q['raciocinio']).strip()
                                 for q in exemplos}
     pasta = pasta_configuracao("self_consistency", dataset, limite, quantidade)
@@ -226,7 +224,6 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
     }
     if dataset == 'censo':
         parametros['arquitetura_censo'] = 'agente_sql_direto_v1_max_5_consultas'
-        parametros['demonstracoes_censo'] = 'consultas_sql_executadas_v1'
     parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
     parametros['top_k'] = 40
     parametros['top_p'] = 0.9
@@ -261,7 +258,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         salvar(progresso, dados)
 
     try:
-        for questao in tqdm(pendentes, desc=f'Self-Consistency {dataset}'):
+        for questao in tqdm(pendentes, desc=f'Self-Consistency {dataset}', bar_format="{desc}: {percentage:3.0f}%|{bar:16}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]", ascii=" #", mininterval=1.0, leave=True):
             if dataset == 'gsm8k':
                 prompt = prompt_self_consistency_gsm8k(questao, exemplos)
                 gabarito = extrair_gabarito_gsm8k(questao)
@@ -274,7 +271,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 contexto = sessao.consultar(questao)
                 prompt = prompt_self_consistency_censo(
                     questao, contexto, exemplos, contextos_exemplos,
-                    raciocinios_exemplos, consultas_exemplos,
+                    raciocinios_exemplos,
                 )
                 gabarito = extrair_gabarito_censo(questao)
                 extrair = extrair_resposta_final_censo

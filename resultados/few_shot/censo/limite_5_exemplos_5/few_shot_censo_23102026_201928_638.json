@@ -1,0 +1,446 @@
+{
+  "id_execucao": "few_shot_censo_23102026_201928_638",
+  "tecnica": "few_shot",
+  "dataset": "censo",
+  "data_inicio": "2026-10-23T20:19:28",
+  "parametros": {
+    "modelo": "llama3.2:3b",
+    "seed": 42,
+    "temperatura": 0.0,
+    "limite": 5,
+    "maximo_tokens_resposta": 1200,
+    "quantidade_exemplos": 5,
+    "ids_exemplos": [
+      "censo_2025_04",
+      "censo_2025_12",
+      "censo_2025_21",
+      "censo_2025_30",
+      "censo_2025_39"
+    ],
+    "ids_questoes": [
+      "censo_2025_01",
+      "censo_2025_02",
+      "censo_2025_03",
+      "censo_2025_05",
+      "censo_2025_06"
+    ],
+    "criterio_avaliacao": "fora_das_demonstracoes",
+    "arquitetura_censo": "agente_sql_direto_v1_max_5_consultas",
+    "demonstracoes_censo": "consultas_sql_executadas_v1",
+    "protocolo": {
+      "versao": "2.2",
+      "dataset": "censo",
+      "split_censo": null,
+      "criterio_censo": "avaliacao_propria_sem_split",
+      "limite": 5,
+      "quantidade_exemplos": 5,
+      "ids_exemplos": [
+        "censo_2025_04",
+        "censo_2025_12",
+        "censo_2025_21",
+        "censo_2025_30",
+        "censo_2025_39"
+      ],
+      "ids_questoes": [
+        "censo_2025_01",
+        "censo_2025_02",
+        "censo_2025_03",
+        "censo_2025_05",
+        "censo_2025_06"
+      ],
+      "sha256_ids_questoes": "219c7a8e90108f7afbc22ce6e7e4d43b91f089b3a321cca86df362ad8e7f86fd",
+      "selecao": "blocos_tematicos_censo",
+      "semente_exemplos": null,
+      "ordem_avaliacao": "ordem_original_apos_excluir_demonstracoes"
+    },
+    "top_k": 40,
+    "top_p": 0.9,
+    "num_ctx": 8192
+  },
+  "resultados": [
+    {
+      "id": "censo_2025_01",
+      "split": null,
+      "usada_como_exemplo": false,
+      "gabarito": "178.766 escolas estão registradas na base.",
+      "resposta": "",
+      "texto_modelo": "",
+      "resposta_valida": false,
+      "acertou": false,
+      "falha_tecnica": false,
+      "tentativas_consulta": 1,
+      "motivo": "Modelo não forneceu resposta.",
+      "revisao_necessaria": false,
+      "metodo_avaliacao": "resposta_vazia",
+      "tempo_segundos": 29.83,
+      "tokens_entrada": 18074,
+      "tokens_saida": 105,
+      "consultas_censo": [
+        {
+          "tipo": "sql",
+          "comando": "SELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas",
+          "resultado": {
+            "colunas": [
+              "total_escolas"
+            ],
+            "linhas": [
+              {
+                "total_escolas": 178766
+              }
+            ],
+            "truncado": false,
+            "duracao_sql_segundos": 0.249
+          }
+        }
+      ],
+      "texto_descartado": "[rodada 1]\n```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```\n\n[rodada 2]\n```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```\n\nResposta final: 178766.\n\n[rodada 3]\n```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```\n\n[rodada 4]\n```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```",
+      "transcricoes_censo": [
+        {
+          "rodada": 1,
+          "texto": "```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```",
+          "tokens_entrada": 4400,
+          "tokens_saida": 24
+        },
+        {
+          "rodada": 2,
+          "texto": "```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```\n\nResposta final: 178766.",
+          "tokens_entrada": 4486,
+          "tokens_saida": 33
+        },
+        {
+          "rodada": 3,
+          "texto": "```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```",
+          "tokens_entrada": 4594,
+          "tokens_saida": 24
+        },
+        {
+          "rodada": 4,
+          "texto": "```sql\nSELECT COUNT(DISTINCT CO_ENTIDADE) AS total_escolas FROM matriculas\n```",
+          "tokens_entrada": 4594,
+          "tokens_saida": 24
+        }
+      ],
+      "motivo_encerramento_censo": "finalizacao_sem_resposta",
+      "consultas_repetidas_bloqueadas": 1,
+      "rodadas_censo": 4,
+      "cpu_ollama_percentual": 0.43,
+      "ram_ollama_pico_mib": 18.34,
+      "ram_ollama_media_mib": 14.24,
+      "amostras_monitoramento": 225
+    },
+    {
+      "id": "censo_2025_02",
+      "split": null,
+      "usada_como_exemplo": false,
+      "gabarito": "O total de matrículas da Educação Básica é 46.018.380. Esse valor confere com o número de 46 milhões de matrículas divulgado oficialmente pelo INEP na primeira etapa do Censo Escolar 2025.",
+      "resposta": "",
+      "texto_modelo": "",
+      "resposta_valida": false,
+      "acertou": false,
+      "falha_tecnica": false,
+      "tentativas_consulta": 1,
+      "motivo": "Modelo não forneceu resposta.",
+      "revisao_necessaria": false,
+      "metodo_avaliacao": "resposta_vazia",
+      "tempo_segundos": 28.683,
+      "tokens_entrada": 18104,
+      "tokens_saida": 142,
+      "consultas_censo": [
+        {
+          "tipo": "sql",
+          "comando": "SELECT SUM(QT_MAT_BAS) AS total_matriculas FROM matriculas",
+          "resultado": {
+            "colunas": [
+              "total_matriculas"
+            ],
+            "linhas": [
+              {
+                "total_matriculas": 46018380
+              }
+            ],
+            "truncado": false,
+            "duracao_sql_segundos": 0.113
+          }
+        }
+      ],
+      "texto_descartado": "[rodada 1]\n```sql\nSELECT SUM(QT_MAT_BAS) AS total_matriculas FROM matriculas\n```\n\n[rodada 2]\n```sql\nSELECT SUM(QT_MAT_BAS) AS total_matriculas FROM matriculas\n```\n\nFERRAMENTA:\n{\"colunas\": [\"total_matriculas\"], \"linhas\": [{\"total_matriculas\": 46018380}], \"truncado\": false, \"duracao_sql_segundos\": 0.113}\nResposta final: DICIONARIO: QT_MAT_BAS\n\n[rodada 3]\nResposta final:\nResposta final: DICIONARIO: QT_MAT_BAS\n\n[rodada 4]\nResposta final:\nResposta final: DICIONARIO: QT_MAT_BAS",
+      "transcricoes_censo": [
+        {
+          "rodada": 1,
+          "texto": "```sql\nSELECT SUM(QT_MAT_BAS) AS total_matriculas FROM matriculas\n```",
+          "tokens_entrada": 4408,
+          "tokens_saida": 23
+        },
+        {
+          "rodada": 2,
+          "texto": "```sql\nSELECT SUM(QT_MAT_BAS) AS total_matriculas FROM matriculas\n```\n\nFERRAMENTA:\n{\"colunas\": [\"total_matriculas\"], \"linhas\": [{\"total_matriculas\": 46018380}], \"truncado\": false, \"duracao_sql_segundos\": 0.113}\nResposta final: DICIONARIO: QT_MAT_BAS",
+          "tokens_entrada": 4494,
+          "tokens_saida": 85
+        },
+        {
+          "rodada": 3,
+          "texto": "Resposta final:\nResposta final: DICIONARIO: QT_MAT_BAS",
+          "tokens_entrada": 4601,
+          "tokens_saida": 17
+        },
+        {
+          "rodada": 4,
+          "texto": "Resposta final:\nResposta final: DICIONARIO: QT_MAT_BAS",
+          "tokens_entrada": 4601,
+          "tokens_saida": 17
+        }
+      ],
+      "motivo_encerramento_censo": "finalizacao_sem_resposta",
+      "consultas_repetidas_bloqueadas": 1,
+      "rodadas_censo": 4,
+      "cpu_ollama_percentual": 0.49,
+      "ram_ollama_pico_mib": 29.09,
+      "ram_ollama_media_mib": 23.14,
+      "amostras_monitoramento": 220
+    },
+    {
+      "id": "censo_2025_03",
+      "split": null,
+      "usada_como_exemplo": false,
+      "gabarito": "Segundo o dicionário de dados, QT_MAT_BAS não inclui matrículas em turmas exclusivas de atividade complementar e nem em turmas exclusivas de Atendimento Educacional Especializado (AEE).",
+      "resposta": "",
+      "texto_modelo": "",
+      "resposta_valida": false,
+      "acertou": false,
+      "falha_tecnica": false,
+      "tentativas_consulta": 1,
+      "motivo": "Modelo não forneceu resposta.",
+      "revisao_necessaria": false,
+      "metodo_avaliacao": "resposta_vazia",
+      "tempo_segundos": 38.288,
+      "tokens_entrada": 18373,
+      "tokens_saida": 216,
+      "consultas_censo": [
+        {
+          "tipo": "sql",
+          "comando": "SELECT \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END AS tipo_turma\nFROM matriculas\nGROUP BY \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END\nORDER BY \n  COUNT(*) DESC;",
+          "resultado": {
+            "colunas": [
+              "tipo_turma"
+            ],
+            "linhas": [
+              {
+                "tipo_turma": "Outro"
+              },
+              {
+                "tipo_turma": "Turma"
+              }
+            ],
+            "truncado": false,
+            "duracao_sql_segundos": 0.148
+          }
+        }
+      ],
+      "texto_descartado": "[rodada 1]\n```sql\nSELECT \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END AS tipo_turma\nFROM matriculas\nGROUP BY \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END\nORDER BY \n  COUNT(*) DESC;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\n\n[rodada 2]\n```sql\nSELECT \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END AS tipo_turma\nFROM matriculas\nGROUP BY \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END\nORDER BY \n  COUNT(*) DESC;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\n\n[rodada 3]\nDICIONARIO: NOME_VARIAVEL - QT_MAT_BAS\n\n[rodada 4]\nDICIONARIO: NOME_VARIAVEL - QT_MAT_BAS",
+      "transcricoes_censo": [
+        {
+          "rodada": 1,
+          "texto": "```sql\nSELECT \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END AS tipo_turma\nFROM matriculas\nGROUP BY \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END\nORDER BY \n  COUNT(*) DESC;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL",
+          "tokens_entrada": 4400,
+          "tokens_saida": 93
+        },
+        {
+          "rodada": 2,
+          "texto": "```sql\nSELECT \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END AS tipo_turma\nFROM matriculas\nGROUP BY \n  CASE \n    WHEN QT_MAT_BAS < 10 THEN 'Turma'\n    ELSE 'Outro'\n  END\nORDER BY \n  COUNT(*) DESC;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL",
+          "tokens_entrada": 4549,
+          "tokens_saida": 93
+        },
+        {
+          "rodada": 3,
+          "texto": "DICIONARIO: NOME_VARIAVEL - QT_MAT_BAS",
+          "tokens_entrada": 4712,
+          "tokens_saida": 15
+        },
+        {
+          "rodada": 4,
+          "texto": "DICIONARIO: NOME_VARIAVEL - QT_MAT_BAS",
+          "tokens_entrada": 4712,
+          "tokens_saida": 15
+        }
+      ],
+      "motivo_encerramento_censo": "finalizacao_sem_resposta",
+      "consultas_repetidas_bloqueadas": 1,
+      "rodadas_censo": 4,
+      "cpu_ollama_percentual": 0.37,
+      "ram_ollama_pico_mib": 29.68,
+      "ram_ollama_media_mib": 29.36,
+      "amostras_monitoramento": 295
+    },
+    {
+      "id": "censo_2025_05",
+      "split": null,
+      "usada_como_exemplo": false,
+      "gabarito": "Há escolas em 5.571 municípios distintos.",
+      "resposta": "5298",
+      "texto_modelo": "5298",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "tentativas_consulta": 1,
+      "motivo": "Deve identificar 5.571 municípios distintos; contar UFs não resolve.",
+      "revisao_necessaria": false,
+      "metodo_avaliacao": "rubrica_objetiva_censo",
+      "tempo_segundos": 26.57,
+      "tokens_entrada": 13516,
+      "tokens_saida": 125,
+      "consultas_censo": [
+        {
+          "tipo": "sql",
+          "comando": "SELECT COUNT(DISTINCT NO_MUNICIPIO) AS total_municpios\nFROM matriculas\nWHERE CO_ENTIDADE IS NOT NULL AND TRIM(NO_ENTIDADE) <> ''",
+          "resultado": {
+            "colunas": [
+              "total_municpios"
+            ],
+            "linhas": [
+              {
+                "total_municpios": 5298
+              }
+            ],
+            "truncado": false,
+            "duracao_sql_segundos": 0.162
+          }
+        }
+      ],
+      "texto_descartado": "[rodada 1]\n```sql\nSELECT COUNT(DISTINCT NO_MUNICIPIO) AS total_municpios\nFROM matriculas\nWHERE CO_ENTIDADE IS NOT NULL AND TRIM(NO_ENTIDADE) <> ''\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\n\n[rodada 2]\n```sql\nSELECT COUNT(DISTINCT NO_MUNICIPIO) AS total_municpios\nFROM matriculas\nWHERE CO_ENTIDADE IS NOT NULL AND TRIM(NO_ENTIDADE) <> ''\n```\n\nResposta final: total_municpios = 5298\n\n[rodada 3]\nResposta final:\n\nResposta final: 5298",
+      "transcricoes_censo": [
+        {
+          "rodada": 1,
+          "texto": "```sql\nSELECT COUNT(DISTINCT NO_MUNICIPIO) AS total_municpios\nFROM matriculas\nWHERE CO_ENTIDADE IS NOT NULL AND TRIM(NO_ENTIDADE) <> ''\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL",
+          "tokens_entrada": 4393,
+          "tokens_saida": 57
+        },
+        {
+          "rodada": 2,
+          "texto": "```sql\nSELECT COUNT(DISTINCT NO_MUNICIPIO) AS total_municpios\nFROM matriculas\nWHERE CO_ENTIDADE IS NOT NULL AND TRIM(NO_ENTIDADE) <> ''\n```\n\nResposta final: total_municpios = 5298",
+          "tokens_entrada": 4498,
+          "tokens_saida": 56
+        },
+        {
+          "rodada": 3,
+          "texto": "Resposta final:\n\nResposta final: 5298",
+          "tokens_entrada": 4625,
+          "tokens_saida": 12
+        }
+      ],
+      "motivo_encerramento_censo": "resposta_apos_finalizacao",
+      "consultas_repetidas_bloqueadas": 1,
+      "rodadas_censo": 3,
+      "cpu_ollama_percentual": 0.47,
+      "ram_ollama_pico_mib": 29.39,
+      "ram_ollama_media_mib": 19.36,
+      "amostras_monitoramento": 189
+    },
+    {
+      "id": "censo_2025_06",
+      "split": null,
+      "usada_como_exemplo": false,
+      "gabarito": "NU_ANO_CENSO representa o ano de referência do Censo Escolar. Nesta base, o valor é uniformemente 2025 em todas as linhas.",
+      "resposta": "O valor único presente em todas as linhas desta base é 2025.",
+      "texto_modelo": "O valor único presente em todas as linhas desta base é 2025.",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "tentativas_consulta": 1,
+      "motivo": "Variável, significado e ano de referência.",
+      "revisao_necessaria": false,
+      "metodo_avaliacao": "rubrica_objetiva_censo",
+      "tempo_segundos": 35.723,
+      "tokens_entrada": 13624,
+      "tokens_saida": 183,
+      "consultas_censo": [
+        {
+          "tipo": "sql",
+          "comando": "SELECT NU_ANO_CENSO, COUNT(DISTINCT CO_ENTIDADE) AS total_escolas, SUM(QT_MAT_BAS) AS total_matriculas\nFROM matriculas\nGROUP BY NU_ANO_CENSO\nORDER BY total_matriculas DESC\nLIMIT 1;",
+          "resultado": {
+            "colunas": [
+              "NU_ANO_CENSO",
+              "total_escolas",
+              "total_matriculas"
+            ],
+            "linhas": [
+              {
+                "NU_ANO_CENSO": "2025",
+                "total_escolas": 178766,
+                "total_matriculas": 46018380
+              }
+            ],
+            "truncado": false,
+            "duracao_sql_segundos": 0.4
+          }
+        },
+        {
+          "tipo": "sql",
+          "comando": "SELECT NU_ANO_CENSO FROM matriculas ORDER BY NU_ANO_CENSO LIMIT 1;",
+          "resultado": {
+            "colunas": [
+              "NU_ANO_CENSO"
+            ],
+            "linhas": [
+              {
+                "NU_ANO_CENSO": "2025"
+              }
+            ],
+            "truncado": false,
+            "duracao_sql_segundos": 0.148
+          }
+        }
+      ],
+      "texto_descartado": "[rodada 1]\n```sql\nSELECT NU_ANO_CENSO, COUNT(DISTINCT CO_ENTIDADE) AS total_escolas, SUM(QT_MAT_BAS) AS total_matriculas\nFROM matriculas\nGROUP BY NU_ANO_CENSO\nORDER BY total_matriculas DESC\nLIMIT 1;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\nNU_ANO_CENSO\nAno do Censo\n\n[rodada 2]\n```sql\nSELECT NU_ANO_CENSO FROM matriculas ORDER BY NU_ANO_CENSO LIMIT 1;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\nNU_ANO_CENSO\n2025\n\n[rodada 3]\nDICIONARIO: NOME_VARIAVEL - NU_ANO_CENSO\n\nResposta final:\nO valor único presente em todas as linhas desta base é 2025.",
+      "transcricoes_censo": [
+        {
+          "rodada": 1,
+          "texto": "```sql\nSELECT NU_ANO_CENSO, COUNT(DISTINCT CO_ENTIDADE) AS total_escolas, SUM(QT_MAT_BAS) AS total_matriculas\nFROM matriculas\nGROUP BY NU_ANO_CENSO\nORDER BY total_matriculas DESC\nLIMIT 1;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\nNU_ANO_CENSO\nAno do Censo",
+          "tokens_entrada": 4403,
+          "tokens_saida": 93
+        },
+        {
+          "rodada": 2,
+          "texto": "```sql\nSELECT NU_ANO_CENSO FROM matriculas ORDER BY NU_ANO_CENSO LIMIT 1;\n```\n\nResposta final:\nDICIONARIO: NOME_VARIAVEL\nNU_ANO_CENSO\n2025",
+          "tokens_entrada": 4568,
+          "tokens_saida": 52
+        },
+        {
+          "rodada": 3,
+          "texto": "DICIONARIO: NOME_VARIAVEL - NU_ANO_CENSO\n\nResposta final:\nO valor único presente em todas as linhas desta base é 2025.",
+          "tokens_entrada": 4653,
+          "tokens_saida": 38
+        }
+      ],
+      "motivo_encerramento_censo": "resposta_com_evidencia",
+      "consultas_repetidas_bloqueadas": 0,
+      "rodadas_censo": 3,
+      "cpu_ollama_percentual": 0.22,
+      "ram_ollama_pico_mib": 17.6,
+      "ram_ollama_media_mib": 16.96,
+      "amostras_monitoramento": 246
+    }
+  ],
+  "status": "concluido",
+  "data_fim": "2026-10-23T20:22:07",
+  "tempo_acumulado_segundos": 159.1069595000008,
+  "metricas": {
+    "exemplos_utilizados": 5,
+    "questoes_executadas": 5,
+    "questoes_avaliadas": 5,
+    "acertos": 0,
+    "erros": 5,
+    "falhas_tecnicas": 0,
+    "detalhes_falhas_tecnicas": [],
+    "acuracia_percentual": 0.0,
+    "acuracia_por_split": {},
+    "respostas_sem_extracao": 3,
+    "revisoes_necessarias": 0,
+    "tempo_total_segundos": 159.11,
+    "tempo_medio_segundos": 31.82,
+    "tokens_entrada": 81691,
+    "tokens_saida": 771,
+    "cpu_ollama_media_percentual": 0.4,
+    "ram_ollama_pico_mib": 29.68,
+    "ram_ollama_media_mib": 20.61
+  }
+}

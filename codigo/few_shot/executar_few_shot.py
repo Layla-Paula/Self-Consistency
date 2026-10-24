@@ -232,9 +232,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         dados["metricas_parciais"] = metricas(resultados, total, quantidade, dataset)
         salvar(progresso, dados)
     try:
-        barra = tqdm(questoes_para_executar, desc=f"Few-shot {dataset}")
+        barra = tqdm(questoes_para_executar, desc=f"Few-shot {dataset}", bar_format="{desc}: {percentage:3.0f}%|{bar:16}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]", ascii=" #", mininterval=1.0, leave=True)
         for questao in barra:
-            barra.set_postfix(restantes=len(questoes) - len(resultados))
             demonstracao = str(questao["id"]) in ids_exemplos
             if dataset == "gsm8k":
                 exemplos_prompt = [e for e in exemplos if str(e["id"]) != str(questao["id"])]
@@ -358,7 +357,6 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             })
             if len(resultados) % SALVAR_CADA == 0:
                 checkpoint()
-        barra.set_postfix(restantes=0)
     except BaseException:
         checkpoint()
         raise
