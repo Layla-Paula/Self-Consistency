@@ -15,9 +15,9 @@ VERSAO_PROTOCOLO = '2.2'
 # None explícito: avalia todas as questões elegíveis.
 USAR_LIMITE_PADRAO = object()
 
-LIMITES_PADRAO = {'gsm8k': 500, 
-                  'aqua_rat': 500, 
-                  'censo': 20}
+LIMITES_PADRAO = {'gsm8k': None, 
+                  'aqua_rat': 10000, 
+                  'censo': None}
 
 #LIMITES_PADRAO = {'gsm8k': None, 
 #                  'aqua_rat': None, 
@@ -32,9 +32,9 @@ def resolver_limite(dataset, limite=USAR_LIMITE_PADRAO):
         raise ValueError('O limite deve ser None ou inteiro positivo.')
     return limite
 
-N_EXEMPLOS_PADRAO = {'gsm8k': 10, 
-                     'aqua_rat': 10, 
-                     'censo': 5}
+N_EXEMPLOS_PADRAO = {'gsm8k': 100, 
+                     'aqua_rat': 100, 
+                     'censo': 6}
 
 
 BLOCOS_CENSO = [(1, 8), (9, 16), (17, 25), (26, 35), (36, 43), (44, 50)]
