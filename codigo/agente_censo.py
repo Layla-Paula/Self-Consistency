@@ -23,6 +23,16 @@ def _comando(texto):
     return None, None
 
 
+def _comandos_no_texto(texto):
+    """Lista TODOS os comandos presentes, inclusive SQL e dicionario misturados."""
+    comandos = []
+    for achado in re.finditer(r'```sql\s*([\s\S]*?)```', texto or '', re.I):
+        comandos.append(('sql', achado.group(1).strip()))
+    for achado in re.finditer(r'(?im)^DICIONARIO\s*:\s*([A-Z][A-Z0-9_]+)\s*$', texto or ''):
+        comandos.append(('dicionario', achado.group(1).upper()))
+    return comandos
+
+
 def _cortar_apos_comando(texto, tipo):
     """Guarda no histórico só o texto até o comando. O que o modelo escrever depois
     (por exemplo, um resultado inventado) não é observação e não entra no histórico."""
@@ -91,6 +101,7 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
     inicio = time.perf_counter()
     chamadas, consultas, transcricoes = [], [], []
     vistos = set()
+    consultas_com_sucesso = set()
     repeticoes = reparos = 0
     motivo = None
     resposta_final = ''
@@ -125,6 +136,20 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
                              'tokens_saida': info.get('eval_count')})
         return info
 
+    def resposta_apoiada_em_evidencia(texto):
+        """Aceita resposta com SQL repetido SOMENTE se todas as consultas citadas
+        ja foram executadas com sucesso e seus resultados estao no historico.
+        Nao executa SQL novo nem fabrica respostas a partir do resultado SQL.
+        """
+        candidata = _extrair_resposta_final(texto)
+        if not candidata or not evidencia:
+            return None
+        comandos = _comandos_no_texto(texto)
+        if any(_chave(tipo, comando) not in consultas_com_sucesso
+               for tipo, comando in comandos):
+            return None
+        return candidata
+
     def finalizar(extra, motivo_sucesso):
         """Pede uma resposta final explícita sem executar novas ferramentas."""
         nonlocal resposta_final, motivo, reparos
@@ -135,9 +160,10 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
                 motivo = 'falha_ollama'
                 return
             bruto = str(info['resposta']).strip()
-            candidata = _extrair_resposta_final(bruto)
-            # Na finalização, somente uma resposta explícita e sem comandos é válida.
-            if candidata and evidencia and _comando(bruto)[0] is None:
+            candidata = resposta_apoiada_em_evidencia(bruto)
+            # Um comando ja executado pode aparecer novamente junto da resposta.
+            # Comandos novos ou que falharam continuam impedindo a finalizacao.
+            if candidata:
                 resposta_final = candidata
                 motivo = motivo_sucesso
                 return
@@ -168,10 +194,14 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
         chave = _chave(tipo, comando)
         if chave in vistos:
             repeticoes += 1
-            motivo = 'consulta_repetida'
-            # Não aceita resposta misturada com consulta repetida.
-            # A finalização será solicitada em uma rodada separada,
-            # utilizando exclusivamente o histórico das ferramentas executadas.
+            # A resposta so e aproveitada se TODOS os comandos citados nesta
+            # geracao ja tiveram execucao bem-sucedida em rodada anterior.
+            resposta_repetida = resposta_apoiada_em_evidencia(texto)
+            if resposta_repetida:
+                resposta_final = resposta_repetida
+                motivo = 'resposta_apos_consulta_repetida'
+            else:
+                motivo = 'consulta_repetida'
             break
 
         if len(consultas) >= MAX_CONSULTAS:
@@ -188,6 +218,7 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
         sucesso = isinstance(resultado, dict) and 'erro' not in resultado
         if sucesso:
             evidencia = True
+            consultas_com_sucesso.add(chave)
         historico.append('ASSISTENTE:\n' + _cortar_apos_comando(texto, tipo) + '\nFERRAMENTA:\n' +
                          json.dumps(resultado, ensure_ascii=False, default=str))
 
