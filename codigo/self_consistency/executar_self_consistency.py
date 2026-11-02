@@ -368,15 +368,9 @@ def normalizar_voto_censo(texto):
 
 
 def extrair_resposta_final_censo(texto):
-    """Retém a resposta final aberta (texto, lista ou número) sem inventar extração."""
-    if not texto:
-        return ''
-    texto = str(texto).strip()
-    match = re.search(r'(?im)^\s*resposta\s+final\s*:\s*(.*)$', texto)
-    if not match:
-        return ''
-    resposta = (match.group(1) + texto[match.end():]).strip()
-    return resposta
+    """O agente do Censo já devolve só o texto depois de "Resposta final:".
+    Não procurar o rótulo de novo: isso zerava todas as amostras."""
+    return str(texto).strip() if texto else ''
 
 
 def executar_gsm8k(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
@@ -395,4 +389,3 @@ if __name__ == '__main__':
     executar_gsm8k()
     executar_aqua_rat()
     executar_censo()
-    

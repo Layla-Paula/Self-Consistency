@@ -391,3 +391,120 @@ RESPOSTA: {resposta}"""
             'metodo_avaliacao': 'avaliador_inconclusivo',
             'tentativas_avaliador': 3}
 
+
+# ============================================================
+# REAVALIAÇÃO OFFLINE - SELF-CONSISTENCY NO CENSO
+# ============================================================
+# Refaz a votação e a avaliação a partir das amostras JÁ SALVAS no JSON.
+# Não gera texto novo do modelo: só usa o juiz (Ollama) nas questões sem rubrica.
+# Nunca altera o arquivo original: grava ao lado, com final ".reavaliado.json".
+
+def reavaliar_self_consistency_censo(caminho, usar_juiz=True, registros_censo=None):
+    from pathlib import Path
+    from codigo.self_consistency.votacao import voto_censo_semantico
+
+    caminho = Path(caminho)
+    original = json.loads(caminho.read_text(encoding='utf-8'))
+    if original.get('tecnica') != 'self_consistency' or original.get('dataset') != 'censo':
+        raise ValueError('O arquivo precisa ser de self_consistency no censo.')
+
+    consultar = None
+    if usar_juiz:
+        from codigo.utils import consultar_ollama as consultar
+    if registros_censo is None:
+        from codigo.utils import carregar_censo
+        registros_censo = carregar_censo()
+    perguntas = {str(q.get('id')): q for q in registros_censo}
+
+    dados = json.loads(json.dumps(original))  # cópia profunda
+    resultados = dados['resultados']
+    alteracoes = []
+
+    for r in resultados:
+        if r.get('falha_tecnica'):
+            continue
+        antes = {'resposta': r.get('resposta'), 'acertou': r.get('acertou')}
+        respostas = []
+        for a in r.get('amostras', []):
+            # O agente já devolve só o texto depois de "Resposta final:".
+            texto = '' if a.get('falha_tecnica') else str(a.get('resposta_completa') or '').strip()
+            a['resposta_extraida'] = texto
+            a['resposta_valida'] = bool(texto)
+            a['sem_extracao'] = (not texto) and (not a.get('falha_tecnica'))
+            respostas.append(texto)
+
+        questao = dict(perguntas.get(str(r['id']), {}))
+        questao.setdefault('id', r['id'])
+        questao['resposta_esperada'] = r.get('gabarito') or questao.get('resposta_esperada', '')
+        pergunta = str(questao.get('pergunta') or questao.get('enunciado') or '')
+
+        votacao = voto_censo_semantico(pergunta, respostas, None)
+        r.update(
+            respostas_extraidas=respostas,
+            distribuicao_votos=votacao['distribuicao'],
+            resposta_modelo=votacao['vencedora'],
+            resposta=votacao['vencedora'],
+            resposta_valida=bool(votacao['vencedora']),
+            votos_resposta_modelo=votacao['votos'],
+            houve_empate=votacao['houve_empate'],
+            total_respostas_validas=votacao['total_respostas_validas'],
+            metodo_votacao=votacao.get('metodo_votacao'),
+            amostras_sem_extracao=sum(a['sem_extracao'] for a in r.get('amostras', [])),
+        )
+
+        if not votacao['vencedora']:
+            r.update(acertou=False, motivo='Nenhuma resposta final válida nas amostras.',
+                     metodo_avaliacao='votacao_sem_vencedor', revisao_necessaria=False,
+                     tipo_resultado='sem_vencedor')
+        else:
+            av = avaliar_censo(questao, votacao['vencedora'], consultar)
+            pendente = av.get('metodo_avaliacao') == 'avaliador_indisponivel'
+            r.update(acertou=None if pendente else bool(av['acertou']),
+                     motivo=av.get('motivo'), metodo_avaliacao=av.get('metodo_avaliacao'),
+                     revisao_necessaria=bool(av.get('revisao_necessaria')) or pendente,
+                     tipo_resultado=('pendente' if pendente else
+                                     'acerto' if av['acertou'] else 'vencedora_incorreta'))
+        if antes != {'resposta': r.get('resposta'), 'acertou': r.get('acertou')}:
+            alteracoes.append({'id': r['id'], 'antes': antes,
+                               'depois': {'resposta': r.get('resposta'), 'acertou': r.get('acertou')}})
+
+    avaliadas = [r for r in resultados if not r.get('falha_tecnica') and isinstance(r.get('acertou'), bool)]
+    pendentes = [r for r in resultados if not r.get('falha_tecnica') and r.get('acertou') is None]
+    acertos = sum(r['acertou'] for r in avaliadas)
+    amostras = [a for r in resultados for a in r.get('amostras', [])]
+    m = dados['metricas']
+    dados['metricas_originais'] = original.get('metricas', {})
+    m.update(
+        questoes_avaliadas=len(avaliadas), acertos=acertos, erros=len(avaliadas) - acertos,
+        avaliacoes_pendentes=len(pendentes),
+        acuracia_percentual=round(100 * acertos / len(avaliadas), 2) if avaliadas else None,
+        amostras_sem_extracao=sum(a.get('sem_extracao', False) for a in amostras),
+        questoes_sem_vencedor=sum(not r.get('resposta_modelo') for r in avaliadas),
+        questoes_maioria_incorreta=sum(bool(r.get('resposta_modelo')) and not r['acertou'] for r in avaliadas),
+        questoes_empate=sum(bool(r.get('houve_empate')) for r in avaliadas),
+        ids_questoes_sem_vencedor=[r['id'] for r in avaliadas if not r.get('resposta_modelo')],
+        ids_questoes_maioria_incorreta=[r['id'] for r in avaliadas
+                                        if r.get('resposta_modelo') and not r['acertou']],
+        revisoes_necessarias=sum(bool(r.get('revisao_necessaria')) for r in resultados),
+    )
+    dados['reavaliacao'] = {
+        'tipo': 'offline_a_partir_das_amostras_salvas',
+        'motivo': 'Correção do extrator de resposta final do Censo no Self-Consistency.',
+        'usou_juiz_llm': bool(usar_juiz),
+        'arquivo_origem': str(caminho),
+        'questoes_alteradas': len(alteracoes),
+    }
+    destino = caminho.with_name(caminho.stem + '.reavaliado.json')
+    destino.write_text(json.dumps(dados, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f"{caminho.name}: {acertos}/{len(avaliadas)} = {m['acuracia_percentual']}% "
+          f"| pendentes: {len(pendentes)} | sem vencedora: {m['questoes_sem_vencedor']}")
+    print(f'Salvo em: {destino}')
+    return destino
+
+
+if __name__ == '__main__':
+    import sys
+    argumentos = [a for a in sys.argv[1:] if not a.startswith('--')]
+    if len(argumentos) != 1:
+        raise SystemExit('Uso: python -m codigo.avaliacao.avaliacao_censo ARQUIVO.json [--sem-juiz]')
+    reavaliar_self_consistency_censo(argumentos[0], usar_juiz='--sem-juiz' not in sys.argv)
