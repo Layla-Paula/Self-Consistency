@@ -90,6 +90,18 @@ def _extrair_resposta_final(texto):
     return resto or None
 
 
+def _resposta_final_valida(texto):
+    """Rejeita saída de ferramenta e histórico; não avalia a correção factual."""
+    texto = str(texto or '').strip()
+    if not texto or texto[0] in '{[':
+        return False
+    if re.search(r'(?im)^\s*(?:ASSISTENTE|FERRAMENTA|SISTEMA|DICIONARIO)\s*:', texto):
+        return False
+    if re.search(r'```|\b(?:SELECT|WITH)\s+.+?\bFROM\b', texto, re.I | re.S):
+        return False
+    return True
+
+
 def _chave(tipo, comando):
     if tipo == 'sql':
         return tipo, re.sub(r'\s+', ' ', comando).strip().rstrip(';').lower()
@@ -117,6 +129,7 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
         'Quando houver evidências suficientes, responda com Resposta final: ...\n'
         'Se a fonte necessária estiver indisponível, informe isso explicitamente.\n'
         'Não invente números, não use o gabarito e não coloque SQL após a resposta final.\n'
+        'Resposta final deve ser TEXTO, nunca JSON de ferramenta, tabela bruta, SQL ou histórico.\n'
     )
     historico = []
 
@@ -142,7 +155,7 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
         Nao executa SQL novo nem fabrica respostas a partir do resultado SQL.
         """
         candidata = _extrair_resposta_final(texto)
-        if not candidata or not evidencia:
+        if not _resposta_final_valida(candidata) or not evidencia:
             return None
         comandos = _comandos_no_texto(texto)
         if any(_chave(tipo, comando) not in consultas_com_sucesso
@@ -180,8 +193,8 @@ def consultar_censo_agente(prompt, sessao, temperature=0.0, num_predict=1200,
         candidata = _extrair_resposta_final(texto)
 
         if not tipo:
-            if candidata and evidencia:
-                resposta_final = candidata
+            if resposta_apoiada_em_evidencia(texto):
+                resposta_final = resposta_apoiada_em_evidencia(texto)
                 motivo = 'resposta_com_evidencia'
             elif not texto:
                 motivo = 'resposta_vazia'

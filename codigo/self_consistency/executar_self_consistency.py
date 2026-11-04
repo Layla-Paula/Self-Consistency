@@ -218,12 +218,13 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         'ids_questoes': [str(q['id']) for q in questoes],
         'criterio_avaliacao': 'todos_splits_sem_demonstracoes',
         'tipo_demonstracao': 'questao_raciocinio_resposta',
-        'votacao_censo': 'seletor_semantico_sem_gabarito_v1' if dataset == 'censo' else 'frequencia_simples',
+        'votacao_censo': 'pluralidade_deterministica_sem_gabarito_v2' if dataset == 'censo' else 'frequencia_simples',
         'origem_raciocinios_censo': 'json_preparado' if dataset == 'censo' else None,
         'versao_prompt_aqua_rat': 'curto_com_resposta_prioritaria_v4' if dataset == 'aqua_rat' else None,
     }
     if dataset == 'censo':
-        parametros['arquitetura_censo'] = 'agente_sql_direto_v1_max_5_consultas'
+        parametros['arquitetura_censo'] = 'agente_sql_resposta_textual_v2_max_5_consultas'
+        parametros['avaliacao_censo'] = 'rubricas_objetivas_juiz_apenas_triagem_v2'
     parametros['protocolo'] = resumo_protocolo(dataset, exemplos, questoes, limite, quantidade)
     parametros['top_k'] = 40
     parametros['top_p'] = 0.9
@@ -328,6 +329,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 'revisao_necessaria': revisao, **sc,
                 'tipo_resultado': ('falha_tecnica' if sc['falha_tecnica'] else
                                    'sem_vencedor' if not sc['resposta_modelo'] else
+                                   'avaliacao_pendente' if acertou is None else
                                    'acerto' if acertou else 'vencedora_incorreta'),
             }
             # Os campos finais de avaliação prevalecem sobre metadados de sc.

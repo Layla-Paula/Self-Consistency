@@ -172,7 +172,7 @@ def voto_censo_semantico(
     respostas,
     consultar_ollama
 ):
-    """Seleciona a resposta mais consistente sem consultar o gabarito.
+    """Seleciona a resposta mais frequente por normalização conservadora, sem gabarito.
 
     Primeiro verifica equivalência determinística.
     Depois escolhe a resposta de maior frequência; empate usa a primeira geração.
