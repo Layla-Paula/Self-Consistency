@@ -24,9 +24,7 @@ def _numeros(texto):
 # O texto original nao e modificado; nunca usar comparacao por substring.
 from decimal import Decimal, InvalidOperation
 
-# O número não pode ser seguido de letra/dígito, nem de "." ou "," seguidos de dígito.
-# Ponto ou vírgula finais de frase ("...é de 3637. Esse") não invalidam o número.
-_PADRAO_VALOR = re.compile(r"(?<![\w])[-+]?\d{1,3}(?:\.\d{3})+(?:,\d+)?(?!\w|[.,]\d)|(?<![\w])[-+]?\d+(?:[.,]\d+)?(?!\w|[.,]\d)")
+_PADRAO_VALOR = re.compile(r"(?<![\w])[-+]?\d{1,3}(?:\.\d{3})+(?:,\d+)?(?![\w])|(?<![\w])[-+]?\d+(?:[.,]\d+)?(?![\w])")
 
 def _valores_decimais(texto):
     valores = []
@@ -143,6 +141,112 @@ def _contradicao_soma(resposta, valores):
     return any(re.search(r'(?<!\d)' + str(v) + r'\s*\+\s*\d', texto)
                for v in valores)
 
+def _valor_do_token(token):
+    if re.fullmatch(r"[-+]?\d{1,3}(?:\.\d{3})+(?:,\d+)?", token):
+        token = token.replace('.', '').replace(',', '.')
+    else:
+        token = token.replace(',', '.')
+    try:
+        return Decimal(token)
+    except InvalidOperation:
+        return None
+
+
+def _aceitos(valor, inteiro=False):
+    """Valores aceitos para uma média: o decimal oficial e, se inteiro=True,
+    também as versões truncada e arredondada (535,7 -> 535 ou 536)."""
+    base = Decimal(str(valor))
+    if not inteiro:
+        return {base}
+    return {base, base.to_integral_value(rounding='ROUND_DOWN'),
+            base.to_integral_value(rounding='ROUND_HALF_UP')}
+
+
+def _agrupar_em_trechos(fichas):
+    """Divide a lista de fichas em trechos de rótulos e de números que se alternam."""
+    trechos = []
+    for ficha in fichas:
+        if trechos and trechos[-1][0] == ficha[1]:
+            trechos[-1][1].append(ficha)
+        else:
+            trechos.append((ficha[1], [ficha]))
+    return [lista for _, lista in trechos]
+
+
+def _parear_trechos(trechos, saida):
+    """Liga cada trecho de números ao trecho de rótulos vizinho.
+
+    Devolve True se houver ambiguidade (por exemplo, dois rótulos para três números)."""
+    ambiguo = False
+    rotulos_primeiro = trechos[0][0][1] == 'L'
+    for i in range(0, len(trechos) - 1, 2):
+        par = trechos[i:i + 2]
+        if len(par) < 2:
+            break
+        rotulos, numeros = (par[0], par[1]) if rotulos_primeiro else (par[1], par[0])
+        chaves = []
+        for ficha in rotulos:
+            if not chaves or chaves[-1] != ficha[2]:
+                chaves.append(ficha[2])
+        valores = [ficha[2] for ficha in numeros]
+        if len(chaves) == 1:
+            saida[chaves[0]].extend(valores)
+        elif len(chaves) == len(valores):
+            for chave, valor in zip(chaves, valores):
+                saida[chave].append(valor)
+        else:
+            ambiguo = True
+    return ambiguo
+
+
+def _conferir_pares(resposta, pares):
+    """Confere se cada rótulo recebeu o seu valor, sem trocas.
+
+    pares = {chave: (sinônimos, valores_aceitos)}. Funciona com o número depois do
+    rótulo ("Urbana: 128.037"), antes dele ("128.037 escolas urbanas"), em tabelas
+    (uma linha por rótulo) e com vários números por rótulo.
+    Devolve True, False, ou None quando a associação é ambígua (vai para revisão)."""
+    texto = _normalizar(resposta)
+    padroes = {chave: re.compile(r'\b(?:' + '|'.join(sins) + r')\b') for chave, (sins, _) in pares.items()}
+    donos = {chave: [] for chave in pares}
+    ambiguo = False
+    for segmento in re.split(r'\.\s+|[\n;]', texto):
+        fichas = []
+        for chave, padrao in padroes.items():
+            fichas += [(m.start(), 'L', chave) for m in padrao.finditer(segmento)]
+        for m in _PADRAO_VALOR.finditer(segmento):
+            valor = _valor_do_token(m.group())
+            if valor is not None:
+                fichas.append((m.start(), 'N', valor))
+        if not any(f[1] == 'L' for f in fichas) or not any(f[1] == 'N' for f in fichas):
+            continue
+        fichas.sort(key=lambda f: f[0])
+        ambiguo |= _parear_trechos(_agrupar_em_trechos(fichas), donos)
+    aceitos = {chave: valores for chave, (_, valores) in pares.items()}
+    for chave, recebidos in donos.items():
+        for valor in recebidos:
+            if any(valor in aceitos[outra] and valor not in aceitos[chave]
+                   for outra in aceitos if outra != chave):
+                return False  # valor de outro rótulo atribuído a este
+    if all(any(v in aceitos[chave] for v in donos[chave]) for chave in pares):
+        return True
+    return None if ambiguo else False
+
+
+def _tem_contradicao_total(texto, correto):
+    """Evita aprovar números concorrentes declarados como total no mesmo enunciado."""
+    t = _normalizar(texto)
+    # Conflitos explícitos após 'mas', 'porem' ou 'na verdade'.
+    for trecho in re.split(r'\b(?:mas|porem|na verdade|entretanto)\b', t)[1:]:
+        if re.search(r'\b(?:total|verdadeiro|correto|sao|existem|ha)\b', trecho):
+            vals = [v for v in _valores_decimais(trecho) if v >= 1000]
+            if re.search(r'\b\d+(?:[.,]\d+)?\s+(?:milhoes|milhao|bilhoes|bilhao)\b', trecho):
+                return True
+            if any(v != Decimal(correto) for v in vals):
+                return True
+    return False
+
+
 def _criterios_censo(questao, resposta):
     """Rubricas objetivas para as questões 01–20, com base nos gabaritos.
 
@@ -160,11 +264,17 @@ def _criterios_censo(questao, resposta):
     def decisao(ok, explicacao):
         return {'acertou': bool(ok), 'motivo': explicacao,
                 'revisao_necessaria': False, 'metodo_avaliacao': 'rubrica_objetiva_censo'}
+    def _decisao_pares(resposta, pares, explicacao, extra=True):
+        # Associação ambígua entre rótulos e números: sem decisão automática (vai para revisão).
+        resultado = _conferir_pares(resposta, pares)
+        if resultado is None:
+            return None
+        return decisao(resultado and extra, explicacao)
 
     if numero == 1:
         return decisao(tem(178766) and not re.search(r'(?<!\d)0\s+escolas\b', t), 'Total correto de escolas, sem afirmação contraditória.')
     if numero == 2:
-        return decisao(tem(46018380), 'Verificação do total de matrículas, não apenas do código proposto.')
+        return decisao(tem(46018380) and not _tem_contradicao_total(resposta, 46018380), 'Verificação do total de matrículas, não apenas do código proposto.')
     if numero == 3:
         return decisao(('atividade complementar' in t and ('aee' in t or 'atendimento educacional especializado' in t)),
                        'Devem ser identificados os dois tipos de turma excluídos.')
@@ -213,7 +323,7 @@ def _criterios_censo(questao, resposta):
     if numero == 7:
         negativa = bool(re.search(r'\b(nao\s+(?:existe|existem|ha)|nenhuma escola|zero ocorrencias|0 ocorrencias)\b', t))
         afirmacao = bool(re.search(r'(?<!nao )\b(?:existe|existem|ha)\s+(?:alguma|uma|escola|escolas)', t)) and not negativa
-        return decisao(negativa and not afirmacao, 'Não há escolas com QT_MAT_BAS igual a zero.')
+        return decisao(negativa and not afirmacao and not re.search(r'\b(?:mas|porem|entretanto)\s+(?:ha|existem|existe)\b', t), 'Não há escolas com QT_MAT_BAS igual a zero.')
     if numero == 8:
         correta = ('co_rede' in t and 'tp_dependencia' in t and
                    ('publica' in t and 'privada' in t) and
@@ -223,38 +333,67 @@ def _criterios_censo(questao, resposta):
         return decisao(correta and not erro_rede and ('duas' in t or '2 categoria' in t or 'publica e privada' in t),
                        'CO_REDE agrupa pública/privada; TP_DEPENDENCIA possui quatro categorias.')
     if numero == 9:
-        return decisao(tem(137020) and tem(41746) and 'publica' in t and 'privada' in t, 'Contagens das redes pública e privada.')
+        return _decisao_pares(resposta, {
+            'publica': (('publica', 'publicas'), {Decimal(137020)}),
+            'privada': (('privada', 'privadas'), {Decimal(41746)})},
+            'Contagens das redes pública e privada.')
     if numero == 10:
-        return decisao(all(tem(v) for v in (383526, 13330302, 23059168, 9245384)) and 'municipal' in t,
-                       'Quatro totais de matrículas por dependência e predominância municipal.')
+        conclusao_errada = re.search(r'\b(?:estadual|federal|privada)\s+(?:concentra|tem|possui)\s+(?:o\s+)?maior', t)
+        return _decisao_pares(resposta, {
+            'federal': (('federal', 'federais'), {Decimal(383526)}),
+            'estadual': (('estadual', 'estaduais'), {Decimal(13330302)}),
+            'municipal': (('municipal', 'municipais'), {Decimal(23059168)}),
+            'privada': (('privada', 'privadas'), {Decimal(9245384)})},
+            'Quatro totais de matrículas por dependência e predominância municipal.',
+            extra=not conclusao_errada)
     if numero == 11:
         return decisao('federal' in t and tem(716) and tem(383526),
                        'Menor dependência é federal, com 716 escolas e 383.526 matrículas.')
     if numero == 12:
-        ok = all(x in t for x in ('federal', 'estadual', 'municipal', 'privada')) and all(tem(x) for x in (535, 448, 216, 221))
-        return decisao(ok, 'Médias por todas as quatro dependências e identificação da maior.')
+        return _decisao_pares(resposta, {
+            'federal': (('federal', 'federais'), _aceitos('535.7', True)),
+            'estadual': (('estadual', 'estaduais'), _aceitos('448.3', True)),
+            'municipal': (('municipal', 'municipais'), _aceitos('216.4', True)),
+            'privada': (('privada', 'privadas'), _aceitos('221.5', True))},
+            'Médias por todas as quatro dependências e identificação da maior.')
     if numero == 13:
-        return decisao('municipal' in t and 'estadual' in t and tem(216) and tem(448) and
-                       ('metade' in t or 'dobro' in t or 'menor' in t),
-                       'Comparação efetiva entre as médias municipal e estadual.')
+        return _decisao_pares(resposta, {
+            'municipal': (('municipal', 'municipais'), _aceitos('216.4', True)),
+            'estadual': (('estadual', 'estaduais'), _aceitos('448.3', True))},
+            'Comparação efetiva entre as médias municipal e estadual.',
+            extra=('metade' in t or 'dobro' in t or 'menor' in t))
     if numero == 14:
         return decisao('tp_categoria_escola_privada' in t and all(x in t for x in
                        ('particular', 'comunitaria', 'confessional', 'filantropica')),
                        'Variável e as quatro categorias privadas.')
     if numero == 15:
-        return decisao(tem(7085034) and tem(1711268) and 'particular' in t and 'filantropica' in t and
-                       ('maior' in t or 'mais matriculas' in t or 'superior' in t or 'concentra' in t),
-                       'Matrículas particular e filantrópica e comparação conclusiva entre ambas.')
+        return _decisao_pares(resposta, {
+            'particular': (('particular', 'particulares'), {Decimal(7085034)}),
+            'filantropica': (('filantropica', 'filantropicas'), {Decimal(1711268)})},
+            'Matrículas particular e filantrópica e comparação conclusiva entre ambas.',
+            extra=(('maior' in t or 'mais matriculas' in t or 'superior' in t or 'concentra' in t)
+                   and not re.search(r'filantropica\s+(?:concentra|tem|possui)\s+(?:o\s+)?(?:maior|mais)', t)))
     if numero == 16:
         return decisao('parceria' in t and ('poder publico' in t or 'administracao publica' in t) and ('financiamento' in t or 'convenio' in t or 'itinerario' in t),
                        'Interpretação da parceria com o poder público.')
     if numero == 17:
-        return decisao(_par_numero(resposta, ('urbana', 'urbanas'), 128037) and _par_numero(resposta, ('rural', 'rurais'), 50729) and not _contradicao_soma(resposta, (128037, 50729)), 'Exige os dois totais por localização, sem apresentar somas contraditórias como totais.')
+        return _decisao_pares(resposta, {
+            'urbana': (('urbana', 'urbanas', 'urbano', 'urbanos'), {Decimal(128037)}),
+            'rural': (('rural', 'rurais'), {Decimal(50729)})},
+            'Exige os dois totais por localização, sem apresentar somas contraditórias como totais.',
+            extra=not _contradicao_soma(resposta, (128037, 50729)))
     if numero == 18:
-        return decisao(_par_numero(resposta, ('urbana', 'urbanas'), 40871166) and _par_numero(resposta, ('rural', 'rurais'), 5147214) and not re.search(r'\b(iguais|mesmo total|mesma quantidade)\b', t), 'Totais corretos de matrículas urbanas e rurais, sem afirmar igualdade.')
+        return _decisao_pares(resposta, {
+            'urbana': (('urbana', 'urbanas', 'urbano', 'urbanos'), {Decimal(40871166)}),
+            'rural': (('rural', 'rurais'), {Decimal(5147214)})},
+            'Totais corretos de matrículas urbanas e rurais, sem afirmar igualdade.',
+            extra=not re.search(r'\b(iguais|mesmo total|mesma quantidade)\b', t))
     if numero == 19:
-        return decisao(tem(319) and tem(101) and 'urbana' in t and 'rural' in t and not tem(270),
-                       'Médias urbana e rural corretas, sem valor urbano contraditório.')
+        return _decisao_pares(resposta, {
+            'urbana': (('urbana', 'urbanas', 'urbano', 'urbanos'), _aceitos('319.2', True)),
+            'rural': (('rural', 'rurais'), _aceitos('101.5', True))},
+            'Médias urbana e rural corretas, sem valor urbano contraditório.',
+            extra=(not tem(270) and not re.search(r'\b(?:e tambem|mas tambem)\s*\d', t)))
     if numero == 20:
         regioes = {'norte': '24.42', 'nordeste': '21.34', 'centro-oeste': '5.90', 'sul': '5.77', 'sudeste': '3.30'}
         ok = all(_rotulo_valor(resposta, regiao, valor) for regiao, valor in regioes.items())
@@ -396,3 +535,4 @@ RESPOSTA: {resposta}"""
             'revisao_necessaria': True,
             'metodo_avaliacao': 'avaliador_inconclusivo',
             'tentativas_avaliador': 3}
+

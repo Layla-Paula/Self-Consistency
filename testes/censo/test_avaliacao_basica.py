@@ -23,12 +23,13 @@ class TestarRubricasCenso(unittest.TestCase):
         self.assertFalse(self.avaliar(43, '496.8651 crianças')['acertou'])
     def test_44_incompleta(self):
         self.assertFalse(self.avaliar(44, 'O turno diurno concentra a maioria das matrículas')['acertou'])
-    def test_veredito_inconclusivo_conta_erro(self):
-        def juiz_inconclusivo(*args, **kwargs): return {'resposta':'{"veredito":"INCERTO"}', 'erro_detalhado':None}
-        r=self.avaliar(25, 'Resposta plausível') if False else avaliar_censo(
-            {'id':'censo_2025_25','pergunta':'Pergunta','resposta_esperada':'Gabarito'},
-            'Resposta plausível', juiz_inconclusivo)
-        self.assertIs(r['acertou'], False)
-        self.assertFalse(r['revisao_necessaria'])
+    def test_veredito_inconclusivo_vai_para_revisao_humana(self):
+        # Juiz que responde INCERTO não decide: a questão fica pendente (None).
+        def juiz_inconclusivo(*args, **kwargs):
+            return {'resposta': '{"veredito":"INCERTO"}', 'erro_detalhado': None}
+        r = avaliar_censo({'id': 'censo_2025_25', 'pergunta': 'Pergunta',
+                           'resposta_esperada': 'Gabarito'}, 'Resposta plausível', juiz_inconclusivo)
+        self.assertIsNone(r['acertou'])
+        self.assertTrue(r['revisao_necessaria'])
 
 if __name__ == '__main__': unittest.main(verbosity=2)

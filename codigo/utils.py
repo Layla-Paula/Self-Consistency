@@ -149,11 +149,16 @@ def extrair_letra_resposta(texto):
     # Depois da letra so pontuacao ou fim de linha; nunca outra palavra.
     padrao = re.compile(
         r"(?im)\b(?:resposta(?:\s+final|\s+correta)?|alternativa(?:\s+correta)?|"
-        r"op[cç][aã]o(?:\s+correta)?|answer)\s*(?:(?:e|é|seria)\s+)?"
+        r"op[cç][aã]o(?:\s+correta)?|answer|ans)\s*(?:(?:e|é|seria)\s+)?"
         r"[:=]?\s*\**\(?([A-E])\)?\**(?=\s*(?:$|[).,;!]))", re.I)
     achados = list(padrao.finditer(texto))
     if achados:
         return achados[-1].group(1).upper()
+    # "... é C) 12." : verbo "é" seguido de letra com parêntese de fechamento.
+    # Exige o ")" para não confundir com o artigo "a" ("é a mais simples").
+    conclusao = list(re.finditer(r"(?<![\w])[eé]\s+\(?([A-E])\)(?=\s|$)", texto))
+    if conclusao:
+        return conclusao[-1].group(1).upper()
     ultima = next((l.strip() for l in reversed(texto.splitlines()) if l.strip()), "")
     m = re.fullmatch(r"(?:\*\*)?\(?([A-E])\)?[.)]?(?:\*\*)?", ultima, re.I)
     return m.group(1).upper() if m else ""
