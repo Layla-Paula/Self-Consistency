@@ -1,0 +1,220 @@
+{
+  "id_execucao": "self_consistency_aqua_rat_08112026_221900_867",
+  "tecnica": "self_consistency",
+  "dataset": "aqua_rat",
+  "data_inicio": "2026-11-08T22:19:00",
+  "parametros": {
+    "modelo": "llama3.2:3b",
+    "seed": 42,
+    "temperatura": 0.7,
+    "limite": 1,
+    "maximo_tokens_resposta": 2400,
+    "quantidade_exemplos": 1,
+    "n_amostras": 3,
+    "ids_exemplos": [
+      "aqua_rat_train_92824"
+    ],
+    "ids_questoes": [
+      "aqua_rat_train_00000"
+    ],
+    "criterio_avaliacao": "todos_splits_sem_demonstracoes",
+    "tipo_demonstracao": "questao_raciocinio_resposta",
+    "votacao_censo": "frequencia_simples",
+    "origem_raciocinios_censo": null,
+    "versao_prompt_aqua_rat": "curto_com_resposta_prioritaria_v4",
+    "protocolo": {
+      "versao": "2.2",
+      "dataset": "aqua_rat",
+      "split_censo": "splits_originais",
+      "criterio_censo": null,
+      "limite": 1,
+      "quantidade_exemplos": 1,
+      "ids_exemplos": [
+        "aqua_rat_train_92824"
+      ],
+      "ids_questoes": [
+        "aqua_rat_train_00000"
+      ],
+      "sha256_ids_questoes": "466116a22c5323d83c0054620bd43b8abaf946dd76215d4e9a7bbb4b57f5ba60",
+      "selecao": "pseudoaleatoria_treino_sem_reposicao",
+      "semente_exemplos": 42,
+      "ordem_avaliacao": "ordem_original_apos_excluir_demonstracoes"
+    },
+    "top_k": 40,
+    "top_p": 0.9,
+    "num_ctx": 8192
+  },
+  "resultados": [
+    {
+      "id": "aqua_rat_train_00000",
+      "split": "train",
+      "usada_como_exemplo": false,
+      "gabarito": "E",
+      "resposta": "B",
+      "resposta_valida": true,
+      "acertou": false,
+      "falha_tecnica": false,
+      "motivo": "Resposta incorreta ou ausência de resposta válida.",
+      "metodo_avaliacao": "comparacao_exata",
+      "revisao_necessaria": false,
+      "respostas_extraidas": [
+        "B",
+        "E",
+        "B"
+      ],
+      "distribuicao_votos": {
+        "B": 2,
+        "E": 1
+      },
+      "resposta_modelo": "B",
+      "votos_resposta_modelo": 2,
+      "houve_empate": false,
+      "total_respostas_validas": 3,
+      "amostras": [
+        {
+          "amostra": 1,
+          "semente": 43,
+          "resposta_completa": "Para resolver essa questão, podemos usar a relação de velocidade.\n\nSe a taxa do Amigo P for 15% mais rápida que a do Amigo Q, podemos escrever:\n\nVelocidade do Amigo P = 1,15 x Velocidade do Amigo Q\n\nSeamos x o tempo que leva para que os amigos se encontrarem. Em x horas, o Amigo P percorrerá uma distância de 15x km e o Amigo Q percorrerá uma distância de 10x km.\n\nDada a distância total da trilha é de 43 km, podemos escrever:\n\n15x + 10x = 43\n\nCombina os termos:\n\n25x = 43\n\nDivida por 25:\n\nx = 43/25\n\nx = 1,72\n\nAgora, podemos encontrar a distância percorrida pelo Amigo P:\n\nDistância percorrida pelo Amigo P = 15x\n= 15(43/25)\n= 25,7 km\n\nNo entanto, essa não é uma opção na lista de respostas. Vamos tentar novamente.\n\nSe a taxa do Amigo P for 15% mais rápida que a do Amigo Q, podemos escrever:\n\nVelocidade do Amigo P = 1,15 x Velocidade do Amigo Q\n\nSeamos x o tempo que leva para que os amigos se encontrarem. Em x horas, o Amigo P percorrerá uma distância de 15x km e o Amigo Q percorrerá uma distância de 10x km.\n\nDada a distância total da trilha é de 43 km, podemos escrever:\n\n15x + 10x = 43\n\nCombina os termos:\n\n25x = 43\n\nDivida por 25:\n\nx = 43/25\n\nx = 1,72\n\nAgora, podemos encontrar a distância percorrida pelo Amigo P:\n\nDistância percorrida pelo Amigo P = 15x\n= 15(43/25)\n= 25,7 km\n\nMas essa não é uma opção. Vamos tentar novamente.\n\nSe o tempo que leva para que os amigos se encontrarem for x, a distância percorrida pelo Amigo P é 15x e a distância percorrida pelo Amigo Q é 10x.\n\nDada a distância total da trilha é de 43 km, podemos escrever:\n\n15x + 10x = 43\n\nCombina os termos:\n\n25x = 43\n\nDivida por 25:\n\nx = 43/25\n\nx = 1,72\n\nAgora, podemos encontrar a distância percorrida pelo Amigo P:\n\nDistância percorrida pelo Amigo P = 15x\n= 15(43/25)\n= 25,7 km\n\nMas essa não é uma opção. Vamos tentar novamente.\n\nConsiderando a opção 22,5, podemos calcular:\n\nx = 43/25\n= 1,72\n\nDistância percorrida pelo Amigo P = 15x\n= 15(43/25)\n= 25,7 km\n\nMas essa não é uma opção. Vamos tentar novamente.\n\nConsiderando a opção 22,5, podemos calcular:\n\nx = 43/25\n= 1,72\n\nDistância percorrida pelo Amigo P = 15x\n= 15(43/25)\n= 25,7 km\n\nMas essa não é uma opção. Vamos tentar novamente.\n\nConsiderando a opção 22,5, podemos calcular:\n\nDistância percorrida pelo Amigo P = 15(22,5)\n= 337,5 km\n\nAgora, podemos encontrar a distância percorrida pelo Amigo Q:\n\nDistância percorrida pelo Amigo Q = 10(22,5)\n= 225 km\n\nEssa opção não é possível, pois a distância total da trilha é de 43 km.\n\nConsiderando a opção 23, podemos calcular:\n\nDistância percorrida pelo Amigo P = 15(23)\n= 345 km\n\nAgora, podemos encontrar a distância percorrida pelo Amigo Q:\n\nDistância percorrida pelo Amigo Q = 10(23)\n= 230 km\n\nEssa opção não é possível, pois a distância total da trilha é de 43 km.\n\nConsiderando a opção 22,5, podemos calcular:\n\nDistância percorrida pelo Amigo P = 15(22,5)\n= 337,5 km\n\nAgora, podemos encontrar a distância percorrida pelo Amigo Q:\n\nDistância percorrida pelo Amigo Q = 10(22,5)\n= 225 km\n\nEssa opção não é possível, pois a distância total da trilha é de 43 km.\n\nConsiderando a opção 23, podemos calcular:\n\nDistância percorrida pelo Amigo P = 15(23)\n= 345 km\n\nAgora, podemos encontrar a distância percorrida pelo Amigo Q:\n\nDistância percorrida pelo Amigo Q = 10(23)\n= 230 km\n\nEssa opção não é possível, pois a distância total da trilha é de 43 km.\n\nConsiderando a opção 21,5, podemos calcular:\n\nDistância percorrida pelo Amigo P = 15(21,5)\n= 321,75 km\n\nAgora, podemos encontrar a distância percorrida pelo Amigo Q:\n\nDistância percorrida pelo Amigo Q = 10(21,5)\n= 215 km\n\nEssa opção é possível, pois a distância total da trilha é de 43 km.\n\nResposta final: B",
+          "consultas_censo": [],
+          "texto_descartado": "",
+          "transcricoes_censo": [],
+          "motivo_encerramento_censo": null,
+          "consultas_repetidas_bloqueadas": 0,
+          "rodadas_censo": 0,
+          "resposta_extraida": "B",
+          "resposta_valida": true,
+          "sem_extracao": false,
+          "limite_tokens_atingido": false,
+          "motivo_parada": "stop",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 910,
+          "tokens_saida": 1274,
+          "cpu_ollama_percentual": null,
+          "ram_ollama_pico_mib": null,
+          "ram_ollama_media_mib": null,
+          "amostras_monitoramento": 0,
+          "tempo_consulta_segundos": 296.810797514001
+        },
+        {
+          "amostra": 2,
+          "semente": 44,
+          "resposta_completa": "Para resolver essa questão, vamos usar a estratégia de equilíbrio, pois os amigos começam juntos e terminam no mesmo ponto.\n\nVamos chamar a distância que o Amigo Q percorre como x km. Então, a distância que o Amigo P percorre é x + 0,15x (porque ele é 15% mais rápido que o Amigo Q).\n\nA soma das distâncias percorridas pelos dois amigos deve ser igual à distância total da trilha, que é 43 km. Portanto, podemos criar a equação:\n\nx + (x + 0,15x) = 43\n\nCombinando os termos x, temos:\n\n2,15x = 43\n\nDividindo ambos os lados pela 2,15, temos:\n\nx = 20\n\nAgora, podemos encontrar a distância que o Amigo P percorre:\n\nDistância do Amigo P = x + 0,15x\n= 20 + 0,15(20)\n= 20 + 3\n= 23\n\nResposta final: E",
+          "consultas_censo": [],
+          "texto_descartado": "",
+          "transcricoes_censo": [],
+          "motivo_encerramento_censo": null,
+          "consultas_repetidas_bloqueadas": 0,
+          "rodadas_censo": 0,
+          "resposta_extraida": "E",
+          "resposta_valida": true,
+          "sem_extracao": false,
+          "limite_tokens_atingido": false,
+          "motivo_parada": "stop",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 910,
+          "tokens_saida": 245,
+          "cpu_ollama_percentual": null,
+          "ram_ollama_pico_mib": null,
+          "ram_ollama_media_mib": null,
+          "amostras_monitoramento": 0,
+          "tempo_consulta_segundos": 77.80439115500485
+        },
+        {
+          "amostra": 3,
+          "semente": 45,
+          "resposta_completa": "Para resolver essa questão, vamos usar a estratégia de estabelecer uma relação matemática entre as taxas de velocidade dos dois amigos. Vamos considerar a velocidade do Amigo Q como \"v\". Então, a velocidade do Amigo P é 15% mais rápida, ou seja, 1,15v.\n\nVamos calcular a distância total que cada amigo percorrerá:\n\nDistância = Velocidade x Tempo\n\nComo os dois amigos começam nos extremos opostos da trilha e caminham em direções opostas, a soma da distância que cada amigo percorre deve ser igual à distância total da trilha, que é 43 km.\n\nAssumamos que o tempo que o Amigo Q leva para percorrer a trilha é \"t\". Então, o tempo que o Amigo P leva para percorrer a trilha é \"t/1,15\" (devido à sua velocidade 15% mais rápida).\n\nA distância que o Amigo Q percorre é v × t, e a distância que o Amigo P percorre é 1,15v × t/1,15 = v × t. Como ambas as distâncias são iguais, podemos equacionar as duas expressões:\n\nv × t = v × t\n\nAgora, vamos usar a fórmula para a distância:\n\nv × t = 43 km\n\nSubstituindo v × t/1,15 por v × t, temos:\n\nv × t/1,15 = 43 km\n\nMultiplicando ambos os lados pela fração 1,15, temos:\n\nv × t = 49,65 km\n\nAgora, vamos encontrar o tempo que o Amigo Q leva para percorrer a trilha:\n\nv × t = 49,65 km\n\nSubstituindo v = 43 km / t, temos:\n\n(43 km / t) × t = 49,65 km\n\nSimplificando, temos:\n\n43 km = 49,65 km\n\nIsso não é possível, pois a distância total da trilha é menor que a distância total que o Amigo Q percorre. Portanto, o Amigo Q não pode percorrer toda a distância da trilha.\n\nAgora, vamos encontrar o tempo que o Amigo P leva para percorrer a trilha:\n\nv × t = 43 km\n\nSubstituindo v = 43 km / t, temos:\n\n(43 km / t) × t = 43 km\n\nSimplificando, temos:\n\n43 km = 43 km\n\nIsso significa que o Amigo P também não pode percorrer toda a distância da trilha.\n\nAgora, vamos encontrar o tempo que o Amigo Q leva para percorrer a metade da distância:\n\nv × t = 21,825 km\n\nSubstituindo v = 43 km / t, temos:\n\n(43 km / t) × t = 21,825 km\n\nSimplificando, temos:\n\n43 km = 21,825 km\n\nIsso significa que o Amigo Q percorre 21,825 km e o Amigo P percorre 43 km - 21,825 km = 21,175 km.\n\nPortanto, o Amigo P terá caminhado 21,175 km quando passarem um pelo outro.\n\nResposta final: B",
+          "consultas_censo": [],
+          "texto_descartado": "",
+          "transcricoes_censo": [],
+          "motivo_encerramento_censo": null,
+          "consultas_repetidas_bloqueadas": 0,
+          "rodadas_censo": 0,
+          "resposta_extraida": "B",
+          "resposta_valida": true,
+          "sem_extracao": false,
+          "limite_tokens_atingido": false,
+          "motivo_parada": "stop",
+          "falha_tecnica": false,
+          "tentativas_consulta": 1,
+          "erro_detalhado": null,
+          "tokens_entrada": 910,
+          "tokens_saida": 753,
+          "cpu_ollama_percentual": null,
+          "ram_ollama_pico_mib": null,
+          "ram_ollama_media_mib": null,
+          "amostras_monitoramento": 0,
+          "tempo_consulta_segundos": 76.63048529801017
+        }
+      ],
+      "cpu_ollama_percentual": null,
+      "ram_ollama_pico_mib": null,
+      "ram_ollama_media_mib": null,
+      "amostras_sem_extracao": 0,
+      "amostras_limite_tokens": 0,
+      "motivo_falha_tecnica": null,
+      "tempo_segundos": 451.247,
+      "metodo_votacao": "frequencia_primeira_geracao",
+      "detalhes_votacao": {
+        "metodo_votacao": "frequencia_primeira_geracao"
+      },
+      "tokens_entrada": 2730,
+      "tokens_saida": 2272,
+      "tipo_resultado": "vencedora_incorreta"
+    }
+  ],
+  "status": "concluido",
+  "data_fim": "2026-11-08T22:26:32",
+  "tempo_acumulado_segundos": 451.2479605330009,
+  "metricas": {
+    "exemplos_utilizados": 1,
+    "amostras_por_questao": 3,
+    "votacao_censo": "equivalencia_deterministica_ou_selecao_semantica_cega",
+    "questoes_executadas": 1,
+    "questoes_avaliadas": 1,
+    "acertos": 0,
+    "erros": 1,
+    "falhas_tecnicas": 0,
+    "avaliacoes_pendentes": 0,
+    "detalhes_falhas_tecnicas": [],
+    "acuracia_percentual": 0.0,
+    "acuracia_por_split": {
+      "train": {
+        "questoes": 1,
+        "acertos": 0,
+        "erros": 1,
+        "acuracia_percentual": 0.0
+      }
+    },
+    "respostas_sem_extracao": 0,
+    "questoes_com_amostras_invalidas": 0,
+    "amostras_sem_extracao": 0,
+    "amostras_limite_tokens": 0,
+    "questoes_com_limite_tokens": 0,
+    "questoes_sem_vencedor": 0,
+    "questoes_maioria_incorreta": 1,
+    "questoes_empate": 0,
+    "ids_questoes_sem_vencedor": [],
+    "ids_questoes_maioria_incorreta": [
+      "aqua_rat_train_00000"
+    ],
+    "ids_questoes_com_limite_tokens": [],
+    "revisoes_necessarias": 0,
+    "tempo_total_segundos": 451.25,
+    "tempo_medio_segundos": 451.25,
+    "tokens_entrada": 2730,
+    "tokens_saida": 2272,
+    "cpu_ollama_media_percentual": null,
+    "ram_ollama_pico_mib": null,
+    "ram_ollama_media_mib": null,
+    "metricas_votacao": {
+      "unanimidades": 0,
+      "empates": 0,
+      "sem_resposta_valida": 0,
+      "media_votos_vencedor": 2
+    }
+  }
+}
