@@ -249,6 +249,39 @@ def comparar_numeros(a, b):
         return False
 
 
+# Tempos de espera do Ollama (segundos). Com stream=True o limite de leitura vale ENTRE um
+# pedaço de texto e o seguinte, e não para a resposta inteira: uma geração longa que está
+# avançando não estoura mais; só falha se o Ollama parar de responder de verdade.
+TIMEOUT_CONEXAO_OLLAMA = 10
+TIMEOUT_SEM_DADOS_OLLAMA = 420
+
+
+def _ler_resposta_ollama(resposta):
+    """Junta os pedaços (JSON por linha) da resposta em streaming num único dicionário,
+    com os mesmos campos da resposta sem streaming (response, eval_count, done_reason...)."""
+    partes = []
+    final = None
+    for linha in resposta.iter_lines():
+        if not linha:
+            continue
+        pedaco = json.loads(linha)
+        if not isinstance(pedaco, dict):
+            raise ValueError("O Ollama retornou um pedaço de resposta que não é um objeto.")
+        if pedaco.get("error"):
+            raise ValueError(f"Erro informado pelo Ollama: {pedaco['error']}")
+        texto = pedaco.get("response", "")
+        if texto is not None and not isinstance(texto, str):
+            raise ValueError("O Ollama retornou um campo 'response' inválido.")
+        partes.append(texto or "")
+        if pedaco.get("done"):
+            final = pedaco
+    if final is None:
+        raise ValueError("A resposta do Ollama terminou antes do pedaço final (done).")
+    dados = dict(final)
+    dados["response"] = "".join(partes)
+    return dados
+
+
 def consultar_ollama(
     prompt,
     temperature=0.0,
@@ -267,7 +300,7 @@ def consultar_ollama(
     payload = {
         "model": MODELO_OLLAMA,
         "prompt": prompt,
-        "stream": False,
+        "stream": True,
         "options": {
             "temperature": temperature,
             "num_predict": num_predict,
@@ -284,11 +317,12 @@ def consultar_ollama(
     for tentativa in range(1, 4):
         try:
             with MonitorOllama() as monitor:
-                resposta = requests.post(URL_OLLAMA, json=payload, timeout=300)
-            resposta.raise_for_status()
-            dados = resposta.json()
-            if not isinstance(dados, dict):
-                raise ValueError("O Ollama retornou um JSON que não é um objeto.")
+                with requests.post(
+                    URL_OLLAMA, json=payload, stream=True,
+                    timeout=(TIMEOUT_CONEXAO_OLLAMA, TIMEOUT_SEM_DADOS_OLLAMA),
+                ) as resposta:
+                    resposta.raise_for_status()
+                    dados = _ler_resposta_ollama(resposta)
 
             texto = dados.get("response", "")
             if texto is None or not isinstance(texto, str):
@@ -315,7 +349,10 @@ def consultar_ollama(
         except (requests.RequestException, ValueError) as erro:
             ultimo_erro = f"{type(erro).__name__}: {erro}"
             if isinstance(erro, requests.HTTPError) and erro.response is not None:
-                detalhe_servidor = erro.response.text.strip()[:1000]
+                try:
+                    detalhe_servidor = erro.response.text.strip()[:1000]
+                except (requests.RequestException, RuntimeError):
+                    detalhe_servidor = ""  # corpo já fechado (streaming)
                 if detalhe_servidor:
                     ultimo_erro += f" | Resposta do Ollama: {detalhe_servidor}"
 

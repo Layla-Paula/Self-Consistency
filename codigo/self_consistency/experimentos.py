@@ -8,6 +8,7 @@ def executar_experimento_self_consistency(
     prompt, extrair_resposta, n_amostras=5, temperature=0.7,
     num_predict=1200, normalizar_voto=None, selecionar_votacao=None,
     consultar_modelo=None, semente_base=SEMENTE_OLLAMA,
+    amostras_anteriores=None, ao_concluir_amostra=None,
 ):
     """Cada geração tem até três tentativas de transporte feitas em utils.
 
@@ -20,9 +21,19 @@ def executar_experimento_self_consistency(
     if not isinstance(n_amostras, int) or isinstance(n_amostras, bool) or n_amostras < 1:
         raise ValueError('n_amostras deve ser inteiro positivo.')
     consultar_modelo = consultar_modelo or consultar_ollama
+    # Reaproveita apenas amostras efetivamente concluídas, sem alterar suas sementes.
+    anteriores = {int(a['amostra']): a for a in (amostras_anteriores or [])
+                  if not a.get('falha_tecnica') and a.get('resposta_completa') is not None}
     amostras, respostas = [], []
     inicio = time.perf_counter()
     for indice in range(1, n_amostras + 1):
+        if indice in anteriores:
+            a = anteriores[indice]
+            if a.get('semente') != semente_base + indice:
+                raise ValueError('Semente incompatível no checkpoint de amostras.')
+            amostras.append(a)
+            respostas.append(str(a.get('resposta_extraida') or '').strip())
+            continue
         info = consultar_modelo(
             prompt=prompt, temperature=temperature,
             num_predict=num_predict, retornar_metricas=True,
@@ -75,6 +86,8 @@ def executar_experimento_self_consistency(
             'tempo_consulta_segundos': info.get('tempo_total_segundos'),
         })
         respostas.append(extraida)
+        if ao_concluir_amostra is not None:
+            ao_concluir_amostra(list(amostras))
         if falha:
             break
     incompleto = len(amostras) != n_amostras or any(a['falha_tecnica'] for a in amostras)

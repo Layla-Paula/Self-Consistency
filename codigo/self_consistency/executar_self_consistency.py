@@ -36,9 +36,9 @@ except ImportError:
 
 from codigo.utils import MODELO_OLLAMA, SEMENTE_OLLAMA
 MODELO = MODELO_OLLAMA
-TEMPERATURE = 0.7
+TEMPERATURE = 0.3
 NUM_PREDICT = 2400
-N_AMOSTRAS = 3
+N_AMOSTRAS = 5
 SALVAR_CADA = 10
 PASTA_BASE = Path("resultados/self_consistency")
 
@@ -243,10 +243,13 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             'parametros': parametros, 'resultados': resultados,
             'status': 'em_andamento',
         }
-    concluidos = {str(r['id']) for r in resultados}
-    if len(concluidos) != len(resultados):
+    # Falhas anteriores não são tratadas como concluídas numa retomada.
+    # A entrada é substituída quando a questão é executada novamente.
+    concluidos = {str(r['id']) for r in resultados if not r.get('falha_tecnica')}
+    if len({str(r['id']) for r in resultados}) != len(resultados):
         raise ValueError('Checkpoint contém questões duplicadas.')
     pendentes = [q for q in questoes if str(q['id']) not in concluidos]
+    amostras_em_andamento = dados.setdefault('amostras_em_andamento', {})
     tempo_anterior = dados.get('tempo_acumulado_segundos', 0.0)
     inicio = time.perf_counter()
     print(f'\n{dataset.upper()} | {len(questoes)} questões | '
@@ -276,6 +279,12 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 )
                 gabarito = extrair_gabarito_censo(questao)
                 extrair = extrair_resposta_final_censo
+            id_atual = str(questao['id'])
+            # Salva cada amostra imediatamente: uma interrupção não perde as já válidas.
+            def salvar_amostra(amostras):
+                amostras_em_andamento[id_atual] = amostras
+                checkpoint()
+
             sc = executar_experimento_self_consistency(
                 prompt, extrair, n_amostras=N_AMOSTRAS,
                 temperature=TEMPERATURE, num_predict=NUM_PREDICT,
@@ -283,6 +292,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 consultar_modelo=((lambda **kwargs: consultar_censo_agente(
                     sessao=sessao, **kwargs)) if dataset == 'censo' else None),
                 semente_base=SEMENTE_OLLAMA,
+                amostras_anteriores=amostras_em_andamento.get(id_atual, []),
+                ao_concluir_amostra=salvar_amostra,
                 selecionar_votacao=(
                     (lambda respostas: voto_censo_semantico(
                         str(questao.get('pergunta') or questao.get('enunciado') or ''),
@@ -335,7 +346,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             # Os campos finais de avaliação prevalecem sobre metadados de sc.
             resultado.update(acertou=acertou, motivo=motivo,
                              metodo_avaliacao=metodo, falha_tecnica=sc['falha_tecnica'])
+            resultados[:] = [r for r in resultados if str(r['id']) != id_atual]
             resultados.append(resultado)
+            amostras_em_andamento.pop(id_atual, None)
             if sc['falha_tecnica']:
                 print(f"\n[FALHA TÉCNICA] {dataset}/{questao['id']}: {motivo}. Avançando.")
                 checkpoint()
@@ -348,7 +361,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         checkpoint()
         raise
     dados['data_fim'] = agora()
-    dados['status'] = 'concluido'
+    dados['status'] = ('concluido_com_falhas' if any(r.get('falha_tecnica') for r in resultados)
+                       else 'concluido')
     dados['tempo_acumulado_segundos'] = tempo_anterior + time.perf_counter() - inicio
     dados['metricas'] = metricas(resultados, dados['tempo_acumulado_segundos'], quantidade, dataset)
     dados.pop('metricas_parciais', None)
@@ -391,3 +405,43 @@ if __name__ == '__main__':
     executar_gsm8k()
     executar_aqua_rat()
     executar_censo()
+
+def recuperar_falhas(arquivo):
+    """Cria nova execução de recuperação, sem sobrescrever o JSON original.
+
+    Reaproveita questões concluídas e suas amostras; refaz apenas falhas técnicas.
+    Execute com os mesmos parâmetros de modelo, amostras e exemplos.
+    """
+    origem = Path(arquivo)
+    with origem.open('r', encoding='utf-8') as f:
+        anterior = json.load(f)
+    if anterior.get('tecnica') != 'self_consistency':
+        raise ValueError('Arquivo não pertence ao Self-Consistency.')
+    falhas = [r for r in anterior.get('resultados', []) if r.get('falha_tecnica')]
+    if not falhas:
+        print('Não há falhas técnicas para recuperar.')
+        return anterior
+    dataset = anterior['dataset']
+    params = anterior['parametros']
+    if params.get('n_amostras') != N_AMOSTRAS or params.get('maximo_tokens_resposta') != NUM_PREDICT:
+        raise ValueError('Parâmetros do experimento diferentes dos atuais.')
+    nome = origem.stem + '_recuperacao'
+    pasta = pasta_configuracao('self_consistency', dataset, params['limite'], params['quantidade_exemplos'])
+    progresso = pasta / (nome + '.progresso.json')
+    final = pasta / (nome + '.json')
+    if progresso.exists() or final.exists():
+        raise FileExistsError(f'Já existe recuperação: {progresso} ou {final}')
+    copia = dict(anterior)
+    copia['id_execucao'] = nome
+    copia['status'] = 'em_andamento'
+    copia['recuperacao_de'] = str(origem)
+    copia.pop('data_fim', None)
+    copia.pop('metricas', None)
+    copia['amostras_em_andamento'] = {
+        str(r['id']): [a for a in r.get('amostras', [])
+                       if not a.get('falha_tecnica') and a.get('resposta_completa') is not None]
+        for r in falhas
+    }
+    salvar(progresso, copia)
+    return executar_dataset(dataset, params['limite'], params['quantidade_exemplos'],
+                            retomar=str(progresso))
