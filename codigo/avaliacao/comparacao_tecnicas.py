@@ -43,6 +43,21 @@ def _ler(arquivo):
     return dados
 
 
+def sem_substituidas(arquivos):
+    """Tira da lista a execução original quando existe a sua recuperação (_recuperacao).
+
+    A recuperação refaz só as falhas técnicas e guarda o resto, então ela substitui a original."""
+    substituidas = set()
+    for arquivo in arquivos:
+        try:
+            origem = _ler(arquivo).get('recuperacao_de')
+        except (OSError, ValueError, json.JSONDecodeError):
+            continue
+        if origem:
+            substituidas.add(re.split(r'[\\/]', str(origem))[-1])
+    return [a for a in arquivos if Path(a).name not in substituidas]
+
+
 def escolher_execucoes(dataset, limite='qualquer', exemplos=None, pasta=None):
     pasta = Path(pasta) if pasta else RAIZ / 'resultados'
     escolhidas, avisos = {}, []
@@ -58,15 +73,20 @@ def escolher_execucoes(dataset, limite='qualquer', exemplos=None, pasta=None):
                 except (OSError, ValueError, json.JSONDecodeError):
                     continue
                 p = d.get('parametros') or {}
-                if d.get('status') != 'concluido' or d.get('dataset') != dataset or d.get('tecnica') != tecnica:
+                if d.get('status') not in ('concluido', 'concluido_com_falhas') or d.get('dataset') != dataset or d.get('tecnica') != tecnica:
                     continue
                 if limite != 'qualquer' and p.get('limite') != limite:
                     continue
                 if exemplos is not None and p.get('quantidade_exemplos') != exemplos:
                     continue
                 candidatas.append(arquivo)
+        antes = len(candidatas)
+        candidatas = sem_substituidas(candidatas)
+        if antes != len(candidatas):
+            avisos.append(f'{ROTULO[tecnica]}: {antes - len(candidatas)} execução(ões) original(is) '
+                          'ignorada(s) porque existe uma recuperação de falhas técnicas.')
         if candidatas:
-            escolhidas[tecnica] = max(candidatas, key=_momento)
+            escolhidas[tecnica] = max(candidatas, key=lambda a: (_momento(a), a.stat().st_mtime))
             if len(candidatas) > 1:
                 avisos.append(f'{ROTULO[tecnica]}: {len(candidatas)} candidatas; selecionada a mais recente. '
                               'Verifique se pertence à condição experimental pretendida.')
@@ -239,7 +259,7 @@ def gerar(dataset, limite='qualquer', exemplos=None, revisor=None, pasta=None, a
     for t, e in execucoes.items():
         if e['dataset'] != dataset or e['tecnica'] != t:
             raise ValueError(f'Execução incompatível: {e["arquivo"]}')
-        if e['dados'].get('status') != 'concluido':
+        if e['dados'].get('status') not in ('concluido', 'concluido_com_falhas'):
             raise ValueError(f'Execução ainda não concluída: {e["arquivo"]}')
     avisos.extend(avisos_de_comparabilidade(execucoes))
     rel = {'dataset': dataset, 'execucoes': {t: str(e['arquivo']) for t, e in execucoes.items()},
