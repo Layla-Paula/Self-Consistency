@@ -1,0 +1,86 @@
+[
+  {
+    "id": "censo_2025_25",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "A soma das matrículas registradas em escolas de Terra Indígena e em escolas de Comunidade Quilombola estão erradas e não falou qual concentra mais matriculas"
+  },
+  {
+    "id": "censo_2025_26",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Faltou a soma das matriculas da  Educação Infantil, Ensino Fundamental, Ensino Médio, Educação Profissional e EJA. A etapa que concentra o maior número de matrículas está correta a soma não"
+  },
+  {
+    "id": "censo_2025_27",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Está errada pois a pré-Escola têm mais matriculas e o modelo marcou a Crece (Creche), ou seja, analisou errado"
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "A diferença entre o total de matrículas sugere diminuição do numero nos anos finais, ou seja, têm mais alunos entrando na escola e não concluindo"
+  },
+  {
+    "id": "censo_2025_29",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não apresentou a tabela de matrículas por ano/série e confundiu o ano letivo de 2025 com a série escolar, deixando de identificar o 4º ano como aquele com mais matrículas (2.984.869)."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Informou incorretamente zero matrículas para ambas as modalidades, quando os valores corretos são 348.446 para Técnico Concomitante e 832.032 para Técnico Subsequente. Também não explicou a diferença entre as formas de oferta, conforme solicitado."
+  },
+  {
+    "id": "censo_2025_34",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou corretamente o EJA Fundamental como a etapa com mais estudantes, mas apresentou valores incorretos para ambas as etapas e números que contradizem sua própria conclusão."
+  },
+  {
+    "id": "censo_2025_37",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não calculou os percentuais de matrículas femininas (49,4%) e masculinas (50,6%) e não identificou que a diferença de 1,2 ponto percentual é pequena, conforme solicitado no enunciado."
+  },
+  {
+    "id": "censo_2025_38",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Apresentou o percentual incorreto de 9,65%, quando o resultado esperado é 58,25%. Também não informou os totais de matrículas de pretos e pardos nem considerou explicitamente o total de matrículas com cor/raça declarada, excluindo os registros não declarados."
+  },
+  {
+    "id": "censo_2025_41",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não apresentou os totais de matrículas das faixas etárias de 6 a 10 anos (14.111.254) e de 11 a 14 anos (11.194.106), não realizou a comparação solicitada e não identificou as etapas correspondentes do Ensino Fundamental."
+  },
+  {
+    "id": "censo_2025_43",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou incorretamente a faixa de 0 a 3 anos como a de maior número de matrículas, quando a faixa de 4 a 5 anos possui mais estudantes (4.968.651 contra 3.874.541). Também apresentou um valor incorreto e não relacionou o resultado à obrigatoriedade legal da Pré-Escola a partir dos 4 anos."
+  },
+  {
+    "id": "censo_2025_45",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou corretamente o turno Matutino como o mais numeroso, mas apresentou valores incorretos e iguais para ambos os turnos, contradizendo a própria conclusão e não realizando corretamente a comparação solicitada."
+  },
+  {
+    "id": "censo_2025_48",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou parcialmente o predomínio das Classes Comuns, mas não apresentou os totais corretos de matrículas (2.298.005 em Classes Comuns e 160.154 em Classes Exclusivas), confundiu quantidade de escolas com matrículas e não explicou a relação desse predomínio com a política de inclusão escolar."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Acertou a conclusão de que alunos residentes na zona rural podem estudar em escolas urbanas, mas não apresentou os totais de matrículas por zona de residência, não realizou a comparação com a localização das escolas (TP_LOCALIZACAO) e não justificou a conclusão conforme solicitado."
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "censo_2025_26",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou corretamente o Ensino Fundamental como a etapa com mais matrículas, mas apresentou o total incorreto de 38.633.102, quando o valor correto é 25.806.767. Também não apresentou os totais das outras quatro etapas solicitadas no enunciado."
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": true,
+    "criterio": "Calculou corretamente a diferença de 3.221.721 matrículas entre os Anos Iniciais e Finais do Ensino Fundamental e interpretou adequadamente a redução de matrículas nos Anos Finais como possível indicação de problemas no fluxo escolar, atendendo ao enunciado."
+  },
+  {
+    "id": "censo_2025_29",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não construiu a tabela de matrículas do 1º ao 9º ano, confundiu o ano letivo de 2025 com o ano/série escolar e apresentou o total incorreto de 460.183.780 matrículas. O 4º ano, com 2.984.869 matrículas, é o mais numeroso segundo o gabarito."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não apresentou os totais de matrículas dos cursos Técnico Concomitante (348.446) e Técnico Subsequente (832.032), não realizou a comparação entre eles e não explicou as diferenças entre as modalidades, limitando-se a afirmar que os dados consultados não permitem responder à questão."
+  },
+  {
+    "id": "censo_2025_34",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Apresentou valores incorretos para EJA Fundamental e EJA Médio, sem identificar o significado das duas colunas numéricas e sem concluir explicitamente qual etapa concentra mais estudantes. Os totais corretos são 1.406.442 para EJA Fundamental e 845.627 para EJA Médio."
+  },
+  {
+    "id": "censo_2025_37",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não calculou os percentuais de matrículas femininas (49,4%) e masculinas (50,6%), nem identificou a pequena diferença de 1,2 ponto percentual entre os grupos. Em vez disso, apresentou categorias territoriais não solicitadas e afirmou incorretamente que elas possuem 100% de matrículas masculinas."
+  },
+  {
+    "id": "censo_2025_38",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Apresentou apenas o valor 40.0, divergindo do percentual correto de 58,25%. Também não informou a soma de 23.149.061 matrículas de estudantes pretos e pardos, solicitada no enunciado."
+  },
+  {
+    "id": "censo_2025_41",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Não apresentou os totais de matrículas das faixas de 6 a 10 anos (14.111.254) e de 11 a 14 anos (11.194.106), nem realizou a comparação solicitada. Também identificou incorretamente as etapas correspondentes, confundindo Anos Iniciais e Anos Finais do Ensino Fundamental com séries individuais."
+  },
+  {
+    "id": "censo_2025_43",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou incorretamente a faixa de 0 a 3 anos como a mais numerosa e apresentou valores divergentes do gabarito para ambas as faixas etárias. Embora tenha mencionado corretamente a obrigatoriedade da Pré-Escola a partir dos 4 anos, a comparação quantitativa e a conclusão principal estão incorretas."
+  },
+  {
+    "id": "censo_2025_45",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou incorretamente o Vespertino como o turno mais numeroso e atribuiu a ele zero matrículas, quando o total correto é 17.959.896. O Matutino, com 24.171.117 matrículas, é o turno predominante."
+  }
+]

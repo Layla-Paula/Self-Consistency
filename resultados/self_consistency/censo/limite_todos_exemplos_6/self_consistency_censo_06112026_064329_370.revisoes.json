@@ -1,0 +1,62 @@
+[
+  {
+    "id": "censo_2025_25",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou corretamente a Comunidade Quilombola como o contexto com mais matrículas, mas informou incorretamente zero matrículas, quando o total correto é 288.673. Também não apresentou o total de Terra Indígena (280.634), deixando de realizar corretamente a comparação quantitativa solicitada."
+  },
+  {
+    "id": "censo_2025_26",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou corretamente o Ensino Fundamental como a etapa com mais matrículas, mas apresentou o total incorreto de 46.018.380, quando o valor correto é 25.806.767. Também não apresentou os totais das demais etapas de ensino solicitadas."
+  },
+  {
+    "id": "censo_2025_27",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou incorretamente a Creche como a etapa com mais matrículas, apresentou valores errados para ambas as etapas (1.341.319 e 1.256.449) e explicou incorretamente a relação com a obrigatoriedade escolar, que se aplica à Pré-Escola a partir dos 4 anos."
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Apresentou uma diferença de 3.217.721 matrículas, divergindo em 4.000 do valor correto de 3.221.721. A interpretação de redução das matrículas ao longo do Ensino Fundamental é parcialmente compatível com o gabarito, mas o resultado numérico não está exato."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Informou incorretamente zero matrículas para ambas as modalidades, quando os totais corretos são 348.446 para Técnico Concomitante e 832.032 para Técnico Subsequente. Também afirmou que as quantidades são iguais e não explicou a diferença entre as formas de oferta conforme o dicionário de dados."
+  },
+  {
+    "id": "censo_2025_38",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Apresentou apenas o valor 12.3, que não corresponde ao percentual correto de 58,25%. Também não informou a soma de 23.149.061 matrículas de estudantes pretos e pardos, solicitada no enunciado."
+  },
+  {
+    "id": "censo_2025_43",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou corretamente a faixa de 4 a 5 anos como a de maior número de matrículas e relacionou adequadamente esse resultado à obrigatoriedade escolar a partir dos 4 anos. Entretanto, apresentou totais incorretos para ambas as faixas etárias (1.018 e 1.456, em vez de 3.874.541 e 4.968.651)."
+  },
+  {
+    "id": "censo_2025_44",
+    "revisor": "layla",
+    "acertou": true,
+    "criterio": "Apresentou corretamente os totais de matrículas dos turnos Diurno (42.131.013), Noturno (3.240.654) e EAD (646.713), identificando o Diurno como o turno que concentra a grande maioria das matrículas, conforme solicitado."
+  },
+  {
+    "id": "censo_2025_45",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Identificou incorretamente o Vespertino como o turno mais numeroso e apresentou valores errados para ambos os turnos. Segundo o gabarito, o Matutino possui 24.171.117 matrículas, enquanto o Vespertino possui 17.959.896, sendo o Matutino o predominante."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "Acertou ao afirmar que alunos residentes na zona rural podem estudar em escolas urbanas, mas não apresentou os totais solicitados nem realizou a comparação quantitativa. Além disso, atribuiu incorretamente a TP_LOCALIZACAO a residência do aluno e afirmou que escolas rurais possuem mais matrículas que escolas urbanas, contrariando o gabarito."
+  }
+]

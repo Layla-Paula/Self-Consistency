@@ -130,7 +130,7 @@ class TestFluxoAvaliarCenso(unittest.TestCase):
         self.assertIs(r['acertou'], False)
 
     def test_juiz_nao_vira_acerto_sem_revisao(self):
-        r = avaliar_censo(questao(25), 'resposta qualquer', self.juiz('CORRETA'))
+        r = avaliar_censo(questao(21), 'resposta qualquer', self.juiz('CORRETA'))
         self.assertIsNone(r['acertou'])
         self.assertTrue(r['revisao_necessaria'])
         self.assertEqual(r['parecer_llm'], 'CORRETA')
@@ -152,21 +152,21 @@ class TestFluxoAvaliarCenso(unittest.TestCase):
         self.assertEqual(chamadas, [])
 
     def test_sem_juiz_vai_para_revisao(self):
-        r = avaliar_censo(questao(25), 'texto', None)
+        r = avaliar_censo(questao(21), 'texto', None)
         self.assertIsNone(r['acertou'])
         self.assertTrue(r['revisao_necessaria'])
 
     def test_juiz_com_json_invalido_vai_para_revisao(self):
         def juiz(prompt, **kw):
             return {'resposta': 'não sei', 'tentativas': 1}
-        r = avaliar_censo(questao(25), 'texto', juiz)
+        r = avaliar_censo(questao(21), 'texto', juiz)
         self.assertIsNone(r['acertou'])
         self.assertEqual(r['metodo_avaliacao'], 'avaliador_inconclusivo')
 
     def test_juiz_que_levanta_erro_vai_para_revisao(self):
         def juiz(prompt, **kw):
             raise RuntimeError('ollama fora do ar')
-        r = avaliar_censo(questao(25), 'texto', juiz)
+        r = avaliar_censo(questao(21), 'texto', juiz)
         self.assertIsNone(r['acertou'])
 
     def test_gabarito_ausente_e_erro_conservador(self):

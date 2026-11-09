@@ -51,7 +51,7 @@ def escolher_execucoes(dataset, limite='qualquer', exemplos=None, pasta=None):
         candidatas = []
         if base.exists():
             for arquivo in base.rglob('*.json'):
-                if arquivo.name.endswith(('.progresso.json', '.auditado.json', '.revisoes.json')):
+                if arquivo.name.endswith(('.progresso.json', '.auditado.json', '.revisoes.json', '.final.json')):
                     continue
                 try:
                     d = _ler(arquivo)

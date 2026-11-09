@@ -247,6 +247,64 @@ def _tem_contradicao_total(texto, correto):
     return False
 
 
+# Política (definida pela enunciado de cada questão): quando o enunciado manda SOMAR/CALCULAR,
+# a resposta precisa trazer os totais; quando só pergunta "qual é maior", a conclusão basta,
+# desde que nenhum número informado contradiga o gabarito.
+_RECUSA = re.compile(r'nao (?:foi possivel|e possivel|ha como|consegu)|nao (?:permit|contem|conteve|foi fornecid|foi encontrad|exist)|'
+                     r'ausencia d|impossibilit|nao ha (?:dados|registros)|dados consultados nao')
+
+
+def _numeros_grandes(resposta, minimo=1000):
+    """Valores que parecem totais (>= minimo) ou zero; ignora '4 a 5 anos', anos e ordinais."""
+    return [v for v in _valores_decimais(resposta) if v == 0 or abs(v) >= minimo]
+
+
+def _decidir_comparativa(resposta, pares, certa=None, errada=None, percentuais=False,
+                         exige_totais=False, basta_conclusao=False):
+    """Rubrica para perguntas do tipo 'compare A e B' (totais + conclusão).
+
+    Devolve (acertou, motivo) quando há certeza e None quando é uma meia resposta
+    (conclusão sem números, associação ambígua ou conclusão não reconhecida),
+    que continua indo para a revisão humana.
+      - valores corretos + conclusão correta                     -> certo
+      - conclusão errada, números que não batem ou recusa de responder -> errado
+      - conclusão certa mas sem números                          -> revisão humana
+    """
+    t = _normalizar(resposta)
+    ok_certa = bool(certa and re.search(certa, t))
+    ok_errada = bool(errada and re.search(errada, t))
+    if ok_certa and ok_errada:
+        return None
+    if ok_errada:
+        return False, 'Conclusão contrária ao gabarito.'
+    esperados = set().union(*(v for _, v in pares.values()))
+    valores = _valores_decimais(resposta)
+    if percentuais:
+        tem_numero = bool(valores)
+    else:
+        tem_numero = bool(_numeros_grandes(resposta))
+    algum_esperado = any(v in esperados for v in valores)
+    confere = _conferir_pares(resposta, pares)
+    if confere is None:
+        # associação ambígua: só decide se NENHUM valor correto aparece na resposta
+        if not algum_esperado and tem_numero:
+            return False, 'Os valores informados não conferem com o gabarito.'
+        return None
+    if confere:
+        if ok_certa or certa is None:
+            return True, 'Valores e conclusão conferem com o gabarito.'
+        return None
+    if tem_numero:
+        return False, 'Os valores informados não conferem com o gabarito.'
+    if _RECUSA.search(t):
+        return False, 'A resposta não apresenta o resultado solicitado.'
+    if basta_conclusao and ok_certa:
+        return True, 'O enunciado só pede a conclusão, e ela está correta (sem números contraditórios).'
+    if exige_totais:
+        return False, 'O enunciado pede os totais e a resposta não os apresenta.'
+    return None
+
+
 def _criterios_censo(questao, resposta):
     """Rubricas objetivas para as questões 01–20, com base nos gabaritos.
 
@@ -418,22 +476,178 @@ def _criterios_censo(questao, resposta):
         invertida |= bool(re.search(r'anos iniciais.{0,65}(?:menos|menor(?:es)?|inferior(?:es)?).{0,65}anos finais', t, re.S))
         if invertida:
             return decisao(False, 'Contradição: Anos Iniciais têm MAIS matrículas que Anos Finais.')
-        # Para as demais respostas, exigir validação semântica, pois podem citar só a tendência.
+        # Para as demais: diferença ou os dois totais corretos + tendência = acerto;
+        # números errados = erro; só a tendência (sem números) continua com o revisor.
+        tem_interpretacao = bool(re.search(r'evasao|retencao|distorcao|fluxo|reducao|queda|diminu|abandono', t))
+        if tem(3221721) and tem_interpretacao:
+            return decisao(True, 'Diferença correta (3.221.721) e interpretação do fluxo escolar.')
+        if not tem(3221721):
+            # diferença errada (ex.: 3.217.721) mesmo com os dois totais corretos
+            if any(3000000 <= v <= 3500000 for v in _valores_decimais(resposta)):
+                return decisao(False, 'A diferença informada não é 3.221.721.')
+            if _numeros_grandes(resposta) and not (tem(14514244) and tem(11292523)):
+                return decisao(False, 'Os totais ou a diferença informados não conferem com o gabarito.')
+            if _RECUSA.search(t):
+                return decisao(False, 'A resposta não apresenta a diferença solicitada.')
         return None
     if numero == 41:
         # A associacao das faixas etarias as etapas pode aparecer em periodos
         # diferentes; janelas de caracteres cruzam afirmacoes corretas.
         # Deixar a avaliacao semantica decidir sem falso negativo automatico.
-        return None
+        # (Agora: totais exatos + etapas; meia resposta continua indo ao revisor.)
+        r = _decidir_comparativa(resposta, {
+            'faixa6': (('6 a 10 anos', '6 a 10'), {Decimal(14111254)}),
+            'faixa11': (('11 a 14 anos', '11 a 14'), {Decimal(11194106)})},
+            certa=r'anos iniciais.{0,120}(?:6 a 10|6-10)|(?:6 a 10|6-10).{0,120}anos iniciais')
+        return decisao(*r) if r else None
     if numero == 43:
         # Não aceitar separadores numéricos malformados como se fossem totais corretos.
         if re.search(r'(?<!\d)496\.8651(?!\d)', t):
             return decisao(False, 'Total de 4 a 5 anos foi escrito incorretamente: 496.8651.')
-        return None
+        r = _decidir_comparativa(resposta, {
+            'creche': (('0 a 3 anos', '0 a 3'), {Decimal(3874541)}),
+            'pre': (('4 a 5 anos', '4 a 5'), {Decimal(4968651)})},
+            certa=r'(?:4 a 5|4 e 5)[^.;\n\d]{0,60}(?:maior|mais|concentra|superior)|(?:maior|mais)[^.;\n\d]{0,60}(?:4 a 5|4 e 5)',
+            errada=r'(?:0 a 3)[^.;\n\d]{0,60}(?:tem|apresenta|possui|e a)[^.;\n\d]{0,20}(?:maior|mais)')
+        return decisao(*r) if r else None
     if numero == 44:
         # A pergunta também solicita quantidades por turno; só a predominância não basta.
         if not all(tem(n) for n in (42131013, 3240654, 646713)):
             return decisao(False, 'Faltam os totais de Diurno, Noturno e EAD solicitados na questão.')
+        return decisao(True, 'Três totais corretos e Diurno como predominante.') if (
+            re.search(r'diurno.{0,100}(?:maioria|concentra|predomina|maior)|(?:maioria|concentra|predomina|maior).{0,100}diurno', t)
+            and not re.search(r'(?:noturno|ead).{0,40}(?:concentra|maioria|predomina)', t)) else None
+    if numero == 25:
+        r = _decidir_comparativa(resposta, {
+            'indigena': (('terra indigena', 'indigena', 'indigenas'), {Decimal(280634)}),
+            'quilombola': (('comunidade quilombola', 'quilombola', 'quilombolas'), {Decimal(288673)})},
+            certa=r'quilombola[^.;\n\d]{0,80}(?:mais|maior|concentra|superior)',
+            errada=r'indigena[^.;\n\d]{0,80}(?:concentra|tem|apresenta|possui)\s+(?:o\s+)?(?:maior|mais)',
+            exige_totais=True)
+        return decisao(*r) if r else None
+    if numero == 26:
+        r = _decidir_comparativa(resposta, {
+            'infantil': (('educacao infantil', 'infantil'), {Decimal(9286182)}),
+            'fundamental': (('ensino fundamental', 'fundamental'), {Decimal(25806767)}),
+            'medio': (('ensino medio', 'medio'), {Decimal(7370879)}),
+            'profissional': (('educacao profissional', 'profissional'), {Decimal(3187976)}),
+            'eja': (('eja',), {Decimal(2252069)})},
+            certa=r'fundamental[^.;\n\d]{0,80}(?:maior|mais|concentra)|(?:maior|mais|concentra)[^.;\n\d]{0,80}fundamental',
+            errada=r'(?:infantil|medio|profissional|eja)[^.;\n\d]{0,60}(?:concentra|tem|possui)\s+(?:o\s+)?(?:maior|mais)|(?:maior|mais)[^.]{0,60}\b(?:e|sao)\s+(?:a|o)?\s*(?:educacao infantil|ensino medio|educacao profissional|eja)\b',
+            exige_totais=True)
+        return decisao(*r) if r else None
+    if numero == 27:
+        r = _decidir_comparativa(resposta, {
+            'creche': (('creche',), {Decimal(4182646)}),
+            'pre': (('pre-escola', 'pre escola', 'preescola'), {Decimal(5103536)})},
+            certa=r'pre-?\s?escola[^.;\n\d]{0,80}(?:mais|maior)',
+            errada=r'creche[^.;\n\d]{0,60}(?:tem|possui|apresenta|e a etapa)[^.;\n\d]{0,30}(?:mais|maior)')
+        return decisao(*r) if r else None
+    if numero == 29:
+        # O enunciado exige a tabela de TODOS os nove anos e a conclusão.
+        valores = (2890337, 2874392, 2850775, 2984869, 2913871,
+                   2919014, 2870115, 2840218, 2663176)
+        linhas = [linha for linha in resposta.splitlines()
+                  if re.search(r'\b(?:[1-9])\s*[ºo°]?\s*ano\b', _normalizar(linha))]
+        # Cada ano deve aparecer com seu valor na mesma linha; outras
+        # representações são ambíguas e seguem para a revisão semântica.
+        encontrados = {}
+        for linha in linhas:
+            m = re.search(r'\b([1-9])\s*[ºo°]?\s*ano\b', _normalizar(linha))
+            if m:
+                ano = int(m.group(1))
+                if not _valores_decimais(linha):
+                    continue  # frase de conclusão ("O 4º ano é o maior") não é linha da tabela
+                encontrados[ano] = encontrados.get(ano, False) or _numero_exato(linha, valores[ano - 1])
+                if not encontrados[ano]:
+                    return decisao(False, f'Valor incorreto para o {ano}º ano.')
+        if len(encontrados) == 9 and all(encontrados.values()):
+            if re.search(r'(?:4|quarto)\s*[ºo°]?\s*ano', t) and tem(2984869):
+                return decisao(True, 'Tabela dos nove anos com totais corretos e 4º ano predominante.')
+        if re.search(r'\b(?:20(?:19|25)|460183780)\b', t) and not linhas:
+            return decisao(False, 'Confundiu ano letivo com ano/série escolar.')
+        if not _valores_decimais(resposta) or _RECUSA.search(t):
+            return decisao(False, 'O enunciado pede a tabela de matrículas por ano; a resposta não a apresenta.')
+        return None
+    if numero == 32:
+        r = _decidir_comparativa(resposta, {
+            'concomitante': (('concomitante',), {Decimal(348446)}),
+            'subsequente': (('subsequente',), {Decimal(832032)})})
+        if r is None or not r[0]:
+            return decisao(*r) if r else None
+        # Não basta apresentar os números: o enunciado pede a diferença
+        # conceitual entre as duas formas de oferta.
+        simultaneo = bool(re.search(r'simultane|ao mesmo tempo|durante o ensino medio|junto (?:ao|com) o ensino medio', t))
+        posterior = bool(re.search(r'apos|depois|posterior|conclu(?:sao|ido) do ensino medio', t))
+        if simultaneo and posterior:
+            return decisao(True, 'Totais e diferença conceitual corretos.')
+        return None
+    if numero == 34:
+        r = _decidir_comparativa(resposta, {
+            'fundamental': (('eja fundamental', 'fundamental'), {Decimal(1406442)}),
+            'medio': (('eja medio', 'medio'), {Decimal(845627)})},
+            certa=r'fundamental[^.;\n\d]{0,80}(?:mais|maior|concentra)|(?:mais|maior|concentra)[^.;\n\d]{0,80}fundamental',
+            errada=r'medio[^.;\n\d]{0,60}(?:concentra|tem|possui)\s+(?:o\s+)?(?:mais|maior)',
+            basta_conclusao=True)
+        return decisao(*r) if r else None
+    if numero == 37:
+        r = _decidir_comparativa(resposta, {
+            'feminino': (('feminin[oa]s?', 'mulheres', 'meninas'), _aceitos('49.4')),
+            'masculino': (('masculin[oa]s?', 'homens', 'meninos'), _aceitos('50.6'))},
+            percentuais=True,
+            exige_totais=True)
+        return decisao(*r) if r else None
+    if numero == 38:
+        soma = _numero_exato(resposta, 23149061)
+        percentual = (_numero_exato(resposta, '58.25') or
+                      _numero_exato(resposta, '58.3'))
+        if soma and percentual:
+            return decisao(True, 'Soma de 23.149.061 e percentual de 58,25% corretos.')
+        # Respostas que apresentam um percentual explicitamente incompatível
+        # ou um número isolado errado são erros objetivos.
+        valores = _valores_decimais(resposta)
+        if re.fullmatch(r'\s*\d+(?:[.,]\d+)?\s*%?\s*', resposta) and not percentual:
+            return decisao(False, 'Percentual informado é diferente de 58,25%.')
+        if re.search(r'\d[\d.,]*\s*%', resposta) and not percentual:
+            return decisao(False, 'Percentual informado é diferente de 58,25%.')
+        if percentual and not soma:
+            return decisao(False, 'Informou o percentual, mas omitiu a soma exigida.')
+        return None
+    if numero == 45:
+        r = _decidir_comparativa(resposta, {
+            'matutino': (('matutino',), {Decimal(24171117)}),
+            'vespertino': (('vespertino',), {Decimal(17959896)})},
+            certa=r'matutino[^.;\n\d]{0,80}(?:mais|maior|numeroso|concentra)',
+            errada=r'vespertino[^.;\n\d]{0,80}(?:e\s+)?(?:mais|maior|numeroso)',
+            basta_conclusao=True)
+        return decisao(*r) if r else None
+    if numero == 48:
+        r = _decidir_comparativa(resposta, {
+            'comuns': (('classes comuns', 'classe comum', 'comuns'), {Decimal(2298005)}),
+            'exclusivas': (('classes exclusivas', 'classe exclusiva', 'exclusivas'), {Decimal(160154)})},
+            certa=r'comuns[^.;\n\d]{0,80}(?:predomin|maior|mais|maioria)|(?:predomin|maioria)[^.;\n\d]{0,60}comuns',
+            errada=r'exclusivas[^.;\n\d]{0,80}(?:predomin|maioria)')
+        if r is None or not r[0]:
+            return decisao(*r) if r else None
+        if re.search(r'inclus(?:ao|iva|ivo)|turmas regulares|ensino regular', t):
+            return decisao(True, 'Totais, predomínio e relação com a inclusão escolar.')
+        return None
+    if numero == 50:
+        # Duas dimensões diferentes: residência do aluno e localização da escola.
+        # Uma conclusão isolada ("sim, é possível") não resolve a pergunta.
+        numeros = (38397441, 7618155, 40871166, 5147214)
+        presentes = [_numero_exato(resposta, n) for n in numeros]
+        if not any(presentes):
+            if _RECUSA.search(t) or len(_valores_decimais(resposta)) == 0:
+                return decisao(False, 'Não apresentou as somas nem a comparação pedidas.')
+            return None
+        if not all(presentes):
+            return None
+        tem_residencia = bool(re.search(r'residenc|morad|residem|resident', t))
+        tem_escola = bool(re.search(r'localizac|escolas? (?:urban|rura)|tp_localizacao', t))
+        tem_justificativa = bool(re.search(r'transporte escolar|deslocam|deslocamento|estudam em escolas urbanas|matriculad[oa]s? em escolas urbanas', t))
+        if tem_residencia and tem_escola and tem_justificativa:
+            return None  # associação de 4 números e justificativa exige conferência semântica
         return None
     # Questões com resultado numérico inequívoco, além das 01–23.
     if numero == 24:
@@ -493,10 +707,12 @@ def avaliar_censo(questao, resposta, consultar_ollama=None):
     prompt = f"""Você corrige respostas do Censo Escolar. Julgue APENAS a resposta dada,
 comparando-a com a questão e o gabarito. Não avalie a intenção nem a qualidade
 aparente do código: se o valor pedido não foi efetivamente respondido, está errado.
-Avalie o RESULTADO solicitado, não a explicação ou o procedimento.
-Se o resultado solicitado estiver correto, marque CORRETA mesmo com explicação ruim.
+Avalie TODOS os requisitos expressos no enunciado: valores, tabelas, comparações
+e explicações quando solicitadas. Não exija cálculo ou tabela quando não pedidos.
+Valores numéricos afirmados como resultados devem estar corretos, mesmo se opcionais.
 Listas podem vir em qualquer ordem, exceto quando a pergunta exigir uma ordem.
-Resultado ausente, ambíguo ou incorreto é INCORRETA. Nunca use INCERTO.
+Resultado objetivamente ausente ou incorreto é INCORRETA. Se houver ambiguidade
+semântica genuína, use INCERTO e encaminhe para revisão humana.
 Responda com JSON válido, sem markdown, neste formato:
 {{"veredito":"CORRETA","justificativa":"motivo breve"}}
 

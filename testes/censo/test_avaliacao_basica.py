@@ -27,7 +27,7 @@ class TestarRubricasCenso(unittest.TestCase):
         # Juiz que responde INCERTO não decide: a questão fica pendente (None).
         def juiz_inconclusivo(*args, **kwargs):
             return {'resposta': '{"veredito":"INCERTO"}', 'erro_detalhado': None}
-        r = avaliar_censo({'id': 'censo_2025_25', 'pergunta': 'Pergunta',
+        r = avaliar_censo({'id': 'censo_2025_21', 'pergunta': 'Pergunta',
                            'resposta_esperada': 'Gabarito'}, 'Resposta plausível', juiz_inconclusivo)
         self.assertIsNone(r['acertou'])
         self.assertTrue(r['revisao_necessaria'])

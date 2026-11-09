@@ -16,9 +16,9 @@ UFS_26 = UFS_27.replace(', TO', '')  # falta o Tocantins
 COM_VEREDITO = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
                 22, 23, 24, 31, 33, 35, 40, 42, 46, 47, 49)
 # Questões em que a rubrica só decide parte dos casos; o resto vai para revisão humana.
-PARCIAL = (20, 28, 41, 43, 44)
+PARCIAL = (20, 25, 26, 27, 28, 29, 32, 34, 37, 38, 41, 43, 44, 45, 48, 50)
 # Questões sem rubrica: sempre vão para revisão humana.
-SEM_RUBRICA = (21, 25, 26, 27, 29, 30, 32, 34, 36, 37, 38, 39, 45, 48, 50)
+SEM_RUBRICA = (21, 30, 36, 39)
 
 CASOS = [
     # ---- Q01: total de escolas (178.766) ----
@@ -192,9 +192,10 @@ CASOS = [
     (40, 'incompleta', '6.275.577 matrículas.', False),                          # sem a categoria
     (40, 'incorreta', '1.000 matrículas estão como "Não Declarada".', False),
 
-    # ---- Q41: sempre para revisão humana ----
-    (41, 'correta', '6 a 10 anos: 14.111.254; 11 a 14 anos: 11.194.106. Anos Iniciais e Finais.', None),
+    # ---- Q41: totais por faixa etária ----
+    (41, 'correta', '6 a 10 anos: 14.111.254; 11 a 14 anos: 11.194.106. Anos Iniciais e Finais.', True),
     (41, 'incorreta', 'Não sei.', None),
+    (41, 'recusa', 'O número de matrículas nas faixas etárias de 6 a 10 anos e de 11 a 14 anos não foi fornecido, pois a consulta não foi concluída.', False),
 
     # ---- Q42 ----
     (42, 'correta', 'São 3.974.803 com 18 anos ou mais, associados à EJA.', True),
@@ -204,7 +205,10 @@ CASOS = [
 
     # ---- Q43: só detecta número malformado ----
     (43, 'contraditoria', '0 a 3 anos: 3.874.541. 4 a 5 anos: 496.8651.', False),
-    (43, 'correta', '0 a 3 anos: 3.874.541. 4 a 5 anos: 4.968.651. A de 4 a 5 anos é maior.', None),
+    (43, 'correta', '0 a 3 anos: 3.874.541. 4 a 5 anos: 4.968.651. A de 4 a 5 anos é maior.', True),
+    (43, 'conclusao_invertida', 'A faixa etária de 0 a 3 anos apresenta o maior número de matrículas, com 4.147.573 matrículas, enquanto a faixa de 4 a 5 anos apresenta 4.139.30.', False),
+    (43, 'valores_errados', 'A faixa etária com maior número de matrículas é a faixa de 4 a 5 anos, com 1456 matrículas, enquanto a faixa de 0 a 3 anos tem 1018 matrículas.', False),
+    (43, 'meia_resposta', 'A faixa de 4 a 5 anos tem mais matrículas, por causa da obrigatoriedade da Pré-Escola.', None),
 
     # ---- Q44: só detecta falta dos três totais ----
     (44, 'incompleta', 'Diurno: 42.131.013. Noturno: 3.240.654.', False),
@@ -226,7 +230,51 @@ CASOS = [
                     'A esfera Municipal predomina.', True),
     (49, 'incompleta', 'Total: 9.078.809. Municipal: 7.647.575. A Municipal predomina.', False),
     (49, 'incorreta', 'Total: 100. Estadual: 200. Municipal: 300. A Municipal predomina.', False),
+    # ---- Questões 25–50 que mais caíam na revisão: respostas reais revisadas por humano ----
+    (25, 'correta', 'Terra Indígena: 280.634. Comunidade Quilombola: 288.673. A Comunidade Quilombola concentra mais matrículas.', True),
+    (25, 'zero', 'A Comunidade Quilombola concentra mais matrículas, mas com 0 matrículas registradas, o que dificulta a comparação.', False),
+    (25, 'sem_totais', 'O grupo Comunidade Quilombola concentra mais matrículas do que o Terra Indígena.', False),  # enunciado manda somar
+    (26, 'correta', 'Educação Infantil: 9.286.182. Ensino Fundamental: 25.806.767. Ensino Médio: 7.370.879. Educação Profissional: 3.187.976. EJA: 2.252.069. O Ensino Fundamental concentra o maior número.', True),
+    (26, 'conclusao_errada', 'A etapa com maior número de matrículas é a Educação Infantil.', False),
+    (26, 'total_errado', 'A etapa de ensino que concentra o maior número de matrículas é a EJA, com 23.059.168 matrículas.', False),
+    (27, 'correta', 'Creche: 4.182.646. Pré-Escola: 5.103.536. A Pré-Escola tem mais matrículas, pois é obrigatória desde os 4 anos.', True),
+    (27, 'invertida', 'A etapa de Creche tem mais matrículas do que a Pré-Escola, com 1.341.319 registros, enquanto a Pré-Escola tem 1.256.449 registros.', False),
+    (28, 'correta', 'Anos Iniciais: 14.514.244. Anos Finais: 11.292.523. A diferença é de 3.221.721, o que indica evasão ou retenção ao longo do fluxo escolar.', True),
+    (28, 'so_diferenca', 'Diferença entre matrículas nos Anos Iniciais e Anos Finais: 3.221.721. Pode indicar redução significativa nos Anos Finais, problemas de fluxo escolar.', True),
+    (28, 'diferenca_errada', 'A diferença entre os Anos Iniciais (14514244) e os Anos Finais (11292523) é de 3201871 matrículas. Isso pode indicar um fluxo escolar irregular.', False),
+    (28, 'diferenca_errada_2', 'A diferença é de 3.217.721 matrículas, o que sugere redução no fluxo.', False),
+    (29, 'incompleta', '4º ano: 2.984.869 matrículas, o maior número entre os nove anos.', None),
+    (29, 'errada', 'O total é de 460.183.780 matrículas no ano letivo de 2025.', False),
+    (29, 'sem_tabela', 'O ano com mais matrículas é o 4º ano.', False),
+    (32, 'correta', 'Técnico Concomitante: 348.446. Técnico Subsequente: 832.032. O Concomitante é simultâneo ao Ensino Médio e o Subsequente vem depois.', True),
+    (32, 'zeros', 'A soma de matrículas em Curso Técnico Concomitante é 0, e a soma de matrículas em Curso Técnico Subsequente também é 0.', False),
+    (32, 'recusa', 'Os dados consultados não permitem responder à pergunta.', False),
+    (34, 'correta', 'EJA Fundamental: 1.406.442. EJA Médio: 845.627. A EJA Fundamental concentra mais estudantes.', True),
+    (34, 'so_conclusao', 'A modalidade EJA concentra mais estudantes dentro da modalidade no Ensino Fundamental.', True),  # enunciado só pede qual
+    (34, 'conclusao_errada', 'O EJA Médio concentra mais estudantes.', False),
+    (45, 'so_conclusao', 'O turno Matutino é mais numeroso que o Vespertino.', True),
+    (37, 'correta', 'Feminino: 49,4%. Masculino: 50,6%. A diferença é pequena, de cerca de 1 ponto percentual.', True),
+    (37, 'recusa', 'A base de dados não contém uma coluna denominada "sexo".', False),
+    (37, 'errada', 'RUR, RURB e URB apresentam 100% de porcentagem de matrículas masculinas.', False),
+    (38, 'correta', 'Pretos e pardos somam 23.149.061, o que representa 58,25% do total declarado.', True),
+    (38, 'errada', 'A porcentagem de pretos e pardos representa 6% do total de matrículas com cor/raça declarada.', False),
+    (38, 'so_numero_errado', '40.0', False),
+    (45, 'correta', 'Matutino: 24.171.117. Vespertino: 17.959.896. O Matutino é mais numeroso.', True),
+    (45, 'invertida', 'A matrícula do turno Vespertino é mais numerosa do que a do turno Matutino.', False),
+    (45, 'igual_e_errado', 'O turno Matutino tem mais matrículas do que o Vespertino, ambos com 268801 matrículas.', False),
+    (48, 'correta', 'Classes Comuns: 2.298.005. Classes Exclusivas: 160.154. As Classes Comuns predominam, refletindo a política de educação inclusiva.', True),
+    (48, 'valores_errados', 'As classes comuns têm 808 matrículas e as classes exclusivas têm 9. As classes exclusivas predominam.', False),
+    (50, 'incompleta', 'Zona urbana (residência): 38.397.441. Zona rural (residência): 7.618.155. Sim, é possível haver alunos da zona rural em escolas urbanas.', None),
+    (50, 'sem_totais', 'É possível haver alunos residentes na zona rural matriculados em escolas localizadas na zona urbana.', False),  # enunciado manda somar
 ]
+
+CASOS.extend([
+    (29, 'correta', 'Ano | Matrículas\n1º ano | 2.890.337\n2º ano | 2.874.392\n3º ano | 2.850.775\n4º ano | 2.984.869\n5º ano | 2.913.871\n6º ano | 2.919.014\n7º ano | 2.870.115\n8º ano | 2.840.218\n9º ano | 2.663.176\nO 4º ano é o mais numeroso.', True),
+    (38, 'incompleta', 'O percentual é 58,25%.', False),
+    (32, 'incompleta', 'Concomitante: 348.446. Subsequente: 832.032.', None),
+    (48, 'incompleta', 'Classes Comuns: 2.298.005. Classes Exclusivas: 160.154. As Classes Comuns predominam.', None),
+    (50, 'incompleta', 'É possível haver alunos residentes na zona rural matriculados em escolas urbanas.', False),
+])
 
 # DEFEITOS CONHECIDOS: a rubrica, como está escrita hoje, dá o veredito ERRADO.
 # (questão, descrição, resposta, veredito que DEVERIA sair, veredito que sai hoje)
@@ -296,4 +344,5 @@ _FRASES_NATURAIS = [
 ]
 
 CASOS.extend([(n, 'contraditoria' if esperado is False else 'correta', texto, esperado)
-              for n, texto, esperado in _FRASES_NATURAIS])
+              for n, texto, esperado in _FRASES_NATURAIS
+])
