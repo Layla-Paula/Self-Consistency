@@ -8,8 +8,8 @@ Uso na raiz do projeto:
       (compara tudo nas MESMAS primeiras 200 questões, inclusive execuções feitas com limite 300, 500...)
   python -m codigo.avaliacao.comparar_configuracoes --modelo-maquinas     (cria o arquivo para anotar pc1/pc2)
 
-Saídas (em resultados/metricas/configuracoes/): configuracoes.md, configuracoes.json e
-execucoes.csv (uma linha por execução, para abrir no Excel). O relatório traz: resumo por
+Saídas: resultados/metricas/relatorios/geral/ (relatorio_geral.md e metricas_gerais.json) e
+resultados/metricas/graficos_e_tabelas/ (gráficos .png e tabelas.xlsx). O relatório traz: resumo por
 configuração, técnica x tokens, mesma configuração em máquinas diferentes, comparações pareadas
 (McNemar exato) entre técnicas e entre valores de um mesmo parâmetro, e todas as execuções.
 
@@ -18,7 +18,6 @@ Execuções com falha técnica ENTRAM no relatório, com a coluna de falhas à m
 pendências foram revisadas (--revisor).
 """
 import argparse
-import csv
 import itertools
 import json
 import re
@@ -37,7 +36,8 @@ STATUS_ACEITOS = ('concluido', 'concluido_com_falhas')
 SUFIXOS_IGNORADOS = ('.progresso.json', '.auditado.json', '.revisoes.json', '.final.json')
 # Padrões do relatório final (valem quando você roda o comando sem opções).
 RECORTE_PADRAO = 200      # GSM8K e AQuA-RAT: compara todas as execuções nas mesmas primeiras 200 questões
-EXEMPLOS_PADRAO = 10      # GSM8K e AQuA-RAT (o Censo usa os 6 exemplos do protocolo)
+EXEMPLOS_PADRAO = 10      # GSM8K e AQuA-RAT
+EXEMPLOS_CENSO_PADRAO = 6 # Censo (protocolo); só entram execuções do Censo com todas as questões
 REVISOR_PADRAO = 'layla'  # revisões humanas do Censo
 SEM_MAQUINA = 'não informada'
 
@@ -199,7 +199,7 @@ def _ids_exemplos(dados):
 
 
 def coletar_com_avisos(pasta, datasets=DATASETS, revisor=None, mapa=None, limite='qualquer',
-                       exemplos=None, recortar=None):
+                       exemplos=None, recortar=None, exemplos_censo=None):
     """(linhas, avisos). Com recortar=N, todas as execuções com pelo menos N questões entram
     avaliadas nas MESMAS primeiras N questões, desde que os exemplos e a ordem das questões sejam
     os mesmos (conferido pelos ids gravados em cada JSON)."""
@@ -239,6 +239,12 @@ def coletar_com_avisos(pasta, datasets=DATASETS, revisor=None, mapa=None, limite
             linha['limite'] = recortar
         if limite != 'qualquer' and linha['limite'] != limite and linha['dataset'] != 'censo':
             continue
+        if linha['dataset'] == 'censo':
+            # relatório final: só o Censo completo (todas as questões); testes parciais ficam de fora
+            if recortar and linha['limite'] is not None:
+                continue
+            if exemplos_censo is not None and linha['exemplos'] != exemplos_censo:
+                continue
         # --exemplos vale para GSM8K/AQuA-RAT; o Censo usa o número de exemplos do protocolo.
         if exemplos is not None and linha['dataset'] != 'censo' and linha['exemplos'] != exemplos:
             continue
@@ -247,8 +253,8 @@ def coletar_com_avisos(pasta, datasets=DATASETS, revisor=None, mapa=None, limite
 
 
 def coletar(pasta, datasets=DATASETS, revisor=None, mapa=None, limite='qualquer', exemplos=None,
-            recortar=None):
-    return coletar_com_avisos(pasta, datasets, revisor, mapa, limite, exemplos, recortar)[0]
+            recortar=None, exemplos_censo=None):
+    return coletar_com_avisos(pasta, datasets, revisor, mapa, limite, exemplos, recortar, exemplos_censo)[0]
 
 
 # ---------------------------------------------------------------- agregação
@@ -540,36 +546,6 @@ def para_markdown(linhas, agregados, filtros=None, pareadas=None, avisos=None):
     return '\n'.join(out)
 
 
-CAMPOS_CSV = ('dataset', 'tecnica', 'id_execucao', 'data', 'status', 'temperatura', 'tokens', 'n_amostras',
-              'exemplos', 'limite', 'maquina', 'planejadas', 'avaliadas', 'falhas_tecnicas', 'pendentes',
-              'acertos', 'acuracia', 'minimo', 'maximo', 'tempo_medio_s', 'tokens_entrada_medio',
-              'tokens_saida_medio', 'amostras_sem_extracao', 'total_amostras', 'suspeita')
-
-
-def salvar_csv(caminho, linhas):
-    with open(caminho, 'w', encoding='utf-8-sig', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=CAMPOS_CSV, extrasaction='ignore', delimiter=';')
-        w.writeheader()
-        for l in linhas:
-            w.writerow({k: ('' if l.get(k) is None else str(l[k]).replace('.', ',') if isinstance(l[k], float) else l[k])
-                        for k in CAMPOS_CSV})
-
-
-def salvar_tabela_csv(caminho, linhas):
-    """CSV genérico para tabelas derivadas, sem depender do Excel."""
-    if not linhas:
-        Path(caminho).write_text('', encoding='utf-8-sig')
-        return
-    colunas = list(dict.fromkeys(k for l in linhas for k in l))
-    with open(caminho, 'w', encoding='utf-8-sig', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=colunas, delimiter=';', extrasaction='ignore')
-        w.writeheader()
-        for linha in linhas:
-            w.writerow({k: (json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict))
-                            else str(v).replace('.', ',') if isinstance(v, float) else v)
-                        for k, v in linha.items()})
-
-
 def _publica(linha):
     return {k: v for k, v in linha.items() if not k.startswith('_')}
 
@@ -577,7 +553,7 @@ def _publica(linha):
 
 
 def relatorio_principal(linhas, agregados, pareadas, avisos):
-    """Síntese legível para TCC. Dados detalhados permanecem em JSON/CSV.
+    """Síntese legível para TCC. Dados detalhados permanecem no JSON.
 
     Não combina resultados de configurações diferentes em uma acurácia única.
     Acurácias são médias entre execuções da mesma configuração, não uma
@@ -622,7 +598,7 @@ def relatorio_principal(linhas, agregados, pareadas, avisos):
             out += ['', '*Tempos meramente descritivos: computadores não identificados.*']
         out += ['', '### Interpretação', '',
                 'Compare primeiro a diferença de acurácia em questões pareadas. '
-                'Depois consulte os custos por execução em `execucoes.csv` '
+                'Depois consulte os custos por execução em `tabelas.xlsx` '
                 '(tokens de entrada/saída e tempo médio). O limite máximo de tokens '
                 'não é o número de tokens efetivamente consumidos. '
                 + ('**Não é possível concluir que uma técnica é mais rápida apenas '
@@ -640,28 +616,38 @@ def relatorio_principal(linhas, agregados, pareadas, avisos):
         out += ['## Avisos de processamento', ''] + [f'- {a}' for a in avisos] + ['']
     return '\n'.join(out)
 
+def _resumir_avisos(avisos):
+    """Junta os avisos repetitivos de 'fora do recorte (menos questões)' numa linha só."""
+    curtos = [a for a in avisos if 'menos que' in a and 'fora do recorte' in a]
+    outros = [a for a in avisos if a not in curtos]
+    if curtos:
+        outros.insert(0, f'{len(curtos)} execução(ões) de teste, com menos questões que o recorte, ficaram de fora.')
+    return outros
+
+
 def gerar(pasta, saida, datasets=DATASETS, revisor=None, maquinas=None, limite='qualquer', exemplos=None,
-          recortar=None, detalhado=False):
+          recortar=None, detalhado=False, exemplos_censo=None, saida_dados=None):
+    """saida: gráficos e Excel. saida_dados: relatório .md e .json (padrão: a mesma pasta)."""
     mapa = carregar_maquinas(maquinas) if maquinas else {}
-    linhas, avisos = coletar_com_avisos(pasta, datasets, revisor, mapa, limite, exemplos, recortar)
+    linhas, avisos = coletar_com_avisos(pasta, datasets, revisor, mapa, limite, exemplos, recortar, exemplos_censo)
+    avisos = _resumir_avisos(avisos)
     agregados = agregar(linhas)
     pareadas = comparacoes_pareadas(linhas)
     saida = Path(saida)
     saida.mkdir(parents=True, exist_ok=True)
+    dados_dir = Path(saida_dados) if saida_dados else saida
+    dados_dir.mkdir(parents=True, exist_ok=True)
     filtros = ', '.join(f'{k}={v}' for k, v in (('datasets', ','.join(datasets)), ('revisor', revisor),
                         ('limite', None if limite == 'qualquer' else limite), ('exemplos', exemplos),
                         ('recorte', f'primeiras {recortar} questões' if recortar else None))
                         if v not in (None, ''))
     texto = (para_markdown(linhas, agregados, filtros, pareadas, avisos) if detalhado
              else relatorio_principal(linhas, agregados, pareadas, avisos))
-    (saida / 'configuracoes.md').write_text(texto, encoding='utf-8')
-    (saida / 'configuracoes.json').write_text(
+    (dados_dir / 'relatorio_geral.md').write_text(texto, encoding='utf-8')
+    (dados_dir / 'metricas_gerais.json').write_text(
         json.dumps({'execucoes': [_publica(l) for l in linhas], 'configuracoes': agregados,
                     'comparacoes_pareadas': pareadas, 'avisos': avisos},
                    ensure_ascii=False, indent=2, default=str), encoding='utf-8')
-    salvar_csv(saida / 'execucoes.csv', [_publica(l) for l in linhas])
-    salvar_tabela_csv(saida / 'resumo_configuracoes.csv', agregados)
-    salvar_tabela_csv(saida / 'comparacoes_pareadas.csv', pareadas)
     try:
         from codigo.avaliacao.graficos_e_planilhas import gerar as gerar_extras
         gerar_extras(agregados, saida, linhas)
@@ -679,9 +665,12 @@ def main(argv=None):
                    help=f'exemplos de GSM8K/AQuA-RAT (padrão {EXEMPLOS_PADRAO}; 0 = qualquer)')
     p.add_argument('--recortar', type=int, metavar='N', default=RECORTE_PADRAO,
                    help=f'avalia as execuções com >= N questões nas MESMAS primeiras N (padrão {RECORTE_PADRAO}; 0 = sem recorte)')
+    p.add_argument('--exemplos-censo', type=int, default=EXEMPLOS_CENSO_PADRAO,
+                   help=f'exemplos do Censo (padrão {EXEMPLOS_CENSO_PADRAO}; 0 = qualquer)')
     p.add_argument('--revisor', default=REVISOR_PADRAO, help=f'revisor do Censo (padrão {REVISOR_PADRAO})')
     p.add_argument('--maquinas', default=None, help='JSON {"id_ou_prefixo": "pc1"}')
-    p.add_argument('--saida', default=None)
+    p.add_argument('--saida', default=None, help='gráficos e Excel (padrão resultados/metricas/graficos_e_tabelas)')
+    p.add_argument('--saida-dados', default=None, help='relatório e JSON (padrão resultados/metricas/relatorios/geral)')
     p.add_argument('--detalhado', action='store_true',
                    help='relatório longo, com todas as execuções e testes estatísticos')
     p.add_argument('--modelo-maquinas', action='store_true',
@@ -701,14 +690,17 @@ def main(argv=None):
               '(também vale escrever só o início do nome, ex. "self_consistency_censo_08112026").')
         return 0
     limite = args.limite if args.limite == 'qualquer' else (None if args.limite == 'todos' else int(args.limite))
-    saida = Path(args.saida) if args.saida else pasta / 'metricas' / 'configuracoes'
+    saida = Path(args.saida) if args.saida else pasta / 'metricas' / 'graficos_e_tabelas'
+    saida_dados = Path(args.saida_dados) if args.saida_dados else pasta / 'metricas' / 'relatorios' / 'geral'
     linhas, _, texto = gerar(pasta, saida, tuple(args.dataset or DATASETS), args.revisor,
-                             destino_maquinas, limite, args.exemplos or None, args.recortar or None, args.detalhado)
+                             destino_maquinas, limite, args.exemplos or None, args.recortar or None, args.detalhado,
+                             args.exemplos_censo or None, saida_dados)
     if not linhas:
         print('Nenhuma execução concluída encontrada em', pasta)
         return 1
     print(texto)
-    print('Salvo em:', saida, '(inclui grafico_acuracia.png, grafico_tempo.png e tabelas.xlsx)')
+    print('Gráficos e Excel em:', saida)
+    print('Relatório (relatorio_geral.md) e JSON (metricas_gerais.json) em:', saida_dados)
     return 0
 
 

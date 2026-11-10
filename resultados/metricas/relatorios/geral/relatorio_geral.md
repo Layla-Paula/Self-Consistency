@@ -1,6 +1,6 @@
 # Resultados experimentais — síntese para o TCC
 
-Atualizado em 09/11/2026 14:01. Execuções consideradas: **73**. As tabelas são recriadas a partir dos JSONs sempre que este script é executado.
+Atualizado em 09/11/2026 14:38. Execuções consideradas: **57**. As tabelas são recriadas a partir dos JSONs sempre que este script é executado.
 
 **Pergunta de pesquisa:** a Self-Consistency oferece ganhos de acurácia que compensam o aumento de tempo e tokens em relação a Few-shot e CoT?
 
@@ -40,7 +40,7 @@ Atualizado em 09/11/2026 14:01. Execuções consideradas: **73**. As tabelas sã
 
 ### Interpretação
 
-Compare primeiro a diferença de acurácia em questões pareadas. Depois consulte os custos por execução em `execucoes.csv` (tokens de entrada/saída e tempo médio). O limite máximo de tokens não é o número de tokens efetivamente consumidos. **Não é possível concluir que uma técnica é mais rápida apenas pelos tempos misturados de PC1 e PC2.**
+Compare primeiro a diferença de acurácia em questões pareadas. Depois consulte os custos por execução em `tabelas.xlsx` (tokens de entrada/saída e tempo médio). O limite máximo de tokens não é o número de tokens efetivamente consumidos. **Não é possível concluir que uma técnica é mais rápida apenas pelos tempos misturados de PC1 e PC2.**
 
 ## AQUA_RAT
 
@@ -71,7 +71,7 @@ Compare primeiro a diferença de acurácia em questões pareadas. Depois consult
 
 ### Interpretação
 
-Compare primeiro a diferença de acurácia em questões pareadas. Depois consulte os custos por execução em `execucoes.csv` (tokens de entrada/saída e tempo médio). O limite máximo de tokens não é o número de tokens efetivamente consumidos. **Não é possível concluir que uma técnica é mais rápida apenas pelos tempos misturados de PC1 e PC2.**
+Compare primeiro a diferença de acurácia em questões pareadas. Depois consulte os custos por execução em `tabelas.xlsx` (tokens de entrada/saída e tempo médio). O limite máximo de tokens não é o número de tokens efetivamente consumidos. **Não é possível concluir que uma técnica é mais rápida apenas pelos tempos misturados de PC1 e PC2.**
 
 ## CENSO
 
@@ -79,43 +79,26 @@ Compare primeiro a diferença de acurácia em questões pareadas. Depois consult
 
 | Técnica | Questões (limite) | Ex. | Temp. | Tokens máx. | Amostras | Exec. | Acurácia média | Tokens usados/questão | Tempo médio/questão* | Falhas técnicas |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Few-shot | 5 | 5 | 0.0 | 1200 | — | 1 | 0.00% | 16492 | 31,8 s | 0 |
-| CoT | 5 | 5 | 0.0 | 1200 | — | 1 | 20.00% | 22490 | 3 min 27 s | 0 |
-| SC | 5 | 5 | 0.7 | 1200 | 5 | 1 | — | 123034 | 7 min 45 s | 0 |
-| SC | 10 | 6 | 0.7 | 2400 | 5 | 1 | 20.00% | 104088 | 17 min 39 s | 0 |
-| Few-shot | 20 | 5 | 0.0 | 1200 | — | 1 | 25.00% | 16597 | 23,8 s | 0 |
-| CoT | 20 | 5 | 0.0 | 1200 | — | 1 | 5.00% | 22880 | 28,9 s | 0 |
-| SC | 20 | 5 | 0.7 | 1200 | 5 | 1 | — | 129518 | 2 min 05 s | 0 |
-| SC | 20 | 6 | 0.7 | 2400 | 3 | 1 | — | 59923 | 6 min 34 s | 0 |
-| Few-shot | 40 | 3 | 0.0 | 1200 | — | 1 | 12.50% | 14279 | 1 min 15 s | 0 |
-| Few-shot | 40 | 6 | 0.0 | 1200 | — | 1 | 12.50% | 19400 | 1 min 53 s | 0 |
 | Few-shot | Todas | 6 | 0.0 | 1200 | — | 2 | 17.05% | 19089 | 1 min 13 s | 0 |
 | CoT | Todas | 6 | 0.0 | 1200 | — | 1 | 2.27% | 23352 | 28,5 s | 0 |
 | SC | Todas | 6 | 0.5 | 2400 | 5 | 2 | 11.19% | 83959 | 13 min 58 s | 25 |
 | SC | Todas | 6 | 0.7 | 1200 | 5 | 5 | 10.23% | 112956 | 11 min 36 s | 0 |
 | SC | Todas | 6 | 0.7 | 2400 | 3 | 2 | — | 63910 | 13 min 12 s | 6 |
 | SC | Todas | 6 | 0.7 | 2400 | 5 | 2 | — | 112701 | 18 min 18 s | 1 |
-| Few-shot | Todas | 12 | 0.0 | 1200 | — | 1 | 13.16% | 25109 | 2 min 28 s | 0 |
-| CoT | Todas | 12 | 0.0 | 1200 | — | 1 | 31.58% | 19270 | 3 min 51 s | 0 |
-| SC | Todas | 12 | 0.7 | 1200 | 3 | 2 | — | 95423 | 11 min 03 s | 0 |
-| SC | Todas | 12 | 0.7 | 1200 | 5 | 2 | — | 167212 | 10 min 20 s | 0 |
 
 ### Diferença de acurácia nas mesmas questões
 
 | Comparação | N comum | Diferença B−A (pp) | p McNemar |
 | --- | --- | --- | --- |
-| Few-shot / t=0.0 / 1200 tokens [10-23 20:19] × CoT / t=0.0 / 1200 tokens [10-23 18:44] | 5 | 20.00 | 1.0000 |
-| Few-shot / t=0.0 / 1200 tokens [10-23 19:44] × CoT / t=0.0 / 1200 tokens [10-23 19:42] | 20 | -20.00 | 0.2188 |
 | Few-shot / t=0.0 / 1200 tokens [11-01 11:13] × CoT / t=0.0 / 1200 tokens [10-24 16:50] | 44 | -18.18 | 0.0215 |
 | Few-shot / t=0.0 / 1200 tokens [11-01 11:13] × SC / t=0.7 / 5 amostras / 1200 tokens [11-04 22:13] | 44 | -9.09 | 0.2891 |
 | CoT / t=0.0 / 1200 tokens [10-24 16:50] × SC / t=0.7 / 5 amostras / 1200 tokens [11-04 22:13] | 44 | 9.09 | 0.2188 |
-| Few-shot / t=0.0 / 1200 tokens [10-27 11:13] × CoT / t=0.0 / 1200 tokens [10-28 14:42] | 38 | 18.42 | 0.0654 |
 
 *Tempos meramente descritivos: computadores não identificados.*
 
 ### Interpretação
 
-Compare primeiro a diferença de acurácia em questões pareadas. Depois consulte os custos por execução em `execucoes.csv` (tokens de entrada/saída e tempo médio). O limite máximo de tokens não é o número de tokens efetivamente consumidos. **Não é possível concluir que uma técnica é mais rápida apenas pelos tempos misturados de PC1 e PC2.**
+Compare primeiro a diferença de acurácia em questões pareadas. Depois consulte os custos por execução em `tabelas.xlsx` (tokens de entrada/saída e tempo médio). O limite máximo de tokens não é o número de tokens efetivamente consumidos. **Não é possível concluir que uma técnica é mais rápida apenas pelos tempos misturados de PC1 e PC2.**
 
 ## Limitações e cuidados
 
@@ -128,40 +111,4 @@ Compare primeiro a diferença de acurácia em questões pareadas. Depois consult
 
 ## Avisos de processamento
 
-- few_shot_gsm8k_23102026_183031_633.json: fora do recorte (tem 10 questões, menos que 200).
-- few_shot_gsm8k_23102026_201734_592.json: fora do recorte (tem 10 questões, menos que 200).
-- few_shot_gsm8k_23102026_202218_558.json: fora do recorte (tem 40 questões, menos que 200).
-- few_shot_gsm8k_23102026_212110_273.json: fora do recorte (tem 40 questões, menos que 200).
-- few_shot_gsm8k_23102026_212850_903.json: fora do recorte (tem 40 questões, menos que 200).
-- few_shot_aqua_rat_23102026_183547_623.json: fora do recorte (tem 10 questões, menos que 200).
-- few_shot_aqua_rat_23102026_201810_970.json: fora do recorte (tem 10 questões, menos que 200).
-- few_shot_aqua_rat_23102026_202431_607.json: fora do recorte (tem 40 questões, menos que 200).
-- few_shot_aqua_rat_23102026_212322_941.json: fora do recorte (tem 40 questões, menos que 200).
-- few_shot_aqua_rat_23102026_213112_781.json: fora do recorte (tem 40 questões, menos que 200).
-- chain_of_thought_gsm8k_23102026_182959_403.json: fora do recorte (tem 10 questões, menos que 200).
-- chain_of_thought_gsm8k_28102026_144054_384.json: fora do recorte (tem 1 questões, menos que 200).
-- chain_of_thought_aqua_rat_23102026_183531_609.json: fora do recorte (tem 10 questões, menos que 200).
-- chain_of_thought_aqua_rat_28102026_144147_380.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_23102026_182936_426.json: fora do recorte (tem 10 questões, menos que 200).
-- self_consistency_gsm8k_06112026_165032_643.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_08112026_213132_711.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_08112026_221718_007.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_08112026_222216_617.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_09112026_060738_896.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_09112026_073841_793.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_09112026_095636_524.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_03112026_195401_131.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_26102026_095927_579.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_03112026_233024_538.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_gsm8k_25102026_152708_856.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_23102026_190423_242.json: fora do recorte (tem 10 questões, menos que 200).
-- self_consistency_aqua_rat_06112026_165158_750.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_08112026_213223_594.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_08112026_221900_867.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_08112026_222259_444.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_09112026_060835_186.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_09112026_074226_671.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_09112026_095709_746.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_03112026_195535_361.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_26102026_100035_817.json: fora do recorte (tem 1 questões, menos que 200).
-- self_consistency_aqua_rat_03112026_233358_357.json: fora do recorte (tem 1 questões, menos que 200).
+- 37 execução(ões) de teste, com menos questões que o recorte, ficaram de fora.

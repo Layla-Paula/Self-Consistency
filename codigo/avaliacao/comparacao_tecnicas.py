@@ -439,7 +439,7 @@ def main(argv=None):
     if not rel['execucoes']:
         print('Nenhuma execução concluída encontrada.\n' + '\n'.join(rel['avisos']))
         return 1
-    destino = Path(args.saida) if args.saida else RAIZ / 'resultados' / 'metricas' / 'comparacao'
+    destino = Path(args.saida) if args.saida else RAIZ / 'resultados' / 'metricas' / 'relatorios' / args.dataset
     destino.mkdir(parents=True, exist_ok=True)
     (destino / f'comparacao_{args.dataset}.json').write_text(
         json.dumps(rel, ensure_ascii=False, indent=2, default=str), encoding='utf-8')

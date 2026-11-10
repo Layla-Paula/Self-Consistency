@@ -14,11 +14,14 @@ def consolidar(pasta):
     pasta = Path(pasta)
     relatorios = {}
     for dataset in ('gsm8k', 'aqua_rat', 'censo'):
-        caminho = pasta / f'comparacao_{dataset}.json'
+        # padrão: relatorios/<dataset>/comparacao_<dataset>.json (também aceita o arquivo direto na pasta)
+        caminho = pasta / dataset / f'comparacao_{dataset}.json'
+        if not caminho.exists():
+            caminho = pasta / f'comparacao_{dataset}.json'
         if caminho.exists():
             relatorios[dataset] = json.loads(caminho.read_text(encoding='utf-8'))
     if not relatorios:
-        raise FileNotFoundError(f'Nenhum comparacao_*.json em {pasta}')
+        raise FileNotFoundError(f'Nenhum comparacao_<dataset>.json em {pasta}')
     linhas = ['# Síntese experimental do TCC', '',
              '| Dataset | Técnica | Questões válidas | Acertos | Acurácia | Pendentes | Tempo médio (s) |',
              '|---|---|---:|---:|---:|---:|---:|']
@@ -50,7 +53,7 @@ def consolidar(pasta):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument('--pasta', default=str(RAIZ / 'resultados' / 'metricas' / 'comparacao'))
+    p.add_argument('--pasta', default=str(RAIZ / 'resultados' / 'metricas' / 'relatorios'))
     args = p.parse_args(argv)
     try:
         texto = consolidar(args.pasta)
@@ -58,7 +61,8 @@ def main(argv=None):
         print('Nenhum relatório de comparação encontrado em:', args.pasta)
         print('Execute primeiro comparacao_tecnicas.py para gerar os arquivos comparacao_*.json.')
         return 1
-    destino = Path(args.pasta) / 'sintese_tcc.md'
+    destino = Path(args.pasta) / 'geral' / 'sintese_tcc.md'
+    destino.parent.mkdir(parents=True, exist_ok=True)
     destino.write_text(texto, encoding='utf-8')
     print(texto)
     print('Salvo em:', destino)

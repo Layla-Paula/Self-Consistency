@@ -194,12 +194,12 @@ class TestMaquinasERelatorio(unittest.TestCase):
         self.assertIn('2400 tokens', texto)
         self.assertIn('Todas as execuções', texto)
         self.assertIn('4 execuções sem máquina informada', texto)
-        for nome in ('configuracoes.md', 'configuracoes.json', 'execucoes.csv'):
+        for nome in ('relatorio_geral.md', 'metricas_gerais.json', 'tabelas.xlsx'):
             self.assertTrue((saida / nome).exists(), nome)
         matriz = cc.matriz_tokens(ags)
         self.assertAlmostEqual(matriz[('few_shot', 0.0, None)][1200][0], 0.75)
         self.assertAlmostEqual(matriz[('few_shot', 0.0, None)][2400][0], 1.0)
-        self.assertIn('Acurácia', (saida / 'execucoes.csv').read_text(encoding='utf-8-sig').replace('acuracia', 'Acurácia'))
+        self.assertFalse(list(saida.glob('*.csv')), 'não gera mais CSV')
 
     def test_mesma_configuracao_em_duas_maquinas(self):
         escrever(self.pasta, 'self_consistency', 'gsm8k', 'em_pc1', [True, False], amostras=3, temp=0.3)

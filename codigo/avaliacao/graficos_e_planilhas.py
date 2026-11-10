@@ -2,14 +2,15 @@
 
 É chamado automaticamente por `comparar_configuracoes` (mesmo comando do relatório).
 Saídas, na mesma pasta do relatório:
-  grafico_acuracia.png  - acurácia por técnica e dataset
-  grafico_tempo.png     - tempo médio por questão por técnica e dataset
+  grafico_acuracia_<N>_tokens.png - acurácia por técnica e dataset
+  grafico_tempo_<N>_tokens.png    - tempo médio por questão por técnica e dataset
   tabelas.xlsx          - abas Few-shot, CoT e Self-Consistency (uma linha por EXECUÇÃO, com data e
                           hora) e Resumo (média das execuções de mesma configuração)
 Tudo é refeito a cada vez que o relatório é gerado, e a data da atualização aparece nos arquivos.
 
-Nos gráficos, cada técnica aparece com UMA configuração por dataset: a mais executada
-(empate: a de mais tokens). A configuração usada aparece na legenda do próprio gráfico.
+Um par de gráficos é criado para cada orçamento de tokens (1200, 2400...) em que as TRÊS técnicas
+têm execuções comparáveis (mesmas questões, mesmos exemplos, mesmos tokens máx.); datasets a que
+falta alguma técnica não entram naquele gráfico. A configuração de cada técnica aparece na legenda.
 Todas as configurações ficam nas planilhas.
 """
 from datetime import datetime
@@ -35,17 +36,32 @@ def _questoes(a):
     return a.get('questoes_avaliadas')
 
 
-def escolher_representantes(agregados):
-    """{(tecnica, dataset): agregado} — a configuração mais executada de cada técnica/dataset."""
-    melhor = {}
+def escolher_comparaveis(agregados):
+    """{orçamento_de_tokens: {dataset: {técnica: agregado}}}, só com condições comparáveis.
+
+    Em cada dataset, as três técnicas precisam ter o MESMO orçamento de tokens e o MESMO conjunto
+    de questões e de exemplos (limite e número de exemplos iguais). Se alguma técnica falta, o
+    dataset não entra naquele gráfico. Dentro disso, cada técnica é representada pela
+    configuração mais executada (na SC costuma ser temperatura 0.7 com 5 amostras)."""
+    por_chave = {}
     for a in agregados:
-        if a['acuracia_media'] is None:
+        if a['acuracia_media'] is None or a['tokens'] is None:
             continue
-        k = (a['tecnica'], a['dataset'])
-        pontos = (a['execucoes'], a['tokens'] or 0, a['n_amostras'] or 0)
-        if k not in melhor or pontos > melhor[k][0]:
-            melhor[k] = (pontos, a)
-    return {k: v[1] for k, v in melhor.items()}
+        por_chave.setdefault((a['dataset'], a['tokens'], a['limite'], a['exemplos']), []).append(a)
+    saida = {}
+    for (dataset, tokens, limite, exemplos), grupo in por_chave.items():
+        escolhidas = {}
+        for t in TECNICAS:
+            candidatas = [a for a in grupo if a['tecnica'] == t]
+            if candidatas:
+                escolhidas[t] = max(candidatas, key=lambda a: (a['execucoes'], a['n_amostras'] or 0))
+        if len(escolhidas) < len(TECNICAS):
+            continue
+        atual = saida.setdefault(tokens, {})
+        total = sum(a['execucoes'] for a in escolhidas.values())
+        if dataset not in atual or total > sum(a['execucoes'] for a in atual[dataset].values()):
+            atual[dataset] = escolhidas
+    return saida
 
 
 def _desc_config(a):
@@ -55,7 +71,7 @@ def _desc_config(a):
     return ', '.join(p for p in partes if p)
 
 
-def _grafico_barras(caminho, reps, campo, titulo, rotulo_y, formato, de_porcentagem=False):
+def _grafico_barras(caminho, reps, campo, titulo, rotulo_y, formato, de_porcentagem=False, nota=''):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -94,22 +110,34 @@ def _grafico_barras(caminho, reps, campo, titulo, rotulo_y, formato, de_porcenta
     ax.spines[['top', 'right']].set_visible(False)
     ax.grid(axis='y', alpha=0.25)
     ax.legend(fontsize=8, frameon=False, loc='upper center', bbox_to_anchor=(0.5, -0.08), ncol=1)
-    fig.text(0.99, 0.01, f'Atualizado em {_agora()}', ha='right', va='bottom', fontsize=7, color='#777777')
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.07, 1, 1))
+    if nota:
+        fig.text(0.01, 0.035, nota, ha='left', va='bottom', fontsize=6.5, color='#777777', wrap=True)
+    fig.text(0.99, 0.008, f'Atualizado em {_agora()}', ha='right', va='bottom', fontsize=7, color='#777777')
     fig.savefig(caminho)
     plt.close(fig)
     return True
 
 
-def gerar_graficos(agregados, pasta):
-    reps = escolher_representantes(agregados)
-    g1 = _grafico_barras(pasta / 'grafico_acuracia.png', reps, 'acuracia_media',
-                         'Acurácia por técnica e dataset', 'Acurácia (%)',
-                         lambda v: f'{v:.1f}%', de_porcentagem=True)
-    g2 = _grafico_barras(pasta / 'grafico_tempo.png', reps, 'tempo_medio_s',
-                         'Tempo médio por questão, por técnica e dataset', 'Segundos por questão',
-                         formatar_duracao)
-    return [n for n, ok in (('grafico_acuracia.png', g1), ('grafico_tempo.png', g2)) if ok]
+def gerar_graficos(agregados, pasta, tempo_descritivo=False):
+    """Um par de gráficos por orçamento de tokens com as três técnicas comparáveis."""
+    criados = []
+    for tokens, por_dataset in sorted(escolher_comparaveis(agregados).items()):
+        reps = {(t, d): a for d, por_t in por_dataset.items() for t, a in por_t.items()}
+        info = {d: next(iter(por_t.values())) for d, por_t in por_dataset.items()}
+        nota = ('Mesmas questões, exemplos e tokens nas três técnicas. '
+                + '; '.join(f"{NOME_DATASET[d]}: {i['limite'] or 'todas'} questões, {i['exemplos']} ex."
+                            for d, i in info.items()))
+        a1 = f'grafico_acuracia_{tokens}_tokens.png'
+        a2 = f'grafico_tempo_{tokens}_tokens.png'
+        _grafico_barras(pasta / a1, reps, 'acuracia_media', f'Acurácia por técnica e dataset ({tokens} tokens máx.)',
+                        'Acurácia (%)', lambda v: f'{v:.1f}%'.replace('.', ','), de_porcentagem=True, nota=nota)
+        _grafico_barras(pasta / a2, reps, 'tempo_medio_s',
+                        f'Tempo médio por questão, por técnica e dataset ({tokens} tokens máx.)',
+                        'Segundos por questão', formatar_duracao,
+                        nota=nota + (' | Tempos descritivos: máquinas não identificadas.' if tempo_descritivo else ''))
+        criados += [a1, a2]
+    return criados
 
 
 def formatar_duracao(seg):
@@ -249,6 +277,6 @@ def gerar(agregados, pasta, linhas=()):
     """Cria PNGs e Excel em `pasta`. Retorna a lista de arquivos criados."""
     from pathlib import Path
     pasta = Path(pasta)
-    criados = gerar_graficos(agregados, pasta)
+    criados = gerar_graficos(agregados, pasta, any(l['maquina'] == 'não informada' for l in linhas))
     gerar_planilha(list(linhas), agregados, pasta / 'tabelas.xlsx')
     return criados + ['tabelas.xlsx']
