@@ -40,6 +40,7 @@ PASTA_BASE = Path("resultados/few_shot")
 # A seleção é automática, determinística e alterna entre os seis blocos.
 # Avaliação do Censo incorporada: este arquivo não depende de revisao_censo.py.
 from codigo.avaliacao.avaliacao_censo import avaliar_censo
+from codigo.ambiente import ambiente_atual
 
 def agora():
     return datetime.now().isoformat(timespec="seconds")
@@ -215,6 +216,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             "tecnica": "few_shot",
             "dataset": dataset,
             "data_inicio": agora(),
+            "ambiente": ambiente_atual(),
             "parametros": parametros,
             "resultados": resultados,
             "status": "em_andamento",
@@ -300,7 +302,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                 # Respostas inconclusivas ou sem resultado identificável são erros.
                 avaliacao_censo = avaliar_censo(questao, resposta, consultar_ollama)
                 acertou = avaliacao_censo["acertou"]
-                if acertou is None:
+                # Avaliação indecisa NÃO é falha técnica: fica pendente para revisão humana (igual à Self-Consistency).
+                if acertou is None and not avaliacao_censo.get("revisao_necessaria"):
                     motivo = "Falha na avaliação do Censo: " + avaliacao_censo["motivo"]
                     resultados.append({
                         "id": str(questao["id"]), "split": questao.get("split"),
@@ -321,7 +324,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
                     checkpoint()
                     continue
 
-            revisao = False  # Avaliação binária: não há fila de revisão.
+            revisao = bool(dataset == "censo" and acertou is None)  # pendente de revisão humana
             if erro_consulta:
                 motivo = "Falha na consulta ao modelo"
             elif not valida:
@@ -361,7 +364,8 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
         checkpoint()
         raise
     dados["data_fim"] = agora()
-    dados["status"] = "concluido"
+    dados["status"] = ("concluido_com_falhas" if any(r.get("falha_tecnica") for r in resultados)
+                       else "concluido")
     dados["tempo_acumulado_segundos"] = tempo_anterior + time.perf_counter() - inicio
     dados["metricas"] = metricas(resultados, dados["tempo_acumulado_segundos"], quantidade, dataset)
     dados.pop("metricas_parciais", None)
@@ -380,8 +384,14 @@ def executar_censo(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
 
 
 if __name__ == "__main__":
-    executar_gsm8k()
-    executar_aqua_rat()
-    executar_censo()
-    
-  
+    # Um dataset que cai não impede os outros; os que terminaram já estão salvos.
+    erros = []
+    for nome_dataset, executar in (("gsm8k", executar_gsm8k), ("aqua_rat", executar_aqua_rat),
+                                   ("censo", executar_censo)):
+        try:
+            executar()
+        except Exception as erro:
+            erros.append(f"{nome_dataset}: {type(erro).__name__}: {erro}")
+            print(f"\n[ERRO] {erros[-1]}\nSegue para o próximo dataset.")
+    if erros:
+        print("\nDatasets com erro (os demais foram salvos normalmente):\n  " + "\n  ".join(erros))

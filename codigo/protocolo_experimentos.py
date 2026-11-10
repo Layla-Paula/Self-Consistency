@@ -15,8 +15,8 @@ VERSAO_PROTOCOLO = '2.2'
 # None explícito: avalia todas as questões elegíveis.
 USAR_LIMITE_PADRAO = object()
 
-LIMITES_PADRAO = {'gsm8k': 1, 
-                  'aqua_rat': 1, 
+LIMITES_PADRAO = {'gsm8k': 200, 
+                  'aqua_rat': 200, 
                   'censo': None}
 
 #LIMITES_PADRAO = {'gsm8k': None, 
@@ -32,8 +32,8 @@ def resolver_limite(dataset, limite=USAR_LIMITE_PADRAO):
         raise ValueError('O limite deve ser None ou inteiro positivo.')
     return limite
 
-N_EXEMPLOS_PADRAO = {'gsm8k': 1, 
-                     'aqua_rat': 1, 
+N_EXEMPLOS_PADRAO = {'gsm8k': 10, 
+                     'aqua_rat': 10, 
                      'censo': 6}
 
 

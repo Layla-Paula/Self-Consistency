@@ -35,6 +35,7 @@ except ImportError:
     psutil = None
 
 from codigo.utils import MODELO_OLLAMA, SEMENTE_OLLAMA
+from codigo.ambiente import ambiente_atual
 MODELO = MODELO_OLLAMA
 TEMPERATURE = 0.3
 NUM_PREDICT = 2400
@@ -179,6 +180,15 @@ def mostrar_resumo(dataset, dados, caminho):
     print(f'Resultados salvos em: {caminho}')
 
 
+def diferencas_parametros(do_arquivo, atuais):
+    """Lista, em texto, os parâmetros que diferem (vazio = iguais)."""
+    chaves = sorted(set(do_arquivo) | set(atuais))
+    return [f'{c}: arquivo={do_arquivo.get(c)!r} atual={atuais.get(c)!r}'
+            for c in chaves if c not in ('protocolo',) and do_arquivo.get(c) != atuais.get(c)] + (
+        ['protocolo: difere (questões, exemplos ou versão do protocolo)']
+        if do_arquivo.get('protocolo') != atuais.get('protocolo') else [])
+
+
 def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
     carregadores = {'gsm8k': carregar_gsm8k,
                     'aqua_rat': carregar_aqua_rat, 'censo': carregar_censo}
@@ -232,8 +242,9 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
     if retomar:
         with progresso.open('r', encoding='utf-8') as arquivo:
             dados = json.load(arquivo)
-        if dados['parametros'] != parametros:
-            raise ValueError('Os parâmetros atuais diferem do checkpoint.')
+        diferentes = diferencas_parametros(dados['parametros'], parametros)
+        if diferentes:
+            raise ValueError('Os parâmetros atuais diferem do checkpoint: ' + '; '.join(diferentes))
         resultados = dados['resultados']
     else:
         resultados = []
@@ -241,7 +252,7 @@ def executar_dataset(dataset, limite=USAR_LIMITE_PADRAO, n_exemplos=None, retoma
             'id_execucao': nome, 'tecnica': 'self_consistency',
             'dataset': dataset, 'data_inicio': agora(),
             'parametros': parametros, 'resultados': resultados,
-            'status': 'em_andamento',
+            'status': 'em_andamento', 'ambiente': ambiente_atual(),
         }
     # Falhas anteriores não são tratadas como concluídas numa retomada.
     # A entrada é substituída quando a questão é executada novamente.
@@ -402,15 +413,48 @@ def executar_censo(limite=USAR_LIMITE_PADRAO, n_exemplos=None, retomar=None):
 
 
 if __name__ == '__main__':
-    executar_gsm8k()
-    executar_aqua_rat()
-    executar_censo()
+    # Um dataset que cai não impede os outros; os que terminaram já estão salvos.
+    erros = []
+    for nome_dataset, executar in (('gsm8k', executar_gsm8k), ('aqua_rat', executar_aqua_rat),
+                                   ('censo', executar_censo)):
+        try:
+            executar()
+        except Exception as erro:
+            erros.append(f'{nome_dataset}: {type(erro).__name__}: {erro}')
+            print(f'\n[ERRO] {erros[-1]}\nSegue para o próximo dataset.')
+    if erros:
+        print('\nDatasets com erro (os demais foram salvos normalmente):\n  ' + '\n  '.join(erros))
+
+SUFIXOS_DERIVADOS = ('.progresso.json', '.auditado.json', '.revisoes.json', '.final.json')
+
+
+def _caminhos_recuperacao(origem, dataset, params):
+    """(nome, progresso, final) da recuperação de uma execução."""
+    nome = Path(origem).stem + '_recuperacao'
+    pasta = pasta_configuracao('self_consistency', dataset, params['limite'], params['quantidade_exemplos'])
+    return nome, pasta / (nome + '.progresso.json'), pasta / (nome + '.json')
+
+
+def _executar_com_parametros(dataset, params, progresso):
+    """Roda a retomada com a temperatura, os tokens e o nº de amostras da execução original
+    (e não com as constantes que estão no código hoje), restaurando as constantes depois."""
+    global TEMPERATURE, NUM_PREDICT, N_AMOSTRAS
+    guardados = (TEMPERATURE, NUM_PREDICT, N_AMOSTRAS)
+    TEMPERATURE, NUM_PREDICT, N_AMOSTRAS = (
+        params['temperatura'], params['maximo_tokens_resposta'], params['n_amostras'])
+    try:
+        return executar_dataset(dataset, params['limite'], params['quantidade_exemplos'],
+                                retomar=str(progresso))
+    finally:
+        TEMPERATURE, NUM_PREDICT, N_AMOSTRAS = guardados
+
 
 def recuperar_falhas(arquivo):
     """Cria nova execução de recuperação, sem sobrescrever o JSON original.
 
     Reaproveita questões concluídas e suas amostras; refaz apenas falhas técnicas.
-    Execute com os mesmos parâmetros de modelo, amostras e exemplos.
+    Usa a temperatura, os tokens e o nº de amostras gravados no arquivo original.
+    Se a recuperação foi interrompida, retoma de onde parou; se já terminou, só avisa.
     """
     origem = Path(arquivo)
     with origem.open('r', encoding='utf-8') as f:
@@ -423,18 +467,21 @@ def recuperar_falhas(arquivo):
         return anterior
     dataset = anterior['dataset']
     params = anterior['parametros']
-    if params.get('n_amostras') != N_AMOSTRAS or params.get('maximo_tokens_resposta') != NUM_PREDICT:
-        raise ValueError('Parâmetros do experimento diferentes dos atuais.')
-    nome = origem.stem + '_recuperacao'
-    pasta = pasta_configuracao('self_consistency', dataset, params['limite'], params['quantidade_exemplos'])
-    progresso = pasta / (nome + '.progresso.json')
-    final = pasta / (nome + '.json')
-    if progresso.exists() or final.exists():
-        raise FileExistsError(f'Já existe recuperação: {progresso} ou {final}')
+    for chave in ('temperatura', 'maximo_tokens_resposta', 'n_amostras'):
+        if params.get(chave) is None:
+            raise ValueError(f'O arquivo não registra "{chave}"; não dá para refazer nas mesmas condições.')
+    nome, progresso, final = _caminhos_recuperacao(origem, dataset, params)
+    if final.exists():
+        print(f'Já existe a recuperação concluída: {final}')
+        return json.loads(final.read_text(encoding='utf-8'))
+    if progresso.exists():
+        print(f'Retomando a recuperação interrompida: {progresso}')
+        return _executar_com_parametros(dataset, params, progresso)
     copia = dict(anterior)
     copia['id_execucao'] = nome
     copia['status'] = 'em_andamento'
     copia['recuperacao_de'] = str(origem)
+    copia['ambiente_recuperacao'] = ambiente_atual()   # 'ambiente' continua sendo o da execução original
     copia.pop('data_fim', None)
     copia.pop('metricas', None)
     copia['amostras_em_andamento'] = {
@@ -443,5 +490,83 @@ def recuperar_falhas(arquivo):
         for r in falhas
     }
     salvar(progresso, copia)
-    return executar_dataset(dataset, params['limite'], params['quantidade_exemplos'],
-                            retomar=str(progresso))
+    return _executar_com_parametros(dataset, params, progresso)
+
+
+def listar_para_recuperar(pasta, incluir_totais=False):
+    """Execuções de Self-Consistency com falhas técnicas ainda não recuperadas.
+
+    Devolve (plano, ignorados). Ignora originais que já têm recuperação, e execuções em que
+    TODAS as questões falharam (isso é uma execução perdida, não uma falha pontual)."""
+    from codigo.avaliacao.comparacao_tecnicas import sem_substituidas
+    candidatos = []
+    for arquivo in sorted(Path(pasta).rglob('*.json')):
+        if arquivo.name.endswith(SUFIXOS_DERIVADOS):
+            continue
+        try:
+            dados = json.loads(arquivo.read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        if (isinstance(dados, dict) and dados.get('tecnica') == 'self_consistency'
+                and dados.get('status') in ('concluido', 'concluido_com_falhas')
+                and isinstance(dados.get('resultados'), list)):
+            candidatos.append(arquivo)
+    plano, ignorados = [], []
+    for arquivo in sem_substituidas(candidatos):
+        dados = json.loads(arquivo.read_text(encoding='utf-8'))
+        resultados = dados['resultados']
+        falhas = sum(bool(r.get('falha_tecnica')) for r in resultados)
+        if not falhas:
+            continue
+        item = {'arquivo': arquivo, 'dataset': dados.get('dataset'), 'falhas': falhas, 'total': len(resultados)}
+        if falhas == len(resultados) and not incluir_totais:
+            item['motivo'] = 'todas as questões falharam (use --incluir-totais para refazer tudo)'
+            ignorados.append(item)
+        else:
+            plano.append(item)
+    return plano, ignorados
+
+
+def recuperar_pasta(pasta, simular=False, rodadas=3, incluir_totais=False):
+    """Recupera as falhas técnicas de TODAS as execuções SC encontradas na pasta.
+
+    Cada execução gera um arquivo _recuperacao; se ainda restarem falhas, repete (até `rodadas`).
+    Um erro numa execução não impede as outras. Pode ser interrompida (Ctrl+C) e rodada de novo."""
+    plano, ignorados = listar_para_recuperar(pasta, incluir_totais)
+    print(f'\n{len(plano)} execução(ões) com falhas técnicas para recuperar em {pasta}:')
+    for item in plano:
+        print(f"  - {item['arquivo'].name}: {item['falhas']} falha(s) em {item['total']} questões ({item['dataset']})")
+    for item in ignorados:
+        print(f"  (ignorada) {item['arquivo'].name}: {item['motivo']}")
+    resumo = {'plano': plano, 'ignorados': ignorados, 'resultado': []}
+    if simular:
+        print('\nModo simulação: nada foi executado.')
+        return resumo
+    for item in plano:
+        atual, restantes, erro = item['arquivo'], item['falhas'], None
+        for _ in range(max(1, rodadas)):
+            try:
+                dados = recuperar_falhas(atual)
+            except Exception as e:                     # segue para a próxima execução
+                erro = f'{type(e).__name__}: {e}'
+                print(f"[ERRO] {atual.name}: {erro}")
+                break
+            restantes = sum(bool(r.get('falha_tecnica')) for r in dados.get('resultados', []))
+            if restantes == 0:
+                break
+            _, _, atual = _caminhos_recuperacao(atual, dados['dataset'], dados['parametros'])
+        resumo['resultado'].append({'arquivo': item['arquivo'].name, 'falhas_restantes': restantes, 'erro': erro})
+    print('\nResumo da recuperação:')
+    for r in resumo['resultado']:
+        situacao = f"ERRO ({r['erro']})" if r['erro'] else ('sem falhas' if r['falhas_restantes'] == 0
+                                                          else f"{r['falhas_restantes']} falha(s) restante(s)")
+        print(f"  {r['arquivo']}: {situacao}")
+    return resumo
+
+
+def recuperar(caminho, **opcoes):
+    """Arquivo ou pasta: o que for informado."""
+    caminho = Path(caminho)
+    if caminho.is_dir():
+        return recuperar_pasta(caminho, **opcoes)
+    return recuperar_falhas(caminho)
