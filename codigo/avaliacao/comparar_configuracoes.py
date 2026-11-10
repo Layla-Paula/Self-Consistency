@@ -28,7 +28,7 @@ from pathlib import Path
 from codigo.avaliacao.comparacao_tecnicas import (
     TECNICAS, ROTULO, _ler, _momento, carregar_execucao, comparar_pareado, custo, falhas,
     resumo_acuracia, sem_substituidas)
-from codigo.avaliacao.graficos_e_planilhas import formatar_duracao
+from codigo.avaliacao.graficos_e_planilhas import LIMITE_SEM_TEMPO, formatar_duracao
 
 RAIZ = Path(__file__).resolve().parents[2]
 DATASETS = ('gsm8k', 'aqua_rat', 'censo')
@@ -169,7 +169,8 @@ def linha_execucao(arquivo, revisor=None, mapa=None, ids=None):
         'temperatura': p.get('temperatura', p.get('temperature')),
         'tokens': p.get('maximo_tokens_resposta', p.get('num_predict')),
         'n_amostras': p.get('n_amostras'), 'exemplos': p.get('quantidade_exemplos'),
-        'limite': p.get('limite'), 'maquina': maquina_de(dados, arquivo, mapa or {}),
+        'limite': p.get('limite'), 'limite_original': p.get('limite'),
+        'maquina': maquina_de(dados, arquivo, mapa or {}),
         'planejadas': r['questoes'], 'avaliadas': r['avaliadas'],
         'falhas_tecnicas': r['falhas_tecnicas'], 'pendentes': r['pendentes'],
         'acertos': r['acertos'], 'acuracia': r['acuracia'], 'ic95': r['ic95'],
@@ -177,7 +178,7 @@ def linha_execucao(arquivo, revisor=None, mapa=None, ids=None):
         'tempo_medio_s': c['tempo_medio_s'], 'tokens_entrada_medio': c['tokens_entrada_medio'],
         'tokens_saida_medio': c['tokens_saida_medio'],
         'amostras_sem_extracao': f['amostras_sem_extracao'], 'total_amostras': f['total_amostras'],
-        'recuperacao_de': dados.get('recuperacao_de'),
+        'recuperacao_de': dados.get('recuperacao_de'), 'fim': dados.get('data_fim'),
         # Nenhuma amostra gerou resposta extraível: quase sempre é defeito do extrator/agente
         # da época, não desempenho do modelo. Fica fora das médias.
         'suspeita': bool(f['total_amostras']) and f['amostras_sem_extracao'] == f['total_amostras'],
@@ -249,7 +250,31 @@ def coletar_com_avisos(pasta, datasets=DATASETS, revisor=None, mapa=None, limite
         if exemplos is not None and linha['dataset'] != 'censo' and linha['exemplos'] != exemplos:
             continue
         linhas.append(linha)
+    _marcar_isoladas(linhas, arquivos)
     return linhas, avisos
+
+
+def _marcar_isoladas(linhas, arquivos):
+    """Marca em cada linha se a execução rodou SOZINHA (nenhuma outra execução do PC principal com o
+    horário de início/fim sobreposto). Execuções com tempo ou horário desconhecido contam como não isoladas.
+    As de LIMITE_SEM_TEMPO questões ou mais (outro PC, só teste) não entram na checagem de sobreposição."""
+    intervalos = []
+    for arquivo in arquivos:
+        try:
+            d = _ler(arquivo)
+            ini = datetime.fromisoformat(str(d.get('data_inicio'))[:19])
+            fim = datetime.fromisoformat(str(d.get('data_fim'))[:19])
+        except (OSError, ValueError, TypeError, AttributeError, json.JSONDecodeError):
+            continue
+        lim = (d.get('parametros') or {}).get('limite')
+        if d.get('dataset') != 'censo' and lim is not None and lim >= LIMITE_SEM_TEMPO:
+            continue
+        intervalos.append((str(arquivo), ini, fim))
+    por_arquivo = {a: (i, f) for a, i, f in intervalos}
+    for l in linhas:
+        meu = por_arquivo.get(l['arquivo'])
+        l['isolada'] = meu is not None and not any(
+            a != l['arquivo'] and i < meu[1] and meu[0] < f for a, i, f in intervalos)
 
 
 def coletar(pasta, datasets=DATASETS, revisor=None, mapa=None, limite='qualquer', exemplos=None,
@@ -273,6 +298,14 @@ def _chave_config(l):
     return (l['tecnica'], l['temperatura'], l['tokens'], l['n_amostras'], l['maquina'])
 
 
+def _tempo_valido(l):
+    """O tempo só vale se a execução rodou sozinha e não foi um teste de outro PC."""
+    lim = l.get('limite_original')
+    if l['dataset'] != 'censo' and lim is not None and lim >= LIMITE_SEM_TEMPO:
+        return False
+    return l.get('isolada', True)
+
+
 def agregar(linhas):
     """Agrupa as execuções de mesma configuração (e mesmo conjunto de questões)."""
     grupos = {}
@@ -281,7 +314,7 @@ def agregar(linhas):
     saida = []
     for (cenario, config), itens in grupos.items():
         accs = [i['acuracia'] for i in itens if i['acuracia'] is not None and not i['suspeita']]
-        tempos = [i['tempo_medio_s'] for i in itens if i['tempo_medio_s'] is not None]
+        tempos = [i['tempo_medio_s'] for i in itens if i['tempo_medio_s'] is not None and _tempo_valido(i)]
         saida.append({
             'dataset': cenario[0], 'limite': cenario[1], 'exemplos': cenario[2],
             'tecnica': config[0], 'temperatura': config[1], 'tokens': config[2],
@@ -594,11 +627,17 @@ def relatorio_principal(linhas, agregados, pareadas, avisos):
             out.append(_tabela(('Comparação', 'N comum', 'Diferença B−A (pp)', 'p McNemar'),
                 [(f'{x["a"]} × {x["b"]}', x['n'], _num(x['diferenca_pp'], 2),
                   _num(x['p'], 4)) for x in ds_pares]))
+        runs_ds = [l for l in linhas if l['dataset'] == ds]
+        n_ok = sum(1 for l in runs_ds if _tempo_valido(l))
+        out += ['', f'*Tempo: só entram execuções que rodaram sozinhas no computador ({n_ok} de {len(runs_ds)} neste '
+                    'conjunto); as demais rodaram em paralelo ou em outro PC e ficaram de fora. '
+                    '"—" = nenhuma execução isolada.*']
         if sem_identificacao:
             out += ['', '*Tempos meramente descritivos: computadores não identificados.*']
         out += ['', '### Interpretação', '',
                 'Compare primeiro a diferença de acurácia em questões pareadas. '
-                'Depois consulte os custos por execução em `tabelas.xlsx` '
+                'O custo principal são os tokens (medida independente do computador); o tempo é '
+                'complementar. Veja os custos por execução em `tabelas.xlsx` '
                 '(tokens de entrada/saída e tempo médio). O limite máximo de tokens '
                 'não é o número de tokens efetivamente consumidos. '
                 + ('**Não é possível concluir que uma técnica é mais rápida apenas '
@@ -611,6 +650,8 @@ def relatorio_principal(linhas, agregados, pareadas, avisos):
             '- Falhas técnicas e recuperações são rastreadas; os arquivos originais não são modificados.',
             *(['- Tempos medidos em máquinas não identificadas devem ser tratados apenas como dados descritivos.']
               if sem_identificacao else []),
+            '- Tempo: parte das execuções rodou em paralelo no mesmo computador (ou em outro PC, como teste) e foi '
+            'descartada do tempo; ela continua valendo para acurácia e tokens. Os tokens são a medida principal de custo.',
             '- A decisão custo-benefício deve considerar o ganho de acurácia e o consumo efetivo de tokens, não apenas o teto configurado.', '']
     if avisos:
         out += ['## Avisos de processamento', ''] + [f'- {a}' for a in avisos] + ['']

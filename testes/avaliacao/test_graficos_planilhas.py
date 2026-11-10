@@ -12,7 +12,7 @@ def execucao(pasta, tecnica, nome, acertos, data, temp=0.0, amostras=None, token
     qs = [{'id': f'q{i}', 'acertou': a, 'tempo_segundos': 60.0, 'tokens_entrada': 100,
            'tokens_saida': 50} for i, a in enumerate(acertos)]
     dados = {'id_execucao': nome, 'tecnica': tecnica, 'dataset': 'gsm8k', 'status': 'concluido',
-             'data_inicio': data,
+             'data_inicio': data, 'data_fim': data[:11] + '23:59:00',
              'parametros': {'modelo': 'm', 'temperatura': temp, 'maximo_tokens_resposta': tokens,
                             'n_amostras': amostras, 'quantidade_exemplos': 2, 'limite': len(acertos)},
              'resultados': qs}
@@ -83,7 +83,7 @@ class TestGraficosComparaveis(unittest.TestCase):
         self.assertEqual(list(r[1200]), ['gsm8k'])             # Censo e 2400 ficam fora
         self.assertEqual(r[1200]['gsm8k']['self_consistency']['execucoes'], 5)
 
-    def test_cria_um_par_de_graficos_por_orcamento(self):
+    def test_cria_graficos_de_acuracia_tokens_e_tempo_por_orcamento(self):
         ags = [self.ag(t, 'gsm8k', k, amostras=5 if t == 'self_consistency' else None)
                for t in ('few_shot', 'chain_of_thought', 'self_consistency') for k in (1200, 2400)]
         for a in ags:
@@ -92,7 +92,22 @@ class TestGraficosComparaveis(unittest.TestCase):
             from codigo.avaliacao.graficos_e_planilhas import gerar_graficos
             criados = gerar_graficos(ags, Path(d))
             self.assertEqual(sorted(criados), ['grafico_acuracia_1200_tokens.png', 'grafico_acuracia_2400_tokens.png',
-                                               'grafico_tempo_1200_tokens.png', 'grafico_tempo_2400_tokens.png'])
+                                               'grafico_tempo_1200_tokens.png', 'grafico_tempo_2400_tokens.png',
+                                               'grafico_tokens_1200_tokens.png', 'grafico_tokens_2400_tokens.png'])
+
+    def test_sem_tempo_isolado_nao_cria_grafico_de_tempo(self):
+        ags = [self.ag(t, 'gsm8k', 2400, amostras=5 if t == 'self_consistency' else None)
+               for t in ('few_shot', 'chain_of_thought', 'self_consistency')]
+        for a in ags:
+            a['tempo_medio_s'] = None
+        with tempfile.TemporaryDirectory() as d:
+            from codigo.avaliacao.graficos_e_planilhas import gerar_graficos
+            antigo = Path(d) / 'grafico_tempo_2400_tokens.png'
+            antigo.write_bytes(b'x')
+            criados = gerar_graficos(ags, Path(d))
+            self.assertNotIn('grafico_tempo_2400_tokens.png', criados)
+            self.assertFalse(antigo.exists())           # o gráfico de tempo antigo some
+            self.assertIn('grafico_tokens_2400_tokens.png', criados)
 
 
 if __name__ == '__main__':

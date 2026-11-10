@@ -3,7 +3,8 @@
 É chamado automaticamente por `comparar_configuracoes` (mesmo comando do relatório).
 Saídas, na mesma pasta do relatório:
   grafico_acuracia_<N>_tokens.png - acurácia por técnica e dataset
-  grafico_tempo_<N>_tokens.png    - tempo médio por questão por técnica e dataset
+  grafico_tokens_<N>_tokens.png   - tokens usados por questão (custo principal)
+  grafico_tempo_<N>_tokens.png    - tempo médio por questão (só execuções que rodaram sozinhas; complementar)
   tabelas.xlsx          - abas Few-shot, CoT e Self-Consistency (uma linha por EXECUÇÃO, com data e
                           hora) e Resumo (média das execuções de mesma configuração)
 Tudo é refeito a cada vez que o relatório é gerado, e a data da atualização aparece nos arquivos.
@@ -130,13 +131,25 @@ def gerar_graficos(agregados, pasta, tempo_descritivo=False):
                             for d, i in info.items()))
         a1 = f'grafico_acuracia_{tokens}_tokens.png'
         a2 = f'grafico_tempo_{tokens}_tokens.png'
+        a3 = f'grafico_tokens_{tokens}_tokens.png'
         _grafico_barras(pasta / a1, reps, 'acuracia_media', f'Acurácia por técnica e dataset ({tokens} tokens máx.)',
                         'Acurácia (%)', lambda v: f'{v:.1f}%'.replace('.', ','), de_porcentagem=True, nota=nota)
-        _grafico_barras(pasta / a2, reps, 'tempo_medio_s',
-                        f'Tempo médio por questão, por técnica e dataset ({tokens} tokens máx.)',
-                        'Segundos por questão', formatar_duracao,
-                        nota=nota + (' | Tempos descritivos: máquinas não identificadas.' if tempo_descritivo else ''))
-        criados += [a1, a2]
+        reps_tok = {k: dict(a, tokens_usados=_tokens_usados(a)) for k, a in reps.items()}
+        _grafico_barras(pasta / a3, reps_tok, 'tokens_usados',
+                        f'Tokens usados por questão, por técnica e dataset ({tokens} tokens máx.)',
+                        'Tokens por questão (entrada + saída)', lambda v: f'{v:,.0f}'.replace(',', '.'),
+                        nota=nota)
+        criados += [a1, a3]
+        # Tempo: só execuções isoladas. Sem nenhuma, o gráfico não é feito (e o antigo é removido).
+        if any(a.get('tempo_medio_s') is not None for a in reps.values()):
+            _grafico_barras(pasta / a2, reps, 'tempo_medio_s',
+                            f'Tempo médio por questão, por técnica e dataset ({tokens} tokens máx.)',
+                            'Segundos por questão', formatar_duracao,
+                            nota=nota + ' | Tempo: só execuções que rodaram sozinhas (sem outra em paralelo).'
+                            + (' Tempos descritivos: máquinas não identificadas.' if tempo_descritivo else ''))
+            criados.append(a2)
+        elif (pasta / a2).exists():
+            (pasta / a2).unlink()
     return criados
 
 
@@ -163,8 +176,17 @@ def _agora():
     return datetime.now().strftime('%d/%m/%Y %H:%M')
 
 
+# Execuções do GSM8K/AQuA-RAT com este número de questões (ou mais) foram feitas em outro computador,
+# só como teste: entram na acurácia, mas não na comparação de tempo.
+LIMITE_SEM_TEMPO = 500
+
+
 def _obs(l):
     notas = []
+    if l['dataset'] != 'censo' and (l.get('limite_original') or 0) >= LIMITE_SEM_TEMPO:
+        notas.append('teste em outro PC: tempo fora da comparação')
+    elif not l.get('isolada', True):
+        notas.append('rodou em paralelo: tempo fora da comparação')
     if l.get('suspeita'):
         notas.append('suspeita: nenhuma resposta extraída (fora das médias)')
     if l.get('falhas_tecnicas'):
