@@ -1,0 +1,26 @@
+[
+  {
+    "id": "censo_2025_20",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou tanto a classificação quanto a justificativa."
+  },
+  {
+    "id": "censo_2025_27",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois não identifica todos os requisitos que o modelo deixou de atender."
+  },
+  {
+    "id": "censo_2025_34",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa apresenta uma afirmação confusa e não fundamentada sobre quais matrículas estão presentes na base de dados."
+  },
+  {
+    "id": "censo_2025_36",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo acertou os dois totais de matrículas, mas apresentou a razão na escala errada."
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "censo_2025_19",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa apresenta uma imprecisão e não identifica todos os problemas da resposta."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois não identifica os erros conceituais presentes na explicação do modelo."
+  }
+]

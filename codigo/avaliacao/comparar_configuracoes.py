@@ -8,7 +8,7 @@ Uso na raiz do projeto:
       (compara tudo nas MESMAS primeiras 200 questões, inclusive execuções feitas com limite 300, 500...)
   python -m codigo.avaliacao.comparar_configuracoes --modelo-maquinas     (cria o arquivo para anotar pc1/pc2)
 
-Saídas: resultados/metricas/relatorios/geral/ (relatorio_geral.md e metricas_gerais.json) e
+Saídas: resultados/metricas/relatorios/ (relatorio_geral.md e metricas_gerais.json) e
 resultados/metricas/graficos_e_tabelas/ (gráficos .png e tabelas.xlsx). O relatório traz: resumo por
 configuração, técnica x tokens, mesma configuração em máquinas diferentes, comparações pareadas
 (McNemar exato) entre técnicas e entre valores de um mesmo parâmetro, e todas as execuções.
@@ -18,6 +18,7 @@ Execuções com falha técnica ENTRAM no relatório, com a coluna de falhas à m
 pendências foram revisadas (--revisor).
 """
 import argparse
+import hashlib
 import itertools
 import json
 import re
@@ -145,6 +146,18 @@ def listar_arquivos(pasta, datasets=DATASETS):
     return encontrados
 
 
+def _impressao_conjunto(dados, execucao):
+    """Identidade do conjunto avaliado: ids dos exemplos + ids das questões planejadas (em ordem).
+    Duas execuções só são comparáveis nos gráficos se tiverem a mesma impressão. Sem os ids dos
+    exemplos (ou das questões) gravados, devolve None: o conjunto não é verificável e não se presume igual."""
+    exemplos = _ids_exemplos(dados)
+    ids = [str(q['id']) for q in execucao['questoes'] if not q.get('usada_como_exemplo')]
+    if not exemplos or not ids:
+        return None
+    bruto = '|'.join(exemplos) + '#' + '|'.join(ids)
+    return hashlib.sha1(bruto.encode('utf-8')).hexdigest()[:10]
+
+
 def linha_execucao(arquivo, revisor=None, mapa=None, ids=None):
     """Uma linha de resumo por execução, ou None se o arquivo não puder ser lido.
 
@@ -176,9 +189,10 @@ def linha_execucao(arquivo, revisor=None, mapa=None, ids=None):
         'acertos': r['acertos'], 'acuracia': r['acuracia'], 'ic95': r['ic95'],
         'minimo': r['minimo'], 'maximo': r['maximo'],
         'tempo_medio_s': c['tempo_medio_s'], 'tokens_entrada_medio': c['tokens_entrada_medio'],
-        'tokens_saida_medio': c['tokens_saida_medio'],
+        'tokens_saida_medio': c['tokens_saida_medio'], 'tokens_validas_n': c['tokens_entrada_medio_n'],
         'amostras_sem_extracao': f['amostras_sem_extracao'], 'total_amostras': f['total_amostras'],
         'recuperacao_de': dados.get('recuperacao_de'), 'fim': dados.get('data_fim'),
+        'conjunto': _impressao_conjunto(dados, execucao),
         # Nenhuma amostra gerou resposta extraível: quase sempre é defeito do extrator/agente
         # da época, não desempenho do modelo. Fica fora das médias.
         'suspeita': bool(f['total_amostras']) and f['amostras_sem_extracao'] == f['total_amostras'],
@@ -250,14 +264,15 @@ def coletar_com_avisos(pasta, datasets=DATASETS, revisor=None, mapa=None, limite
         if exemplos is not None and linha['dataset'] != 'censo' and linha['exemplos'] != exemplos:
             continue
         linhas.append(linha)
-    _marcar_isoladas(linhas, arquivos)
+    _marcar_isoladas(linhas, arquivos, mapa)
     return linhas, avisos
 
 
-def _marcar_isoladas(linhas, arquivos):
-    """Marca em cada linha se a execução rodou SOZINHA (nenhuma outra execução do PC principal com o
-    horário de início/fim sobreposto). Execuções com tempo ou horário desconhecido contam como não isoladas.
-    As de LIMITE_SEM_TEMPO questões ou mais (outro PC, só teste) não entram na checagem de sobreposição."""
+def _marcar_isoladas(linhas, arquivos, mapa=None):
+    """Marca em cada linha se a execução rodou SOZINHA no seu computador: nenhuma outra execução da MESMA
+    máquina com horário de início/fim sobreposto. Execuções de máquinas diferentes não interferem entre si.
+    Máquina desconhecida, ou horário desconhecido, conta como não isolada (o tempo fica só descritivo).
+    As de LIMITE_SEM_TEMPO questões ou mais (outro PC, só teste) não entram na checagem."""
     intervalos = []
     for arquivo in arquivos:
         try:
@@ -269,12 +284,13 @@ def _marcar_isoladas(linhas, arquivos):
         lim = (d.get('parametros') or {}).get('limite')
         if d.get('dataset') != 'censo' and lim is not None and lim >= LIMITE_SEM_TEMPO:
             continue
-        intervalos.append((str(arquivo), ini, fim))
-    por_arquivo = {a: (i, f) for a, i, f in intervalos}
+        intervalos.append((str(arquivo), maquina_de(d, arquivo, mapa or {}), ini, fim))
+    por_arquivo = {a: (m, i, f) for a, m, i, f in intervalos}
     for l in linhas:
         meu = por_arquivo.get(l['arquivo'])
-        l['isolada'] = meu is not None and not any(
-            a != l['arquivo'] and i < meu[1] and meu[0] < f for a, i, f in intervalos)
+        l['isolada'] = meu is not None and meu[0] != SEM_MAQUINA and not any(
+            a != l['arquivo'] and m == meu[0] and i < meu[2] and meu[1] < f
+            for a, m, i, f in intervalos)
 
 
 def coletar(pasta, datasets=DATASETS, revisor=None, mapa=None, limite='qualquer', exemplos=None,
@@ -295,7 +311,7 @@ def _chave_cenario(l):
 def _chave_config(l):
     # Máquinas identificadas separam os grupos (permite comparar pc1 x pc2); as não identificadas
     # ficam juntas num grupo só.
-    return (l['tecnica'], l['temperatura'], l['tokens'], l['n_amostras'], l['maquina'])
+    return (l['tecnica'], l['temperatura'], l['tokens'], l['n_amostras'], l['maquina'], l.get('conjunto'))
 
 
 def _tempo_valido(l):
@@ -306,6 +322,14 @@ def _tempo_valido(l):
     return l.get('isolada', True)
 
 
+def _media_ponderada(itens, campo):
+    """Média do campo entre execuções, ponderada pelo nº de questões com tokens completos de cada uma."""
+    pares = [(i[campo], i.get('tokens_validas_n') or 0) for i in itens if i.get(campo) is not None]
+    peso = sum(n for _, n in pares)
+    # sem quantidade comprovada de registros completos não se apresenta média
+    return sum(v * n for v, n in pares) / peso if peso else None
+
+
 def agregar(linhas):
     """Agrupa as execuções de mesma configuração (e mesmo conjunto de questões)."""
     grupos = {}
@@ -314,24 +338,31 @@ def agregar(linhas):
     saida = []
     for (cenario, config), itens in grupos.items():
         accs = [i['acuracia'] for i in itens if i['acuracia'] is not None and not i['suspeita']]
+        validos = [i for i in itens if i['acuracia'] is not None and not i['suspeita'] and i['avaliadas']]
+        pesos = sum(i['avaliadas'] for i in validos)
         tempos = [i['tempo_medio_s'] for i in itens if i['tempo_medio_s'] is not None and _tempo_valido(i)]
         saida.append({
             'dataset': cenario[0], 'limite': cenario[1], 'exemplos': cenario[2],
             'tecnica': config[0], 'temperatura': config[1], 'tokens': config[2],
-            'n_amostras': config[3], 'maquina': config[4],
+            'n_amostras': config[3], 'maquina': config[4], 'conjunto': config[5],
             'execucoes': len(itens),
             'questoes_avaliadas': max((i['avaliadas'] for i in itens), default=None),
             'execucoes_com_falha': sum(i['falhas_tecnicas'] > 0 for i in itens),
             'execucoes_suspeitas': sum(i['suspeita'] for i in itens),
             'execucoes_com_pendencia': sum(i['pendentes'] > 0 for i in itens),
             'com_acuracia': len(accs),
-            'acuracia_media': statistics.mean(accs) if accs else None,
+            # ponderada pelo nº de questões válidas de cada execução (= acertos totais / avaliadas totais)
+            'acuracia_media': (sum(i['acuracia'] * i['avaliadas'] for i in validos) / pesos) if pesos else
+                              (statistics.mean(accs) if accs else None),
+            'avaliadas_total': sum(i['avaliadas'] for i in validos),
             'acuracia_min': min(accs) if accs else None,
             'acuracia_max': max(accs) if accs else None,
             'acuracia_desvio': statistics.stdev(accs) if len(accs) > 1 else None,
             'tempo_medio_s': statistics.mean(tempos) if tempos else None,
-            'tokens_entrada_medio': statistics.mean([i['tokens_entrada_medio'] for i in itens if i['tokens_entrada_medio'] is not None]) if any(i['tokens_entrada_medio'] is not None for i in itens) else None,
-            'tokens_saida_medio': statistics.mean([i['tokens_saida_medio'] for i in itens if i['tokens_saida_medio'] is not None]) if any(i['tokens_saida_medio'] is not None for i in itens) else None,
+            'tokens_entrada_medio': _media_ponderada(itens, 'tokens_entrada_medio'),
+            'tokens_saida_medio': _media_ponderada(itens, 'tokens_saida_medio'),
+            'tokens_validas_total': sum(i.get('tokens_validas_n') or 0 for i in itens),
+            'conjunto_verificavel': config[5] is not None,
             'falhas_tecnicas_total': sum(i['falhas_tecnicas'] for i in itens),
             'pendentes_total': sum(i['pendentes'] for i in itens),
             'ids_execucoes': [i['id_execucao'] for i in itens],
@@ -667,7 +698,7 @@ def _resumir_avisos(avisos):
 
 
 def gerar(pasta, saida, datasets=DATASETS, revisor=None, maquinas=None, limite='qualquer', exemplos=None,
-          recortar=None, detalhado=False, exemplos_censo=None, saida_dados=None):
+          recortar=None, detalhado=False, exemplos_censo=None, saida_dados=None, orcamento=(1200, 2400), com_extras=True):
     """saida: gráficos e Excel. saida_dados: relatório .md e .json (padrão: a mesma pasta)."""
     mapa = carregar_maquinas(maquinas) if maquinas else {}
     linhas, avisos = coletar_com_avisos(pasta, datasets, revisor, mapa, limite, exemplos, recortar, exemplos_censo)
@@ -690,8 +721,9 @@ def gerar(pasta, saida, datasets=DATASETS, revisor=None, maquinas=None, limite='
                     'comparacoes_pareadas': pareadas, 'avisos': avisos},
                    ensure_ascii=False, indent=2, default=str), encoding='utf-8')
     try:
-        from codigo.avaliacao.graficos_e_planilhas import gerar as gerar_extras
-        gerar_extras(agregados, saida, linhas)
+        if com_extras:
+            from codigo.avaliacao.graficos_e_planilhas import gerar as gerar_extras
+            gerar_extras(agregados, saida, linhas, orcamento)
     except ImportError as erro:   # matplotlib/openpyxl ausentes: o relatório segue sem gráficos
         avisos.append(f'Gráficos/Excel não gerados ({erro}). Instale: pip install matplotlib openpyxl')
     return linhas, agregados, texto
@@ -711,7 +743,9 @@ def main(argv=None):
     p.add_argument('--revisor', default=REVISOR_PADRAO, help=f'revisor do Censo (padrão {REVISOR_PADRAO})')
     p.add_argument('--maquinas', default=None, help='JSON {"id_ou_prefixo": "pc1"}')
     p.add_argument('--saida', default=None, help='gráficos e Excel (padrão resultados/metricas/graficos_e_tabelas)')
-    p.add_argument('--saida-dados', default=None, help='relatório e JSON (padrão resultados/metricas/relatorios/geral)')
+    p.add_argument('--saida-dados', default=None, help='relatório e JSON (padrão resultados/metricas/relatorios)')
+    p.add_argument('--tokens', type=int, nargs='+', default=[1200, 2400],
+                   help='orçamentos de tokens dos gráficos (padrão 1200 2400)')
     p.add_argument('--detalhado', action='store_true',
                    help='relatório longo, com todas as execuções e testes estatísticos')
     p.add_argument('--modelo-maquinas', action='store_true',
@@ -731,16 +765,21 @@ def main(argv=None):
               '(também vale escrever só o início do nome, ex. "self_consistency_censo_08112026").')
         return 0
     limite = args.limite if args.limite == 'qualquer' else (None if args.limite == 'todos' else int(args.limite))
+    # Gráficos e Excel comparam os conjuntos entre si: só no comando completo (sem --dataset).
+    # Com --dataset: só o relatório, numa subpasta com o nome do(s) dataset(s).
+    sub = '_'.join(args.dataset) if args.dataset else ''
     saida = Path(args.saida) if args.saida else pasta / 'metricas' / 'graficos_e_tabelas'
-    saida_dados = Path(args.saida_dados) if args.saida_dados else pasta / 'metricas' / 'relatorios' / 'geral'
+    saida_dados = Path(args.saida_dados) if args.saida_dados else pasta / 'metricas' / 'relatorios' / sub
     linhas, _, texto = gerar(pasta, saida, tuple(args.dataset or DATASETS), args.revisor,
                              destino_maquinas, limite, args.exemplos or None, args.recortar or None, args.detalhado,
-                             args.exemplos_censo or None, saida_dados)
+                             args.exemplos_censo or None, saida_dados, args.tokens,
+                             com_extras=not args.dataset)
     if not linhas:
         print('Nenhuma execução concluída encontrada em', pasta)
         return 1
     print(texto)
-    print('Gráficos e Excel em:', saida)
+    if not args.dataset:
+        print('Gráficos e Excel em:', saida)
     print('Relatório (relatorio_geral.md) e JSON (metricas_gerais.json) em:', saida_dados)
     return 0
 

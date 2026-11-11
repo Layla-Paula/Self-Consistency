@@ -1,0 +1,38 @@
+[
+  {
+    "id": "censo_2025_13",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada, embora pudesse destacar mais claramente a inversão da comparação."
+  },
+  {
+    "id": "censo_2025_19",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas errou a justificativa matemática."
+  },
+  {
+    "id": "censo_2025_20",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e a justificativa."
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta e interpreta de forma questionável a formatação numérica apresentada pelo modelo."
+  },
+  {
+    "id": "censo_2025_36",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta e considera incorretamente um arredondamento válido como erro."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo acertou parcialmente ao afirmar que alunos residentes na zona rural podem estudar em escolas localizadas na zona urbana. Entretanto, apresentou erros numéricos, inverteu a comparação e não realizou a análise solicitada."
+  }
+]

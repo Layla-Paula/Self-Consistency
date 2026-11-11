@@ -1,0 +1,80 @@
+[
+  {
+    "id": "censo_2025_25",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois não menciona os erros nos totais apresentados pelo modelo."
+  },
+  {
+    "id": "censo_2025_26",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta."
+  },
+  {
+    "id": "censo_2025_27",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa correta."
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz errou ao classificar a resposta como correta, considerando os critérios de avaliação integral do enunciado."
+  },
+  {
+    "id": "censo_2025_29",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa é confusa e não identifica todos os erros."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz errou ao classificar a resposta como correta, e sua justificativa é contraditória, pois reconhece que faltam informações solicitadas."
+  },
+  {
+    "id": "censo_2025_37",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa poderia ser mais precisa."
+  },
+  {
+    "id": "censo_2025_38",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada."
+  },
+  {
+    "id": "censo_2025_41",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada."
+  },
+  {
+    "id": "censo_2025_43",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois considera apenas o erro numérico"
+  },
+  {
+    "id": "censo_2025_45",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa correta."
+  },
+  {
+    "id": "censo_2025_48",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois considera apenas os erros numéricos."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada."
+  }
+]

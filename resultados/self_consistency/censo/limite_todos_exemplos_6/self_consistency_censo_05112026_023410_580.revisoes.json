@@ -1,0 +1,80 @@
+[
+  {
+    "id": "censo_2025_25",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto"
+  },
+  {
+    "id": "censo_2025_26",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto."
+  },
+  {
+    "id": "censo_2025_27",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto."
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo acertou os dois totais de matrículas, mas errou o cálculo da diferença e apresentou uma explicação incompleta."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto."
+  },
+  {
+    "id": "censo_2025_34",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto."
+  },
+  {
+    "id": "censo_2025_37",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo identificou corretamente que não existe uma diferença expressiva entre os sexos. Entretanto, não apresentou os percentuais solicitados (49,4% feminino e 50,6% masculino) e introduziu informações sobre localização que não fazem parte da questão."
+  },
+  {
+    "id": "censo_2025_38",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto quanto à classificação."
+  },
+  {
+    "id": "censo_2025_41",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto."
+  },
+  {
+    "id": "censo_2025_43",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo apresentou um total incorreto de matrículas (40.871.166 em vez de 3.874.541) e identificou equivocadamente a faixa de 0 a 3 anos como a que possui mais matrículas, quando a correta é 4 a 5 anos (4.968.651). Além disso, não explicou adequadamente a relação entre essa predominância e a obrigatoriedade da Pré-Escola."
+  },
+  {
+    "id": "censo_2025_45",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto quanto à classificação."
+  },
+  {
+    "id": "censo_2025_48",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O parecer do juiz está correto."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo acertou ao afirmar que alunos residentes na zona rural podem estudar em escolas urbanas. Entretanto, não realizou os cálculos nem a comparação solicitada."
+  }
+]

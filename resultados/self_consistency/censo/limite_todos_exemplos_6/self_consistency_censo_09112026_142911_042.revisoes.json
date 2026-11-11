@@ -1,0 +1,20 @@
+[
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "A resposta do modelo está completamente incorreta, tanto na comparação numérica quanto na explicação das modalidades."
+  },
+  {
+    "id": "censo_2025_48",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa contém erros ao descrever a resposta e os requisitos do gabarito."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incorreta ao interpretar o gabarito."
+  }
+]

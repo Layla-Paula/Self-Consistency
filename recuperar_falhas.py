@@ -5,6 +5,9 @@ Uso (na raiz do projeto):
   python recuperar_falhas.py resultados/self_consistency/censo      # só um dataset
   python recuperar_falhas.py caminho/execucao.json                  # um arquivo
   python recuperar_falhas.py resultados/self_consistency --simular  # só lista, não executa
+  python recuperar_falhas.py resultados/chain_of_thought --avaliador  # Censo: reavalia, sem rodar o modelo
+Com --avaliador: questões do Censo (CoT e Few-shot) que o avaliador antigo tratou como falha técnica
+são reavaliadas com as respostas já salvas (o juiz precisa do Ollama ligado). Gera NOME_recuperacao.json.
 Opções: --rodadas N (repete até zerar as falhas, padrão 3), --incluir-totais.
 """
 import argparse
@@ -17,7 +20,13 @@ if __name__ == '__main__':
     p.add_argument('--rodadas', type=int, default=3)
     p.add_argument('--incluir-totais', action='store_true',
                    help='também refaz execuções em que TODAS as questões falharam')
+    p.add_argument('--avaliador', action='store_true',
+                   help='Censo CoT/Few-shot: reavalia falhas do avaliador sem rodar o modelo')
     a = p.parse_args()
+    if a.avaliador:
+        from codigo.avaliacao.reavaliar_censo import reavaliar_pasta
+        reavaliar_pasta(a.caminho, simular=a.simular)
+        raise SystemExit(0)
     opcoes = dict(simular=a.simular, rodadas=a.rodadas, incluir_totais=a.incluir_totais)
     from pathlib import Path
     recuperar(a.caminho, **(opcoes if Path(a.caminho).is_dir() else {}))

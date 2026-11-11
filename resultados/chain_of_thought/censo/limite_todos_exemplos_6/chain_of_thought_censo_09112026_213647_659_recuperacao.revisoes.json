@@ -1,0 +1,14 @@
+[
+  {
+    "id": "censo_2025_20",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada."
+  },
+  {
+    "id": "censo_2025_36",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O modelo acertou os dois totais de matrículas, mas apresentou a razão na escala errada."
+  }
+]

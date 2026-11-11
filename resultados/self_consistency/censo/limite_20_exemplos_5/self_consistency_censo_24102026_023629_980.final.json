@@ -1,10 +1,10 @@
 {
   "tipo": "resultado_final_censo",
   "arquivo_origem": "self_consistency_censo_24102026_023629_980.json",
-  "sha256_origem": "01ed1a9ed46e9a4b64aff4ae8a98c698f00aa1ee2b4d6ffe350c6a541bfd18eb",
+  "sha256_origem": "b555216e43efaedc89efaeb919fe3e42ebe3817d48579d4ca29270ddb98e144b",
   "arquivo_revisoes": "self_consistency_censo_24102026_023629_980.revisoes.json",
   "revisor": "layla",
-  "gerado_em": "2026-11-08T21:45:50",
+  "gerado_em": "2026-11-10T17:48:08",
   "tecnica": "self_consistency",
   "dataset": "censo",
   "parametros": {

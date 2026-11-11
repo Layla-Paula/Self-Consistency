@@ -1,0 +1,14 @@
+[
+  {
+    "id": "censo_2025_27",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e identificou os principais problemas, mas sua justificativa contém uma imprecisão ao afirmar que a resposta não fornece informações sobre a dependência Federal ou os Institutos Federais. Na realidade, o modelo fornece essas informações, porém elas são irrelevantes para a questão."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois não identifica os erros numéricos e a afirmação estatística sem fundamentação."
+  }
+]

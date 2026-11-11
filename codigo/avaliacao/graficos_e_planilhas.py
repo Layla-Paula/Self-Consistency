@@ -4,7 +4,7 @@
 Saídas, na mesma pasta do relatório:
   grafico_acuracia_<N>_tokens.png - acurácia por técnica e dataset
   grafico_tokens_<N>_tokens.png   - tokens usados por questão (custo principal)
-  grafico_tempo_<N>_tokens.png    - tempo médio por questão (só execuções que rodaram sozinhas; complementar)
+  (N = 1200 e 2400 tokens, ou os escolhidos com --tokens; o tempo fica só nas tabelas)
   tabelas.xlsx          - abas Few-shot, CoT e Self-Consistency (uma linha por EXECUÇÃO, com data e
                           hora) e Resumo (média das execuções de mesma configuração)
 Tudo é refeito a cada vez que o relatório é gerado, e a data da atualização aparece nos arquivos.
@@ -37,25 +37,67 @@ def _questoes(a):
     return a.get('questoes_avaliadas')
 
 
+def _peso(a, campo):
+    return a.get(campo) or 0
+
+
+def juntar_maquinas(agregados):
+    """Une, para gráficos, os grupos da mesma configuração e do mesmo conjunto de questões que só
+    diferem na máquina (ou por ela não estar informada). Acurácia: acertos totais / questões totais;
+    tokens: média ponderada pelas questões com registro completo. A máquina não altera a acurácia
+    nem os tokens; só o tempo depende dela, e o tempo não entra nos gráficos."""
+    grupos = {}
+    for a in agregados:
+        chave = (a['dataset'], a['limite'], a['exemplos'], a['tecnica'], a.get('temperatura'),
+                 a['tokens'], a['n_amostras'], a.get('conjunto'))
+        grupos.setdefault(chave, []).append(a)
+    saida = []
+    for itens in grupos.values():
+        if len(itens) == 1:
+            saida.append(itens[0])
+            continue
+        base = dict(max(itens, key=lambda a: a['execucoes']))
+        com_acc = [a for a in itens if a['acuracia_media'] is not None]
+        n_acc = sum(_peso(a, 'avaliadas_total') for a in com_acc)
+        if com_acc and n_acc:
+            base['acuracia_media'] = sum(a['acuracia_media'] * _peso(a, 'avaliadas_total') for a in com_acc) / n_acc
+        elif com_acc:
+            base['acuracia_media'] = None
+        for campo in ('tokens_entrada_medio', 'tokens_saida_medio'):
+            ps = [(a[campo], _peso(a, 'tokens_validas_total')) for a in itens if a.get(campo) is not None]
+            tot = sum(w for _, w in ps)
+            if tot:
+                base[campo] = sum(v * w for v, w in ps) / tot
+        for campo in ('execucoes', 'avaliadas_total', 'tokens_validas_total', 'com_acuracia'):
+            base[campo] = sum(_peso(a, campo) for a in itens)
+        accs = [a['acuracia_min'] for a in itens if a.get('acuracia_min') is not None]
+        base['acuracia_min'] = min(accs) if accs else None
+        maxs = [a['acuracia_max'] for a in itens if a.get('acuracia_max') is not None]
+        base['acuracia_max'] = max(maxs) if maxs else None
+        base['maquina'] = 'várias'
+        saida.append(base)
+    return saida
+
+
 def escolher_comparaveis(agregados):
     """{orçamento_de_tokens: {dataset: {técnica: agregado}}}, só com condições comparáveis.
 
     Em cada dataset, as três técnicas precisam ter o MESMO orçamento de tokens e o MESMO conjunto
-    de questões e de exemplos (limite e número de exemplos iguais). Se alguma técnica falta, o
+    de questões e de exemplos (mesma impressão digital dos ids, não só a mesma quantidade). Se alguma técnica falta, o
     dataset não entra naquele gráfico. Dentro disso, cada técnica é representada pela
     configuração mais executada (na SC costuma ser temperatura 0.7 com 5 amostras)."""
     por_chave = {}
-    for a in agregados:
-        if a['acuracia_media'] is None or a['tokens'] is None:
-            continue
-        por_chave.setdefault((a['dataset'], a['tokens'], a['limite'], a['exemplos']), []).append(a)
+    for a in juntar_maquinas(agregados):
+        if a['acuracia_media'] is None or a['tokens'] is None or a.get('conjunto') is None:
+            continue          # sem ids de exemplos/questões gravados o conjunto não é verificável
+        por_chave.setdefault((a['dataset'], a['tokens'], a['limite'], a['exemplos'], a.get('conjunto')), []).append(a)
     saida = {}
-    for (dataset, tokens, limite, exemplos), grupo in por_chave.items():
+    for (dataset, tokens, limite, exemplos, _conjunto), grupo in por_chave.items():
         escolhidas = {}
         for t in TECNICAS:
             candidatas = [a for a in grupo if a['tecnica'] == t]
             if candidatas:
-                escolhidas[t] = max(candidatas, key=lambda a: (a['execucoes'], a['n_amostras'] or 0))
+                escolhidas[t] = max(candidatas, key=lambda a: (a['execucoes'], a['n_amostras'] or 0, a.get('temperatura') or 0))
         if len(escolhidas) < len(TECNICAS):
             continue
         atual = saida.setdefault(tokens, {})
@@ -120,17 +162,25 @@ def _grafico_barras(caminho, reps, campo, titulo, rotulo_y, formato, de_porcenta
     return True
 
 
-def gerar_graficos(agregados, pasta, tempo_descritivo=False):
-    """Um par de gráficos por orçamento de tokens com as três técnicas comparáveis."""
+def gerar_graficos(agregados, pasta, tempo_descritivo=False, orcamentos=(1200, 2400)):
+    """Gráficos para o TCC: acurácia e tokens por questão, um par para cada orçamento de tokens.
+
+    Só entram datasets em que as três técnicas têm execuções comparáveis. O tempo fica nas tabelas
+    (poucas execuções isoladas). PNGs antigos que não são desta rodada são removidos da pasta."""
+    if isinstance(orcamentos, int):
+        orcamentos = (orcamentos,)
     criados = []
-    for tokens, por_dataset in sorted(escolher_comparaveis(agregados).items()):
+    comparaveis = escolher_comparaveis(agregados)
+    for tokens in orcamentos:
+        por_dataset = comparaveis.get(tokens, {})
+        if not por_dataset:
+            continue
         reps = {(t, d): a for d, por_t in por_dataset.items() for t, a in por_t.items()}
         info = {d: next(iter(por_t.values())) for d, por_t in por_dataset.items()}
         nota = ('Mesmas questões, exemplos e tokens nas três técnicas. '
                 + '; '.join(f"{NOME_DATASET[d]}: {i['limite'] or 'todas'} questões, {i['exemplos']} ex."
                             for d, i in info.items()))
         a1 = f'grafico_acuracia_{tokens}_tokens.png'
-        a2 = f'grafico_tempo_{tokens}_tokens.png'
         a3 = f'grafico_tokens_{tokens}_tokens.png'
         _grafico_barras(pasta / a1, reps, 'acuracia_media', f'Acurácia por técnica e dataset ({tokens} tokens máx.)',
                         'Acurácia (%)', lambda v: f'{v:.1f}%'.replace('.', ','), de_porcentagem=True, nota=nota)
@@ -140,16 +190,9 @@ def gerar_graficos(agregados, pasta, tempo_descritivo=False):
                         'Tokens por questão (entrada + saída)', lambda v: f'{v:,.0f}'.replace(',', '.'),
                         nota=nota)
         criados += [a1, a3]
-        # Tempo: só execuções isoladas. Sem nenhuma, o gráfico não é feito (e o antigo é removido).
-        if any(a.get('tempo_medio_s') is not None for a in reps.values()):
-            _grafico_barras(pasta / a2, reps, 'tempo_medio_s',
-                            f'Tempo médio por questão, por técnica e dataset ({tokens} tokens máx.)',
-                            'Segundos por questão', formatar_duracao,
-                            nota=nota + ' | Tempo: só execuções que rodaram sozinhas (sem outra em paralelo).'
-                            + (' Tempos descritivos: máquinas não identificadas.' if tempo_descritivo else ''))
-            criados.append(a2)
-        elif (pasta / a2).exists():
-            (pasta / a2).unlink()
+    for antigo in pasta.glob('grafico_*.png'):
+        if antigo.name not in criados:
+            antigo.unlink()
     return criados
 
 
@@ -214,7 +257,7 @@ def cabecalho_execucao(tecnica, com_maquina):
            'Questões avaliadas', 'Exemplos', 'Tokens máx.']
     if tecnica == 'self_consistency':
         cab += ['Temperatura', 'Amostras']
-    cab += ['Tempo médio/questão', 'Tempo total', 'Tokens médios/questão (entrada + saída)']
+    cab += ['Tempo médio/questão (descritivo)', 'Tempo total (descritivo)', 'Tokens médios/questão (entrada + saída)']
     if com_maquina:
         cab.append('Máquina')
     return cab + ['Observação']
@@ -295,10 +338,10 @@ def gerar_planilha(linhas, agregados, caminho):
     wb.save(caminho)
 
 
-def gerar(agregados, pasta, linhas=()):
+def gerar(agregados, pasta, linhas=(), orcamentos=(1200, 2400)):
     """Cria PNGs e Excel em `pasta`. Retorna a lista de arquivos criados."""
     from pathlib import Path
     pasta = Path(pasta)
-    criados = gerar_graficos(agregados, pasta, any(l['maquina'] == 'não informada' for l in linhas))
+    criados = gerar_graficos(agregados, pasta, any(l['maquina'] == 'não informada' for l in linhas), orcamentos)
     gerar_planilha(list(linhas), agregados, pasta / 'tabelas.xlsx')
     return criados + ['tabelas.xlsx']

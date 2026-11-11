@@ -1,0 +1,14 @@
+[
+  {
+    "id": "censo_2025_19",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa é parcialmente imprecisa, pois afirma que o modelo indicou uma média rural maior que a urbana, quando, na realidade, apresentou médias iguais."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois não identifica os erros conceituais presentes na resposta."
+  }
+]

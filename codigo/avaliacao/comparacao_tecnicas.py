@@ -179,6 +179,29 @@ def _media_presente(qs, campo):
     return sum(valores) / len(valores) if valores else None, len(valores)
 
 
+def _numero(v):
+    return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
+
+
+def _tokens_completos(q, n_previsto=None):
+    """A questão só entra na média de tokens se entrada e saída existem e, quando há gerações
+    (Self-Consistency), todas as n previstas foram registradas com seus tokens."""
+    if not (_numero(q.get('tokens_entrada')) and _numero(q.get('tokens_saida'))):
+        return False
+    amostras = q.get('amostras')
+    if n_previsto and not amostras:
+        return False                      # SC sem as gerações salvas: o total não é comprovável
+    if amostras:
+        if n_previsto and len(amostras) != n_previsto:
+            return False
+        if not all(_numero(a.get('tokens_entrada')) and _numero(a.get('tokens_saida')) for a in amostras):
+            return False
+        # o total da questão tem de ser a soma das gerações
+        return (sum(a['tokens_entrada'] for a in amostras) == q['tokens_entrada']
+                and sum(a['tokens_saida'] for a in amostras) == q['tokens_saida'])
+    return True
+
+
 def custo(e):
     qs = [q for q in e['questoes'] if not q.get('usada_como_exemplo')]
     resultado = {'questoes': len(qs)}
@@ -188,6 +211,16 @@ def custo(e):
         media, n = _media_presente(qs, campo)
         resultado[nome] = media
         resultado[nome + '_n'] = n
+    # Tokens: entrada e saída são medidas SOBRE AS MESMAS questões. Só entra a questão com os dois valores
+    # e, na Self-Consistency, com todas as gerações previstas registradas (soma das n amostras).
+    n_prev = (e['dados'].get('parametros') or {}).get('n_amostras')
+    validas = [q for q in qs if _tokens_completos(q, n_prev)]
+    ent = [float(q['tokens_entrada']) for q in validas]
+    sai = [float(q['tokens_saida']) for q in validas]
+    resultado['tokens_entrada_medio'] = sum(ent) / len(ent) if ent else None
+    resultado['tokens_saida_medio'] = sum(sai) / len(sai) if sai else None
+    resultado['tokens_total_medio'] = (sum(ent) + sum(sai)) / len(ent) if ent else None
+    resultado['tokens_entrada_medio_n'] = resultado['tokens_saida_medio_n'] = len(validas)
     resultado['tempo_total_registrado_s'] = sum(q['tempo_segundos'] for q in qs
         if isinstance(q.get('tempo_segundos'), (int, float)) and not isinstance(q.get('tempo_segundos'), bool))
     return resultado

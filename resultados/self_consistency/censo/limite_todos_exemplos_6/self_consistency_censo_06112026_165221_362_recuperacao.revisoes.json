@@ -1,0 +1,80 @@
+[
+  {
+    "id": "censo_2025_26",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas errou na justificativa, pois confundiu Educação Infantil com Ensino Fundamental."
+  },
+  {
+    "id": "censo_2025_28",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta."
+  },
+  {
+    "id": "censo_2025_29",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está parcialmente equivocada, pois considerou apenas os Anos Finais, enquanto o enunciado solicita a comparação de todos os nove anos do Ensino Fundamental."
+  },
+  {
+    "id": "censo_2025_32",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas apresentou uma justificativa genérica, sem identificar especificamente as informações ausentes."
+  },
+  {
+    "id": "censo_2025_34",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois não identificou os erros numéricos e a ambiguidade dos valores apresentados."
+  },
+  {
+    "id": "censo_2025_37",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois menciona apenas a ausência do percentual feminino e não identifica os demais erros."
+  },
+  {
+    "id": "censo_2025_38",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois menciona apenas a divergência percentual e não destaca a ausência dos valores necessários ao cálculo."
+  },
+  {
+    "id": "censo_2025_41",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta, pois destacou apenas a inclusão de uma faixa etária não solicitada, sem identificar os principais erros da resposta."
+  },
+  {
+    "id": "censo_2025_43",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada, identificando os valores corretos e a faixa etária com maior número de matrículas. Entretanto, não mencionou a inconsistência da explicação sobre a obrigatoriedade escolar."
+  },
+  {
+    "id": "censo_2025_45",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e apresentou uma justificativa adequada, identificando corretamente os totais e o turno mais numeroso."
+  },
+  {
+    "id": "censo_2025_36",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está imprecisa, pois não esclarece que os três valores apresentados pelo modelo estão incorretos."
+  },
+  {
+    "id": "censo_2025_48",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação e identificou os principais problemas, mas sua justificativa está incompleta, pois não menciona todos os erros numéricos nem a contradição interna da resposta."
+  },
+  {
+    "id": "censo_2025_50",
+    "revisor": "layla",
+    "acertou": false,
+    "criterio": "O juiz acertou a classificação, mas sua justificativa está incompleta e contém uma possível interpretação incorreta da variável TP_LOCALIZACAO."
+  }
+]
