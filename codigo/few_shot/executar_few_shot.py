@@ -33,7 +33,7 @@ except ImportError:
 from codigo.utils import MODELO_OLLAMA, SEMENTE_OLLAMA
 MODELO = MODELO_OLLAMA
 TEMPERATURE = 0.0
-NUM_PREDICT = 2400
+NUM_PREDICT = 1200
 SALVAR_CADA = 10
 PASTA_BASE = Path("resultados/few_shot")
 # Faixas temáticas das 50 questões do Censo (posições no JSON).
